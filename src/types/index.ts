@@ -31,10 +31,24 @@ export type YearLevel =
   | 'year_7'  | 'year_8'  | 'year_9'
   | 'year_10' | 'year_11' | 'year_12'
 
-export type TopicSlug = 'number_operations' | 'algebra_functions' | 'geometry_measurement' | 'statistics_probability'
+export type SubjectSlug = 'math' | 'english' | 'science'
+
+export interface Subject {
+  slug: SubjectSlug
+  label: string
+  tagline: string
+  icon: string
+  color: string
+}
+
+export type TopicSlug =
+  | 'number_operations' | 'algebra_functions' | 'geometry_measurement' | 'statistics_probability'
+  | 'reading_comprehension' | 'grammar_punctuation' | 'vocabulary'
+  | 'life_science' | 'physical_science' | 'earth_space'
 
 export interface Topic {
   slug: TopicSlug
+  subject: SubjectSlug
   label: string
   description: string
   icon: string

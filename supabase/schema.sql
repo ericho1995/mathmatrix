@@ -14,12 +14,21 @@ create type year_level as enum (
   'year_7', 'year_8', 'year_9',
   'year_10', 'year_11', 'year_12'
 );
+create type subject_slug as enum ('math', 'english', 'science');
 create type topic_slug as enum (
   'number_operations',
   'algebra_functions',
   'geometry_measurement',
-  'statistics_probability'
+  'statistics_probability',
+  'reading_comprehension',
+  'grammar_punctuation',
+  'vocabulary',
+  'life_science',
+  'physical_science',
+  'earth_space'
 );
+-- Topic → subject grouping lives in app metadata (src/lib/curriculum.ts) for now;
+-- promote to a `topics` reference table once questions are seeded from the DB.
 create type difficulty as enum ('foundation', 'developing', 'proficient', 'advanced');
 create type session_mode as enum ('practice', 'timed_challenge');
 

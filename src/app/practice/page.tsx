@@ -1,28 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import type { YearLevel, TopicSlug } from '@/types'
+import type { YearLevel, TopicSlug, SubjectSlug } from '@/types'
 import { QUESTION_BANK } from '@/lib/questions/bank'
-
-const GRADES: { value: YearLevel; label: string }[] = [
-  { value: 'grade_3',  label: 'Gr 3'  },
-  { value: 'grade_4',  label: 'Gr 4'  },
-  { value: 'grade_5',  label: 'Gr 5'  },
-  { value: 'grade_6',  label: 'Gr 6'  },
-  { value: 'year_7',   label: 'Yr 7'  },
-  { value: 'year_8',   label: 'Yr 8'  },
-  { value: 'year_9',   label: 'Yr 9'  },
-  { value: 'year_10',  label: 'Yr 10' },
-  { value: 'year_11',  label: 'Yr 11' },
-  { value: 'year_12',  label: 'Yr 12' },
-]
-
-const TOPICS: { slug: TopicSlug; label: string; desc: string }[] = [
-  { slug: 'number_operations',      label: 'Number & Operations',      desc: 'Arithmetic, fractions, decimals' },
-  { slug: 'algebra_functions',      label: 'Algebra & Functions',      desc: 'Equations, patterns, graphs'     },
-  { slug: 'geometry_measurement',   label: 'Geometry & Measurement',   desc: 'Shapes, area, volume'            },
-  { slug: 'statistics_probability', label: 'Statistics & Probability', desc: 'Data, graphs, chance'            },
-]
+import { SUBJECTS, GRADES, TOPICS } from '@/lib/curriculum'
 
 type Screen = 'select' | 'quiz' | 'results'
 
@@ -34,6 +15,7 @@ interface QuizQuestion {
 }
 
 export default function PracticePage() {
+  const [subject, setSubject] = useState<SubjectSlug | null>(null)
   const [grade, setGrade] = useState<YearLevel | null>(null)
   const [topic, setTopic] = useState<TopicSlug | null>(null)
   const [screen, setScreen] = useState<Screen>('select')
@@ -43,8 +25,13 @@ export default function PracticePage() {
   const [selected, setSelected] = useState<number | null>(null)
   const [revealed, setRevealed] = useState(false)
 
+  function chooseSubject(s: SubjectSlug) {
+    setSubject(s)
+    setTopic(null)
+  }
+
   function buildQuiz() {
-    if (!grade || !topic) return
+    if (!subject || !grade || !topic) return
     const pool = QUESTION_BANK.filter(q => q.topic === topic && q.year_level === grade)
     const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(8, pool.length))
     setQuestions(shuffled)
@@ -77,11 +64,29 @@ export default function PracticePage() {
   const correctCount = answers.filter((a, i) => a === questions[i]?.correct_index).length
   const pct = questions.length ? Math.round((correctCount / questions.length) * 100) : 0
   const q = questions[qIndex]
+  const poolSize = subject && grade && topic
+    ? QUESTION_BANK.filter(item => item.topic === topic && item.year_level === grade).length
+    : null
 
   if (screen === 'select') return (
     <main className="max-w-2xl mx-auto px-4 py-10">
       <h1 className="text-2xl font-medium tracking-tight mb-1">Start practising</h1>
-      <p className="text-gray-500 mb-8">Choose your year level and topic.</p>
+      <p className="text-gray-500 mb-8">Choose a subject, year level, and topic.</p>
+
+      <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Subject</p>
+      <div className="grid grid-cols-3 gap-3 mb-8">
+        {SUBJECTS.map(s => (
+          <button key={s.slug} onClick={() => chooseSubject(s.slug)}
+            className={`p-4 rounded-2xl border text-center transition-all
+              ${subject === s.slug
+                ? 'border-2'
+                : 'border-gray-100 hover:border-gray-200 bg-white'}`}
+            style={subject === s.slug ? { borderColor: s.color, backgroundColor: `${s.color}14` } : undefined}>
+            <div className="text-2xl mb-1">{s.icon}</div>
+            <div className="font-medium text-sm">{s.label}</div>
+          </button>
+        ))}
+      </div>
 
       <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Year level</p>
       <div className="grid grid-cols-5 gap-2 mb-8">
@@ -97,20 +102,29 @@ export default function PracticePage() {
       </div>
 
       <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Topic</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-        {TOPICS.map(t => (
-          <button key={t.slug} onClick={() => setTopic(t.slug)}
-            className={`p-4 rounded-2xl border text-left transition-all
-              ${topic === t.slug
-                ? 'border-teal-400 bg-teal-50 border-2'
-                : 'border-gray-100 hover:border-gray-200 bg-white'}`}>
-            <div className="font-medium text-sm">{t.label}</div>
-            <div className="text-xs text-gray-500 mt-0.5">{t.desc}</div>
-          </button>
-        ))}
-      </div>
+      {!subject ? (
+        <p className="text-sm text-gray-400 mb-8">Pick a subject above to see its topics.</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          {TOPICS.filter(t => t.subject === subject).map(t => (
+            <button key={t.slug} onClick={() => setTopic(t.slug)}
+              className={`p-4 rounded-2xl border text-left transition-all
+                ${topic === t.slug
+                  ? 'border-teal-400 bg-teal-50 border-2'
+                  : 'border-gray-100 hover:border-gray-200 bg-white'}`}>
+              <div className="font-medium text-sm">{t.label}</div>
+              <div className="text-xs text-gray-500 mt-0.5">{t.description}</div>
+            </button>
+          ))}
+        </div>
+      )}
 
-      <button onClick={buildQuiz} disabled={!grade || !topic} className="btn-primary w-full">
+      {poolSize === 0 && (
+        <p className="text-sm text-amber-600 mb-3">
+          No questions yet for this year level and topic — try a different combination.
+        </p>
+      )}
+      <button onClick={buildQuiz} disabled={!subject || !grade || !topic || poolSize === 0} className="btn-primary w-full">
         Start practice
       </button>
     </main>
