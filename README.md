@@ -142,11 +142,28 @@ supabase/
 
 This project is designed to deploy to Vercel with zero configuration.
 
-```bash
-npx vercel
-```
+### First-time deploy
 
-Set your environment variables in the Vercel dashboard under **Settings > Environment Variables**.
+1. Create a free account at [vercel.com](https://vercel.com) (sign up with GitHub — same account as `ericho1995/mathmatrix`).
+2. From the Vercel dashboard: **Add New → Project**, import the `mathmatrix` GitHub repo.
+3. Vercel auto-detects Next.js — leave the build settings as-is and click **Deploy**.
+4. Add environment variables under **Settings → Environment Variables** (copy the keys from `.env.example`; Supabase values only matter once Phase 2 auth is wired up, `MAINTENANCE_MODE=false` should always be set).
+5. You'll get a live URL like `https://mathmatrix.vercel.app` — works on any device, no domain purchase required. A custom domain can be attached later under **Settings → Domains**.
+
+Every push to `main` auto-deploys. No CLI needed, but `npx vercel` works too if you prefer the terminal.
+
+### Taking the site down (kill switch)
+
+If something's broken in production and you need the whole site offline immediately:
+
+1. Vercel dashboard → your project → **Settings → Environment Variables**.
+2. Set `MAINTENANCE_MODE` to `true` (add it if it isn't there yet).
+3. **Deployments** tab → latest deployment → **⋯ → Redeploy**.
+4. Within ~30-60 seconds, every page shows a plain "back shortly" maintenance page instead of the app.
+
+To bring it back: set `MAINTENANCE_MODE` back to `false` and redeploy again the same way.
+
+This is enforced in [`src/middleware.ts`](src/middleware.ts), which runs before every request.
 
 ---
 
