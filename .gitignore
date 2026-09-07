@@ -24,6 +24,10 @@ build/
 *.tsbuildinfo
 next-env.d.ts
 
+# Transient files from scripts/gen-seed.mjs and scripts/gen-exams.mjs
+.bank-tmp*.mjs
+.tmp-bank.mjs
+
 # OS
 .DS_Store
 Thumbs.db
