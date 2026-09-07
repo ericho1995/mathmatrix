@@ -180,3 +180,24 @@ $$ language plpgsql security definer;
 create trigger on_student_profile_created
   after insert on profiles
   for each row execute function handle_new_student();
+
+-- Auto-create a profiles row whenever someone signs up via Supabase Auth
+-- (email/password or OAuth). Reads full_name/role out of the auth user's
+-- metadata, which is what supabase.auth.signUp({ options: { data } }) sets.
+create or replace function handle_new_auth_user()
+returns trigger as $$
+begin
+  insert into public.profiles (id, email, full_name, role)
+  values (
+    new.id,
+    new.email,
+    coalesce(new.raw_user_meta_data->>'full_name', split_part(new.email, '@', 1)),
+    coalesce((new.raw_user_meta_data->>'role')::user_role, 'student')
+  );
+  return new;
+end;
+$$ language plpgsql security definer set search_path = public;
+
+create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute function handle_new_auth_user();
