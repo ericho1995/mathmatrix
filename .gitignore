@@ -13,6 +13,10 @@ build/
 .env.local
 .env.*.local
 
+# MCP server config — holds access tokens, never commit
+.claude/mcp.json
+.mcp.json
+
 # Vercel
 .vercel
 
