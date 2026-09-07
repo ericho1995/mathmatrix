@@ -2,8 +2,11 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { createClient } from '@/lib/supabase/client'
 
 export default function LoginPage() {
+  const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -13,19 +16,31 @@ export default function LoginPage() {
     e.preventDefault()
     setLoading(true)
     setError(null)
-    // TODO: wire up Supabase auth
-    // const supabase = createClient()
-    // const { error } = await supabase.auth.signInWithPassword({ email, password })
-    // if (error) setError(error.message)
-    setLoading(false)
-    setError('Supabase auth not yet connected — add your env vars to .env.local.')
+
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+      setError('Supabase is not configured yet — add your project URL and anon key to .env.local.')
+      setLoading(false)
+      return
+    }
+
+    const supabase = createClient()
+    const { error: signInError } = await supabase.auth.signInWithPassword({ email, password })
+
+    if (signInError) {
+      setError(signInError.message)
+      setLoading(false)
+      return
+    }
+
+    router.push('/practice')
+    router.refresh()
   }
 
   return (
     <main className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <h1 className="text-2xl font-medium tracking-tight mb-1 text-center">
-          Math<span className="text-brand-400">Matrix</span>
+          Prep<span className="text-brand-400">Nest</span>
         </h1>
         <p className="text-gray-500 text-center mb-8">Sign in to your account</p>
 

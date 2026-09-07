@@ -1,5 +1,5 @@
 -- ─────────────────────────────────────────────────────────────────────────────
--- MathMatrix — Supabase Database Schema
+-- PrepNest — Supabase Database Schema
 -- Run this in your Supabase SQL editor to initialise the database.
 -- ─────────────────────────────────────────────────────────────────────────────
 

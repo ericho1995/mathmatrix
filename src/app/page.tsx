@@ -1,12 +1,21 @@
 import Link from 'next/link'
 import { SUBJECTS } from '@/lib/curriculum'
+import { createClient } from '@/lib/supabase/server'
 
-export default function HomePage() {
+export default async function HomePage() {
+  let userEmail: string | null = null
+
+  if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    const supabase = createClient()
+    const { data } = await supabase.auth.getUser()
+    userEmail = data.user?.email ?? null
+  }
+
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
       <div className="max-w-md w-full text-center">
         <h1 className="text-4xl font-medium tracking-tight mb-3">
-          Math<span className="text-brand-400">Matrix</span>
+          Prep<span className="text-brand-400">Nest</span>
         </h1>
         <p className="text-gray-500 mb-8 text-lg leading-relaxed">
           Curriculum-aligned practice exams and tutoring across Maths, English
@@ -27,9 +36,17 @@ export default function HomePage() {
           <Link href="/practice" className="btn-primary text-center block">
             Start practising
           </Link>
-          <Link href="/auth/login" className="btn-secondary text-center block">
-            Sign in
-          </Link>
+          {userEmail ? (
+            <form action="/auth/signout" method="post">
+              <button type="submit" className="btn-secondary w-full">
+                Sign out ({userEmail})
+              </button>
+            </form>
+          ) : (
+            <Link href="/auth/login" className="btn-secondary text-center block">
+              Sign in
+            </Link>
+          )}
         </div>
       </div>
     </main>

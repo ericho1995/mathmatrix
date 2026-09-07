@@ -1,6 +1,10 @@
-# MathMatrix
+# PrepNest
 
-Curriculum-aligned maths practice for Australian students, Grade 3 to Year 12.
+Curriculum-aligned practice exams and tutoring for Australian students, Grade 3 to Year 12.
+
+> Note: this repo/folder is still named `mathmatrix` (its original working name).
+> The product itself has been rebranded to **PrepNest** throughout the app —
+> see the "Naming" section below for why, and rename the repo separately if desired.
 
 Built with Next.js 14, TypeScript, Tailwind CSS, and Supabase.
 
@@ -145,10 +149,10 @@ This project is designed to deploy to Vercel with zero configuration.
 ### First-time deploy
 
 1. Create a free account at [vercel.com](https://vercel.com) (sign up with GitHub — same account as `ericho1995/mathmatrix`).
-2. From the Vercel dashboard: **Add New → Project**, import the `mathmatrix` GitHub repo.
+2. From the Vercel dashboard: **Add New → Project**, import the `mathmatrix` GitHub repo (the repo is still named `mathmatrix`; the deployed product is branded PrepNest — you can rename the Vercel project itself to `prepnest` during import).
 3. Vercel auto-detects Next.js — leave the build settings as-is and click **Deploy**.
-4. Add environment variables under **Settings → Environment Variables** (copy the keys from `.env.example`; Supabase values only matter once Phase 2 auth is wired up, `MAINTENANCE_MODE=false` should always be set).
-5. You'll get a live URL like `https://mathmatrix.vercel.app` — works on any device, no domain purchase required. A custom domain can be attached later under **Settings → Domains**.
+4. Add environment variables under **Settings → Environment Variables** (copy the keys from `.env.example`; Supabase values only matter once auth is wired up, `MAINTENANCE_MODE=false` should always be set).
+5. You'll get a live URL like `https://prepnest.vercel.app` — works on any device, no domain purchase required. Once you buy `prepnest.com.au` (see "Naming" below), attach it under **Settings → Domains**.
 
 Every push to `main` auto-deploys. No CLI needed, but `npx vercel` works too if you prefer the terminal.
 
@@ -164,6 +168,28 @@ If something's broken in production and you need the whole site offline immediat
 To bring it back: set `MAINTENANCE_MODE` back to `false` and redeploy again the same way.
 
 This is enforced in [`src/middleware.ts`](src/middleware.ts), which runs before every request.
+
+---
+
+## Naming
+
+The product was originally called MathMatrix. That was dropped after checking
+for conflicts and finding **Matrix Education** (matrix.edu.au), an established
+Australian Year 3–12 tutoring company — too close for comfort in the same
+market. Renamed to **PrepNest**:
+
+- No existing tutoring/education brand found under this name (web search, 2026-09-07)
+- `prepnest.com.au` is unregistered and available to purchase (checked via the
+  official `.au` registry RDAP lookup, 2026-09-07) — `.com.au` fits better
+  than `.com` anyway, since this is an Australian-curriculum-specific product
+- `prepnest.com` is already registered by someone else, so `.com.au` is the
+  primary domain going forward
+
+This is a best-effort check, not a legal clearance — run an actual trademark
+search at [IP Australia](https://search.ipaustralia.gov.au/trademarks)
+(class 41 — education/training) before finalising, and register
+`prepnest.com.au` while it's available (`.com.au` registration requires an
+active Australian ABN).
 
 ---
 
