@@ -1,0 +1,17 @@
+{
+  "name": "MathMatrix — Practice Exams & Tutoring",
+  "short_name": "MathMatrix",
+  "description": "Curriculum-aligned practice exams across Maths, English & Science for Grade 3 to Year 12.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#185FA5",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
