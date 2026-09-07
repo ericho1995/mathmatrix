@@ -127,16 +127,49 @@ alter table practice_sessions enable row level security;
 alter table question_attempts enable row level security;
 alter table parent_invites enable row level security;
 
--- Profiles: users can read their own, parents can read linked students
+-- Helper: is the current user an admin? security definer so it can read
+-- profiles regardless of the caller's own RLS grants, without the
+-- self-referencing subquery causing recursive policy evaluation.
+create or replace function is_admin()
+returns boolean as $$
+  select exists (
+    select 1 from profiles where id = auth.uid() and role = 'admin'
+  );
+$$ language sql security definer stable set search_path = public;
+
+-- Profiles: users can read/update their own, admins can read/update all
 create policy "Users can view own profile"
   on profiles for select using (auth.uid() = id);
 
 create policy "Users can update own profile"
   on profiles for update using (auth.uid() = id);
 
--- Questions: all authenticated users can read published questions
+create policy "Admins can view all profiles"
+  on profiles for select using (is_admin());
+
+create policy "Admins can update all profiles"
+  on profiles for update using (is_admin());
+
+-- Student profiles: students read/update their own, parents read linked
+-- students', admins manage all
+create policy "Students can view own student profile"
+  on student_profiles for select using (auth.uid() = id);
+
+create policy "Students can update own student profile"
+  on student_profiles for update using (auth.uid() = id);
+
+create policy "Parents can view linked student profiles"
+  on student_profiles for select using (auth.uid() = parent_id);
+
+create policy "Admins can manage student profiles"
+  on student_profiles for all using (is_admin());
+
+-- Questions: everyone can read published questions, admins manage all
 create policy "Read published questions"
   on questions for select using (is_published = true);
+
+create policy "Admins can manage questions"
+  on questions for all using (is_admin()) with check (is_admin());
 
 -- Sessions: students own their sessions, parents can read linked student sessions
 create policy "Students own sessions"
@@ -150,6 +183,34 @@ create policy "Parents can read linked student sessions"
       and sp.parent_id = auth.uid()
     )
   );
+
+create policy "Admins can view all sessions"
+  on practice_sessions for select using (is_admin());
+
+-- Question attempts: students manage attempts that belong to their own
+-- sessions, parents can read attempts from linked students' sessions
+create policy "Students manage own question attempts"
+  on question_attempts for all using (
+    exists (
+      select 1 from practice_sessions ps
+      where ps.id = question_attempts.session_id
+      and ps.student_id = auth.uid()
+    )
+  );
+
+create policy "Parents can read linked student attempts"
+  on question_attempts for select using (
+    exists (
+      select 1 from practice_sessions ps
+      join student_profiles sp on sp.id = ps.student_id
+      where ps.id = question_attempts.session_id
+      and sp.parent_id = auth.uid()
+    )
+  );
+
+-- Parent invites: parents manage the invite codes they created
+create policy "Parents manage own invites"
+  on parent_invites for all using (auth.uid() = parent_id);
 
 -- ─── TRIGGERS ────────────────────────────────────────────────────────────────
 

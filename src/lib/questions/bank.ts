@@ -6,11 +6,12 @@ import type { Question } from '@/types'
 // via /supabase/seed.sql or the admin panel.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
+export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
 
   // ── NUMBER & OPERATIONS — Grade 3–4 ─────────────────────────────────────
 
   {
+    id: 'c23dbf3e-78db-42f3-bd2b-03a47ef52aae',
     topic: 'number_operations',
     year_level: 'grade_3',
     difficulty: 'foundation',
@@ -21,6 +22,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M3N04',
   },
   {
+    id: '39e52f17-8622-49bc-b73a-5cdecc3668ae',
     topic: 'number_operations',
     year_level: 'grade_4',
     difficulty: 'developing',
@@ -31,6 +33,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M4N04',
   },
   {
+    id: '458f66e7-5d18-40f3-af46-16ff171e225f',
     topic: 'number_operations',
     year_level: 'grade_5',
     difficulty: 'developing',
@@ -41,6 +44,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M5N04',
   },
   {
+    id: '6c56f7ea-0f72-407b-a5b7-6cf68fe4ce6c',
     topic: 'number_operations',
     year_level: 'grade_6',
     difficulty: 'developing',
@@ -51,6 +55,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M6N04',
   },
   {
+    id: '96262ed4-eb11-4c6a-a91d-fe6a373063c9',
     topic: 'number_operations',
     year_level: 'grade_6',
     difficulty: 'proficient',
@@ -61,6 +66,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M6N05',
   },
   {
+    id: '617d183d-8898-4592-9695-72582b0109bb',
     topic: 'number_operations',
     year_level: 'year_7',
     difficulty: 'developing',
@@ -71,6 +77,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M7N03',
   },
   {
+    id: 'ac08bd38-3a7d-4b96-b583-ff63e763bb9c',
     topic: 'number_operations',
     year_level: 'year_8',
     difficulty: 'proficient',
@@ -84,6 +91,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
   // ── ALGEBRA & FUNCTIONS — Year 7–10 ──────────────────────────────────────
 
   {
+    id: '61a7eacb-c722-480d-92b1-edd7865d8250',
     topic: 'algebra_functions',
     year_level: 'year_7',
     difficulty: 'foundation',
@@ -94,6 +102,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M7A02',
   },
   {
+    id: '2d67f5a7-047c-4453-98f5-13a4a897d540',
     topic: 'algebra_functions',
     year_level: 'year_7',
     difficulty: 'developing',
@@ -104,6 +113,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M7A01',
   },
   {
+    id: 'c8d6e78d-84e3-48e8-8778-634f0db174a4',
     topic: 'algebra_functions',
     year_level: 'year_8',
     difficulty: 'developing',
@@ -114,6 +124,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M8A01',
   },
   {
+    id: 'f21ff070-d3d8-4e69-b9d1-cc965b53e1ff',
     topic: 'algebra_functions',
     year_level: 'year_9',
     difficulty: 'proficient',
@@ -124,6 +135,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M9A01',
   },
   {
+    id: '98490cd9-b9c1-4b78-a692-4636eea71cbc',
     topic: 'algebra_functions',
     year_level: 'year_10',
     difficulty: 'proficient',
@@ -137,6 +149,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
   // ── GEOMETRY & MEASUREMENT — Grade 4–Year 9 ──────────────────────────────
 
   {
+    id: 'a3227722-463c-4d3a-953e-dedf94ffa757',
     topic: 'geometry_measurement',
     year_level: 'grade_4',
     difficulty: 'foundation',
@@ -147,6 +160,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M4M02',
   },
   {
+    id: 'a3bcde8a-e33d-4304-9c05-59101e339834',
     topic: 'geometry_measurement',
     year_level: 'grade_5',
     difficulty: 'developing',
@@ -157,6 +171,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M5M02',
   },
   {
+    id: 'bca5ead2-f1bb-40ef-a116-8b77635e58ab',
     topic: 'geometry_measurement',
     year_level: 'grade_6',
     difficulty: 'proficient',
@@ -167,6 +182,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M6M02',
   },
   {
+    id: 'fe66cdd3-5735-4593-893d-149840de519b',
     topic: 'geometry_measurement',
     year_level: 'year_7',
     difficulty: 'developing',
@@ -177,6 +193,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M7M02',
   },
   {
+    id: '248a22df-0128-4c1b-ae8c-b6c48148eeba',
     topic: 'geometry_measurement',
     year_level: 'year_9',
     difficulty: 'proficient',
@@ -190,6 +207,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
   // ── STATISTICS & PROBABILITY — Grade 4–Year 10 ───────────────────────────
 
   {
+    id: '7fe9cb1e-c2f8-4b27-a07d-159bc4219368',
     topic: 'statistics_probability',
     year_level: 'grade_4',
     difficulty: 'foundation',
@@ -200,6 +218,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M4ST01',
   },
   {
+    id: 'c2bbbfe9-28fb-4857-861d-f5050375b792',
     topic: 'statistics_probability',
     year_level: 'grade_5',
     difficulty: 'developing',
@@ -210,6 +229,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M5ST01',
   },
   {
+    id: '0b6ec697-94fb-42c6-959f-6e7abc8cb892',
     topic: 'statistics_probability',
     year_level: 'grade_6',
     difficulty: 'developing',
@@ -220,6 +240,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M6ST01',
   },
   {
+    id: 'df773e2f-c2be-4735-bdef-ae4030e187a0',
     topic: 'statistics_probability',
     year_level: 'year_7',
     difficulty: 'developing',
@@ -230,6 +251,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9M7P01',
   },
   {
+    id: 'fb70f0b9-45af-44ca-a7d5-379f78d6917b',
     topic: 'statistics_probability',
     year_level: 'year_8',
     difficulty: 'proficient',
@@ -243,6 +265,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
   // ── READING COMPREHENSION — Grade 3–Year 9 ───────────────────────────────
 
   {
+    id: '4c9c48fc-ba92-47c2-b8e7-d85eee10b828',
     topic: 'reading_comprehension',
     year_level: 'grade_3',
     difficulty: 'foundation',
@@ -253,6 +276,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E3LY06',
   },
   {
+    id: '88176768-82e6-40f6-a4b6-e2a8449adfe7',
     topic: 'reading_comprehension',
     year_level: 'grade_5',
     difficulty: 'developing',
@@ -263,6 +287,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E5LY07',
   },
   {
+    id: 'f32db62e-cfd9-4ce9-a39e-0bf06cb95bc2',
     topic: 'reading_comprehension',
     year_level: 'grade_6',
     difficulty: 'developing',
@@ -273,6 +298,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E6LE07',
   },
   {
+    id: '57e7176d-1784-41e5-b934-b008fe956f1a',
     topic: 'reading_comprehension',
     year_level: 'year_7',
     difficulty: 'proficient',
@@ -283,6 +309,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E7LE05',
   },
   {
+    id: 'f8f0d371-501c-4e1e-8a34-ba7636d6558d',
     topic: 'reading_comprehension',
     year_level: 'year_9',
     difficulty: 'advanced',
@@ -296,6 +323,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
   // ── GRAMMAR & PUNCTUATION — Grade 3–Year 8 ───────────────────────────────
 
   {
+    id: '13289b3d-55d7-4388-8289-12e944e75a28',
     topic: 'grammar_punctuation',
     year_level: 'grade_3',
     difficulty: 'foundation',
@@ -306,6 +334,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E3LA05',
   },
   {
+    id: 'b4e8d10c-3038-4248-acbf-99c71fe7dd11',
     topic: 'grammar_punctuation',
     year_level: 'grade_4',
     difficulty: 'developing',
@@ -316,6 +345,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E4LA06',
   },
   {
+    id: '50d57618-b6ac-4a40-9414-11fc145bebcb',
     topic: 'grammar_punctuation',
     year_level: 'grade_6',
     difficulty: 'proficient',
@@ -326,6 +356,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E6LA07',
   },
   {
+    id: '44031c53-3fe9-401e-be48-ed1ff2ccc2bc',
     topic: 'grammar_punctuation',
     year_level: 'year_7',
     difficulty: 'developing',
@@ -336,6 +367,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E7LA05',
   },
   {
+    id: '06ae62bf-37df-4c5e-a56e-ed9c1cf7512c',
     topic: 'grammar_punctuation',
     year_level: 'year_8',
     difficulty: 'proficient',
@@ -349,6 +381,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
   // ── VOCABULARY — Grade 3–Year 9 ──────────────────────────────────────────
 
   {
+    id: 'd0787f9d-fc16-4824-bd33-9b5a9ce48d10',
     topic: 'vocabulary',
     year_level: 'grade_3',
     difficulty: 'foundation',
@@ -359,6 +392,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E3LA09',
   },
   {
+    id: '38223913-5840-4bd4-8f9d-1bbea56a700f',
     topic: 'vocabulary',
     year_level: 'grade_5',
     difficulty: 'developing',
@@ -369,6 +403,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E5LA10',
   },
   {
+    id: 'ef89ac55-5590-45b9-8ca7-8a935961c8a9',
     topic: 'vocabulary',
     year_level: 'grade_6',
     difficulty: 'developing',
@@ -379,6 +414,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E6LA09',
   },
   {
+    id: '96962a07-d84a-4489-b4b4-4324f88b2b26',
     topic: 'vocabulary',
     year_level: 'year_7',
     difficulty: 'proficient',
@@ -389,6 +425,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9E7LA10',
   },
   {
+    id: 'bf750551-cf5e-491e-9e3c-eac4f1057ee0',
     topic: 'vocabulary',
     year_level: 'year_9',
     difficulty: 'advanced',
@@ -402,6 +439,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
   // ── LIFE SCIENCE — Grade 3–Year 9 ────────────────────────────────────────
 
   {
+    id: '5ca913e1-318e-47f6-b043-4719b7bb1540',
     topic: 'life_science',
     year_level: 'grade_3',
     difficulty: 'foundation',
@@ -412,6 +450,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S3U01',
   },
   {
+    id: '9bf731e1-fa29-4479-92ed-ba7882e1b692',
     topic: 'life_science',
     year_level: 'grade_5',
     difficulty: 'developing',
@@ -422,6 +461,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S5U01',
   },
   {
+    id: '12310b4f-6289-41b5-8379-2d52e086a163',
     topic: 'life_science',
     year_level: 'grade_6',
     difficulty: 'developing',
@@ -432,6 +472,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S6U02',
   },
   {
+    id: 'a7543b7a-a68d-4973-bed4-370427f0228d',
     topic: 'life_science',
     year_level: 'year_7',
     difficulty: 'proficient',
@@ -442,6 +483,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S7U03',
   },
   {
+    id: '75a77b8c-543b-4772-a94b-1f700d4c4f3f',
     topic: 'life_science',
     year_level: 'year_9',
     difficulty: 'advanced',
@@ -455,6 +497,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
   // ── PHYSICAL SCIENCE — Grade 4–Year 10 ───────────────────────────────────
 
   {
+    id: '2f9423e0-9e64-47f0-ba90-f0e31d32a1ff',
     topic: 'physical_science',
     year_level: 'grade_4',
     difficulty: 'foundation',
@@ -465,6 +508,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S4U01',
   },
   {
+    id: 'd7c1d9c5-c9de-4188-851b-fb10521c436b',
     topic: 'physical_science',
     year_level: 'grade_6',
     difficulty: 'developing',
@@ -475,6 +519,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S6U01',
   },
   {
+    id: 'b4135d64-f9bb-403b-8899-464791404fae',
     topic: 'physical_science',
     year_level: 'year_7',
     difficulty: 'developing',
@@ -485,6 +530,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S7U01',
   },
   {
+    id: '08c4487d-e0de-45dd-a475-9b23f8d3b6ee',
     topic: 'physical_science',
     year_level: 'year_8',
     difficulty: 'proficient',
@@ -495,6 +541,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S8U01',
   },
   {
+    id: 'fa75ee6b-7411-4dc0-8f24-9db75d523b3e',
     topic: 'physical_science',
     year_level: 'year_10',
     difficulty: 'advanced',
@@ -508,6 +555,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
   // ── EARTH & SPACE — Grade 3–Year 9 ───────────────────────────────────────
 
   {
+    id: '5955cdef-1a18-49bc-867e-83772e0bb443',
     topic: 'earth_space',
     year_level: 'grade_3',
     difficulty: 'foundation',
@@ -518,6 +566,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S3U02',
   },
   {
+    id: 'c6fb52e0-4bff-4659-bb3d-5374d17ab882',
     topic: 'earth_space',
     year_level: 'grade_5',
     difficulty: 'developing',
@@ -528,6 +577,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S5U02',
   },
   {
+    id: '6eec1bb8-817f-4d8a-9cfe-f1fea7cc875b',
     topic: 'earth_space',
     year_level: 'grade_6',
     difficulty: 'developing',
@@ -538,6 +588,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S6U03',
   },
   {
+    id: '5327c5a5-d566-472a-9c20-46d7b7130175',
     topic: 'earth_space',
     year_level: 'year_8',
     difficulty: 'proficient',
@@ -548,6 +599,7 @@ export const QUESTION_BANK: Omit<Question, 'id' | 'created_at'>[] = [
     curriculum_code: 'AC9S8U02',
   },
   {
+    id: '2a50a3c3-40ff-4e56-947a-394adc7cab21',
     topic: 'earth_space',
     year_level: 'year_9',
     difficulty: 'advanced',

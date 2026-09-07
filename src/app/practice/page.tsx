@@ -1,18 +1,22 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { YearLevel, TopicSlug, SubjectSlug } from '@/types'
 import { QUESTION_BANK } from '@/lib/questions/bank'
 import { SUBJECTS, GRADES, TOPICS } from '@/lib/curriculum'
+import { createClient } from '@/lib/supabase/client'
 
 type Screen = 'select' | 'quiz' | 'results'
 
 interface QuizQuestion {
+  id: string
   question_text: string
   options: string[]
   correct_index: number
   explanation: string
 }
+
+const XP_PER_CORRECT = 10
 
 export default function PracticePage() {
   const [subject, setSubject] = useState<SubjectSlug | null>(null)
@@ -22,8 +26,11 @@ export default function PracticePage() {
   const [questions, setQuestions] = useState<QuizQuestion[]>([])
   const [qIndex, setQIndex] = useState(0)
   const [answers, setAnswers] = useState<(number | null)[]>([])
+  const [times, setTimes] = useState<number[]>([])
   const [selected, setSelected] = useState<number | null>(null)
   const [revealed, setRevealed] = useState(false)
+  const questionStartedAt = useRef(Date.now())
+  const saved = useRef(false)
 
   function chooseSubject(s: SubjectSlug) {
     setSubject(s)
@@ -36,9 +43,12 @@ export default function PracticePage() {
     const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(8, pool.length))
     setQuestions(shuffled)
     setAnswers(new Array(shuffled.length).fill(null))
+    setTimes(new Array(shuffled.length).fill(0))
     setQIndex(0)
     setSelected(null)
     setRevealed(false)
+    questionStartedAt.current = Date.now()
+    saved.current = false
     setScreen('quiz')
   }
 
@@ -49,6 +59,9 @@ export default function PracticePage() {
     const updated = [...answers]
     updated[qIndex] = i
     setAnswers(updated)
+    const elapsed = [...times]
+    elapsed[qIndex] = Math.round((Date.now() - questionStartedAt.current) / 1000)
+    setTimes(elapsed)
   }
 
   function next() {
@@ -58,6 +71,7 @@ export default function PracticePage() {
       setQIndex(qIndex + 1)
       setSelected(null)
       setRevealed(false)
+      questionStartedAt.current = Date.now()
     }
   }
 
@@ -67,6 +81,82 @@ export default function PracticePage() {
   const poolSize = subject && grade && topic
     ? QUESTION_BANK.filter(item => item.topic === topic && item.year_level === grade).length
     : null
+
+  // Persist the finished session — best-effort. Signed-out visitors and any
+  // Supabase error are swallowed so the results screen never breaks on this.
+  useEffect(() => {
+    if (screen !== 'results' || saved.current || questions.length === 0) return
+    saved.current = true
+
+    async function persist() {
+      try {
+        const supabase = createClient()
+        const { data: { user } } = await supabase.auth.getUser()
+        if (!user || !topic || !grade) return
+
+        const xpEarned = correctCount * XP_PER_CORRECT
+
+        const { data: session, error: sessionError } = await supabase
+          .from('practice_sessions')
+          .insert({
+            student_id: user.id,
+            topic,
+            year_level: grade,
+            mode: 'practice',
+            completed_at: new Date().toISOString(),
+            total_questions: questions.length,
+            correct_count: correctCount,
+            xp_earned: xpEarned,
+          })
+          .select('id')
+          .single()
+
+        if (sessionError || !session) return
+
+        await supabase.from('question_attempts').insert(
+          questions.map((question, i) => ({
+            session_id: session.id,
+            question_id: question.id,
+            selected_index: answers[i] ?? -1,
+            is_correct: answers[i] === question.correct_index,
+            time_taken_seconds: times[i] ?? 0,
+          }))
+        )
+
+        const { data: studentProfile } = await supabase
+          .from('student_profiles')
+          .select('xp_total, streak_days, last_active')
+          .eq('id', user.id)
+          .single()
+
+        if (studentProfile) {
+          const today = new Date().toISOString().slice(0, 10)
+          const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10)
+          let streak = studentProfile.streak_days
+          if (studentProfile.last_active === today) {
+            // already practised today — streak unchanged
+          } else if (studentProfile.last_active === yesterday) {
+            streak += 1
+          } else {
+            streak = 1
+          }
+
+          await supabase
+            .from('student_profiles')
+            .update({
+              xp_total: studentProfile.xp_total + xpEarned,
+              streak_days: streak,
+              last_active: today,
+            })
+            .eq('id', user.id)
+        }
+      } catch {
+        // best-effort — results screen already rendered regardless
+      }
+    }
+
+    persist()
+  }, [screen, questions, answers, times, correctCount, topic, grade])
 
   if (screen === 'select') return (
     <main className="max-w-2xl mx-auto px-4 py-10">
