@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { SUBJECTS, GRADES } from '@/lib/curriculum'
 import { createClient } from '@/lib/supabase/server'
 import RedeemParentCode from '@/components/home/RedeemParentCode'
+import HeroIllustration from '@/components/home/HeroIllustration'
 
 export default async function HomePage() {
   let user: { id: string; email: string | null } | null = null
@@ -94,30 +95,38 @@ export default async function HomePage() {
   return (
     <main className="flex-1">
       {/* Hero */}
-      <section className="max-w-3xl mx-auto px-4 pt-16 pb-14 text-center">
-        <h1 className="text-4xl sm:text-5xl font-medium tracking-tight mb-4 leading-tight">
-          Exam-ready, <span className="text-brand-400">one question at a time.</span>
-        </h1>
-        <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-          Curriculum-aligned practice exams in Maths, English &amp; Science for
-          every Australian student, Grade&nbsp;5 to Year&nbsp;12 — with instant
-          feedback, XP and streaks to keep them coming back, and a dashboard
-          that shows parents exactly where to help.
-        </p>
+      <section className="max-w-5xl mx-auto px-4 pt-16 pb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl sm:text-5xl font-medium tracking-tight mb-4 leading-tight">
+              Exam-ready, <span className="text-brand-400">one question at a time.</span>
+            </h1>
+            <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+              Curriculum-aligned practice exams in Maths, English &amp; Science for
+              every Australian student, Grade&nbsp;5 to Year&nbsp;12, with instant
+              feedback, XP and streaks to keep them coming back, and a dashboard
+              that shows parents exactly where to help.
+            </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
-          <Link href="/auth/register" className="btn-primary text-center">
-            Get started free
-          </Link>
-          <Link href="/practice" className="btn-secondary text-center">
-            Try a practice question
-          </Link>
-        </div>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
+              <Link href="/auth/register" className="btn-primary text-center">
+                Get started free
+              </Link>
+              <Link href="/practice" className="btn-secondary text-center">
+                Try a practice question
+              </Link>
+            </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-400">
-          <span>✓ Free to start</span>
-          <span>✓ Australian Curriculum v9.0 aligned</span>
-          <span>✓ No credit card required</span>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-gray-400">
+              <span>✓ Free to start</span>
+              <span>✓ Australian Curriculum v9.0 aligned</span>
+              <span>✓ No credit card required</span>
+            </div>
+          </div>
+
+          <div className="max-w-sm mx-auto lg:max-w-none">
+            <HeroIllustration />
+          </div>
         </div>
       </section>
 
@@ -127,7 +136,7 @@ export default async function HomePage() {
           {SUBJECTS.map(s => (
             <Link
               key={s.slug}
-              href="/practice"
+              href={`/practice?subject=${s.slug}`}
               className="p-5 rounded-2xl border border-gray-100 bg-white hover:border-gray-200 hover:shadow-sm transition-all text-center"
             >
               <div className="text-3xl mb-2">{s.icon}</div>
@@ -146,7 +155,7 @@ export default async function HomePage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { step: '1', title: 'Pick a topic', body: 'Choose subject, year level and topic — matched to the Australian Curriculum.' },
+              { step: '1', title: 'Pick a topic', body: 'Choose subject, year level and topic, matched to the Australian Curriculum.' },
               { step: '2', title: 'Practise with feedback', body: 'Answer questions and get an instant explanation, right or wrong.' },
               { step: '3', title: 'Track progress', body: 'Earn XP, build a streak, and climb the weekly leaderboard.' },
             ].map(s => (
@@ -204,7 +213,7 @@ export default async function HomePage() {
           <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-white mb-3">
             Ready to get ahead?
           </h2>
-          <p className="text-brand-100 mb-7">Start practising for free — no credit card required.</p>
+          <p className="text-brand-100 mb-7">Start practising for free. No credit card required.</p>
           <Link href="/auth/register" className="inline-block bg-white text-brand-600 font-medium px-6 py-3 rounded-xl hover:bg-brand-50 transition-all">
             Get started free
           </Link>

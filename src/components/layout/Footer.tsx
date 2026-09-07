@@ -9,7 +9,7 @@ export default function Footer() {
             Prep<span className="text-brand-400">Nest</span>
           </p>
           <p className="text-xs text-gray-400 mt-1">
-            Australian Curriculum v9.0 aligned practice — Grade 3 to Year 12.
+            Australian Curriculum v9.0 aligned practice for Grade 3 to Year 12.
           </p>
         </div>
 

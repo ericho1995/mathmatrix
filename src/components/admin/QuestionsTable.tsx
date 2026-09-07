@@ -34,7 +34,7 @@ export default function QuestionsTable({ initialQuestions }: { initialQuestions:
   if (questions.length === 0) {
     return (
       <p className="text-sm text-gray-500">
-        No questions found — run <code>supabase/seed.sql</code> in the SQL editor to load the bank.
+        No questions found. Run <code>supabase/seed.sql</code> in the SQL editor to load the bank.
       </p>
     )
   }
@@ -59,7 +59,7 @@ export default function QuestionsTable({ initialQuestions }: { initialQuestions:
               <td className="py-3 pr-4 text-gray-500">{q.topic}</td>
               <td className="py-3 pr-4 text-gray-500">{q.year_level}</td>
               <td className="py-3 pr-4 text-gray-500">{q.difficulty}</td>
-              <td className="py-3 pr-4 text-gray-500">{q.curriculum_code ?? '—'}</td>
+              <td className="py-3 pr-4 text-gray-500">{q.curriculum_code ?? 'N/A'}</td>
               <td className="py-3">
                 <button
                   onClick={() => togglePublished(q.id, q.is_published)}

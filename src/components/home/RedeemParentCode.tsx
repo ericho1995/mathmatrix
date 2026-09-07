@@ -24,7 +24,7 @@ export default function RedeemParentCode() {
     setLoading(false)
 
     if (rpcError || !data) {
-      setError('That code didn’t work — check it and try again.')
+      setError('That code did not work. Check it and try again.')
       return
     }
 

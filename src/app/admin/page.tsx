@@ -39,7 +39,7 @@ export default async function AdminPage() {
     <main className="max-w-4xl mx-auto px-4 py-10">
       <h1 className="text-2xl font-medium tracking-tight mb-1">Question bank</h1>
       <p className="text-gray-500 mb-8">
-        {questions?.length ?? 0} questions — toggle publish state below.
+        {questions?.length ?? 0} questions. Toggle publish state below.
       </p>
       <QuestionsTable initialQuestions={questions ?? []} />
     </main>

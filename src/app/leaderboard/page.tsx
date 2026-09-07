@@ -25,7 +25,7 @@ export default async function LeaderboardPage() {
       {rows.length === 0 ? (
         <div className="card text-center py-10">
           <p className="text-gray-500 text-sm">
-            No practice sessions yet this week — be the first to earn XP and
+            No practice sessions yet this week. Be the first to earn XP and
             claim the top spot.
           </p>
         </div>

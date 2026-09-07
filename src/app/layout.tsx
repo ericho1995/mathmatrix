@@ -8,12 +8,12 @@ import { createClient } from '@/lib/supabase/server'
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: 'PrepNest — Practice Exams & Tutoring for Australian Students',
+  title: 'PrepNest: Practice Exams & Tutoring for Australian Students',
   description:
     'Curriculum-aligned practice exams across Maths, English & Science for Grade 5 to Year 12. Timed challenges, leaderboards, and parent progress reports.',
   manifest: '/manifest.json',
   openGraph: {
-    title: 'PrepNest — Practice Exams & Tutoring for Australian Students',
+    title: 'PrepNest: Practice Exams & Tutoring for Australian Students',
     description:
       'Curriculum-aligned practice exams across Maths, English & Science for Grade 5 to Year 12.',
     type: 'website',

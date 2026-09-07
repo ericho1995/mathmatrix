@@ -31,7 +31,9 @@ export type YearLevel =
   | 'year_7'  | 'year_8'  | 'year_9'
   | 'year_10' | 'year_11' | 'year_12'
 
-export type SubjectSlug = 'math' | 'english' | 'science'
+export type SubjectSlug =
+  | 'math' | 'english' | 'science'
+  | 'chemistry' | 'physics' | 'maths_methods' | 'further_maths' | 'specialist_maths'
 
 export interface Subject {
   slug: SubjectSlug
@@ -39,12 +41,19 @@ export interface Subject {
   tagline: string
   icon: string
   color: string
+  /** VCE-style selective subject (Year 11-12), shown in its own practice track. */
+  selective?: boolean
 }
 
 export type TopicSlug =
   | 'number_operations' | 'algebra_functions' | 'geometry_measurement' | 'statistics_probability'
   | 'reading_comprehension' | 'grammar_punctuation' | 'vocabulary'
   | 'life_science' | 'physical_science' | 'earth_space'
+  | 'chem_atomic_structure' | 'chem_reactions'
+  | 'phys_mechanics' | 'phys_electricity'
+  | 'mm_calculus' | 'mm_probability'
+  | 'fm_data_analysis' | 'fm_financial'
+  | 'sm_complex_numbers' | 'sm_vectors'
 
 export interface Topic {
   slug: TopicSlug

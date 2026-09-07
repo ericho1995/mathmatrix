@@ -1,6 +1,9 @@
 import { createClient } from '@/lib/supabase/server'
 import { GRADES, TOPICS } from '@/lib/curriculum'
+import { QUESTION_BANK } from '@/lib/questions/bank'
 import InviteCodeCard from '@/components/parent/InviteCodeCard'
+
+const TOPIC_BY_QUESTION_ID = new Map(QUESTION_BANK.map(q => [q.id, q.topic]))
 
 interface StudentSummary {
   id: string
@@ -47,10 +50,16 @@ export default async function ParentDashboardPage() {
     supabase.from('profiles').select('id, full_name').in('id', studentIds),
     supabase
       .from('practice_sessions')
-      .select('student_id, topic, started_at, total_questions, correct_count, xp_earned')
+      .select('id, student_id, started_at, xp_earned')
       .in('student_id', studentIds),
   ])
 
+  const sessionIds = sessions?.map(s => s.id) ?? []
+  const { data: attempts } = sessionIds.length
+    ? await supabase.from('question_attempts').select('session_id, question_id, is_correct').in('session_id', sessionIds)
+    : { data: [] as { session_id: string; question_id: string; is_correct: boolean }[] }
+
+  const sessionToStudent = new Map(sessions?.map(s => [s.id, s.student_id]) ?? [])
   const weekAgo = Date.now() - 7 * 86400000
 
   const students: StudentSummary[] = linkedStudents.map(sp => {
@@ -60,12 +69,18 @@ export default async function ParentDashboardPage() {
       .filter(s => new Date(s.started_at).getTime() > weekAgo)
       .reduce((sum, s) => sum + s.xp_earned, 0)
 
+    // Per-topic accuracy from individual question attempts, not the
+    // session's single topic tag, so multi-topic custom exams are
+    // attributed correctly across every topic they actually covered.
     const byTopic = new Map<string, { correct: number; total: number }>()
-    for (const s of studentSessions) {
-      const cur = byTopic.get(s.topic) ?? { correct: 0, total: 0 }
-      cur.correct += s.correct_count
-      cur.total += s.total_questions
-      byTopic.set(s.topic, cur)
+    for (const a of attempts ?? []) {
+      if (sessionToStudent.get(a.session_id) !== sp.id) continue
+      const topic = TOPIC_BY_QUESTION_ID.get(a.question_id)
+      if (!topic) continue
+      const cur = byTopic.get(topic) ?? { correct: 0, total: 0 }
+      cur.total += 1
+      if (a.is_correct) cur.correct += 1
+      byTopic.set(topic, cur)
     }
     const topicAccuracy = Array.from(byTopic.entries())
       .map(([topic, { correct, total }]) => ({

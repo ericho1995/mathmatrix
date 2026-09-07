@@ -21,7 +21,7 @@ export default function RegisterPage() {
     setMessage(null)
 
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
-      setError('Supabase is not configured yet — add your project URL and anon key to .env.local.')
+      setError('Supabase is not configured yet. Add your project URL and anon key to .env.local.')
       setLoading(false)
       return
     }

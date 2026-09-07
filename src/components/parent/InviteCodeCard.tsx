@@ -28,7 +28,7 @@ export default function InviteCodeCard({ parentId }: { parentId: string }) {
     setLoading(false)
 
     if (insertError) {
-      setError('Could not generate a code — try again.')
+      setError('Could not generate a code. Try again.')
       return
     }
     setCode(newCode)
@@ -38,7 +38,7 @@ export default function InviteCodeCard({ parentId }: { parentId: string }) {
     <div className="card text-center py-10">
       <p className="text-gray-500 text-sm mb-5 max-w-xs mx-auto">
         No students linked yet. Generate a one-time invite code and share it
-        with your child — they can enter it on their homepage to link their
+        with your child. They can enter it on their homepage to link their
         progress to your dashboard.
       </p>
 
