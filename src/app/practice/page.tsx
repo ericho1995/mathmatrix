@@ -47,6 +47,7 @@ export default function PracticePage() {
   function chooseSubject(s: SubjectSlug) {
     setSubject(s)
     setTopics(new Set())
+    setGrade(prevGrade => (prevGrade && gradeHasContent(s, prevGrade) ? prevGrade : null))
   }
 
   function toggleTopic(t: TopicSlug) {
@@ -61,6 +62,30 @@ export default function PracticePage() {
   const activeSubjects = mode === 'general' ? SUBJECTS : SELECTIVE_SUBJECTS
   const requiresGrade = mode === 'general'
   const readyToBuild = subject && topics.size > 0 && (!requiresGrade || grade)
+
+  function gradeHasContent(s: SubjectSlug, g: YearLevel) {
+    const subjectTopics = TOPICS.filter(t => t.subject === s).map(t => t.slug)
+    return QUESTION_BANK.some(q => subjectTopics.includes(q.topic) && q.year_level === g)
+  }
+
+  function topicHasContent(t: TopicSlug) {
+    if (mode === 'selective') return QUESTION_BANK.some(q => q.topic === t)
+    if (!grade) return true
+    return QUESTION_BANK.some(q => q.topic === t && q.year_level === grade)
+  }
+
+  // Drop any selected topic that turns out to have no content once a grade is chosen.
+  useEffect(() => {
+    if (mode !== 'general' || !grade) return
+    setTopics(prev => {
+      const filtered = new Set(Array.from(prev).filter(t => QUESTION_BANK.some(q => q.topic === t && q.year_level === grade)))
+      return filtered.size === prev.size ? prev : filtered
+    })
+  }, [grade, mode])
+
+  const unavailableGradeCount = subject && mode === 'general'
+    ? GRADES.filter(g => !gradeHasContent(subject, g.value)).length
+    : 0
 
   const pool = QUESTION_BANK.filter(
     q => topics.has(q.topic) && (mode === 'selective' || q.year_level === grade)
@@ -118,33 +143,54 @@ export default function PracticePage() {
 
       <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Subject</p>
       <div className={`grid gap-3 mb-8 ${mode === 'general' ? 'grid-cols-3' : 'grid-cols-2 sm:grid-cols-3'}`}>
-        {activeSubjects.map(s => (
-          <button key={s.slug} onClick={() => chooseSubject(s.slug)}
-            className={`p-4 rounded-2xl border text-center transition-all
-              ${subject === s.slug
-                ? 'border-2'
-                : 'border-gray-100 hover:border-gray-200 bg-white'}`}
-            style={subject === s.slug ? { borderColor: s.color, backgroundColor: `${s.color}14` } : undefined}>
-            <div className="text-2xl mb-1">{s.icon}</div>
-            <div className="font-medium text-sm">{s.label}</div>
-          </button>
-        ))}
+        {activeSubjects.map(s => {
+          const available = QUESTION_BANK.some(q => TOPICS.find(t => t.slug === q.topic)?.subject === s.slug)
+          return (
+            <button key={s.slug} onClick={() => available && chooseSubject(s.slug)}
+              disabled={!available}
+              title={available ? undefined : 'No questions yet for this subject'}
+              className={`p-4 rounded-2xl border text-center transition-all
+                ${!available
+                  ? 'border-gray-100 bg-gray-50 cursor-not-allowed opacity-50'
+                  : subject === s.slug
+                    ? 'border-2'
+                    : 'border-gray-100 hover:border-gray-200 bg-white'}`}
+              style={available && subject === s.slug ? { borderColor: s.color, backgroundColor: `${s.color}14` } : undefined}>
+              <div className="text-2xl mb-1">{s.icon}</div>
+              <div className="font-medium text-sm">{s.label}</div>
+              {!available && <div className="text-xs text-gray-400 mt-0.5">Coming soon</div>}
+            </button>
+          )
+        })}
       </div>
 
       {requiresGrade && (
         <>
           <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Year level</p>
-          <div className="grid grid-cols-5 gap-2 mb-8">
-            {GRADES.map(g => (
-              <button key={g.value} onClick={() => setGrade(g.value)}
-                className={`py-3 rounded-xl border text-sm font-medium transition-all
-                  ${grade === g.value
-                    ? 'border-brand-600 bg-brand-50 text-brand-600 border-2'
-                    : 'border-gray-100 text-gray-700 hover:border-brand-400 hover:bg-brand-50'}`}>
-                {g.label}
-              </button>
-            ))}
+          <div className="grid grid-cols-5 gap-2 mb-2">
+            {GRADES.map(g => {
+              const available = !subject || gradeHasContent(subject, g.value)
+              return (
+                <button key={g.value} onClick={() => available && setGrade(g.value)}
+                  disabled={!available}
+                  title={available ? undefined : 'No questions yet for this year level'}
+                  className={`py-3 rounded-xl border text-sm font-medium transition-all
+                    ${!available
+                      ? 'border-gray-100 text-gray-300 bg-gray-50 cursor-not-allowed'
+                      : grade === g.value
+                        ? 'border-brand-600 bg-brand-50 text-brand-600 border-2'
+                        : 'border-gray-100 text-gray-700 hover:border-brand-400 hover:bg-brand-50'}`}>
+                  {g.label}
+                </button>
+              )
+            })}
           </div>
+          {unavailableGradeCount > 0 && (
+            <p className="text-xs text-gray-400 mb-6">
+              Greyed-out years aren&apos;t available for general practice yet. Year 11-12 content lives under Selective subjects above.
+            </p>
+          )}
+          {unavailableGradeCount === 0 && <div className="mb-6" />}
         </>
       )}
 
@@ -155,16 +201,26 @@ export default function PracticePage() {
         <p className="text-sm text-gray-400 mb-8">Pick a subject above to see its topics.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-          {TOPICS.filter(t => t.subject === subject).map(t => (
-            <button key={t.slug} onClick={() => toggleTopic(t.slug)}
-              className={`p-4 rounded-2xl border text-left transition-all
-                ${topics.has(t.slug)
-                  ? 'border-teal-400 bg-teal-50 border-2'
-                  : 'border-gray-100 hover:border-gray-200 bg-white'}`}>
-              <div className="font-medium text-sm">{t.label}</div>
-              <div className="text-xs text-gray-500 mt-0.5">{t.description}</div>
-            </button>
-          ))}
+          {TOPICS.filter(t => t.subject === subject).map(t => {
+            const available = topicHasContent(t.slug)
+            return (
+              <button key={t.slug} onClick={() => available && toggleTopic(t.slug)}
+                disabled={!available}
+                title={available ? undefined : 'No questions yet for this topic and year level'}
+                className={`p-4 rounded-2xl border text-left transition-all
+                  ${!available
+                    ? 'border-gray-100 bg-gray-50 cursor-not-allowed opacity-50'
+                    : topics.has(t.slug)
+                      ? 'border-teal-400 bg-teal-50 border-2'
+                      : 'border-gray-100 hover:border-gray-200 bg-white'}`}>
+                <div className="font-medium text-sm flex items-center gap-2">
+                  {t.label}
+                  {!available && <span className="text-xs font-normal text-gray-400">(none yet)</span>}
+                </div>
+                <div className="text-xs text-gray-500 mt-0.5">{t.description}</div>
+              </button>
+            )
+          })}
         </div>
       )}
 
