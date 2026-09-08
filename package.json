@@ -9,7 +9,7 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install || echo Skipping husky (not a git checkout)"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
