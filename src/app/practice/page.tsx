@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import type { YearLevel, TopicSlug, SubjectSlug } from '@/types'
@@ -14,6 +14,14 @@ type Mode = 'general' | 'selective'
 const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20]
 
 export default function PracticePage() {
+  return (
+    <Suspense fallback={null}>
+      <PracticePageInner />
+    </Suspense>
+  )
+}
+
+function PracticePageInner() {
   const searchParams = useSearchParams()
 
   const [mode, setMode] = useState<Mode>('general')
