@@ -17,6 +17,8 @@ export default function Footer() {
           <Link href="/practice" className="hover:text-gray-600">Practice</Link>
           <Link href="/leaderboard" className="hover:text-gray-600">Leaderboard</Link>
           <Link href="/auth/register" className="hover:text-gray-600">Get started</Link>
+          <Link href="/privacy" className="hover:text-gray-600">Privacy</Link>
+          <Link href="/terms" className="hover:text-gray-600">Terms</Link>
         </nav>
 
         <p className="text-xs text-gray-400">© {new Date().getFullYear()} PrepNest</p>

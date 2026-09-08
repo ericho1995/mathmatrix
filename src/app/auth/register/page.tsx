@@ -4,10 +4,14 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import { GRADES } from '@/lib/curriculum'
+import type { UserRole, YearLevel } from '@/types'
 
 export default function RegisterPage() {
   const router = useRouter()
+  const [role, setRole] = useState<Exclude<UserRole, 'admin'>>('student')
   const [fullName, setFullName] = useState('')
+  const [yearLevel, setYearLevel] = useState<YearLevel | ''>('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -26,12 +30,22 @@ export default function RegisterPage() {
       return
     }
 
+    if (role === 'student' && !yearLevel) {
+      setError('Choose your year level.')
+      setLoading(false)
+      return
+    }
+
     const supabase = createClient()
     const { data, error: signUpError } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        data: { full_name: fullName },
+        data: {
+          full_name: fullName,
+          role,
+          ...(role === 'student' ? { year_level: yearLevel } : {}),
+        },
         emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
     })
@@ -48,7 +62,7 @@ export default function RegisterPage() {
       return
     }
 
-    router.push('/practice')
+    router.push('/')
     router.refresh()
   }
 
@@ -60,6 +74,23 @@ export default function RegisterPage() {
         </h1>
         <p className="text-gray-500 text-center mb-8">Create your account</p>
 
+        <div className="inline-flex rounded-xl border border-gray-100 p-1 mb-6 w-full">
+          <button
+            type="button"
+            onClick={() => setRole('student')}
+            className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-all ${role === 'student' ? 'bg-brand-600 text-white' : 'text-gray-500'}`}
+          >
+            I&apos;m a student
+          </button>
+          <button
+            type="button"
+            onClick={() => setRole('parent')}
+            className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-all ${role === 'parent' ? 'bg-brand-600 text-white' : 'text-gray-500'}`}
+          >
+            I&apos;m a parent
+          </button>
+        </div>
+
         <form onSubmit={handleRegister} className="flex flex-col gap-4">
           <input
             className="input"
@@ -69,6 +100,19 @@ export default function RegisterPage() {
             onChange={e => setFullName(e.target.value)}
             required
           />
+          {role === 'student' && (
+            <select
+              className="input"
+              value={yearLevel}
+              onChange={e => setYearLevel(e.target.value as YearLevel)}
+              required
+            >
+              <option value="" disabled>Year level</option>
+              {GRADES.map(g => (
+                <option key={g.value} value={g.value}>{g.label}</option>
+              ))}
+            </select>
+          )}
           <input
             className="input"
             type="email"

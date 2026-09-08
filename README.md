@@ -42,7 +42,15 @@ npm install
 ### 3. Set up Supabase
 
 1. Create a free project at [supabase.com](https://supabase.com)
-2. In the Supabase SQL editor, run the contents of `/supabase/schema.sql`
+2. In the Supabase SQL editor, run these files **in this order, as separate queries**
+   (Postgres won't let a new enum value be used in the same transaction that adds it,
+   so `schema_vce.sql` must fully commit before `seed.sql` runs):
+   1. `/supabase/schema.sql` — tables, enums, RLS policies, triggers
+   2. `/supabase/schema_vce.sql` — adds the 5 selective VCE subjects/topics to the enums
+   3. `/supabase/schema_registration_fix.sql` — makes signup honour the student's chosen year level
+   4. `/supabase/functions.sql` — leaderboard + parent-invite RPC functions
+   5. `/supabase/seed.sql` — the full question bank (regenerate with `node scripts/gen-seed.mjs`
+      any time `src/lib/questions/bank.ts` changes, then re-run this file — it's an idempotent upsert)
 3. Copy your project URL and anon key from **Settings > API**
 
 ### 4. Configure environment variables
@@ -103,11 +111,11 @@ supabase/
 - [x] Login page scaffold
 
 ### Phase 2 — Auth & Persistence
-- [ ] Supabase auth (email + Google OAuth)
-- [ ] Student registration with year level
-- [ ] Parent registration + invite-code linking
-- [ ] Session results saved to database
-- [ ] XP and streak tracking
+- [x] Supabase auth (email/password — Google OAuth not wired up yet)
+- [x] Student registration with year level
+- [x] Parent registration + invite-code linking
+- [x] Session results saved to database
+- [x] XP and streak tracking
 
 ### Phase 3 — Content Engine
 - [ ] Admin panel for adding/editing questions
