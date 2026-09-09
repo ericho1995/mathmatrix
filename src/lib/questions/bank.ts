@@ -3556,6 +3556,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Only sunlight', 'Only water', 'Only shelter', 'Food, water, and air'],
     correct_index: 3,
     explanation: 'Living things need food, water, and air to survive and grow.',
+    curriculum_code: 'AC9S3U01',
   },
   {
     id: '5a6507d3-3d3f-421f-b3c3-8626887b0506',
@@ -3566,6 +3567,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Petals', 'Stem', 'Roots', 'Leaves'],
     correct_index: 2,
     explanation: 'Roots grow underground and absorb water and nutrients from the soil.',
+    curriculum_code: 'AC9S3U01',
   },
   {
     id: '6ba6575d-f63c-4c92-a584-cb7720e897c8',
@@ -3576,6 +3578,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Fish', 'Dog', 'Frog', 'Snake'],
     correct_index: 1,
     explanation: 'Mammals have fur or hair and feed their young milk; a dog is a mammal.',
+    curriculum_code: 'AC9S3U01',
   },
   {
     id: '4d07eec0-dba8-4807-9da0-1829decb6cd3',
@@ -3586,6 +3589,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Egg', 'Caterpillar', 'Chrysalis', 'Adult butterfly'],
     correct_index: 0,
     explanation: "A butterfly's life cycle begins as an egg, then caterpillar, chrysalis, and finally adult.",
+    curriculum_code: 'AC9S4U02',
   },
   {
     id: '540f251a-a7fb-4da4-972a-1a23a376e6a3',
@@ -3596,6 +3600,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Species', 'Predator', 'Diet', 'Habitat'],
     correct_index: 3,
     explanation: 'A habitat is the natural environment where an animal lives and finds what it needs to survive.',
+    curriculum_code: 'AC9S4U02',
   },
   {
     id: '0e5d077c-9a7b-4428-8cad-0cad99342c9e',
@@ -3606,6 +3611,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Mammals', 'Amphibians', 'Vertebrates', 'Invertebrates'],
     correct_index: 2,
     explanation: 'Vertebrates are animals that have a backbone, such as fish, birds, and mammals.',
+    curriculum_code: 'AC9S4U02',
   },
   {
     id: 'be4a6bdf-c30b-4c64-899f-1b932858ef2b',
@@ -3616,6 +3622,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Respiration', 'Pollination', 'Germination', 'Photosynthesis'],
     correct_index: 1,
     explanation: 'Pollination is the transfer of pollen between flowers, which allows plants to produce seeds.',
+    curriculum_code: 'AC9S5U01',
   },
   {
     id: '7de1f0b5-e8b1-4eaa-abc1-3caa76f5045a',
@@ -3626,6 +3633,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Consumer', 'Producer', 'Decomposer', 'Photosynthesiser'],
     correct_index: 0,
     explanation: 'Consumers are organisms that eat other organisms to get energy, unlike producers, which make their own food.',
+    curriculum_code: 'AC9S5U01',
   },
   {
     id: '64e3c69b-3f63-4b40-bebd-34488fe25a0d',
@@ -3636,6 +3644,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['They produce their own food from sunlight', 'They hunt other animals for food', 'They only live in water', 'They break down dead plants and animals'],
     correct_index: 3,
     explanation: 'Decomposers, like fungi and bacteria, break down dead organisms and recycle nutrients back into the ecosystem.',
+    curriculum_code: 'AC9S5U01',
   },
   {
     id: '90416ab9-5e63-4b2b-bc46-d71d4dd1f2a8',
@@ -3646,6 +3655,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Organ', 'Atom', 'Cell', 'Tissue'],
     correct_index: 2,
     explanation: 'The cell is the smallest basic unit of structure and function in all living organisms.',
+    curriculum_code: 'AC9S6U02',
   },
   {
     id: '7a236cce-9535-4a4a-b389-30a5cc64d202',
@@ -3656,6 +3666,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Skeletal system', 'Digestive system', 'Respiratory system', 'Circulatory system'],
     correct_index: 1,
     explanation: 'The digestive system breaks down food into nutrients the body can absorb and use.',
+    curriculum_code: 'AC9S6U02',
   },
   {
     id: 'a0de0071-bbbf-4d98-8efa-460543a417c6',
@@ -3666,6 +3677,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Adaptation', 'Extinction', 'Habitat', 'Ecosystem'],
     correct_index: 0,
     explanation: 'An adaptation is a trait that helps an organism survive and reproduce in its specific environment.',
+    curriculum_code: 'AC9S6U02',
   },
   {
     id: '16eb5ce5-48a4-4390-86f8-bc10d75191e3',
@@ -3676,6 +3688,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Carbon dioxide and water', 'Nitrogen and glucose', 'Water and oxygen only', 'Glucose and oxygen'],
     correct_index: 3,
     explanation: 'Photosynthesis converts carbon dioxide and water into glucose (food) and oxygen, using light energy.',
+    curriculum_code: 'AC9S7U03',
   },
   {
     id: '3ae05ecd-749d-41a9-9d1b-91ab3ccb7a98',
@@ -3686,6 +3699,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Eagle', 'Shark', 'Jellyfish', 'Dog'],
     correct_index: 2,
     explanation: 'A jellyfish has no backbone, making it an invertebrate, unlike dogs, eagles, and sharks.',
+    curriculum_code: 'AC9S7U03',
   },
   {
     id: '660d6e9a-b0b7-4f13-8008-d45b4e2804ff',
@@ -3696,6 +3710,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Send nerve signals', 'Carry oxygen around the body', 'Fight infection', 'Digest food'],
     correct_index: 1,
     explanation: 'Red blood cells contain haemoglobin, which binds to oxygen and carries it through the bloodstream.',
+    curriculum_code: 'AC9S7U03',
   },
   {
     id: '97164156-018a-44bc-9612-73d79a81d9c3',
@@ -3706,6 +3721,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Nucleus', 'Cytoplasm', 'Cell membrane', 'Cell wall'],
     correct_index: 0,
     explanation: 'The nucleus contains DNA, which holds the genetic instructions for the cell.',
+    curriculum_code: 'AC9S8U02',
   },
   {
     id: '790854c3-25d6-46d7-8173-d0cdb85b11e0',
@@ -3716,6 +3732,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A learned behaviour', 'A mutation only', 'An adaptation only', 'An inherited trait'],
     correct_index: 3,
     explanation: 'Inherited traits are passed genetically from parents to their offspring.',
+    curriculum_code: 'AC9S8U02',
   },
   {
     id: 'a53d1c70-b7d9-41e1-884c-ee93e78a9abc',
@@ -3726,6 +3743,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Cells only', 'Tissues', 'Microbes', 'Fungi only'],
     correct_index: 2,
     explanation: 'Microbes (or microorganisms) are tiny living things, including bacteria and some fungi and viruses.',
+    curriculum_code: 'AC9S8U02',
   },
   {
     id: '86b39d8e-f376-4bfa-b591-957f45768cc6',
@@ -3736,6 +3754,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Glucose', 'DNA', 'RNA only', 'Protein'],
     correct_index: 1,
     explanation: 'DNA (deoxyribonucleic acid) carries the genetic instructions used in the growth and functioning of living organisms.',
+    curriculum_code: 'AC9S9U03',
   },
   {
     id: '77def386-4f12-4f80-a33c-a06bf88d196c',
@@ -3746,6 +3765,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Natural selection', 'Photosynthesis', 'Fermentation', 'Pollination'],
     correct_index: 0,
     explanation: 'Natural selection is the process where organisms with favourable traits are more likely to survive and pass those traits on.',
+    curriculum_code: 'AC9S9U03',
   },
   {
     id: 'b0f3fe36-1292-48a9-a45c-96d253ac6692',
@@ -3756,6 +3776,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['From consumers to producers', 'Equally in both directions', 'It does not flow, only matter does', 'From producers to consumers'],
     correct_index: 3,
     explanation: 'Energy flows from producers (which capture energy from sunlight) up through the levels of consumers in a food chain.',
+    curriculum_code: 'AC9S9U03',
   },
   {
     id: '4080e668-6840-4eb2-a059-eece6007a29b',
@@ -3766,6 +3787,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Respiration', 'Digestion', 'Homeostasis', 'Metabolism'],
     correct_index: 2,
     explanation: 'Homeostasis is the regulation of internal conditions, such as temperature, to keep the body stable.',
+    curriculum_code: 'AC9S10U01',
   },
   {
     id: '092c450c-1e6d-46fb-ab36-eb483275c87c',
@@ -3776,6 +3798,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Louis Pasteur', 'Charles Darwin', 'Gregor Mendel', 'Isaac Newton'],
     correct_index: 1,
     explanation: 'Charles Darwin proposed the theory of evolution by natural selection in his book "On the Origin of Species".',
+    curriculum_code: 'AC9S10U01',
   },
   {
     id: 'da82552d-59a3-4e77-ac3a-5eef92ac4957',
@@ -3786,6 +3809,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Biotechnology', 'Astronomy', 'Meteorology', 'Geology'],
     correct_index: 0,
     explanation: 'Biotechnology applies biological processes and organisms to develop products and technologies.',
+    curriculum_code: 'AC9S10U01',
   },
   {
     id: '27876fbb-4ec2-4cfa-8a50-2c410ab85990',
@@ -3796,6 +3820,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['It grows over time', 'It needs food and water', 'It can reproduce', 'It does not grow, move on its own, or need food'],
     correct_index: 3,
     explanation: 'Living things grow, need food and water, and can reproduce; non-living things do none of these.',
+    curriculum_code: 'AC9S3U01',
   },
   {
     id: 'b4b3215c-864e-4ca0-80fa-960d40c14d9a',
@@ -3806,6 +3831,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Taste', 'Smell', 'Hearing', 'Sight'],
     correct_index: 2,
     explanation: 'Hearing is the sense used to detect sounds, like a bird singing.',
+    curriculum_code: 'AC9S3U01',
   },
   {
     id: '840c6518-618a-47c8-a664-616eec72f143',
@@ -3816,6 +3842,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Horse', 'Lion', 'Cow', 'Rabbit'],
     correct_index: 1,
     explanation: 'A lion hunts and eats other animals, making it a carnivore.',
+    curriculum_code: 'AC9S4U02',
   },
   {
     id: '78e23eeb-1e19-4212-bc80-16768376b4a4',
@@ -3826,6 +3853,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Pollinate', 'Photosynthesise', 'Hibernate', 'Decompose'],
     correct_index: 0,
     explanation: 'Bees carry pollen between flowers as they feed, helping plants pollinate and produce seeds.',
+    curriculum_code: 'AC9S4U02',
   },
   {
     id: 'b6f5d759-6eb3-4606-abca-1789ebdae9ad',
@@ -3836,6 +3864,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Lungs', 'Stomach', 'Brain', 'Heart'],
     correct_index: 3,
     explanation: 'The heart is a muscular organ that pumps blood around the body.',
+    curriculum_code: 'AC9S4U02',
   },
   {
     id: 'a5343ce2-8552-4f7c-a18d-c23ae9b7ea37',
@@ -3846,6 +3875,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Nitrogen', 'Hydrogen', 'Carbon dioxide', 'Oxygen'],
     correct_index: 2,
     explanation: 'Plants absorb carbon dioxide from the air and use it, along with water and sunlight, to make food.',
+    curriculum_code: 'AC9S5U01',
   },
   {
     id: 'a89f3d69-adcf-4940-b7b1-cc5740f22a28',
@@ -3856,6 +3886,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Wolf', 'Grass', 'Lion', 'Eagle'],
     correct_index: 1,
     explanation: 'Producers, like grass, make their own food from sunlight and are the base of most food chains.',
+    curriculum_code: 'AC9S5U01',
   },
   {
     id: '38b6fda1-f9c8-4194-9364-bae79e78ad7f',
@@ -3866,6 +3897,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Kidneys', 'Liver', 'Lungs', 'Stomach'],
     correct_index: 0,
     explanation: 'The kidneys filter waste products and excess water from the blood to form urine.',
+    curriculum_code: 'AC9S6U02',
   },
   {
     id: '26a9c14b-0ae3-4a8c-a4d6-4a36132fb90a',
@@ -3876,6 +3908,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A community', 'An ecosystem', 'A habitat', 'A population'],
     correct_index: 3,
     explanation: 'A population refers to all the members of one species living in a particular area.',
+    curriculum_code: 'AC9S6U02',
   },
   {
     id: '720f28c0-6494-4525-9af7-168e35ced411',
@@ -3886,6 +3919,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Mitochondria', 'Vacuole', 'Chloroplast', 'Nucleus'],
     correct_index: 2,
     explanation: 'Chloroplasts contain chlorophyll and are the site of photosynthesis in plant cells.',
+    curriculum_code: 'AC9S7U03',
   },
   {
     id: '5921421d-f0a2-43b9-8d4d-bc8642d1edff',
@@ -3896,6 +3930,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Sending nerve signals', 'Fighting infection', 'Carrying oxygen', 'Digesting food'],
     correct_index: 1,
     explanation: 'White blood cells are part of the immune system and help the body fight off infections.',
+    curriculum_code: 'AC9S7U03',
   },
   {
     id: '347ef2ad-fb11-4182-8ab3-44512490561e',
@@ -3906,6 +3941,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Cell membrane', 'Nucleus', 'Cell wall', 'Cytoplasm'],
     correct_index: 0,
     explanation: 'The cell membrane is a selective barrier that controls the movement of substances into and out of the cell.',
+    curriculum_code: 'AC9S8U02',
   },
   {
     id: 'ab645c82-6fb3-441a-a747-df06d2113dba',
@@ -3916,6 +3952,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Habitat', 'Adaptation only', 'Ecosystem', 'Mutation'],
     correct_index: 3,
     explanation: "A mutation is a change in an organism's DNA, which can sometimes lead to new traits.",
+    curriculum_code: 'AC9S8U02',
   },
   {
     id: 'c2b4f143-93a0-4dcd-9001-3f5a2a3e8f9a',
@@ -3926,6 +3963,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Pollination', 'Excretion', 'Respiration', 'Photosynthesis'],
     correct_index: 2,
     explanation: 'Respiration is the process of breaking down food to release energy, which occurs in both plants and animals.',
+    curriculum_code: 'AC9S9U03',
   },
   {
     id: '06148d85-95f5-46c1-8bcc-bf0a878a9346',
@@ -3936,6 +3974,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A habitat only', 'An ecosystem', 'A population', 'A species'],
     correct_index: 1,
     explanation: 'An ecosystem includes all living organisms in an area, along with the non-living parts of their environment, like water and soil.',
+    curriculum_code: 'AC9S9U03',
   },
   {
     id: '6f519d8e-2989-447a-a806-94cb2189dac8',
@@ -3946,6 +3985,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Genome', 'Genotype only', 'Phenotype', 'Chromosome'],
     correct_index: 0,
     explanation: 'The genome is the complete set of genetic material, or DNA, found in an organism.',
+    curriculum_code: 'AC9S10U01',
   },
   {
     id: '69e15a87-caf3-4abf-b42c-79428dda33ed',
@@ -3956,6 +3996,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Random mating between any organisms', 'Genetically modifying DNA directly', 'Cloning an organism exactly', 'Choosing organisms with desired traits to breed together'],
     correct_index: 3,
     explanation: 'Selective breeding involves choosing parent organisms with desirable traits, over generations, to produce offspring with those traits.',
+    curriculum_code: 'AC9S10U01',
   },
   // ── PHYSICAL SCIENCE (additional) ─────────────────────────────────────────
 
@@ -3968,6 +4009,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Air', 'Steam', 'A rock', 'Water'],
     correct_index: 2,
     explanation: 'A rock keeps its own shape and does not flow, which makes it a solid.',
+    curriculum_code: 'AC9S3U03',
   },
   {
     id: 'a3c33f6b-62a0-4c9a-b60a-142f65f87ad9',
@@ -3978,6 +4020,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['They both become non-magnetic', 'They attract (pull together)', 'They repel (push apart)', 'Nothing happens'],
     correct_index: 1,
     explanation: 'Opposite magnetic poles (north and south) attract each other, while like poles repel.',
+    curriculum_code: 'AC9S3U03',
   },
   {
     id: '2a257334-197b-4b2f-9c94-dcc95344a84c',
@@ -3988,6 +4031,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Force', 'Mass', 'Energy source', 'Material'],
     correct_index: 0,
     explanation: "A force is a push or a pull that can change an object's motion or shape.",
+    curriculum_code: 'AC9S3U03',
   },
   {
     id: 'e1537fee-6551-4a53-8b51-48b3c07db65b',
@@ -3998,6 +4042,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Complete silence', 'Darkness', 'A magnet', 'A medium, such as air or water, to vibrate through'],
     correct_index: 3,
     explanation: 'Sound travels as vibrations through a medium like air, water, or solids; it cannot travel through a vacuum.',
+    curriculum_code: 'AC9S4U01',
   },
   {
     id: '516f74df-0e2c-4a3d-a2f7-491482a76075',
@@ -4008,6 +4053,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['An object being heavy', 'An object being magnetic', 'An object blocking light', 'An object making sound'],
     correct_index: 2,
     explanation: 'A shadow forms when an object blocks light from reaching a surface behind it.',
+    curriculum_code: 'AC9S4U01',
   },
   {
     id: 'f285d11d-fdea-4178-b623-162113760bc9',
@@ -4018,6 +4064,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Screw', 'Pulley', 'Lever', 'Wedge'],
     correct_index: 1,
     explanation: 'A pulley uses a wheel and rope to change the direction of a force, making it easier to lift objects.',
+    curriculum_code: 'AC9S5U03',
   },
   {
     id: 'aafd55a4-fb09-4404-a213-541d1ce1d360',
@@ -4028,6 +4075,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Conduction', 'Convection', 'Radiation', 'Evaporation'],
     correct_index: 0,
     explanation: 'Conduction is the transfer of heat through direct contact within a solid material.',
+    curriculum_code: 'AC9S5U03',
   },
   {
     id: '81b17d0e-ebba-49bb-86a9-59d06f8cb4aa',
@@ -4038,6 +4086,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A magnet only', 'Sunlight only', 'A gap in the wire', 'A closed, unbroken loop for current to flow'],
     correct_index: 3,
     explanation: 'An electric circuit needs a complete, unbroken loop for electric current to flow through it.',
+    curriculum_code: 'AC9S5U03',
   },
   {
     id: '4af16baf-7024-4f17-8028-f6d77f8d5e43',
@@ -4048,6 +4097,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Sound energy', 'Chemical energy', 'Potential energy', 'Kinetic energy'],
     correct_index: 2,
     explanation: "Potential energy is stored energy based on an object's position, such as height above the ground.",
+    curriculum_code: 'AC9S6U01',
   },
   {
     id: '43265bbe-19e9-4c0a-aa8e-48ad4b778295',
@@ -4058,6 +4108,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Nuclear energy', 'Kinetic energy', 'Potential energy', 'Thermal energy'],
     correct_index: 1,
     explanation: 'Kinetic energy is the energy an object has because it is moving.',
+    curriculum_code: 'AC9S6U01',
   },
   {
     id: 'a66279c6-c848-40e0-abc5-ed8825b64a38',
@@ -4068,6 +4119,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Higher frequency', 'Lower frequency', 'Louder volume', 'Longer wavelength only'],
     correct_index: 0,
     explanation: 'Pitch is related to frequency: higher frequency vibrations produce higher-pitched sounds.',
+    curriculum_code: 'AC9S6U01',
   },
   {
     id: '43a9e33d-9bc6-4225-9f0a-e53f2d98f407',
@@ -4078,6 +4130,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Condensation', 'Freezing', 'Melting', 'Evaporation'],
     correct_index: 3,
     explanation: 'Evaporation is the change of state from liquid to gas, usually caused by heating.',
+    curriculum_code: 'AC9S7U01',
   },
   {
     id: '34548b0f-1ceb-46d0-af4a-d7be95b21631',
@@ -4088,6 +4141,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Volume of an object only', 'Temperature of a substance', 'Mass per unit of volume', 'Weight of an object only'],
     correct_index: 2,
     explanation: 'Density measures how much mass is packed into a given volume of a substance.',
+    curriculum_code: 'AC9S7U01',
   },
   {
     id: '37d5ba84-b1b0-49de-b88e-3c6483a406b2',
@@ -4098,6 +4152,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Nothing changes', 'All the globes turn off', 'Only that globe turns off, the rest stay on', 'The circuit gets brighter'],
     correct_index: 1,
     explanation: 'In a series circuit there is only one path for current, so a break anywhere stops current everywhere in the loop.',
+    curriculum_code: 'AC9S7U01',
   },
   {
     id: '909dd0e9-4828-487e-a54b-8ec7a5d54dc1',
@@ -4108,6 +4163,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Acted on by an unbalanced force', 'It is very heavy', 'It is made of metal', 'It is left alone for a long time'],
     correct_index: 0,
     explanation: "Newton's first law states that an object remains at rest, or in uniform motion, unless acted on by an unbalanced force.",
+    curriculum_code: 'AC9S8U01',
   },
   {
     id: 'dfbeb1bd-0e2c-402b-b1ce-861fd91e9b1b',
@@ -4118,6 +4174,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Electromagnetic waves', 'Light waves', 'Radio waves', 'Mechanical waves'],
     correct_index: 3,
     explanation: 'Mechanical waves, like sound and water waves, require a medium (such as air or water) to travel through.',
+    curriculum_code: 'AC9S8U01',
   },
   {
     id: '5f48e025-4c14-42e8-89b5-aaed3be746ab',
@@ -4128,6 +4185,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A nuclear reaction', 'Combustion', 'A physical change', 'A chemical change'],
     correct_index: 2,
     explanation: "A physical change, like melting or freezing, alters a substance's state without changing its chemical makeup.",
+    curriculum_code: 'AC9S8U01',
   },
   {
     id: 'a00cf390-03e0-4aac-b21d-710de91af173',
@@ -4138,6 +4196,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Distance + time', 'Distance ÷ time', 'Distance × time', 'Time ÷ distance'],
     correct_index: 1,
     explanation: 'Average speed is calculated as the distance travelled divided by the time taken.',
+    curriculum_code: 'AC9S9U01',
   },
   {
     id: '8a7bb997-6650-4ac7-b1b4-22fe56eadaf7',
@@ -4148,6 +4207,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Not be created or destroyed, only transformed', 'Be created but not destroyed', 'Be destroyed but not created', 'Only exist as heat'],
     correct_index: 0,
     explanation: 'The law of conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another.',
+    curriculum_code: 'AC9S9U01',
   },
   {
     id: 'bf7ae28f-322b-459e-a179-dcda96748857',
@@ -4158,6 +4218,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Physical change', 'Change of state', 'Nuclear change', 'Chemical change'],
     correct_index: 3,
     explanation: 'Rusting involves a chemical reaction between iron, oxygen, and water, forming a new substance (iron oxide).',
+    curriculum_code: 'AC9S9U01',
   },
   {
     id: 'a8fb4908-f37c-4d12-ab5b-19a39cc5a542',
@@ -4168,6 +4229,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Watt', 'Ampere', 'Ohm', 'Volt'],
     correct_index: 2,
     explanation: 'Electrical resistance is measured in ohms, symbol Ω.',
+    curriculum_code: 'AC9S10U03',
   },
   {
     id: '38b503b8-fa93-4962-8eca-f38417780e67',
@@ -4178,6 +4240,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Speed', 'Frequency', 'Amplitude', 'Wavelength'],
     correct_index: 1,
     explanation: 'Frequency measures how many complete waves pass a point per second, measured in hertz (Hz).',
+    curriculum_code: 'AC9S10U03',
   },
   {
     id: '6de0e8f2-1778-4048-b023-ea41fe126300',
@@ -4188,6 +4251,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Voltage = current × resistance', 'Voltage = current ÷ resistance', 'Voltage = current + resistance', 'Voltage = resistance ÷ current'],
     correct_index: 0,
     explanation: "Ohm's law states V = I × R, where V is voltage, I is current, and R is resistance.",
+    curriculum_code: 'AC9S10U03',
   },
   {
     id: 'edb4d129-3d00-4472-a241-56443bf94ba2',
@@ -4198,6 +4262,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A rock', 'Air', 'A block of wood', 'Milk'],
     correct_index: 3,
     explanation: 'Milk flows and takes the shape of its container, which makes it a liquid.',
+    curriculum_code: 'AC9S3U03',
   },
   {
     id: '8c40cd49-1fe5-48f0-a28d-b4e5b19ac88f',
@@ -4208,6 +4273,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Magnetism', 'Electricity', 'Gravity', 'Friction'],
     correct_index: 2,
     explanation: 'Gravity is the force that pulls objects toward the Earth.',
+    curriculum_code: 'AC9S3U03',
   },
   {
     id: '959eb318-91f4-4a63-9915-ce32b628024f',
@@ -4218,6 +4284,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Wood', 'Copper', 'Rubber', 'Plastic'],
     correct_index: 1,
     explanation: 'Copper is a metal, and metals are generally good conductors of electricity.',
+    curriculum_code: 'AC9S4U01',
   },
   {
     id: 'a2808b56-6156-42f2-91e0-3e83609ad71c',
@@ -4228,6 +4295,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['They expand', 'They always shrink', 'They become magnetic', 'They disappear'],
     correct_index: 0,
     explanation: 'Most materials expand slightly when heated, as their particles move faster and spread apart.',
+    curriculum_code: 'AC9S4U01',
   },
   {
     id: '277455a3-4ac3-4b36-9818-1ebffbfaea19',
@@ -4238,6 +4306,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Lever', 'Wheel and axle', 'Pulley', 'Inclined plane'],
     correct_index: 3,
     explanation: 'An inclined plane, or ramp, reduces the force needed to raise an object by spreading the work over a longer distance.',
+    curriculum_code: 'AC9S5U03',
   },
   {
     id: 'd4d288c0-6575-470b-9e0b-16f7ea04dcbb',
@@ -4248,6 +4317,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Convection', 'Insulation', 'Radiation', 'Conduction'],
     correct_index: 2,
     explanation: 'Radiation transfers heat as electromagnetic waves and can travel through empty space, unlike conduction or convection.',
+    curriculum_code: 'AC9S5U03',
   },
   {
     id: 'a9fe29a8-16cc-48d8-b572-54bac049c42d',
@@ -4258,6 +4328,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A stretched rubber band', 'A battery', 'A moving car', 'Sunlight'],
     correct_index: 1,
     explanation: 'A battery stores energy in chemical form, which is converted to electrical energy when used.',
+    curriculum_code: 'AC9S6U01',
   },
   {
     id: 'a41fe943-bd18-448b-96f8-673807a07814',
@@ -4268,6 +4339,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The pitch gets lower', 'The pitch gets higher', 'The pitch stays the same', 'The sound becomes silent'],
     correct_index: 0,
     explanation: 'Lower frequency vibrations produce a lower-pitched sound.',
+    curriculum_code: 'AC9S6U01',
   },
   {
     id: '3fcb0332-ed03-4968-a37c-15c313ebfda1',
@@ -4278,6 +4350,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Liquid', 'Gas', 'Plasma', 'Solid'],
     correct_index: 3,
     explanation: 'A solid keeps both its shape and volume, unlike liquids and gases.',
+    curriculum_code: 'AC9S7U01',
   },
   {
     id: '64403791-d6de-4978-bd47-6e5c4419b935',
@@ -4288,6 +4361,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['They get dimmer and turn off', 'The circuit stops working entirely', 'They stay on', 'They all turn off'],
     correct_index: 2,
     explanation: 'In a parallel circuit, each globe has its own separate path, so the others keep working if one fails.',
+    curriculum_code: 'AC9S7U01',
   },
   {
     id: 'dbade988-155b-4c69-88ed-e54e37faf6ca',
@@ -4298,6 +4372,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The law of gravity', 'The third law', 'The first law', 'The second law'],
     correct_index: 1,
     explanation: "Newton's third law states that every action force has an equal and opposite reaction force.",
+    curriculum_code: 'AC9S8U01',
   },
   {
     id: '971fde25-bc5c-4406-92f1-864f18465d7b',
@@ -4308,6 +4383,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Electromagnetic wave', 'Sound wave', 'Water wave', 'Seismic wave'],
     correct_index: 0,
     explanation: 'Electromagnetic waves, like light, can travel through the vacuum of space without needing a medium.',
+    curriculum_code: 'AC9S8U01',
   },
   {
     id: '5522aa73-cdbe-4be7-91c0-68ef6b63b563',
@@ -4318,6 +4394,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Chemical change', 'Nuclear change', 'Combustion reaction', 'Physical change'],
     correct_index: 3,
     explanation: "Freezing changes water's state without forming a new substance, making it a physical change.",
+    curriculum_code: 'AC9S9U01',
   },
   {
     id: '8f9593bb-1192-4729-b332-2cde6ae433fb',
@@ -4328,6 +4405,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['50 m/s', '3 km/h', '50 km/h', '450 km/h'],
     correct_index: 2,
     explanation: 'Average speed = distance ÷ time = 150 km ÷ 3 h = 50 km/h.',
+    curriculum_code: 'AC9S9U01',
   },
   {
     id: '9f679146-255a-419f-a8b7-35a0ea856654',
@@ -4338,6 +4416,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Watt', 'Ampere', 'Volt', 'Ohm'],
     correct_index: 1,
     explanation: 'Electric current is measured in amperes (amps), symbol A.',
+    curriculum_code: 'AC9S10U03',
   },
   {
     id: '1826d930-a611-4415-89da-1a8f78b3d561',
@@ -4348,6 +4427,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['High frequency', 'Low frequency', 'Low speed only', 'No energy'],
     correct_index: 0,
     explanation: 'Wavelength and frequency are inversely related for waves travelling at the same speed, so a short wavelength means a high frequency.',
+    curriculum_code: 'AC9S10U03',
   },
   // ── EARTH & SPACE (additional) ────────────────────────────────────────────
 
@@ -4360,6 +4440,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Winter, spring, summer, autumn', 'Spring, summer, autumn, winter', 'Autumn, winter, spring, summer', 'Summer, autumn, winter, spring'],
     correct_index: 3,
     explanation: 'Starting from summer, the seasons follow the order: summer, autumn, winter, spring.',
+    curriculum_code: 'AC9S3U02',
   },
   {
     id: '93b93e73-e0ea-42a4-95df-d42b43c227d2',
@@ -4370,6 +4451,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Climate changes daily; weather does not', 'Weather only happens in winter', 'Weather is day-to-day conditions; climate is the pattern over many years', 'Weather and climate mean exactly the same thing'],
     correct_index: 2,
     explanation: 'Weather describes short-term daily conditions, while climate describes long-term average weather patterns in a region.',
+    curriculum_code: 'AC9S3U02',
   },
   {
     id: '8787955e-c833-4dc6-9396-740220634954',
@@ -4380,6 +4462,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Volcanic rock', 'Sedimentary rock', 'Igneous rock', 'Metamorphic rock'],
     correct_index: 1,
     explanation: 'Sedimentary rock forms when layers of sediment, like sand or mud, are compressed together over long periods.',
+    curriculum_code: 'AC9S4U03',
   },
   {
     id: 'c16e18dc-53e6-4149-9af7-2d4890fa4a80',
@@ -4390,6 +4473,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The water cycle', 'The rock cycle', 'The carbon cycle', 'The food cycle'],
     correct_index: 0,
     explanation: 'The water cycle describes how water evaporates, condenses into clouds, and falls as precipitation, again and again.',
+    curriculum_code: 'AC9S4U03',
   },
   {
     id: '673a1ef3-1191-4d49-a14d-59533db7a825',
@@ -4400,6 +4484,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Venus', 'Jupiter', 'Mercury', 'Mars'],
     correct_index: 3,
     explanation: 'Mars appears red due to iron oxide (rust) on its surface, earning it the nickname "the Red Planet".',
+    curriculum_code: 'AC9S5U02',
   },
   {
     id: '4beff8bd-1407-45df-964c-3e21327980f2',
@@ -4410,6 +4495,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Venus, Mercury, Earth', 'Mercury, Earth, Venus', 'Mercury, Venus, Earth', 'Earth, Venus, Mercury'],
     correct_index: 2,
     explanation: 'The order of the closest planets to the Sun is Mercury, then Venus, then Earth.',
+    curriculum_code: 'AC9S5U02',
   },
   {
     id: '0d12466d-92ce-49d8-8b9f-0f5a8c689f10',
@@ -4420,6 +4506,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Combustion', 'Erosion', 'Evaporation', 'Condensation'],
     correct_index: 1,
     explanation: 'Erosion is the process by which wind, water, or ice gradually wear away and move rock and soil.',
+    curriculum_code: 'AC9S6U03',
   },
   {
     id: '1ca087db-5e18-43fe-8712-99c191ccbfd3',
@@ -4430,6 +4517,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Solar power', 'Coal', 'Natural gas', 'Oil'],
     correct_index: 0,
     explanation: 'Solar power comes from the sun, a resource that naturally replenishes and will not run out, unlike fossil fuels.',
+    curriculum_code: 'AC9S6U03',
   },
   {
     id: '793f6542-4f26-4ed5-adc6-df887b2fbcd1',
@@ -4440,6 +4528,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Water cycle', 'Carbon cycle', 'Nitrogen cycle', 'Rock cycle'],
     correct_index: 3,
     explanation: 'The rock cycle describes how igneous, sedimentary, and metamorphic rocks transform into one another over geological time.',
+    curriculum_code: 'AC9S7U02',
   },
   {
     id: 'cdb4a7f2-76d9-4eae-a60f-05c1eeebcaf3',
@@ -4450,6 +4539,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Burned in a fire', 'Frozen only briefly', 'Buried quickly in sediment after death', 'Left exposed to air for a long time'],
     correct_index: 2,
     explanation: 'Fossils typically form when an organism is buried quickly in sediment, protecting it from decay while it mineralises over time.',
+    curriculum_code: 'AC9S7U02',
   },
   {
     id: '7feb0878-7350-4c28-8663-5297fac0d6a2',
@@ -4460,6 +4550,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Areas with no rock layers', 'Tectonic plate boundaries', 'The centre of continents only', 'The equator only'],
     correct_index: 1,
     explanation: 'Most volcanic and earthquake activity occurs where tectonic plates meet, due to the movement and pressure at these boundaries.',
+    curriculum_code: 'AC9S8U02',
   },
   {
     id: '6a9c251d-f7a0-4373-9a05-3dc6a5213439',
@@ -4470,6 +4561,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Troposphere', 'Stratosphere', 'Mesosphere', 'Thermosphere'],
     correct_index: 0,
     explanation: 'The troposphere is the lowest layer of the atmosphere, where almost all weather takes place.',
+    curriculum_code: 'AC9S8U02',
   },
   {
     id: '2e29ec3d-4463-4367-a993-cefb6ebddc1d',
@@ -4480,6 +4572,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Water cycle', 'Rock cycle', 'Carbon capture', 'Greenhouse effect'],
     correct_index: 3,
     explanation: 'The greenhouse effect occurs when gases like carbon dioxide trap heat from the sun in the atmosphere, warming the planet.',
+    curriculum_code: 'AC9S9U04',
   },
   {
     id: 'aed732ac-94ce-4597-ae8f-3bf5969da433',
@@ -4490,6 +4583,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A fossil fuel', 'A mineral resource only', 'A renewable resource', 'A non-renewable resource'],
     correct_index: 2,
     explanation: 'Renewable resources, like wind and timber, can be naturally replenished within a relatively short time.',
+    curriculum_code: 'AC9S9U04',
   },
   {
     id: 'e311c7e4-79b4-4227-af8b-dce8925952dc',
@@ -4500,6 +4594,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['100 million years', '4.5 billion years', '4.5 million years', '10,000 years'],
     correct_index: 1,
     explanation: "Scientific evidence, including radiometric dating, estimates Earth's age at approximately 4.5 billion years.",
+    curriculum_code: 'AC9S10U02',
   },
   {
     id: '6b39fe15-ae4e-45ac-a8e4-69323992403b',
@@ -4510,6 +4605,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Earthquake', 'Tsunami', 'Landslide', 'Volcano'],
     correct_index: 0,
     explanation: 'An earthquake is caused by the sudden release of energy as tectonic plates shift, causing the ground to shake.',
+    curriculum_code: 'AC9S10U02',
   },
   {
     id: '81f0d130-14f5-44c4-8482-421d2be96cbf',
@@ -4520,6 +4616,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Coal-fired power stations', 'Natural gas plants', 'Oil-fired power stations', 'Wind turbines'],
     correct_index: 3,
     explanation: 'Wind turbines generate electricity from wind, a naturally replenishing resource, unlike fossil fuels.',
+    curriculum_code: 'AC9S10U02',
   },
   {
     id: 'e4097d3e-fb18-42f1-9b01-eff03e271b19',
@@ -4530,6 +4627,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Clouds covering the Moon', 'The Moon moving closer and farther from Earth', 'The changing amount of sunlit Moon visible from Earth as it orbits', 'The Moon changing shape'],
     correct_index: 2,
     explanation: 'As the Moon orbits Earth, we see different amounts of its sunlit half, creating the phases we observe.',
+    curriculum_code: 'AC9S3U02',
   },
   {
     id: '75a2addb-9ebe-4b17-8e91-3d25a3bc88ff',
@@ -4540,6 +4638,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Sea water', 'A river', 'The ocean', 'A salt lake'],
     correct_index: 1,
     explanation: 'Rivers are a common source of fresh water, unlike oceans and salt lakes, which contain salt water.',
+    curriculum_code: 'AC9S4U03',
   },
   {
     id: 'a25d74d4-cece-4b6b-a48c-e6f14137f07c',
@@ -4550,6 +4649,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The Sun', 'The Moon', 'Earth', 'Mars'],
     correct_index: 0,
     explanation: 'The Sun is the star at the centre of our solar system, and all the planets orbit around it.',
+    curriculum_code: 'AC9S4U03',
   },
   {
     id: '40488c0d-1663-4350-a322-97d5c6bc197e',
@@ -4560,6 +4660,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A perfect square', 'A straight line', 'A perfect triangle', 'An ellipse (a slightly stretched circle)'],
     correct_index: 3,
     explanation: 'Earth orbits the Sun in a slightly elongated circle known as an ellipse.',
+    curriculum_code: 'AC9S5U02',
   },
   {
     id: 'fbd0c82a-fed7-4658-961c-e2da033f2a6d',
@@ -4570,6 +4671,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Wind', 'Timber from a managed forest', 'Coal', 'Solar energy'],
     correct_index: 2,
     explanation: 'Coal takes millions of years to form and cannot be replenished within a human lifetime, making it non-renewable.',
+    curriculum_code: 'AC9S6U03',
   },
   {
     id: 'bac08012-8cfa-4d1e-98f0-dc143bb9f6d2',
@@ -4580,6 +4682,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The inner core', 'The crust', 'The mantle', 'The outer core'],
     correct_index: 1,
     explanation: 'The crust is the thin, solid outer layer of the Earth where we live.',
+    curriculum_code: 'AC9S6U03',
   },
   {
     id: '46ef8104-e8cb-4306-b347-3c7be356109d',
@@ -4590,6 +4693,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Metamorphic rock', 'Igneous rock', 'Sedimentary rock', 'Volcanic rock'],
     correct_index: 0,
     explanation: 'Metamorphic rock forms when existing rock is changed by intense heat and pressure, without fully melting.',
+    curriculum_code: 'AC9S7U02',
   },
   {
     id: '4d66b7b7-d370-410a-b0fd-427ca9a423b1',
@@ -4600,6 +4704,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Troposphere', 'Mesosphere', 'Exosphere', 'Stratosphere'],
     correct_index: 3,
     explanation: "The ozone layer, which absorbs most of the sun's harmful UV radiation, is located in the stratosphere.",
+    curriculum_code: 'AC9S8U02',
   },
   {
     id: '14e20853-9c3f-48cc-90e3-cfedaa366d27',
@@ -4610,6 +4715,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Recycling paper', 'Using solar panels', 'Burning fossil fuels', 'Planting trees'],
     correct_index: 2,
     explanation: 'Burning fossil fuels, such as coal and oil, releases large amounts of carbon dioxide into the atmosphere.',
+    curriculum_code: 'AC9S9U04',
   },
   {
     id: 'e0f81a76-aa5e-4c87-90de-947d080b0fb5',
@@ -4620,6 +4726,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Drought', 'Tsunami', 'Hurricane', 'Blizzard'],
     correct_index: 1,
     explanation: 'A tsunami is a large ocean wave, most commonly triggered by an underwater earthquake or volcanic eruption.',
+    curriculum_code: 'AC9S10U02',
   },
   // ── CHEMISTRY (additional) ────────────────────────────────────────────────
 
