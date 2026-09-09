@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES } from '@/lib/curriculum'
+import PracticeModeTabs from '@/components/practice/PracticeModeTabs'
 
 export default function ExamsPage() {
   const generalExams = PRACTICE_EXAMS.filter(e => SUBJECTS.some(s => s.slug === e.subject))
@@ -8,15 +9,12 @@ export default function ExamsPage() {
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-10 flex-1 w-full">
-      <div className="flex items-start justify-between gap-4 mb-1">
-        <h1 className="text-2xl font-medium tracking-tight">Practice exams</h1>
-        <Link href="/practice" className="text-sm text-brand-600 hover:underline whitespace-nowrap mt-1">
-          Or build a custom exam →
-        </Link>
-      </div>
-      <p className="text-gray-500 mb-10">
+      <h1 className="text-2xl font-medium tracking-tight mb-1">Practice</h1>
+      <p className="text-gray-500 mb-6">
         Ready-made exams, pre-built for each subject and year level.
       </p>
+
+      <PracticeModeTabs />
 
       <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">General subjects</h2>
       {SUBJECTS.map(subject => {

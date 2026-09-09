@@ -2,11 +2,11 @@
 
 import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import Link from 'next/link'
 import type { YearLevel, TopicSlug, SubjectSlug } from '@/types'
 import { QUESTION_BANK } from '@/lib/questions/bank'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES, TOPICS } from '@/lib/curriculum'
 import QuizRunner from '@/components/practice/QuizRunner'
+import PracticeModeTabs from '@/components/practice/PracticeModeTabs'
 
 type Screen = 'select' | 'quiz'
 type Mode = 'general' | 'selective'
@@ -128,15 +128,12 @@ function PracticePageInner() {
 
   return (
     <main className="max-w-2xl mx-auto px-4 py-10 flex-1 w-full">
-      <div className="flex items-start justify-between gap-4 mb-1">
-        <h1 className="text-2xl font-medium tracking-tight">Build your practice exam</h1>
-        <Link href="/practice/exams" className="text-sm text-brand-600 hover:underline whitespace-nowrap mt-1">
-          Or take a ready-made exam →
-        </Link>
-      </div>
+      <h1 className="text-2xl font-medium tracking-tight mb-1">Practice</h1>
       <p className="text-gray-500 mb-6">
         Choose a subject and one or more topics to create a personalised set of questions.
       </p>
+
+      <PracticeModeTabs />
 
       <div className="inline-flex rounded-xl border border-gray-100 p-1 mb-8">
         <button onClick={() => selectMode('general')}

@@ -1,14 +1,17 @@
 import Link from 'next/link'
-import { SUBJECTS, GRADES } from '@/lib/curriculum'
+import Image from 'next/image'
+import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES } from '@/lib/curriculum'
+import { QUESTION_BANK } from '@/lib/questions/bank'
 import { createClient } from '@/lib/supabase/server'
-import RedeemParentCode from '@/components/home/RedeemParentCode'
-import HeroIllustration from '@/components/home/HeroIllustration'
+import StudentDashboardTabs, { type SessionSummary } from '@/components/home/StudentDashboardTabs'
+import FAQAccordion from '@/components/home/FAQAccordion'
 
 export default async function HomePage() {
   let user: { id: string; email: string | null } | null = null
   let role: 'student' | 'parent' | 'admin' | null = null
   let fullName = ''
   let studentStats: { xp_total: number; streak_days: number; year_level: string; parent_id: string | null } | null = null
+  let sessions: SessionSummary[] = []
 
   if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
     const supabase = createClient()
@@ -32,9 +35,19 @@ export default async function HomePage() {
           .eq('id', data.user.id)
           .single()
         studentStats = sp
+
+        const { data: sessionRows } = await supabase
+          .from('practice_sessions')
+          .select('id, topic, completed_at, correct_count, total_questions')
+          .eq('student_id', data.user.id)
+          .order('completed_at', { ascending: false })
+          .limit(30)
+        sessions = sessionRows ?? []
       }
     }
   }
+
+  const totalSubjects = SUBJECTS.length + SELECTIVE_SUBJECTS.length
 
   if (user) {
     const firstName = fullName.split(' ')[0] || 'there'
@@ -43,34 +56,14 @@ export default async function HomePage() {
       const gradeLabel = GRADES.find(g => g.value === studentStats?.year_level)?.label
       return (
         <main className="flex-1 flex items-center justify-center px-4 py-16">
-          <div className="max-w-sm w-full">
-            <h1 className="text-2xl font-medium tracking-tight mb-1">Welcome back, {firstName}</h1>
-            <p className="text-gray-500 mb-6">{gradeLabel ?? 'Ready to practise?'}</p>
-
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              <div className="card text-center py-4">
-                <p className="text-2xl font-medium text-brand-600">{studentStats?.xp_total ?? 0}</p>
-                <p className="text-xs text-gray-400 mt-0.5">Total XP</p>
-              </div>
-              <div className="card text-center py-4">
-                <p className="text-2xl font-medium text-amber-400">{studentStats?.streak_days ?? 0}</p>
-                <p className="text-xs text-gray-400 mt-0.5">Day streak</p>
-              </div>
-            </div>
-
-            <Link href="/practice" className="btn-primary w-full text-center block mb-6">
-              Continue practising
-            </Link>
-
-            {!studentStats?.parent_id && (
-              <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-2">
-                  Got a code from your parent?
-                </p>
-                <RedeemParentCode />
-              </div>
-            )}
-          </div>
+          <StudentDashboardTabs
+            firstName={firstName}
+            gradeLabel={gradeLabel}
+            xpTotal={studentStats?.xp_total ?? 0}
+            streakDays={studentStats?.streak_days ?? 0}
+            hasParent={!!studentStats?.parent_id}
+            sessions={sessions}
+          />
         </main>
       )
     }
@@ -124,9 +117,32 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="max-w-sm mx-auto lg:max-w-none">
-            <HeroIllustration />
+          <div className="w-full max-w-sm mx-auto lg:max-w-none relative aspect-[4/3] rounded-3xl overflow-hidden">
+            <Image
+              src="/images/hero-student.jpg"
+              alt="A student focused on practice questions at a desk"
+              fill
+              priority
+              sizes="(min-width: 1024px) 480px, 384px"
+              className="object-cover"
+            />
           </div>
+        </div>
+      </section>
+
+      {/* Stat banner */}
+      <section className="border-y border-gray-100 bg-gray-50">
+        <div className="max-w-3xl mx-auto px-4 py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-center">
+          {[
+            { value: QUESTION_BANK.length, label: 'practice questions' },
+            { value: totalSubjects, label: 'subjects' },
+            { value: 'Gr 3–Yr 12', label: 'year levels covered' },
+          ].map(s => (
+            <div key={s.label}>
+              <p className="text-xl font-medium text-brand-600">{s.value}</p>
+              <p className="text-xs text-gray-400">{s.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -188,22 +204,43 @@ export default async function HomePage() {
               Create a parent account
             </Link>
           </div>
-          <div className="card">
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Topic performance</p>
-            {[
-              { label: 'Number & Operations', pct: 88 },
-              { label: 'Geometry & Measurement', pct: 55 },
-              { label: 'Reading Comprehension', pct: 72 },
-            ].map(t => (
-              <div key={t.label} className="flex items-center gap-3 mb-3 last:mb-0">
-                <span className="text-xs min-w-[130px] text-gray-600">{t.label}</span>
-                <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                  <div className="h-full rounded-full bg-brand-400" style={{ width: `${t.pct}%` }} />
+          <div className="w-full relative pb-10 pr-6">
+            <div className="w-full relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/parent-desk.jpg"
+                alt="A quiet study desk with a laptop and notebook"
+                fill
+                sizes="(min-width: 640px) 340px, 90vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="card absolute -bottom-0 -right-0 w-56 shadow-lg">
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Topic performance</p>
+              {[
+                { label: 'Number & Operations', pct: 88 },
+                { label: 'Geometry & Measurement', pct: 55 },
+                { label: 'Reading Comprehension', pct: 72 },
+              ].map(t => (
+                <div key={t.label} className="flex items-center gap-2 mb-2.5 last:mb-0">
+                  <span className="text-[11px] min-w-[90px] text-gray-600 truncate">{t.label}</span>
+                  <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="h-full rounded-full bg-brand-400" style={{ width: `${t.pct}%` }} />
+                  </div>
+                  <span className="text-[11px] font-medium text-gray-400 w-7 text-right">{t.pct}%</span>
                 </div>
-                <span className="text-xs font-medium text-gray-400 w-8 text-right">{t.pct}%</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-gray-50 border-y border-gray-100">
+        <div className="max-w-3xl mx-auto px-4 py-16">
+          <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-8 text-center">
+            Frequently asked questions
+          </h2>
+          <FAQAccordion />
         </div>
       </section>
 
