@@ -328,7 +328,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     year_level: 'grade_3',
     difficulty: 'foundation',
     question_text: 'Which sentence uses the correct punctuation?',
-    options: ['Where is my hat', 'Where is my hat.', 'Where is my hat?', 'where is my hat?'],
+    options: ['Where is my hat', 'Where is my hat.', 'Where is my hat?', 'Where is my hat??'],
     correct_index: 2,
     explanation: 'Questions must end with a question mark and start with a capital letter.',
     curriculum_code: 'AC9E3LA05',
@@ -2230,6 +2230,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['It ran away', 'It fell asleep', 'It chased a cat', 'It flopped onto the grass'],
     correct_index: 3,
     explanation: 'The passage says the puppy "flopped onto the grass" after getting dizzy from chasing its tail.',
+    curriculum_code: 'AC9E3LY06',
   },
   {
     id: '09b17030-e907-4497-a0ba-49ffcd93f568',
@@ -2240,6 +2241,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['She dropped her umbrella', 'She stood in a puddle', 'She forgot her umbrella', 'She walked too slowly'],
     correct_index: 2,
     explanation: 'The word "so" signals the reason: Mia forgot her umbrella, which is why she got soaked.',
+    curriculum_code: 'AC9E3LY06',
   },
   {
     id: '4b595291-84d1-4e63-be7e-5dee4e35c421',
@@ -2250,6 +2252,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['He was looking for a toy', 'He was brave despite his fear', 'He was not afraid of anything', 'He refused to help his dad'],
     correct_index: 1,
     explanation: 'Sam went into the dark basement even though he was scared, showing he acted bravely despite his fear.',
+    curriculum_code: 'AC9E4LY07',
   },
   {
     id: '43ff48d0-9ead-4b89-848e-df4e9d20f7a2',
@@ -2260,16 +2263,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The cake may need to be checked or removed early', 'The cake will taste better', 'The oven will turn off by itself', 'The recipe was wrong about the ingredients'],
     correct_index: 0,
     explanation: 'A burnt smell before the timer ends suggests the cake should be checked, since it may be overcooking.',
+    curriculum_code: 'AC9E4LY07',
   },
   {
     id: '770bdf3e-1561-40a5-b3d1-53064b6b431c',
     topic: 'reading_comprehension',
     year_level: 'grade_5',
     difficulty: 'developing',
-    question_text: 'Read: "Although it was raining, Maya decided to go for a walk because she loved the smell of wet earth." What is Maya\'s motivation for going outside?',
-    options: ['She had to walk the dog', 'She was late', 'She wanted to get wet', 'She loved the smell of rain'],
-    correct_index: 3,
-    explanation: "The word 'because' signals her reason: she loved the smell of wet earth.",
+    question_text: 'Read: "Even though the shop was closing, the shopkeeper let the child search a little longer for her lost coin." What does this show about the shopkeeper?',
+    options: ['He was in a hurry to leave', 'He was patient and kind', 'He disliked children', 'He wanted to close early'],
+    correct_index: 1,
+    explanation: 'Letting the child keep searching despite closing time shows the shopkeeper being patient and kind.',
+    curriculum_code: 'AC9E5LY07',
   },
   {
     id: '6b2d3c0d-2330-4040-9a4e-273c6ffb690e',
@@ -2280,16 +2285,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['It is a puppy learning new tricks', 'It is afraid of its owner', 'It is older and slower, but still loves its owner', 'It no longer likes its owner'],
     correct_index: 2,
     explanation: "The dog's slower behaviour paired with its wagging tail suggests age has not changed its affection for its owner.",
+    curriculum_code: 'AC9E5LY07',
   },
   {
     id: '98be739d-2fde-47b4-9c42-69962c3c5031',
     topic: 'reading_comprehension',
     year_level: 'grade_6',
     difficulty: 'developing',
-    question_text: 'In a story, a character who changes and grows over time is called a:',
-    options: ['Antagonist', 'Dynamic character', 'Static character', 'Narrator'],
+    question_text: 'A story told from the perspective of a character using "I" and "me" is written in which point of view?',
+    options: ['Third person omniscient', 'First person', 'Second person', 'Third person limited'],
     correct_index: 1,
-    explanation: 'A dynamic character undergoes meaningful internal change during the story.',
+    explanation: 'First person narration uses "I" and "me" because the narrator is a character inside the story.',
+    curriculum_code: 'AC9E6LE07',
   },
   {
     id: '328d774b-e27a-49d0-bc8b-be509b424240',
@@ -2300,16 +2307,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Discipline matters more than winning', 'Winning is the only priority', 'Practice is unimportant', 'Star players deserve special treatment'],
     correct_index: 0,
     explanation: 'Choosing to bench a key player despite the cost to the team shows the coach values discipline over winning.',
+    curriculum_code: 'AC9E6LY08',
   },
   {
     id: '84ebf2ed-7779-4e09-bcae-e390049ba658',
     topic: 'reading_comprehension',
     year_level: 'year_7',
     difficulty: 'proficient',
-    question_text: 'Read: "The old bridge groaned under the weight of the truck, its timbers creaking like tired bones." This sentence mainly uses which literary device?',
-    options: ['Metaphor', 'Onomatopoeia', 'Hyperbole', 'Simile'],
-    correct_index: 3,
-    explanation: "'Creaking like tired bones' compares the bridge's sound to bones using 'like', which makes it a simile.",
+    question_text: 'Read: "The classroom was a zoo the moment the teacher stepped out." This sentence mainly uses which literary device?',
+    options: ['Simile', 'Metaphor', 'Onomatopoeia', 'Alliteration'],
+    correct_index: 1,
+    explanation: 'Calling the classroom "a zoo" directly, without using "like" or "as", makes this a metaphor.',
+    curriculum_code: 'AC9E7LE05',
   },
   {
     id: '33c43391-43cc-458f-ba46-227185b1a029',
@@ -2320,6 +2329,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['A flashback to an earlier event', 'Dialogue between two characters', 'Contrast between words and actions to reveal true feelings', 'A direct statement of her feelings'],
     correct_index: 2,
     explanation: 'The gap between her smiling words and clenched fists shows the reader her true feelings without stating them directly.',
+    curriculum_code: 'AC9E7LE05',
   },
   {
     id: '1933a286-11e0-4eaa-89c8-019c574bdb87',
@@ -2330,6 +2340,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['To describe a scientific process', 'Ironically, to suggest the opposite was true', 'Literally, to praise the committee', 'As a direct quotation from the proposal'],
     correct_index: 1,
     explanation: 'The contrast between three years of "careful" consideration and a five-minute rejection signals irony.',
+    curriculum_code: 'AC9E8LE05',
   },
   {
     id: 'feca9da2-0898-43b8-8692-6b5b5522d2eb',
@@ -2340,16 +2351,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['To state the main idea the paragraph will develop', 'To conclude the paragraph', 'To provide a citation', 'To ask a rhetorical question'],
     correct_index: 0,
     explanation: 'A topic sentence introduces the main idea that the rest of the paragraph explains or supports.',
+    curriculum_code: 'AC9E8LY07',
   },
   {
     id: '27871b25-bb65-41f1-8e4b-7a279d3863a2',
     topic: 'reading_comprehension',
     year_level: 'year_9',
     difficulty: 'advanced',
-    question_text: 'An author who writes with a critical or mocking tone about the flaws of society is using:',
+    question_text: 'A brief, exaggerated imitation of another work, created for comic effect, is called a:',
     options: ['Elegy', 'Parody', 'Soliloquy', 'Satire'],
-    correct_index: 3,
-    explanation: "Satire uses irony, humour, and exaggeration to criticise society's flaws.",
+    correct_index: 1,
+    explanation: 'A parody humorously imitates the style of another work, whereas satire more broadly criticises a subject.',
+    curriculum_code: 'AC9E9LE04',
   },
   {
     id: 'c711af90-db1d-490b-bd37-0bfaeec82ce2',
@@ -2360,6 +2373,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['It shows the mayor dislikes progress', 'It is simply a neutral description', 'It creates irony by contrasting the word with the destruction shown', 'It proves the mayor is honest'],
     correct_index: 2,
     explanation: 'Opening with "Progress" right before revealing a destroyed park creates a jarring, ironic contrast.',
+    curriculum_code: 'AC9E9LE04',
   },
   {
     id: '436f667e-877d-420c-bbac-7fe10db6b9bd',
@@ -2370,6 +2384,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Kairos', 'Pathos', 'Logos', 'Ethos'],
     correct_index: 1,
     explanation: "Pathos refers to a persuasive appeal to the audience's emotions, as distinct from logos (logic) and ethos (credibility).",
+    curriculum_code: 'AC9E10LE05',
   },
   {
     id: 'a06f3979-5b58-46d5-a0e3-698f7430b297',
@@ -2380,6 +2395,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['It may be deliberately delaying a definitive conclusion', 'It is committed to rapid scientific progress', 'It has already solved the problem', 'It disagrees with all its own research'],
     correct_index: 0,
     explanation: 'A decade of studies all reaching the same inconclusive result suggests the delay may be intentional rather than accidental.',
+    curriculum_code: 'AC9E10LY07',
   },
   {
     id: '18b155bb-548c-4040-9968-5522e31026cb',
@@ -2390,6 +2406,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Seeds grow without water', 'Plants grow overnight', 'Watering plants is unnecessary', 'Patience and care lead to growth'],
     correct_index: 3,
     explanation: "Ben's daily care over time, ending in a sprout, shows that patience and care lead to results.",
+    curriculum_code: 'AC9E3LY06',
   },
   {
     id: 'ee79bbce-3912-4e91-bd70-d0589438a95d',
@@ -2400,6 +2417,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['She is not a team player', 'She gave up on her goal', 'She prepares before taking on a challenge', 'She dislikes soccer'],
     correct_index: 2,
     explanation: 'Practising alone for weeks before joining shows Lily prepares herself before facing a new challenge.',
+    curriculum_code: 'AC9E4LY07',
   },
   {
     id: 'fbb0f1ed-8775-4083-9e1e-ef902c7fe830',
@@ -2410,6 +2428,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The librarian is afraid of being heard', 'Years of habit shape behaviour even when it is not needed', 'The librarian dislikes silence', 'The library is never empty'],
     correct_index: 1,
     explanation: 'Whispering out of habit, even alone, shows how a long-practised behaviour can continue automatically.',
+    curriculum_code: 'AC9E5LY07',
   },
   {
     id: '6bb7f299-1ee6-49a3-b7a1-9be4915d8ffb',
@@ -2420,6 +2439,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['He values experience and familiarity over newness', 'He dislikes maps in general', 'He is lost without any map', 'He prefers new technology'],
     correct_index: 0,
     explanation: 'Trusting the old, worn map over a new one suggests the explorer values familiarity and proven reliability.',
+    curriculum_code: 'AC9E6LY08',
   },
   {
     id: '7e00dce8-0d74-4a87-a49e-2c0c5debd1ed',
@@ -2430,6 +2450,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['It shows the audience was bored', 'It suggests the concert had ended', 'It describes the conductor leaving the stage', 'It builds anticipation before the music begins'],
     correct_index: 3,
     explanation: 'The sudden silence right before the baton rises creates a sense of anticipation for what is about to happen.',
+    curriculum_code: 'AC9E7LE05',
   },
   {
     id: 'f5f03776-8a15-41a2-9526-81c26f13d799',
@@ -2440,6 +2461,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Foreshadowing a future event', "A direct statement of the character's honesty", 'Contrasting words and actions to reveal insincerity', 'A literal description of an apology'],
     correct_index: 2,
     explanation: 'Placing the spoken apology next to the distracted action reveals that the apology was not sincere.',
+    curriculum_code: 'AC9E8LE05',
   },
   {
     id: 'c9b26a99-93a8-4f9e-a2ca-d3d179f86c82',
@@ -2450,6 +2472,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The factory is small and close-knit', 'The word "family" may be misleading marketing language', 'The employees are all related', 'The owner visits often'],
     correct_index: 1,
     explanation: 'The contrast between the word "family" and employees never meeting the owner suggests the term is used loosely, perhaps for marketing effect.',
+    curriculum_code: 'AC9E9LY07',
   },
   {
     id: 'ef3f93b1-2b8b-4db2-8299-e13112850520',
@@ -2460,6 +2483,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ["It exposes a contradiction between the senator's words and actions", 'It confirms the senator kept their promise', 'It shows the senator dislikes public meetings', 'It has no particular effect'],
     correct_index: 0,
     explanation: 'Stating a promise of transparency immediately before describing closed meetings highlights the contradiction between word and deed.',
+    curriculum_code: 'AC9E10LE05',
   },
   // ── GRAMMAR & PUNCTUATION (additional) ────────────────────────────────────
 
@@ -2468,10 +2492,11 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     topic: 'grammar_punctuation',
     year_level: 'grade_3',
     difficulty: 'foundation',
-    question_text: 'Which sentence uses the correct punctuation?',
-    options: ['Where is my hat', 'Where is my hat.', 'where is my hat?', 'Where is my hat?'],
-    correct_index: 3,
-    explanation: 'Questions must end with a question mark and start with a capital letter.',
+    question_text: 'Which sentence is punctuated correctly?',
+    options: ['my dog is called max.', 'My dog is called max', 'My dog is called Max.', 'My Dog is called max'],
+    correct_index: 2,
+    explanation: 'Sentences start with a capital letter, names are capitalised, and statements end with a full stop.',
+    curriculum_code: 'AC9E3LA05',
   },
   {
     id: 'aab3ff12-c8b9-4ba9-965f-3186716d33f7',
@@ -2482,16 +2507,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['goes', 'going', 'went', 'go'],
     correct_index: 2,
     explanation: "'Went' is the past tense of 'go', matching the word 'yesterday'.",
+    curriculum_code: 'AC9E3LA06',
   },
   {
     id: '83502520-39b2-4d5f-8508-a10b47070e8f',
     topic: 'grammar_punctuation',
     year_level: 'grade_4',
     difficulty: 'developing',
-    question_text: 'Choose the correctly punctuated sentence.',
-    options: ['Its a sunny day', "It's a sunny day.", 'Its a sunny day.', "Its' a sunny day."],
+    question_text: 'Which sentence uses "there", "their", or "they\'re" correctly?',
+    options: ["Their going to the park.", "They're going to the park.", "There going to the park.", "They is going to the park."],
     correct_index: 1,
-    explanation: "'It's' is the contraction of 'it is'. 'Its' (no apostrophe) shows possession.",
+    explanation: "'They're' is the contraction of 'they are', which fits before 'going'.",
+    curriculum_code: 'AC9E4LA07',
   },
   {
     id: '8d305fb5-75f6-4354-99df-5b2252eb4b8a',
@@ -2502,6 +2529,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['I packed apples, bananas, and grapes.', 'I packed apples bananas and grapes.', 'I packed apples, bananas and, grapes.', 'I packed, apples, bananas, and grapes.'],
     correct_index: 0,
     explanation: 'Commas separate each item in a list, with the last item usually joined by "and".',
+    curriculum_code: 'AC9E4LA07',
   },
   {
     id: '4bd961ca-c77a-40b6-85dd-48a1e56447c0',
@@ -2512,6 +2540,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ["Their going to there house over they're.", "There going to their house over they're.", "They're going to they're house over their.", "They're going to their house over there."],
     correct_index: 3,
     explanation: "'They're' = they are, 'their' = possession, 'there' = a place. Only the first sentence uses all three correctly.",
+    curriculum_code: 'AC9E5LA08',
   },
   {
     id: '6c1a9c18-df74-41d7-b403-81292d5c89d7',
@@ -2522,16 +2551,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['"I am ready," said Maya', '\'I am ready,\' said Maya."', '"I am ready," said Maya.', 'I am ready, said Maya.'],
     correct_index: 2,
     explanation: 'Quotation marks surround the exact words spoken, with punctuation inside the closing mark.',
+    curriculum_code: 'AC9E5LA09',
   },
   {
     id: '1d3c4617-39fd-4fb7-8f70-b8327c5e6f1a',
     topic: 'grammar_punctuation',
     year_level: 'grade_6',
     difficulty: 'proficient',
-    question_text: 'Identify the sentence with correct subject-verb agreement.',
-    options: ['The team be winning.', 'The team is winning.', 'The team are winning.', 'The team am winning.'],
+    question_text: 'Which sentence has correct subject-verb agreement?',
+    options: ['The class have a test today.', 'The class has a test today.', 'The class having a test today.', 'The class have has a test today.'],
     correct_index: 1,
-    explanation: "'Team' is a collective noun treated as singular in Australian English, so it takes 'is'.",
+    explanation: "'Class' is a collective noun treated as singular in Australian English, so it takes 'has'.",
+    curriculum_code: 'AC9E6LA07',
   },
   {
     id: 'ed971577-6cda-4791-a618-1e206bd5d838',
@@ -2542,16 +2573,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['She gave the book to him and me.', 'She gave the book to him and I.', 'She gave the book to he and I.', 'She gave the book to him and myself.'],
     correct_index: 0,
     explanation: "'Me' is the correct object pronoun after a preposition like 'to', not 'I'.",
+    curriculum_code: 'AC9E6LA08',
   },
   {
     id: '415dc692-53e4-4e69-aeb7-7c0d6b71e90e',
     topic: 'grammar_punctuation',
     year_level: 'year_7',
     difficulty: 'developing',
-    question_text: "Which word correctly completes: 'Neither the students nor the teacher ___ ready.'",
-    options: ['were', 'is', 'are', 'was'],
-    correct_index: 3,
-    explanation: "With 'neither/nor', the verb agrees with the nearer subject, 'teacher' (singular), so 'was'.",
+    question_text: "Which word correctly completes: 'Each of the students ___ a locker.'",
+    options: ['have', 'has', 'were', 'are'],
+    correct_index: 1,
+    explanation: "'Each' is singular, so it takes the singular verb 'has', even though 'students' is plural.",
+    curriculum_code: 'AC9E7LA05',
   },
   {
     id: '0980a6fc-b23f-4807-bbf0-a1c5f37b0323',
@@ -2562,16 +2595,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['I was tired I went to bed.', 'I was tired, and, I went to bed.', 'I was tired, so I went to bed.', 'I was tired, I went to bed.'],
     correct_index: 2,
     explanation: 'A comma splice joins two independent clauses with only a comma; adding a conjunction like "so" fixes it.',
+    curriculum_code: 'AC9E7LA06',
   },
   {
     id: '419ca4df-a461-4094-adb2-160c1ca07d86',
     topic: 'grammar_punctuation',
     year_level: 'year_8',
     difficulty: 'proficient',
-    question_text: 'Which sentence correctly uses a semicolon?',
-    options: ['I like tea however; I prefer coffee.', 'I like tea; however, I prefer coffee.', 'I like tea, however I prefer coffee.', 'I like tea; and coffee.'],
-    correct_index: 1,
-    explanation: "A semicolon can join two related independent clauses, often before a conjunctive adverb like 'however'.",
+    question_text: 'Which sentence correctly uses a dash for emphasis?',
+    options: ["The plan was perfect, until it wasn't.", "The plan was perfect until it wasn't—", "The plan was perfect—until it wasn't.", "The plan was perfect; until, it wasn't."],
+    correct_index: 2,
+    explanation: 'A dash can be used to create a dramatic pause before an unexpected turn, placed directly between the two clauses.',
+    curriculum_code: 'AC9E8LA06',
   },
   {
     id: '9f5794dc-cd81-46ca-966b-15ccf4b957d8',
@@ -2582,6 +2617,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The weather will affect our plans.', 'The weather will effect our plans.', 'The weather will have an affect on our plans.', 'The weather will affects our plans.'],
     correct_index: 0,
     explanation: "'Affect' is usually a verb meaning to influence; 'effect' is usually a noun meaning a result.",
+    curriculum_code: 'AC9E8LA07',
   },
   {
     id: 'eeaad202-185f-466d-9105-44350a102553',
@@ -2592,6 +2628,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The book which I borrowed last week is overdue.', 'The book, that I borrowed last week, is overdue.', 'The book who I borrowed last week is overdue.', 'The book, which I borrowed last week, is overdue.'],
     correct_index: 3,
     explanation: "'Which' introduces non-essential information and is set off with commas; 'that' introduces essential information without commas.",
+    curriculum_code: 'AC9E9LA06',
   },
   {
     id: 'd441055b-36ae-46d3-bcf8-9f1339d19840',
@@ -2602,6 +2639,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The storm is breaking the window.', 'The storm will break the window.', 'The window was broken by the storm.', 'The storm broke the window.'],
     correct_index: 2,
     explanation: 'In the passive voice, the subject receives the action instead of performing it: "the window was broken" rather than "the storm broke".',
+    curriculum_code: 'AC9E9LA07',
   },
   {
     id: '1a2b8b90-23cb-4a4c-ba56-e1f69eb5bf8b',
@@ -2612,6 +2650,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['If it would rain, I stay home.', 'If it rained, I would stay home.', 'If it rains, I would stay home.', 'If it rained, I will stay home.'],
     correct_index: 1,
     explanation: 'A hypothetical condition in the past tense ("if it rained") pairs with "would" in the result clause.',
+    curriculum_code: 'AC9E10LA06',
   },
   {
     id: 'bdee6a98-b2c7-49e4-bca6-5437992f5bd8',
@@ -2622,6 +2661,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['There are fewer students in this class.', 'There is less students in this class.', 'There are less students in this class.', 'There are fewer student in this class.'],
     correct_index: 0,
     explanation: "'Fewer' is used for countable nouns like 'students'; 'less' is used for uncountable quantities.",
+    curriculum_code: 'AC9E10LA07',
   },
   {
     id: 'cb264ff5-f2a1-43f3-b425-4dd2a0e38312',
@@ -2632,6 +2672,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Barked loudly.', 'The dog.', 'Loudly barked.', 'The dog barked loudly.'],
     correct_index: 3,
     explanation: 'A complete sentence needs both a subject (the dog) and a verb (barked).',
+    curriculum_code: 'AC9E3LA05',
   },
   {
     id: 'b5bf7939-662f-4e8f-b1f5-1bc9c46f887c',
@@ -2642,6 +2683,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['becouse', 'beacause', 'because', 'becuase'],
     correct_index: 2,
     explanation: "'Because' is spelled b-e-c-a-u-s-e.",
+    curriculum_code: 'AC9E3LA07',
   },
   {
     id: '37c278a6-c23c-4a4e-bff0-b5dcb0e081a6',
@@ -2652,6 +2694,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The child played outside.', 'The children played outside.', 'The childs played outside.', 'The childrens played outside.'],
     correct_index: 1,
     explanation: "'Children' is the irregular plural of 'child'.",
+    curriculum_code: 'AC9E4LA06',
   },
   {
     id: '82e123eb-29fc-4f08-a911-81dedb6de651',
@@ -2662,6 +2705,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['She ate an apple.', 'She ate a apple.', 'She ate an banana.', 'She ate a orange.'],
     correct_index: 0,
     explanation: "'An' is used before words that start with a vowel sound, like 'apple'.",
+    curriculum_code: 'AC9E4LA06',
   },
   {
     id: '994b6be4-e9dd-463c-ab01-911049316286',
@@ -2672,6 +2716,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Yesterday, we walk to school.', 'Yesterday, we walking to school.', 'Yesterday, we will walk to school.', 'Yesterday, we walked to school.'],
     correct_index: 3,
     explanation: "'Walked' is the past tense, matching the word 'yesterday'.",
+    curriculum_code: 'AC9E5LA08',
   },
   {
     id: 'ab8b2ecc-38b1-4095-ac73-3147016fc59c',
@@ -2682,6 +2727,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['She ran quickness to the bus.', 'She ran quicker to the bus fastly.', 'She ran quickly to the bus.', 'She ran quick to the bus.'],
     correct_index: 2,
     explanation: "'Quickly' is an adverb describing how she ran; adverbs often end in '-ly'.",
+    curriculum_code: 'AC9E5LA09',
   },
   {
     id: '63a99f0d-ce9c-4eb4-8b13-3bbdfd925ca4',
@@ -2692,6 +2738,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ["The dog's' bone was buried in the yard.", "The dog's bone was buried in the yard.", "The dogs' bone was buried in the yard.", 'The dogs bone was buried in the yard.'],
     correct_index: 1,
     explanation: "For a single dog, the apostrophe goes before the s: dog's.",
+    curriculum_code: 'AC9E6LA07',
   },
   {
     id: 'ca820a5b-2273-4657-9717-dc224d70719e',
@@ -2702,6 +2749,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The cat chased the mouse.', 'The mouse was chased by the cat.', 'The mouse is being chased.', 'The mouse had been chased.'],
     correct_index: 0,
     explanation: 'In the active voice, the subject (the cat) performs the action directly.',
+    curriculum_code: 'AC9E6LA08',
   },
   {
     id: '31bb0035-32e4-4cfa-91d2-261eeb8a89c2',
@@ -2712,6 +2760,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The woman whom called is my aunt.', 'The woman which called is my aunt.', 'The woman who called was my aunt yesterday still calling.', 'The woman who called is my aunt.'],
     correct_index: 3,
     explanation: "'Who' refers to the subject performing the action (called); 'whom' refers to an object.",
+    curriculum_code: 'AC9E7LA05',
   },
   {
     id: 'b46b99a1-a469-45c4-b4da-bb8b35203cfd',
@@ -2722,6 +2771,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['She likes to hike, swimming, and biking.', 'She likes hiking, to swim, and biking.', 'She likes hiking, swimming, and biking.', 'She likes hiking, swimming, and to bike.'],
     correct_index: 2,
     explanation: 'Parallel structure keeps items in a list in the same grammatical form; all three should end in "-ing".',
+    curriculum_code: 'AC9E7LA06',
   },
   {
     id: 'c2565fdf-21b6-4047-870a-d1d5db76d492',
@@ -2732,6 +2782,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Walking to school, the rainbow was seen by Ben.', 'Walking to school, Ben saw a rainbow.', 'Walking to school, a rainbow appeared to Ben.', 'A rainbow was walking to school, Ben saw.'],
     correct_index: 1,
     explanation: 'The modifier "walking to school" should describe the person doing the walking, which is Ben.',
+    curriculum_code: 'AC9E8LA06',
   },
   {
     id: 'dba9784f-21e1-464c-ab61-976912fb6d00',
@@ -2742,6 +2793,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['She packed three things: a map, a torch, and water.', 'She packed: three things, a map, a torch, and water.', 'She packed three things, a map, a torch, and water:', 'She packed three things a map: a torch, and water.'],
     correct_index: 0,
     explanation: 'A colon introduces a list after a complete independent clause.',
+    curriculum_code: 'AC9E8LA07',
   },
   {
     id: '04b86f71-cfed-40b6-9529-1116068da867',
@@ -2752,6 +2804,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['We went outside', 'It was raining outside', 'Although we went outside', 'Although it was raining'],
     correct_index: 3,
     explanation: 'A subordinate clause cannot stand alone; "although it was raining" depends on the main clause "we went outside".',
+    curriculum_code: 'AC9E9LA06',
   },
   {
     id: '2eb29ebd-6a5a-4b1b-aefb-da04ca178d09',
@@ -2762,6 +2815,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['The book, which I borrowed is overdue.', 'The book that, I borrowed, is overdue.', 'The book that I borrowed is overdue.', 'The book, that I borrowed, is overdue.'],
     correct_index: 2,
     explanation: "'That' introduces essential information and is not set off by commas.",
+    curriculum_code: 'AC9E9LA07',
   },
   {
     id: '52ec8f3e-bc8a-460b-a4be-6681e3f8604c',
@@ -2772,6 +2826,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Not only finishing the race, but she also broke the record.', 'Not only did she finish the race, but she also broke the record.', 'Not only she finished the race, but also breaking the record.', 'Not only did she finish the race, but also she broke the record differently.'],
     correct_index: 1,
     explanation: 'Parallel structure requires matching grammatical forms after "not only" and "but also".',
+    curriculum_code: 'AC9E10LA06',
   },
   {
     id: 'ed01bd6d-9738-4f02-9096-481cac56cbd2',
@@ -2782,6 +2837,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Because the storm was approaching, the ship returned to port.', 'Because the storm was approaching.', 'The ship, because the storm was approaching.', 'Returning to port because of the storm.'],
     correct_index: 0,
     explanation: 'A sentence fragment is missing an independent clause; only the first option has both a subordinate and a main clause.',
+    curriculum_code: 'AC9E10LA07',
   },
   // ── VOCABULARY (additional) ───────────────────────────────────────────────
 
@@ -2790,10 +2846,11 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     topic: 'vocabulary',
     year_level: 'grade_3',
     difficulty: 'foundation',
-    question_text: "Which word means the same as 'happy'?",
-    options: ['Sad', 'Angry', 'Tired', 'Glad'],
-    correct_index: 3,
-    explanation: "'Glad' is a synonym for 'happy'; both carry a similar meaning.",
+    question_text: "Which word means the same as 'small'?",
+    options: ['Tiny', 'Wide', 'Tall', 'Heavy'],
+    correct_index: 0,
+    explanation: "'Tiny' is a synonym for 'small'; both carry a similar meaning.",
+    curriculum_code: 'AC9E3LA09',
   },
   {
     id: '761ad35c-48aa-4aa5-84b3-dfc4d85f3fa3',
@@ -2804,6 +2861,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Narrow', 'Short', 'Large', 'Tiny'],
     correct_index: 2,
     explanation: "'Large' is a synonym for 'big'; both carry a similar meaning.",
+    curriculum_code: 'AC9E3LA09',
   },
   {
     id: '51fd7726-fec8-4cfc-8d3a-bd2dc6cab892',
@@ -2814,6 +2872,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Bright', 'Slow', 'Quick', 'Loud'],
     correct_index: 1,
     explanation: "'Slow' means the opposite of 'fast'.",
+    curriculum_code: 'AC9E3LA09',
   },
   {
     id: 'cf33c031-7f72-4611-ae3b-8eaf401f0849',
@@ -2824,6 +2883,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Cold', 'Warm', 'Wet', 'Dry'],
     correct_index: 0,
     explanation: "'Cold' means the opposite of 'hot'.",
+    curriculum_code: 'AC9E3LA09',
   },
   {
     id: 'd6c0dda4-1444-4bb3-8454-04809eb4a671',
@@ -2834,6 +2894,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Fearful', 'Lazy', 'Quiet', 'Courageous'],
     correct_index: 3,
     explanation: "'Courageous' is a synonym for 'brave'; both carry a similar meaning.",
+    curriculum_code: 'AC9E4LA08',
   },
   {
     id: '0987b25f-1f73-463c-b17b-c1d0cc2b8333',
@@ -2844,6 +2905,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Busy', 'Bright', 'Silent', 'Loud'],
     correct_index: 2,
     explanation: "'Silent' is a synonym for 'quiet'; both carry a similar meaning.",
+    curriculum_code: 'AC9E4LA08',
   },
   {
     id: '4707dd88-c806-4158-8e31-ff7b6e7e9c03',
@@ -2854,6 +2916,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Open', 'End', 'Start', 'Continue'],
     correct_index: 1,
     explanation: "'End' means the opposite of 'begin'.",
+    curriculum_code: 'AC9E4LA08',
   },
   {
     id: '2d8046ab-578a-44e6-86a2-d77db4c47a70',
@@ -2864,16 +2927,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Empty', 'Heavy', 'Round', 'Large'],
     correct_index: 0,
     explanation: "'Empty' means the opposite of 'full'.",
+    curriculum_code: 'AC9E4LA08',
   },
   {
     id: '07c04e5b-e73e-485d-9c61-443c447d078c',
     topic: 'vocabulary',
     year_level: 'grade_5',
     difficulty: 'developing',
-    question_text: "What is the antonym (opposite) of 'generous'?",
-    options: ['Kind', 'Wealthy', 'Helpful', 'Selfish'],
-    correct_index: 3,
-    explanation: "'Selfish' means the opposite of 'generous'.",
+    question_text: "What is the antonym (opposite) of 'cautious'?",
+    options: ['Careful', 'Wary', 'Reckless', 'Alert'],
+    correct_index: 2,
+    explanation: "'Reckless' means the opposite of 'cautious'.",
+    curriculum_code: 'AC9E5LA10',
   },
   {
     id: 'a3f412e6-401f-41a5-80ff-37f85bee76c8',
@@ -2884,6 +2949,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Shy', 'Clever', 'Truthful', 'Dishonest'],
     correct_index: 2,
     explanation: "'Truthful' is a synonym for 'honest'; both carry a similar meaning.",
+    curriculum_code: 'AC9E5LA10',
   },
   {
     id: '2d51e5dc-bc01-4837-99f9-485c49163f41',
@@ -2894,6 +2960,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Long', 'Easy', 'Hard', 'Complex'],
     correct_index: 1,
     explanation: "'Easy' means the opposite of 'difficult'.",
+    curriculum_code: 'AC9E5LA10',
   },
   {
     id: 'fc8408b7-53fa-4117-90b5-0a4419faa413',
@@ -2904,6 +2971,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Huge', 'Tiny', 'Average', 'Narrow'],
     correct_index: 0,
     explanation: "'Huge' is a synonym for 'enormous'; both carry a similar meaning.",
+    curriculum_code: 'AC9E5LA10',
   },
   {
     id: '19451a91-9333-4777-99f8-e7cc168c9630',
@@ -2914,6 +2982,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Bored', 'Careless', 'Tired', 'Inquisitive'],
     correct_index: 3,
     explanation: "'Inquisitive' is a synonym for 'curious'; both carry a similar meaning.",
+    curriculum_code: 'AC9E6LA09',
   },
   {
     id: '7ac69894-be4b-403e-b0b4-7b5324f1fdf8',
@@ -2924,6 +2993,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Suggest', 'Request', 'Forbid', 'Allow'],
     correct_index: 2,
     explanation: "'Forbid' means the opposite of 'permit'.",
+    curriculum_code: 'AC9E6LA09',
   },
   {
     id: 'ca693f51-1dee-4de4-815d-9def733f486f',
@@ -2934,6 +3004,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Confuse', 'Help', 'Hinder', 'Ignore'],
     correct_index: 1,
     explanation: "'Help' is a synonym for 'assist'; both carry a similar meaning.",
+    curriculum_code: 'AC9E6LA09',
   },
   {
     id: '7c3fabd7-4857-41c3-8d90-764a26245955',
@@ -2944,6 +3015,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Fake', 'Real', 'Honest', 'Original'],
     correct_index: 0,
     explanation: "'Fake' means the opposite of 'genuine'.",
+    curriculum_code: 'AC9E6LA09',
   },
   {
     id: '476ab863-4b39-4ce7-b88a-fbadcd6e62d2',
@@ -2954,6 +3026,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Lazy', 'Careless', 'Forgetful', 'Hardworking'],
     correct_index: 3,
     explanation: "'Hardworking' is a synonym for 'diligent'; both carry a similar meaning.",
+    curriculum_code: 'AC9E7LA10',
   },
   {
     id: 'f4b446b8-2341-47df-b925-73718e88ceb6',
@@ -2964,6 +3037,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Common', 'Frequent', 'Scarce', 'Plentiful'],
     correct_index: 2,
     explanation: "'Scarce' means the opposite of 'abundant'.",
+    curriculum_code: 'AC9E7LA10',
   },
   {
     id: '66ef33a3-cc37-44df-88e8-966f6e616e90',
@@ -2974,6 +3048,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Nervous', 'Eager', 'Unwilling', 'Hesitant'],
     correct_index: 1,
     explanation: "'Eager' means the opposite of 'reluctant'.",
+    curriculum_code: 'AC9E7LA10',
   },
   {
     id: '69113c4c-013d-4dca-a757-6093cff871ac',
@@ -2984,6 +3059,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Honest', 'Secretive', 'Rude', 'Formal'],
     correct_index: 0,
     explanation: "'Honest' is a synonym for 'candid'; both carry a similar meaning.",
+    curriculum_code: 'AC9E7LA10',
   },
   {
     id: '9e022524-17f1-4266-84c8-e21aa6fc1b82',
@@ -2994,6 +3070,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Obvious', 'Simple', 'Certain', 'Unclear'],
     correct_index: 3,
     explanation: "'Unclear' is a synonym for 'ambiguous'; both carry a similar meaning.",
+    curriculum_code: 'AC9E8LA08',
   },
   {
     id: 'ed81ae57-e9c5-446e-9754-b2ecfaed4c0f',
@@ -3004,6 +3081,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Generous', 'Caring', 'Malevolent', 'Kind'],
     correct_index: 2,
     explanation: "'Malevolent' means the opposite of 'benevolent'.",
+    curriculum_code: 'AC9E8LA08',
   },
   {
     id: 'cf866264-8d92-4a1f-b94d-c52942278d65',
@@ -3014,6 +3092,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Difficult', 'Boring', 'Exciting', 'Brief'],
     correct_index: 1,
     explanation: "'Boring' is a synonym for 'tedious'; both carry a similar meaning.",
+    curriculum_code: 'AC9E8LA08',
   },
   {
     id: '5aa05f91-3799-4b0f-a40d-c3ff073372ca',
@@ -3024,6 +3103,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Fragile', 'Strong', 'Tough', 'Flexible'],
     correct_index: 0,
     explanation: "'Fragile' means the opposite of 'resilient'.",
+    curriculum_code: 'AC9E8LA08',
   },
   {
     id: '50856bbd-c676-406c-9b04-59aa9ffdd22b',
@@ -3034,6 +3114,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Idealistic', 'Emotional', 'Reckless', 'Practical'],
     correct_index: 3,
     explanation: "'Practical' is a synonym for 'pragmatic'; both carry a similar meaning.",
+    curriculum_code: 'AC9E9LA08',
   },
   {
     id: '1343c729-28b1-4943-892d-1adc1d7ceb2a',
@@ -3044,6 +3125,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Lengthy', 'Detailed', 'Concise', 'Wordy'],
     correct_index: 2,
     explanation: "'Concise' means the opposite of 'verbose'.",
+    curriculum_code: 'AC9E9LA08',
   },
   {
     id: 'f44e056f-2836-4bba-962c-8828be4aa1c6',
@@ -3054,6 +3136,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Forgetful', 'Persistent', 'Timid', 'Careless'],
     correct_index: 1,
     explanation: "'Persistent' is a synonym for 'tenacious'; both carry a similar meaning.",
+    curriculum_code: 'AC9E9LA08',
   },
   {
     id: '8722f741-e1d9-4ee0-b4f8-a71f5376eb43',
@@ -3064,6 +3147,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Credulous', 'Doubtful', 'Cautious', 'Critical'],
     correct_index: 0,
     explanation: "'Credulous' means the opposite of 'skeptical'.",
+    curriculum_code: 'AC9E9LA08',
   },
   {
     id: '859b70f6-3f0b-4835-a3dd-3a101a6eee69',
@@ -3074,6 +3158,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Permanent', 'Ancient', 'Solid', 'Transient'],
     correct_index: 3,
     explanation: "'Transient' is a synonym for 'ephemeral'; both carry a similar meaning.",
+    curriculum_code: 'AC9E10LA08',
   },
   {
     id: '97bf7db1-10d8-4157-b4cc-7db974dabdb3',
@@ -3084,6 +3169,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Strict', 'Simple', 'Lavish', 'Plain'],
     correct_index: 2,
     explanation: "'Lavish' means the opposite of 'austere'.",
+    curriculum_code: 'AC9E10LA08',
   },
   {
     id: 'bdbd0fa3-4b84-420c-bf61-70a12659da75',
@@ -3094,6 +3180,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Confused', 'Articulate', 'Clumsy', 'Silent'],
     correct_index: 1,
     explanation: "'Articulate' is a synonym for 'eloquent'; both carry a similar meaning.",
+    curriculum_code: 'AC9E10LA08',
   },
   {
     id: '080d4e88-959a-4aee-8dc0-f2dc6f2c4e5d',
@@ -3104,6 +3191,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Relevant', 'Unrelated', 'Vague', 'Outdated'],
     correct_index: 0,
     explanation: "'Relevant' is a synonym for 'pertinent'; both carry a similar meaning.",
+    curriculum_code: 'AC9E10LA08',
   },
   {
     id: '58f6955a-c85c-448b-83ed-c87a75df1ea3',
@@ -3114,6 +3202,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Mean', 'Rude', 'Cruel', 'Nice'],
     correct_index: 3,
     explanation: "'Nice' is a synonym for 'kind'; both carry a similar meaning.",
+    curriculum_code: 'AC9E3LA09',
   },
   {
     id: '3facbf39-ff3f-4de0-a59c-18fa48337e8e',
@@ -3124,16 +3213,18 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Fresh', 'Shiny', 'Dirty', 'Neat'],
     correct_index: 2,
     explanation: "'Dirty' means the opposite of 'clean'.",
+    curriculum_code: 'AC9E3LA09',
   },
   {
     id: '3c372c9a-b647-413b-b4ce-24b3f17bb902',
     topic: 'vocabulary',
     year_level: 'grade_3',
     difficulty: 'developing',
-    question_text: "Which word means the same as 'small'?",
-    options: ['Tall', 'Little', 'Huge', 'Wide'],
-    correct_index: 1,
-    explanation: "'Little' is a synonym for 'small'; both carry a similar meaning.",
+    question_text: "Which word means the same as 'shy'?",
+    options: ['Bashful', 'Loud', 'Bold', 'Confident'],
+    correct_index: 0,
+    explanation: "'Bashful' is a synonym for 'shy'; both describe feeling timid around others.",
+    curriculum_code: 'AC9E3LA09',
   },
   {
     id: '94e50ad1-11f2-4bd3-a7cc-36ad6cecda1b',
@@ -3144,6 +3235,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Quiet', 'Noisy', 'Sudden', 'Bright'],
     correct_index: 0,
     explanation: "'Quiet' means the opposite of 'loud'.",
+    curriculum_code: 'AC9E3LA09',
   },
   {
     id: 'd3dec9c6-625e-4944-8fae-3f35bfc4a355',
@@ -3154,6 +3246,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Soft', 'Calm', 'Careful', 'Rough'],
     correct_index: 3,
     explanation: "'Rough' means the opposite of 'gentle'.",
+    curriculum_code: 'AC9E4LA08',
   },
   {
     id: '0ac69e3e-4ab8-42ba-87e7-de96292a0451',
@@ -3164,6 +3257,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Careless', 'Young', 'Sensible', 'Foolish'],
     correct_index: 2,
     explanation: "'Sensible' is a synonym for 'wise'; both carry a similar meaning.",
+    curriculum_code: 'AC9E4LA08',
   },
   {
     id: 'd5c925c8-9007-4d05-8828-800d383ba551',
@@ -3174,6 +3268,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Clear', 'Complicated', 'Easy', 'Plain'],
     correct_index: 1,
     explanation: "'Complicated' means the opposite of 'simple'.",
+    curriculum_code: 'AC9E4LA08',
   },
   {
     id: '44a8eb09-defb-4aa9-a571-567558569fef',
@@ -3184,6 +3279,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Cheerful', 'Miserable', 'Angry', 'Bored'],
     correct_index: 0,
     explanation: "'Cheerful' is a synonym for 'joyful'; both carry a similar meaning.",
+    curriculum_code: 'AC9E4LA08',
   },
   {
     id: 'c00ae854-4966-4821-8999-04f6e8ee315c',
@@ -3194,6 +3290,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Modern', 'New', 'Recent', 'Old'],
     correct_index: 3,
     explanation: "'Old' is a synonym for 'ancient'; both carry a similar meaning.",
+    curriculum_code: 'AC9E5LA10',
   },
   {
     id: 'b9f9321a-774e-4f44-9551-775013656e50',
@@ -3204,6 +3301,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Breakable', 'Weak', 'Sturdy', 'Delicate'],
     correct_index: 2,
     explanation: "'Sturdy' means the opposite of 'fragile'.",
+    curriculum_code: 'AC9E5LA10',
   },
   {
     id: '62fd9566-4e2e-4721-9e0a-dfe61533cd2e',
@@ -3214,6 +3312,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Hasty', 'Careful', 'Reckless', 'Bold'],
     correct_index: 1,
     explanation: "'Careful' is a synonym for 'cautious'; both carry a similar meaning.",
+    curriculum_code: 'AC9E5LA10',
   },
   {
     id: '3a682133-c89a-48b2-8310-cbd76aaad7ca',
@@ -3224,6 +3323,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Empty', 'Occupied', 'Full', 'Crowded'],
     correct_index: 0,
     explanation: "'Empty' is a synonym for 'vacant'; both carry a similar meaning.",
+    curriculum_code: 'AC9E5LA10',
   },
   {
     id: 'ffa07dbb-2e73-4600-9aa6-c1369b7f057b',
@@ -3234,6 +3334,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Eager', 'Excited', 'Willing', 'Unwilling'],
     correct_index: 3,
     explanation: "'Unwilling' is a synonym for 'reluctant'; both carry a similar meaning.",
+    curriculum_code: 'AC9E6LA09',
   },
   {
     id: 'a2819051-0d1c-4aed-885e-b223d2d0f22c',
@@ -3244,6 +3345,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Rare', 'Limited', 'Plentiful', 'Scarce'],
     correct_index: 2,
     explanation: "'Plentiful' is a synonym for 'abundant'; both carry a similar meaning.",
+    curriculum_code: 'AC9E6LA09',
   },
   {
     id: '2fdfdd0a-1fc4-42ac-8f3b-634ea8612c4a',
@@ -3254,6 +3356,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['See-through', 'Opaque', 'Clear', 'Visible'],
     correct_index: 1,
     explanation: "'Opaque' means the opposite of 'transparent'.",
+    curriculum_code: 'AC9E6LA09',
   },
   {
     id: '5271475c-f9dd-4f23-a862-0b98a9d3be8a',
@@ -3264,6 +3367,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Wasteful', 'Thrifty', 'Careful', 'Modest'],
     correct_index: 0,
     explanation: "'Wasteful' means the opposite of 'frugal'.",
+    curriculum_code: 'AC9E6LA09',
   },
   {
     id: '87011eca-93ae-42ff-b8c3-3c59edc79d8c',
@@ -3274,6 +3378,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Mumbling', 'Silent', 'Confused', 'Well-spoken'],
     correct_index: 3,
     explanation: "'Well-spoken' is a synonym for 'articulate'; both carry a similar meaning.",
+    curriculum_code: 'AC9E7LA10',
   },
   {
     id: '463229e3-6eb0-46c2-a6e9-2539cac105da',
@@ -3284,6 +3389,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Excitement', 'Hunger', 'Exhaustion', 'Energy'],
     correct_index: 2,
     explanation: "'Exhaustion' is a synonym for 'fatigue'; both carry a similar meaning.",
+    curriculum_code: 'AC9E7LA10',
   },
   {
     id: '965444d3-eb0b-4c04-974c-d9c859ad05bc',
@@ -3294,6 +3400,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Relaxed', 'Cautious', 'Careless', 'Confident'],
     correct_index: 1,
     explanation: "'Cautious' is a synonym for 'wary'; both carry a similar meaning.",
+    curriculum_code: 'AC9E7LA10',
   },
   {
     id: '3c2e822d-860e-4522-ba40-13da96faa642',
@@ -3304,6 +3411,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Bright', 'Dull', 'Faded', 'Pale'],
     correct_index: 0,
     explanation: "'Bright' is a synonym for 'vivid'; both carry a similar meaning.",
+    curriculum_code: 'AC9E7LA10',
   },
   {
     id: 'a04e438f-3f73-4c8a-81c7-87b0bf2080c2',
@@ -3314,6 +3422,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Brief', 'Short', 'Clear', 'Verbose'],
     correct_index: 3,
     explanation: "'Verbose' means the opposite of 'concise'.",
+    curriculum_code: 'AC9E8LA08',
   },
   {
     id: 'f1a9431e-d244-4b99-b898-7f5f8229beb5',
@@ -3324,6 +3433,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Outdated', 'Common', 'Original', 'Traditional'],
     correct_index: 2,
     explanation: "'Original' is a synonym for 'innovative'; both carry a similar meaning.",
+    curriculum_code: 'AC9E8LA08',
   },
   {
     id: '0ef3a5aa-6d8a-4cb2-9a3e-df2543195886',
@@ -3334,6 +3444,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Unlikely', 'Believable', 'Impossible', 'Absurd'],
     correct_index: 1,
     explanation: "'Believable' is a synonym for 'plausible'; both carry a similar meaning.",
+    curriculum_code: 'AC9E8LA08',
   },
   {
     id: 'e9a20d22-c78f-429d-b2d1-8de19533d58d',
@@ -3344,6 +3455,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Passionate', 'Uninterested', 'Neutral', 'Bored'],
     correct_index: 0,
     explanation: "'Passionate' means the opposite of 'indifferent'.",
+    curriculum_code: 'AC9E8LA08',
   },
   {
     id: '42c6b321-a9cb-48c5-91b3-0da12f6d5bb0',
@@ -3354,6 +3466,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Modern', 'Popular', 'Advanced', 'Outdated'],
     correct_index: 3,
     explanation: "'Outdated' is a synonym for 'obsolete'; both carry a similar meaning.",
+    curriculum_code: 'AC9E9LA08',
   },
   {
     id: 'eec23e54-4448-4721-ae98-1b173413bda9',
@@ -3364,6 +3477,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Random', 'Vague', 'Logical', 'Confusing'],
     correct_index: 2,
     explanation: "'Logical' is a synonym for 'coherent'; both carry a similar meaning.",
+    curriculum_code: 'AC9E9LA08',
   },
   {
     id: '3c9245e6-9e37-4233-bd5b-5a895bf6ba90',
@@ -3374,6 +3488,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Severe', 'Harmless', 'Dangerous', 'Toxic'],
     correct_index: 1,
     explanation: "'Harmless' is a synonym for 'benign'; both carry a similar meaning.",
+    curriculum_code: 'AC9E9LA08',
   },
   {
     id: '816e1356-3f93-4cfb-b86a-2ef0d66890c4',
@@ -3384,6 +3499,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Consistent', 'Unpredictable', 'Chaotic', 'Unstable'],
     correct_index: 0,
     explanation: "'Consistent' means the opposite of 'erratic'.",
+    curriculum_code: 'AC9E9LA08',
   },
   {
     id: '9f31895e-b403-4645-80f7-8d6be572466a',
@@ -3394,6 +3510,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Minor', 'Trivial', 'Secondary', 'Supreme'],
     correct_index: 3,
     explanation: "'Supreme' is a synonym for 'paramount'; both carry a similar meaning.",
+    curriculum_code: 'AC9E10LA08',
   },
   {
     id: 'c1b4d5ef-2643-4fd3-8a97-1e8aceb1bfec',
@@ -3404,6 +3521,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Decisive', 'Certain', 'Uncertain', 'Confident'],
     correct_index: 2,
     explanation: "'Uncertain' is a synonym for 'ambivalent'; both carry a similar meaning.",
+    curriculum_code: 'AC9E10LA08',
   },
   {
     id: 'd0e8bc82-270f-4b8f-af5b-7a1eea9e4679',
@@ -3414,6 +3532,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Confusing', 'Convincing', 'Weak', 'Flawed'],
     correct_index: 1,
     explanation: "'Convincing' is a synonym for 'cogent'; both carry a similar meaning.",
+    curriculum_code: 'AC9E10LA08',
   },
   {
     id: 'a1216c3f-edcf-482e-9ee2-6fc5c4446d6e',
@@ -3424,6 +3543,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     options: ['Inborn', 'Learned', 'Acquired', 'Artificial'],
     correct_index: 0,
     explanation: "'Inborn' is a synonym for 'innate'; both carry a similar meaning.",
+    curriculum_code: 'AC9E10LA08',
   },
   // ── LIFE SCIENCE (additional) ─────────────────────────────────────────────
 
