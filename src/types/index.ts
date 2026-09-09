@@ -66,6 +66,18 @@ export interface Topic {
 
 export type Difficulty = 'foundation' | 'developing' | 'proficient' | 'advanced'
 
+export type StimulusType = 'passage' | 'data_table' | 'image'
+
+export interface Stimulus {
+  id: string
+  type: StimulusType
+  title: string
+  body: string            // markdown/plain text for 'passage'; JSON-stringified rows for 'data_table'; image URL for 'image'
+  subject: SubjectSlug
+  year_level: YearLevel
+  word_count?: number      // 'passage' only, informational
+}
+
 // ─── Questions ────────────────────────────────────────────────────────────────
 
 export type QuestionFormat = 'multiple_choice' | 'long_form'
@@ -78,6 +90,8 @@ interface QuestionBase {
   question_text: string
   explanation: string
   curriculum_code?: string   // e.g. "AC9M6N01"
+  stimulus_id?: string          // FK into Stimulus — questions sharing an id are asked about the same passage/data
+  calculator_allowed?: boolean  // Maths Yr7-9 Numeracy only; true = calculator section, unset/false = non-calculator
   created_at: string
 }
 
