@@ -15,6 +15,7 @@ import { dirname, join } from 'path'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = join(__dirname, '..')
 const bankPath = join(repoRoot, 'src/lib/questions/bank.ts')
+const stimuliPath = join(repoRoot, 'src/lib/questions/stimuli.ts')
 const seedPath = join(repoRoot, 'supabase/seed.sql')
 
 let src = readFileSync(bankPath, 'utf8')
@@ -30,6 +31,17 @@ if (added > 0) {
   console.log(`Assigned ids to ${added} new question(s) in bank.ts.`)
 }
 
+let stimuliSrc = readFileSync(stimuliPath, 'utf8')
+let stimuliAdded = 0
+stimuliSrc = stimuliSrc.replace(/\{\n(\s+)(?!id:)type:/g, (m, indent) => {
+  stimuliAdded++
+  return `{\n${indent}id: '${randomUUID()}',\n${indent}type:`
+})
+if (stimuliAdded > 0) {
+  writeFileSync(stimuliPath, stimuliSrc)
+  console.log(`Assigned ids to ${stimuliAdded} new stimulus/stimuli in stimuli.ts.`)
+}
+
 // Strip TS-only syntax so the array literal can be evaluated as plain JS.
 const jsSrc = src
   .replace(/^import type .+\n/m, '')
@@ -42,16 +54,44 @@ unlinkSync(tmpPath)
 
 console.log(`Parsed ${QUESTION_BANK.length} questions.`)
 
+const stimuliJsSrc = stimuliSrc
+  .replace(/^import type .+\n/m, '')
+  .replace(/export const STIMULI:[^=]+=\s*\[/, 'export const STIMULI = [')
+const stimuliTmpPath = join(repoRoot, '.stimuli-tmp.mjs')
+writeFileSync(stimuliTmpPath, stimuliJsSrc)
+const { STIMULI } = await import('file://' + stimuliTmpPath)
+unlinkSync(stimuliTmpPath)
+console.log(`Parsed ${STIMULI.length} stimuli.`)
+
 function sqlQuote(str) {
   return `'${String(str).replace(/'/g, "''")}'`
 }
+
+const stimuliSqlLines = STIMULI.map(s => {
+  const wordCount = s.word_count ?? 'null'
+  return `(${sqlQuote(s.id)}, ${sqlQuote(s.type)}, ${sqlQuote(s.title)}, ${sqlQuote(s.body)}, ${sqlQuote(s.subject)}, ${sqlQuote(s.year_level)}, ${wordCount})`
+})
+const stimuliSql = stimuliSqlLines.length ? `insert into stimuli (id, type, title, body, subject, year_level, word_count)
+values
+${stimuliSqlLines.join(',\n')}
+on conflict (id) do update set
+  type = excluded.type,
+  title = excluded.title,
+  body = excluded.body,
+  subject = excluded.subject,
+  year_level = excluded.year_level,
+  word_count = excluded.word_count;
+
+` : ''
 
 const sqlLines = QUESTION_BANK.map(q => {
   const format = q.format ?? 'multiple_choice'
   const options = q.options ? `'${JSON.stringify(q.options).replace(/'/g, "''")}'::jsonb` : 'null'
   const correctIndex = q.correct_index ?? 'null'
   const curriculumCode = q.curriculum_code ? sqlQuote(q.curriculum_code) : 'null'
-  return `(${sqlQuote(q.id)}, ${sqlQuote(q.topic)}, ${sqlQuote(q.year_level)}, ${sqlQuote(q.difficulty)}, ${sqlQuote(format)}, ${sqlQuote(q.question_text)}, ${options}, ${correctIndex}, ${sqlQuote(q.explanation)}, ${curriculumCode}, true)`
+  const stimulusId = q.stimulus_id ? sqlQuote(q.stimulus_id) : 'null'
+  const calculatorAllowed = q.calculator_allowed === undefined ? 'null' : q.calculator_allowed
+  return `(${sqlQuote(q.id)}, ${sqlQuote(q.topic)}, ${sqlQuote(q.year_level)}, ${sqlQuote(q.difficulty)}, ${sqlQuote(format)}, ${sqlQuote(q.question_text)}, ${options}, ${correctIndex}, ${sqlQuote(q.explanation)}, ${curriculumCode}, ${stimulusId}, ${calculatorAllowed}, true)`
 })
 
 const sql = `-- ─────────────────────────────────────────────────────────────────────────────
@@ -61,7 +101,7 @@ const sql = `-- ─────────────────────�
 -- Run this in the Supabase SQL editor AFTER schema.sql.
 -- ─────────────────────────────────────────────────────────────────────────────
 
-insert into questions (id, topic, year_level, difficulty, format, question_text, options, correct_index, explanation, curriculum_code, is_published)
+${stimuliSql}insert into questions (id, topic, year_level, difficulty, format, question_text, options, correct_index, explanation, curriculum_code, stimulus_id, calculator_allowed, is_published)
 values
 ${sqlLines.join(',\n')}
 on conflict (id) do update set
@@ -74,6 +114,8 @@ on conflict (id) do update set
   correct_index = excluded.correct_index,
   explanation = excluded.explanation,
   curriculum_code = excluded.curriculum_code,
+  stimulus_id = excluded.stimulus_id,
+  calculator_allowed = excluded.calculator_allowed,
   is_published = excluded.is_published;
 `
 
