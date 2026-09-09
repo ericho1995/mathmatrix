@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: 'What year levels and subjects are covered?',
-    a: 'Maths, English and Science from Grade 3 to Year 10, plus VCE-style selective subjects (Chemistry, Physics, Maths Methods, Further Maths, Specialist Maths) for Year 11-12.',
+    a: 'Maths, English and Science from Grade 3 to Year 10, plus VCE-style selective subjects (Chemistry, Physics, Maths Methods, General Mathematics, Specialist Maths) for Year 11-12.',
   },
   {
     q: 'How do XP and streaks work?',

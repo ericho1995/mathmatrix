@@ -33,7 +33,7 @@ export type YearLevel =
 
 export type SubjectSlug =
   | 'math' | 'english' | 'science'
-  | 'chemistry' | 'physics' | 'maths_methods' | 'further_maths' | 'specialist_maths'
+  | 'chemistry' | 'physics' | 'maths_methods' | 'general_maths' | 'specialist_maths'
 
 export interface Subject {
   slug: SubjectSlug
@@ -52,7 +52,7 @@ export type TopicSlug =
   | 'chem_atomic_structure' | 'chem_reactions'
   | 'phys_mechanics' | 'phys_electricity'
   | 'mm_calculus' | 'mm_probability'
-  | 'fm_data_analysis' | 'fm_financial'
+  | 'gm_data_analysis' | 'gm_financial'
   | 'sm_complex_numbers' | 'sm_vectors'
 
 export interface Topic {

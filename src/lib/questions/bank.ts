@@ -739,11 +739,11 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     explanation: 'For independent events, P(A and B) = P(A) × P(B) = 0.3 × 0.4 = 0.12.',
   },
 
-  // ── FURTHER MATHEMATICS (VCE selective) — Year 11 ────────────────────────
+  // ── GENERAL MATHEMATICS (VCE selective) — Year 11 ────────────────────────
 
   {
     id: '91dd8c91-8f1f-491f-96b8-e2610b41fe99',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'What does the median of a data set represent?',
@@ -753,7 +753,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '91c45557-dbe3-465b-9fd5-3be3080e9dc9',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'A data set has Q1 = 10 and Q3 = 18. What is the interquartile range (IQR)?',
@@ -763,7 +763,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '23d8c575-deee-4f27-b355-ce6a665086d3',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: '$1000 is invested at 5% simple interest per year. How much interest is earned after 3 years?',
@@ -773,7 +773,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '181fa7ab-86e6-4dde-b712-b5d3351df455',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'What does "principal" mean in the context of a loan or investment?',
@@ -5244,11 +5244,11 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     correct_index: 3,
     explanation: 'The mean of a binomial distribution is calculated as the number of trials multiplied by the probability of success, np.',
   },
-  // ── FURTHER MATHEMATICS (additional) ──────────────────────────────────────
+  // ── GENERAL MATHEMATICS (additional) ──────────────────────────────────────
 
   {
     id: '8ed2b902-989d-40e5-ba80-173237f28e3e',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'What is the mean of: 4, 7, 9, 10, 5, 12?',
@@ -5258,7 +5258,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '5be8f566-09ce-4593-b7a9-fd4a5114342b',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'What is the mean of: 6, 8, 10, 12, 4, 14?',
@@ -5268,7 +5268,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '5d29cc6e-aafb-435a-b1ba-f0e770a2b2bb',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'What is the range of: 3, 7, 4, 9, 2, 15?',
@@ -5278,7 +5278,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'd908d7a3-c5fc-4ef7-9d08-bbdfce5615ba',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'What is the range of: 10, 4, 12, 6, 8?',
@@ -5288,7 +5288,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '23ab2720-a108-4115-8abe-8580d6fd8f32',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'A data set has Q1 = 5 and Q3 = 20. What is the interquartile range?',
@@ -5298,7 +5298,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '3ba40142-6bfe-4319-a80a-079977eb8e72',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'A data set has Q1 = 10 and Q3 = 30. What is the interquartile range?',
@@ -5308,7 +5308,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'e276b18a-a60e-49ad-a8ab-c21fbf920163',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'A data set has Q1 = 8 and Q3 = 24. What is the interquartile range?',
@@ -5318,7 +5318,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'ef6437b8-827a-4ca0-9c35-1d8a5c2e6f2b',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'Which measure of centre is most affected by an extreme outlier in a data set?',
@@ -5328,7 +5328,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '400cdc68-f4ac-443b-988f-acda1fe55ea7',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'In a box plot, what does the line inside the box represent?',
@@ -5338,7 +5338,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '3f232a72-0e11-4f28-b1bf-49133d438cd3',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: 'A data set is described as positively skewed when:',
@@ -5348,7 +5348,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'eec6117a-44bf-433d-a3cf-931940534924',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'What does the standard deviation of a data set measure?',
@@ -5358,7 +5358,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '6e1b5b35-e265-4737-b5d7-58a0dcaffb34',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'How much simple interest is earned on $1000 invested at 4% per year, over 3 years?',
@@ -5368,7 +5368,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '521a3740-8510-4217-b96d-798a3c8c4ee3',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'How much simple interest is earned on $2000 invested at 5% per year, over 2 years?',
@@ -5378,7 +5378,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '5c635027-be5a-4f76-9429-8b2d2d004e15',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'How much simple interest is earned on $1500 invested at 3% per year, over 4 years?',
@@ -5388,7 +5388,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '573f379f-1c60-4633-8f67-b1c06e04f0a2',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: 'Using compound interest, what is the value of $1000 invested at 5% per year (compounded annually) after 2 years?',
@@ -5398,7 +5398,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '6a0880f6-97cb-4c2e-9107-4d6dc92ad737',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: 'Using compound interest, what is the value of $2000 invested at 4% per year (compounded annually) after 2 years?',
@@ -5408,7 +5408,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'ce8b7f9e-994e-404a-9e5e-a6f54acaa71a',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'What term describes the original amount of money borrowed or invested, before interest?',
@@ -5418,7 +5418,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '9302a2b8-ec8b-4781-8373-e6ef99835c75',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'What is the main difference between simple and compound interest?',
@@ -5428,7 +5428,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '226873d3-9000-49cb-8af6-f99362a202d1',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: 'A car valued at $20,000 depreciates by 15% in its first year. What is its value after one year?',
@@ -5438,7 +5438,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '7ec6a61e-a615-464c-b923-ccc785640dc5',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'A loan repayment plan where equal amounts are paid at regular intervals is called:',
@@ -5448,7 +5448,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '9c3b5c45-25f0-4f1f-851d-6847d5057a91',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'Which of these best describes "flat rate" interest on a loan?',
@@ -8861,11 +8861,11 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     explanation: 'Model answer: mutually exclusive events cannot both occur at the same time (e.g. rolling a 2 and rolling a 5 on a single die roll — P(A and B) = 0). Independent events are events where one occurring does not affect the probability of the other occurring (e.g. flipping a coin and rolling a die — the coin result does not affect the die result). Award marks for a correct definition and valid example of each concept.',
   },
 
-  // ── FURTHER MATHEMATICS (VCE premium exam content) ────────────────────────
+  // ── GENERAL MATHEMATICS (VCE premium exam content) ────────────────────────
 
   {
     id: '13a49009-ce4c-469f-815d-29fa85b51fc0',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'What does the mode of a data set represent?',
@@ -8875,7 +8875,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '28f13450-a76b-4719-88e7-f7f9227cda0c',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'Find the mean of the data set: 12, 15, 18, 20, 25.',
@@ -8885,7 +8885,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '340e40c6-9cac-4fa6-bf8c-dba1363fc7e4',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'What is the range of the data set: 12, 15, 18, 20, 25?',
@@ -8895,7 +8895,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '39513678-33c4-4999-91bd-03d320dc17d5',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: 'Using the 1.5 × IQR rule, a data point is considered an outlier if it is:',
@@ -8905,7 +8905,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '617c9dfb-4372-4943-8742-f84cd1dad9a6',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: 'What does the standard deviation of a data set measure?',
@@ -8915,7 +8915,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '4721e3b8-91e6-41a1-8833-6b13f69b4e24',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'The "five-number summary" of a data set consists of:',
@@ -8925,7 +8925,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '0ea30f56-d5a5-4a69-bdd1-50e1713dde84',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'In a boxplot, what does the length of the box itself represent?',
@@ -8935,7 +8935,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'f858a4e8-9038-4b23-bbba-89068d1e35ee',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: 'A distribution with a long tail extending to the right (higher values) is described as:',
@@ -8945,7 +8945,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '2ef8a53f-86b3-4183-bb56-87533dee3d58',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: 'A scatterplot shows points trending upward from left to right. This indicates:',
@@ -8955,7 +8955,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'c32b1f01-51b3-44b2-a15e-798257b96811',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'What is the key difference between a sample and a population in statistics?',
@@ -8965,7 +8965,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'b0ec6cf8-1740-4851-9baa-ffa18426b452',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'proficient',
     format: 'long_form',
@@ -8974,7 +8974,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '0699361d-ec3e-4c69-9660-9e82e89e938e',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'developing',
     format: 'long_form',
@@ -8983,7 +8983,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '6b323358-1249-40cf-ad4f-af0968b41fe6',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'foundation',
     format: 'long_form',
@@ -8992,7 +8992,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'c3fae135-9c21-47ca-a615-05d1c09e843c',
-    topic: 'fm_data_analysis',
+    topic: 'gm_data_analysis',
     year_level: 'year_11',
     difficulty: 'proficient',
     format: 'long_form',
@@ -9002,7 +9002,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
 
   {
     id: 'b1f9e9fb-6f45-45bc-ba4c-c3342e250c8f',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'What is the key difference between simple interest and compound interest?',
@@ -9012,7 +9012,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '49aa1240-e14b-414d-9235-9ab0a37a987b',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: '$2000 is invested at 4% p.a. compound interest, compounded annually. What is the value after 1 year?',
@@ -9022,7 +9022,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '8535f30b-f8ad-4700-b7e9-a482a3129286',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'An interest rate of 7% should be used in a calculation as:',
@@ -9032,7 +9032,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '566eecd7-cfb2-4a4d-9405-2f5f75536629',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'What does "straight-line depreciation" mean?',
@@ -9042,7 +9042,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '30ef8f89-55eb-4437-804e-06bbb5f07834',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'proficient',
     question_text: 'A "flat rate" loan calculates interest based on:',
@@ -9052,7 +9052,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '0508ef6d-0797-4e9f-8c43-a7a6fc5ba879',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'advanced',
     question_text: 'In a reducing-balance loan, how is interest for each period calculated?',
@@ -9062,7 +9062,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '0c91bf2e-e3ff-4dcc-afba-d70bb7e29820',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'In Australia, GST is charged at what rate on most goods and services?',
@@ -9072,7 +9072,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'a089dbbc-ad16-4710-8e31-59f12fa57af4',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'What is the difference between gross income and net income?',
@@ -9082,7 +9082,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'bbf77bf2-568b-46e6-bbd8-12177c6d71eb',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     question_text: 'A 500 g box of cereal costs $4.00 and a 750 g box costs $5.25. Which is the better buy per gram?',
@@ -9092,7 +9092,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'ed0250e9-29a3-4630-8a6a-31f4cf70aa4f',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'foundation',
     question_text: 'If $1 (AUD) = $0.65 (USD), how many USD would $200 AUD convert to?',
@@ -9102,7 +9102,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '944de1ad-cdce-45de-a75e-82f0d10aa509',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'proficient',
     format: 'long_form',
@@ -9111,7 +9111,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'b2039f86-4f44-44e5-aa57-6edb38c26486',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     format: 'long_form',
@@ -9120,7 +9120,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: '244e0473-b506-45a8-9c0c-5779666b92f3',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'developing',
     format: 'long_form',
@@ -9129,7 +9129,7 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
   },
   {
     id: 'ef6b16f6-d50a-457e-81bd-2fe26f1bb888',
-    topic: 'fm_financial',
+    topic: 'gm_financial',
     year_level: 'year_11',
     difficulty: 'foundation',
     format: 'long_form',

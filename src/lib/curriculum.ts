@@ -17,7 +17,7 @@ export const SELECTIVE_SUBJECTS: Subject[] = [
   { slug: 'chemistry',        label: 'Chemistry',          tagline: 'Atomic structure, reactions',      icon: '⚗️', color: '#0F6E56', selective: true },
   { slug: 'physics',          label: 'Physics',             tagline: 'Mechanics, electricity',           icon: '🧲', color: '#185FA5', selective: true },
   { slug: 'maths_methods',    label: 'Maths Methods',       tagline: 'Calculus, probability',            icon: '∫',  color: '#185FA5', selective: true },
-  { slug: 'further_maths',    label: 'Further Mathematics', tagline: 'Data analysis, financial maths',   icon: '📊', color: '#BA7517', selective: true },
+  { slug: 'general_maths',    label: 'General Mathematics', tagline: 'Data analysis, financial maths',   icon: '📊', color: '#BA7517', selective: true },
   { slug: 'specialist_maths', label: 'Specialist Maths',    tagline: 'Complex numbers, vectors',         icon: '🧮', color: '#0C447C', selective: true },
 ]
 
@@ -72,9 +72,9 @@ export const TOPICS: Topic[] = [
   { slug: 'mm_calculus',            subject: 'maths_methods', label: 'Calculus',           description: 'Differentiation basics',                icon: '📈', color: '#185FA5' },
   { slug: 'mm_probability',         subject: 'maths_methods', label: 'Probability',        description: 'Independent events, distributions',     icon: '🎲', color: '#185FA5' },
 
-  // Further Maths
-  { slug: 'fm_data_analysis',       subject: 'further_maths', label: 'Data Analysis',      description: 'Median, quartiles, spread',             icon: '📉', color: '#BA7517' },
-  { slug: 'fm_financial',           subject: 'further_maths', label: 'Financial Maths',    description: 'Interest, loans, investments',          icon: '💰', color: '#BA7517' },
+  // General Mathematics
+  { slug: 'gm_data_analysis',       subject: 'general_maths', label: 'Data Analysis',      description: 'Median, quartiles, spread',             icon: '📉', color: '#BA7517' },
+  { slug: 'gm_financial',           subject: 'general_maths', label: 'Financial Maths',    description: 'Interest, loans, investments',          icon: '💰', color: '#BA7517' },
 
   // Specialist Maths
   { slug: 'sm_complex_numbers',     subject: 'specialist_maths', label: 'Complex Numbers', description: 'Imaginary unit, modulus',               icon: '🔢', color: '#0C447C' },

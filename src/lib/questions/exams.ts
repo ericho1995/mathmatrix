@@ -1539,10 +1539,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": true
   },
   {
-    "id": "further_maths-year_11-1",
-    "subject": "further_maths",
+    "id": "general_maths-year_11-1",
+    "subject": "general_maths",
     "yearLevel": "year_11",
-    "title": "Further Mathematics Unit 1 & 2 — Practice Exam 1",
+    "title": "General Mathematics Unit 1 & 2 — Practice Exam 1",
     "questionIds": [
       "91dd8c91-8f1f-491f-96b8-e2610b41fe99",
       "91c45557-dbe3-465b-9fd5-3be3080e9dc9",
@@ -1558,10 +1558,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": true
   },
   {
-    "id": "further_maths-year_11-2",
-    "subject": "further_maths",
+    "id": "general_maths-year_11-2",
+    "subject": "general_maths",
     "yearLevel": "year_11",
-    "title": "Further Mathematics Unit 1 & 2 — Practice Exam 2",
+    "title": "General Mathematics Unit 1 & 2 — Practice Exam 2",
     "questionIds": [
       "e276b18a-a60e-49ad-a8ab-c21fbf920163",
       "ef6437b8-827a-4ca0-9c35-1d8a5c2e6f2b",
@@ -1577,10 +1577,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": true
   },
   {
-    "id": "further_maths-year_11-3",
-    "subject": "further_maths",
+    "id": "general_maths-year_11-3",
+    "subject": "general_maths",
     "yearLevel": "year_11",
-    "title": "Further Mathematics Unit 1 & 2 — Practice Exam 3",
+    "title": "General Mathematics Unit 1 & 2 — Practice Exam 3",
     "questionIds": [
       "ce8b7f9e-994e-404a-9e5e-a6f54acaa71a",
       "9302a2b8-ec8b-4781-8373-e6ef99835c75",
@@ -1596,10 +1596,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": true
   },
   {
-    "id": "further_maths-year_11-4",
-    "subject": "further_maths",
+    "id": "general_maths-year_11-4",
+    "subject": "general_maths",
     "yearLevel": "year_11",
-    "title": "Further Mathematics Unit 1 & 2 — Practice Exam 4",
+    "title": "General Mathematics Unit 1 & 2 — Practice Exam 4",
     "questionIds": [
       "4721e3b8-91e6-41a1-8833-6b13f69b4e24",
       "0ea30f56-d5a5-4a69-bdd1-50e1713dde84",
@@ -1615,10 +1615,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": true
   },
   {
-    "id": "further_maths-year_11-5",
-    "subject": "further_maths",
+    "id": "general_maths-year_11-5",
+    "subject": "general_maths",
     "yearLevel": "year_11",
-    "title": "Further Mathematics Unit 1 & 2 — Practice Exam 5",
+    "title": "General Mathematics Unit 1 & 2 — Practice Exam 5",
     "questionIds": [
       "49aa1240-e14b-414d-9235-9ab0a37a987b",
       "8535f30b-f8ad-4700-b7e9-a482a3129286",

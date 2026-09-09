@@ -2,7 +2,7 @@
 // Builds src/lib/questions/exams.ts — fixed, pre-composed practice exams
 // (as opposed to the custom exam builder on /practice, which mixes topics
 // on demand). 3 exams per subject+grade for the general subjects, 5 for
-// Further Mathematics and Maths Methods (their Unit 1&2 pool is deliberately
+// General Mathematics and Maths Methods (their Unit 1&2 pool is deliberately
 // sized for that). Each question is reused at most twice across a subject's
 // exams, picked greedily by least-used-first so usage stays balanced.
 //
@@ -34,14 +34,14 @@ const TOPIC_TO_SUBJECT = {
   chem_atomic_structure: 'chemistry', chem_reactions: 'chemistry',
   phys_mechanics: 'physics', phys_electricity: 'physics',
   mm_calculus: 'maths_methods', mm_probability: 'maths_methods',
-  fm_data_analysis: 'further_maths', fm_financial: 'further_maths',
+  gm_data_analysis: 'general_maths', gm_financial: 'general_maths',
   sm_complex_numbers: 'specialist_maths', sm_vectors: 'specialist_maths',
 }
-const SELECTIVE_SUBJECTS = new Set(['chemistry', 'physics', 'maths_methods', 'further_maths', 'specialist_maths'])
+const SELECTIVE_SUBJECTS = new Set(['chemistry', 'physics', 'maths_methods', 'general_maths', 'specialist_maths'])
 const SUBJECT_LABEL = {
   math: 'Maths', english: 'English', science: 'Science',
   chemistry: 'Chemistry', physics: 'Physics', maths_methods: 'Maths Methods',
-  further_maths: 'Further Mathematics', specialist_maths: 'Specialist Mathematics',
+  general_maths: 'General Mathematics', specialist_maths: 'Specialist Mathematics',
 }
 const GRADE_LABEL = {
   grade_3: 'Grade 3', grade_4: 'Grade 4', grade_5: 'Grade 5', grade_6: 'Grade 6',
@@ -49,7 +49,7 @@ const GRADE_LABEL = {
   year_11: 'Unit 1 & 2',
 }
 const EXAM_SIZE = 10
-const EXAM_COUNT = { further_maths: 5, maths_methods: 5 } // default 3 otherwise
+const EXAM_COUNT = { general_maths: 5, maths_methods: 5 } // default 3 otherwise
 
 // Group questions: general subjects by subject+grade, selective subjects by subject alone.
 const groups = new Map() // key -> { subject, yearLevel, questions: [] }
