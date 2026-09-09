@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES } from '@/lib/curriculum'
 import PracticeModeTabs from '@/components/practice/PracticeModeTabs'
+import { PREMIUM_PRICE } from '@/lib/pricing'
 
 export default function ExamsPage() {
   const generalExams = PRACTICE_EXAMS.filter(e => SUBJECTS.some(s => s.slug === e.subject))
@@ -36,7 +37,7 @@ export default function ExamsPage() {
                       {gradeExams.map((exam, i) => (
                         <Link key={exam.id} href={`/practice/exams/${exam.id}`}
                           className="text-sm text-gray-700 hover:text-brand-600 hover:underline">
-                          Practice Exam {i + 1} ({exam.questionIds.length} questions)
+                          Practice Exam {i + 1}
                         </Link>
                       ))}
                     </div>
@@ -48,9 +49,10 @@ export default function ExamsPage() {
         )
       })}
 
-      <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4 mt-10">
+      <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-1 mt-10">
         Selective subjects (Yr 11-12)
       </h2>
+      <p className="text-xs text-gray-400 mb-4">Premium exam papers — {PREMIUM_PRICE} each.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {SELECTIVE_SUBJECTS.map(subject => {
           const subjectExams = selectiveExams.filter(e => e.subject === subject.slug)
@@ -63,8 +65,9 @@ export default function ExamsPage() {
               <div className="flex flex-col gap-1.5">
                 {subjectExams.map((exam, i) => (
                   <Link key={exam.id} href={`/practice/exams/${exam.id}`}
-                    className="text-sm text-gray-700 hover:text-brand-600 hover:underline">
-                    Practice Exam {i + 1} ({exam.questionIds.length} questions)
+                    className="text-sm text-gray-700 hover:text-brand-600 hover:underline flex items-center gap-1.5">
+                    🔒 Practice Exam {i + 1}
+                    <span className="text-xs text-gray-400">{PREMIUM_PRICE}</span>
                   </Link>
                 ))}
               </div>

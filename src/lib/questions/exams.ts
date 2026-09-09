@@ -13,6 +13,8 @@ export interface PracticeExam {
   yearLevel: YearLevel
   title: string
   questionIds: string[]
+  /** Selective/VCE-subject exams are premium — paid content (UI-only paywall for now). */
+  premium: boolean
 }
 
 export const PRACTICE_EXAMS: PracticeExam[] = [
@@ -32,7 +34,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "a8b1afd2-e0d1-4c10-bc78-e0fcf35bb406",
       "8cdc15f6-8c9e-4c68-a92e-b29a71242536",
       "c6047629-3095-49b9-89ce-9f56396799bc"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_3-2",
@@ -47,10 +50,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "05a57552-ed53-4b9d-831c-484584279528",
       "05719c4f-9249-49e6-9b94-0b181e02e565",
       "4f7789eb-70d3-4156-accc-9e4b09e89db6",
-      "c23dbf3e-78db-42f3-bd2b-03a47ef52aae",
-      "a7f17e19-70ad-40f0-bfc0-d76b0c26931a",
-      "8bedce94-e8fc-4e88-8a38-7c7f514bb6f1"
-    ]
+      "01ea0cce-4884-45b0-be52-ebfce2a5a127",
+      "13048b7c-2483-4894-8c05-911e7183897d",
+      "71ac3bf7-3e2b-48ab-a453-6d7c26830637"
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_3-3",
@@ -58,17 +62,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_3",
     "title": "Maths Grade 3 — Practice Exam 3",
     "questionIds": [
-      "901dcd31-d443-467f-91a9-d9d578afff40",
-      "240ef8c1-60fa-4578-bf90-c70fc58b5ae0",
-      "789052f2-8392-4aa8-9013-184a5e86ee00",
-      "ed1884fe-4bc5-44b2-9718-38b3189ed382",
-      "a8b1afd2-e0d1-4c10-bc78-e0fcf35bb406",
-      "8cdc15f6-8c9e-4c68-a92e-b29a71242536",
-      "c6047629-3095-49b9-89ce-9f56396799bc",
-      "2e9c24a7-ad65-4def-bbd6-e718831c3066",
-      "7f359a74-242c-47dc-b0b6-94ffe2f34473",
-      "2964174b-92b6-47d1-8575-d67f0a2bcd83"
-    ]
+      "d372d918-fad0-433f-8cb9-908607a9680e",
+      "aac12dbf-3efb-4b9a-bff3-8cdecf7bcd0b",
+      "dcb91193-8abb-4a36-8636-1f18cb4f1bde",
+      "16851b3c-d601-4649-9f1e-e88c2f5455b9",
+      "a1a586b4-9de0-4abc-b8e0-2b10490f6a35",
+      "a1be8c4f-2b38-40b7-96c0-f1d85a0f2fa7",
+      "b63d08ec-e7c5-407d-8476-145751b38684",
+      "e602ca0f-2499-4665-8e06-2a67b97f81b1",
+      "45402bbf-a972-4b4b-a0b7-b5390da10adc",
+      "be0dba25-175b-44ed-85a1-18e6580fcf58"
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_4-1",
@@ -86,7 +91,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "3b322639-2bba-42ff-8228-377ef77be486",
       "eab18812-c385-447d-957c-9fe1a0b3211f",
       "9f1e5798-7d97-4268-97b8-c3ca89c328a9"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_4-2",
@@ -103,8 +109,9 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "0e92e0f3-a5aa-4263-9f92-ffd09f22a318",
       "3cc0f8f9-eaea-4a3f-a2a1-071a073e9eb9",
       "dadda4b0-cbba-44f0-a743-2d224a1902a0",
-      "39e52f17-8622-49bc-b73a-5cdecc3668ae"
-    ]
+      "c8debda9-717c-4942-aa40-dde0be9369a0"
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_4-3",
@@ -112,17 +119,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_4",
     "title": "Maths Grade 4 — Practice Exam 3",
     "questionIds": [
-      "a3227722-463c-4d3a-953e-dedf94ffa757",
-      "7fe9cb1e-c2f8-4b27-a07d-159bc4219368",
-      "57b0cffa-6289-44a6-82cb-3104b794d79f",
-      "f651fd9c-2262-430e-8c88-2bbadb1d9717",
-      "02c33362-3536-4d1f-b984-9dec81fbf800",
-      "885fc393-0504-4ee6-b444-8495374669b6",
-      "3b322639-2bba-42ff-8228-377ef77be486",
-      "eab18812-c385-447d-957c-9fe1a0b3211f",
-      "9f1e5798-7d97-4268-97b8-c3ca89c328a9",
-      "27e9be6f-8a16-4343-a8ed-97b9836fd4bf"
-    ]
+      "4fbb62a4-8c6e-4a92-9f4c-49aad19608ca",
+      "0aa0aa8d-a87f-4d60-a37b-cc22f9150245",
+      "db7a5af5-89a8-462d-bfba-e765c0701d97",
+      "9dc9130d-01d4-415c-95a6-236dc1271a28",
+      "17d5d67c-c09e-4bbd-bdac-80de75b5ca4d",
+      "51cb3a83-606e-4613-b8ef-254c33284b9e",
+      "551405fa-08f8-4544-b5c6-66dad7aedba0",
+      "8c7cd49c-3803-4886-8f0c-0a556d05d09c",
+      "01134b3c-1d8b-409b-b245-7f1f277bcc1e",
+      "0e4a677c-4a00-44a8-86dd-1f165fbbad00"
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_5-1",
@@ -140,7 +148,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "b9e888a8-e8b0-4fb8-a34f-b74c6b6d9ab1",
       "404e535b-f5e7-4379-a27b-9451fafa9ef3",
       "13e3708c-35af-423c-b04e-e6206f020edb"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_5-2",
@@ -156,9 +165,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "22633c3a-dee6-4cf1-8a3d-78db545838a8",
       "94fed85d-71e8-407d-97a9-3e2c5a7bc803",
       "3635ff5d-9926-4dea-b316-50f847a12e1d",
-      "458f66e7-5d18-40f3-af46-16ff171e225f",
-      "a3bcde8a-e33d-4304-9c05-59101e339834"
-    ]
+      "9a2d3e61-0aa6-4e86-a52e-fa3a2b0a9e7e",
+      "4413d384-72f4-460a-99c9-b101c1b6898d"
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_5-3",
@@ -166,17 +176,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_5",
     "title": "Maths Grade 5 — Practice Exam 3",
     "questionIds": [
-      "c2bbbfe9-28fb-4857-861d-f5050375b792",
-      "b9244bba-7580-430f-978d-2e4643bcd68b",
-      "6cb7aa7f-c502-43ba-a864-2bf0d591dc9f",
-      "f37cd7d3-6c11-4349-83c0-f03a6b6b3454",
-      "62740b2d-a99b-4272-a081-fde83a817382",
-      "b9e888a8-e8b0-4fb8-a34f-b74c6b6d9ab1",
-      "404e535b-f5e7-4379-a27b-9451fafa9ef3",
-      "13e3708c-35af-423c-b04e-e6206f020edb",
-      "1f347057-49ff-45d0-886a-6adf2c58c5c6",
-      "413724d7-b33b-4f6a-8abf-630c28857a14"
-    ]
+      "15ede988-3537-4eef-85de-958669f5e120",
+      "f1bc1984-8fc0-4ef1-8a69-d3fdeaddffd3",
+      "8a39854d-fccc-4fcc-a074-7229d1fcfb82",
+      "c1151912-2461-49c7-9031-04239c8e311c",
+      "152831cb-93a9-4d6f-8fbd-b70e99abba1f",
+      "88f3fc91-7a01-48fb-b0e2-81b657432e18",
+      "cea57321-1b48-4edb-a3d1-9015b89d502c",
+      "f1bae8ef-12d6-4613-ab31-e936af43fcef",
+      "427521d1-0a32-4578-8930-dd65cc176df8",
+      "1c66d56a-f90f-4524-906e-a7b05fc1aa36"
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_6-1",
@@ -194,7 +205,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "3521ae83-6ab9-428a-9494-3ae4e7d5a09e",
       "e9853db0-dc8c-4a79-8834-12183a4cfe9d",
       "3bf73ba6-c1d3-41c7-bb32-cca1db6bde97"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_6-2",
@@ -212,7 +224,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "2238a89b-6152-43bd-8510-f862ba930c6d",
       "17979ab6-55da-43b2-96eb-384c0d3f1bf1",
       "8bee9e7e-b126-4b7f-88cf-9b807f7bc89b"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-grade_6-3",
@@ -221,16 +234,17 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Maths Grade 6 — Practice Exam 3",
     "questionIds": [
       "78e484a8-d49c-4e70-b0a0-a48f0d120f41",
-      "6c56f7ea-0f72-407b-a5b7-6cf68fe4ce6c",
-      "96262ed4-eb11-4c6a-a91d-fe6a373063c9",
-      "bca5ead2-f1bb-40ef-a116-8b77635e58ab",
-      "0b6ec697-94fb-42c6-959f-6e7abc8cb892",
-      "206cede2-0210-4963-868d-d583553275a0",
-      "7d839664-ff0d-492d-9c4a-235666dc97e0",
-      "65ca8544-cd9a-4e8e-aa65-53ef8aedd472",
-      "3521ae83-6ab9-428a-9494-3ae4e7d5a09e",
-      "e9853db0-dc8c-4a79-8834-12183a4cfe9d"
-    ]
+      "15d1036b-3d57-4c75-aa02-8fda4b951b62",
+      "a0c966bd-475e-4dc2-b739-5e016baced04",
+      "eacab220-da5d-4e17-a99c-b97891d75a15",
+      "3d461de9-6a22-4132-9d2b-c6bc2ec124e9",
+      "1c9127af-d67b-41ac-b70c-ecc1ccc6f202",
+      "feb0bdb8-2c0a-41e4-98ec-f8fc9b9ed1ce",
+      "634d072b-b5c5-48e5-bc16-8c324a93720f",
+      "dd116ce2-88f8-43cb-b348-91544db4a986",
+      "a98dfe6f-0aef-4a27-b071-4d221d60ae9c"
+    ],
+    "premium": false
   },
   {
     "id": "math-year_7-1",
@@ -248,7 +262,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "2fc97a40-bd34-4417-a714-a96c102b6413",
       "f95f13ff-73ec-4cd4-a218-bb81acb3d8e6",
       "5fc67278-0e64-4736-b656-15f81cc0ecfb"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-year_7-2",
@@ -266,7 +281,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "191b9cfd-7bb4-4588-8c02-4e7883ab297b",
       "ad33774c-c7f6-4e6e-9dbe-a5237406a423",
       "7ae20c34-1e76-4ccb-bea8-715be3833434"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-year_7-3",
@@ -276,15 +292,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "questionIds": [
       "01a71c8b-d3c3-45b7-a9f9-aec9fb89aa2f",
       "24ca0892-e742-40b3-90d2-bacd6f042369",
-      "617d183d-8898-4592-9695-72582b0109bb",
-      "61a7eacb-c722-480d-92b1-edd7865d8250",
-      "2d67f5a7-047c-4453-98f5-13a4a897d540",
-      "fe66cdd3-5735-4593-893d-149840de519b",
-      "df773e2f-c2be-4735-bdef-ae4030e187a0",
-      "c46988b5-f4e6-47d2-806b-54ff80b87bb8",
-      "313de050-f86d-4513-a3cf-f48c96c07a20",
-      "2fc97a40-bd34-4417-a714-a96c102b6413"
-    ]
+      "d29f6f71-e1a6-4f34-bace-2048ffff3cb7",
+      "8deca51a-ea5b-435d-bef7-d954d53f664b",
+      "e6842764-aeae-4a1c-a64c-7c6aa6dcafe9",
+      "37db7f1b-9e7c-4b35-897d-40e71172fe98",
+      "0dbfbfcb-f3a1-4d14-991d-0cb9144804f7",
+      "c4a0940d-560b-47b7-a2fe-3bb848a4020f",
+      "8850d64b-60a1-447c-a45c-e22b9be72871",
+      "f9ab9ebe-2c56-4078-8f4e-b0a19a6b8339"
+    ],
+    "premium": false
   },
   {
     "id": "math-year_8-1",
@@ -302,7 +319,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "2f33cf0a-264a-44db-8f9d-55699b5b64c6",
       "0ae9f71a-5b92-4524-8bc7-13e55917e978",
       "5fed5491-2c68-4447-b6d8-66e1657075a0"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-year_8-2",
@@ -317,10 +335,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "c5c7eb76-54bf-4f9c-b00b-44897e638c16",
       "a5905cfb-1498-4cc9-b88c-b66171e8b927",
       "1c05508f-88a4-44e6-92c3-ef70bfe815f8",
-      "ac08bd38-3a7d-4b96-b583-ff63e763bb9c",
-      "c8d6e78d-84e3-48e8-8778-634f0db174a4",
-      "fb70f0b9-45af-44ca-a7d5-379f78d6917b"
-    ]
+      "4d066aa3-091f-4c8e-8e33-6f3c8d5cd358",
+      "684e1a12-324b-4f0c-bf5f-cc87bb130120",
+      "39c8861d-64e6-485b-a523-ea6ab626aabc"
+    ],
+    "premium": false
   },
   {
     "id": "math-year_8-3",
@@ -328,17 +347,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_8",
     "title": "Maths Year 8 — Practice Exam 3",
     "questionIds": [
-      "7a44651e-ab9a-4114-9fc8-1690c629b21c",
-      "1493a6a4-37c4-44b8-a4dc-bdf8fed2cbe2",
-      "90fb807a-6108-4f91-87b1-467c592c7f0b",
-      "4424b329-41fa-41d1-b667-2db2d5b3bbec",
-      "2f33cf0a-264a-44db-8f9d-55699b5b64c6",
-      "0ae9f71a-5b92-4524-8bc7-13e55917e978",
-      "5fed5491-2c68-4447-b6d8-66e1657075a0",
-      "1efad3ea-77b7-4da3-b2e5-7440a0f5633e",
-      "36863242-edcc-4ec0-972d-13e1d7adc1ea",
-      "2dff62e2-8d38-429e-9335-cd2ea2fb4e2e"
-    ]
+      "01b36837-3c2d-4253-b7dc-985fc7f6514c",
+      "2657a0c1-cec6-4fef-9192-851353765297",
+      "d54ab6a9-0172-4274-b066-cd3dc3797804",
+      "406d7c0a-ad96-4e68-8c48-cd7450487405",
+      "7c1d30e5-2043-4b12-9515-0b54d80a2427",
+      "97b89eef-12d2-403d-9ff2-dd7601c7d099",
+      "232297f1-b9a9-45c5-a9a2-cef2e47ed66b",
+      "9840a668-c7ab-4ab7-8cb3-5dd6d95afe6a",
+      "7a1401f9-9ab0-4bbf-8c12-fd8e0a91f778",
+      "1fa81850-9f3e-4c50-8351-984347bf80cc"
+    ],
+    "premium": false
   },
   {
     "id": "math-year_9-1",
@@ -356,7 +376,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "fbaff0bc-53e5-4488-ad98-2fce8cac537c",
       "38bb97ff-90c9-4a51-a22b-6bd878efc1c9",
       "cdb1676d-faf1-4a1a-b5a8-6abd8d8fcd55"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-year_9-2",
@@ -372,9 +393,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "ad5e5694-03c5-45e1-80ae-e76b2276f813",
       "58bfdf43-2257-4814-9ae8-879911ca29b1",
       "ef259b67-35f8-4296-ac80-2e647796ccf0",
-      "f21ff070-d3d8-4e69-b9d1-cc965b53e1ff",
-      "248a22df-0128-4c1b-ae8c-b6c48148eeba"
-    ]
+      "c2d6cddc-4fb9-4da3-9b96-ea43f75335c8",
+      "b6fc3102-685f-47f5-b4fc-5702a355d68d"
+    ],
+    "premium": false
   },
   {
     "id": "math-year_9-3",
@@ -382,17 +404,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_9",
     "title": "Maths Year 9 — Practice Exam 3",
     "questionIds": [
-      "57bbfce9-d36c-4c3e-bb63-8ab24a43fa74",
-      "7d4e96aa-648a-4d6a-ab43-d8d65280e457",
-      "73d8b99d-af3a-40fb-8ca2-fe299089215c",
-      "aaa8bb88-9515-4757-bc38-4149bd566e31",
-      "b13fafbf-d4c9-4e5c-aea8-c80143858572",
-      "fbaff0bc-53e5-4488-ad98-2fce8cac537c",
-      "38bb97ff-90c9-4a51-a22b-6bd878efc1c9",
-      "cdb1676d-faf1-4a1a-b5a8-6abd8d8fcd55",
-      "2e3ec299-6c90-4274-a80c-063637322cad",
-      "2b040909-ef98-42cd-b62e-15d11622c042"
-    ]
+      "3d3f32b4-b1b9-4a56-8d9a-2694be3a2478",
+      "878d8987-1dc4-44d4-ace5-17f6fe68667d",
+      "37b9f7b5-9b3a-4ece-89c2-bb58477f5552",
+      "6fb82617-abcc-4656-8781-4493edf1bfb2",
+      "73a1ae64-6681-4326-882d-4c2c05dc0ec1",
+      "2bd20ce9-8723-4075-883b-20e3f14e142c",
+      "710fd1a7-0a1f-4a98-88b0-d726150399ce",
+      "95842e62-1060-4326-b606-ba1504e33835",
+      "254b678a-970a-4437-ab68-6d83a493237e",
+      "dd269e78-44ff-45c0-8324-1ea42b2a6346"
+    ],
+    "premium": false
   },
   {
     "id": "math-year_10-1",
@@ -410,7 +433,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "c831234d-63b0-48fc-a865-d80d2c0d00fc",
       "5cd03b0a-fa8f-4aaf-a9ab-52d0e9c65fd9",
       "9eea03a2-7aaf-4102-9dae-7d1af6e23012"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "math-year_10-2",
@@ -424,11 +448,12 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "33ba0bde-9e60-4363-b071-94f8999ec83e",
       "1627fa12-a6e1-42f8-bb1f-9234b9c854a7",
       "b38473c1-47fc-4301-a8cc-5bd40adbe16f",
-      "98490cd9-b9c1-4b78-a692-4636eea71cbc",
-      "b32a0243-b462-4c90-a2aa-9aa87f309c90",
-      "b26bbf0f-a601-4b42-a98c-48023f080bbc",
-      "ff00843a-5a16-4895-90d5-a33fe20a5ca6"
-    ]
+      "e3a6b66d-82e2-459f-827b-756d2df8dd7d",
+      "e5f6b754-ce98-44c9-8dcc-37a981a27c8f",
+      "1d4bf435-0263-4347-9a96-e71cb09fdf17",
+      "e1467128-5908-4719-b304-55b1729dd45b"
+    ],
+    "premium": false
   },
   {
     "id": "math-year_10-3",
@@ -436,17 +461,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_10",
     "title": "Maths Year 10 — Practice Exam 3",
     "questionIds": [
-      "904bda3f-a679-4ee5-bcf9-e1a72312636e",
-      "d423a0cd-68bf-42d5-815e-ccecb203bcc6",
-      "e10e329a-885c-4e04-a86d-38d46211122e",
-      "c831234d-63b0-48fc-a865-d80d2c0d00fc",
-      "5cd03b0a-fa8f-4aaf-a9ab-52d0e9c65fd9",
-      "9eea03a2-7aaf-4102-9dae-7d1af6e23012",
-      "9190e288-22eb-429b-bbff-ad3610605c4c",
-      "22ac34c3-6ca4-41f6-a24b-c44d778edee9",
-      "b353a08f-7d72-48af-833a-46de67966067",
-      "33ba0bde-9e60-4363-b071-94f8999ec83e"
-    ]
+      "10fa8c18-1ace-450b-9247-bb6a5867664d",
+      "9d714660-aa30-460d-9824-f0c3b826acd3",
+      "9816e83e-8583-48ac-8eb0-ccea5244fda1",
+      "23d38c99-1f31-4295-bbe1-b477a38ad93d",
+      "28c34612-7645-44fd-9c5e-3eba63c45137",
+      "b2733db7-5582-45d1-aa94-6b11c006f56f",
+      "7a35bb9d-33fc-4ad3-9aad-0e57049227ed",
+      "b498b000-4d98-49ae-a943-a16fc1f517aa",
+      "e545797a-fbb2-4530-b711-d9f33bf4fd62",
+      "d405a6fb-cdc2-4f91-a521-b49bd68b81d1"
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_3-1",
@@ -464,7 +490,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "aab3ff12-c8b9-4ba9-965f-3186716d33f7",
       "cb264ff5-f2a1-43f3-b425-4dd2a0e38312",
       "b5bf7939-662f-4e8f-b1f5-1bc9c46f887c"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_3-2",
@@ -480,9 +507,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "3facbf39-ff3f-4de0-a59c-18fa48337e8e",
       "3c372c9a-b647-413b-b4ce-24b3f17bb902",
       "94e50ad1-11f2-4bd3-a7cc-36ad6cecda1b",
-      "4c9c48fc-ba92-47c2-b8e7-d85eee10b828",
-      "13289b3d-55d7-4388-8289-12e944e75a28"
-    ]
+      "c683555a-68d5-4cdf-b18d-0f541af5c4e6",
+      "ed1d12e3-ab31-4731-837a-1a7a674dfb8a"
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_3-3",
@@ -490,17 +518,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_3",
     "title": "English Grade 3 — Practice Exam 3",
     "questionIds": [
-      "d0787f9d-fc16-4824-bd33-9b5a9ce48d10",
-      "623b4eb3-bc36-4ee6-ad22-f40f68a81bec",
-      "09b17030-e907-4497-a0ba-49ffcd93f568",
-      "18b155bb-548c-4040-9968-5522e31026cb",
-      "42b696fb-1053-48fa-9656-45a4e5141a7b",
-      "aab3ff12-c8b9-4ba9-965f-3186716d33f7",
-      "cb264ff5-f2a1-43f3-b425-4dd2a0e38312",
-      "b5bf7939-662f-4e8f-b1f5-1bc9c46f887c",
-      "71447fea-2b90-447a-9c4a-4398dc460a93",
-      "761ad35c-48aa-4aa5-84b3-dfc4d85f3fa3"
-    ]
+      "82019000-c9f3-4433-b6a5-14b0125a5cba",
+      "ae10488e-01c9-49b9-9701-7134dcc9dacd",
+      "445c288c-b9f6-4fdb-9fea-3bedb7664c01",
+      "ae8f492d-c285-45d5-b6fb-0b853489d529",
+      "1489fc1c-d043-4f7e-9f84-1ad4d926e804",
+      "1de54cdb-bab3-4e7d-9c66-6deff1742096",
+      "a249b540-0ccc-458e-bc24-bf0641e55039",
+      "4c9c48fc-ba92-47c2-b8e7-d85eee10b828",
+      "13289b3d-55d7-4388-8289-12e944e75a28",
+      "d0787f9d-fc16-4824-bd33-9b5a9ce48d10"
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_5-1",
@@ -518,7 +547,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "994b6be4-e9dd-463c-ab01-911049316286",
       "ab8b2ecc-38b1-4095-ac73-3147016fc59c",
       "07c04e5b-e73e-485d-9c61-443c447d078c"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_5-2",
@@ -533,10 +563,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "b9f9321a-774e-4f44-9551-775013656e50",
       "62fd9566-4e2e-4721-9e0a-dfe61533cd2e",
       "3a682133-c89a-48b2-8310-cbd76aaad7ca",
-      "88176768-82e6-40f6-a4b6-e2a8449adfe7",
-      "38223913-5840-4bd4-8f9d-1bbea56a700f",
-      "770bdf3e-1561-40a5-b3d1-53064b6b431c"
-    ]
+      "e668e6a0-f901-4f30-8837-82f437e4b72b",
+      "b449663f-9eaa-478a-991f-1c77747e0702",
+      "065b0fbf-f94d-4032-b09a-719a0afa9e7c"
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_5-3",
@@ -544,17 +575,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_5",
     "title": "English Grade 5 — Practice Exam 3",
     "questionIds": [
-      "6b2d3c0d-2330-4040-9a4e-273c6ffb690e",
-      "fbb0f1ed-8775-4083-9e1e-ef902c7fe830",
-      "4bd961ca-c77a-40b6-85dd-48a1e56447c0",
-      "6c1a9c18-df74-41d7-b403-81292d5c89d7",
-      "994b6be4-e9dd-463c-ab01-911049316286",
-      "ab8b2ecc-38b1-4095-ac73-3147016fc59c",
-      "07c04e5b-e73e-485d-9c61-443c447d078c",
-      "a3f412e6-401f-41a5-80ff-37f85bee76c8",
-      "2d51e5dc-bc01-4837-99f9-485c49163f41",
-      "fc8408b7-53fa-4117-90b5-0a4419faa413"
-    ]
+      "e7725bd9-d358-4cae-902e-9b9e12105ed8",
+      "f44d5dd4-3cd7-491d-bfd6-35c785926dce",
+      "25d9a592-09f4-4945-bddf-8007c4021461",
+      "b3adea91-5df3-474f-8003-67800d05304e",
+      "45b1e64d-d96f-473e-b333-6614377105b4",
+      "f2c080a0-f692-429a-914b-7ecd6f3fc401",
+      "88176768-82e6-40f6-a4b6-e2a8449adfe7",
+      "38223913-5840-4bd4-8f9d-1bbea56a700f",
+      "770bdf3e-1561-40a5-b3d1-53064b6b431c",
+      "6b2d3c0d-2330-4040-9a4e-273c6ffb690e"
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_6-1",
@@ -572,7 +604,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "ed971577-6cda-4791-a618-1e206bd5d838",
       "63a99f0d-ce9c-4eb4-8b13-3bbdfd925ca4",
       "ca820a5b-2273-4657-9717-dc224d70719e"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_6-2",
@@ -588,9 +621,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "a2819051-0d1c-4aed-885e-b223d2d0f22c",
       "2fdfdd0a-1fc4-42ac-8f3b-634ea8612c4a",
       "5271475c-f9dd-4f23-a862-0b98a9d3be8a",
-      "f32db62e-cfd9-4ce9-a39e-0bf06cb95bc2",
-      "50d57618-b6ac-4a40-9414-11fc145bebcb"
-    ]
+      "19bc9323-26f3-4e5f-b01c-0cb749c54a30",
+      "1226a84f-15ec-40fb-ba33-6078a44574a1"
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_6-3",
@@ -598,17 +632,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_6",
     "title": "English Grade 6 — Practice Exam 3",
     "questionIds": [
-      "ef89ac55-5590-45b9-8ca7-8a935961c8a9",
-      "98be739d-2fde-47b4-9c42-69962c3c5031",
-      "328d774b-e27a-49d0-bc8b-be509b424240",
-      "6bb7f299-1ee6-49a3-b7a1-9be4915d8ffb",
-      "1d3c4617-39fd-4fb7-8f70-b8327c5e6f1a",
-      "ed971577-6cda-4791-a618-1e206bd5d838",
-      "63a99f0d-ce9c-4eb4-8b13-3bbdfd925ca4",
-      "ca820a5b-2273-4657-9717-dc224d70719e",
-      "19451a91-9333-4777-99f8-e7cc168c9630",
-      "7ac69894-be4b-403e-b0b4-7b5324f1fdf8"
-    ]
+      "b01b8371-dad0-4b2b-838d-2286fff166fd",
+      "e29f9cf3-f0bd-4f6c-8ce6-151b2a6841e7",
+      "67c850b5-4dc6-4aa0-8499-df9c6418df6b",
+      "8800dfd7-9744-4bef-bab4-5f690a423163",
+      "5a588e55-87cb-4a91-a829-407c220beef5",
+      "3ca71191-f0a5-4f06-a468-ee86d538ef44",
+      "26834db0-a783-4cc7-8480-3a446be3e8a7",
+      "0fe876ae-f6ed-4db4-a6e4-2c34fca0e76e",
+      "f32db62e-cfd9-4ce9-a39e-0bf06cb95bc2",
+      "50d57618-b6ac-4a40-9414-11fc145bebcb"
+    ],
+    "premium": false
   },
   {
     "id": "english-year_7-1",
@@ -626,7 +661,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "0980a6fc-b23f-4807-bbf0-a1c5f37b0323",
       "31bb0035-32e4-4cfa-91d2-261eeb8a89c2",
       "b46b99a1-a469-45c4-b4da-bb8b35203cfd"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "english-year_7-2",
@@ -642,9 +678,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "463229e3-6eb0-46c2-a6e9-2539cac105da",
       "965444d3-eb0b-4c04-974c-d9c859ad05bc",
       "3c2e822d-860e-4522-ba40-13da96faa642",
-      "57e7176d-1784-41e5-b934-b008fe956f1a",
-      "44031c53-3fe9-401e-be48-ed1ff2ccc2bc"
-    ]
+      "8d037705-7a7e-4c8a-83c6-fe6b97fb5bf6",
+      "e69ebc3a-5e10-4e1a-92df-9c6dc1c28217"
+    ],
+    "premium": false
   },
   {
     "id": "english-year_7-3",
@@ -652,17 +689,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_7",
     "title": "English Year 7 — Practice Exam 3",
     "questionIds": [
-      "96962a07-d84a-4489-b4b4-4324f88b2b26",
-      "84ebf2ed-7779-4e09-bcae-e390049ba658",
-      "33c43391-43cc-458f-ba46-227185b1a029",
-      "7e00dce8-0d74-4a87-a49e-2c0c5debd1ed",
-      "415dc692-53e4-4e69-aeb7-7c0d6b71e90e",
-      "0980a6fc-b23f-4807-bbf0-a1c5f37b0323",
-      "31bb0035-32e4-4cfa-91d2-261eeb8a89c2",
-      "b46b99a1-a469-45c4-b4da-bb8b35203cfd",
-      "476ab863-4b39-4ce7-b88a-fbadcd6e62d2",
-      "f4b446b8-2341-47df-b925-73718e88ceb6"
-    ]
+      "fe9e588c-471b-4229-af47-8ba7a662c840",
+      "1c39aa9a-1ed8-402e-82c8-2330d83b2fe0",
+      "6eed060f-2bfc-459b-a8b8-8140c7595dfe",
+      "96184477-0deb-4122-979b-7fefa987a140",
+      "8722a425-d038-4d1f-8874-e65c1a2ffa9f",
+      "3bde817e-9df8-44ab-b43b-284204a664e5",
+      "7569ea21-6ce8-41d5-9b86-2784c2dca4cf",
+      "c7e1b34e-e906-4229-89fe-aef1dea0e410",
+      "57e7176d-1784-41e5-b934-b008fe956f1a",
+      "44031c53-3fe9-401e-be48-ed1ff2ccc2bc"
+    ],
+    "premium": false
   },
   {
     "id": "english-year_9-1",
@@ -680,7 +718,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "04b86f71-cfed-40b6-9529-1116068da867",
       "2eb29ebd-6a5a-4b1b-aefb-da04ca178d09",
       "50856bbd-c676-406c-9b04-59aa9ffdd22b"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "english-year_9-2",
@@ -695,10 +734,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "eec23e54-4448-4721-ae98-1b173413bda9",
       "3c9245e6-9e37-4233-bd5b-5a895bf6ba90",
       "816e1356-3f93-4cfb-b86a-2ef0d66890c4",
-      "f8f0d371-501c-4e1e-8a34-ba7636d6558d",
-      "bf750551-cf5e-491e-9e3c-eac4f1057ee0",
-      "27871b25-bb65-41f1-8e4b-7a279d3863a2"
-    ]
+      "c24ec5ba-c02c-490c-9280-bd43f2ab8fbc",
+      "86e231ab-152a-4667-b3c4-fa0eae66e68a",
+      "b14e5dea-c2e6-481e-bedb-6e0a50e9ac6c"
+    ],
+    "premium": false
   },
   {
     "id": "english-year_9-3",
@@ -706,17 +746,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_9",
     "title": "English Year 9 — Practice Exam 3",
     "questionIds": [
-      "c711af90-db1d-490b-bd37-0bfaeec82ce2",
-      "c9b26a99-93a8-4f9e-a2ca-d3d179f86c82",
-      "eeaad202-185f-466d-9105-44350a102553",
-      "d441055b-36ae-46d3-bcf8-9f1339d19840",
-      "04b86f71-cfed-40b6-9529-1116068da867",
-      "2eb29ebd-6a5a-4b1b-aefb-da04ca178d09",
-      "50856bbd-c676-406c-9b04-59aa9ffdd22b",
-      "1343c729-28b1-4943-892d-1adc1d7ceb2a",
-      "f44e056f-2836-4bba-962c-8828be4aa1c6",
-      "8722f741-e1d9-4ee0-b4f8-a71f5376eb43"
-    ]
+      "003fdb98-9abc-4c75-b284-254f15d65833",
+      "dbc46349-bdf1-4c9b-bf49-35c604f7dc6e",
+      "1868d797-8f40-486c-92f5-2b40bd1a241f",
+      "861ea96a-a294-42ac-b652-16ed8901b0e1",
+      "37a16d84-65cc-4037-8ccd-c915d2d39d8e",
+      "8f579d47-f0a0-4392-bdfe-7db5c3c0da24",
+      "0187507f-d99b-4207-b5e5-29290ab9f44e",
+      "f8f0d371-501c-4e1e-8a34-ba7636d6558d",
+      "bf750551-cf5e-491e-9e3c-eac4f1057ee0",
+      "27871b25-bb65-41f1-8e4b-7a279d3863a2"
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_4-1",
@@ -734,7 +775,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "82e123eb-29fc-4f08-a911-81dedb6de651",
       "d6c0dda4-1444-4bb3-8454-04809eb4a671",
       "0987b25f-1f73-463c-b17b-c1d0cc2b8333"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_4-2",
@@ -748,11 +790,12 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "0ac69e3e-4ab8-42ba-87e7-de96292a0451",
       "d5c925c8-9007-4d05-8828-800d383ba551",
       "44a8eb09-defb-4aa9-a571-567558569fef",
-      "b4e8d10c-3038-4248-acbf-99c71fe7dd11",
-      "4b595291-84d1-4e63-be7e-5dee4e35c421",
-      "43ff48d0-9ead-4b89-848e-df4e9d20f7a2",
-      "ee79bbce-3912-4e91-bd70-d0589438a95d"
-    ]
+      "8f68d6a2-e9a2-4f35-b494-f5a6f1712a1e",
+      "9866ca1e-d6f8-48b1-a9ee-5409400ab1a0",
+      "45edc9f0-b303-4da3-b32b-3a1565a0dc5b",
+      "1bef93f7-1ec4-4a77-8298-21f9b6408301"
+    ],
+    "premium": false
   },
   {
     "id": "english-grade_4-3",
@@ -760,17 +803,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_4",
     "title": "English Grade 4 — Practice Exam 3",
     "questionIds": [
-      "83502520-39b2-4d5f-8508-a10b47070e8f",
-      "8d305fb5-75f6-4354-99df-5b2252eb4b8a",
-      "37c278a6-c23c-4a4e-bff0-b5dcb0e081a6",
-      "82e123eb-29fc-4f08-a911-81dedb6de651",
-      "d6c0dda4-1444-4bb3-8454-04809eb4a671",
-      "0987b25f-1f73-463c-b17b-c1d0cc2b8333",
-      "4707dd88-c806-4158-8e31-ff7b6e7e9c03",
-      "2d8046ab-578a-44e6-86a2-d77db4c47a70",
-      "d3dec9c6-625e-4944-8fae-3f35bfc4a355",
-      "0ac69e3e-4ab8-42ba-87e7-de96292a0451"
-    ]
+      "67e396ee-a6f1-4a2b-9bff-d27e282d7183",
+      "464693ef-4455-4981-a4b3-b30419c440f3",
+      "223e8ff6-56b0-4a3b-a061-9e18261baee3",
+      "03ded561-613a-49a3-9127-2c62b3697d28",
+      "2e68eb20-b26b-4922-b088-ef721b6cce7d",
+      "b4e8d10c-3038-4248-acbf-99c71fe7dd11",
+      "4b595291-84d1-4e63-be7e-5dee4e35c421",
+      "43ff48d0-9ead-4b89-848e-df4e9d20f7a2",
+      "ee79bbce-3912-4e91-bd70-d0589438a95d",
+      "83502520-39b2-4d5f-8508-a10b47070e8f"
+    ],
+    "premium": false
   },
   {
     "id": "english-year_8-1",
@@ -788,7 +832,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "dba9784f-21e1-464c-ab61-976912fb6d00",
       "9e022524-17f1-4266-84c8-e21aa6fc1b82",
       "ed81ae57-e9c5-446e-9754-b2ecfaed4c0f"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "english-year_8-2",
@@ -802,11 +847,12 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "f1a9431e-d244-4b99-b898-7f5f8229beb5",
       "0ef3a5aa-6d8a-4cb2-9a3e-df2543195886",
       "e9a20d22-c78f-429d-b2d1-8de19533d58d",
-      "06ae62bf-37df-4c5e-a56e-ed9c1cf7512c",
-      "1933a286-11e0-4eaa-89c8-019c574bdb87",
-      "feca9da2-0898-43b8-8692-6b5b5522d2eb",
-      "f5f03776-8a15-41a2-9526-81c26f13d799"
-    ]
+      "2ef97b04-cceb-4d7a-805a-79bf52939213",
+      "f6c47d6a-43a2-4814-86f9-9c62b389199e",
+      "3cdcc649-071d-4131-a1f5-4f63aa20498a",
+      "39be19da-3ed4-4141-aa3a-82bdda55193e"
+    ],
+    "premium": false
   },
   {
     "id": "english-year_8-3",
@@ -814,17 +860,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_8",
     "title": "English Year 8 — Practice Exam 3",
     "questionIds": [
-      "419ca4df-a461-4094-adb2-160c1ca07d86",
-      "9f5794dc-cd81-46ca-966b-15ccf4b957d8",
-      "c2565fdf-21b6-4047-870a-d1d5db76d492",
-      "dba9784f-21e1-464c-ab61-976912fb6d00",
-      "9e022524-17f1-4266-84c8-e21aa6fc1b82",
-      "ed81ae57-e9c5-446e-9754-b2ecfaed4c0f",
-      "cf866264-8d92-4a1f-b94d-c52942278d65",
-      "5aa05f91-3799-4b0f-a40d-c3ff073372ca",
-      "a04e438f-3f73-4c8a-81c7-87b0bf2080c2",
-      "f1a9431e-d244-4b99-b898-7f5f8229beb5"
-    ]
+      "550fc789-6bf6-4567-bc4c-8fcf1f4264ce",
+      "45d3c76d-4d9b-49b7-8e5f-3153f723f3e5",
+      "165f7d50-e458-45db-a3c1-24e3a8101c86",
+      "47855ede-cb9a-4f96-9982-f32479c0427e",
+      "b351e326-3f0a-40c3-aae3-f60806c2328a",
+      "df845de6-9103-4161-9c45-c10947c14ffb",
+      "06ae62bf-37df-4c5e-a56e-ed9c1cf7512c",
+      "1933a286-11e0-4eaa-89c8-019c574bdb87",
+      "feca9da2-0898-43b8-8692-6b5b5522d2eb",
+      "f5f03776-8a15-41a2-9526-81c26f13d799"
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_3-1",
@@ -842,7 +889,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "d2188057-80d6-4a36-b71d-c14a8cb34619",
       "a3c33f6b-62a0-4c9a-b60a-142f65f87ad9",
       "2a257334-197b-4b2f-9c94-dcc95344a84c"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_3-2",
@@ -855,12 +903,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "03431a77-0f9e-4291-9f77-fdeafb4055f9",
       "93b93e73-e0ea-42a4-95df-d42b43c227d2",
       "e4097d3e-fb18-42f1-9b01-eff03e271b19",
-      "5ca913e1-318e-47f6-b043-4719b7bb1540",
-      "5955cdef-1a18-49bc-867e-83772e0bb443",
-      "bd87032a-2119-4bd9-8312-d0c1bed22f8a",
-      "5a6507d3-3d3f-421f-b3c3-8626887b0506",
-      "6ba6575d-f63c-4c92-a584-cb7720e897c8"
-    ]
+      "b23ce590-1c67-4749-9823-4893c5324632",
+      "a60f11d0-264e-44af-ac0b-f6a633c1f38e",
+      "138bf44e-42db-4761-bd95-f6e1544684f5",
+      "684fce64-d6fc-4ccb-9bb0-c5d2e1ec46b0",
+      "32f78ac9-0d19-4632-8c3e-32d847a61e85"
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_3-3",
@@ -868,17 +917,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_3",
     "title": "Science Grade 3 — Practice Exam 3",
     "questionIds": [
-      "27876fbb-4ec2-4cfa-8a50-2c410ab85990",
-      "b4b3215c-864e-4ca0-80fa-960d40c14d9a",
-      "d2188057-80d6-4a36-b71d-c14a8cb34619",
-      "a3c33f6b-62a0-4c9a-b60a-142f65f87ad9",
-      "2a257334-197b-4b2f-9c94-dcc95344a84c",
-      "edb4d129-3d00-4472-a241-56443bf94ba2",
-      "8c40cd49-1fe5-48f0-a28d-b4e5b19ac88f",
-      "03431a77-0f9e-4291-9f77-fdeafb4055f9",
-      "93b93e73-e0ea-42a4-95df-d42b43c227d2",
-      "e4097d3e-fb18-42f1-9b01-eff03e271b19"
-    ]
+      "1e06d529-1455-480e-951f-af7735290e4e",
+      "d5bf65a8-e332-48fb-96f6-335b2c32293e",
+      "cae15de0-355d-4c41-a0d7-209d72721458",
+      "d77a959b-a9cc-49f4-99f5-95446e137891",
+      "5ca913e1-318e-47f6-b043-4719b7bb1540",
+      "5955cdef-1a18-49bc-867e-83772e0bb443",
+      "bd87032a-2119-4bd9-8312-d0c1bed22f8a",
+      "5a6507d3-3d3f-421f-b3c3-8626887b0506",
+      "6ba6575d-f63c-4c92-a584-cb7720e897c8",
+      "27876fbb-4ec2-4cfa-8a50-2c410ab85990"
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_5-1",
@@ -896,7 +946,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "f285d11d-fdea-4178-b623-162113760bc9",
       "aafd55a4-fb09-4404-a213-541d1ce1d360",
       "81b17d0e-ebba-49bb-86a9-59d06f8cb4aa"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_5-2",
@@ -909,12 +960,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "673a1ef3-1191-4d49-a14d-59533db7a825",
       "4beff8bd-1407-45df-964c-3e21327980f2",
       "40488c0d-1663-4350-a322-97d5c6bc197e",
-      "9bf731e1-fa29-4479-92ed-ba7882e1b692",
-      "c6fb52e0-4bff-4659-bb3d-5374d17ab882",
-      "be4a6bdf-c30b-4c64-899f-1b932858ef2b",
-      "7de1f0b5-e8b1-4eaa-abc1-3caa76f5045a",
-      "64e3c69b-3f63-4b40-bebd-34488fe25a0d"
-    ]
+      "a31261e9-ddba-499c-aae4-9fcf63c5269c",
+      "e90ae909-6fca-4ea0-9a89-c0d1cb036462",
+      "0e94eac9-4278-41b5-8b8a-b988c92769df",
+      "78506a2f-ac00-445d-97e4-abe97b220dec",
+      "3c4c5603-5d8c-4167-8815-bfe7eb8b5544"
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_5-3",
@@ -922,17 +974,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_5",
     "title": "Science Grade 5 — Practice Exam 3",
     "questionIds": [
-      "a5343ce2-8552-4f7c-a18d-c23ae9b7ea37",
-      "a89f3d69-adcf-4940-b7b1-cc5740f22a28",
-      "f285d11d-fdea-4178-b623-162113760bc9",
-      "aafd55a4-fb09-4404-a213-541d1ce1d360",
-      "81b17d0e-ebba-49bb-86a9-59d06f8cb4aa",
-      "277455a3-4ac3-4b36-9818-1ebffbfaea19",
-      "d4d288c0-6575-470b-9e0b-16f7ea04dcbb",
-      "673a1ef3-1191-4d49-a14d-59533db7a825",
-      "4beff8bd-1407-45df-964c-3e21327980f2",
-      "40488c0d-1663-4350-a322-97d5c6bc197e"
-    ]
+      "f5ffb58f-6bcd-44e5-b905-14c14acdbbbe",
+      "98bf2829-24c3-4872-be41-8517d6735327",
+      "a582a86d-28e4-4c27-8926-6249d59ce2a9",
+      "8dd39944-e43e-4f5e-bbd1-15b15e8f51af",
+      "9bf731e1-fa29-4479-92ed-ba7882e1b692",
+      "c6fb52e0-4bff-4659-bb3d-5374d17ab882",
+      "be4a6bdf-c30b-4c64-899f-1b932858ef2b",
+      "7de1f0b5-e8b1-4eaa-abc1-3caa76f5045a",
+      "64e3c69b-3f63-4b40-bebd-34488fe25a0d",
+      "a5343ce2-8552-4f7c-a18d-c23ae9b7ea37"
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_6-1",
@@ -950,7 +1003,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "26a9c14b-0ae3-4a8c-a4d6-4a36132fb90a",
       "4af16baf-7024-4f17-8028-f6d77f8d5e43",
       "43265bbe-19e9-4c0a-aa8e-48ad4b778295"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_6-2",
@@ -965,10 +1019,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "1ca087db-5e18-43fe-8712-99c191ccbfd3",
       "fbd0c82a-fed7-4658-961c-e2da033f2a6d",
       "bac08012-8cfa-4d1e-98f0-dc143bb9f6d2",
-      "12310b4f-6289-41b5-8379-2d52e086a163",
-      "d7c1d9c5-c9de-4188-851b-fb10521c436b",
-      "6eec1bb8-817f-4d8a-9cfe-f1fea7cc875b"
-    ]
+      "63b3f018-f28c-442b-a7cd-abbf40b50ce6",
+      "ec922a29-13cb-4bed-9e42-b5afa144ad72",
+      "525d1e7f-9f95-4213-83b6-9b235a6e176d"
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_6-3",
@@ -976,17 +1031,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_6",
     "title": "Science Grade 6 — Practice Exam 3",
     "questionIds": [
-      "90416ab9-5e63-4b2b-bc46-d71d4dd1f2a8",
-      "7a236cce-9535-4a4a-b389-30a5cc64d202",
-      "a0de0071-bbbf-4d98-8efa-460543a417c6",
-      "38b6fda1-f9c8-4194-9364-bae79e78ad7f",
-      "26a9c14b-0ae3-4a8c-a4d6-4a36132fb90a",
-      "4af16baf-7024-4f17-8028-f6d77f8d5e43",
-      "43265bbe-19e9-4c0a-aa8e-48ad4b778295",
-      "a66279c6-c848-40e0-abc5-ed8825b64a38",
-      "a9fe29a8-16cc-48d8-b572-54bac049c42d",
-      "a41fe943-bd18-448b-96f8-673807a07814"
-    ]
+      "642a7adf-8930-4a6d-9049-f29ef5c6b4ef",
+      "6dd74bcf-62c9-4eb5-a698-e204a5036b7e",
+      "d8d1737f-5a22-4309-94c3-0a874d951c08",
+      "874bb01a-4792-46b2-b56e-d895ceeaff0a",
+      "f248c7ca-8778-413b-a062-8bb9a2a0cb19",
+      "1fa234be-6b87-44f3-afaf-506e9da9f3ea",
+      "12310b4f-6289-41b5-8379-2d52e086a163",
+      "d7c1d9c5-c9de-4188-851b-fb10521c436b",
+      "6eec1bb8-817f-4d8a-9cfe-f1fea7cc875b",
+      "90416ab9-5e63-4b2b-bc46-d71d4dd1f2a8"
+    ],
+    "premium": false
   },
   {
     "id": "science-year_7-1",
@@ -1004,7 +1060,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "43a9e33d-9bc6-4225-9f0a-e53f2d98f407",
       "34548b0f-1ceb-46d0-af4a-d7be95b21631",
       "37d5ba84-b1b0-49de-b88e-3c6483a406b2"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "science-year_7-2",
@@ -1017,12 +1074,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "793f6542-4f26-4ed5-adc6-df887b2fbcd1",
       "cdb4a7f2-76d9-4eae-a60f-05c1eeebcaf3",
       "46ef8104-e8cb-4306-b347-3c7be356109d",
-      "a7543b7a-a68d-4973-bed4-370427f0228d",
-      "b4135d64-f9bb-403b-8899-464791404fae",
-      "16eb5ce5-48a4-4390-86f8-bc10d75191e3",
-      "3ae05ecd-749d-41a9-9d1b-91ab3ccb7a98",
-      "660d6e9a-b0b7-4f13-8008-d45b4e2804ff"
-    ]
+      "f0e8780a-0cc1-4577-a369-d20fb1b5a676",
+      "dab28042-a340-4c87-8301-0dab7feb7641",
+      "d3a3dba9-a543-4ccf-9c82-fb3bd7728576",
+      "2ec61570-ca1b-4d43-b029-76c0dbba4bc9",
+      "5ea886f0-1c93-4f77-a19d-e9cbc446a443"
+    ],
+    "premium": false
   },
   {
     "id": "science-year_7-3",
@@ -1030,17 +1088,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_7",
     "title": "Science Year 7 — Practice Exam 3",
     "questionIds": [
-      "720f28c0-6494-4525-9af7-168e35ced411",
-      "5921421d-f0a2-43b9-8d4d-bc8642d1edff",
-      "43a9e33d-9bc6-4225-9f0a-e53f2d98f407",
-      "34548b0f-1ceb-46d0-af4a-d7be95b21631",
-      "37d5ba84-b1b0-49de-b88e-3c6483a406b2",
-      "3fcb0332-ed03-4968-a37c-15c313ebfda1",
-      "64403791-d6de-4978-bd47-6e5c4419b935",
-      "793f6542-4f26-4ed5-adc6-df887b2fbcd1",
-      "cdb4a7f2-76d9-4eae-a60f-05c1eeebcaf3",
-      "46ef8104-e8cb-4306-b347-3c7be356109d"
-    ]
+      "31a917df-9f25-46c1-8c49-61b71ace957f",
+      "457cdc69-4fab-4d10-9de8-4b379478f894",
+      "0d8116f4-0042-42e2-aa49-ac6c4ca9ffd8",
+      "a47da750-3c09-4e2b-981a-2075795d6bd0",
+      "a7543b7a-a68d-4973-bed4-370427f0228d",
+      "b4135d64-f9bb-403b-8899-464791404fae",
+      "16eb5ce5-48a4-4390-86f8-bc10d75191e3",
+      "3ae05ecd-749d-41a9-9d1b-91ab3ccb7a98",
+      "660d6e9a-b0b7-4f13-8008-d45b4e2804ff",
+      "720f28c0-6494-4525-9af7-168e35ced411"
+    ],
+    "premium": false
   },
   {
     "id": "science-year_9-1",
@@ -1058,7 +1117,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "a00cf390-03e0-4aac-b21d-710de91af173",
       "8a7bb997-6650-4ac7-b1b4-22fe56eadaf7",
       "bf7ae28f-322b-459e-a179-dcda96748857"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "science-year_9-2",
@@ -1071,12 +1131,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "2e29ec3d-4463-4367-a993-cefb6ebddc1d",
       "aed732ac-94ce-4597-ae8f-3bf5969da433",
       "14e20853-9c3f-48cc-90e3-cfedaa366d27",
-      "75a77b8c-543b-4772-a94b-1f700d4c4f3f",
-      "2a50a3c3-40ff-4e56-947a-394adc7cab21",
-      "86b39d8e-f376-4bfa-b591-957f45768cc6",
-      "77def386-4f12-4f80-a33c-a06bf88d196c",
-      "b0f3fe36-1292-48a9-a45c-96d253ac6692"
-    ]
+      "c825e063-9d3a-4308-918d-4e6a84e310d6",
+      "6b54e9a0-9a88-4e36-8448-748e6bb3522e",
+      "13242626-1991-4d90-90cf-6760fd4665a6",
+      "a41b9977-a11c-4146-831a-1bfcc9dd38d5",
+      "ef4c9ad3-f4e5-4080-bf2c-987ec409857f"
+    ],
+    "premium": false
   },
   {
     "id": "science-year_9-3",
@@ -1084,17 +1145,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_9",
     "title": "Science Year 9 — Practice Exam 3",
     "questionIds": [
-      "c2b4f143-93a0-4dcd-9001-3f5a2a3e8f9a",
-      "06148d85-95f5-46c1-8bcc-bf0a878a9346",
-      "a00cf390-03e0-4aac-b21d-710de91af173",
-      "8a7bb997-6650-4ac7-b1b4-22fe56eadaf7",
-      "bf7ae28f-322b-459e-a179-dcda96748857",
-      "5522aa73-cdbe-4be7-91c0-68ef6b63b563",
-      "8f9593bb-1192-4729-b332-2cde6ae433fb",
-      "2e29ec3d-4463-4367-a993-cefb6ebddc1d",
-      "aed732ac-94ce-4597-ae8f-3bf5969da433",
-      "14e20853-9c3f-48cc-90e3-cfedaa366d27"
-    ]
+      "a21d812b-3801-4278-94a8-bd87f0f80d9d",
+      "7514ca1c-e2c0-4560-bcc0-0142b67a499e",
+      "c530ab1c-8b38-43dc-83e2-2174a249280d",
+      "b20cec2b-9404-4769-ae83-72f5a8ad899c",
+      "75a77b8c-543b-4772-a94b-1f700d4c4f3f",
+      "2a50a3c3-40ff-4e56-947a-394adc7cab21",
+      "86b39d8e-f376-4bfa-b591-957f45768cc6",
+      "77def386-4f12-4f80-a33c-a06bf88d196c",
+      "b0f3fe36-1292-48a9-a45c-96d253ac6692",
+      "c2b4f143-93a0-4dcd-9001-3f5a2a3e8f9a"
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_4-1",
@@ -1112,7 +1174,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "e1537fee-6551-4a53-8b51-48b3c07db65b",
       "516f74df-0e2c-4a3d-a2f7-491482a76075",
       "959eb318-91f4-4a63-9915-ce32b628024f"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_4-2",
@@ -1125,12 +1188,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "c16e18dc-53e6-4149-9af7-2d4890fa4a80",
       "75a2addb-9ebe-4b17-8e91-3d25a3bc88ff",
       "a25d74d4-cece-4b6b-a48c-e6f14137f07c",
-      "2f9423e0-9e64-47f0-ba90-f0e31d32a1ff",
-      "4d07eec0-dba8-4807-9da0-1829decb6cd3",
-      "540f251a-a7fb-4da4-972a-1a23a376e6a3",
-      "0e5d077c-9a7b-4428-8cad-0cad99342c9e",
-      "840c6518-618a-47c8-a664-616eec72f143"
-    ]
+      "b682e090-b820-4a6f-91b5-3d88e9799591",
+      "37cbf6c0-34c5-40a7-a270-1ba5df17d301",
+      "2d03514e-06de-4673-8d5b-4eae5ac7bbb7",
+      "10599864-b583-4bcf-ba2e-30b84c140ba1",
+      "3904efc1-5dfe-46f8-8091-9e054701823b"
+    ],
+    "premium": false
   },
   {
     "id": "science-grade_4-3",
@@ -1138,17 +1202,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_4",
     "title": "Science Grade 4 — Practice Exam 3",
     "questionIds": [
-      "78e23eeb-1e19-4212-bc80-16768376b4a4",
-      "b6f5d759-6eb3-4606-abca-1789ebdae9ad",
-      "e1537fee-6551-4a53-8b51-48b3c07db65b",
-      "516f74df-0e2c-4a3d-a2f7-491482a76075",
-      "959eb318-91f4-4a63-9915-ce32b628024f",
-      "a2808b56-6156-42f2-91e0-3e83609ad71c",
-      "8787955e-c833-4dc6-9396-740220634954",
-      "c16e18dc-53e6-4149-9af7-2d4890fa4a80",
-      "75a2addb-9ebe-4b17-8e91-3d25a3bc88ff",
-      "a25d74d4-cece-4b6b-a48c-e6f14137f07c"
-    ]
+      "83505fff-7d7f-42e5-a0b9-1b16ee0b2e8b",
+      "8e67d4f6-70fe-489d-ab57-34d1b99c33f0",
+      "6f42ae78-25a0-4ea0-8f48-e18ee5e76fcd",
+      "27a1c6ce-23db-4601-b05b-6d281dfb9130",
+      "2f9423e0-9e64-47f0-ba90-f0e31d32a1ff",
+      "4d07eec0-dba8-4807-9da0-1829decb6cd3",
+      "540f251a-a7fb-4da4-972a-1a23a376e6a3",
+      "0e5d077c-9a7b-4428-8cad-0cad99342c9e",
+      "840c6518-618a-47c8-a664-616eec72f143",
+      "78e23eeb-1e19-4212-bc80-16768376b4a4"
+    ],
+    "premium": false
   },
   {
     "id": "science-year_8-1",
@@ -1166,7 +1231,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "909dd0e9-4828-487e-a54b-8ec7a5d54dc1",
       "dfbeb1bd-0e2c-402b-b1ce-861fd91e9b1b",
       "5f48e025-4c14-42e8-89b5-aaed3be746ab"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "science-year_8-2",
@@ -1179,12 +1245,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "7feb0878-7350-4c28-8663-5297fac0d6a2",
       "6a9c251d-f7a0-4373-9a05-3dc6a5213439",
       "4d66b7b7-d370-410a-b0fd-427ca9a423b1",
-      "08c4487d-e0de-45dd-a475-9b23f8d3b6ee",
-      "5327c5a5-d566-472a-9c20-46d7b7130175",
-      "97164156-018a-44bc-9612-73d79a81d9c3",
-      "790854c3-25d6-46d7-8173-d0cdb85b11e0",
-      "a53d1c70-b7d9-41e1-884c-ee93e78a9abc"
-    ]
+      "82deb08f-a70f-4adc-ae72-91b5e6c4dfcf",
+      "346284af-42b7-4a72-8a6b-49ea2c15e11c",
+      "9569d7a8-f20e-49a4-97fd-08025313a991",
+      "b8e47782-c68c-41ab-9559-a0b5a1cbaad7",
+      "2c410695-ac54-42cf-941a-f09a08f67f75"
+    ],
+    "premium": false
   },
   {
     "id": "science-year_8-3",
@@ -1192,17 +1259,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_8",
     "title": "Science Year 8 — Practice Exam 3",
     "questionIds": [
-      "347ef2ad-fb11-4182-8ab3-44512490561e",
-      "ab645c82-6fb3-441a-a747-df06d2113dba",
-      "909dd0e9-4828-487e-a54b-8ec7a5d54dc1",
-      "dfbeb1bd-0e2c-402b-b1ce-861fd91e9b1b",
-      "5f48e025-4c14-42e8-89b5-aaed3be746ab",
-      "dbade988-155b-4c69-88ed-e54e37faf6ca",
-      "971fde25-bc5c-4406-92f1-864f18465d7b",
-      "7feb0878-7350-4c28-8663-5297fac0d6a2",
-      "6a9c251d-f7a0-4373-9a05-3dc6a5213439",
-      "4d66b7b7-d370-410a-b0fd-427ca9a423b1"
-    ]
+      "d16009fb-e6ac-41fa-8231-5120fcd85eb2",
+      "1b8e0cc2-4f0c-4ceb-b944-9b8297eaf0ee",
+      "34a78bcf-5502-4198-8c27-ce92ac7349e3",
+      "997fc171-7d16-42ef-b544-aef3e9a78bbb",
+      "08c4487d-e0de-45dd-a475-9b23f8d3b6ee",
+      "5327c5a5-d566-472a-9c20-46d7b7130175",
+      "97164156-018a-44bc-9612-73d79a81d9c3",
+      "790854c3-25d6-46d7-8173-d0cdb85b11e0",
+      "a53d1c70-b7d9-41e1-884c-ee93e78a9abc",
+      "347ef2ad-fb11-4182-8ab3-44512490561e"
+    ],
+    "premium": false
   },
   {
     "id": "science-year_10-1",
@@ -1220,7 +1288,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "38b503b8-fa93-4962-8eca-f38417780e67",
       "6de0e8f2-1778-4048-b023-ea41fe126300",
       "9f679146-255a-419f-a8b7-35a0ea856654"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "science-year_10-2",
@@ -1233,12 +1302,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "6b39fe15-ae4e-45ac-a8e4-69323992403b",
       "81f0d130-14f5-44c4-8482-421d2be96cbf",
       "e0f81a76-aa5e-4c87-90de-947d080b0fb5",
-      "fa75ee6b-7411-4dc0-8f24-9db75d523b3e",
-      "4080e668-6840-4eb2-a059-eece6007a29b",
-      "092c450c-1e6d-46fb-ab36-eb483275c87c",
-      "da82552d-59a3-4e77-ac3a-5eef92ac4957",
-      "6f519d8e-2989-447a-a806-94cb2189dac8"
-    ]
+      "fbda5904-985f-41ef-962e-97a472c2a78a",
+      "7c3cab0a-703b-4bb3-9fc1-f37e054870ce",
+      "84795168-a24a-404f-a0e0-4362b914cc95",
+      "8afd62a5-0d65-49f1-b916-bb3da58011e9",
+      "fd64c1df-155c-4b6b-8443-65368bd3f857"
+    ],
+    "premium": false
   },
   {
     "id": "science-year_10-3",
@@ -1246,17 +1316,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_10",
     "title": "Science Year 10 — Practice Exam 3",
     "questionIds": [
-      "69e15a87-caf3-4abf-b42c-79428dda33ed",
-      "a8fb4908-f37c-4d12-ab5b-19a39cc5a542",
-      "38b503b8-fa93-4962-8eca-f38417780e67",
-      "6de0e8f2-1778-4048-b023-ea41fe126300",
-      "9f679146-255a-419f-a8b7-35a0ea856654",
-      "1826d930-a611-4415-89da-1a8f78b3d561",
-      "e311c7e4-79b4-4227-af8b-dce8925952dc",
-      "6b39fe15-ae4e-45ac-a8e4-69323992403b",
-      "81f0d130-14f5-44c4-8482-421d2be96cbf",
-      "e0f81a76-aa5e-4c87-90de-947d080b0fb5"
-    ]
+      "354839b8-687b-44b8-9334-704ad854bec0",
+      "2cf5198a-63d7-4fc1-ad56-7f0fffc1f263",
+      "f63640c7-5554-49c1-8df6-3f33cf4a0aa4",
+      "3a3fdd25-0ccf-419c-b73a-e1273b67867f",
+      "fa75ee6b-7411-4dc0-8f24-9db75d523b3e",
+      "4080e668-6840-4eb2-a059-eece6007a29b",
+      "092c450c-1e6d-46fb-ab36-eb483275c87c",
+      "da82552d-59a3-4e77-ac3a-5eef92ac4957",
+      "6f519d8e-2989-447a-a806-94cb2189dac8",
+      "69e15a87-caf3-4abf-b42c-79428dda33ed"
+    ],
+    "premium": false
   },
   {
     "id": "chemistry-year_11-1",
@@ -1274,7 +1345,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "ec2e421f-7d5d-440a-8388-dd0d7a13c772",
       "d8c1ef5c-5ec7-4685-963a-697e60a7a0be",
       "b53694b4-19e3-4392-801f-716046d4746a"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "chemistry-year_11-2",
@@ -1292,7 +1364,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "0ddf4f17-0812-4cdd-aa13-f4aaad38b896",
       "557bbb2b-67b7-4b2b-9f4b-47b80434436d",
       "148a2ead-f194-4f6b-9bd6-5cc9d82a08b2"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "chemistry-year_11-3",
@@ -1310,7 +1383,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "fc7f0a6a-7046-44cd-9719-8743c94b6570",
       "8bcf73d5-f780-46c8-b6d1-97ee5d021b5f",
       "a9bb8b8f-6e43-45a1-8134-27480896bfa5"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "physics-year_11-1",
@@ -1328,7 +1402,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "67bd79ea-d1f4-4e36-b3f0-b460773f5a5c",
       "ab8ee86c-9db0-40ab-a18a-a690d757a16c",
       "8235976f-ed56-4801-9f47-565b3e4d14d3"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "physics-year_11-2",
@@ -1346,7 +1421,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "0f655e13-5eef-49d4-bd5e-a99c9658a07a",
       "0d6a5df5-385e-4833-8784-818535cc176b",
       "16e04cc5-be59-4405-8ae8-d6eebda267c4"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "physics-year_11-3",
@@ -1364,7 +1440,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "4da5641b-f95a-4cbf-b291-691fc6dd8b6c",
       "67bd79ea-d1f4-4e36-b3f0-b460773f5a5c",
       "ab8ee86c-9db0-40ab-a18a-a690d757a16c"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "maths_methods-year_11-1",
@@ -1382,7 +1459,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "b1074d16-1caa-4075-bff3-38d64c5273c0",
       "ae1dca68-d197-4d15-8766-80bf59e38448",
       "0b939f58-e4c9-4c94-8234-5171b533274e"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "maths_methods-year_11-2",
@@ -1400,7 +1478,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "51625179-29a0-4c54-bf30-6dd4dd6051ca",
       "e4680419-4c16-42fb-8033-b5a904db0d96",
       "2be47a67-edd5-4810-82e4-bc7b5aaf9c42"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "maths_methods-year_11-3",
@@ -1418,7 +1497,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "c2a82f32-e1b5-4a7e-82e3-5843a6d0f39a",
       "2bd3853a-b67a-4cc7-baf4-227f343c1874",
       "8205de0f-8534-4eb8-8199-371a67bc7156"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "maths_methods-year_11-4",
@@ -1436,7 +1516,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "e552d368-f94c-4168-9052-e16b4d8a8da2",
       "9d22b63a-057f-470b-b725-e50c310ebafb",
       "0a522667-4d68-42f6-95f6-2882f3a1b45a"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "maths_methods-year_11-5",
@@ -1454,7 +1535,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "ca91e652-8d09-4ef2-b9f0-bf90f44eb30f",
       "82da0061-47a2-48c1-9c21-5412952cb06a",
       "cb27677f-ad98-478d-aa92-e3e98c0203ee"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "further_maths-year_11-1",
@@ -1472,7 +1554,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "d908d7a3-c5fc-4ef7-9d08-bbdfce5615ba",
       "23ab2720-a108-4115-8abe-8580d6fd8f32",
       "3ba40142-6bfe-4319-a80a-079977eb8e72"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "further_maths-year_11-2",
@@ -1490,7 +1573,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "5c635027-be5a-4f76-9429-8b2d2d004e15",
       "573f379f-1c60-4633-8f67-b1c06e04f0a2",
       "6a0880f6-97cb-4c2e-9107-4d6dc92ad737"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "further_maths-year_11-3",
@@ -1508,7 +1592,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "23d8c575-deee-4f27-b355-ce6a665086d3",
       "181fa7ab-86e6-4dde-b712-b5d3351df455",
       "8ed2b902-989d-40e5-ba80-173237f28e3e"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "further_maths-year_11-4",
@@ -1526,7 +1611,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "400cdc68-f4ac-443b-988f-acda1fe55ea7",
       "3f232a72-0e11-4f28-b1bf-49133d438cd3",
       "eec6117a-44bf-433d-a3cf-931940534924"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "further_maths-year_11-5",
@@ -1544,7 +1630,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "226873d3-9000-49cb-8af6-f99362a202d1",
       "7ec6a61e-a615-464c-b923-ccc785640dc5",
       "9c3b5c45-25f0-4f1f-851d-6847d5057a91"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "specialist_maths-year_11-1",
@@ -1562,7 +1649,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "6c139960-7a4e-4b3b-8686-f7ed84cc2bae",
       "b09765ca-7a25-4f4e-84c9-df4510e8ff17",
       "aa542fe0-441f-4407-9de1-1d3e875057a7"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "specialist_maths-year_11-2",
@@ -1580,7 +1668,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "ecfb8afc-896b-4c15-9da7-9d96e2a95797",
       "3cad9f55-12a8-4c1a-86bb-c1aa38995a9d",
       "265515d5-2037-4970-afd7-2def26515b11"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "specialist_maths-year_11-3",
@@ -1598,7 +1687,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "aa542fe0-441f-4407-9de1-1d3e875057a7",
       "fbcaaace-58a7-4af4-b31c-77eb6e16fb65",
       "7c9f7c4d-4231-4ee2-ad0e-700dcf63956f"
-    ]
+    ],
+    "premium": true
   },
   {
     "id": "english-year_10-1",
@@ -1616,7 +1706,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "859b70f6-3f0b-4835-a3dd-3a101a6eee69",
       "97bf7db1-10d8-4157-b4cc-7db974dabdb3",
       "bdbd0fa3-4b84-420c-bf61-70a12659da75"
-    ]
+    ],
+    "premium": false
   },
   {
     "id": "english-year_10-2",
@@ -1629,12 +1720,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "c1b4d5ef-2643-4fd3-8a97-1e8aceb1bfec",
       "d0e8bc82-270f-4b8f-af5b-7a1eea9e4679",
       "a1216c3f-edcf-482e-9ee2-6fc5c4446d6e",
-      "436f667e-877d-420c-bbac-7fe10db6b9bd",
-      "a06f3979-5b58-46d5-a0e3-698f7430b297",
-      "ef3f93b1-2b8b-4db2-8299-e13112850520",
-      "1a2b8b90-23cb-4a4c-ba56-e1f69eb5bf8b",
-      "bdee6a98-b2c7-49e4-bca6-5437992f5bd8"
-    ]
+      "bc89ca41-02c5-4bc4-9cd8-8ade6478635e",
+      "aeeb5416-732b-47d6-9f4b-e8b634a6e695",
+      "6bb71659-b303-4dcb-8ae1-d78053d3f7f5",
+      "cb0d08f2-3420-45c9-8e74-b3a439fd2fb3",
+      "4259c816-c6d9-44cc-b54c-8a6cfbf8c199"
+    ],
+    "premium": false
   },
   {
     "id": "english-year_10-3",
@@ -1642,16 +1734,17 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_10",
     "title": "English Year 10 — Practice Exam 3",
     "questionIds": [
-      "52ec8f3e-bc8a-460b-a4be-6681e3f8604c",
-      "ed01bd6d-9738-4f02-9096-481cac56cbd2",
-      "859b70f6-3f0b-4835-a3dd-3a101a6eee69",
-      "97bf7db1-10d8-4157-b4cc-7db974dabdb3",
-      "bdbd0fa3-4b84-420c-bf61-70a12659da75",
-      "080d4e88-959a-4aee-8dc0-f2dc6f2c4e5d",
-      "9f31895e-b403-4645-80f7-8d6be572466a",
-      "c1b4d5ef-2643-4fd3-8a97-1e8aceb1bfec",
-      "d0e8bc82-270f-4b8f-af5b-7a1eea9e4679",
-      "a1216c3f-edcf-482e-9ee2-6fc5c4446d6e"
-    ]
+      "c8c9c2e6-d461-4f7a-96a8-d20bc2dbc253",
+      "84d86025-bd23-43b7-bc43-5e53eff973b4",
+      "999422db-24a5-4c26-9598-57516b21bc01",
+      "f8187f67-9da9-4737-ae1f-35e90a00ec51",
+      "921cbfa9-de95-4b43-a42a-d39fbcaadf6b",
+      "436f667e-877d-420c-bbac-7fe10db6b9bd",
+      "a06f3979-5b58-46d5-a0e3-698f7430b297",
+      "ef3f93b1-2b8b-4db2-8299-e13112850520",
+      "1a2b8b90-23cb-4a4c-ba56-e1f69eb5bf8b",
+      "bdee6a98-b2c7-49e4-bca6-5437992f5bd8"
+    ],
+    "premium": false
   }
 ]

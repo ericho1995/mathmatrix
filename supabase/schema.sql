@@ -17,16 +17,19 @@ create type year_level as enum (
 create type subject_slug as enum ('math', 'english', 'science');
 create type topic_slug as enum (
   'number_operations',
-  'algebra_functions',
+  'number_patterns',
+  'algebra_equations',
   'geometry_measurement',
   'statistics_probability',
   'reading_comprehension',
+  'reading_literary_analysis',
   'grammar_punctuation',
   'vocabulary',
   'life_science',
   'physical_science',
   'earth_space'
 );
+create type question_format as enum ('multiple_choice', 'long_form');
 -- Topic → subject grouping lives in app metadata (src/lib/curriculum.ts) for now;
 -- promote to a `topics` reference table once questions are seeded from the DB.
 create type difficulty as enum ('foundation', 'developing', 'proficient', 'advanced');
@@ -60,14 +63,18 @@ create table questions (
   topic             topic_slug not null,
   year_level        year_level not null,
   difficulty        difficulty not null default 'developing',
+  format            question_format not null default 'multiple_choice',
   question_text     text not null,
-  options           jsonb not null,        -- string[]
-  correct_index     smallint not null,
+  options           jsonb,                 -- string[]; null for long_form
+  correct_index     smallint,              -- null for long_form
   explanation       text not null,
   curriculum_code   text,                  -- e.g. "AC9M6N01"
   is_published      boolean not null default false,
   created_by        uuid references profiles(id),
-  created_at        timestamptz not null default now()
+  created_at        timestamptz not null default now(),
+  constraint questions_mc_has_options check (
+    format != 'multiple_choice' or (options is not null and correct_index is not null)
+  )
 );
 
 create index idx_questions_topic_year on questions(topic, year_level);
@@ -97,8 +104,9 @@ create table question_attempts (
   id                  uuid primary key default uuid_generate_v4(),
   session_id          uuid not null references practice_sessions(id) on delete cascade,
   question_id         uuid not null references questions(id),
-  selected_index      smallint not null,
-  is_correct          boolean not null,
+  selected_index      smallint not null,     -- -1 for long_form (not applicable)
+  response_text       text,                  -- free-text answer for long_form questions
+  is_correct          boolean,               -- null = not auto-gradable, pending manual review
   time_taken_seconds  smallint not null,
   created_at          timestamptz not null default now()
 );

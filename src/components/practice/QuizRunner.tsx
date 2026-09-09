@@ -1,15 +1,16 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import type { TopicSlug, YearLevel } from '@/types'
+import type { TopicSlug, YearLevel, QuestionFormat } from '@/types'
 import { createClient } from '@/lib/supabase/client'
 
 export interface QuizQuestion {
   id: string
   question_text: string
-  options: string[]
-  correct_index: number
   explanation: string
+  format?: QuestionFormat
+  options?: string[]
+  correct_index?: number
 }
 
 const XP_PER_CORRECT = 10
@@ -30,8 +31,10 @@ export default function QuizRunner({
   const [screen, setScreen] = useState<'quiz' | 'results'>('quiz')
   const [qIndex, setQIndex] = useState(0)
   const [answers, setAnswers] = useState<(number | null)[]>(new Array(questions.length).fill(null))
+  const [responses, setResponses] = useState<(string | null)[]>(new Array(questions.length).fill(null))
   const [times, setTimes] = useState<number[]>(new Array(questions.length).fill(0))
   const [selected, setSelected] = useState<number | null>(null)
+  const [draftText, setDraftText] = useState('')
   const [revealed, setRevealed] = useState(false)
   const questionStartedAt = useRef(Date.now())
   const saved = useRef(false)
@@ -48,20 +51,35 @@ export default function QuizRunner({
     setTimes(elapsed)
   }
 
+  function submitLongForm() {
+    if (revealed || !draftText.trim()) return
+    setRevealed(true)
+    const updated = [...responses]
+    updated[qIndex] = draftText.trim()
+    setResponses(updated)
+    const elapsed = [...times]
+    elapsed[qIndex] = Math.round((Date.now() - questionStartedAt.current) / 1000)
+    setTimes(elapsed)
+  }
+
   function next() {
     if (qIndex + 1 >= questions.length) {
       setScreen('results')
     } else {
       setQIndex(qIndex + 1)
       setSelected(null)
+      setDraftText('')
       setRevealed(false)
       questionStartedAt.current = Date.now()
     }
   }
 
-  const correctCount = answers.filter((a, i) => a === questions[i]?.correct_index).length
-  const pct = questions.length ? Math.round((correctCount / questions.length) * 100) : 0
+  const gradableQuestions = questions.filter(q => q.format !== 'long_form')
+  const correctCount = answers.filter((a, i) => questions[i]?.format !== 'long_form' && a === questions[i]?.correct_index).length
+  const pct = gradableQuestions.length ? Math.round((correctCount / gradableQuestions.length) * 100) : 0
+  const longFormCount = questions.length - gradableQuestions.length
   const q = questions[qIndex]
+  const isLongForm = q?.format === 'long_form'
 
   // Persist the finished session, best-effort. Signed-out visitors and any
   // Supabase error are swallowed so the results screen never breaks on this.
@@ -85,7 +103,7 @@ export default function QuizRunner({
             year_level: primaryYearLevel,
             mode: 'practice',
             completed_at: new Date().toISOString(),
-            total_questions: questions.length,
+            total_questions: gradableQuestions.length,
             correct_count: correctCount,
             xp_earned: xpEarned,
           })
@@ -98,8 +116,9 @@ export default function QuizRunner({
           questions.map((question, i) => ({
             session_id: session.id,
             question_id: question.id,
-            selected_index: answers[i] ?? -1,
-            is_correct: answers[i] === question.correct_index,
+            selected_index: question.format === 'long_form' ? -1 : answers[i] ?? -1,
+            response_text: question.format === 'long_form' ? responses[i] : null,
+            is_correct: question.format === 'long_form' ? null : answers[i] === question.correct_index,
             time_taken_seconds: times[i] ?? 0,
           }))
         )
@@ -152,17 +171,42 @@ export default function QuizRunner({
       <div className="card mb-4">
         <p className="text-lg font-medium leading-relaxed">{q.question_text}</p>
       </div>
-      <div className="grid grid-cols-2 gap-2 mb-4">
-        {q.options.map((opt, i) => {
-          let cls = 'p-4 rounded-xl border text-sm font-medium text-center transition-all cursor-pointer '
-          if (!revealed) cls += 'border-gray-100 hover:border-brand-400 hover:bg-brand-50'
-          else if (i === q.correct_index) cls += 'border-2 border-teal-400 bg-teal-50 text-teal-700'
-          else if (i === selected && i !== q.correct_index) cls += 'border-2 border-red-300 bg-red-50 text-red-700'
-          else cls += 'border-gray-100 opacity-50'
-          return <button key={i} className={cls} onClick={() => choose(i)} disabled={revealed}>{opt}</button>
-        })}
-      </div>
-      {revealed && (
+
+      {isLongForm ? (
+        <>
+          <textarea
+            value={revealed ? (responses[qIndex] ?? '') : draftText}
+            onChange={e => setDraftText(e.target.value)}
+            disabled={revealed}
+            rows={6}
+            placeholder="Write your answer..."
+            className="w-full p-4 rounded-xl border border-gray-100 text-sm mb-4 focus:outline-none focus:border-brand-400 disabled:bg-gray-50 disabled:text-gray-500"
+          />
+          {!revealed && (
+            <button onClick={submitLongForm} disabled={!draftText.trim()} className="btn-primary w-full mb-4 disabled:opacity-50">
+              Submit answer
+            </button>
+          )}
+          {revealed && (
+            <div className="p-4 rounded-xl text-sm mb-4 bg-gray-50 text-gray-600">
+              <strong>Response recorded.</strong> This is a long-answer question, so it isn&apos;t auto-marked — it will be available for a tutor or parent to review.
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="grid grid-cols-2 gap-2 mb-4">
+          {q.options!.map((opt, i) => {
+            let cls = 'p-4 rounded-xl border text-sm font-medium text-center transition-all cursor-pointer '
+            if (!revealed) cls += 'border-gray-100 hover:border-brand-400 hover:bg-brand-50'
+            else if (i === q.correct_index) cls += 'border-2 border-teal-400 bg-teal-50 text-teal-700'
+            else if (i === selected && i !== q.correct_index) cls += 'border-2 border-red-300 bg-red-50 text-red-700'
+            else cls += 'border-gray-100 opacity-50'
+            return <button key={i} className={cls} onClick={() => choose(i)} disabled={revealed}>{opt}</button>
+          })}
+        </div>
+      )}
+
+      {revealed && !isLongForm && (
         <div className={`p-4 rounded-xl text-sm mb-4 ${selected === q.correct_index ? 'bg-teal-50 text-teal-700' : 'bg-red-50 text-red-700'}`}>
           <strong>{selected === q.correct_index ? 'Correct!' : 'Not quite.'}</strong> {q.explanation}
         </div>
@@ -184,7 +228,8 @@ export default function QuizRunner({
         {pct >= 90 ? 'Outstanding!' : pct >= 70 ? 'Well done!' : pct >= 50 ? 'Good effort!' : 'Keep going!'}
       </h2>
       <p className="text-gray-500 mb-8">
-        You got {correctCount} out of {questions.length} correct.
+        You got {correctCount} out of {gradableQuestions.length} correct.
+        {longFormCount > 0 && ` Plus ${longFormCount} long-answer response${longFormCount === 1 ? '' : 's'} submitted for review.`}
       </p>
       <div className="grid grid-cols-2 gap-3">
         <button onClick={onExit} className="btn-secondary">Back</button>

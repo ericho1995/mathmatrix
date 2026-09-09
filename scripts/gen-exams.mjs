@@ -28,8 +28,8 @@ const { QUESTION_BANK } = await import('file://' + tmpPath)
 unlinkSync(tmpPath)
 
 const TOPIC_TO_SUBJECT = {
-  number_operations: 'math', algebra_functions: 'math', geometry_measurement: 'math', statistics_probability: 'math',
-  reading_comprehension: 'english', grammar_punctuation: 'english', vocabulary: 'english',
+  number_operations: 'math', number_patterns: 'math', algebra_equations: 'math', geometry_measurement: 'math', statistics_probability: 'math',
+  reading_comprehension: 'english', reading_literary_analysis: 'english', grammar_punctuation: 'english', vocabulary: 'english',
   life_science: 'science', physical_science: 'science', earth_space: 'science',
   chem_atomic_structure: 'chemistry', chem_reactions: 'chemistry',
   phys_mechanics: 'physics', phys_electricity: 'physics',
@@ -92,6 +92,7 @@ for (const { subject, yearLevel, questions } of groups.values()) {
       yearLevel,
       title: `${SUBJECT_LABEL[subject]} ${gradeLabel} — Practice Exam ${i + 1}`,
       questionIds,
+      premium: SELECTIVE_SUBJECTS.has(subject),
     })
   })
 }
@@ -111,6 +112,8 @@ export interface PracticeExam {
   yearLevel: YearLevel
   title: string
   questionIds: string[]
+  /** Selective/VCE-subject exams are premium — paid content (UI-only paywall for now). */
+  premium: boolean
 }
 
 export const PRACTICE_EXAMS: PracticeExam[] = ${JSON.stringify(practiceExams, null, 2)}

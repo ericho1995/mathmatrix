@@ -34,17 +34,26 @@ export const GRADES: { value: YearLevel; label: string }[] = [
   { value: 'year_12',  label: 'Yr 12' },
 ]
 
+// Topics are grade-band-scoped where the label itself would otherwise imply
+// a concept too advanced for younger students (e.g. "Algebra" for a Grade 3
+// student). Number Operations, Geometry, Statistics, Grammar, Vocabulary and
+// the 3 Science strands are official Australian Curriculum strand names used
+// at every year level from F-10, so they aren't split — only their content
+// scales with grade. When adding questions, keep number_patterns/reading_comprehension
+// to Grade 3-6 and algebra_equations/reading_literary_analysis to Year 7-10.
 export const TOPICS: Topic[] = [
   // Maths
   { slug: 'number_operations',      subject: 'math',    label: 'Number & Operations',      description: 'Arithmetic, fractions, decimals', icon: '#️⃣', color: '#185FA5' },
-  { slug: 'algebra_functions',      subject: 'math',    label: 'Algebra & Functions',      description: 'Equations, patterns, graphs',      icon: '🧮', color: '#185FA5' },
+  { slug: 'number_patterns',        subject: 'math',    label: 'Number Patterns',          description: 'Sequences, number patterns (Gr 3-6)', icon: '🔢', color: '#185FA5' },
+  { slug: 'algebra_equations',      subject: 'math',    label: 'Algebra & Equations',      description: 'Equations, expressions, functions (Yr 7-10)', icon: '🧮', color: '#185FA5' },
   { slug: 'geometry_measurement',   subject: 'math',    label: 'Geometry & Measurement',   description: 'Shapes, area, volume',             icon: '📏', color: '#185FA5' },
   { slug: 'statistics_probability', subject: 'math',    label: 'Statistics & Probability', description: 'Data, graphs, chance',             icon: '📊', color: '#185FA5' },
 
   // English
-  { slug: 'reading_comprehension',  subject: 'english', label: 'Reading Comprehension',    description: 'Passages, inference, literary devices', icon: '📗', color: '#0F6E56' },
-  { slug: 'grammar_punctuation',    subject: 'english', label: 'Grammar & Punctuation',    description: 'Sentence structure, punctuation rules', icon: '✍️', color: '#0F6E56' },
-  { slug: 'vocabulary',             subject: 'english', label: 'Vocabulary',               description: 'Synonyms, antonyms, word roots',        icon: '🔤', color: '#0F6E56' },
+  { slug: 'reading_comprehension',      subject: 'english', label: 'Reading Comprehension',     description: 'Short passages, main idea, inference (Gr 3-6)', icon: '📗', color: '#0F6E56' },
+  { slug: 'reading_literary_analysis',  subject: 'english', label: 'Reading & Literary Analysis', description: 'Themes, literary devices, textual analysis (Yr 7-10)', icon: '📘', color: '#0F6E56' },
+  { slug: 'grammar_punctuation',        subject: 'english', label: 'Grammar & Punctuation',     description: 'Sentence structure, punctuation rules', icon: '✍️', color: '#0F6E56' },
+  { slug: 'vocabulary',                 subject: 'english', label: 'Vocabulary',                description: 'Synonyms, antonyms, word roots',        icon: '🔤', color: '#0F6E56' },
 
   // Science
   { slug: 'life_science',           subject: 'science', label: 'Life Science',             description: 'Living things, biology, the body',      icon: '🌱', color: '#BA7517' },

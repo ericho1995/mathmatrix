@@ -46,8 +46,8 @@ export interface Subject {
 }
 
 export type TopicSlug =
-  | 'number_operations' | 'algebra_functions' | 'geometry_measurement' | 'statistics_probability'
-  | 'reading_comprehension' | 'grammar_punctuation' | 'vocabulary'
+  | 'number_operations' | 'number_patterns' | 'algebra_equations' | 'geometry_measurement' | 'statistics_probability'
+  | 'reading_comprehension' | 'reading_literary_analysis' | 'grammar_punctuation' | 'vocabulary'
   | 'life_science' | 'physical_science' | 'earth_space'
   | 'chem_atomic_structure' | 'chem_reactions'
   | 'phys_mechanics' | 'phys_electricity'
@@ -68,18 +68,36 @@ export type Difficulty = 'foundation' | 'developing' | 'proficient' | 'advanced'
 
 // ─── Questions ────────────────────────────────────────────────────────────────
 
-export interface Question {
+export type QuestionFormat = 'multiple_choice' | 'long_form'
+
+interface QuestionBase {
   id: string
   topic: TopicSlug
   year_level: YearLevel
   difficulty: Difficulty
   question_text: string
-  options: string[]
-  correct_index: number
   explanation: string
   curriculum_code?: string   // e.g. "AC9M6N01"
   created_at: string
 }
+
+// format is omitted on existing multiple-choice questions in bank.ts and
+// defaults to 'multiple_choice' — only long-form questions need to set it.
+export interface MultipleChoiceQuestion extends QuestionBase {
+  format?: 'multiple_choice'
+  options: string[]
+  correct_index: number
+}
+
+// Free-response questions (used in premium selective-subject exams). Not
+// auto-gradable — the response is saved on QuestionAttempt for later manual review.
+export interface LongFormQuestion extends QuestionBase {
+  format: 'long_form'
+  options?: undefined
+  correct_index?: undefined
+}
+
+export type Question = MultipleChoiceQuestion | LongFormQuestion
 
 // ─── Sessions & Attempts ─────────────────────────────────────────────────────
 
@@ -100,8 +118,9 @@ export interface QuestionAttempt {
   id: string
   session_id: string
   question_id: string
-  selected_index: number
-  is_correct: boolean
+  selected_index: number        // -1 for long-form (not applicable)
+  response_text?: string        // free-text answer for long-form questions
+  is_correct: boolean | null    // null = not auto-gradable (long-form, pending review)
   time_taken_seconds: number
 }
 

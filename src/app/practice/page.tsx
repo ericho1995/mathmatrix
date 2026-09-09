@@ -247,11 +247,7 @@ function PracticePageInner() {
           No questions yet for this combination. Try a different year level or topic.
         </p>
       )}
-      {pool.length > 0 && (
-        <p className="text-sm text-gray-400 mb-3">
-          {Math.min(questionCount, pool.length)} question{Math.min(questionCount, pool.length) === 1 ? '' : 's'} ready from {pool.length} available.
-        </p>
-      )}
+      {pool.length > 0 && <div className="mb-3" />}
       <button onClick={buildQuiz} disabled={!readyToBuild || pool.length === 0} className="btn-primary w-full">
         Start practice
       </button>

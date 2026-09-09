@@ -47,9 +47,11 @@ function sqlQuote(str) {
 }
 
 const sqlLines = QUESTION_BANK.map(q => {
-  const options = `'${JSON.stringify(q.options).replace(/'/g, "''")}'::jsonb`
+  const format = q.format ?? 'multiple_choice'
+  const options = q.options ? `'${JSON.stringify(q.options).replace(/'/g, "''")}'::jsonb` : 'null'
+  const correctIndex = q.correct_index ?? 'null'
   const curriculumCode = q.curriculum_code ? sqlQuote(q.curriculum_code) : 'null'
-  return `(${sqlQuote(q.id)}, ${sqlQuote(q.topic)}, ${sqlQuote(q.year_level)}, ${sqlQuote(q.difficulty)}, ${sqlQuote(q.question_text)}, ${options}, ${q.correct_index}, ${sqlQuote(q.explanation)}, ${curriculumCode}, true)`
+  return `(${sqlQuote(q.id)}, ${sqlQuote(q.topic)}, ${sqlQuote(q.year_level)}, ${sqlQuote(q.difficulty)}, ${sqlQuote(format)}, ${sqlQuote(q.question_text)}, ${options}, ${correctIndex}, ${sqlQuote(q.explanation)}, ${curriculumCode}, true)`
 })
 
 const sql = `-- ─────────────────────────────────────────────────────────────────────────────
@@ -59,13 +61,14 @@ const sql = `-- ─────────────────────�
 -- Run this in the Supabase SQL editor AFTER schema.sql.
 -- ─────────────────────────────────────────────────────────────────────────────
 
-insert into questions (id, topic, year_level, difficulty, question_text, options, correct_index, explanation, curriculum_code, is_published)
+insert into questions (id, topic, year_level, difficulty, format, question_text, options, correct_index, explanation, curriculum_code, is_published)
 values
 ${sqlLines.join(',\n')}
 on conflict (id) do update set
   topic = excluded.topic,
   year_level = excluded.year_level,
   difficulty = excluded.difficulty,
+  format = excluded.format,
   question_text = excluded.question_text,
   options = excluded.options,
   correct_index = excluded.correct_index,
