@@ -1359,11 +1359,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "fc7f0a6a-7046-44cd-9719-8743c94b6570",
       "8bcf73d5-f780-46c8-b6d1-97ee5d021b5f",
       "a9bb8b8f-6e43-45a1-8134-27480896bfa5",
-      "3b42d2be-fbd4-4d3b-8827-22a090d39f3e",
-      "065e91db-0de0-4986-9df8-b9511054b68a",
-      "0ddf4f17-0812-4cdd-aa13-f4aaad38b896",
-      "557bbb2b-67b7-4b2b-9f4b-47b80434436d",
-      "148a2ead-f194-4f6b-9bd6-5cc9d82a08b2"
+      "78f7e4c1-0a09-4660-abdb-d10f3881992e",
+      "319d2e9b-c737-4b77-a3af-207a6085d735",
+      "352d78db-ef77-47b4-8bdb-33728430b120",
+      "3ca4e905-903c-4c3d-80d4-4b956c9ea328",
+      "58619491-39fc-4282-88d9-1799ddc7f9dd"
     ],
     "premium": true
   },
@@ -1373,16 +1373,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_11",
     "title": "Chemistry Unit 1 & 2 — Practice Exam 3",
     "questionIds": [
-      "13847855-2d4f-4490-b87d-26fcbb47be5f",
-      "a92eede6-c83d-4e2b-9332-da81f7464b43",
-      "ec2e421f-7d5d-440a-8388-dd0d7a13c772",
-      "d8c1ef5c-5ec7-4685-963a-697e60a7a0be",
-      "b53694b4-19e3-4392-801f-716046d4746a",
-      "e1d34880-ea89-4a48-a8e6-e2963f88e52a",
-      "086fbfc9-dc42-4767-9ae6-0faed1e02d95",
-      "fc7f0a6a-7046-44cd-9719-8743c94b6570",
-      "8bcf73d5-f780-46c8-b6d1-97ee5d021b5f",
-      "a9bb8b8f-6e43-45a1-8134-27480896bfa5"
+      "e345838d-af45-4a6c-9b4f-5e6df3ad68a8",
+      "460732b7-ec78-47ac-bcdb-097eea57fd0a",
+      "f44ddd20-291a-4ac8-bfca-f357fbc79967",
+      "a3cbce93-cc54-4f45-94d0-e6184ff3a004",
+      "7d224802-0bfc-4b5d-9675-5e57e241c346",
+      "fef88a66-5d57-410f-9a16-e7841e0394bc",
+      "73f9815d-e40a-4cb8-88f9-092e9bf8a183",
+      "0d9e988e-14db-43e2-aaf0-bc1aa45a47fe",
+      "a0641057-35d5-4f38-941f-bb60628a2431",
+      "f31f32b5-d581-4dd2-85b7-84d7c059af56"
     ],
     "premium": true
   },
@@ -1431,15 +1431,15 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Physics Unit 1 & 2 — Practice Exam 3",
     "questionIds": [
       "1bc89c1b-aaa7-4887-997e-29c0ab65973f",
-      "0a07ed7f-3495-412f-843c-c967b7394a2b",
-      "6c48df1d-33ae-4d32-91b5-6e353d6e176d",
-      "f7de488d-5e3b-4931-b68a-5db63687a461",
-      "044beb53-783a-4caf-a5b7-26d10f2e1650",
-      "8ab671dd-8d31-4c98-9b08-81e60d6b3eb5",
-      "0c58d296-9287-47ac-8c91-aa056cfb45b3",
-      "4da5641b-f95a-4cbf-b291-691fc6dd8b6c",
-      "67bd79ea-d1f4-4e36-b3f0-b460773f5a5c",
-      "ab8ee86c-9db0-40ab-a18a-a690d757a16c"
+      "daa9a0aa-a1dd-4eae-b0b1-d568ae34a6a5",
+      "ae8eec0f-e469-4760-bd8b-5486977b0ff1",
+      "c1928021-5f96-43e1-b06b-71ee841e22bb",
+      "0c4923a5-366d-4a7a-b672-2c4b409f5ba4",
+      "cc49dfda-a0a9-4d86-ba1d-1f4f756840fc",
+      "9e6a680c-61b6-4297-8d5e-095859689ff8",
+      "f10433b2-41b9-461c-b22a-c77eb566cb93",
+      "529f07dc-7627-4d22-b42c-c6e481fc50b2",
+      "824501ab-fffa-4c6c-b004-62788ed97fb4"
     ],
     "premium": true
   },
@@ -1494,9 +1494,9 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "2f0cff1b-3684-4be1-ad81-3acaa5ba4d6b",
       "cbf48c4f-a3fd-4a1a-becd-459eeffe8173",
       "73a49a89-6843-4d14-826d-1c31b8f32dab",
-      "c2a82f32-e1b5-4a7e-82e3-5843a6d0f39a",
-      "2bd3853a-b67a-4cc7-baf4-227f343c1874",
-      "8205de0f-8534-4eb8-8199-371a67bc7156"
+      "45c97b8d-1022-4c91-a7cb-ca221a23375a",
+      "87e0b65b-8813-4f71-9c6c-f9cb6683d73a",
+      "52ba82f5-2b15-4704-af37-94c071435823"
     ],
     "premium": true
   },
@@ -1506,16 +1506,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_11",
     "title": "Maths Methods Unit 1 & 2 — Practice Exam 4",
     "questionIds": [
-      "26ca60d4-2c6d-4f9e-b97c-c0f37655220c",
-      "d017ee6a-6aea-48f0-b97d-a441052976e6",
-      "26973d1f-693b-469d-9f0e-46e7dce7676a",
-      "e0f8577c-c08d-411c-9783-1a80f09313fa",
-      "b1074d16-1caa-4075-bff3-38d64c5273c0",
-      "ae1dca68-d197-4d15-8766-80bf59e38448",
-      "0b939f58-e4c9-4c94-8234-5171b533274e",
-      "e552d368-f94c-4168-9052-e16b4d8a8da2",
-      "9d22b63a-057f-470b-b725-e50c310ebafb",
-      "0a522667-4d68-42f6-95f6-2882f3a1b45a"
+      "f4f547d8-93d3-4692-ab05-12ed4078e070",
+      "c3651524-530b-44f7-a37c-3fbf8a459e75",
+      "09c380b3-9b75-4b90-a92d-c97beda274c5",
+      "de4de1cb-fdcd-4f02-86fa-e1a83ae38927",
+      "4a0285e3-902b-4b21-8530-4acefecb8038",
+      "03aa4ee2-55f5-4f95-b79c-6ec188d4ec67",
+      "c2953179-fdd5-4f78-b028-50dd9316c8cd",
+      "b6501f56-d485-44a6-8a4e-0d1d6c8c7556",
+      "05792715-cc8a-4c2f-bd03-e9c5b978929f",
+      "50219735-b1e3-4ff8-879a-320401d8127e"
     ],
     "premium": true
   },
@@ -1525,16 +1525,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_11",
     "title": "Maths Methods Unit 1 & 2 — Practice Exam 5",
     "questionIds": [
-      "ca8ceb94-0802-4794-adfb-53d9f438a48c",
-      "06620d3e-4b86-4327-959a-7e841c7dc2b4",
-      "8ca1f6ef-055f-4a21-966a-da0b5269bde4",
-      "eb4123c2-ff2a-414c-bb10-6ccf32138624",
-      "51625179-29a0-4c54-bf30-6dd4dd6051ca",
-      "e4680419-4c16-42fb-8033-b5a904db0d96",
-      "2be47a67-edd5-4810-82e4-bc7b5aaf9c42",
-      "ca91e652-8d09-4ef2-b9f0-bf90f44eb30f",
-      "82da0061-47a2-48c1-9c21-5412952cb06a",
-      "cb27677f-ad98-478d-aa92-e3e98c0203ee"
+      "fd7e14fb-4e80-45d1-b658-c0e362bc7fc8",
+      "670191eb-de28-4af6-b1e4-3b236c4d2a79",
+      "0282c968-12b3-4c5f-9134-dff24bb8e634",
+      "195aa9db-8108-433f-be10-fb56c465a48a",
+      "349cc08b-0650-4783-8824-e0d536951e0c",
+      "a1400e3e-6d03-4f0f-9460-ea9fe9d2b37e",
+      "50c9a430-4d5a-4cf3-90bb-8879e83d598f",
+      "4a439f68-c47d-44cb-a89c-3483d887b900",
+      "6261ae1f-f033-4bcf-b1c0-265978718c3c",
+      "5b40f49c-dd2a-4990-919c-a2621f3e344e"
     ],
     "premium": true
   },
@@ -1587,11 +1587,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "226873d3-9000-49cb-8af6-f99362a202d1",
       "7ec6a61e-a615-464c-b923-ccc785640dc5",
       "9c3b5c45-25f0-4f1f-851d-6847d5057a91",
-      "91dd8c91-8f1f-491f-96b8-e2610b41fe99",
-      "91c45557-dbe3-465b-9fd5-3be3080e9dc9",
-      "23d8c575-deee-4f27-b355-ce6a665086d3",
-      "181fa7ab-86e6-4dde-b712-b5d3351df455",
-      "8ed2b902-989d-40e5-ba80-173237f28e3e"
+      "13a49009-ce4c-469f-815d-29fa85b51fc0",
+      "28f13450-a76b-4719-88e7-f7f9227cda0c",
+      "340e40c6-9cac-4fa6-bf8c-dba1363fc7e4",
+      "39513678-33c4-4999-91bd-03d320dc17d5",
+      "617c9dfb-4372-4943-8742-f84cd1dad9a6"
     ],
     "premium": true
   },
@@ -1601,16 +1601,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_11",
     "title": "Further Mathematics Unit 1 & 2 — Practice Exam 4",
     "questionIds": [
-      "5be8f566-09ce-4593-b7a9-fd4a5114342b",
-      "5d29cc6e-aafb-435a-b1ba-f0e770a2b2bb",
-      "d908d7a3-c5fc-4ef7-9d08-bbdfce5615ba",
-      "23ab2720-a108-4115-8abe-8580d6fd8f32",
-      "3ba40142-6bfe-4319-a80a-079977eb8e72",
-      "e276b18a-a60e-49ad-a8ab-c21fbf920163",
-      "ef6437b8-827a-4ca0-9c35-1d8a5c2e6f2b",
-      "400cdc68-f4ac-443b-988f-acda1fe55ea7",
-      "3f232a72-0e11-4f28-b1bf-49133d438cd3",
-      "eec6117a-44bf-433d-a3cf-931940534924"
+      "4721e3b8-91e6-41a1-8833-6b13f69b4e24",
+      "0ea30f56-d5a5-4a69-bdd1-50e1713dde84",
+      "f858a4e8-9038-4b23-bbba-89068d1e35ee",
+      "2ef8a53f-86b3-4183-bb56-87533dee3d58",
+      "c32b1f01-51b3-44b2-a15e-798257b96811",
+      "b0ec6cf8-1740-4851-9baa-ffa18426b452",
+      "0699361d-ec3e-4c69-9660-9e82e89e938e",
+      "6b323358-1249-40cf-ad4f-af0968b41fe6",
+      "c3fae135-9c21-47ca-a615-05d1c09e843c",
+      "b1f9e9fb-6f45-45bc-ba4c-c3342e250c8f"
     ],
     "premium": true
   },
@@ -1620,16 +1620,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_11",
     "title": "Further Mathematics Unit 1 & 2 — Practice Exam 5",
     "questionIds": [
-      "6e1b5b35-e265-4737-b5d7-58a0dcaffb34",
-      "521a3740-8510-4217-b96d-798a3c8c4ee3",
-      "5c635027-be5a-4f76-9429-8b2d2d004e15",
-      "573f379f-1c60-4633-8f67-b1c06e04f0a2",
-      "6a0880f6-97cb-4c2e-9107-4d6dc92ad737",
-      "ce8b7f9e-994e-404a-9e5e-a6f54acaa71a",
-      "9302a2b8-ec8b-4781-8373-e6ef99835c75",
-      "226873d3-9000-49cb-8af6-f99362a202d1",
-      "7ec6a61e-a615-464c-b923-ccc785640dc5",
-      "9c3b5c45-25f0-4f1f-851d-6847d5057a91"
+      "49aa1240-e14b-414d-9235-9ab0a37a987b",
+      "8535f30b-f8ad-4700-b7e9-a482a3129286",
+      "566eecd7-cfb2-4a4d-9405-2f5f75536629",
+      "30ef8f89-55eb-4437-804e-06bbb5f07834",
+      "0508ef6d-0797-4e9f-8c43-a7a6fc5ba879",
+      "0c91bf2e-e3ff-4dcc-afba-d70bb7e29820",
+      "a089dbbc-ad16-4710-8e31-59f12fa57af4",
+      "bbf77bf2-568b-46e6-bbd8-12177c6d71eb",
+      "ed0250e9-29a3-4630-8a6a-31f4cf70aa4f",
+      "944de1ad-cdce-45de-a75e-82f0d10aa509"
     ],
     "premium": true
   },
@@ -1666,8 +1666,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       "dc79b6d3-25cb-4e63-b710-3367a3d10807",
       "e51e94b6-73a9-4e93-82d9-c99b6aed828a",
       "ecfb8afc-896b-4c15-9da7-9d96e2a95797",
-      "3cad9f55-12a8-4c1a-86bb-c1aa38995a9d",
-      "265515d5-2037-4970-afd7-2def26515b11"
+      "63254d79-edab-41e5-9c37-ea4708d8df26",
+      "04c316fb-2bd7-4979-8bb8-eb0088f44cf9"
     ],
     "premium": true
   },
@@ -1677,16 +1677,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_11",
     "title": "Specialist Mathematics Unit 1 & 2 — Practice Exam 3",
     "questionIds": [
-      "82f2daa3-b0b0-4c9f-be83-ca7d3b56b0c9",
-      "e1a9f16e-7ff7-4bbd-9f4b-599e364ceb21",
-      "0d928591-2223-4479-ac5b-2e88369d32ff",
-      "bcc3aef1-1fcc-48eb-9e21-3120ecc54a52",
-      "32ee668b-2615-4e4c-a153-93f90f2c3289",
-      "6c139960-7a4e-4b3b-8686-f7ed84cc2bae",
-      "b09765ca-7a25-4f4e-84c9-df4510e8ff17",
-      "aa542fe0-441f-4407-9de1-1d3e875057a7",
-      "fbcaaace-58a7-4af4-b31c-77eb6e16fb65",
-      "7c9f7c4d-4231-4ee2-ad0e-700dcf63956f"
+      "dbdcd6d1-6800-4680-b13a-60056186f69f",
+      "b643879b-32a5-41bb-908f-7f9980909146",
+      "52fa73ea-8e3f-4f20-a75a-6bea7e751b92",
+      "b5458332-dd55-4eab-8c3d-71d48a1498bb",
+      "a5e558f9-dc92-4e4f-ac3c-a557d5e87a22",
+      "3b31d58c-9c9f-4c40-8c94-59c2fcbc05ee",
+      "ac4e33af-082b-4cd5-ad91-9d3ed9bc028f",
+      "cbba2d72-9521-4ca8-825e-e8667afcc93e",
+      "a38c0fb5-1518-4ccd-95c8-aed38297ec07",
+      "446594ed-de09-45b0-ab11-65599b30ac8b"
     ],
     "premium": true
   },
