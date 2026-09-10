@@ -1,0 +1,83 @@
+import { Document, Page, View, Text } from '@react-pdf/renderer'
+import { pdfStyles } from './theme'
+import type { ResolvedExam, ResolvedQuestion } from './resolveExam'
+
+const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
+
+function QuestionBlock({ question, number }: { question: ResolvedQuestion; number: number }) {
+  return (
+    <View style={pdfStyles.questionRow} wrap={false}>
+      <Text style={pdfStyles.questionText}>{number}. {question.question_text}</Text>
+      {question.format === 'long_form' ? (
+        <>
+          <View style={pdfStyles.answerLine} />
+          <View style={pdfStyles.answerLine} />
+          <View style={pdfStyles.answerLine} />
+          <View style={pdfStyles.answerLine} />
+          <View style={pdfStyles.answerLine} />
+          <View style={pdfStyles.answerLine} />
+        </>
+      ) : (
+        (question.options ?? []).map((opt, i) => (
+          <View key={i} style={pdfStyles.optionRow}>
+            <View style={pdfStyles.optionBubble} />
+            <Text style={pdfStyles.optionText}>{OPTION_LETTERS[i]}. {opt}</Text>
+          </View>
+        ))
+      )}
+    </View>
+  )
+}
+
+export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
+  const { exam, sections } = resolved
+  let questionNumber = 0
+  const totalMinutes = sections.reduce((sum, s) => sum + s.section.time_minutes, 0)
+
+  return (
+    <Document>
+      <Page size="A4" style={pdfStyles.page}>
+        <Text style={pdfStyles.coverTitle}>{exam.title}</Text>
+        <Text style={pdfStyles.coverSubtitle}>Total time: {totalMinutes} minutes</Text>
+        <Text style={pdfStyles.coverInstructions}>Sections in this paper:</Text>
+        {sections.map((s, i) => (
+          <Text key={i} style={pdfStyles.coverInstructions}>
+            • {s.section.title} — {s.section.time_minutes} min
+            {s.section.calculator_allowed !== undefined ? (s.section.calculator_allowed ? ' (calculator allowed)' : ' (no calculator)') : ''}
+          </Text>
+        ))}
+        <Text style={pdfStyles.coverInstructions}>
+          Answer every question you can. Write your working in the space provided for long-answer questions.
+        </Text>
+      </Page>
+
+      {sections.map((s, si) => (
+        <Page key={si} size="A4" style={pdfStyles.page}>
+          <Text style={pdfStyles.sectionHeader}>{s.section.title}</Text>
+          <Text style={pdfStyles.sectionMeta}>
+            {s.section.time_minutes} minutes
+            {s.section.calculator_allowed !== undefined ? (s.section.calculator_allowed ? ' • Calculator allowed' : ' • No calculator') : ''}
+          </Text>
+          {(() => {
+            const rendered: JSX.Element[] = []
+            let lastStimulusId: string | undefined
+            for (const q of s.questions) {
+              questionNumber++
+              if (q.stimulus && q.stimulus.id !== lastStimulusId) {
+                rendered.push(
+                  <View key={`stim-${q.stimulus.id}`} style={pdfStyles.stimulusBox} wrap={false}>
+                    <Text style={pdfStyles.stimulusTitle}>{q.stimulus.title}</Text>
+                    <Text style={pdfStyles.stimulusBody}>{q.stimulus.body}</Text>
+                  </View>
+                )
+                lastStimulusId = q.stimulus.id
+              }
+              rendered.push(<QuestionBlock key={q.id} question={q} number={questionNumber} />)
+            }
+            return rendered
+          })()}
+        </Page>
+      ))}
+    </Document>
+  )
+}
