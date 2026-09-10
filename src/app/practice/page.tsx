@@ -7,8 +7,9 @@ import { QUESTION_BANK } from '@/lib/questions/bank'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES, TOPICS } from '@/lib/curriculum'
 import QuizRunner from '@/components/practice/QuizRunner'
 import PracticeModeTabs from '@/components/practice/PracticeModeTabs'
+import PremiumExamLock from '@/components/practice/PremiumExamLock'
 
-type Screen = 'select' | 'quiz'
+type Screen = 'select' | 'quiz' | 'exam-lock'
 type Mode = 'general' | 'selective'
 
 const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20]
@@ -107,6 +108,11 @@ function PracticePageInner() {
     setQuizQuestions(shuffled)
     setQuizKey(k => k + 1)
     setScreen('quiz')
+  }
+
+  if (screen === 'exam-lock') {
+    const subjectLabel = [...SUBJECTS, ...SELECTIVE_SUBJECTS].find(s => s.slug === subject)?.label ?? 'exam'
+    return <PremiumExamLock title="Personalised exam paper" subjectLabel={subjectLabel} />
   }
 
   if (screen === 'quiz' && quizQuestions.length > 0) {
@@ -250,6 +256,9 @@ function PracticePageInner() {
       {pool.length > 0 && <div className="mb-3" />}
       <button onClick={buildQuiz} disabled={!readyToBuild || pool.length === 0} className="btn-primary w-full">
         Start practice
+      </button>
+      <button onClick={() => setScreen('exam-lock')} disabled={!readyToBuild || pool.length === 0} className="btn-secondary w-full mt-2">
+        Generate exam paper (PDF)
       </button>
     </main>
   )
