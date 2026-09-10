@@ -1,5 +1,6 @@
 import { Document, Page, View, Text } from '@react-pdf/renderer'
 import { pdfStyles } from './theme'
+import { Watermark, PageFooter } from './Brand'
 import type { ResolvedExam, ResolvedQuestion } from './resolveExam'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
@@ -36,23 +37,41 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
 
   return (
     <Document>
-      <Page size="A4" style={pdfStyles.page}>
-        <Text style={pdfStyles.coverTitle}>{exam.title}</Text>
-        <Text style={pdfStyles.coverSubtitle}>Total time: {totalMinutes} minutes</Text>
-        <Text style={pdfStyles.coverInstructions}>Sections in this paper:</Text>
-        {sections.map((s, i) => (
-          <Text key={i} style={pdfStyles.coverInstructions}>
-            • {s.section.title} — {s.section.time_minutes} min
-            {s.section.calculator_allowed !== undefined ? (s.section.calculator_allowed ? ' (calculator allowed)' : ' (no calculator)') : ''}
-          </Text>
-        ))}
-        <Text style={pdfStyles.coverInstructions}>
-          Answer every question you can. Write your working in the space provided for long-answer questions.
-        </Text>
+      <Page size="A4" style={pdfStyles.coverPage}>
+        <View style={pdfStyles.coverBand}>
+          <Text style={pdfStyles.coverWordmark}>Prep<Text style={pdfStyles.coverWordmarkAccent}>Nest</Text></Text>
+          <Text style={pdfStyles.coverTagline}>Curriculum-aligned practice exams</Text>
+        </View>
+        <Watermark />
+        <View style={pdfStyles.coverBody}>
+          <Text style={pdfStyles.coverEyebrow}>Exam paper</Text>
+          <Text style={pdfStyles.coverExamTitle}>{exam.title}</Text>
+          <Text style={pdfStyles.coverMetaRow}>Total time: {totalMinutes} minutes</Text>
+          <View style={pdfStyles.coverDivider} />
+          <Text style={pdfStyles.coverSectionsLabel}>Sections in this paper</Text>
+          {sections.map((s, i) => (
+            <View key={i} style={pdfStyles.coverSectionRow}>
+              <View style={pdfStyles.coverSectionDot} />
+              <Text style={pdfStyles.coverSectionText}>
+                {s.section.title} — {s.section.time_minutes} min
+                {s.section.calculator_allowed !== undefined ? (s.section.calculator_allowed ? ' (calculator allowed)' : ' (no calculator)') : ''}
+              </Text>
+            </View>
+          ))}
+          <View style={pdfStyles.coverInstructionsBox}>
+            <Text style={pdfStyles.coverInstructionsTitle}>Instructions</Text>
+            <Text style={pdfStyles.coverInstructions}>
+              Answer every question you can. Write your working in the space provided for long-answer questions.
+              Marking guidance and full explanations are provided in the separate answer key.
+            </Text>
+          </View>
+        </View>
+        <PageFooter examTitle={exam.title} />
       </Page>
 
       {sections.map((s, si) => (
         <Page key={si} size="A4" style={pdfStyles.page}>
+          <Watermark />
           <Text style={pdfStyles.sectionHeader}>{s.section.title}</Text>
           <Text style={pdfStyles.sectionMeta}>
             {s.section.time_minutes} minutes
@@ -76,6 +95,7 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
             }
             return rendered
           })()}
+          <PageFooter examTitle={exam.title} />
         </Page>
       ))}
     </Document>
