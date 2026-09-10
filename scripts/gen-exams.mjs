@@ -146,7 +146,7 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
     yearLevel,
     title: `${SUBJECT_LABEL[subject]} ${gradeLabel} — Practice Exam ${examIndex + 1}`,
     sections: sections.filter(s => s.question_ids.length > 0),
-    premium: false,
+    premium: true,
   }
 }
 
@@ -175,7 +175,7 @@ for (const { subject, yearLevel, questions } of groups.values()) {
       yearLevel,
       title: `${SUBJECT_LABEL[subject]} ${gradeLabel} — Practice Exam ${i + 1}`,
       sections: [{ title: 'Questions', time_minutes: 20, question_ids: questionIds }],
-      premium: SELECTIVE_SUBJECTS.has(subject),
+      premium: true,
     })
   })
 }
