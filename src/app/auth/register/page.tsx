@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { GRADES } from '@/lib/curriculum'
+import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
 import type { UserRole, YearLevel } from '@/types'
 
 export default function RegisterPage() {
@@ -53,7 +54,7 @@ export default function RegisterPage() {
     setLoading(false)
 
     if (signUpError) {
-      setError(signUpError.message)
+      setError(friendlyAuthError(signUpError.message))
       return
     }
 

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -27,7 +28,7 @@ export default function LoginPage() {
     const { error: signInError } = await supabase.auth.signInWithPassword({ email, password })
 
     if (signInError) {
-      setError(signInError.message)
+      setError(friendlyAuthError(signInError.message))
       setLoading(false)
       return
     }
@@ -61,6 +62,9 @@ export default function LoginPage() {
             onChange={e => setPassword(e.target.value)}
             required
           />
+          <Link href="/auth/forgot-password" className="text-sm text-brand-600 hover:underline -mt-2 self-start">
+            Forgot password?
+          </Link>
           {error && <p className="text-red-600 text-sm">{error}</p>}
           <button type="submit" className="btn-primary" disabled={loading}>
             {loading ? 'Signing in...' : 'Sign in'}
