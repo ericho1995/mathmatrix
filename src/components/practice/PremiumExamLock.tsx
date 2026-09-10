@@ -1,6 +1,18 @@
+import Link from 'next/link'
+import type { Route } from 'next'
 import { PREMIUM_PRICE } from '@/lib/pricing'
 
-export default function PremiumExamLock({ title, subjectLabel }: { title: string; subjectLabel: string }) {
+export default function PremiumExamLock({
+  title,
+  subjectLabel,
+  backHref,
+  onBack,
+}: {
+  title: string
+  subjectLabel: string
+  backHref?: Route
+  onBack?: () => void
+}) {
   return (
     <main className="max-w-md mx-auto px-4 py-10 text-center flex-1 w-full">
       <div className="text-3xl mb-3">🔒</div>
@@ -14,6 +26,12 @@ export default function PremiumExamLock({ title, subjectLabel }: { title: string
       <button disabled className="btn-primary w-full mb-3 opacity-50 cursor-not-allowed">
         Unlock for {PREMIUM_PRICE} — coming soon
       </button>
+      {backHref && (
+        <Link href={backHref} className="btn-secondary w-full block text-center">Back to exams</Link>
+      )}
+      {onBack && (
+        <button onClick={onBack} className="btn-secondary w-full">Back</button>
+      )}
     </main>
   )
 }

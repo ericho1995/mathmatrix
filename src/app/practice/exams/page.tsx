@@ -12,12 +12,13 @@ export default function ExamsPage() {
     <main className="max-w-3xl mx-auto px-4 py-10 flex-1 w-full">
       <h1 className="text-2xl font-medium tracking-tight mb-1">Practice</h1>
       <p className="text-gray-500 mb-6">
-        Ready-made exams, pre-built for each subject and year level.
+        Ready-made, downloadable exam papers for each subject and year level.
       </p>
 
       <PracticeModeTabs />
 
-      <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">General subjects</h2>
+      <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-1">General subjects</h2>
+      <p className="text-xs text-gray-400 mb-4">Premium exam papers — {PREMIUM_PRICE} each.</p>
       {SUBJECTS.map(subject => {
         const subjectExams = generalExams.filter(e => e.subject === subject.slug)
         if (subjectExams.length === 0) return null
@@ -36,8 +37,9 @@ export default function ExamsPage() {
                     <div className="flex flex-col gap-1.5">
                       {gradeExams.map((exam, i) => (
                         <Link key={exam.id} href={`/practice/exams/${exam.id}`}
-                          className="text-sm text-gray-700 hover:text-brand-600 hover:underline">
-                          Practice Exam {i + 1}
+                          className="text-sm text-gray-700 hover:text-brand-600 hover:underline flex items-center gap-1.5">
+                          🔒 Practice Exam {i + 1}
+                          <span className="text-xs text-gray-400">{PREMIUM_PRICE}</span>
                         </Link>
                       ))}
                     </div>

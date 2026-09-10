@@ -1,7 +1,21 @@
-import { StyleSheet } from '@react-pdf/renderer'
+import { Font, StyleSheet } from '@react-pdf/renderer'
+
+// Standard PDF fonts (Helvetica etc.) use WinAnsiEncoding, which only maps a
+// handful of non-ASCII codepoints. Maths/science content uses characters
+// (minus sign U+2212, root, pi, Greek letters, arrows, etc.) that would
+// silently truncate to the wrong glyph with zero width under that encoding.
+// DejaVu Sans has broad Unicode coverage, so register it and use it for all
+// PDF text instead of the 'Helvetica' standard font.
+Font.register({
+  family: 'DejaVuSans',
+  fonts: [
+    { src: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSans.ttf', fontWeight: 'normal' },
+    { src: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSans-Bold.ttf', fontWeight: 'bold' },
+  ],
+})
 
 export const pdfStyles = StyleSheet.create({
-  page: { padding: 40, fontSize: 11, fontFamily: 'Helvetica', color: '#1a1a1a' },
+  page: { padding: 40, fontSize: 11, fontFamily: 'DejaVuSans', color: '#1a1a1a' },
   coverTitle: { fontSize: 20, fontWeight: 700, marginBottom: 4 },
   coverSubtitle: { fontSize: 12, color: '#555', marginBottom: 16 },
   coverInstructions: { fontSize: 10, color: '#333', lineHeight: 1.5, marginBottom: 4 },

@@ -17,5 +17,5 @@ export default function ExamPage({ params }: { params: { id: string } }) {
   }
 
   const subject = [...SUBJECTS, ...SELECTIVE_SUBJECTS].find(s => s.slug === exam.subject)
-  return <PremiumExamLock title={exam.title} subjectLabel={subject?.label ?? 'exam'} />
+  return <PremiumExamLock title={exam.title} subjectLabel={subject?.label ?? 'exam'} backHref="/practice/exams" />
 }
