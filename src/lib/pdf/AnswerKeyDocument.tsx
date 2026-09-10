@@ -25,7 +25,9 @@ export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
               questionNumber++
               const answerLabel = q.format === 'long_form'
                 ? 'See explanation below — this question is not auto-marked.'
-                : `${OPTION_LETTERS[q.correct_index ?? 0]}. ${(q.options ?? [])[q.correct_index ?? 0] ?? ''}`
+                : q.format === 'short_answer'
+                  ? `Answer: ${q.expected_answer}`
+                  : `${OPTION_LETTERS[q.correct_index ?? 0]}. ${(q.options ?? [])[q.correct_index ?? 0] ?? ''}`
               return (
                 <View key={q.id} style={pdfStyles.answerKeyRow} wrap={false}>
                   <Text><Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>{answerLabel}</Text>

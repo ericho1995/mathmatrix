@@ -18,6 +18,8 @@ function QuestionBlock({ question, number }: { question: ResolvedQuestion; numbe
           <View style={pdfStyles.answerLine} />
           <View style={pdfStyles.answerLine} />
         </>
+      ) : question.format === 'short_answer' ? (
+        <View style={pdfStyles.answerLine} />
       ) : (
         (question.options ?? []).map((opt, i) => (
           <View key={i} style={pdfStyles.optionRow}>

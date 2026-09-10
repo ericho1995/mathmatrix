@@ -91,7 +91,11 @@ const sqlLines = QUESTION_BANK.map(q => {
   const curriculumCode = q.curriculum_code ? sqlQuote(q.curriculum_code) : 'null'
   const stimulusId = q.stimulus_id ? sqlQuote(q.stimulus_id) : 'null'
   const calculatorAllowed = q.calculator_allowed === undefined ? 'null' : q.calculator_allowed
-  return `(${sqlQuote(q.id)}, ${sqlQuote(q.topic)}, ${sqlQuote(q.year_level)}, ${sqlQuote(q.difficulty)}, ${sqlQuote(format)}, ${sqlQuote(q.question_text)}, ${options}, ${correctIndex}, ${sqlQuote(q.explanation)}, ${curriculumCode}, ${stimulusId}, ${calculatorAllowed}, true)`
+  const expectedAnswer = q.expected_answer ? sqlQuote(q.expected_answer) : 'null'
+  const acceptedAnswers = q.accepted_answers && q.accepted_answers.length
+    ? `ARRAY[${q.accepted_answers.map(sqlQuote).join(', ')}]::text[]`
+    : 'null'
+  return `(${sqlQuote(q.id)}, ${sqlQuote(q.topic)}, ${sqlQuote(q.year_level)}, ${sqlQuote(q.difficulty)}, ${sqlQuote(format)}, ${sqlQuote(q.question_text)}, ${options}, ${correctIndex}, ${sqlQuote(q.explanation)}, ${curriculumCode}, ${stimulusId}, ${calculatorAllowed}, true, ${expectedAnswer}, ${acceptedAnswers})`
 })
 
 const sql = `-- ─────────────────────────────────────────────────────────────────────────────
@@ -101,7 +105,7 @@ const sql = `-- ─────────────────────�
 -- Run this in the Supabase SQL editor AFTER schema.sql.
 -- ─────────────────────────────────────────────────────────────────────────────
 
-${stimuliSql}insert into questions (id, topic, year_level, difficulty, format, question_text, options, correct_index, explanation, curriculum_code, stimulus_id, calculator_allowed, is_published)
+${stimuliSql}insert into questions (id, topic, year_level, difficulty, format, question_text, options, correct_index, explanation, curriculum_code, stimulus_id, calculator_allowed, is_published, expected_answer, accepted_answers)
 values
 ${sqlLines.join(',\n')}
 on conflict (id) do update set
@@ -116,7 +120,9 @@ on conflict (id) do update set
   curriculum_code = excluded.curriculum_code,
   stimulus_id = excluded.stimulus_id,
   calculator_allowed = excluded.calculator_allowed,
-  is_published = excluded.is_published;
+  is_published = excluded.is_published,
+  expected_answer = excluded.expected_answer,
+  accepted_answers = excluded.accepted_answers;
 `
 
 writeFileSync(seedPath, sql)

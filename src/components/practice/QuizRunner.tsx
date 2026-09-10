@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { TopicSlug, YearLevel, QuestionFormat } from '@/types'
 import { createClient } from '@/lib/supabase/client'
+import { matchShortAnswer } from '@/lib/questions/matchShortAnswer'
 
 export interface QuizQuestion {
   id: string
@@ -11,6 +12,8 @@ export interface QuizQuestion {
   format?: QuestionFormat
   options?: string[]
   correct_index?: number
+  expected_answer?: string
+  accepted_answers?: string[]
 }
 
 const XP_PER_CORRECT = 10
@@ -62,6 +65,17 @@ export default function QuizRunner({
     setTimes(elapsed)
   }
 
+  function submitShortAnswer() {
+    if (revealed || !draftText.trim()) return
+    setRevealed(true)
+    const updated = [...responses]
+    updated[qIndex] = draftText.trim()
+    setResponses(updated)
+    const elapsed = [...times]
+    elapsed[qIndex] = Math.round((Date.now() - questionStartedAt.current) / 1000)
+    setTimes(elapsed)
+  }
+
   function next() {
     if (qIndex + 1 >= questions.length) {
       setScreen('results')
@@ -75,11 +89,22 @@ export default function QuizRunner({
   }
 
   const gradableQuestions = questions.filter(q => q.format !== 'long_form')
-  const correctCount = answers.filter((a, i) => questions[i]?.format !== 'long_form' && a === questions[i]?.correct_index).length
+  const correctCount = questions.filter((question, i) => {
+    if (question.format === 'long_form') return false
+    if (question.format === 'short_answer') {
+      const resp = responses[i]
+      return resp != null && matchShortAnswer(resp, { expected_answer: question.expected_answer ?? '', accepted_answers: question.accepted_answers })
+    }
+    return answers[i] === question.correct_index
+  }).length
   const pct = gradableQuestions.length ? Math.round((correctCount / gradableQuestions.length) * 100) : 0
   const longFormCount = questions.length - gradableQuestions.length
   const q = questions[qIndex]
   const isLongForm = q?.format === 'long_form'
+  const isShortAnswer = q?.format === 'short_answer'
+  const shortAnswerCorrect = isShortAnswer && q && responses[qIndex] != null
+    ? matchShortAnswer(responses[qIndex] as string, { expected_answer: q.expected_answer ?? '', accepted_answers: q.accepted_answers })
+    : false
 
   // Persist the finished session, best-effort. Signed-out visitors and any
   // Supabase error are swallowed so the results screen never breaks on this.
@@ -116,9 +141,13 @@ export default function QuizRunner({
           questions.map((question, i) => ({
             session_id: session.id,
             question_id: question.id,
-            selected_index: question.format === 'long_form' ? -1 : answers[i] ?? -1,
-            response_text: question.format === 'long_form' ? responses[i] : null,
-            is_correct: question.format === 'long_form' ? null : answers[i] === question.correct_index,
+            selected_index: question.format === 'long_form' || question.format === 'short_answer' ? -1 : answers[i] ?? -1,
+            response_text: question.format === 'long_form' || question.format === 'short_answer' ? responses[i] : null,
+            is_correct: question.format === 'long_form'
+              ? null
+              : question.format === 'short_answer'
+                ? matchShortAnswer(responses[i] ?? '', { expected_answer: question.expected_answer ?? '', accepted_answers: question.accepted_answers })
+                : answers[i] === question.correct_index,
             time_taken_seconds: times[i] ?? 0,
           }))
         )
@@ -193,6 +222,22 @@ export default function QuizRunner({
             </div>
           )}
         </>
+      ) : isShortAnswer ? (
+        <>
+          <input
+            type="text"
+            value={revealed ? (responses[qIndex] ?? '') : draftText}
+            onChange={e => setDraftText(e.target.value)}
+            disabled={revealed}
+            placeholder="Type your answer..."
+            className="input mb-4"
+          />
+          {!revealed && (
+            <button onClick={submitShortAnswer} disabled={!draftText.trim()} className="btn-primary w-full mb-4 disabled:opacity-50">
+              Submit answer
+            </button>
+          )}
+        </>
       ) : (
         <div className="grid grid-cols-2 gap-2 mb-4">
           {q.options!.map((opt, i) => {
@@ -207,8 +252,8 @@ export default function QuizRunner({
       )}
 
       {revealed && !isLongForm && (
-        <div className={`p-4 rounded-xl text-sm mb-4 ${selected === q.correct_index ? 'bg-teal-50 text-teal-700' : 'bg-red-50 text-red-700'}`}>
-          <strong>{selected === q.correct_index ? 'Correct!' : 'Not quite.'}</strong> {q.explanation}
+        <div className={`p-4 rounded-xl text-sm mb-4 ${(isShortAnswer ? shortAnswerCorrect : selected === q.correct_index) ? 'bg-teal-50 text-teal-700' : 'bg-red-50 text-red-700'}`}>
+          <strong>{(isShortAnswer ? shortAnswerCorrect : selected === q.correct_index) ? 'Correct!' : 'Not quite.'}</strong> {q.explanation}
         </div>
       )}
       {revealed && (

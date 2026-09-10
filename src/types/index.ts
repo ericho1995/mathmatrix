@@ -80,7 +80,7 @@ export interface Stimulus {
 
 // ─── Questions ────────────────────────────────────────────────────────────────
 
-export type QuestionFormat = 'multiple_choice' | 'long_form'
+export type QuestionFormat = 'multiple_choice' | 'long_form' | 'short_answer'
 
 interface QuestionBase {
   id: string
@@ -111,7 +111,17 @@ export interface LongFormQuestion extends QuestionBase {
   correct_index?: undefined
 }
 
-export type Question = MultipleChoiceQuestion | LongFormQuestion
+// Auto-gradable, but no multiple-choice options — the student types a short
+// answer (a number, word, or short phrase) instead of picking one.
+export interface ShortAnswerQuestion extends QuestionBase {
+  format: 'short_answer'
+  options?: undefined
+  correct_index?: undefined
+  expected_answer: string        // canonical correct answer, shown in the answer key verbatim
+  accepted_answers?: string[]    // additional acceptable phrasings/forms; expected_answer is always accepted too
+}
+
+export type Question = MultipleChoiceQuestion | LongFormQuestion | ShortAnswerQuestion
 
 // ─── Sessions & Attempts ─────────────────────────────────────────────────────
 
@@ -132,8 +142,8 @@ export interface QuestionAttempt {
   id: string
   session_id: string
   question_id: string
-  selected_index: number        // -1 for long-form (not applicable)
-  response_text?: string        // free-text answer for long-form questions
+  selected_index: number        // -1 for long-form/short-answer (not applicable)
+  response_text?: string        // free-text answer for long-form/short-answer questions
   is_correct: boolean | null    // null = not auto-gradable (long-form, pending review)
   time_taken_seconds: number
 }
