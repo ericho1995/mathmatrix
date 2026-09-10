@@ -112,7 +112,14 @@ function PracticePageInner() {
 
   if (screen === 'exam-lock') {
     const subjectLabel = [...SUBJECTS, ...SELECTIVE_SUBJECTS].find(s => s.slug === subject)?.label ?? 'exam'
-    return <PremiumExamLock title="Personalised exam paper" subjectLabel={subjectLabel} />
+    return (
+      <div className="max-w-md mx-auto w-full">
+        <PremiumExamLock title="Personalised exam paper" subjectLabel={subjectLabel} />
+        <button onClick={() => setScreen('select')} className="block mx-auto text-sm text-gray-400 hover:text-gray-600 -mt-6">
+          ← Back
+        </button>
+      </div>
+    )
   }
 
   if (screen === 'quiz' && quizQuestions.length > 0) {
