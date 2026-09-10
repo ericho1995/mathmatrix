@@ -46,7 +46,15 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
         <View style={pdfStyles.coverBody}>
           <Text style={pdfStyles.coverEyebrow}>Exam paper</Text>
           <Text style={pdfStyles.coverExamTitle}>{exam.title}</Text>
-          <Text style={pdfStyles.coverMetaRow}>Total time: {totalMinutes} minutes</Text>
+          {exam.reading_minutes ? (
+            <View style={pdfStyles.coverTimingBox}>
+              <Text style={pdfStyles.coverTimingRow}>Reading time: {exam.reading_minutes} minutes (no writing)</Text>
+              <Text style={pdfStyles.coverTimingRow}>Writing time: {totalMinutes} minutes</Text>
+              <Text style={pdfStyles.coverTimingTotal}>Total time: {exam.reading_minutes + totalMinutes} minutes</Text>
+            </View>
+          ) : (
+            <Text style={pdfStyles.coverMetaRow}>Total time: {totalMinutes} minutes</Text>
+          )}
           <View style={pdfStyles.coverDivider} />
           <Text style={pdfStyles.coverSectionsLabel}>Sections in this paper</Text>
           {sections.map((s, i) => (
@@ -61,6 +69,7 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
           <View style={pdfStyles.coverInstructionsBox}>
             <Text style={pdfStyles.coverInstructionsTitle}>Instructions</Text>
             <Text style={pdfStyles.coverInstructions}>
+              {exam.reading_minutes ? 'You are not permitted to write during reading time — you may only read the paper and plan your approach. ' : ''}
               Answer every question you can. Write your working in the space provided for long-answer questions.
               Marking guidance and full explanations are provided in the separate answer key.
             </Text>

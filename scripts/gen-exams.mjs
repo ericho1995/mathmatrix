@@ -38,6 +38,8 @@ const TOPIC_TO_SUBJECT = {
   sm_complex_numbers: 'specialist_maths', sm_vectors: 'specialist_maths',
 }
 const SELECTIVE_SUBJECTS = new Set(['chemistry', 'physics', 'maths_methods', 'general_maths', 'specialist_maths'])
+// VCAA exams give students 15 minutes of reading time (no writing allowed) before the writing time starts.
+const VCE_READING_MINUTES = 15
 const SUBJECT_LABEL = {
   math: 'Maths', english: 'English', science: 'Science',
   chemistry: 'Chemistry', physics: 'Physics', maths_methods: 'Maths Methods',
@@ -176,6 +178,7 @@ for (const { subject, yearLevel, questions } of groups.values()) {
       title: `${SUBJECT_LABEL[subject]} ${gradeLabel} — Practice Exam ${i + 1}`,
       sections: [{ title: 'Questions', time_minutes: 20, question_ids: questionIds }],
       premium: true,
+      ...(SELECTIVE_SUBJECTS.has(subject) ? { reading_minutes: VCE_READING_MINUTES } : {}),
     })
   })
 }
@@ -204,6 +207,8 @@ export interface PracticeExam {
   sections: PracticeExamSection[]
   /** Selective/VCE-subject exams are premium — paid content (UI-only paywall for now). */
   premium: boolean
+  /** VCE-style exams only: minutes of reading time (no writing allowed) before section timers start. */
+  reading_minutes?: number
 }
 
 export const PRACTICE_EXAMS: PracticeExam[] = ${JSON.stringify(practiceExams, null, 2)}
