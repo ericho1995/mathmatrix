@@ -1129,10 +1129,10 @@ export const QUESTION_BANK: Omit<Question, 'created_at'>[] = [
     topic: 'number_operations',
     year_level: 'year_7',
     difficulty: 'developing',
-    question_text: 'James owes his brother $8. He earns $3 from mowing a lawn and repays that amount straight away. Using integers, what is his balance now (−8 + 3)?',
-    options: ['11', '5', '−11', '−5'],
+    question_text: 'A lift starts at basement level −8 and rises 5 floors. Using integers, what floor is it on now (−8 + 5)?',
+    options: ['13', '3', '−13', '−3'],
     correct_index: 3,
-    explanation: 'Starting at −8 and moving 3 units up the number line (repaying part of the debt) gives −5.',
+    explanation: 'Starting at −8 and moving 5 floors up gives −3.',
     curriculum_code: 'AC9M7N02',
   },
   {
