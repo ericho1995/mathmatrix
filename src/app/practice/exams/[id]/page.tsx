@@ -1,10 +1,10 @@
-'use client'
-
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { SUBJECTS, SELECTIVE_SUBJECTS } from '@/lib/curriculum'
+import { getUserRole } from '@/lib/auth/getUserRole'
 import PremiumExamLock from '@/components/practice/PremiumExamLock'
+import AdminExamDownload from '@/components/practice/AdminExamDownload'
 
-export default function ExamPage({ params }: { params: { id: string } }) {
+export default async function ExamPage({ params }: { params: { id: string } }) {
   const exam = PRACTICE_EXAMS.find(e => e.id === params.id)
 
   if (!exam) {
@@ -17,5 +17,11 @@ export default function ExamPage({ params }: { params: { id: string } }) {
   }
 
   const subject = [...SUBJECTS, ...SELECTIVE_SUBJECTS].find(s => s.slug === exam.subject)
+  const role = await getUserRole()
+
+  if (exam.premium && role === 'admin') {
+    return <AdminExamDownload examId={exam.id} title={exam.title} />
+  }
+
   return <PremiumExamLock title={exam.title} subjectLabel={subject?.label ?? 'exam'} backHref="/practice/exams" />
 }
