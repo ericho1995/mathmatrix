@@ -403,13 +403,28 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "313de050-f86d-4513-a3cf-f48c96c07a20",
           "2fc97a40-bd34-4417-a714-a96c102b6413",
           "f95f13ff-73ec-4cd4-a218-bb81acb3d8e6",
-          "5fc67278-0e64-4736-b656-15f81cc0ecfb",
-          "dc316ba0-4192-4570-9780-3a43a39a35f5",
-          "e27f8705-f33b-40b5-abe6-c7bd90613821",
           "d29f6f71-e1a6-4f34-bace-2048ffff3cb7",
           "8deca51a-ea5b-435d-bef7-d954d53f664b",
           "e6842764-aeae-4a1c-a64c-7c6aa6dcafe9",
-          "37db7f1b-9e7c-4b35-897d-40e71172fe98"
+          "61a7eacb-c722-480d-92b1-edd7865d8250",
+          "2d67f5a7-047c-4453-98f5-13a4a897d540",
+          "9ca182f3-aa85-4808-9eac-0ba9d53a7a73",
+          "1034b9c8-fcdb-4e09-83e0-7a6acb0b5534"
+        ]
+      },
+      {
+        "title": "Numeracy — calculator",
+        "time_minutes": 30,
+        "calculator_allowed": true,
+        "question_ids": [
+          "5fc67278-0e64-4736-b656-15f81cc0ecfb",
+          "dc316ba0-4192-4570-9780-3a43a39a35f5",
+          "e27f8705-f33b-40b5-abe6-c7bd90613821",
+          "37db7f1b-9e7c-4b35-897d-40e71172fe98",
+          "401acdc7-b099-4531-8a5b-865f73fd15a8",
+          "a6a4c638-c283-41e4-8716-3b50777cfa24",
+          "9ad3f2a4-ad1b-4b1a-a3da-5a80e8fdbc2b",
+          "a4f62802-3fc0-4847-8f4b-224208ec389b"
         ]
       }
     ],
@@ -426,10 +441,6 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 30,
         "calculator_allowed": false,
         "question_ids": [
-          "61a7eacb-c722-480d-92b1-edd7865d8250",
-          "2d67f5a7-047c-4453-98f5-13a4a897d540",
-          "9ca182f3-aa85-4808-9eac-0ba9d53a7a73",
-          "1034b9c8-fcdb-4e09-83e0-7a6acb0b5534",
           "2ec5007b-d101-4f23-971a-aa1ff1ccbd92",
           "6265866a-edcd-44cb-9263-12c42b079adc",
           "0dbfbfcb-f3a1-4d14-991d-0cb9144804f7",
@@ -437,7 +448,26 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "8850d64b-60a1-447c-a45c-e22b9be72871",
           "f9ab9ebe-2c56-4078-8f4e-b0a19a6b8339",
           "fe66cdd3-5735-4593-893d-149840de519b",
-          "f88d435d-30d7-4317-93ec-30281dc66926"
+          "f88d435d-30d7-4317-93ec-30281dc66926",
+          "191b9cfd-7bb4-4588-8c02-4e7883ab297b",
+          "ad33774c-c7f6-4e6e-9dbe-a5237406a423",
+          "4593fbf2-c1f0-4c20-bb78-90d75f84b779",
+          "80267a52-7f11-4d99-bf11-89f636630b91"
+        ]
+      },
+      {
+        "title": "Numeracy — calculator",
+        "time_minutes": 30,
+        "calculator_allowed": true,
+        "question_ids": [
+          "5fc67278-0e64-4736-b656-15f81cc0ecfb",
+          "dc316ba0-4192-4570-9780-3a43a39a35f5",
+          "e27f8705-f33b-40b5-abe6-c7bd90613821",
+          "37db7f1b-9e7c-4b35-897d-40e71172fe98",
+          "401acdc7-b099-4531-8a5b-865f73fd15a8",
+          "a6a4c638-c283-41e4-8716-3b50777cfa24",
+          "9ad3f2a4-ad1b-4b1a-a3da-5a80e8fdbc2b",
+          "a4f62802-3fc0-4847-8f4b-224208ec389b"
         ]
       }
     ],
@@ -454,10 +484,6 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 30,
         "calculator_allowed": false,
         "question_ids": [
-          "191b9cfd-7bb4-4588-8c02-4e7883ab297b",
-          "ad33774c-c7f6-4e6e-9dbe-a5237406a423",
-          "4593fbf2-c1f0-4c20-bb78-90d75f84b779",
-          "80267a52-7f11-4d99-bf11-89f636630b91",
           "a0d11f6b-f7a8-4325-8147-8cd053f3a3c5",
           "b788fb19-af53-430c-80e2-c80ee79ccd19",
           "df773e2f-c2be-4735-bdef-ae4030e187a0",
@@ -465,7 +491,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "01a71c8b-d3c3-45b7-a9f9-aec9fb89aa2f",
           "24ca0892-e742-40b3-90d2-bacd6f042369",
           "88944c94-fc56-4451-b2ec-ea08795b17b8",
-          "1d92d607-ebc7-4186-a59d-1f4c8cf179ba"
+          "1d92d607-ebc7-4186-a59d-1f4c8cf179ba",
+          "a47f4c35-a9af-4ff0-b42e-e312564018e6",
+          "617d183d-8898-4592-9695-72582b0109bb",
+          "c46988b5-f4e6-47d2-806b-54ff80b87bb8",
+          "313de050-f86d-4513-a3cf-f48c96c07a20"
         ]
       }
     ],
@@ -487,13 +517,28 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "1493a6a4-37c4-44b8-a4dc-bdf8fed2cbe2",
           "90fb807a-6108-4f91-87b1-467c592c7f0b",
           "4424b329-41fa-41d1-b667-2db2d5b3bbec",
-          "2f33cf0a-264a-44db-8f9d-55699b5b64c6",
-          "0ae9f71a-5b92-4524-8bc7-13e55917e978",
           "4d066aa3-091f-4c8e-8e33-6f3c8d5cd358",
-          "684e1a12-324b-4f0c-bf5f-cc87bb130120",
           "39c8861d-64e6-485b-a523-ea6ab626aabc",
           "01b36837-3c2d-4253-b7dc-985fc7f6514c",
-          "c8d6e78d-84e3-48e8-8778-634f0db174a4"
+          "c8d6e78d-84e3-48e8-8778-634f0db174a4",
+          "5fed5491-2c68-4447-b6d8-66e1657075a0",
+          "1efad3ea-77b7-4da3-b2e5-7440a0f5633e",
+          "36863242-edcc-4ec0-972d-13e1d7adc1ea"
+        ]
+      },
+      {
+        "title": "Numeracy — calculator",
+        "time_minutes": 30,
+        "calculator_allowed": true,
+        "question_ids": [
+          "2f33cf0a-264a-44db-8f9d-55699b5b64c6",
+          "0ae9f71a-5b92-4524-8bc7-13e55917e978",
+          "684e1a12-324b-4f0c-bf5f-cc87bb130120",
+          "2b24d18f-ae3b-45d6-8266-dab6bc2fb7e2",
+          "02b3d8cf-ab42-4e0f-8c67-e155ad2ebac2",
+          "8b3c4311-dad5-4676-8793-f3cabf1263c7",
+          "80581118-bfd4-4c87-974f-8cbf28536475",
+          "ba5fa0d1-f1fe-499c-9110-2848a2e892f3"
         ]
       }
     ],
@@ -510,9 +555,6 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 30,
         "calculator_allowed": false,
         "question_ids": [
-          "5fed5491-2c68-4447-b6d8-66e1657075a0",
-          "1efad3ea-77b7-4da3-b2e5-7440a0f5633e",
-          "36863242-edcc-4ec0-972d-13e1d7adc1ea",
           "2657a0c1-cec6-4fef-9192-851353765297",
           "d54ab6a9-0172-4274-b066-cd3dc3797804",
           "406d7c0a-ad96-4e68-8c48-cd7450487405",
@@ -521,7 +563,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "53277765-ae02-4e88-96f8-3e593284cefb",
           "97b89eef-12d2-403d-9ff2-dd7601c7d099",
           "232297f1-b9a9-45c5-a9a2-cef2e47ed66b",
-          "9840a668-c7ab-4ab7-8cb3-5dd6d95afe6a"
+          "9840a668-c7ab-4ab7-8cb3-5dd6d95afe6a",
+          "fb70f0b9-45af-44ca-a7d5-379f78d6917b",
+          "c5c7eb76-54bf-4f9c-b00b-44897e638c16",
+          "a5905cfb-1498-4cc9-b88c-b66171e8b927"
+        ]
+      },
+      {
+        "title": "Numeracy — calculator",
+        "time_minutes": 30,
+        "calculator_allowed": true,
+        "question_ids": [
+          "2f33cf0a-264a-44db-8f9d-55699b5b64c6",
+          "0ae9f71a-5b92-4524-8bc7-13e55917e978",
+          "684e1a12-324b-4f0c-bf5f-cc87bb130120",
+          "2b24d18f-ae3b-45d6-8266-dab6bc2fb7e2",
+          "02b3d8cf-ab42-4e0f-8c67-e155ad2ebac2",
+          "8b3c4311-dad5-4676-8793-f3cabf1263c7",
+          "80581118-bfd4-4c87-974f-8cbf28536475",
+          "ba5fa0d1-f1fe-499c-9110-2848a2e892f3"
         ]
       }
     ],
@@ -538,9 +598,6 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 30,
         "calculator_allowed": false,
         "question_ids": [
-          "fb70f0b9-45af-44ca-a7d5-379f78d6917b",
-          "c5c7eb76-54bf-4f9c-b00b-44897e638c16",
-          "a5905cfb-1498-4cc9-b88c-b66171e8b927",
           "1c05508f-88a4-44e6-92c3-ef70bfe815f8",
           "7a1401f9-9ab0-4bbf-8c12-fd8e0a91f778",
           "1fa81850-9f3e-4c50-8351-984347bf80cc",
@@ -549,7 +606,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "7a44651e-ab9a-4114-9fc8-1690c629b21c",
           "1493a6a4-37c4-44b8-a4dc-bdf8fed2cbe2",
           "90fb807a-6108-4f91-87b1-467c592c7f0b",
-          "4424b329-41fa-41d1-b667-2db2d5b3bbec"
+          "4424b329-41fa-41d1-b667-2db2d5b3bbec",
+          "4d066aa3-091f-4c8e-8e33-6f3c8d5cd358",
+          "39c8861d-64e6-485b-a523-ea6ab626aabc",
+          "01b36837-3c2d-4253-b7dc-985fc7f6514c"
         ]
       }
     ],
@@ -571,13 +631,28 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "73d8b99d-af3a-40fb-8ca2-fe299089215c",
           "aaa8bb88-9515-4757-bc38-4149bd566e31",
           "b13fafbf-d4c9-4e5c-aea8-c80143858572",
-          "fbaff0bc-53e5-4488-ad98-2fce8cac537c",
           "c2d6cddc-4fb9-4da3-9b96-ea43f75335c8",
           "b6fc3102-685f-47f5-b4fc-5702a355d68d",
-          "3d3f32b4-b1b9-4a56-8d9a-2694be3a2478",
           "878d8987-1dc4-44d4-ace5-17f6fe68667d",
           "f21ff070-d3d8-4e69-b9d1-cc965b53e1ff",
-          "38bb97ff-90c9-4a51-a22b-6bd878efc1c9"
+          "38bb97ff-90c9-4a51-a22b-6bd878efc1c9",
+          "cdb1676d-faf1-4a1a-b5a8-6abd8d8fcd55",
+          "2e3ec299-6c90-4274-a80c-063637322cad"
+        ]
+      },
+      {
+        "title": "Numeracy — calculator",
+        "time_minutes": 30,
+        "calculator_allowed": true,
+        "question_ids": [
+          "fbaff0bc-53e5-4488-ad98-2fce8cac537c",
+          "3d3f32b4-b1b9-4a56-8d9a-2694be3a2478",
+          "d06585c1-0026-47a6-8390-0b85c7adef7f",
+          "3b23cda6-f9fa-48ce-98c9-3d647280882a",
+          "72b47b97-7a1c-4b11-9704-f6cd7bd1c564",
+          "856b1ff8-ff92-4cc6-b43c-a62f4ac8367c",
+          "8d087acb-3383-4b19-9dd8-a40fbc05600c",
+          "373d64f4-0aae-466f-b2d9-03ccc74f2954"
         ]
       }
     ],
@@ -594,8 +669,6 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 30,
         "calculator_allowed": false,
         "question_ids": [
-          "cdb1676d-faf1-4a1a-b5a8-6abd8d8fcd55",
-          "2e3ec299-6c90-4274-a80c-063637322cad",
           "2b040909-ef98-42cd-b62e-15d11622c042",
           "37b9f7b5-9b3a-4ece-89c2-bb58477f5552",
           "6fb82617-abcc-4656-8781-4493edf1bfb2",
@@ -605,7 +678,24 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "22049794-3a4e-441d-872b-4b4467d57428",
           "814ee4b3-116b-4851-9cf9-863ae67feaa8",
           "67eec946-9978-4e48-88f0-f6f9a995502e",
-          "710fd1a7-0a1f-4a98-88b0-d726150399ce"
+          "710fd1a7-0a1f-4a98-88b0-d726150399ce",
+          "95842e62-1060-4326-b606-ba1504e33835",
+          "254b678a-970a-4437-ab68-6d83a493237e"
+        ]
+      },
+      {
+        "title": "Numeracy — calculator",
+        "time_minutes": 30,
+        "calculator_allowed": true,
+        "question_ids": [
+          "fbaff0bc-53e5-4488-ad98-2fce8cac537c",
+          "3d3f32b4-b1b9-4a56-8d9a-2694be3a2478",
+          "d06585c1-0026-47a6-8390-0b85c7adef7f",
+          "3b23cda6-f9fa-48ce-98c9-3d647280882a",
+          "72b47b97-7a1c-4b11-9704-f6cd7bd1c564",
+          "856b1ff8-ff92-4cc6-b43c-a62f4ac8367c",
+          "8d087acb-3383-4b19-9dd8-a40fbc05600c",
+          "373d64f4-0aae-466f-b2d9-03ccc74f2954"
         ]
       }
     ],
@@ -622,8 +712,6 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 30,
         "calculator_allowed": false,
         "question_ids": [
-          "95842e62-1060-4326-b606-ba1504e33835",
-          "254b678a-970a-4437-ab68-6d83a493237e",
           "ad5e5694-03c5-45e1-80ae-e76b2276f813",
           "58bfdf43-2257-4814-9ae8-879911ca29b1",
           "ef259b67-35f8-4296-ac80-2e647796ccf0",
@@ -633,7 +721,9 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "57bbfce9-d36c-4c3e-bb63-8ab24a43fa74",
           "7d4e96aa-648a-4d6a-ab43-d8d65280e457",
           "73d8b99d-af3a-40fb-8ca2-fe299089215c",
-          "aaa8bb88-9515-4757-bc38-4149bd566e31"
+          "aaa8bb88-9515-4757-bc38-4149bd566e31",
+          "b13fafbf-d4c9-4e5c-aea8-c80143858572",
+          "c2d6cddc-4fb9-4da3-9b96-ea43f75335c8"
         ]
       }
     ],
