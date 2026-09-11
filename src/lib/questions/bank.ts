@@ -6447,10 +6447,10 @@ export const QUESTION_BANK: (
   {
     id: '29c5ba26-63b0-4fa9-8e29-50e996553409',
     topic: 'geometry_measurement', year_level: 'grade_4', difficulty: 'developing',
-    question_text: 'A lounge room rug measures 4 m long and 3 m wide. What area of floor does the rug cover?',
-    options: ['7 m²', '14 m²', '12 m²', '20 m²'],
+    question_text: 'A stage for the school play is being built. It is 6 m long and 5 m wide. What area of stage floor is there?',
+    options: ['11 m²', '22 m²', '30 m²', '35 m²'],
     correct_index: 2,
-    explanation: 'Area = length × width = 4 × 3 = 12 m².',
+    explanation: 'Area = length × width = 6 × 5 = 30 m².',
     curriculum_code: 'AC9M4M02',
   },
   {
@@ -6569,10 +6569,10 @@ export const QUESTION_BANK: (
   {
     id: '9975ada1-4dbb-4b3e-9a6d-a14ebd57f73f',
     topic: 'geometry_measurement', year_level: 'grade_5', difficulty: 'developing',
-    question_text: 'A recipe requires 1.25 kg of flour. Georgia has a 2 kg bag. After she measures out the flour for the recipe, how many grams are left in the bag?',
-    options: ['850 g', '650 g', '750 g', '1250 g'],
+    question_text: 'A local fun run course is 5.6 km long. How many metres long is the course?',
+    options: ['560', '56', '5600', '56000'],
     correct_index: 2,
-    explanation: '2 kg = 2000 g. 2000 − 1250 = 750 g left.',
+    explanation: '1 km = 1000 m, so 5.6 km = 5.6 × 1000 = 5600 m.',
     curriculum_code: 'AC9M5M01',
   },
 
@@ -6753,7 +6753,7 @@ export const QUESTION_BANK: (
   {
     id: 'f095c137-6e75-40c2-81a9-c68544778ab7',
     topic: 'geometry_measurement', year_level: 'year_7', difficulty: 'developing', calculator_allowed: true,
-    question_text: 'A storage container is a rectangular prism measuring 2.4 m long, 1.5 m wide, and 1.8 m high. Using a calculator, what is its volume?',
+    question_text: 'A delivery locker is shaped like a rectangular prism measuring 2.4 m long, 1.5 m wide, and 1.8 m high. Using a calculator, what is its volume?',
     options: ['5.7 m³', '6.48 m³', '8.1 m³', '7.2 m³'],
     correct_index: 1,
     explanation: 'Volume = length × width × height = 2.4 × 1.5 × 1.8 = 6.48 m³.',
@@ -6772,7 +6772,7 @@ export const QUESTION_BANK: (
   {
     id: '33d2ff62-3360-4072-b15b-b7b7e2358ddf',
     topic: 'geometry_measurement', year_level: 'year_7', difficulty: 'foundation', calculator_allowed: true,
-    question_text: 'A vegetable garden is 6.5 m long and 3.2 m wide. Using a calculator, how many metres of edging are needed to go around the entire garden?',
+    question_text: 'A rectangular dog run is 6.5 m long and 3.2 m wide. Using a calculator, how many metres of fencing are needed to enclose it completely?',
     options: ['9.7 m', '20.8 m', '19.4 m', '18.4 m'],
     correct_index: 2,
     explanation: 'Perimeter = 2 × (length + width) = 2 × (6.5 + 3.2) = 19.4 m.',
@@ -6868,7 +6868,7 @@ export const QUESTION_BANK: (
     id: '36287a71-ea2b-4155-a5a1-704cdd938542',
     topic: 'geometry_measurement', year_level: 'year_8', difficulty: 'proficient',
     format: 'short_answer',
-    question_text: 'A cube-shaped gift box has a side length of 6 cm. What is the total surface area of the box?',
+    question_text: 'A block of cheese shaped like a cube has a side length of 6 cm. What is the total surface area of the block (the area that needs wrapping)?',
     expected_answer: '216 cm²',
     accepted_answers: ['216'],
     explanation: 'Surface area of a cube = 6 × side² = 6 × 6² = 6 × 36 = 216 cm².',
