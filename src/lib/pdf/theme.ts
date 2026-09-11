@@ -70,17 +70,28 @@ export const pdfStyles = StyleSheet.create({
     paddingTop: 6,
   },
 
-  sectionHeader: { fontSize: 14, fontWeight: 700, marginTop: 16, marginBottom: 4, borderBottom: '1pt solid #333', paddingBottom: 4 },
+  // Plain NAPLAN-style running header, leading each section's content page(s):
+  // subject + year level (+ calculator status, for split exams), all-caps.
+  runningHeader: { fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1.2, color: '#555', marginTop: 10, marginBottom: 2 },
+  sectionHeader: { fontSize: 14, fontWeight: 700, marginTop: 4, marginBottom: 4, borderBottom: '1pt solid #333', paddingBottom: 4 },
   sectionMeta: { fontSize: 9, color: '#666', marginBottom: 12 },
   stimulusBox: { backgroundColor: '#f5f5f5', padding: 10, marginBottom: 10, borderRadius: 2 },
   stimulusTitle: { fontSize: 9, textTransform: 'uppercase', color: '#888', marginBottom: 4 },
   stimulusBody: { fontSize: 10, lineHeight: 1.5 },
   questionRow: { marginBottom: 14 },
   questionText: { fontSize: 11, marginBottom: 6 },
-  optionRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 3, marginLeft: 12 },
-  optionBubble: { width: 10, height: 10, borderRadius: 5, border: '1pt solid #333', marginRight: 6 },
-  optionText: { fontSize: 10 },
-  answerLine: { borderBottom: '0.5pt solid #999', height: 18 },
+  // Horizontal multiple-choice option boxes (real NAPLAN convention) — a
+  // wrapping row of bordered boxes instead of a stacked vertical list.
+  optionsWrap: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', marginLeft: 12, marginTop: 2 },
+  optionBox: { width: '48%', border: '0.75pt solid #333', borderRadius: 3, paddingVertical: 6, paddingHorizontal: 8, marginBottom: 8 },
+  optionBoxText: { fontSize: 10, lineHeight: 1.3 },
+  // Short-answer blank. flexGrow: 1 only matters inside shortAnswerRow (lets the
+  // line fill the space left over by a currency/unit label); standalone usage
+  // (long_form's stacked lines) is unaffected since those sit in a column
+  // container that already stretches children to full width.
+  answerLine: { borderBottom: '0.5pt solid #999', height: 18, flexGrow: 1 },
+  shortAnswerRow: { flexDirection: 'row', alignItems: 'flex-end' },
+  shortAnswerUnit: { fontSize: 11, color: '#1a1a1a', marginHorizontal: 4, marginBottom: 2 },
   answerKeyRow: { marginBottom: 8, fontSize: 10 },
   answerKeyNum: { fontWeight: 700 },
   explanation: { fontSize: 9, color: '#555', marginTop: 2 },

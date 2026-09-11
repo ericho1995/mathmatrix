@@ -1,6 +1,7 @@
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { SUBJECTS, SELECTIVE_SUBJECTS } from '@/lib/curriculum'
 import { getUserRole } from '@/lib/auth/getUserRole'
+import { resolveExam, isSplitEligible } from '@/lib/pdf/resolveExam'
 import PremiumExamLock from '@/components/practice/PremiumExamLock'
 import AdminExamDownload from '@/components/practice/AdminExamDownload'
 
@@ -20,7 +21,9 @@ export default async function ExamPage({ params }: { params: { id: string } }) {
   const role = await getUserRole()
 
   if (exam.premium && role === 'admin') {
-    return <AdminExamDownload examId={exam.id} title={exam.title} />
+    const resolved = resolveExam(exam.id)
+    const splitEligible = resolved ? isSplitEligible(resolved) : false
+    return <AdminExamDownload examId={exam.id} title={exam.title} splitEligible={splitEligible} />
   }
 
   return <PremiumExamLock title={exam.title} subjectLabel={subject?.label ?? 'exam'} backHref="/practice/exams" />
