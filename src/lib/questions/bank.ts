@@ -6260,10 +6260,10 @@ export const QUESTION_BANK: (
   {
     id: 'c4a0940d-560b-47b7-a2fe-3bb848a4020f',
     topic: 'algebra_equations', year_level: 'year_7', difficulty: 'developing',
-    question_text: 'Simplify the expression: 5x + 2x − x.',
+    question_text: "A cross-country training session covers 5x + 2x − x kilometres, where x is the distance of one lap around the school oval. Simplify this expression.",
     options: ['5x', '8x', '7x', '6x'],
     correct_index: 3,
-    explanation: 'Collect like terms: (5 + 2 − 1)x = 6x.',
+    explanation: 'Collect like terms: (5 + 2 − 1)x = 6x kilometres.',
     curriculum_code: 'AC9M7A01',
   },
   {
@@ -6517,7 +6517,7 @@ export const QUESTION_BANK: (
     id: 'e0c2e15e-d210-418f-b87a-4715ecbf47b1',
     topic: 'algebra_equations', year_level: 'year_9', difficulty: 'foundation', calculator_allowed: true,
     question_text: 'A landscaper charges according to the formula C = 45.50 + 18.75h, where h is hours worked. Using a calculator, find the cost, C, when h = 6 hours.',
-    options: ['d = 195', 'd = 180', 'd = 210', 'd = 225'],
+    options: ['$158.00', '$112.50', '$139.25', '$385.50'],
     correct_index: 0,
     explanation: '18.75 × 6 = 112.50. Add 45.50: C = $158.00 (use a calculator).',
     curriculum_code: 'AC9M9A02',
