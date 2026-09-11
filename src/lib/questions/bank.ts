@@ -5751,11 +5751,11 @@ export const QUESTION_BANK: (
   {
     id: '886cedf8-ddc7-41d3-81b2-39960a167b67',
     topic: 'number_operations', year_level: 'grade_4', difficulty: 'proficient',
-    question_text: 'A fun run receives $2,450 in online donations and $875 in cash donations, but $120 of the cash was a duplicate entry that must be removed. What is the total amount raised?',
-    options: ['3325', '3095', '3200', '3205'],
+    question_text: 'A school tuck shop sells popcorn bags for $3 each. On fete day it sells 156 bags in the morning and 89 bags in the afternoon. How much money does the tuck shop make from popcorn on fete day?',
+    options: ['245', '725', '745', '735'],
     correct_index: 3,
-    explanation: '2450 + 875 = 3325. Then remove the duplicate: 3325 − 120 = 3205.',
-    curriculum_code: 'AC9M4N04',
+    explanation: 'Total bags sold: 156 + 89 = 245. Money made: 245 × $3 = $735.',
+    curriculum_code: 'AC9M4N07',
   },
   {
     id: '8732a716-dad2-440f-91f3-1232fbdf6298',
@@ -5769,10 +5769,10 @@ export const QUESTION_BANK: (
   {
     id: 'd6c1cf1b-174a-4761-b780-0c9aca98010f',
     topic: 'number_operations', year_level: 'grade_4', difficulty: 'advanced',
-    question_text: 'A stadium seating plan has 24 rows. The first 20 rows have 18 seats each, and the last 4 rows (VIP) have only 10 seats each because of extra legroom. How many seats are there in total?',
-    options: ['380', '400', '440', '360'],
+    question_text: 'A school buys 8 boxes of 45 pencils each ready for the year. It later finds 36 pencils are water-damaged and unusable, and donates a further 60 pencils to a sister school. How many usable pencils remain for students?',
+    options: ['300', '264', '324', '254'],
     correct_index: 1,
-    explanation: '20 × 18 = 360, and 4 × 10 = 40. Total: 360 + 40 = 400.',
+    explanation: '8 × 45 = 360 pencils bought. Remove the damaged ones: 360 − 36 = 324. Remove the donated ones: 324 − 60 = 264.',
     curriculum_code: 'AC9M4N05',
   },
   {
@@ -5803,11 +5803,11 @@ export const QUESTION_BANK: (
   {
     id: '3632c879-124e-4565-b1a2-e609f3824767',
     topic: 'number_operations', year_level: 'grade_4', difficulty: 'proficient', format: 'short_answer',
-    question_text: 'A fun run collects $2,180 in entry fees and $645 in merchandise sales, then pays $95 in stall hire before the final profit is known. What is the final profit?',
-    expected_answer: '$2730',
-    accepted_answers: ['2730', '$2,730', '2,730', '$2730.00'],
-    explanation: '2180 + 645 = 2825. Then subtract the stall hire: 2825 − 95 = 2730.',
-    curriculum_code: 'AC9M4N04',
+    question_text: 'A school photocopier prints flyers at a cost of $0.12 each. The office needs to print 1,250 flyers for an open day. How much will the printing cost in total?',
+    expected_answer: '$150',
+    accepted_answers: ['150', '$150.00', '150.00'],
+    explanation: '1250 × $0.12 = $150.',
+    curriculum_code: 'AC9M4N07',
   },
   {
     id: '8573768d-4e88-47c8-b56b-469a20b7dfaa',
@@ -6026,11 +6026,11 @@ export const QUESTION_BANK: (
   {
     id: 'ca3eddc2-c08b-4a92-81b4-7d90925449dd',
     topic: 'number_operations', year_level: 'grade_6', difficulty: 'developing',
-    question_text: 'A $340 television is discounted by 15% for a warehouse clearance. How much is the discount (not the sale price)?',
-    options: ['51', '34', '45.9', '30.6'],
+    question_text: 'A vending machine dispenses 0.35 L of juice into each cup for a school sports day. It fills 24 cups before running out. How many litres of juice does it dispense in total?',
+    options: ['8.4', '24.35', '84', '7.4'],
     correct_index: 0,
-    explanation: '10% of $340 is $34, and 5% is $17. 15% = $34 + $17 = $51.',
-    curriculum_code: 'AC9M6N04',
+    explanation: '0.35 × 24 = 8.4 L.',
+    curriculum_code: 'AC9M6N03',
   },
   {
     id: '77089b75-20f8-4bd6-9fe9-725788e4025d',
@@ -6080,11 +6080,11 @@ export const QUESTION_BANK: (
   {
     id: 'c5110d2a-867d-4f97-bc16-51f1c40002dc',
     topic: 'number_operations', year_level: 'grade_6', difficulty: 'advanced',
-    question_text: 'A charity auction raises $2,400. 3/8 of this covers venue costs, then 15% of the remaining amount is set aside for admin. How much money actually goes to the cause?',
-    options: ['1200', '1350', '1275', '1500'],
+    question_text: 'A community fundraiser dinner charges $45 per adult ticket and 2/3 of that price for a child ticket. If 18 adults and 24 children attend, how much money is raised from ticket sales in total?',
+    options: ['1500', '1560', '1530', '1410'],
     correct_index: 2,
-    explanation: 'Venue costs: 3/8 × 2400 = 900. Remaining: 2400 − 900 = 1500. Admin: 15% × 1500 = 225. To the cause: 1500 − 225 = 1275.',
-    curriculum_code: 'AC9M6N04',
+    explanation: 'Adults: 18 × $45 = $810. A child ticket is 2/3 × $45 = $30, so children: 24 × $30 = $720. Total: $810 + $720 = $1530.',
+    curriculum_code: 'AC9M6N03',
   },
   {
     id: '36abc3e8-be1a-468b-ad2a-68b128f9c505',
