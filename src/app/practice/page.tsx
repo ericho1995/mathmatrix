@@ -3,9 +3,9 @@
 import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import type { YearLevel, TopicSlug, SubjectSlug } from '@/types'
-import { QUESTION_BANK } from '@/lib/questions/bank'
+import { TOPIC_COVERAGE, topicTotal, topicCountAt } from '@/lib/questions/coverage'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES, TOPICS } from '@/lib/curriculum'
-import QuizRunner from '@/components/practice/QuizRunner'
+import QuizRunner, { type QuizQuestion } from '@/components/practice/QuizRunner'
 import PracticeModeTabs from '@/components/practice/PracticeModeTabs'
 import PremiumExamLock from '@/components/practice/PremiumExamLock'
 
@@ -72,38 +72,65 @@ function PracticePageInner() {
   const requiresGrade = mode === 'general'
   const readyToBuild = subject && topics.size > 0 && (!requiresGrade || grade)
 
+  // Availability is answered from the generated coverage map (a few KB of
+  // counts) rather than the question bank, so no question content reaches the
+  // browser. The questions themselves come from /api/practice/quiz when a quiz
+  // actually starts.
   function gradeHasContent(s: SubjectSlug, g: YearLevel) {
-    const subjectTopics = TOPICS.filter(t => t.subject === s).map(t => t.slug)
-    return QUESTION_BANK.some(q => subjectTopics.includes(q.topic) && q.year_level === g)
+    return TOPICS.filter(t => t.subject === s).some(t => topicCountAt(t.slug, g) > 0)
   }
 
   function topicHasContent(t: TopicSlug) {
-    if (mode === 'selective') return QUESTION_BANK.some(q => q.topic === t)
+    if (mode === 'selective') return topicTotal(t) > 0
     if (!grade) return true
-    return QUESTION_BANK.some(q => q.topic === t && q.year_level === grade)
+    return topicCountAt(t, grade) > 0
   }
 
   // Drop any selected topic that turns out to have no content once a grade is chosen.
   useEffect(() => {
     if (mode !== 'general' || !grade) return
     setTopics(prev => {
-      const filtered = new Set(Array.from(prev).filter(t => QUESTION_BANK.some(q => q.topic === t && q.year_level === grade)))
+      const filtered = new Set(Array.from(prev).filter(t => topicCountAt(t, grade) > 0))
       return filtered.size === prev.size ? prev : filtered
     })
   }, [grade, mode])
 
-  const pool = QUESTION_BANK.filter(
-    q => topics.has(q.topic) && (mode === 'selective' || q.year_level === grade)
+  const poolSize = Array.from(topics).reduce(
+    (sum, t) => sum + (mode === 'selective' ? topicTotal(t) : grade ? topicCountAt(t, grade) : 0),
+    0
   )
 
-  const [quizQuestions, setQuizQuestions] = useState<typeof pool>([])
+  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([])
+  const [building, setBuilding] = useState(false)
+  const [buildError, setBuildError] = useState<string | null>(null)
 
-  function buildQuiz() {
+  async function buildQuiz() {
     if (!readyToBuild) return
-    const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(questionCount, pool.length))
-    setQuizQuestions(shuffled)
-    setQuizKey(k => k + 1)
-    setScreen('quiz')
+    setBuilding(true)
+    setBuildError(null)
+    try {
+      const res = await fetch('/api/practice/quiz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          topics: Array.from(topics),
+          yearLevel: mode === 'selective' ? null : grade,
+          count: questionCount,
+        }),
+      })
+      if (!res.ok) throw new Error(`Request failed (${res.status})`)
+      const data = (await res.json()) as { questions: QuizQuestion[] }
+      if (!data.questions?.length) throw new Error('No questions came back for that combination.')
+      setQuizQuestions(data.questions)
+      setQuizKey(k => k + 1)
+      setScreen('quiz')
+    } catch (err) {
+      // Surfaced rather than swallowed — a silent failure here looks identical
+      // to a quiz that simply never starts.
+      setBuildError(err instanceof Error ? err.message : 'Could not build the quiz.')
+    } finally {
+      setBuilding(false)
+    }
   }
 
   if (screen === 'exam-lock') {
@@ -153,7 +180,7 @@ function PracticePageInner() {
       <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Subject</p>
       <div className={`grid gap-3 mb-8 ${mode === 'general' ? 'grid-cols-3' : 'grid-cols-2 sm:grid-cols-3'}`}>
         {activeSubjects
-          .filter(s => QUESTION_BANK.some(q => TOPICS.find(t => t.slug === q.topic)?.subject === s.slug))
+          .filter(s => TOPICS.filter(t => t.subject === s.slug).some(t => topicTotal(t.slug) > 0))
           .map(s => (
             <button key={s.slug} onClick={() => chooseSubject(s.slug)}
               className={`p-4 rounded-2xl border text-center transition-all
@@ -217,16 +244,17 @@ function PracticePageInner() {
         ))}
       </div>
 
-      {topics.size > 0 && pool.length === 0 && (
+      {topics.size > 0 && poolSize === 0 && (
         <p className="text-sm text-amber-600 mb-3">
           No questions yet for this combination. Try a different year level or topic.
         </p>
       )}
-      {pool.length > 0 && <div className="mb-3" />}
-      <button onClick={buildQuiz} disabled={!readyToBuild || pool.length === 0} className="btn-primary w-full">
-        Start practice
+      {buildError && <p className="text-sm text-red-600 mb-3">{buildError}</p>}
+      {poolSize > 0 && !buildError && <div className="mb-3" />}
+      <button onClick={buildQuiz} disabled={!readyToBuild || poolSize === 0 || building} className="btn-primary w-full">
+        {building ? 'Building…' : 'Start practice'}
       </button>
-      <button onClick={() => setScreen('exam-lock')} disabled={!readyToBuild || pool.length === 0} className="btn-secondary w-full mt-2">
+      <button onClick={() => setScreen('exam-lock')} disabled={!readyToBuild || poolSize === 0 || building} className="btn-secondary w-full mt-2">
         Generate exam paper (PDF)
       </button>
     </main>
