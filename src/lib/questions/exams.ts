@@ -1219,29 +1219,44 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "title": "Reading",
         "time_minutes": 45,
         "question_ids": [
+          "f33b8891-1bee-469d-84da-6ae576e96dce",
+          "f59adb6a-e1dc-459b-a735-05978cae258c",
+          "76f7b276-ee95-4522-beb8-8090a0b38b59",
+          "7dcf287b-6261-4168-994a-d755895f31e9",
+          "37625e00-42dd-4eb6-a60a-2d1585958ef1",
+          "1b0afcc1-9797-4179-a4e3-12a690e1699a",
+          "80ce86ca-9a5b-41a6-86bb-bd5acafbf43d",
+          "b63f512b-6f22-49e7-bc98-cb3c2ba63423",
+          "43d4dbca-6434-4fa9-aec0-9dffaf158936",
+          "fe68fb32-0db0-479a-b8e9-19a0bffdc243",
+          "a18b37fe-56bf-4b23-a88b-d68d0d674957",
+          "a7925b4c-3870-4611-bdf0-6c7392fb398d",
           "4c9c48fc-ba92-47c2-b8e7-d85eee10b828",
-          "623b4eb3-bc36-4ee6-ad22-f40f68a81bec",
-          "09b17030-e907-4497-a0ba-49ffcd93f568",
-          "18b155bb-548c-4040-9968-5522e31026cb",
-          "c683555a-68d5-4cdf-b18d-0f541af5c4e6",
-          "ed1d12e3-ab31-4731-837a-1a7a674dfb8a",
-          "82019000-c9f3-4433-b6a5-14b0125a5cba"
+          "623b4eb3-bc36-4ee6-ad22-f40f68a81bec"
         ]
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
-          "51fd7726-fec8-4cfc-8d3a-bd2dc6cab892",
           "cb264ff5-f2a1-43f3-b425-4dd2a0e38312",
+          "06ce563c-7802-4493-9c30-f1e44f2a9f34",
           "ae8f492d-c285-45d5-b6fb-0b853489d529",
-          "1de54cdb-bab3-4e7d-9c66-6deff1742096",
-          "94e50ad1-11f2-4bd3-a7cc-36ad6cecda1b",
-          "cf33c031-7f72-4611-ae3b-8eaf401f0849",
-          "3facbf39-ff3f-4de0-a59c-18fa48337e8e",
-          "3c372c9a-b647-413b-b4ce-24b3f17bb902",
+          "c0a27716-24d6-493a-8a49-0669470ba1d9",
           "13289b3d-55d7-4388-8289-12e944e75a28",
-          "d0787f9d-fc16-4824-bd33-9b5a9ce48d10"
+          "e3282804-0bb5-4da0-bf78-991233e4ea66",
+          "445c288c-b9f6-4fdb-9fea-3bedb7664c01",
+          "c4d2dc32-2a73-47b2-8b96-01aa8983249d",
+          "b5bf7939-662f-4e8f-b1f5-1bc9c46f887c",
+          "c70c526e-a3ed-46c9-849d-14c90295096f",
+          "aab3ff12-c8b9-4ba9-965f-3186716d33f7",
+          "533d6ea9-3236-41e1-b20b-7f2a8f9cddbd",
+          "42b696fb-1053-48fa-9656-45a4e5141a7b",
+          "ffa173be-920f-42df-87bb-66ceace2bd00",
+          "ae10488e-01c9-49b9-9701-7134dcc9dacd",
+          "53799b78-d55c-4446-99a6-eec707f416a1",
+          "ff698516-aba8-440d-9fae-6bf3068830a4",
+          "9d547980-cffe-4a87-b4fb-8777dccc295c"
         ]
       }
     ],
@@ -1257,29 +1272,47 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "title": "Reading",
         "time_minutes": 45,
         "question_ids": [
-          "4c9c48fc-ba92-47c2-b8e7-d85eee10b828",
-          "623b4eb3-bc36-4ee6-ad22-f40f68a81bec",
           "09b17030-e907-4497-a0ba-49ffcd93f568",
           "18b155bb-548c-4040-9968-5522e31026cb",
           "c683555a-68d5-4cdf-b18d-0f541af5c4e6",
           "ed1d12e3-ab31-4731-837a-1a7a674dfb8a",
-          "82019000-c9f3-4433-b6a5-14b0125a5cba"
+          "82019000-c9f3-4433-b6a5-14b0125a5cba",
+          "f33b8891-1bee-469d-84da-6ae576e96dce",
+          "f59adb6a-e1dc-459b-a735-05978cae258c",
+          "76f7b276-ee95-4522-beb8-8090a0b38b59",
+          "7dcf287b-6261-4168-994a-d755895f31e9",
+          "37625e00-42dd-4eb6-a60a-2d1585958ef1",
+          "1b0afcc1-9797-4179-a4e3-12a690e1699a",
+          "80ce86ca-9a5b-41a6-86bb-bd5acafbf43d",
+          "b63f512b-6f22-49e7-bc98-cb3c2ba63423",
+          "43d4dbca-6434-4fa9-aec0-9dffaf158936",
+          "fe68fb32-0db0-479a-b8e9-19a0bffdc243",
+          "a18b37fe-56bf-4b23-a88b-d68d0d674957",
+          "a7925b4c-3870-4611-bdf0-6c7392fb398d"
         ]
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
-          "71447fea-2b90-447a-9c4a-4398dc460a93",
+          "cb264ff5-f2a1-43f3-b425-4dd2a0e38312",
+          "06ce563c-7802-4493-9c30-f1e44f2a9f34",
+          "ae8f492d-c285-45d5-b6fb-0b853489d529",
+          "c0a27716-24d6-493a-8a49-0669470ba1d9",
+          "13289b3d-55d7-4388-8289-12e944e75a28",
+          "e3282804-0bb5-4da0-bf78-991233e4ea66",
           "445c288c-b9f6-4fdb-9fea-3bedb7664c01",
-          "761ad35c-48aa-4aa5-84b3-dfc4d85f3fa3",
-          "58f6955a-c85c-448b-83ed-c87a75df1ea3",
-          "a249b540-0ccc-458e-bc24-bf0641e55039",
+          "c4d2dc32-2a73-47b2-8b96-01aa8983249d",
           "b5bf7939-662f-4e8f-b1f5-1bc9c46f887c",
+          "c70c526e-a3ed-46c9-849d-14c90295096f",
           "aab3ff12-c8b9-4ba9-965f-3186716d33f7",
-          "1489fc1c-d043-4f7e-9f84-1ad4d926e804",
+          "533d6ea9-3236-41e1-b20b-7f2a8f9cddbd",
           "42b696fb-1053-48fa-9656-45a4e5141a7b",
-          "ae10488e-01c9-49b9-9701-7134dcc9dacd"
+          "ffa173be-920f-42df-87bb-66ceace2bd00",
+          "ae10488e-01c9-49b9-9701-7134dcc9dacd",
+          "53799b78-d55c-4446-99a6-eec707f416a1",
+          "ff698516-aba8-440d-9fae-6bf3068830a4",
+          "9d547980-cffe-4a87-b4fb-8777dccc295c"
         ]
       }
     ],
@@ -1292,19 +1325,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "English Grade 3 — Practice Exam 3",
     "sections": [
       {
-        "title": "Language Conventions",
-        "time_minutes": 40,
+        "title": "Reading",
+        "time_minutes": 45,
         "question_ids": [
-          "51fd7726-fec8-4cfc-8d3a-bd2dc6cab892",
-          "cb264ff5-f2a1-43f3-b425-4dd2a0e38312",
-          "ae8f492d-c285-45d5-b6fb-0b853489d529",
-          "1de54cdb-bab3-4e7d-9c66-6deff1742096",
-          "94e50ad1-11f2-4bd3-a7cc-36ad6cecda1b",
-          "cf33c031-7f72-4611-ae3b-8eaf401f0849",
-          "3facbf39-ff3f-4de0-a59c-18fa48337e8e",
-          "3c372c9a-b647-413b-b4ce-24b3f17bb902",
-          "13289b3d-55d7-4388-8289-12e944e75a28",
-          "d0787f9d-fc16-4824-bd33-9b5a9ce48d10"
+          "4c9c48fc-ba92-47c2-b8e7-d85eee10b828",
+          "623b4eb3-bc36-4ee6-ad22-f40f68a81bec",
+          "09b17030-e907-4497-a0ba-49ffcd93f568",
+          "18b155bb-548c-4040-9968-5522e31026cb",
+          "c683555a-68d5-4cdf-b18d-0f541af5c4e6",
+          "ed1d12e3-ab31-4731-837a-1a7a674dfb8a",
+          "82019000-c9f3-4433-b6a5-14b0125a5cba"
         ]
       }
     ],
@@ -1320,29 +1350,43 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "title": "Reading",
         "time_minutes": 45,
         "question_ids": [
+          "6f486103-a407-4413-a523-50e9da016073",
+          "41bad1ed-f96e-402c-9f17-54aff99c530e",
+          "c020e715-25d0-4ab3-9c63-93fc4e93157c",
+          "4b0ea872-66c1-42a9-a3ae-17aaa6fdb288",
+          "bcad467e-d213-473f-93ad-744d4b5213c7",
+          "65901e9a-9968-4bae-bd05-c7608ffa567c",
+          "43e4cd8b-4095-4212-bc2b-ddc7104ffe86",
+          "a86a4c4b-13e5-4914-afaa-7687a90cab30",
+          "2177839f-7cae-4b92-92eb-4fc2e0ef559a",
+          "7ac797ea-8180-4ec9-a87e-471590cb2570",
+          "2ded4c58-8a59-4309-a4c6-21d1b43d1094",
+          "481526a4-6b5e-495f-acef-ce3b7ce387fd",
           "88176768-82e6-40f6-a4b6-e2a8449adfe7",
-          "770bdf3e-1561-40a5-b3d1-53064b6b431c",
-          "6b2d3c0d-2330-4040-9a4e-273c6ffb690e",
-          "fbb0f1ed-8775-4083-9e1e-ef902c7fe830",
-          "e668e6a0-f901-4f30-8837-82f437e4b72b",
-          "b449663f-9eaa-478a-991f-1c77747e0702",
-          "065b0fbf-f94d-4032-b09a-719a0afa9e7c"
+          "770bdf3e-1561-40a5-b3d1-53064b6b431c"
         ]
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
-          "62fd9566-4e2e-4721-9e0a-dfe61533cd2e",
           "25d9a592-09f4-4945-bddf-8007c4021461",
-          "b3adea91-5df3-474f-8003-67800d05304e",
-          "fc8408b7-53fa-4117-90b5-0a4419faa413",
-          "38223913-5840-4bd4-8f9d-1bbea56a700f",
+          "66189764-8903-4f92-a903-04501b9c83c0",
           "4bd961ca-c77a-40b6-85dd-48a1e56447c0",
-          "f2c080a0-f692-429a-914b-7ecd6f3fc401",
-          "45b1e64d-d96f-473e-b333-6614377105b4",
+          "12ea0228-f38a-43de-bc70-21ac32d1596d",
           "ab8b2ecc-38b1-4095-ac73-3147016fc59c",
-          "f44d5dd4-3cd7-491d-bfd6-35c785926dce"
+          "e20bd643-b2cd-4ab1-a3dd-793c0404a78f",
+          "f44d5dd4-3cd7-491d-bfd6-35c785926dce",
+          "0c018cdf-b520-47d3-8c49-34bc11062e41",
+          "6c1a9c18-df74-41d7-b403-81292d5c89d7",
+          "2b36a27b-2657-4507-abcc-f22a89b93956",
+          "994b6be4-e9dd-463c-ab01-911049316286",
+          "ad11ffbc-da92-484c-be2d-848cd355f205",
+          "e7725bd9-d358-4cae-902e-9b9e12105ed8",
+          "eedc7e6a-60ba-41ec-961f-a1d03f41bf36",
+          "17b850da-718e-4f35-addc-4fd87e30c22a",
+          "ed36f379-4a04-4764-8fc2-da4c80ef7e33",
+          "1db5f6ca-6d6a-4b91-b3ee-1245c8f89c56"
         ]
       }
     ],
@@ -1358,29 +1402,46 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "title": "Reading",
         "time_minutes": 45,
         "question_ids": [
-          "88176768-82e6-40f6-a4b6-e2a8449adfe7",
-          "770bdf3e-1561-40a5-b3d1-53064b6b431c",
           "6b2d3c0d-2330-4040-9a4e-273c6ffb690e",
           "fbb0f1ed-8775-4083-9e1e-ef902c7fe830",
           "e668e6a0-f901-4f30-8837-82f437e4b72b",
           "b449663f-9eaa-478a-991f-1c77747e0702",
-          "065b0fbf-f94d-4032-b09a-719a0afa9e7c"
+          "065b0fbf-f94d-4032-b09a-719a0afa9e7c",
+          "6f486103-a407-4413-a523-50e9da016073",
+          "41bad1ed-f96e-402c-9f17-54aff99c530e",
+          "c020e715-25d0-4ab3-9c63-93fc4e93157c",
+          "4b0ea872-66c1-42a9-a3ae-17aaa6fdb288",
+          "bcad467e-d213-473f-93ad-744d4b5213c7",
+          "65901e9a-9968-4bae-bd05-c7608ffa567c",
+          "43e4cd8b-4095-4212-bc2b-ddc7104ffe86",
+          "a86a4c4b-13e5-4914-afaa-7687a90cab30",
+          "2177839f-7cae-4b92-92eb-4fc2e0ef559a",
+          "7ac797ea-8180-4ec9-a87e-471590cb2570",
+          "2ded4c58-8a59-4309-a4c6-21d1b43d1094",
+          "481526a4-6b5e-495f-acef-ce3b7ce387fd"
         ]
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
-          "c00ae854-4966-4821-8999-04f6e8ee315c",
-          "07c04e5b-e73e-485d-9c61-443c447d078c",
-          "3a682133-c89a-48b2-8310-cbd76aaad7ca",
+          "25d9a592-09f4-4945-bddf-8007c4021461",
+          "66189764-8903-4f92-a903-04501b9c83c0",
+          "4bd961ca-c77a-40b6-85dd-48a1e56447c0",
+          "12ea0228-f38a-43de-bc70-21ac32d1596d",
+          "ab8b2ecc-38b1-4095-ac73-3147016fc59c",
+          "e20bd643-b2cd-4ab1-a3dd-793c0404a78f",
+          "f44d5dd4-3cd7-491d-bfd6-35c785926dce",
+          "0c018cdf-b520-47d3-8c49-34bc11062e41",
           "6c1a9c18-df74-41d7-b403-81292d5c89d7",
+          "2b36a27b-2657-4507-abcc-f22a89b93956",
           "994b6be4-e9dd-463c-ab01-911049316286",
-          "b9f9321a-774e-4f44-9551-775013656e50",
-          "2d51e5dc-bc01-4837-99f9-485c49163f41",
-          "a3f412e6-401f-41a5-80ff-37f85bee76c8",
+          "ad11ffbc-da92-484c-be2d-848cd355f205",
           "e7725bd9-d358-4cae-902e-9b9e12105ed8",
-          "62fd9566-4e2e-4721-9e0a-dfe61533cd2e"
+          "eedc7e6a-60ba-41ec-961f-a1d03f41bf36",
+          "17b850da-718e-4f35-addc-4fd87e30c22a",
+          "ed36f379-4a04-4764-8fc2-da4c80ef7e33",
+          "1db5f6ca-6d6a-4b91-b3ee-1245c8f89c56"
         ]
       }
     ],
@@ -1393,19 +1454,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "English Grade 5 — Practice Exam 3",
     "sections": [
       {
-        "title": "Language Conventions",
-        "time_minutes": 40,
+        "title": "Reading",
+        "time_minutes": 45,
         "question_ids": [
-          "25d9a592-09f4-4945-bddf-8007c4021461",
-          "b3adea91-5df3-474f-8003-67800d05304e",
-          "fc8408b7-53fa-4117-90b5-0a4419faa413",
-          "38223913-5840-4bd4-8f9d-1bbea56a700f",
-          "4bd961ca-c77a-40b6-85dd-48a1e56447c0",
-          "f2c080a0-f692-429a-914b-7ecd6f3fc401",
-          "45b1e64d-d96f-473e-b333-6614377105b4",
-          "ab8b2ecc-38b1-4095-ac73-3147016fc59c",
-          "f44d5dd4-3cd7-491d-bfd6-35c785926dce",
-          "c00ae854-4966-4821-8999-04f6e8ee315c"
+          "88176768-82e6-40f6-a4b6-e2a8449adfe7",
+          "770bdf3e-1561-40a5-b3d1-53064b6b431c",
+          "6b2d3c0d-2330-4040-9a4e-273c6ffb690e",
+          "fbb0f1ed-8775-4083-9e1e-ef902c7fe830",
+          "e668e6a0-f901-4f30-8837-82f437e4b72b",
+          "b449663f-9eaa-478a-991f-1c77747e0702",
+          "065b0fbf-f94d-4032-b09a-719a0afa9e7c"
         ]
       }
     ],
@@ -1433,18 +1491,26 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
           "ed971577-6cda-4791-a618-1e206bd5d838",
+          "ed289901-cef1-45d8-a6fd-dc75c10aac0d",
           "1d3c4617-39fd-4fb7-8f70-b8327c5e6f1a",
-          "19451a91-9333-4777-99f8-e7cc168c9630",
-          "3ca71191-f0a5-4f06-a468-ee86d538ef44",
-          "0fe876ae-f6ed-4db4-a6e4-2c34fca0e76e",
+          "10135abd-cc0a-43a6-a85f-805b0a6cbc6c",
           "63a99f0d-ce9c-4eb4-8b13-3bbdfd925ca4",
-          "ef89ac55-5590-45b9-8ca7-8a935961c8a9",
+          "5b65de42-df8c-49c9-8eb9-6a070e09f7fa",
           "5a588e55-87cb-4a91-a829-407c220beef5",
-          "26834db0-a783-4cc7-8480-3a446be3e8a7",
-          "7ac69894-be4b-403e-b0b4-7b5324f1fdf8"
+          "0987a9e6-3e07-4578-b9f2-bc133f7f39b4",
+          "50d57618-b6ac-4a40-9414-11fc145bebcb",
+          "278af0fe-707b-40e3-b851-23c0e657aae5",
+          "ca820a5b-2273-4657-9717-dc224d70719e",
+          "1e742c05-f6db-4a46-b325-6676cfb215d7",
+          "8800dfd7-9744-4bef-bab4-5f690a423163",
+          "9436af42-f87e-4995-ae9e-2c61d1db5699",
+          "67c850b5-4dc6-4aa0-8499-df9c6418df6b",
+          "a8c5f400-d174-4116-a428-28952f59dabd",
+          "aee84242-0306-4de0-be4c-64fbaa7173de",
+          "19157827-6d1a-4a51-88a1-f75aa25cab2b"
         ]
       }
     ],
@@ -1472,18 +1538,26 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
+          "ed971577-6cda-4791-a618-1e206bd5d838",
+          "ed289901-cef1-45d8-a6fd-dc75c10aac0d",
+          "1d3c4617-39fd-4fb7-8f70-b8327c5e6f1a",
+          "10135abd-cc0a-43a6-a85f-805b0a6cbc6c",
+          "63a99f0d-ce9c-4eb4-8b13-3bbdfd925ca4",
+          "5b65de42-df8c-49c9-8eb9-6a070e09f7fa",
+          "5a588e55-87cb-4a91-a829-407c220beef5",
+          "0987a9e6-3e07-4578-b9f2-bc133f7f39b4",
           "50d57618-b6ac-4a40-9414-11fc145bebcb",
-          "ca693f51-1dee-4de4-815d-9def733f486f",
-          "5271475c-f9dd-4f23-a862-0b98a9d3be8a",
+          "278af0fe-707b-40e3-b851-23c0e657aae5",
           "ca820a5b-2273-4657-9717-dc224d70719e",
-          "ffa07dbb-2e73-4600-9aa6-c1369b7f057b",
-          "a2819051-0d1c-4aed-885e-b223d2d0f22c",
-          "2fdfdd0a-1fc4-42ac-8f3b-634ea8612c4a",
-          "7c3fabd7-4857-41c3-8d90-764a26245955",
+          "1e742c05-f6db-4a46-b325-6676cfb215d7",
           "8800dfd7-9744-4bef-bab4-5f690a423163",
-          "67c850b5-4dc6-4aa0-8499-df9c6418df6b"
+          "9436af42-f87e-4995-ae9e-2c61d1db5699",
+          "67c850b5-4dc6-4aa0-8499-df9c6418df6b",
+          "a8c5f400-d174-4116-a428-28952f59dabd",
+          "aee84242-0306-4de0-be4c-64fbaa7173de",
+          "19157827-6d1a-4a51-88a1-f75aa25cab2b"
         ]
       }
     ],
@@ -1494,24 +1568,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "subject": "english",
     "yearLevel": "grade_6",
     "title": "English Grade 6 — Practice Exam 3",
-    "sections": [
-      {
-        "title": "Language Conventions",
-        "time_minutes": 40,
-        "question_ids": [
-          "ed971577-6cda-4791-a618-1e206bd5d838",
-          "1d3c4617-39fd-4fb7-8f70-b8327c5e6f1a",
-          "19451a91-9333-4777-99f8-e7cc168c9630",
-          "3ca71191-f0a5-4f06-a468-ee86d538ef44",
-          "0fe876ae-f6ed-4db4-a6e4-2c34fca0e76e",
-          "63a99f0d-ce9c-4eb4-8b13-3bbdfd925ca4",
-          "ef89ac55-5590-45b9-8ca7-8a935961c8a9",
-          "5a588e55-87cb-4a91-a829-407c220beef5",
-          "26834db0-a783-4cc7-8480-3a446be3e8a7",
-          "7ac69894-be4b-403e-b0b4-7b5324f1fdf8"
-        ]
-      }
-    ],
+    "sections": [],
     "premium": true
   },
   {
@@ -1522,32 +1579,46 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "sections": [
       {
         "title": "Reading",
-        "time_minutes": 45,
+        "time_minutes": 65,
         "question_ids": [
+          "05c56abf-9394-407b-b4ef-f7a3b99880b0",
+          "04b5eb3c-2d90-4f53-bdd0-49a44763d658",
+          "341d07ac-7493-46d5-bff5-52041c39fe5b",
+          "68d4f97e-05f9-488d-a3b5-2f53c72c58dc",
+          "0e88efaa-a6d1-4915-9285-40e248d87d16",
+          "8d8fd2af-0d68-4754-835a-25ec00318092",
+          "39fda2da-cca1-4e6f-96a0-4e4d6f272c00",
+          "07a66ca9-64a5-4aaf-93ac-ff1b68e10105",
+          "59786388-a329-4c0a-8c83-b3c4d37c528d",
+          "57307057-c428-4ac2-80f7-5639f43e149c",
+          "748b6cb5-b177-4a87-a84b-210b48fd11da",
+          "f72e8384-e9b6-4737-b713-9485053ebfe1",
           "57e7176d-1784-41e5-b934-b008fe956f1a",
-          "84ebf2ed-7779-4e09-bcae-e390049ba658",
-          "33c43391-43cc-458f-ba46-227185b1a029",
-          "7e00dce8-0d74-4a87-a49e-2c0c5debd1ed",
-          "8d037705-7a7e-4c8a-83c6-fe6b97fb5bf6",
-          "e69ebc3a-5e10-4e1a-92df-9c6dc1c28217",
-          "fe9e588c-471b-4229-af47-8ba7a662c840",
-          "1c39aa9a-1ed8-402e-82c8-2330d83b2fe0"
+          "84ebf2ed-7779-4e09-bcae-e390049ba658"
         ]
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
-          "476ab863-4b39-4ce7-b88a-fbadcd6e62d2",
-          "69113c4c-013d-4dca-a757-6093cff871ac",
-          "7569ea21-6ce8-41d5-9b86-2784c2dca4cf",
           "0980a6fc-b23f-4807-bbf0-a1c5f37b0323",
+          "0e489ae1-2c4e-48f6-a5ed-220e1f4454e0",
           "b46b99a1-a469-45c4-b4da-bb8b35203cfd",
+          "79ccd797-8a48-4f6b-8c45-7cb78fff51f1",
           "6eed060f-2bfc-459b-a8b8-8140c7595dfe",
-          "965444d3-eb0b-4c04-974c-d9c859ad05bc",
-          "66ef33a3-cc37-44df-88e8-966f6e616e90",
+          "d1a4809c-4f8e-4e21-a0cd-1d18a9b4446b",
           "96184477-0deb-4122-979b-7fefa987a140",
-          "415dc692-53e4-4e69-aeb7-7c0d6b71e90e"
+          "23c32158-8bb6-4379-8605-b25c3f13ce04",
+          "415dc692-53e4-4e69-aeb7-7c0d6b71e90e",
+          "72198a5b-5051-4d9a-9dd3-38f9a220ffb6",
+          "44031c53-3fe9-401e-be48-ed1ff2ccc2bc",
+          "4f2194a5-dfb3-4ca3-a190-4636e9005a4d",
+          "8722a425-d038-4d1f-8874-e65c1a2ffa9f",
+          "7ccf150f-c2cb-4cd2-960a-c7213097ed0e",
+          "31bb0035-32e4-4cfa-91d2-261eeb8a89c2",
+          "4975acf6-b668-4f84-9011-a32e18f7eb48",
+          "144aef61-1bec-496a-a62c-8f4822a4798c",
+          "1f73ee4a-e122-40ea-b232-c5213f8f8c95"
         ]
       }
     ],
@@ -1561,32 +1632,50 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "sections": [
       {
         "title": "Reading",
-        "time_minutes": 45,
+        "time_minutes": 65,
         "question_ids": [
-          "57e7176d-1784-41e5-b934-b008fe956f1a",
-          "84ebf2ed-7779-4e09-bcae-e390049ba658",
           "33c43391-43cc-458f-ba46-227185b1a029",
           "7e00dce8-0d74-4a87-a49e-2c0c5debd1ed",
           "8d037705-7a7e-4c8a-83c6-fe6b97fb5bf6",
           "e69ebc3a-5e10-4e1a-92df-9c6dc1c28217",
           "fe9e588c-471b-4229-af47-8ba7a662c840",
-          "1c39aa9a-1ed8-402e-82c8-2330d83b2fe0"
+          "1c39aa9a-1ed8-402e-82c8-2330d83b2fe0",
+          "05c56abf-9394-407b-b4ef-f7a3b99880b0",
+          "04b5eb3c-2d90-4f53-bdd0-49a44763d658",
+          "341d07ac-7493-46d5-bff5-52041c39fe5b",
+          "68d4f97e-05f9-488d-a3b5-2f53c72c58dc",
+          "0e88efaa-a6d1-4915-9285-40e248d87d16",
+          "8d8fd2af-0d68-4754-835a-25ec00318092",
+          "39fda2da-cca1-4e6f-96a0-4e4d6f272c00",
+          "07a66ca9-64a5-4aaf-93ac-ff1b68e10105",
+          "59786388-a329-4c0a-8c83-b3c4d37c528d",
+          "57307057-c428-4ac2-80f7-5639f43e149c",
+          "748b6cb5-b177-4a87-a84b-210b48fd11da",
+          "f72e8384-e9b6-4737-b713-9485053ebfe1"
         ]
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
-          "87011eca-93ae-42ff-b8c3-3c59edc79d8c",
-          "463229e3-6eb0-46c2-a6e9-2539cac105da",
-          "3bde817e-9df8-44ab-b43b-284204a664e5",
+          "0980a6fc-b23f-4807-bbf0-a1c5f37b0323",
+          "0e489ae1-2c4e-48f6-a5ed-220e1f4454e0",
+          "b46b99a1-a469-45c4-b4da-bb8b35203cfd",
+          "79ccd797-8a48-4f6b-8c45-7cb78fff51f1",
+          "6eed060f-2bfc-459b-a8b8-8140c7595dfe",
+          "d1a4809c-4f8e-4e21-a0cd-1d18a9b4446b",
+          "96184477-0deb-4122-979b-7fefa987a140",
+          "23c32158-8bb6-4379-8605-b25c3f13ce04",
+          "415dc692-53e4-4e69-aeb7-7c0d6b71e90e",
+          "72198a5b-5051-4d9a-9dd3-38f9a220ffb6",
           "44031c53-3fe9-401e-be48-ed1ff2ccc2bc",
+          "4f2194a5-dfb3-4ca3-a190-4636e9005a4d",
           "8722a425-d038-4d1f-8874-e65c1a2ffa9f",
-          "96962a07-d84a-4489-b4b4-4324f88b2b26",
-          "3c2e822d-860e-4522-ba40-13da96faa642",
+          "7ccf150f-c2cb-4cd2-960a-c7213097ed0e",
           "31bb0035-32e4-4cfa-91d2-261eeb8a89c2",
-          "f4b446b8-2341-47df-b925-73718e88ceb6",
-          "c7e1b34e-e906-4229-89fe-aef1dea0e410"
+          "4975acf6-b668-4f84-9011-a32e18f7eb48",
+          "144aef61-1bec-496a-a62c-8f4822a4798c",
+          "1f73ee4a-e122-40ea-b232-c5213f8f8c95"
         ]
       }
     ],
@@ -1599,19 +1688,17 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "English Year 7 — Practice Exam 3",
     "sections": [
       {
-        "title": "Language Conventions",
-        "time_minutes": 40,
+        "title": "Reading",
+        "time_minutes": 65,
         "question_ids": [
-          "476ab863-4b39-4ce7-b88a-fbadcd6e62d2",
-          "69113c4c-013d-4dca-a757-6093cff871ac",
-          "7569ea21-6ce8-41d5-9b86-2784c2dca4cf",
-          "0980a6fc-b23f-4807-bbf0-a1c5f37b0323",
-          "b46b99a1-a469-45c4-b4da-bb8b35203cfd",
-          "6eed060f-2bfc-459b-a8b8-8140c7595dfe",
-          "965444d3-eb0b-4c04-974c-d9c859ad05bc",
-          "66ef33a3-cc37-44df-88e8-966f6e616e90",
-          "96184477-0deb-4122-979b-7fefa987a140",
-          "415dc692-53e4-4e69-aeb7-7c0d6b71e90e"
+          "57e7176d-1784-41e5-b934-b008fe956f1a",
+          "84ebf2ed-7779-4e09-bcae-e390049ba658",
+          "33c43391-43cc-458f-ba46-227185b1a029",
+          "7e00dce8-0d74-4a87-a49e-2c0c5debd1ed",
+          "8d037705-7a7e-4c8a-83c6-fe6b97fb5bf6",
+          "e69ebc3a-5e10-4e1a-92df-9c6dc1c28217",
+          "fe9e588c-471b-4229-af47-8ba7a662c840",
+          "1c39aa9a-1ed8-402e-82c8-2330d83b2fe0"
         ]
       }
     ],
@@ -1625,32 +1712,45 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "sections": [
       {
         "title": "Reading",
-        "time_minutes": 45,
+        "time_minutes": 65,
         "question_ids": [
+          "a4972426-c954-44c5-854f-daa33ffd84c7",
+          "ce8e5578-ebfd-469a-ade0-1b6d86fba0f4",
+          "66cc3bdd-0325-4e84-bf3c-caaab8a72447",
+          "634c8f7f-6963-4a59-8a2a-ce0b9a270928",
+          "72652fc2-9fb4-42da-99c3-cc5813974675",
+          "4cf3ed6a-40f6-40ec-aa52-934454aa3633",
+          "cd5864c8-baa4-4118-a01e-757f7a3298d0",
+          "ebbb8c2a-b600-4f24-b318-d4df0125f936",
+          "6672d02a-b7d5-435d-94bd-1364e8f5c6a0",
+          "6f83dbc5-de31-4b33-94b1-ec00dd43fc18",
+          "9e4feb9f-ec72-4f6f-b931-49d99ffa9446",
+          "ef12913c-eb84-4c60-b17b-cb694519d641",
           "f8f0d371-501c-4e1e-8a34-ba7636d6558d",
-          "27871b25-bb65-41f1-8e4b-7a279d3863a2",
-          "c711af90-db1d-490b-bd37-0bfaeec82ce2",
-          "c9b26a99-93a8-4f9e-a2ca-d3d179f86c82",
-          "c24ec5ba-c02c-490c-9280-bd43f2ab8fbc",
-          "86e231ab-152a-4667-b3c4-fa0eae66e68a",
-          "b14e5dea-c2e6-481e-bedb-6e0a50e9ac6c",
-          "003fdb98-9abc-4c75-b284-254f15d65833"
+          "27871b25-bb65-41f1-8e4b-7a279d3863a2"
         ]
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
           "861ea96a-a294-42ac-b652-16ed8901b0e1",
-          "bf750551-cf5e-491e-9e3c-eac4f1057ee0",
-          "42c6b321-a9cb-48c5-91b3-0da12f6d5bb0",
-          "8722f741-e1d9-4ee0-b4f8-a71f5376eb43",
-          "816e1356-3f93-4cfb-b86a-2ef0d66890c4",
+          "3dfcb95b-1175-4c9f-98f3-e1f195d62a97",
           "dbc46349-bdf1-4c9b-bf49-35c604f7dc6e",
-          "eec23e54-4448-4721-ae98-1b173413bda9",
-          "8f579d47-f0a0-4392-bdfe-7db5c3c0da24",
-          "50856bbd-c676-406c-9b04-59aa9ffdd22b",
-          "2eb29ebd-6a5a-4b1b-aefb-da04ca178d09"
+          "55097360-1c28-4e25-989c-d1f5ae32bb08",
+          "2eb29ebd-6a5a-4b1b-aefb-da04ca178d09",
+          "b7c08fca-c858-4559-abfc-7be4508d3b99",
+          "1868d797-8f40-486c-92f5-2b40bd1a241f",
+          "7523c40a-730d-455f-a9d9-8044675a7cb6",
+          "eeaad202-185f-466d-9105-44350a102553",
+          "62eed4a6-db2e-4b1e-9187-81c470227a03",
+          "d441055b-36ae-46d3-bcf8-9f1339d19840",
+          "cbd5141d-b540-44eb-b118-e54d5f5b685d",
+          "04b86f71-cfed-40b6-9529-1116068da867",
+          "639fc994-3130-4430-9c93-85c3715104f4",
+          "d115cea3-1f92-4195-b39d-01a1a142e3aa",
+          "93b440d6-fd1d-4729-815a-a5e0d47901f5",
+          "22c7274f-4b8d-4c6d-bdb3-0b7d877c5fcb"
         ]
       }
     ],
@@ -1664,32 +1764,49 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "sections": [
       {
         "title": "Reading",
-        "time_minutes": 45,
+        "time_minutes": 65,
         "question_ids": [
-          "f8f0d371-501c-4e1e-8a34-ba7636d6558d",
-          "27871b25-bb65-41f1-8e4b-7a279d3863a2",
           "c711af90-db1d-490b-bd37-0bfaeec82ce2",
           "c9b26a99-93a8-4f9e-a2ca-d3d179f86c82",
           "c24ec5ba-c02c-490c-9280-bd43f2ab8fbc",
           "86e231ab-152a-4667-b3c4-fa0eae66e68a",
           "b14e5dea-c2e6-481e-bedb-6e0a50e9ac6c",
-          "003fdb98-9abc-4c75-b284-254f15d65833"
+          "003fdb98-9abc-4c75-b284-254f15d65833",
+          "a4972426-c954-44c5-854f-daa33ffd84c7",
+          "ce8e5578-ebfd-469a-ade0-1b6d86fba0f4",
+          "66cc3bdd-0325-4e84-bf3c-caaab8a72447",
+          "634c8f7f-6963-4a59-8a2a-ce0b9a270928",
+          "72652fc2-9fb4-42da-99c3-cc5813974675",
+          "4cf3ed6a-40f6-40ec-aa52-934454aa3633",
+          "cd5864c8-baa4-4118-a01e-757f7a3298d0",
+          "ebbb8c2a-b600-4f24-b318-d4df0125f936",
+          "6672d02a-b7d5-435d-94bd-1364e8f5c6a0",
+          "6f83dbc5-de31-4b33-94b1-ec00dd43fc18",
+          "9e4feb9f-ec72-4f6f-b931-49d99ffa9446",
+          "ef12913c-eb84-4c60-b17b-cb694519d641"
         ]
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
+          "861ea96a-a294-42ac-b652-16ed8901b0e1",
+          "3dfcb95b-1175-4c9f-98f3-e1f195d62a97",
+          "dbc46349-bdf1-4c9b-bf49-35c604f7dc6e",
+          "55097360-1c28-4e25-989c-d1f5ae32bb08",
+          "2eb29ebd-6a5a-4b1b-aefb-da04ca178d09",
+          "b7c08fca-c858-4559-abfc-7be4508d3b99",
           "1868d797-8f40-486c-92f5-2b40bd1a241f",
+          "7523c40a-730d-455f-a9d9-8044675a7cb6",
           "eeaad202-185f-466d-9105-44350a102553",
-          "f44e056f-2836-4bba-962c-8828be4aa1c6",
+          "62eed4a6-db2e-4b1e-9187-81c470227a03",
           "d441055b-36ae-46d3-bcf8-9f1339d19840",
-          "0187507f-d99b-4207-b5e5-29290ab9f44e",
-          "1343c729-28b1-4943-892d-1adc1d7ceb2a",
-          "3c9245e6-9e37-4233-bd5b-5a895bf6ba90",
+          "cbd5141d-b540-44eb-b118-e54d5f5b685d",
           "04b86f71-cfed-40b6-9529-1116068da867",
-          "37a16d84-65cc-4037-8ccd-c915d2d39d8e",
-          "861ea96a-a294-42ac-b652-16ed8901b0e1"
+          "639fc994-3130-4430-9c93-85c3715104f4",
+          "d115cea3-1f92-4195-b39d-01a1a142e3aa",
+          "93b440d6-fd1d-4729-815a-a5e0d47901f5",
+          "22c7274f-4b8d-4c6d-bdb3-0b7d877c5fcb"
         ]
       }
     ],
@@ -1702,19 +1819,17 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "English Year 9 — Practice Exam 3",
     "sections": [
       {
-        "title": "Language Conventions",
-        "time_minutes": 40,
+        "title": "Reading",
+        "time_minutes": 65,
         "question_ids": [
-          "bf750551-cf5e-491e-9e3c-eac4f1057ee0",
-          "42c6b321-a9cb-48c5-91b3-0da12f6d5bb0",
-          "8722f741-e1d9-4ee0-b4f8-a71f5376eb43",
-          "816e1356-3f93-4cfb-b86a-2ef0d66890c4",
-          "dbc46349-bdf1-4c9b-bf49-35c604f7dc6e",
-          "eec23e54-4448-4721-ae98-1b173413bda9",
-          "8f579d47-f0a0-4392-bdfe-7db5c3c0da24",
-          "50856bbd-c676-406c-9b04-59aa9ffdd22b",
-          "2eb29ebd-6a5a-4b1b-aefb-da04ca178d09",
-          "1868d797-8f40-486c-92f5-2b40bd1a241f"
+          "f8f0d371-501c-4e1e-8a34-ba7636d6558d",
+          "27871b25-bb65-41f1-8e4b-7a279d3863a2",
+          "c711af90-db1d-490b-bd37-0bfaeec82ce2",
+          "c9b26a99-93a8-4f9e-a2ca-d3d179f86c82",
+          "c24ec5ba-c02c-490c-9280-bd43f2ab8fbc",
+          "86e231ab-152a-4667-b3c4-fa0eae66e68a",
+          "b14e5dea-c2e6-481e-bedb-6e0a50e9ac6c",
+          "003fdb98-9abc-4c75-b284-254f15d65833"
         ]
       }
     ],
@@ -1740,18 +1855,26 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
           "83502520-39b2-4d5f-8508-a10b47070e8f",
-          "4707dd88-c806-4158-8e31-ff7b6e7e9c03",
-          "d5c925c8-9007-4d05-8828-800d383ba551",
+          "2565ffbe-0da6-4d19-b7e4-3153242a0d63",
           "b4e8d10c-3038-4248-acbf-99c71fe7dd11",
-          "d3dec9c6-625e-4944-8fae-3f35bfc4a355",
+          "91355efd-2123-430b-85dc-12eeb9b1fabe",
           "8d305fb5-75f6-4354-99df-5b2252eb4b8a",
-          "2e68eb20-b26b-4922-b088-ef721b6cce7d",
+          "419eb390-35aa-407d-8fe4-2d61c771cd19",
           "1bef93f7-1ec4-4a77-8298-21f9b6408301",
-          "0987b25f-1f73-463c-b17b-c1d0cc2b8333",
-          "464693ef-4455-4981-a4b3-b30419c440f3"
+          "0933be26-5e30-4d53-86f5-7c4e6a59f372",
+          "464693ef-4455-4981-a4b3-b30419c440f3",
+          "9488ac0d-f011-4c66-92aa-da5707b8c887",
+          "37c278a6-c23c-4a4e-bff0-b5dcb0e081a6",
+          "40780085-34cf-4750-96ef-9b8e4acc0f58",
+          "82e123eb-29fc-4f08-a911-81dedb6de651",
+          "1970cc96-232a-4888-9c33-95fe66f6cd1e",
+          "67e396ee-a6f1-4a2b-9bff-d27e282d7183",
+          "8d00ee09-54bb-4666-9da5-ab959449e200",
+          "6118d993-0c98-40c2-90ce-5790d9799095",
+          "50ea7c54-5992-4336-8ddd-3a2ecae3362c"
         ]
       }
     ],
@@ -1777,18 +1900,26 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
-          "44a8eb09-defb-4aa9-a571-567558569fef",
-          "0ac69e3e-4ab8-42ba-87e7-de96292a0451",
-          "223e8ff6-56b0-4a3b-a061-9e18261baee3",
+          "83502520-39b2-4d5f-8508-a10b47070e8f",
+          "2565ffbe-0da6-4d19-b7e4-3153242a0d63",
+          "b4e8d10c-3038-4248-acbf-99c71fe7dd11",
+          "91355efd-2123-430b-85dc-12eeb9b1fabe",
+          "8d305fb5-75f6-4354-99df-5b2252eb4b8a",
+          "419eb390-35aa-407d-8fe4-2d61c771cd19",
+          "1bef93f7-1ec4-4a77-8298-21f9b6408301",
+          "0933be26-5e30-4d53-86f5-7c4e6a59f372",
+          "464693ef-4455-4981-a4b3-b30419c440f3",
+          "9488ac0d-f011-4c66-92aa-da5707b8c887",
           "37c278a6-c23c-4a4e-bff0-b5dcb0e081a6",
+          "40780085-34cf-4750-96ef-9b8e4acc0f58",
           "82e123eb-29fc-4f08-a911-81dedb6de651",
+          "1970cc96-232a-4888-9c33-95fe66f6cd1e",
           "67e396ee-a6f1-4a2b-9bff-d27e282d7183",
-          "2d8046ab-578a-44e6-86a2-d77db4c47a70",
-          "03ded561-613a-49a3-9127-2c62b3697d28",
-          "d6c0dda4-1444-4bb3-8454-04809eb4a671",
-          "83502520-39b2-4d5f-8508-a10b47070e8f"
+          "8d00ee09-54bb-4666-9da5-ab959449e200",
+          "6118d993-0c98-40c2-90ce-5790d9799095",
+          "50ea7c54-5992-4336-8ddd-3a2ecae3362c"
         ]
       }
     ],
@@ -1799,24 +1930,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "subject": "english",
     "yearLevel": "grade_4",
     "title": "English Grade 4 — Practice Exam 3",
-    "sections": [
-      {
-        "title": "Language Conventions",
-        "time_minutes": 40,
-        "question_ids": [
-          "4707dd88-c806-4158-8e31-ff7b6e7e9c03",
-          "d5c925c8-9007-4d05-8828-800d383ba551",
-          "b4e8d10c-3038-4248-acbf-99c71fe7dd11",
-          "d3dec9c6-625e-4944-8fae-3f35bfc4a355",
-          "8d305fb5-75f6-4354-99df-5b2252eb4b8a",
-          "2e68eb20-b26b-4922-b088-ef721b6cce7d",
-          "1bef93f7-1ec4-4a77-8298-21f9b6408301",
-          "0987b25f-1f73-463c-b17b-c1d0cc2b8333",
-          "464693ef-4455-4981-a4b3-b30419c440f3",
-          "44a8eb09-defb-4aa9-a571-567558569fef"
-        ]
-      }
-    ],
+    "sections": [],
     "premium": true
   },
   {
@@ -1827,7 +1941,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "sections": [
       {
         "title": "Reading",
-        "time_minutes": 45,
+        "time_minutes": 65,
         "question_ids": [
           "1933a286-11e0-4eaa-89c8-019c574bdb87",
           "feca9da2-0898-43b8-8692-6b5b5522d2eb",
@@ -1840,18 +1954,26 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
           "550fc789-6bf6-4567-bc4c-8fcf1f4264ce",
-          "ed81ae57-e9c5-446e-9754-b2ecfaed4c0f",
-          "47855ede-cb9a-4f96-9982-f32479c0427e",
+          "6987cfd5-ed28-42de-90f3-ce50d2d7fafc",
           "dba9784f-21e1-464c-ab61-976912fb6d00",
+          "8b3cf865-5e1b-40c1-ba53-74f61966572d",
           "c2565fdf-21b6-4047-870a-d1d5db76d492",
-          "cf866264-8d92-4a1f-b94d-c52942278d65",
-          "df845de6-9103-4161-9c45-c10947c14ffb",
-          "a04e438f-3f73-4c8a-81c7-87b0bf2080c2",
-          "e9a20d22-c78f-429d-b2d1-8de19533d58d",
-          "0ef3a5aa-6d8a-4cb2-9a3e-df2543195886"
+          "61c84475-0cb0-4161-81fb-19197bdf22d1",
+          "06ae62bf-37df-4c5e-a56e-ed9c1cf7512c",
+          "3918540a-924b-4fdd-877b-334210fd194b",
+          "9f5794dc-cd81-46ca-966b-15ccf4b957d8",
+          "863d11ee-10e0-4da2-bc20-75806dcebbc8",
+          "419ca4df-a461-4094-adb2-160c1ca07d86",
+          "918154cb-fc31-4310-8cfb-684a246d3cd7",
+          "165f7d50-e458-45db-a3c1-24e3a8101c86",
+          "a94caa5a-e209-49ba-81de-b576d59cbf99",
+          "45d3c76d-4d9b-49b7-8e5f-3153f723f3e5",
+          "398fb2db-172e-4059-bdaf-308790dfeba8",
+          "426aa250-09c0-40ba-921c-62a4cdc81726",
+          "4c563635-6db2-401e-906f-dac22f0aa1da"
         ]
       }
     ],
@@ -1865,7 +1987,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "sections": [
       {
         "title": "Reading",
-        "time_minutes": 45,
+        "time_minutes": 65,
         "question_ids": [
           "1933a286-11e0-4eaa-89c8-019c574bdb87",
           "feca9da2-0898-43b8-8692-6b5b5522d2eb",
@@ -1878,18 +2000,26 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       },
       {
         "title": "Language Conventions",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
+          "550fc789-6bf6-4567-bc4c-8fcf1f4264ce",
+          "6987cfd5-ed28-42de-90f3-ce50d2d7fafc",
+          "dba9784f-21e1-464c-ab61-976912fb6d00",
+          "8b3cf865-5e1b-40c1-ba53-74f61966572d",
+          "c2565fdf-21b6-4047-870a-d1d5db76d492",
+          "61c84475-0cb0-4161-81fb-19197bdf22d1",
           "06ae62bf-37df-4c5e-a56e-ed9c1cf7512c",
-          "b351e326-3f0a-40c3-aae3-f60806c2328a",
+          "3918540a-924b-4fdd-877b-334210fd194b",
           "9f5794dc-cd81-46ca-966b-15ccf4b957d8",
-          "f1a9431e-d244-4b99-b898-7f5f8229beb5",
-          "5aa05f91-3799-4b0f-a40d-c3ff073372ca",
+          "863d11ee-10e0-4da2-bc20-75806dcebbc8",
           "419ca4df-a461-4094-adb2-160c1ca07d86",
-          "9e022524-17f1-4266-84c8-e21aa6fc1b82",
+          "918154cb-fc31-4310-8cfb-684a246d3cd7",
           "165f7d50-e458-45db-a3c1-24e3a8101c86",
+          "a94caa5a-e209-49ba-81de-b576d59cbf99",
           "45d3c76d-4d9b-49b7-8e5f-3153f723f3e5",
-          "550fc789-6bf6-4567-bc4c-8fcf1f4264ce"
+          "398fb2db-172e-4059-bdaf-308790dfeba8",
+          "426aa250-09c0-40ba-921c-62a4cdc81726",
+          "4c563635-6db2-401e-906f-dac22f0aa1da"
         ]
       }
     ],
@@ -1900,24 +2030,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "subject": "english",
     "yearLevel": "year_8",
     "title": "English Year 8 — Practice Exam 3",
-    "sections": [
-      {
-        "title": "Language Conventions",
-        "time_minutes": 40,
-        "question_ids": [
-          "ed81ae57-e9c5-446e-9754-b2ecfaed4c0f",
-          "47855ede-cb9a-4f96-9982-f32479c0427e",
-          "dba9784f-21e1-464c-ab61-976912fb6d00",
-          "c2565fdf-21b6-4047-870a-d1d5db76d492",
-          "cf866264-8d92-4a1f-b94d-c52942278d65",
-          "df845de6-9103-4161-9c45-c10947c14ffb",
-          "a04e438f-3f73-4c8a-81c7-87b0bf2080c2",
-          "e9a20d22-c78f-429d-b2d1-8de19533d58d",
-          "0ef3a5aa-6d8a-4cb2-9a3e-df2543195886",
-          "06ae62bf-37df-4c5e-a56e-ed9c1cf7512c"
-        ]
-      }
-    ],
+    "sections": [],
     "premium": true
   },
   {

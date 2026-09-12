@@ -179,14 +179,42 @@ function buildReadingSection(questions, usage, targetCount) {
 
 function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex) {
   const sections = []
+  // Section sizes and times follow the real NAPLAN papers: Reading runs 45 min
+  // in the primary years and 65 min from Year 7, Language Conventions 45 min at
+  // every year level. Counts are shorter than the real ~39-55 items so a paper
+  // stays a sensible practice length, but keep the same shape.
+  const isSecondary = ['year_7', 'year_8', 'year_9'].includes(yearLevel)
   const readingPool = [...(questionsByTopic.reading_comprehension ?? []), ...(questionsByTopic.reading_literary_analysis ?? [])]
   if (readingPool.length) {
-    sections.push({ title: 'Reading', time_minutes: 45, question_ids: buildReadingSection(readingPool, usage, 8) })
+    sections.push({
+      title: 'Reading',
+      time_minutes: isSecondary ? 65 : 45,
+      question_ids: buildReadingSection(readingPool, usage, 14),
+    })
   }
-  const languagePool = [...(questionsByTopic.grammar_punctuation ?? []), ...(questionsByTopic.vocabulary ?? [])]
-  if (languagePool.length) {
-    const ids = pickLeastUsed(languagePool, usage, 10).map(q => q.id)
-    sections.push({ title: 'Language Conventions', time_minutes: 40, question_ids: ids })
+  // NAPLAN Language Conventions is spelling plus grammar & punctuation, split
+  // roughly half and half — spelling is always short-answer (write the word
+  // correctly), grammar and punctuation always multiple choice. Synonym and
+  // antonym items live in the `vocabulary` topic and are deliberately NOT drawn
+  // here: they are a reading-vocabulary skill, not one NAPLAN tests in this
+  // paper. They remain available to the free practice builder, which mixes
+  // topics on demand.
+  const languageTopicPool = questionsByTopic.grammar_punctuation ?? []
+  const spellingPool = languageTopicPool.filter(q => q.format === 'short_answer')
+  const grammarPool = languageTopicPool.filter(q => q.format !== 'short_answer')
+  if (languageTopicPool.length) {
+    const sectionSize = 20
+    const chosenSpelling = pickLeastUsed(spellingPool, usage, Math.floor(sectionSize / 2))
+    const chosenGrammar = pickLeastUsed(grammarPool, usage, sectionSize - chosenSpelling.length)
+    // Interleave so the paper alternates rather than running all the spelling
+    // items together, matching how the real paper mixes them.
+    const merged = []
+    const maxLen = Math.max(chosenGrammar.length, chosenSpelling.length)
+    for (let i = 0; i < maxLen; i++) {
+      if (chosenGrammar[i]) merged.push(chosenGrammar[i])
+      if (chosenSpelling[i]) merged.push(chosenSpelling[i])
+    }
+    sections.push({ title: 'Language Conventions', time_minutes: 45, question_ids: merged.map(q => q.id) })
   }
   const numeracyTopics = ['number_operations', 'number_patterns', 'algebra_equations', 'geometry_measurement', 'statistics_probability']
   const numeracyPool = roundRobinByTopic(numeracyTopics.map(t => questionsByTopic[t] ?? []))

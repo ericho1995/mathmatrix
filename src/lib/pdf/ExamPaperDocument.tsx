@@ -483,8 +483,12 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
             for (const q of s.questions) {
               questionNumber++
               if (q.stimulus && q.stimulus.id !== lastStimulusId) {
+                // Short passages are kept whole on one page; long ones must be
+                // allowed to break, because wrap={false} on content taller than
+                // a page silently clips the overflow rather than continuing it.
+                const fitsOnOnePage = q.stimulus.body.length < 1200
                 rendered.push(
-                  <View key={`stim-${q.stimulus.id}`} style={pdfStyles.stimulusBox} wrap={false}>
+                  <View key={`stim-${q.stimulus.id}`} style={pdfStyles.stimulusBox} wrap={!fitsOnOnePage}>
                     <Text style={pdfStyles.stimulusTitle}>{q.stimulus.title}</Text>
                     <Text style={pdfStyles.stimulusBody}>{q.stimulus.body}</Text>
                   </View>
