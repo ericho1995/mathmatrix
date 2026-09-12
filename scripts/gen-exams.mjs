@@ -58,6 +58,9 @@ const NAPLAN_GRADES = new Set(['grade_3', 'grade_4', 'grade_5', 'grade_6', 'year
 const READING_TOPICS = new Set(['reading_comprehension', 'reading_literary_analysis'])
 const LANGUAGE_TOPICS = new Set(['grammar_punctuation', 'vocabulary'])
 const NUMERACY_CALC_SPLIT_GRADES = new Set(['year_7', 'year_8', 'year_9'])
+// Questions per section in a NAPLAN-style paper. Real papers run ~30-55 items
+// per section; a section falls short of this only when its pool cannot fill it.
+const SECTION_SIZE = 30
 
 // Group questions: general subjects by subject+grade, selective subjects by subject alone.
 const groups = new Map() // key -> { subject, yearLevel, questions: [] }
@@ -179,17 +182,16 @@ function buildReadingSection(questions, usage, targetCount) {
 
 function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex) {
   const sections = []
-  // Section sizes and times follow the real NAPLAN papers: Reading runs 45 min
-  // in the primary years and 65 min from Year 7, Language Conventions 45 min at
-  // every year level. Counts are shorter than the real ~39-55 items so a paper
-  // stays a sensible practice length, but keep the same shape.
+  // Every section targets SECTION_SIZE questions. Times follow the real NAPLAN
+  // papers: Reading runs 45 min in the primary years and 65 min from Year 7,
+  // Language Conventions 45 min at every year level.
   const isSecondary = ['year_7', 'year_8', 'year_9'].includes(yearLevel)
   const readingPool = [...(questionsByTopic.reading_comprehension ?? []), ...(questionsByTopic.reading_literary_analysis ?? [])]
   if (readingPool.length) {
     sections.push({
       title: 'Reading',
       time_minutes: isSecondary ? 65 : 45,
-      question_ids: buildReadingSection(readingPool, usage, 14),
+      question_ids: buildReadingSection(readingPool, usage, SECTION_SIZE),
     })
   }
   // NAPLAN Language Conventions is spelling plus grammar & punctuation, split
@@ -203,7 +205,7 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
   const spellingPool = languageTopicPool.filter(q => q.format === 'short_answer')
   const grammarPool = languageTopicPool.filter(q => q.format !== 'short_answer')
   if (languageTopicPool.length) {
-    const sectionSize = 20
+    const sectionSize = SECTION_SIZE
     const chosenSpelling = pickLeastUsed(spellingPool, usage, Math.floor(sectionSize / 2))
     const chosenGrammar = pickLeastUsed(grammarPool, usage, sectionSize - chosenSpelling.length)
     // Interleave so the paper alternates rather than running all the spelling
@@ -222,11 +224,11 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
     if (NUMERACY_CALC_SPLIT_GRADES.has(yearLevel)) {
       const nonCalc = numeracyPool.filter(q => !q.calculator_allowed)
       const calc = numeracyPool.filter(q => q.calculator_allowed)
-      const sectionSize = 30 // matches real NAPLAN Yr7-9 numeracy paper length
+      const sectionSize = SECTION_SIZE
       if (nonCalc.length) sections.push({ title: 'Numeracy — non-calculator', time_minutes: 40, calculator_allowed: false, question_ids: pickBalancedNumeracy(nonCalc, usage, sectionSize).map(q => q.id) })
       if (calc.length) sections.push({ title: 'Numeracy — calculator', time_minutes: 40, calculator_allowed: true, question_ids: pickBalancedNumeracy(calc, usage, sectionSize).map(q => q.id) })
     } else {
-      sections.push({ title: 'Numeracy', time_minutes: 45, question_ids: pickBalancedNumeracy(numeracyPool, usage, 15).map(q => q.id) })
+      sections.push({ title: 'Numeracy', time_minutes: 45, question_ids: pickBalancedNumeracy(numeracyPool, usage, SECTION_SIZE).map(q => q.id) })
     }
   }
   const gradeLabel = GRADE_LABEL[yearLevel] ?? yearLevel
