@@ -21,7 +21,8 @@ const examsPath = join(repoRoot, 'src/lib/questions/exams.ts')
 const src = readFileSync(bankPath, 'utf8')
 const jsSrc = src
   .replace(/^import type .+\n/m, '')
-  .replace(/export const QUESTION_BANK:[^=]+=\s*\[/, 'export const QUESTION_BANK = [')
+  .replace(/^type BankQuestion =[\s\S]*?\n\n/m, '')
+  .replace(/const (\w+): BankQuestion\[\] = \[/g, 'const $1 = [')
 const tmpPath = join(repoRoot, '.bank-tmp2.mjs')
 writeFileSync(tmpPath, jsSrc)
 const { QUESTION_BANK } = await import('file://' + tmpPath)
@@ -86,9 +87,24 @@ function buildExams(questions, examCount, examSize) {
   return exams
 }
 
+// Deterministic per-question ordering key (FNV-1a over the id). Used only to
+// break ties between equally-used questions: a plain stable sort would take the
+// first N in bank order every time, so exam 1 was always built from whichever
+// questions happened to be written first and newly added ones never surfaced.
+// Hashing the id spreads the picks across the whole pool while keeping
+// regeneration reproducible.
+function tieBreakKey(id) {
+  let h = 2166136261
+  for (let i = 0; i < id.length; i++) {
+    h ^= id.charCodeAt(i)
+    h = Math.imul(h, 16777619)
+  }
+  return h >>> 0
+}
+
 function pickLeastUsed(pool, usage, count) {
   const candidates = pool.filter(q => usage.get(q.id) < 2)
-  candidates.sort((a, b) => usage.get(a.id) - usage.get(b.id))
+  candidates.sort((a, b) => usage.get(a.id) - usage.get(b.id) || tieBreakKey(a.id) - tieBreakKey(b.id))
   const chosen = candidates.slice(0, count)
   chosen.forEach(q => usage.set(q.id, usage.get(q.id) + 1))
   return chosen

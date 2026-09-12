@@ -45,7 +45,8 @@ if (stimuliAdded > 0) {
 // Strip TS-only syntax so the array literal can be evaluated as plain JS.
 const jsSrc = src
   .replace(/^import type .+\n/m, '')
-  .replace(/export const QUESTION_BANK:[^=]+=\s*\[/, 'export const QUESTION_BANK = [')
+  .replace(/^type BankQuestion =[\s\S]*?\n\n/m, '')
+  .replace(/const (\w+): BankQuestion\[\] = \[/g, 'const $1 = [')
 
 const tmpPath = join(repoRoot, '.bank-tmp.mjs')
 writeFileSync(tmpPath, jsSrc)
