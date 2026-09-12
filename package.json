@@ -9,6 +9,7 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "gen": "node scripts/gen-seed.mjs && node scripts/gen-exams.mjs && node scripts/gen-coverage.mjs",
+    "verify-bank": "node scripts/verify-bank.mjs",
     "format": "prettier --write .",
     "prepare": "husky install || echo \"Skipping husky (not a git checkout)\""
   },

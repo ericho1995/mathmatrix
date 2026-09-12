@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Lint
+        run: npm run lint
+
+      # Guards the evaluator that the content check depends on.
+      - name: Verify bank (self-test)
+        run: node scripts/verify-bank.mjs --self-test --quiet
+
+      - name: Verify question bank
+        run: npm run verify-bank
+
+      # Derived files are committed, so a stale one means someone edited bank.ts
+      # without re-running the generators. Catch it here rather than shipping a
+      # paper composed from content that no longer exists.
+      - name: Check generated files are up to date
+        run: |
+          npm run gen
+          if ! git diff --quiet; then
+            echo "::error::Generated files are stale. Run 'npm run gen' and commit the result."
+            git diff --stat
+            exit 1
+          fi
+
+      - name: Build
+        run: npm run build
