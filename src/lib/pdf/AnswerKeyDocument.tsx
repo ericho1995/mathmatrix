@@ -23,6 +23,30 @@ export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
             <Text style={pdfStyles.sectionHeader}>{s.section.title}</Text>
             {s.questions.map(q => {
               questionNumber++
+
+              // A VCE extended response is marked per part, so the key has to
+              // show where each mark is earned rather than a single answer.
+              if (q.format === 'extended_response') {
+                const total = q.parts.reduce((sum, p) => sum + p.marks, 0)
+                return (
+                  <View key={q.id} style={pdfStyles.answerKeyRow}>
+                    <Text>
+                      <Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>
+                      {`(${total} ${total === 1 ? 'mark' : 'marks'} in total)`}
+                    </Text>
+                    {q.parts.map((part, pi) => (
+                      <View key={pi} style={{ marginTop: 4 }}>
+                        <Text>
+                          <Text style={pdfStyles.answerKeyNum}>{part.label}. </Text>
+                          {`${part.expected_answer}  [${part.marks} ${part.marks === 1 ? 'mark' : 'marks'}]`}
+                        </Text>
+                        <Text style={pdfStyles.explanation}>{part.explanation}</Text>
+                      </View>
+                    ))}
+                  </View>
+                )
+              }
+
               const answerLabel = q.format === 'long_form'
                 ? 'See explanation below — this question is not auto-marked.'
                 : q.format === 'short_answer'

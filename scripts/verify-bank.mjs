@@ -56,6 +56,25 @@ for (const q of QUESTION_BANK) {
 
   if (q.format === 'long_form') {
     if (q.options || q.correct_index !== undefined) err('long_form must not carry options/correct_index', q.id)
+  } else if (q.format === 'extended_response') {
+    // VCE multi-part. The marks are the point of the format — a part worth no
+    // marks, or a question whose parts do not add up, is a broken exam paper.
+    if (!Array.isArray(q.parts) || q.parts.length === 0) {
+      err('extended_response needs at least one part', q.id)
+    } else {
+      const labels = new Set()
+      for (const p of q.parts) {
+        if (!p.label) err('part is missing a label', q.id)
+        else if (labels.has(p.label)) err(`part label "${p.label}" is used twice`, q.id)
+        else labels.add(p.label)
+        if (!p.prompt) err(`part ${p.label}: missing prompt`, q.id)
+        if (!p.expected_answer) err(`part ${p.label}: missing expected_answer`, q.id)
+        if (!p.explanation) err(`part ${p.label}: missing marking guidance`, q.id)
+        if (typeof p.marks !== 'number' || !Number.isInteger(p.marks) || p.marks < 1)
+          err(`part ${p.label}: marks must be a positive integer, got ${p.marks}`, q.id)
+      }
+    }
+    if (q.options || q.correct_index !== undefined) err('extended_response must not carry options/correct_index', q.id)
   } else if (q.format === 'short_answer') {
     if (!q.expected_answer) err('short_answer missing expected_answer', q.id)
     if (q.options || q.correct_index !== undefined) err('short_answer must not carry options/correct_index', q.id)
@@ -130,7 +149,8 @@ for (const [key, qs] of groups) {
 // The embedded PDF font has no glyphs beyond the BMP. An emoji renders as a
 // broken box, which once made a question unanswerable.
 for (const q of QUESTION_BANK) {
-  const text = [q.question_text, q.explanation, ...(q.options ?? []), q.expected_answer ?? ''].join('')
+  const partText = (q.parts ?? []).flatMap(p => [p.prompt, p.expected_answer, p.explanation])
+  const text = [q.question_text, q.explanation, ...(q.options ?? []), q.expected_answer ?? '', ...partText].join('')
   for (const ch of text) {
     if (ch.codePointAt(0) > 0xffff) {
       err(`character U+${ch.codePointAt(0).toString(16).toUpperCase()} has no glyph in the PDF font`, q.id)
@@ -271,6 +291,18 @@ for (const q of QUESTION_BANK) {
       err(`explanation arithmetic: "${lhs} = ${want}" but ${lhs} is ${Math.round(got * 1000) / 1000}`, q.id)
     }
   }
+}
+
+// ─── 8. VCE paper structure ──────────────────────────────────────────────────
+// VCAA fixes these totals, so a drifting mark count means the paper no longer
+// matches the exam it is practice for.
+const vceExam1 = QUESTION_BANK.filter(
+  q => q.year_level === 'year_12' && q.format === 'extended_response' && q.calculator_allowed === false
+)
+if (vceExam1.length) {
+  const marks = vceExam1.reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
+  if (vceExam1.length !== 9) warn(`VCE Exam 1 has ${vceExam1.length} questions; the real paper has 9`)
+  if (marks !== 40) warn(`VCE Exam 1 totals ${marks} marks; the real paper is 40`)
 }
 
 // ─── Report ──────────────────────────────────────────────────────────────────

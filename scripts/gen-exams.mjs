@@ -34,7 +34,7 @@ const TOPIC_TO_SUBJECT = {
   life_science: 'science', physical_science: 'science', earth_space: 'science',
   chem_atomic_structure: 'chemistry', chem_reactions: 'chemistry',
   phys_mechanics: 'physics', phys_electricity: 'physics',
-  mm_calculus: 'maths_methods', mm_probability: 'maths_methods',
+  mm_functions: 'maths_methods', mm_algebra: 'maths_methods', mm_calculus: 'maths_methods', mm_probability: 'maths_methods',
   gm_data_analysis: 'general_maths', gm_financial: 'general_maths',
   sm_complex_numbers: 'specialist_maths', sm_vectors: 'specialist_maths',
 }
@@ -67,7 +67,9 @@ const groups = new Map() // key -> { subject, yearLevel, questions: [] }
 for (const question of QUESTION_BANK) {
   const subject = TOPIC_TO_SUBJECT[question.topic]
   if (!subject) continue
-  const key = SELECTIVE_SUBJECTS.has(subject) ? subject : `${subject}__${question.year_level}`
+  // Always keyed by year level: VCE Unit 1 & 2 (year_11) and Unit 3 & 4
+  // (year_12) are different courses and must not share a question pool.
+  const key = `${subject}__${question.year_level}`
   if (!groups.has(key)) {
     groups.set(key, { subject, yearLevel: question.year_level, questions: [] })
   }
@@ -244,8 +246,64 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
   }
 }
 
+// ── VCE Unit 3 & 4 ──────────────────────────────────────────────────────────
+// A real VCAA Methods paper is two separate exams sat on different days, not
+// one paper with two sections: Exam 1 is technology-free, 9 questions and 40
+// marks in an hour; Exam 2 allows CAS and runs Section A (20 multiple choice,
+// 20 marks) then Section B (4 extended questions, 60 marks) over two hours.
+// Both get 15 minutes of reading time first.
+function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
+  const exams = []
+  const label = `${SUBJECT_LABEL[subject]} Unit 3 & 4`
+
+  const techFree = questions.filter(q => q.format === 'extended_response' && q.calculator_allowed === false)
+  if (techFree.length) {
+    exams.push({
+      id: `${subject}-${yearLevel}-${examIndex + 1}-exam1`,
+      subject,
+      yearLevel,
+      title: `${label} — Examination 1 (Practice ${examIndex + 1})`,
+      sections: [{
+        title: 'Examination 1 — technology-free',
+        time_minutes: 60,
+        calculator_allowed: false,
+        question_ids: techFree.map(q => q.id),
+      }],
+      premium: examIndex > 0,
+      reading_minutes: VCE_READING_MINUTES,
+    })
+  }
+
+  const mc = questions.filter(q => q.calculator_allowed === true && q.format !== 'extended_response')
+  const extended = questions.filter(q => q.format === 'extended_response' && q.calculator_allowed === true)
+  const sections = []
+  if (mc.length) {
+    sections.push({ title: 'Section A — multiple choice', time_minutes: 45, calculator_allowed: true, question_ids: mc.map(q => q.id) })
+  }
+  if (extended.length) {
+    sections.push({ title: 'Section B — extended response', time_minutes: 75, calculator_allowed: true, question_ids: extended.map(q => q.id) })
+  }
+  if (sections.length) {
+    exams.push({
+      id: `${subject}-${yearLevel}-${examIndex + 1}-exam2`,
+      subject,
+      yearLevel,
+      title: `${label} — Examination 2 (Practice ${examIndex + 1})`,
+      sections,
+      premium: examIndex > 0,
+      reading_minutes: VCE_READING_MINUTES,
+    })
+  }
+  return exams
+}
+
 const practiceExams = []
 for (const { subject, yearLevel, questions } of groups.values()) {
+  if (yearLevel === 'year_12') {
+    // Only one paper's worth of content exists so far, so only one is built.
+    practiceExams.push(...buildVceUnit34Exams(subject, yearLevel, questions, 0))
+    continue
+  }
   if (NAPLAN_SUBJECTS.has(subject) && NAPLAN_GRADES.has(yearLevel)) {
     const questionsByTopic = {}
     for (const q of questions) {

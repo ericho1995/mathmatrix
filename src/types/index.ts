@@ -51,7 +51,7 @@ export type TopicSlug =
   | 'life_science' | 'physical_science' | 'earth_space'
   | 'chem_atomic_structure' | 'chem_reactions'
   | 'phys_mechanics' | 'phys_electricity'
-  | 'mm_calculus' | 'mm_probability'
+  | 'mm_functions' | 'mm_algebra' | 'mm_calculus' | 'mm_probability'
   | 'gm_data_analysis' | 'gm_financial'
   | 'sm_complex_numbers' | 'sm_vectors'
 
@@ -174,7 +174,7 @@ export interface Stimulus {
 
 // ─── Questions ────────────────────────────────────────────────────────────────
 
-export type QuestionFormat = 'multiple_choice' | 'long_form' | 'short_answer'
+export type QuestionFormat = 'multiple_choice' | 'long_form' | 'short_answer' | 'extended_response'
 
 interface QuestionBase {
   id: string
@@ -187,6 +187,7 @@ interface QuestionBase {
   stimulus_id?: string          // FK into Stimulus — questions sharing an id are asked about the same passage/data
   calculator_allowed?: boolean  // Maths Yr7-9 Numeracy only; true = calculator section, unset/false = non-calculator
   diagram?: Diagram             // per-question graphic (bar chart, etc.) rendered above the question text
+  marks?: number                // VCE only; NAPLAN papers are scored by question count, not marks
   created_at: string
 }
 
@@ -216,7 +217,44 @@ export interface ShortAnswerQuestion extends QuestionBase {
   accepted_answers?: string[]    // additional acceptable phrasings/forms; expected_answer is always accepted too
 }
 
-export type Question = MultipleChoiceQuestion | LongFormQuestion | ShortAnswerQuestion
+// ─── Extended response (VCE) ─────────────────────────────────────────────────
+// A real VCAA exam question is one context with several lettered parts, each
+// carrying its own marks — e.g. Methods Exam 2 Section B question 1 is worth 13
+// marks across parts a (1), b (1), c (2) and so on, all about the same scenario.
+// Modelling that as several separate questions loses both the shared stem and
+// the mark allocation, which is most of what makes a VCE paper a VCE paper.
+
+export interface QuestionPart {
+  /** 'a', 'b', 'c.i' — printed in the margin, and the order parts appear in. */
+  label: string
+  prompt: string
+  marks: number
+  /** Model answer, printed in the answer key. */
+  expected_answer: string
+  /** Marking guidance: what earns each mark. */
+  explanation: string
+}
+
+export interface ExtendedResponseQuestion extends QuestionBase {
+  format: 'extended_response'
+  options?: undefined
+  correct_index?: undefined
+  /** Shared context for every part. `question_text` carries the scenario. */
+  parts: QuestionPart[]
+}
+
+export type Question =
+  | MultipleChoiceQuestion
+  | LongFormQuestion
+  | ShortAnswerQuestion
+  | ExtendedResponseQuestion
+
+/** Marks a question is worth. VCE multiple choice is 1 mark; an extended
+ * response is the sum of its parts. Questions outside VCE carry no marks. */
+export function questionMarks(q: Question): number {
+  if (q.format === 'extended_response') return q.parts.reduce((sum, p) => sum + p.marks, 0)
+  return q.marks ?? 0
+}
 
 // ─── Sessions & Attempts ─────────────────────────────────────────────────────
 

@@ -3593,5 +3593,31 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       }
     ],
     "premium": true
+  },
+  {
+    "id": "maths_methods-year_12-1-exam1",
+    "subject": "maths_methods",
+    "yearLevel": "year_12",
+    "title": "Maths Methods Unit 3 & 4 — Examination 1 (Practice 1)",
+    "sections": [
+      {
+        "title": "Examination 1 — technology-free",
+        "time_minutes": 60,
+        "calculator_allowed": false,
+        "question_ids": [
+          "b37601dd-82f7-40b7-bca1-4a34217bb281",
+          "1c5cdf4e-ff0a-41c2-b549-838e7cd93226",
+          "b42e7597-1321-478d-b2b8-44419f82d673",
+          "7a715ae4-bee8-4ceb-ae6d-d874b5f775b3",
+          "a11b9cff-d9e9-4828-9a05-ab1981fc01ab",
+          "41f22583-fa27-44fd-be38-4942d516d804",
+          "e03c8612-e047-483b-b344-785ff461aded",
+          "e2382b12-c1da-43f2-907e-50d6812932e9",
+          "83ade8ca-9359-473d-8184-7c8ec080f440"
+        ]
+      }
+    ],
+    "premium": false,
+    "reading_minutes": 15
   }
 ]

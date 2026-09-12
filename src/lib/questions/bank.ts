@@ -1,4 +1,4 @@
-import type { MultipleChoiceQuestion, LongFormQuestion, ShortAnswerQuestion } from '@/types'
+import type { MultipleChoiceQuestion, LongFormQuestion, ShortAnswerQuestion, ExtendedResponseQuestion } from '@/types'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Seed question bank — aligned to the Australian Curriculum v9.0
@@ -16,6 +16,7 @@ type BankQuestion =
   | Omit<MultipleChoiceQuestion, 'created_at'>
   | Omit<LongFormQuestion, 'created_at'>
   | Omit<ShortAnswerQuestion, 'created_at'>
+  | Omit<ExtendedResponseQuestion, 'created_at'>
 
 // The bank is stored in parts, then concatenated below. This is not
 // organisational — TypeScript raises TS2590 ("union type that is too complex to
@@ -15313,4 +15314,129 @@ const BANK_PART_4: BankQuestion[] = [
   },
 ]
 
-export const QUESTION_BANK: BankQuestion[] = [...BANK_PART_1, ...BANK_PART_2, ...BANK_PART_3, ...BANK_PART_4]
+// ── VCE Mathematical Methods Unit 3 & 4 ────────────────────────────────────
+// Calibrated against the real 2025 and 2026 VCAA papers. Exam 1 is
+// technology-free: 9 questions, 40 marks, every one multi-part with per-part
+// marks and exact values required.
+const BANK_PART_5: BankQuestion[] = [
+  {
+    id: 'b37601dd-82f7-40b7-bca1-4a34217bb281',
+    topic: 'mm_calculus', year_level: 'year_12', difficulty: 'proficient',
+    format: 'extended_response',
+    calculator_allowed: false,
+    question_text: 'This question is about differentiation and antidifferentiation.',
+    parts: [
+      { label: 'a', prompt: 'Let y = x²e³ˣ. Find dy/dx.', marks: 2, expected_answer: 'dy/dx = xe³ˣ(2 + 3x)', explanation: 'Product rule with u = x² and v = e³ˣ: dy/dx = 2xe³ˣ + 3x²e³ˣ. One mark for applying the product rule, one for the simplified factorised form xe³ˣ(2 + 3x).' },
+      { label: 'b', prompt: 'Let f′(x) = (2x − 3)⁴. Find f(x), given that f(2) = 1.', marks: 2, expected_answer: 'f(x) = (2x − 3)⁵/10 + 9/10', explanation: 'Antidifferentiate: f(x) = (2x − 3)⁵/10 + c (one mark). Substituting f(2) = 1 gives 1/10 + c = 1, so c = 9/10 (one mark).' },
+    ],
+    explanation: 'See the per-part marking guidance.',
+    curriculum_code: 'VCE-MM-U34-AOS3',
+  },
+  {
+    id: '1c5cdf4e-ff0a-41c2-b549-838e7cd93226',
+    topic: 'mm_functions', year_level: 'year_12', difficulty: 'proficient',
+    format: 'extended_response',
+    calculator_allowed: false,
+    question_text: 'The graph of y = m/(x − a) + c has a vertical asymptote at x = 2, a y-intercept at (0, 3) and an x-intercept at (−1, 0), where a, c and m are integers.',
+    parts: [
+      { label: 'a', prompt: 'State the value of a.', marks: 1, expected_answer: 'a = 2', explanation: 'The vertical asymptote of y = m/(x − a) + c is x = a, and the asymptote is given as x = 2.' },
+      { label: 'b', prompt: 'Find the values of m and c.', marks: 2, expected_answer: 'm = −18 and c = −6', explanation: 'The y-intercept gives −m/2 + c = 3 and the x-intercept gives m/(−3) + c = 0, so c = m/3. Substituting: −m/2 + m/3 = 3, so −m/6 = 3 and m = −18, giving c = −6. One mark for setting up both equations, one for solving.' },
+    ],
+    explanation: 'See the per-part marking guidance.',
+    curriculum_code: 'VCE-MM-U34-AOS1',
+  },
+  {
+    id: 'b42e7597-1321-478d-b2b8-44419f82d673',
+    topic: 'mm_probability', year_level: 'year_12', difficulty: 'proficient',
+    format: 'extended_response',
+    calculator_allowed: false,
+    question_text: 'The discrete random variable X has the probability distribution shown below.\nx:        0     1     2     3\nPr(X = x): 0.1   0.3    k    0.2',
+    parts: [
+      { label: 'a', prompt: 'Find the value of k.', marks: 1, expected_answer: 'k = 0.4', explanation: 'The probabilities must sum to 1: 0.1 + 0.3 + k + 0.2 = 1, so k = 0.4.' },
+      { label: 'b', prompt: 'Find E(X).', marks: 2, expected_answer: 'E(X) = 1.7', explanation: 'E(X) = 0(0.1) + 1(0.3) + 2(0.4) + 3(0.2) = 0.3 + 0.8 + 0.6 = 1.7. One mark for the correct sum of products, one for the value.' },
+      { label: 'c', prompt: 'Find Pr(X ≥ 2 | X ≥ 1).', marks: 2, expected_answer: '2/3', explanation: 'Pr(X ≥ 2) = 0.4 + 0.2 = 0.6 and Pr(X ≥ 1) = 0.3 + 0.4 + 0.2 = 0.9. Since {X ≥ 2} is contained in {X ≥ 1}, the conditional probability is 0.6/0.9 = 2/3. One mark for each probability, or one for the correct quotient set up.' },
+    ],
+    explanation: 'See the per-part marking guidance.',
+    curriculum_code: 'VCE-MM-U34-AOS4',
+  },
+  {
+    id: '7a715ae4-bee8-4ceb-ae6d-d874b5f775b3',
+    topic: 'mm_functions', year_level: 'year_12', difficulty: 'proficient',
+    format: 'extended_response',
+    calculator_allowed: false,
+    question_text: 'Consider the function with rule y = 2sin(3x).',
+    parts: [
+      { label: 'a', prompt: 'State the period of the function.', marks: 1, expected_answer: '2π/3', explanation: 'The period of y = a·sin(nx) is 2π/n, and here n = 3.' },
+      { label: 'b', prompt: 'Solve 2sin(3x) = √3 for x, where x ∈ [0, π].', marks: 3, expected_answer: 'x = π/9, 2π/9, 7π/9, 8π/9', explanation: 'sin(3x) = √3/2. For x ∈ [0, π] the argument 3x ranges over [0, 3π], where sin θ = √3/2 has solutions θ = π/3, 2π/3, 7π/3 and 8π/3. Dividing each by 3 gives the four values. One mark for sin(3x) = √3/2, one for the correct domain for 3x, one for all four solutions.' },
+    ],
+    explanation: 'See the per-part marking guidance.',
+    curriculum_code: 'VCE-MM-U34-AOS1',
+  },
+  {
+    id: 'a11b9cff-d9e9-4828-9a05-ab1981fc01ab',
+    topic: 'mm_calculus', year_level: 'year_12', difficulty: 'proficient',
+    format: 'extended_response',
+    calculator_allowed: false,
+    question_text: 'Let f(x) = 3x² − 6x.',
+    parts: [
+      { label: 'a', prompt: 'Find the x-intercepts of the graph of f.', marks: 2, expected_answer: 'x = 0 and x = 2', explanation: 'Factorise: 3x(x − 2) = 0. One mark for the factorisation, one for both intercepts.' },
+      { label: 'b', prompt: 'Find the area of the region enclosed by the graph of f and the x-axis.', marks: 3, expected_answer: '4 square units', explanation: 'The graph lies below the axis between the intercepts, so the area is the absolute value of the integral. ∫₀²(3x² − 6x)dx = [x³ − 3x²]₀² = (8 − 12) − 0 = −4, giving an area of 4. One mark for the correct integral and terminals, one for evaluating it, one for taking the absolute value.' },
+    ],
+    explanation: 'See the per-part marking guidance.',
+    curriculum_code: 'VCE-MM-U34-AOS3',
+  },
+  {
+    id: '41f22583-fa27-44fd-be38-4942d516d804',
+    topic: 'mm_functions', year_level: 'year_12', difficulty: 'advanced',
+    format: 'extended_response',
+    calculator_allowed: false,
+    question_text: 'Let f: (1, ∞) → R, f(x) = 2logₑ(x − 1).',
+    parts: [
+      { label: 'a', prompt: 'Find the rule for f⁻¹.', marks: 2, expected_answer: 'f⁻¹(x) = e^(x/2) + 1', explanation: 'Swap and solve: x = 2logₑ(y − 1), so x/2 = logₑ(y − 1) and y = e^(x/2) + 1. One mark for isolating the logarithm, one for the correct rule.' },
+      { label: 'b', prompt: 'State the domain and range of f⁻¹.', marks: 2, expected_answer: 'Domain R, range (1, ∞)', explanation: 'The domain of the inverse is the range of f, which is R, and the range of the inverse is the domain of f, which is (1, ∞). One mark each.' },
+    ],
+    explanation: 'See the per-part marking guidance.',
+    curriculum_code: 'VCE-MM-U34-AOS1',
+  },
+  {
+    id: 'e03c8612-e047-483b-b344-785ff461aded',
+    topic: 'mm_calculus', year_level: 'year_12', difficulty: 'advanced',
+    format: 'extended_response',
+    calculator_allowed: false,
+    question_text: 'Let f(x) = x³ − 4x.',
+    parts: [
+      { label: 'a', prompt: 'Find the equation of the tangent to the graph of f at x = 1.', marks: 2, expected_answer: 'y = −x − 2', explanation: 'f(1) = −3 and f′(x) = 3x² − 4, so f′(1) = −1. The tangent is y + 3 = −1(x − 1), that is y = −x − 2. One mark for the gradient, one for the equation.' },
+      { label: 'b', prompt: 'Find the coordinates of the other point where this tangent meets the graph of f.', marks: 3, expected_answer: '(−2, 0)', explanation: 'Solve x³ − 4x = −x − 2, giving x³ − 3x + 2 = 0. Since x = 1 is a known solution it factorises as (x − 1)²(x + 2) = 0, so the other solution is x = −2, where y = 0. One mark for forming the equation, one for the factorisation, one for the coordinates.' },
+    ],
+    explanation: 'See the per-part marking guidance.',
+    curriculum_code: 'VCE-MM-U34-AOS3',
+  },
+  {
+    id: 'e2382b12-c1da-43f2-907e-50d6812932e9',
+    topic: 'mm_algebra', year_level: 'year_12', difficulty: 'advanced',
+    format: 'extended_response',
+    calculator_allowed: false,
+    question_text: 'This question concerns exponential and logarithmic equations.',
+    parts: [
+      { label: 'a', prompt: 'Solve 2²ˣ − 5(2ˣ) + 4 = 0 for x.', marks: 2, expected_answer: 'x = 0 and x = 2', explanation: 'Let u = 2ˣ, giving u² − 5u + 4 = 0 and (u − 1)(u − 4) = 0, so u = 1 or u = 4. Then 2ˣ = 1 gives x = 0 and 2ˣ = 4 gives x = 2. One mark for the substitution, one for both solutions.' },
+      { label: 'b', prompt: 'Solve logₑ(x) + logₑ(x − 3) = logₑ(4) for x.', marks: 3, expected_answer: 'x = 4', explanation: 'Combine to logₑ(x(x − 3)) = logₑ(4), so x² − 3x − 4 = 0 and (x − 4)(x + 1) = 0. Both logarithms require x > 3, so x = −1 is rejected and x = 4 is the only solution. One mark for combining, one for solving the quadratic, one for rejecting x = −1 on domain grounds.' },
+    ],
+    explanation: 'See the per-part marking guidance.',
+    curriculum_code: 'VCE-MM-U34-AOS2',
+  },
+  {
+    id: '83ade8ca-9359-473d-8184-7c8ec080f440',
+    topic: 'mm_probability', year_level: 'year_12', difficulty: 'advanced',
+    format: 'extended_response',
+    calculator_allowed: false,
+    question_text: 'The continuous random variable X has probability density function f(x) = kx for 0 ≤ x ≤ 4, and f(x) = 0 elsewhere.',
+    parts: [
+      { label: 'a', prompt: 'Find the value of k.', marks: 2, expected_answer: 'k = 1/8', explanation: 'The total area under a probability density function is 1: ∫₀⁴ kx dx = k[x²/2]₀⁴ = 8k = 1, so k = 1/8. One mark for setting the integral equal to 1, one for the value.' },
+      { label: 'b', prompt: 'Find Pr(X ≤ 2).', marks: 3, expected_answer: '1/4', explanation: 'Pr(X ≤ 2) = ∫₀² (1/8)x dx = (1/8)[x²/2]₀² = (1/8)(2) = 1/4. One mark for the correct integral, one for the terminals, one for the value.' },
+    ],
+    explanation: 'See the per-part marking guidance.',
+    curriculum_code: 'VCE-MM-U34-AOS4',
+  },
+]
+
+export const QUESTION_BANK: BankQuestion[] = [...BANK_PART_1, ...BANK_PART_2, ...BANK_PART_3, ...BANK_PART_4, ...BANK_PART_5]

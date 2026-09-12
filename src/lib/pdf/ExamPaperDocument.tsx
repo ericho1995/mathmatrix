@@ -357,7 +357,44 @@ function DiagramView({ diagram }: { diagram: Diagram }) {
   }
 }
 
+/** How many ruled lines of working a part earns. VCAA scales the writing space
+ * to the marks, so a 1-mark "state the value" gets a line and a 4-mark
+ * derivation gets room to actually derive it. */
+function workingLinesFor(marks: number): number {
+  return Math.min(10, Math.max(2, marks * 2))
+}
+
 function QuestionBlock({ question, number }: { question: ResolvedQuestion; number: number }) {
+  // VCE extended response: one scenario, then lettered parts with their own
+  // marks. Rendered as its own branch because nothing else in the paper has
+  // sub-parts, and `wrap` is left on — a 13-mark question with its working
+  // space is taller than a page and must be allowed to break.
+  if (question.format === 'extended_response') {
+    const total = question.parts.reduce((sum, p) => sum + p.marks, 0)
+    return (
+      <View style={pdfStyles.questionRow}>
+        <View style={pdfStyles.questionHeaderRow}>
+          <Text style={pdfStyles.questionText}>Question {number}</Text>
+          <Text style={pdfStyles.questionMarks}>({total} {total === 1 ? 'mark' : 'marks'})</Text>
+        </View>
+        <Text style={pdfStyles.questionText}>{question.question_text}</Text>
+        {question.diagram ? <DiagramView diagram={question.diagram} /> : null}
+        {question.parts.map((part, i) => (
+          <View key={i} wrap={false}>
+            <View style={pdfStyles.partRow}>
+              <Text style={pdfStyles.partLabel}>{part.label}.</Text>
+              <Text style={pdfStyles.partPrompt}>{part.prompt}</Text>
+              <Text style={pdfStyles.partMarks}>{part.marks} {part.marks === 1 ? 'mark' : 'marks'}</Text>
+            </View>
+            {Array.from({ length: workingLinesFor(part.marks) }).map((_, l) => (
+              <View key={l} style={pdfStyles.partWorkingLine} />
+            ))}
+          </View>
+        ))}
+      </View>
+    )
+  }
+
   return (
     <View style={pdfStyles.questionRow} wrap={false}>
       <Text style={pdfStyles.questionText}>{number}. {question.question_text}</Text>

@@ -93,10 +93,14 @@ const sqlLines = QUESTION_BANK.map(q => {
   const stimulusId = q.stimulus_id ? sqlQuote(q.stimulus_id) : 'null'
   const calculatorAllowed = q.calculator_allowed === undefined ? 'null' : q.calculator_allowed
   const expectedAnswer = q.expected_answer ? sqlQuote(q.expected_answer) : 'null'
+  // VCE multi-part: the parts carry the marks and the marking guidance, so
+  // dropping them would leave the database holding only the scenario.
+  const parts = q.parts ? `'${JSON.stringify(q.parts).replace(/'/g, "''")}'::jsonb` : 'null'
+  const marks = q.marks ?? 'null'
   const acceptedAnswers = q.accepted_answers && q.accepted_answers.length
     ? `ARRAY[${q.accepted_answers.map(sqlQuote).join(', ')}]::text[]`
     : 'null'
-  return `(${sqlQuote(q.id)}, ${sqlQuote(q.topic)}, ${sqlQuote(q.year_level)}, ${sqlQuote(q.difficulty)}, ${sqlQuote(format)}, ${sqlQuote(q.question_text)}, ${options}, ${correctIndex}, ${sqlQuote(q.explanation)}, ${curriculumCode}, ${stimulusId}, ${calculatorAllowed}, true, ${expectedAnswer}, ${acceptedAnswers})`
+  return `(${sqlQuote(q.id)}, ${sqlQuote(q.topic)}, ${sqlQuote(q.year_level)}, ${sqlQuote(q.difficulty)}, ${sqlQuote(format)}, ${sqlQuote(q.question_text)}, ${options}, ${correctIndex}, ${sqlQuote(q.explanation)}, ${curriculumCode}, ${stimulusId}, ${calculatorAllowed}, true, ${expectedAnswer}, ${acceptedAnswers}, ${parts}, ${marks})`
 })
 
 const sql = `-- ─────────────────────────────────────────────────────────────────────────────
@@ -106,7 +110,7 @@ const sql = `-- ─────────────────────�
 -- Run this in the Supabase SQL editor AFTER schema.sql.
 -- ─────────────────────────────────────────────────────────────────────────────
 
-${stimuliSql}insert into questions (id, topic, year_level, difficulty, format, question_text, options, correct_index, explanation, curriculum_code, stimulus_id, calculator_allowed, is_published, expected_answer, accepted_answers)
+${stimuliSql}insert into questions (id, topic, year_level, difficulty, format, question_text, options, correct_index, explanation, curriculum_code, stimulus_id, calculator_allowed, is_published, expected_answer, accepted_answers, parts, marks)
 values
 ${sqlLines.join(',\n')}
 on conflict (id) do update set
@@ -123,7 +127,9 @@ on conflict (id) do update set
   calculator_allowed = excluded.calculator_allowed,
   is_published = excluded.is_published,
   expected_answer = excluded.expected_answer,
-  accepted_answers = excluded.accepted_answers;
+  accepted_answers = excluded.accepted_answers,
+  parts = excluded.parts,
+  marks = excluded.marks;
 `
 
 writeFileSync(seedPath, sql)

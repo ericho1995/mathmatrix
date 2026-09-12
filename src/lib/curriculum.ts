@@ -68,9 +68,11 @@ export const TOPICS: Topic[] = [
   { slug: 'phys_mechanics',         subject: 'physics',   label: 'Mechanics',              description: 'Motion, forces, energy',                icon: '🎯', color: '#185FA5' },
   { slug: 'phys_electricity',       subject: 'physics',   label: 'Electricity',            description: 'Current, voltage, resistance',          icon: '🔌', color: '#185FA5' },
 
-  // Maths Methods
-  { slug: 'mm_calculus',            subject: 'maths_methods', label: 'Calculus',           description: 'Differentiation basics',                icon: '📈', color: '#185FA5' },
-  { slug: 'mm_probability',         subject: 'maths_methods', label: 'Probability',        description: 'Independent events, distributions',     icon: '🎲', color: '#185FA5' },
+  // Maths Methods — the four VCAA Unit 3 & 4 areas of study
+  { slug: 'mm_functions',           subject: 'maths_methods', label: 'Functions & graphs',  description: 'Transformations, inverses, composite functions', icon: '📉', color: '#185FA5' },
+  { slug: 'mm_algebra',             subject: 'maths_methods', label: 'Algebra',            description: 'Equations, identities, simultaneous systems',    icon: '🔤', color: '#185FA5' },
+  { slug: 'mm_calculus',            subject: 'maths_methods', label: 'Calculus',           description: 'Differentiation, antidifferentiation, rates',                icon: '📈', color: '#185FA5' },
+  { slug: 'mm_probability',         subject: 'maths_methods', label: 'Probability',        description: 'Discrete and continuous distributions, inference',     icon: '🎲', color: '#185FA5' },
 
   // General Mathematics
   { slug: 'gm_data_analysis',       subject: 'general_maths', label: 'Data Analysis',      description: 'Median, quartiles, spread',             icon: '📉', color: '#BA7517' },

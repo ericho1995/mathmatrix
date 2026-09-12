@@ -103,6 +103,15 @@ export const pdfStyles = StyleSheet.create({
   // number/word/phrase, not a full-width blank.
   answerBox: { border: '0.75pt solid #333', borderRadius: 2, height: 26, width: 110, marginTop: 2 },
   shortAnswerRow: { flexDirection: 'row', alignItems: 'center' },
+  // VCE extended response: a shared stem, then lettered parts each carrying
+  // their own marks, printed right-aligned the way VCAA papers do it.
+  questionHeaderRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 4 },
+  questionMarks: { fontSize: 10, color: '#444' },
+  partRow: { flexDirection: 'row', marginTop: 8, marginBottom: 2 },
+  partLabel: { fontSize: 11, width: 22 },
+  partPrompt: { fontSize: 11, flex: 1, paddingRight: 8 },
+  partMarks: { fontSize: 10, color: '#444', width: 52, textAlign: 'right' },
+  partWorkingLine: { borderBottom: '0.5pt solid #bbb', height: 16, marginLeft: 22 },
   shortAnswerUnit: { fontSize: 11, color: '#1a1a1a', marginHorizontal: 4, marginBottom: 2 },
   answerKeyRow: { marginBottom: 8, fontSize: 10 },
   answerKeyNum: { fontWeight: 700 },
