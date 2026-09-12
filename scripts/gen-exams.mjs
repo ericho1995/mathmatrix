@@ -238,7 +238,9 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
     yearLevel,
     title: `${SUBJECT_LABEL[subject]} ${gradeLabel} — Practice Exam ${examIndex + 1}`,
     sections: sections.filter(s => s.question_ids.length > 0),
-    premium: true,
+    // The first paper of each subject and year level is the free sample. A
+    // visitor who can never see a finished paper has no reason to buy one.
+    premium: examIndex > 0,
   }
 }
 
@@ -267,7 +269,7 @@ for (const { subject, yearLevel, questions } of groups.values()) {
       yearLevel,
       title: `${SUBJECT_LABEL[subject]} ${gradeLabel} — Practice Exam ${i + 1}`,
       sections: [{ title: 'Questions', time_minutes: 20, question_ids: questionIds }],
-      premium: true,
+      premium: i > 0,
       ...(SELECTIVE_SUBJECTS.has(subject) ? { reading_minutes: VCE_READING_MINUTES } : {}),
     })
   })

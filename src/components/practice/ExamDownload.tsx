@@ -1,13 +1,28 @@
 import Link from 'next/link'
 
-export default function AdminExamDownload({ examId, title, splitEligible }: { examId: string; title: string; splitEligible?: boolean }) {
+export default function ExamDownload({
+  examId,
+  title,
+  splitEligible,
+  access,
+}: {
+  examId: string
+  title: string
+  splitEligible?: boolean
+  /** Why this visitor may download — changes only the note under the title. */
+  access: 'free' | 'purchased' | 'admin'
+}) {
+  const note =
+    access === 'admin'
+      ? 'Admin access — no payment required. Regular visitors see the paywall here.'
+      : access === 'free'
+        ? 'This is the free sample paper for this year level.'
+        : 'You have full access to this year level.'
   return (
     <main className="max-w-md mx-auto px-4 py-10 text-center flex-1 w-full">
-      <div className="text-3xl mb-3">🛠️</div>
+      <div className="text-3xl mb-3">{access === 'admin' ? '🛠️' : '📄'}</div>
       <h1 className="text-2xl font-medium tracking-tight mb-2">{title}</h1>
-      <p className="text-sm text-gray-400 mb-8">
-        Admin access — no payment required. Regular visitors see the paywall here.
-      </p>
+      <p className="text-sm text-gray-400 mb-8">{note}</p>
       {splitEligible ? (
         <>
           <p className="text-xs font-medium uppercase tracking-wide text-gray-400 mb-2">Numeracy — non-calculator</p>

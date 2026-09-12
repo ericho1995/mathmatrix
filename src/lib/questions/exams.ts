@@ -70,7 +70,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "math-grade_3-2",
@@ -205,7 +205,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "math-grade_4-2",
@@ -340,7 +340,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "math-grade_5-2",
@@ -475,7 +475,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "math-grade_6-2",
@@ -648,7 +648,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "math-year_7-2",
@@ -897,7 +897,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "math-year_8-2",
@@ -1146,7 +1146,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "math-year_9-2",
@@ -1337,7 +1337,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "math-year_10-2",
@@ -1468,7 +1468,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "english-grade_3-2",
@@ -1655,7 +1655,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "english-grade_5-2",
@@ -1800,7 +1800,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "english-grade_6-2",
@@ -1936,7 +1936,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "english-year_7-2",
@@ -2125,7 +2125,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "english-year_9-2",
@@ -2270,7 +2270,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "english-grade_4-2",
@@ -2369,7 +2369,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "english-year_8-2",
@@ -2448,7 +2448,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "science-grade_3-2",
@@ -2523,7 +2523,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "science-grade_5-2",
@@ -2598,7 +2598,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "science-grade_6-2",
@@ -2673,7 +2673,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "science-year_7-2",
@@ -2748,7 +2748,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "science-year_9-2",
@@ -2823,7 +2823,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "science-grade_4-2",
@@ -2898,7 +2898,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "science-year_8-2",
@@ -2973,7 +2973,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "science-year_10-2",
@@ -3048,7 +3048,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true,
+    "premium": false,
     "reading_minutes": 15
   },
   {
@@ -3126,7 +3126,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true,
+    "premium": false,
     "reading_minutes": 15
   },
   {
@@ -3204,7 +3204,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true,
+    "premium": false,
     "reading_minutes": 15
   },
   {
@@ -3334,7 +3334,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true,
+    "premium": false,
     "reading_minutes": 15
   },
   {
@@ -3464,7 +3464,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true,
+    "premium": false,
     "reading_minutes": 15
   },
   {
@@ -3542,7 +3542,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": true
+    "premium": false
   },
   {
     "id": "english-year_10-2",

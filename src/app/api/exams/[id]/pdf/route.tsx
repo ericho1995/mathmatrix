@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { renderToBuffer } from '@react-pdf/renderer'
 import { resolveExam, selectExamSession } from '@/lib/pdf/resolveExam'
 import { ExamPaperDocument } from '@/lib/pdf/ExamPaperDocument'
-import { PREMIUM_PRICE } from '@/lib/pricing'
-import { getUserRole } from '@/lib/auth/getUserRole'
+import { denyIfNotEntitled } from '@/lib/pdf/examAccess'
 
 export const runtime = 'nodejs'
 
@@ -13,9 +12,8 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     return NextResponse.json({ error: 'Exam not found' }, { status: 404 })
   }
 
-  if (resolved.exam.premium && (await getUserRole()) !== 'admin') {
-    return NextResponse.json({ error: 'Payment required', price: PREMIUM_PRICE }, { status: 402 })
-  }
+  const denied = await denyIfNotEntitled(resolved)
+  if (denied) return denied
 
   const { resolved: examToRender, session } = selectExamSession(resolved, req.nextUrl.searchParams.get('session'))
   const filename = session ? `${resolved.exam.id}-numeracy-${session}-exam.pdf` : `${resolved.exam.id}-exam.pdf`

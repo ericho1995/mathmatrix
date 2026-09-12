@@ -1,9 +1,10 @@
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { SUBJECTS, SELECTIVE_SUBJECTS } from '@/lib/curriculum'
 import { getUserRole } from '@/lib/auth/getUserRole'
+import { hasEntitlement } from '@/lib/auth/getEntitlements'
 import { resolveExam, isSplitEligible } from '@/lib/pdf/resolveExam'
 import PremiumExamLock from '@/components/practice/PremiumExamLock'
-import AdminExamDownload from '@/components/practice/AdminExamDownload'
+import ExamDownload from '@/components/practice/ExamDownload'
 
 export default async function ExamPage({ params }: { params: { id: string } }) {
   const exam = PRACTICE_EXAMS.find(e => e.id === params.id)
@@ -18,13 +19,36 @@ export default async function ExamPage({ params }: { params: { id: string } }) {
   }
 
   const subject = [...SUBJECTS, ...SELECTIVE_SUBJECTS].find(s => s.slug === exam.subject)
-  const role = await getUserRole()
 
-  if (exam.premium && role === 'admin') {
+  // Three ways to reach the download: the paper is the free sample, the visitor
+  // bought this year level, or they are an admin. The PDF routes re-check this
+  // independently — this page only decides what to render.
+  const access = !exam.premium
+    ? ('free' as const)
+    : (await getUserRole()) === 'admin'
+      ? ('admin' as const)
+      : (await hasEntitlement(exam.yearLevel))
+        ? ('purchased' as const)
+        : null
+
+  if (access) {
     const resolved = resolveExam(exam.id)
-    const splitEligible = resolved ? isSplitEligible(resolved) : false
-    return <AdminExamDownload examId={exam.id} title={exam.title} splitEligible={splitEligible} />
+    return (
+      <ExamDownload
+        examId={exam.id}
+        title={exam.title}
+        splitEligible={resolved ? isSplitEligible(resolved) : false}
+        access={access}
+      />
+    )
   }
 
-  return <PremiumExamLock title={exam.title} subjectLabel={subject?.label ?? 'exam'} backHref="/practice/exams" />
+  return (
+    <PremiumExamLock
+      title={exam.title}
+      subjectLabel={subject?.label ?? 'exam'}
+      yearLevel={exam.yearLevel}
+      backHref="/practice/exams"
+    />
+  )
 }
