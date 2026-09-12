@@ -94,6 +94,49 @@ function pickLeastUsed(pool, usage, count) {
   return chosen
 }
 
+// Like pickLeastUsed, but guarantees at least half the picks carry a `diagram`
+// (real NAPLAN numeracy papers are roughly half graphical — maps, graphs,
+// dot plots, etc. — see docs/superpowers/specs/2026-09-11-naplan-visual-format-
+// design.md Phase 2). Falls back to whatever's available if the diagram pool
+// is smaller than half of `count`.
+function pickBalancedNumeracy(pool, usage, count) {
+  const withDiagram = pool.filter(q => q.diagram)
+  const withoutDiagram = pool.filter(q => !q.diagram)
+  const diagramTarget = Math.ceil(count / 2)
+  const chosenDiagram = pickLeastUsed(withDiagram, usage, diagramTarget)
+  const remaining = count - chosenDiagram.length
+  const chosenPlain = pickLeastUsed(withoutDiagram, usage, remaining)
+  // Interleave rather than block-group, so the paper doesn't read as
+  // "all graphical questions, then all plain ones".
+  const merged = []
+  const maxLen = Math.max(chosenDiagram.length, chosenPlain.length)
+  for (let i = 0; i < maxLen; i++) {
+    if (chosenPlain[i]) merged.push(chosenPlain[i])
+    if (chosenDiagram[i]) merged.push(chosenDiagram[i])
+  }
+  return merged
+}
+
+// Interleaves several topic pools one-at-a-time (round robin) instead of
+// concatenating them block-by-block. pickLeastUsed's sort is stable, so when
+// every candidate starts at usage 0 (the common case for a fresh exam 1),
+// taking the first N of a block-concatenated pool would silently exhaust
+// whichever topic happens to be listed first — e.g. a 30-question calculator
+// section pulled entirely from number_operations once that topic's pool grew
+// to 30, starving algebra/geometry/statistics of any representation at all.
+// Round-robin merging keeps every topic's items spread through the array, so
+// a stable least-used-first pick naturally samples across topics too.
+function roundRobinByTopic(topicArrays) {
+  const merged = []
+  const maxLen = Math.max(0, ...topicArrays.map(a => a.length))
+  for (let i = 0; i < maxLen; i++) {
+    for (const arr of topicArrays) {
+      if (arr[i]) merged.push(arr[i])
+    }
+  }
+  return merged
+}
+
 function buildReadingSection(questions, usage, targetCount) {
   // Group by stimulus_id so a passage's questions never get split up.
   const byStimulus = new Map() // stimulus_id -> question[]
@@ -130,15 +173,16 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
     sections.push({ title: 'Language Conventions', time_minutes: 40, question_ids: ids })
   }
   const numeracyTopics = ['number_operations', 'number_patterns', 'algebra_equations', 'geometry_measurement', 'statistics_probability']
-  const numeracyPool = numeracyTopics.flatMap(t => questionsByTopic[t] ?? [])
+  const numeracyPool = roundRobinByTopic(numeracyTopics.map(t => questionsByTopic[t] ?? []))
   if (numeracyPool.length) {
     if (NUMERACY_CALC_SPLIT_GRADES.has(yearLevel)) {
       const nonCalc = numeracyPool.filter(q => !q.calculator_allowed)
       const calc = numeracyPool.filter(q => q.calculator_allowed)
-      if (nonCalc.length) sections.push({ title: 'Numeracy — non-calculator', time_minutes: 30, calculator_allowed: false, question_ids: pickLeastUsed(nonCalc, usage, 12).map(q => q.id) })
-      if (calc.length) sections.push({ title: 'Numeracy — calculator', time_minutes: 30, calculator_allowed: true, question_ids: pickLeastUsed(calc, usage, 12).map(q => q.id) })
+      const sectionSize = 30 // matches real NAPLAN Yr7-9 numeracy paper length
+      if (nonCalc.length) sections.push({ title: 'Numeracy — non-calculator', time_minutes: 40, calculator_allowed: false, question_ids: pickBalancedNumeracy(nonCalc, usage, sectionSize).map(q => q.id) })
+      if (calc.length) sections.push({ title: 'Numeracy — calculator', time_minutes: 40, calculator_allowed: true, question_ids: pickBalancedNumeracy(calc, usage, sectionSize).map(q => q.id) })
     } else {
-      sections.push({ title: 'Numeracy', time_minutes: 45, question_ids: pickLeastUsed(numeracyPool, usage, 15).map(q => q.id) })
+      sections.push({ title: 'Numeracy', time_minutes: 45, question_ids: pickBalancedNumeracy(numeracyPool, usage, 15).map(q => q.id) })
     }
   }
   const gradeLabel = GRADE_LABEL[yearLevel] ?? yearLevel

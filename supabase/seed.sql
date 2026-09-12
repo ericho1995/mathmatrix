@@ -19,11 +19,36 @@ values
 ('c8d6e78d-84e3-48e8-8778-634f0db174a4', 'algebra_equations', 'year_8', 'developing', 'multiple_choice', 'A fencing company''s total wire length, in metres, for a job is 4x + 3x − 2x, where x is the length of each roll used. Simplify this expression.', '["6x","8x","7x","5x"]'::jsonb, 3, 'Collect like terms: (4 + 3 − 2)x = 5x metres.', 'AC9M8A01', null, null, true, null, null),
 ('f21ff070-d3d8-4e69-b9d1-cc965b53e1ff', 'algebra_equations', 'year_9', 'proficient', 'multiple_choice', 'Factorise the expression x² − 9.', '["(x+3)(x+3)","(x−3)(x+3)","(x−9)(x+1)","(x+9)(x−1)"]'::jsonb, 1, 'Difference of two squares: a² − b² = (a−b)(a+b). So x² − 9 = (x−3)(x+3).', 'AC9M9A01', null, null, true, null, null),
 ('98490cd9-b9c1-4b78-a692-4636eea71cbc', 'algebra_equations', 'year_10', 'proficient', 'multiple_choice', 'If f(x) = 2x² − 3, what is f(−2)?', '["5","−11","−5","11"]'::jsonb, 0, 'f(−2) = 2(−2)² − 3 = 2(4) − 3 = 8 − 3 = 5.', 'AC9M10A02', null, null, true, null, null),
-('7fe9cb1e-c2f8-4b27-a07d-159bc4219368', 'statistics_probability', 'grade_4', 'foundation', 'multiple_choice', 'What is the mode of: 2, 4, 4, 5, 6, 4, 7?', '["2","4","5","6"]'::jsonb, 1, 'The mode is the most frequent value. 4 appears 3 times.', 'AC9M4ST01', null, null, true, null, null),
-('c2bbbfe9-28fb-4857-861d-f5050375b792', 'statistics_probability', 'grade_5', 'developing', 'multiple_choice', 'Mean of: 4, 7, 9, 10, 5', '["6","7","8","9"]'::jsonb, 1, 'Sum = 4+7+9+10+5 = 35. Mean = 35 ÷ 5 = 7.', 'AC9M5ST01', null, null, true, null, null),
-('0b6ec697-94fb-42c6-959f-6e7abc8cb892', 'statistics_probability', 'grade_6', 'developing', 'multiple_choice', 'Median of: 3, 5, 7, 9, 11', '["5","7","9","6"]'::jsonb, 1, 'Data is already ordered. Middle value (3rd of 5) = 7.', 'AC9M6ST01', null, null, true, null, null),
-('df773e2f-c2be-4735-bdef-ae4030e187a0', 'statistics_probability', 'year_7', 'developing', 'multiple_choice', 'What is the probability of rolling a 6 on a fair die?', '["1/3","1/4","1/6","1/2"]'::jsonb, 2, 'There are 6 equally likely outcomes. P(6) = 1/6.', 'AC9M7P01', null, null, true, null, null),
-('fb70f0b9-45af-44ca-a7d5-379f78d6917b', 'statistics_probability', 'year_8', 'proficient', 'multiple_choice', 'Range of: 12, 7, 19, 3, 15', '["12","16","7","19"]'::jsonb, 1, 'Range = max − min = 19 − 3 = 16.', 'AC9M8ST01', null, null, true, null, null),
+('7fe9cb1e-c2f8-4b27-a07d-159bc4219368', 'statistics_probability', 'grade_4', 'foundation', 'multiple_choice', 'Seven students were asked how many pets they own:
+Student | Pets
+Amy     | 2
+Bo      | 4
+Chen    | 4
+Dina    | 5
+Eli     | 6
+Fay     | 4
+Gus     | 7
+What is the mode (most common) number of pets?', '["2","4","5","6"]'::jsonb, 1, 'The mode is the value that appears most often. 4 appears three times (Bo, Chen, Fay) — more than any other value.', 'AC9M4ST01', null, null, true, null, null),
+('c2bbbfe9-28fb-4857-861d-f5050375b792', 'statistics_probability', 'grade_5', 'developing', 'multiple_choice', 'The temperature (°C) at noon was recorded for 5 days:
+Day       | Temp (°C)
+Monday    | 4
+Tuesday   | 7
+Wednesday | 9
+Thursday  | 10
+Friday    | 5
+What was the mean noon temperature for the week?', '["6","7","8","9"]'::jsonb, 1, 'Sum = 4+7+9+10+5 = 35. Mean = 35 ÷ 5 = 7.', 'AC9M5ST01', null, null, true, null, null),
+('0b6ec697-94fb-42c6-959f-6e7abc8cb892', 'statistics_probability', 'grade_6', 'proficient', 'multiple_choice', 'Five students recorded how many books they read last month:
+Ali: 3, Ben: 7, Cara: 5, Dev: 3, Ella: 12.
+What is the median number of books read?', '["5","3","6","12"]'::jsonb, 0, 'Ordered: 3, 3, 5, 7, 12. The middle value is 5.', 'AC9M6ST01', null, null, true, null, null),
+('df773e2f-c2be-4735-bdef-ae4030e187a0', 'statistics_probability', 'year_7', 'foundation', 'multiple_choice', 'A fair six-sided die, numbered 1 to 6, is rolled once. What is the probability of rolling a 6?', '["1/3","1/4","1/6","1/2"]'::jsonb, 2, 'There are 6 equally likely outcomes (1–6), and only one of them is a 6: P(6) = 1/6.', 'AC9M7P01', null, null, true, null, null),
+('fb70f0b9-45af-44ca-a7d5-379f78d6917b', 'statistics_probability', 'year_8', 'proficient', 'multiple_choice', 'The maximum daily temperature (°C) was recorded for 5 days:
+Day       | Temp (°C)
+Monday    | 12
+Tuesday   | 7
+Wednesday | 19
+Thursday  | 3
+Friday    | 15
+What is the range of the daily temperatures?', '["12","16","7","19"]'::jsonb, 1, 'Range = max − min = 19 − 3 = 16.', 'AC9M8ST01', null, null, true, null, null),
 ('4c9c48fc-ba92-47c2-b8e7-d85eee10b828', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Read: "Tom packed his bag and ran to catch the bus. He was late for school." Why did Tom run?', '["He wanted exercise","He was late for school","He lost his bag","He missed the bus"]'::jsonb, 1, 'The passage says Tom ''was late for school,'' which is why he ran to catch the bus.', 'AC9E3LY06', null, null, true, null, null),
 ('88176768-82e6-40f6-a4b6-e2a8449adfe7', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Read: "Although it was raining, Maya decided to go for a walk because she loved the smell of wet earth." What is Maya''s motivation for going outside?', '["She had to walk the dog","She loved the smell of rain","She was late","She wanted to get wet"]'::jsonb, 1, 'The word ''because'' signals her reason: she loved the smell of wet earth.', 'AC9E5LY07', null, null, true, null, null),
 ('f32db62e-cfd9-4ce9-a39e-0bf06cb95bc2', 'reading_comprehension', 'grade_6', 'developing', 'multiple_choice', 'In a story, a character who changes and grows over time is called a:', '["Static character","Dynamic character","Narrator","Antagonist"]'::jsonb, 1, 'A dynamic character undergoes meaningful internal change during the story.', 'AC9E6LE07', null, null, true, null, null),
@@ -156,27 +181,126 @@ values
 ('9190e288-22eb-429b-bbff-ad3610605c4c', 'geometry_measurement', 'year_10', 'proficient', 'multiple_choice', 'What is the volume of a cylinder with radius 5 cm and height 10 cm? (use π ≈ 3.14)', '["785 cm³","157 cm³","835 cm³","79 cm³"]'::jsonb, 0, 'V = πr²h = 3.14 × 5² × 10 = 785 cm³.', 'AC9M10M01', null, null, true, null, null),
 ('22ac34c3-6ca4-41f6-a24b-c44d778edee9', 'geometry_measurement', 'year_10', 'proficient', 'multiple_choice', 'What is the volume of a sphere with radius 3 cm? (use π ≈ 3.14, V = 4/3πr³)', '["113.1 cm³","84.8 cm³","37.7 cm³","339.1 cm³"]'::jsonb, 0, 'V = 4/3 × 3.14 × 3³ = 4/3 × 3.14 × 27 = 113.1 cm³.', 'AC9M10M01', null, null, true, null, null),
 ('b353a08f-7d72-48af-833a-46de67966067', 'geometry_measurement', 'year_10', 'proficient', 'multiple_choice', 'What is the volume of a cone with radius 3 cm and height 9 cm? (use π ≈ 3.14, V = 1/3πr²h)', '["84.8 cm³","254.3 cm³","28.3 cm³","169.6 cm³"]'::jsonb, 0, 'V = 1/3 × 3.14 × 3² × 9 = 1/3 × 3.14 × 81 = 84.8 cm³.', 'AC9M10M01', null, null, true, null, null),
-('05a57552-ed53-4b9d-831c-484584279528', 'statistics_probability', 'grade_3', 'foundation', 'multiple_choice', 'A tally shows: Apples ||||, Bananas ||, Oranges |||. Which fruit did the most students choose?', '["Apples","Bananas","Oranges","They are equal"]'::jsonb, 0, 'Apples has 4 tally marks, more than Bananas (2) or Oranges (3).', 'AC9M3ST01', null, null, true, null, null),
-('05719c4f-9249-49e6-9b94-0b181e02e565', 'statistics_probability', 'grade_3', 'foundation', 'multiple_choice', 'A picture graph shows 5 pictures for Cats and 3 pictures for Dogs. How many more students chose Cats than Dogs?', '["1","2","3","8"]'::jsonb, 1, '5 − 3 = 2 more students chose Cats.', 'AC9M3ST01', null, null, true, null, null),
-('4f7789eb-70d3-4156-accc-9e4b09e89db6', 'statistics_probability', 'grade_3', 'foundation', 'multiple_choice', 'A column graph shows pets owned by a class: Dogs = 6, Cats = 4, Fish = 2. How many pets were counted in total?', '["10","12","6","8"]'::jsonb, 1, '6 + 4 + 2 = 12 pets in total.', 'AC9M3ST01', null, null, true, null, null),
-('0e92e0f3-a5aa-4263-9f92-ffd09f22a318', 'statistics_probability', 'grade_4', 'developing', 'multiple_choice', 'A column graph shows books read: Mon = 3, Tue = 5, Wed = 2, Thu = 4. On which day were the fewest books read?', '["Monday","Tuesday","Wednesday","Thursday"]'::jsonb, 2, 'Wednesday has the smallest value, 2 books.', 'AC9M4ST01', null, null, true, null, null),
-('3cc0f8f9-eaea-4a3f-a2a1-071a073e9eb9', 'statistics_probability', 'grade_4', 'developing', 'multiple_choice', 'In a survey, 8 students chose soccer, 5 chose netball, and 3 chose tennis. What fraction of the 16 students chose soccer?', '["1/2","1/3","1/4","3/8"]'::jsonb, 0, '8 out of 16 students chose soccer: 8/16 simplifies to 1/2.', 'AC9M4ST01', null, null, true, null, null),
-('dadda4b0-cbba-44f0-a743-2d224a1902a0', 'statistics_probability', 'grade_4', 'developing', 'multiple_choice', 'What is the mode of: 9, 2, 2, 2, 8?', '["2","9","10","8"]'::jsonb, 0, 'The mode is the most frequent value. 2 appears most often in this data set.', 'AC9M4ST01', null, null, true, null, null),
-('22633c3a-dee6-4cf1-8a3d-78db545838a8', 'statistics_probability', 'grade_5', 'developing', 'multiple_choice', 'The heights (cm) of 5 plants are 24, 30, 18, 22, 26. What is the mean height?', '["22","24","26","30"]'::jsonb, 1, 'Sum = 24+30+18+22+26 = 120. Mean = 120 ÷ 5 = 24.', 'AC9M5ST01', null, null, true, null, null),
-('94fed85d-71e8-407d-97a9-3e2c5a7bc803', 'statistics_probability', 'grade_5', 'developing', 'multiple_choice', 'What is the mean of: 6, 8, 10, 12, 4?', '["7","12","8","9"]'::jsonb, 2, 'Sum = 6+8+10+12+4 = 40. Mean = 40 ÷ 5 = 8.', 'AC9M5ST01', null, null, true, null, null),
-('3635ff5d-9926-4dea-b316-50f847a12e1d', 'statistics_probability', 'grade_5', 'developing', 'multiple_choice', 'What is the mean of: 3, 6, 9, 12, 15?', '["15","9","10","8"]'::jsonb, 1, 'Sum = 3+6+9+12+15 = 45. Mean = 45 ÷ 5 = 9.', 'AC9M5ST01', null, null, true, null, null),
-('17979ab6-55da-43b2-96eb-384c0d3f1bf1', 'statistics_probability', 'grade_6', 'proficient', 'multiple_choice', 'What is the median of: 4, 8, 6, 2, 10, 12?', '["6","7","8","9"]'::jsonb, 1, 'Ordered: 2, 4, 6, 8, 10, 12. With 6 values, the median is the mean of the two middle values: (6 + 8) ÷ 2 = 7.', 'AC9M6ST01', null, null, true, null, null),
-('8bee9e7e-b126-4b7f-88cf-9b807f7bc89b', 'statistics_probability', 'grade_6', 'developing', 'multiple_choice', 'Median of: 2, 6, 8, 10, 14?', '["2","14","6","8"]'::jsonb, 3, 'Data ordered: 2, 6, 8, 10, 14. The middle value (3rd of 5) is 8.', 'AC9M6ST01', null, null, true, null, null),
-('78e484a8-d49c-4e70-b0a0-a48f0d120f41', 'statistics_probability', 'grade_6', 'developing', 'multiple_choice', 'A data set is: 5, 8, 5, 3, 9, 5, 7. What is the range?', '["5","6","9","4"]'::jsonb, 1, 'Range = max − min = 9 − 3 = 6.', 'AC9M6ST01', null, null, true, null, null),
-('7ae20c34-1e76-4ccb-bea8-715be3833434', 'statistics_probability', 'year_7', 'developing', 'multiple_choice', 'A bag contains 4 red balls and 6 blue balls. What is the probability of drawing a blue ball?', '["3/5","2/5","4/10","6/4"]'::jsonb, 0, 'There are 6 blue balls out of 10 total: 6/10 simplifies to 3/5.', 'AC9M7P01', null, null, true, null, null),
-('01a71c8b-d3c3-45b7-a9f9-aec9fb89aa2f', 'statistics_probability', 'year_7', 'developing', 'multiple_choice', 'The probability that it rains tomorrow is 0.3. What is the probability that it does NOT rain?', '["0.3","0.7","1.3","0"]'::jsonb, 1, 'Probabilities of complementary events add to 1: 1 − 0.3 = 0.7.', 'AC9M7P02', null, null, true, null, null),
-('24ca0892-e742-40b3-90d2-bacd6f042369', 'statistics_probability', 'year_7', 'developing', 'multiple_choice', 'A spinner has 8 equal sections numbered 1–8. What is the probability of landing on a number greater than 6?', '["1/8","1/4","3/8","1/2"]'::jsonb, 1, 'Numbers greater than 6 are 7 and 8 — that is 2 out of 8 sections, which simplifies to 1/4.', 'AC9M7P01', null, null, true, null, null),
-('c5c7eb76-54bf-4f9c-b00b-44897e638c16', 'statistics_probability', 'year_8', 'developing', 'multiple_choice', 'Which measure of centre is most affected by an extreme outlier in the data?', '["Mean","Median","Mode","Range"]'::jsonb, 0, 'The mean uses every value in its calculation, so one very large or small outlier pulls it away from the rest of the data more than the median or mode.', 'AC9M8ST02', null, null, true, null, null),
-('a5905cfb-1498-4cc9-b88c-b66171e8b927', 'statistics_probability', 'year_8', 'proficient', 'multiple_choice', 'Range of: 20, 5, 25, 10, 15?', '["18","20","25","23"]'::jsonb, 1, 'Range = max − min = 25 − 5 = 20.', 'AC9M8ST01', null, null, true, null, null),
-('1c05508f-88a4-44e6-92c3-ef70bfe815f8', 'statistics_probability', 'year_8', 'proficient', 'multiple_choice', 'Range of: 8, 2, 16, 4, 10?', '["14","16","17","12"]'::jsonb, 0, 'Range = max − min = 16 − 2 = 14.', 'AC9M8ST01', null, null, true, null, null),
-('ad5e5694-03c5-45e1-80ae-e76b2276f813', 'statistics_probability', 'year_9', 'developing', 'multiple_choice', 'If P(A) = 0.5 and P(B) = 0.4, and A and B are independent, what is P(A and B)?', '["0.9","0.1","0.5","0.2"]'::jsonb, 3, 'For independent events, P(A and B) = P(A) × P(B) = 0.5 × 0.4 = 0.2.', 'AC9M9P01', null, null, true, null, null),
-('58bfdf43-2257-4814-9ae8-879911ca29b1', 'statistics_probability', 'year_9', 'developing', 'multiple_choice', 'If P(A) = 0.6 and P(B) = 0.3, and A and B are independent, what is P(A and B)?', '["0.3","0.6","0.18","0.9"]'::jsonb, 2, 'For independent events, P(A and B) = P(A) × P(B) = 0.6 × 0.3 = 0.18.', 'AC9M9P01', null, null, true, null, null),
-('ef259b67-35f8-4296-ac80-2e647796ccf0', 'statistics_probability', 'year_9', 'developing', 'multiple_choice', 'The probability that a light bulb fails a quality test is 0.1. What is the probability that it passes?', '["0.1","0.9","1.1","0"]'::jsonb, 1, 'Probabilities of complementary events add to 1: 1 − 0.1 = 0.9.', 'AC9M9P02', null, null, true, null, null),
+('05a57552-ed53-4b9d-831c-484584279528', 'statistics_probability', 'grade_3', 'foundation', 'multiple_choice', 'A class voted for their favourite fruit. Here are the tally results:
+Fruit   | Tally
+Apples  | ||||
+Bananas | ||
+Oranges | |||
+Which fruit did the most students choose?', '["Apples","Bananas","Oranges","They are equal"]'::jsonb, 0, 'Apples has 4 tally marks, more than Bananas (2) or Oranges (3).', 'AC9M3ST01', null, null, true, null, null),
+('05719c4f-9249-49e6-9b94-0b181e02e565', 'statistics_probability', 'grade_3', 'foundation', 'multiple_choice', 'A pictogram shows the pets chosen as favourites by a class, where each picture (🐾) stands for 1 student.
+Cats: 🐾🐾🐾🐾🐾
+Dogs: 🐾🐾🐾
+How many more students chose Cats than Dogs?', '["1","2","3","8"]'::jsonb, 1, '5 − 3 = 2 more students chose Cats.', 'AC9M3ST01', null, null, true, null, null),
+('4f7789eb-70d3-4156-accc-9e4b09e89db6', 'statistics_probability', 'grade_3', 'developing', 'multiple_choice', 'A class kept a record of the pets owned by its students:
+Pet  | Number of pets
+Dogs | 6
+Cats | 4
+Fish | 2
+How many pets were counted in total?', '["10","12","6","8"]'::jsonb, 1, '6 + 4 + 2 = 12 pets in total.', 'AC9M3ST01', null, null, true, null, null),
+('0e92e0f3-a5aa-4263-9f92-ffd09f22a318', 'statistics_probability', 'grade_4', 'developing', 'multiple_choice', 'A column graph shows how many books a class read each day:
+Day       | Books
+Monday    | 3
+Tuesday   | 5
+Wednesday | 2
+Thursday  | 4
+On which day were the fewest books read?', '["Monday","Tuesday","Wednesday","Thursday"]'::jsonb, 2, 'Wednesday has the smallest value, 2 books.', 'AC9M4ST01', null, null, true, null, null),
+('3cc0f8f9-eaea-4a3f-a2a1-071a073e9eb9', 'statistics_probability', 'grade_4', 'developing', 'multiple_choice', 'A survey of 16 students asked their favourite sport:
+Sport   | Students
+Soccer  | 8
+Netball | 5
+Tennis  | 3
+What fraction of the 16 students chose soccer?', '["1/2","1/3","1/4","3/8"]'::jsonb, 0, '8 out of 16 students chose soccer: 8/16 simplifies to 1/2.', 'AC9M4ST01', null, null, true, null, null),
+('dadda4b0-cbba-44f0-a743-2d224a1902a0', 'statistics_probability', 'grade_4', 'developing', 'multiple_choice', 'The table shows the number of goals scored by a soccer team in 5 matches:
+Match | Goals
+1     | 9
+2     | 2
+3     | 2
+4     | 2
+5     | 8
+What is the mode of the goals scored?', '["2","9","10","8"]'::jsonb, 0, 'The mode is the most frequent value. The team scored 2 goals in three of the five matches.', 'AC9M4ST01', null, null, true, null, null),
+('22633c3a-dee6-4cf1-8a3d-78db545838a8', 'statistics_probability', 'grade_5', 'developing', 'multiple_choice', 'A gardener measured the heights of 5 tomato plants:
+Plant | Height (cm)
+A     | 24
+B     | 30
+C     | 18
+D     | 22
+E     | 26
+What is the mean height of the plants?', '["22","24","26","30"]'::jsonb, 1, 'Sum = 24+30+18+22+26 = 120. Mean = 120 ÷ 5 = 24.', 'AC9M5ST01', null, null, true, null, null),
+('94fed85d-71e8-407d-97a9-3e2c5a7bc803', 'statistics_probability', 'grade_5', 'foundation', 'multiple_choice', 'A shoe shop recorded the shoe size sold to 5 customers:
+Customer | Shoe size
+1        | 6
+2        | 8
+3        | 10
+4        | 12
+5        | 8
+What is the mode of the shoe sizes sold?', '["6","10","8","12"]'::jsonb, 2, 'The mode is the value that appears most often. Size 8 was sold twice — more than any other size.', 'AC9M5ST01', null, null, true, null, null),
+('3635ff5d-9926-4dea-b316-50f847a12e1d', 'statistics_probability', 'grade_5', 'developing', 'short_answer', 'The amount of pocket money (in $) that Priya saved over 5 weeks was:
+Week | Savings ($)
+1    | 3
+2    | 6
+3    | 9
+4    | 12
+5    | 15
+What is the range of the weekly savings?', null, null, 'Range = highest − lowest = 15 − 3 = $12.', 'AC9M5ST01', null, null, true, '12', ARRAY['$12', '12 dollars']::text[]),
+('17979ab6-55da-43b2-96eb-384c0d3f1bf1', 'statistics_probability', 'grade_6', 'proficient', 'multiple_choice', 'The overnight temperature (°C) was recorded for 6 nights:
+Night | Temp (°C)
+1     | 4
+2     | 8
+3     | 6
+4     | 2
+5     | 10
+6     | 12
+What is the median overnight temperature?', '["6","7","8","9"]'::jsonb, 1, 'Ordered: 2, 4, 6, 8, 10, 12. With 6 values, the median is the mean of the two middle values: (6 + 8) ÷ 2 = 7.', 'AC9M6ST01', null, null, true, null, null),
+('8bee9e7e-b126-4b7f-88cf-9b807f7bc89b', 'statistics_probability', 'grade_6', 'developing', 'multiple_choice', 'A café recorded the number of coffees sold each hour it was open:
+Hour  | Coffees sold
+1     | 2
+2     | 6
+3     | 8
+4     | 10
+5     | 14
+What is the mode of the coffees sold per hour?', '["There is no mode","14","6","8"]'::jsonb, 0, 'Every value (2, 6, 8, 10, 14) appears exactly once, so there is no mode.', 'AC9M6ST01', null, null, true, null, null),
+('78e484a8-d49c-4e70-b0a0-a48f0d120f41', 'statistics_probability', 'grade_6', 'developing', 'multiple_choice', 'A hiker recorded the distance (km) walked on 7 different days:
+Day | Distance (km)
+1   | 5
+2   | 8
+3   | 5
+4   | 3
+5   | 9
+6   | 5
+7   | 7
+What is the range of the distances walked?', '["5","6","9","4"]'::jsonb, 1, 'Range = max − min = 9 − 3 = 6.', 'AC9M6ST01', null, null, true, null, null),
+('7ae20c34-1e76-4ccb-bea8-715be3833434', 'statistics_probability', 'year_7', 'developing', 'multiple_choice', 'A bag contains counters of two colours:
+Colour | Count
+Red    | 4
+Blue   | 6
+What is the probability of drawing a blue counter?', '["3/5","2/5","4/10","6/4"]'::jsonb, 0, 'There are 6 blue counters out of 10 total: 6/10 simplifies to 3/5.', 'AC9M7P01', null, null, true, null, null),
+('01a71c8b-d3c3-45b7-a9f9-aec9fb89aa2f', 'statistics_probability', 'year_7', 'developing', 'multiple_choice', 'The weather bureau reports that the probability it rains tomorrow is 0.3. What is the probability that it does NOT rain?', '["0.3","0.7","1.3","0"]'::jsonb, 1, 'Probabilities of complementary events add to 1: 1 − 0.3 = 0.7.', 'AC9M7P02', null, null, true, null, null),
+('24ca0892-e742-40b3-90d2-bacd6f042369', 'statistics_probability', 'year_7', 'developing', 'short_answer', 'A spinner has 8 equal sections numbered 1 to 8. What is the probability, as a fraction in simplest form, of landing on a number greater than 6?', null, null, 'Numbers greater than 6 are 7 and 8 — that is 2 out of 8 sections, which simplifies to 1/4.', 'AC9M7P01', null, null, true, '1/4', ARRAY['2/8', '0.25', '25%']::text[]),
+('c5c7eb76-54bf-4f9c-b00b-44897e638c16', 'statistics_probability', 'year_8', 'advanced', 'multiple_choice', 'A survey of 60 Year 8 students asked whether they own a pet, split by whether they are a day student or a boarder:
+            | Owns a pet | No pet | Total
+Day student | 24         | 16     | 40
+Boarder     | 9          | 11     | 20
+Total       | 33         | 27     | 60
+What is the probability that a randomly selected student is a boarder who owns a pet?', '["3/20","9/60","9/20","11/60"]'::jsonb, 0, '9 of the 60 students are boarders who own a pet: 9/60 simplifies to 3/20.', 'AC9M8ST02', null, null, true, null, null),
+('a5905cfb-1498-4cc9-b88c-b66171e8b927', 'statistics_probability', 'year_8', 'proficient', 'multiple_choice', 'The times (in seconds) for 5 runners in a 100 m sprint were:
+Runner | Time (s)
+A      | 15.2
+B      | 20.1
+C      | 12.8
+D      | 14.6
+E      | 13.9
+What is the median race time?', '["14.6","13.9","15.2","14.2"]'::jsonb, 0, 'Ordered: 12.8, 13.9, 14.6, 15.2, 20.1. With 5 values, the median is the 3rd value: 14.6.', 'AC9M8ST01', null, null, true, null, null),
+('1c05508f-88a4-44e6-92c3-ef70bfe815f8', 'statistics_probability', 'year_8', 'developing', 'short_answer', 'A shoe shop recorded the shoe sizes sold to 5 customers:
+Customer | Shoe size
+1        | 8
+2        | 2
+3        | 16
+4        | 4
+5        | 10
+What is the range of the shoe sizes sold?', null, null, 'Range = max − min = 16 − 2 = 14.', 'AC9M8ST01', null, null, true, '14', ARRAY['14 sizes']::text[]),
+('ad5e5694-03c5-45e1-80ae-e76b2276f813', 'statistics_probability', 'year_9', 'developing', 'multiple_choice', 'On a given day, the probability of rain is 0.5, and the probability of strong wind is 0.4. These two events are independent. What is the probability that it rains AND is windy on that day?', '["0.9","0.1","0.5","0.2"]'::jsonb, 3, 'For independent events, P(A and B) = P(A) × P(B) = 0.5 × 0.4 = 0.2.', 'AC9M9P01', null, null, true, null, null),
+('58bfdf43-2257-4814-9ae8-879911ca29b1', 'statistics_probability', 'year_9', 'proficient', 'multiple_choice', 'A card is drawn from a standard 52-card deck. Let A = drawing a heart, with P(A) = 0.25, and B = drawing a spade, with P(B) = 0.25. A card cannot be both a heart and a spade, so A and B are mutually exclusive. What is P(A or B)?', '["0.5","0.0625","0.25","1"]'::jsonb, 0, 'For mutually exclusive events, P(A or B) = P(A) + P(B) = 0.25 + 0.25 = 0.5.', 'AC9M9P01', null, null, true, null, null),
+('ef259b67-35f8-4296-ac80-2e647796ccf0', 'statistics_probability', 'year_9', 'developing', 'multiple_choice', 'A quality inspector finds that the probability a light bulb fails a test is 0.1. What is the probability that a randomly chosen bulb passes the test?', '["0.1","0.9","1.1","0"]'::jsonb, 1, 'Probabilities of complementary events add to 1: 1 − 0.1 = 0.9.', 'AC9M9P02', null, null, true, null, null),
 ('33ba0bde-9e60-4363-b071-94f8999ec83e', 'statistics_probability', 'year_10', 'developing', 'multiple_choice', 'A data set has Q1 = 10 and Q3 = 18. What is the interquartile range (IQR)?', '["8","18","10","19"]'::jsonb, 0, 'IQR = Q3 − Q1 = 18 − 10 = 8.', 'AC9M10ST01', null, null, true, null, null),
 ('1627fa12-a6e1-42f8-bb1f-9234b9c854a7', 'statistics_probability', 'year_10', 'developing', 'multiple_choice', 'A data set has Q1 = 15 and Q3 = 25. What is the interquartile range (IQR)?', '["25","15","26","10"]'::jsonb, 3, 'IQR = Q3 − Q1 = 25 − 15 = 10.', 'AC9M10ST01', null, null, true, null, null),
 ('b38473c1-47fc-4301-a8cc-5bd40adbe16f', 'statistics_probability', 'year_10', 'developing', 'multiple_choice', 'An ordered data set is: 2, 4, 5, 7, 9, 12, 15. What is the median of this data set?', '["5","7","9","4"]'::jsonb, 1, 'With 7 values, the median is the 4th value: 7.', 'AC9M10ST01', null, null, true, null, null),
@@ -585,6 +709,40 @@ values
 ('8deca51a-ea5b-435d-bef7-d954d53f664b', 'number_operations', 'year_7', 'developing', 'multiple_choice', 'A water tank''s level was dropping by 4 cm each hour. Looking back at the reading from 6 hours ago, how does that past level compare to now, calculated as −4 × −6?', '["−24","24","−10","10"]'::jsonb, 1, 'A negative times a negative gives a positive: 4 × 6 = 24 cm.', 'AC9M7N02', null, null, true, null, null),
 ('e6842764-aeae-4a1c-a64c-7c6aa6dcafe9', 'number_operations', 'year_7', 'proficient', 'short_answer', 'A phone plan charges a $3 flat fee plus $4 per hour of overage, and Priya used 2 hours of overage this month. Using 3 + 4 × 2, what is her total charge?', null, null, 'Order of operations: multiply first (4 × 2 = 8), then add: 3 + 8 = 11.', 'AC9M7N04', null, null, true, '11', null),
 ('37db7f1b-9e7c-4b35-897d-40e71172fe98', 'number_operations', 'year_7', 'proficient', 'short_answer', 'A survey of 640 students found that 0.45 of them own a pet. How many students own a pet?', null, null, '0.45 × 640 = 288 students.', 'AC9M7N03', null, true, true, '288', null),
+('519ffa79-43b2-4f66-8d1b-623a80140cc5', 'number_operations', 'year_7', 'developing', 'multiple_choice', 'The bar chart shows how many cans of food each class collected for a food drive. What is the total number of cans collected by all four classes?', '["118","128","138","148"]'::jsonb, 1, 'Add all four bars: 34 + 28 + 41 + 25 = 128 cans.', 'AC9M7N06', null, null, true, null, null),
+('6c06f0b1-ff59-4f57-b638-eae535e7f516', 'number_operations', 'year_7', 'proficient', 'short_answer', 'The bar chart shows how much pocket money a student saved each week. What was the average (mean) amount saved per week, in dollars?', null, null, 'Total saved = 12 + 18 + 15 + 21 = 66. Mean = 66 ÷ 4 = $16.50.', 'AC9M7N06', null, true, true, '16.5', ARRAY['$16.50', '16.50', '$16.5']::text[]),
+('062f0fce-00a6-48a7-b6ff-3e3fd35430e5', 'number_operations', 'year_7', 'developing', 'multiple_choice', 'The bar chart shows how many books four students read this term. How many more books did Zoe read than Kai?', '["3","4","5","6"]'::jsonb, 2, 'Zoe read 9 books and Kai read 4: 9 − 4 = 5.', 'AC9M7N02', null, null, true, null, null),
+('58b446c8-a4dc-459b-a90a-0864836f904e', 'statistics_probability', 'year_7', 'proficient', 'short_answer', 'The bar chart shows cars sold each month. What is the range of the number of cars sold?', null, null, 'Range = highest − lowest = 18 − 9 = 9.', 'AC9M7ST01', null, null, true, '9', null),
+('bb5b9410-ad9c-475f-846a-d22523932ae0', 'number_operations', 'year_7', 'developing', 'multiple_choice', 'A submarine starts at −6 m (relative to sea level) and rises to the position shown as ''End''. What is the total change in the submarine''s height?', '["3 m","6 m","9 m","15 m"]'::jsonb, 2, 'Change = end − start = 3 − (−6) = 9 m.', 'AC9M7N02', null, null, true, null, null),
+('9ac0e8d1-fda4-4ddf-ae9a-718ba4b0ea42', 'algebra_equations', 'year_7', 'proficient', 'short_answer', 'The number line shows the first three terms of a pattern that increases by the same amount each time. What is the value of Term 5?', null, null, 'Each term increases by 4 (7 − 3 = 4, 11 − 7 = 4). Term 4 = 15, Term 5 = 19.', 'AC9M7A01', null, null, true, '19', null),
+('9092ce41-8c93-4c41-92f2-e7c628026385', 'statistics_probability', 'year_7', 'proficient', 'multiple_choice', 'The dot plot shows the number of siblings for 12 students. What is the mode?', '["0","1","2","3"]'::jsonb, 2, '2 siblings occurs most often (5 times), so the mode is 2.', 'AC9M7ST02', null, null, true, null, null),
+('c2135fd9-60b0-4703-9b04-e88e0509e162', 'statistics_probability', 'year_7', 'proficient', 'short_answer', 'The dot plot shows test scores for 9 students. What is the median score?', null, null, 'With 9 ordered values, the median is the 5th value: 8.', 'AC9M7ST02', null, null, true, '8', null),
+('63de1c3d-dc33-428b-b0e1-ec17d36e3898', 'geometry_measurement', 'year_7', 'developing', 'multiple_choice', 'Sam starts at the Library shown on the map and walks 2 cells east and 1 cell north. Which cell does Sam end up in?', '["C3","D3","D4","E3"]'::jsonb, 1, 'From B2, moving 2 cells east reaches D2, then 1 cell north reaches D3.', 'AC9M7SP01', null, null, true, null, null),
+('b8a32cba-1810-49c4-8f38-bc45870adf48', 'geometry_measurement', 'year_7', 'proficient', 'short_answer', 'Each cell on the map represents 1 km. Using the shortest path along grid lines (not diagonally), how many kilometres is it from Home to School?', null, null, 'Horizontal distance = 3 km (A to D), vertical distance = 4 km (row 1 to row 5). Total = 3 + 4 = 7 km.', 'AC9M7SP01', null, null, true, '7', ARRAY['7 km']::text[]),
+('2882bff1-ff0a-42d2-8ea2-8afe195cdaaa', 'geometry_measurement', 'year_7', 'developing', 'short_answer', 'A rectangular garden bed has the dimensions shown. What is its perimeter, in centimetres?', null, null, 'Perimeter = 2 × (length + width) = 2 × (12 + 5) = 34 cm.', 'AC9M7M02', null, null, true, '34', ARRAY['34 cm']::text[]),
+('e10823cd-e53f-4a8c-bf27-11eedc7765df', 'geometry_measurement', 'year_7', 'developing', 'multiple_choice', 'What is the area of the rectangle shown?', '["13 m²","26 m²","36 m²","40 m²"]'::jsonb, 2, 'Area = length × width = 9 × 4 = 36 m².', 'AC9M7M03', null, null, true, null, null),
+('584b2fe1-fe6c-44f7-ab79-fc08afd389b0', 'geometry_measurement', 'year_7', 'proficient', 'short_answer', 'What is the area of the right-angled triangle shown?', null, null, 'Area of a right triangle = ½ × base × height = ½ × 8 × 6 = 24 cm².', 'AC9M7M03', null, null, true, '24', ARRAY['24 cm²', '24cm2']::text[]),
+('f3d7198a-a761-45e0-82ac-6043e1fc88bc', 'number_operations', 'year_7', 'developing', 'multiple_choice', 'What is the total number of steps (in thousands) walked over the four days shown?', '["28","29","30","31"]'::jsonb, 3, '8 + 6 + 10 + 7 = 31 thousand steps.', 'AC9M7N02', null, null, true, null, null),
+('e884cb68-2f76-4a6c-b458-4ddc0aaf7488', 'algebra_equations', 'year_7', 'proficient', 'short_answer', 'The number line shows a temperature pattern over three days, increasing by the same amount each day. If the pattern continues, what temperature (°C) would Day 5 be?', null, null, 'Each day increases by 3°C (5 − 2 = 3, 8 − 5 = 3). Day 4 = 11°C, Day 5 = 14°C.', 'AC9M7A01', null, null, true, '14', ARRAY['14°C', '14 degrees']::text[]),
+('a13de7e8-6d6f-4e92-b6ee-d1d4d39b0c76', 'statistics_probability', 'year_7', 'proficient', 'multiple_choice', 'The dot plot shows the number of pets owned by 10 households. How many households own at least 2 pets?', '["3","4","5","6"]'::jsonb, 1, 'Households with 2 pets: 3. Households with 3 pets: 1. Total = 3 + 1 = 4.', 'AC9M7ST02', null, null, true, null, null),
+('4ef24d74-5aae-484a-8014-592e166908da', 'geometry_measurement', 'year_7', 'developing', 'multiple_choice', 'A rectangular paddock has the dimensions shown. If a fence is built around the entire paddock, how many metres of fencing are needed?', '["22 m","37 m","44 m","105 m"]'::jsonb, 2, 'Perimeter = 2 × (15 + 7) = 44 m.', 'AC9M7M02', null, null, true, null, null),
+('92139036-e8f8-4ca0-892a-ce64f3813636', 'geometry_measurement', 'year_7', 'proficient', 'short_answer', 'What is the total distance run across all four laps shown, in metres?', null, null, '400 + 350 + 420 + 380 = 1550 m.', 'AC9M7N02', null, null, true, '1550', ARRAY['1550 m', '1,550', '1,550 m']::text[]),
+('3d6e4c54-ae48-4fa9-b2a4-e7237606305d', 'number_operations', 'year_7', 'proficient', 'short_answer', 'The bar chart shows fundraising totals for four classes. What is the combined total raised by all four classes, in dollars?', null, null, '186.50 + 214.75 + 159.20 + 233.05 = $793.50.', 'AC9M7N04', null, true, true, '793.50', ARRAY['$793.50', '793.5']::text[]),
+('fec1a69d-00bd-48f8-b6bf-074fd49251c3', 'statistics_probability', 'year_7', 'developing', 'multiple_choice', 'What is the range of the monthly rainfall shown?', '["33","45","62","78"]'::jsonb, 1, 'Range = highest − lowest = 78 − 33 = 45 mm.', 'AC9M7ST01', null, true, true, null, null),
+('2ece6c14-c1e6-4e4d-be13-8e21f8527c54', 'number_operations', 'year_7', 'proficient', 'multiple_choice', 'Point P is marked on the number line. What is the value of P?', '["2.0","2.4","2.5","3.0"]'::jsonb, 1, 'Point P sits between 2 and 2.5, at 2.4.', 'AC9M7N01', null, true, true, null, null),
+('56718cb0-ffcb-4a30-b8e2-79a0d2de790e', 'number_operations', 'year_7', 'proficient', 'short_answer', 'The temperature starts at the value shown on the number line and drops by a further 3.5°C. What is the new temperature?', null, null, '−6.5 − 3.5 = −10°C.', 'AC9M7N02', null, true, true, '-10', ARRAY['-10°C', '-10 degrees']::text[]),
+('839ddb75-77d3-4e41-bc9f-33324a4ac9e2', 'statistics_probability', 'year_7', 'proficient', 'short_answer', 'The dot plot shows race times for 8 runners. What was the mean race time, in seconds (2 decimal places)?', null, null, 'Sum = 116.7 seconds. Mean = 116.7 ÷ 8 = 14.59 seconds (2 d.p.).', 'AC9M7ST02', null, true, true, '14.59', ARRAY['14.6', '14.59 s', '14.59 seconds']::text[]),
+('6595f8ae-3ebb-4e46-9ab7-a3ef1397d078', 'statistics_probability', 'year_7', 'developing', 'multiple_choice', 'What is the mode number of goals scored per match?', '["0","1","2","3"]'::jsonb, 2, '2 goals occurs most often (5 times).', 'AC9M7ST02', null, true, true, null, null),
+('b34774ad-bda8-4d14-bb8b-46bda8b818fb', 'geometry_measurement', 'year_7', 'proficient', 'short_answer', 'Each cell on the map represents 1.5 km. Using the shortest path along grid lines, how many kilometres is it from the Depot to the Warehouse?', null, null, 'Horizontal + vertical distance = 4 + 4 = 8 grid cells. 8 × 1.5 km = 12 km.', 'AC9M7SP01', null, true, true, '12', ARRAY['12 km']::text[]),
+('c6466c83-e286-495b-9a5c-27848e0f41cd', 'geometry_measurement', 'year_7', 'developing', 'multiple_choice', 'A drone starts at the position shown and flies 2 cells west and 2 cells south. Which cell does it land in?', '["A1","A5","E1","E5"]'::jsonb, 0, 'From C3, 2 cells west reaches A3, then 2 cells south reaches A1.', 'AC9M7SP01', null, true, true, null, null),
+('d5b2718c-6581-450e-aead-621358606d41', 'geometry_measurement', 'year_7', 'proficient', 'short_answer', 'What is the area of the rectangular deck shown, in square metres?', null, null, 'Area = 6.5 × 3.2 = 20.8 m².', 'AC9M7M03', null, true, true, '20.8', ARRAY['20.8 m²']::text[]),
+('d6919666-7d8f-4661-b665-d9fcabffc795', 'geometry_measurement', 'year_7', 'proficient', 'multiple_choice', 'What is the perimeter of the rectangle shown?', '["22.75 cm","38.5 cm","45.5 cm","119.6 cm"]'::jsonb, 2, 'Perimeter = 2 × (14.5 + 8.25) = 45.5 cm.', 'AC9M7M02', null, true, true, null, null),
+('66756674-793a-46cc-b535-2886980c2966', 'geometry_measurement', 'year_7', 'advanced', 'short_answer', 'What is the area of the right-angled triangle shown?', null, null, 'Area = ½ × 9.4 × 5.6 = 26.32 cm².', 'AC9M7M03', null, true, true, '26.32', ARRAY['26.32 cm²']::text[]),
+('5edf836f-9aca-4ac0-b894-f0513da58016', 'number_operations', 'year_7', 'proficient', 'multiple_choice', 'What is the total revenue from Shoes and Bags combined?', '["$6410","$7970","$8070","$8170"]'::jsonb, 2, '4250 + 3820 = $8070.', 'AC9M7N04', null, true, true, null, null),
+('bfd90e0e-4d7f-4102-b9db-bf8c2fcd5344', 'algebra_equations', 'year_7', 'developing', 'multiple_choice', 'The number line shows a value x and the result of x + 8. What is the value of x?', '["4","6","8","14"]'::jsonb, 1, 'The mark for x sits at 6, and x + 8 = 14 confirms 6 + 8 = 14.', 'AC9M7A02', null, true, true, null, null),
+('96d4d2f3-1b2e-469f-8069-ae2871a63718', 'statistics_probability', 'year_7', 'proficient', 'short_answer', 'The dot plot shows delivery times for 9 deliveries. What is the median delivery time?', null, null, 'Ordered: 22, 22, 24, 25, 25, 25, 26, 28, 30. The median (5th value) is 25 minutes.', 'AC9M7ST02', null, true, true, '25', ARRAY['25 minutes', '25 min']::text[]),
+('c07f7ef2-46a2-46a7-bbe5-bdef3b5e50ed', 'geometry_measurement', 'year_7', 'advanced', 'short_answer', 'A rectangular yard has the dimensions shown. Fencing costs $6.50 per metre. What is the total cost to fence the entire yard?', null, null, 'Perimeter = 2 × (18.5 + 11.2) = 59.4 m. Cost = 59.4 × $6.50 = $386.10.', 'AC9M7M02', null, true, true, '386.10', ARRAY['$386.10', '386.1', '$386.1']::text[]),
+('dc74a405-f6e1-4ea7-b8ba-c90e5ed978b4', 'number_operations', 'year_7', 'proficient', 'short_answer', 'What was the average (mean) weekly water use shown, in litres?', null, null, 'Total = 5130 L. Mean = 5130 ÷ 4 = 1282.5 L.', 'AC9M7N04', null, true, true, '1282.5', ARRAY['1282.5 L', '1282.5 litres']::text[]),
 ('4d066aa3-091f-4c8e-8e33-6f3c8d5cd358', 'number_operations', 'year_8', 'foundation', 'multiple_choice', 'In a science report, a student writes a quantity as 2³ × 2². Simplify this expression using index laws.', '["2¹","2⁵","2⁶","4⁵"]'::jsonb, 1, 'When multiplying powers with the same base, add the exponents: 3 + 2 = 5.', 'AC9M8N02', null, null, true, null, null),
 ('684e1a12-324b-4f0c-bf5f-cc87bb130120', 'number_operations', 'year_8', 'developing', 'multiple_choice', 'A delivery van travels 341 km in 5.5 hours. What is its average speed in km/h?', '["58 km/h","62 km/h","65 km/h","60 km/h"]'::jsonb, 1, 'Speed = distance ÷ time = 341 ÷ 5.5 = 62 km/h.', 'AC9M8N01', null, true, true, null, null),
 ('39c8861d-64e6-485b-a523-ea6ab626aabc', 'number_operations', 'year_8', 'proficient', 'multiple_choice', 'A trophy cabinet has 18 gold medals and 24 silver medals. Simplify the ratio of gold to silver medals.', '["3:4","9:12","2:3","6:8"]'::jsonb, 0, 'Divide both parts by their highest common factor, 6: 18÷6=3, 24÷6=4.', 'AC9M8N01', null, null, true, null, null),
@@ -1198,7 +1356,41 @@ values
 ('69e05fce-ba8f-4097-b696-4c4e071791f7', 'sm_vectors', 'year_11', 'developing', 'long_form', 'Given vectors a = (3, −2) and b = (−1, 4), find a + b, a − b, and 2a. Show your working.', null, null, 'Model answer: a + b = (3+(−1), −2+4) = (2, 2). a − b = (3−(−1), −2−4) = (4, −6). 2a = (2×3, 2×(−2)) = (6, −4). Award marks for each of the three correctly computed vectors.', null, null, null, true, null, null),
 ('35dd36e9-7c1b-4e7e-95a9-36af505e4385', 'sm_vectors', 'year_11', 'proficient', 'long_form', 'Find the dot product of vectors u = (2, 5) and v = (−3, 4), and use it to determine whether the vectors are perpendicular. Show your working.', null, null, 'Model answer: u·v = (2×−3) + (5×4) = −6 + 20 = 14. Since the dot product is not 0, the vectors are NOT perpendicular (perpendicular vectors would need a dot product of exactly 0). Award marks for the correct dot product calculation and the correct perpendicularity conclusion.', null, null, null, true, null, null),
 ('7adffeba-5d23-46fb-85ae-a5069a356fb0', 'sm_vectors', 'year_11', 'proficient', 'long_form', 'Find the magnitude of the vector v = (5, −12), and hence find the unit vector in the direction of v. Show your working.', null, null, 'Model answer: magnitude = √(5² + (−12)²) = √(25 + 144) = √169 = 13. Unit vector = v / |v| = (5/13, −12/13). Award marks for the correct magnitude and correctly dividing each component by the magnitude.', null, null, null, true, null, null),
-('03798709-bd7e-4875-a679-696c8e90886a', 'sm_vectors', 'year_11', 'foundation', 'long_form', 'Explain what it means for two vectors to be parallel, and give an example of two parallel vectors that are not equal.', null, null, 'Model answer: two vectors are parallel if one is a scalar multiple of the other (they point in the same or exactly opposite direction, though possibly with different magnitudes). Example: a = (2, 3) and b = (4, 6) are parallel since b = 2a, but they are not equal since their magnitudes differ. Award marks for the correct definition and a valid example demonstrating scalar-multiple parallelism with unequal vectors.', null, null, null, true, null, null)
+('03798709-bd7e-4875-a679-696c8e90886a', 'sm_vectors', 'year_11', 'foundation', 'long_form', 'Explain what it means for two vectors to be parallel, and give an example of two parallel vectors that are not equal.', null, null, 'Model answer: two vectors are parallel if one is a scalar multiple of the other (they point in the same or exactly opposite direction, though possibly with different magnitudes). Example: a = (2, 3) and b = (4, 6) are parallel since b = 2a, but they are not equal since their magnitudes differ. Award marks for the correct definition and a valid example demonstrating scalar-multiple parallelism with unequal vectors.', null, null, null, true, null, null),
+('c32dad94-42d1-4164-a7b4-09b020523137', 'statistics_probability', 'grade_3', 'foundation', 'multiple_choice', 'The bar chart shows how many fish each class caught. How many fish did class 3A and class 3C catch altogether?', '["7","11","15","18"]'::jsonb, 1, '3A caught 5 fish and 3C caught 6 fish: 5 + 6 = 11.', 'AC9M3ST01', null, null, true, null, null),
+('a47bfd52-27a1-435e-acb9-4c54330f450e', 'statistics_probability', 'grade_3', 'foundation', 'multiple_choice', 'How many more students picked the Slide than the Seesaw?', '["2","3","5","7"]'::jsonb, 1, 'Slide had 5 votes and Seesaw had 2: 5 − 2 = 3.', 'AC9M3ST01', null, null, true, null, null),
+('859aa5e7-8646-4204-b445-331e5d02389d', 'statistics_probability', 'grade_3', 'foundation', 'multiple_choice', 'On which day were the most cupcakes sold?', '["Monday","Tuesday","Wednesday","Thursday"]'::jsonb, 2, 'Wednesday has the tallest bar at 15 cupcakes.', 'AC9M3ST01', null, null, true, null, null),
+('fc235c05-3e5f-4996-8081-352eb0296860', 'number_patterns', 'grade_3', 'developing', 'multiple_choice', 'A frog hops along the number line, landing the same distance further each time. Following the pattern, where will it land on Hop 4?', '["18","25","30","20"]'::jsonb, 3, 'Each hop lands 5 further: 5, 10, 15, 20 — Hop 4 lands on 20.', 'AC9M3A01', null, null, true, null, null),
+('cee12228-c2ef-4a6e-8988-224ac4e5c5fc', 'number_patterns', 'grade_3', 'developing', 'multiple_choice', 'The number line shows how many pages Maya has read by the end of each day, always reading the same number of extra pages. How many pages will she have read by the end of Day 4?', '["18","16","17","23"]'::jsonb, 0, 'Each day adds 5 more pages: 3, 8, 13, 18 — by Day 4 she has read 18 pages.', 'AC9M3A01', null, null, true, null, null),
+('b92a68a3-340c-45bf-ae91-3380cba22081', 'number_patterns', 'grade_3', 'developing', 'multiple_choice', 'A gardener plants seedlings in rows shown on the number line, each row having the same number more than the last. How many seedlings will be in Row 4?', '["9","11","10","14"]'::jsonb, 1, 'Each row has 3 more seedlings than the last: 2, 5, 8, 11 — Row 4 has 11 seedlings.', 'AC9M3A01', null, null, true, null, null),
+('03e002a8-54a1-404a-8dc7-e8f8fcf69623', 'geometry_measurement', 'grade_3', 'foundation', 'multiple_choice', 'What is the perimeter of the rectangular garden bed shown?', '["8 m","13 m","16 m","20 m"]'::jsonb, 2, 'Add all four sides (double the top and the left): 2 × (5 + 3) = 16 m.', 'AC9M3M02', null, null, true, null, null),
+('c24fe9a3-61ad-4a8d-af07-645f78963538', 'geometry_measurement', 'grade_3', 'developing', 'multiple_choice', 'A picture frame border is shaped like the rectangle shown. How much border material is needed to go all the way around it?', '["11 m","18 m","20 m","22 m"]'::jsonb, 3, '2 × (9 + 2) = 22 m of border material.', 'AC9M3M02', null, null, true, null, null),
+('6717b0c2-837d-467d-91db-43aba222ab2e', 'geometry_measurement', 'grade_3', 'developing', 'multiple_choice', 'Coach Lee is marking out a rectangular mini soccer pitch with rope, shaped like the rectangle shown. How much rope does he need to go all the way around it?', '["10 m","20 m","16 m","24 m"]'::jsonb, 1, '2 × (6 + 4) = 20 m of rope.', 'AC9M3M02', null, null, true, null, null),
+('94b03952-0b04-4173-85e6-146ad8c51cc0', 'statistics_probability', 'grade_5', 'developing', 'multiple_choice', 'What is the range of the number of books borrowed across the four year levels?', '["14","52","38","11"]'::jsonb, 0, 'Range = highest − lowest = 52 − 38 = 14.', 'AC9M5ST01', null, null, true, null, null),
+('f2359055-2c4b-455b-9274-b4071e433fd3', 'statistics_probability', 'grade_5', 'proficient', 'short_answer', 'What is the mean distance walked by the four hikers, in kilometres?', null, null, 'Sum = 12 + 9 + 15 + 10 = 46. Mean = 46 ÷ 4 = 11.5 km.', 'AC9M5ST01', null, null, true, '11.5', ARRAY['11.5 km', '11.5km']::text[]),
+('cf36bd57-819a-422a-aab7-233cc3a8323e', 'statistics_probability', 'grade_5', 'developing', 'multiple_choice', 'What is the total number of goals scored across all four matches?', '["9","11","10","8"]'::jsonb, 2, '3 + 1 + 4 + 2 = 10 goals in total.', 'AC9M5ST01', null, null, true, null, null),
+('e5b4d400-24c9-4adf-bd57-6f5d80f87506', 'number_patterns', 'grade_5', 'developing', 'multiple_choice', 'A savings account balance grows by the same amount each week, as shown. What will the balance be in Week 5, in dollars?', '["19","24","29","20"]'::jsonb, 1, 'The balance grows by $5 each week: 4, 9, 14, 19, 24 — Week 5 is $24.', 'AC9M5A01', null, null, true, null, null),
+('eb12e8dc-d6f6-402c-90f3-bbd3b905e776', 'number_patterns', 'grade_5', 'proficient', 'short_answer', 'A water tank''s level drops by the same amount each day, as shown. How many litres will be left on Day 5?', null, null, 'The level drops by 15 L each day: 100, 85, 70, 55, 40 — Day 5 has 40 L left.', 'AC9M5A01', null, null, true, '40', ARRAY['40 L', '40L']::text[]),
+('c9cc76ac-412f-4113-be02-b5bb94a97845', 'number_patterns', 'grade_5', 'developing', 'multiple_choice', 'A plant''s height increases by the same amount each fortnight, as shown by Terms 1–3. What will its height be in Term 5, in centimetres?', '["21","31","25","26"]'::jsonb, 3, 'The height increases by 5 cm each term: 6, 11, 16, 21, 26 — Term 5 is 26 cm.', 'AC9M5A01', null, null, true, null, null),
+('a6eabaca-67a9-4632-9a11-927fc4833028', 'geometry_measurement', 'grade_5', 'developing', 'multiple_choice', 'Mrs Chen wants to put a fence around her rectangular vegetable patch, shown in the diagram. How many metres of fencing does she need?', '["26 m","13 m","40 m","21 m"]'::jsonb, 0, '2 × (8 + 5) = 26 m of fencing.', 'AC9M5M02', null, null, true, null, null),
+('fbb1607e-815f-4007-a538-bae10c9bb032', 'geometry_measurement', 'grade_5', 'developing', 'multiple_choice', 'A rectangular dog run is fenced on all four sides, as shown. What is the total length of fencing used?', '["19 m","84 m","38 m","31 m"]'::jsonb, 2, '2 × (12 + 7) = 38 m of fencing.', 'AC9M5M02', null, null, true, null, null),
+('e14e37ee-2723-4fe7-9756-b36ac3aa65d1', 'geometry_measurement', 'grade_5', 'proficient', 'multiple_choice', 'A rectangular pool deck, shown in the diagram, needs edging around its border. How many metres of edging are needed?', '["16.5 m","33 m","65 m","26.5 m"]'::jsonb, 1, '2 × (10 + 6.5) = 33 m of edging.', 'AC9M5M02', null, null, true, null, null),
+('98de9760-8d39-4e1f-bc82-be90eaa197ea', 'statistics_probability', 'year_9', 'developing', 'multiple_choice', 'What is the range of rainfall across the four towns, in millimetres?', '["78","45","33","29"]'::jsonb, 1, 'Range = highest − lowest = 78 − 33 = 45 mm.', 'AC9M9ST01', null, null, true, null, null),
+('9d11fb52-856c-4099-8258-66bdebd24b98', 'statistics_probability', 'year_9', 'developing', 'short_answer', 'The dot plot shows quiz scores for 9 students. What is the median score?', null, null, 'With 9 ordered values, the median is the 5th value: 8.', 'AC9M9ST01', null, null, true, '8', null),
+('52892cde-0dcd-41e8-8fcf-4040beb104df', 'statistics_probability', 'year_9', 'developing', 'multiple_choice', 'How many more students own Dogs than Fish?', '["3","11","17","8"]'::jsonb, 3, '14 − 6 = 8.', 'AC9M9ST01', null, null, true, null, null),
+('ab8a0be4-db02-4bef-a820-aa48758c1769', 'statistics_probability', 'year_9', 'proficient', 'multiple_choice', 'The dot plot shows homework time for 8 students. What is the mode of the times shown?', '["25","35","20","30"]'::jsonb, 3, '30 minutes occurs 3 times, more than any other value, so the mode is 30.', 'AC9M9ST01', null, null, true, null, null),
+('af5d5dae-2d40-42da-af21-52803066b670', 'statistics_probability', 'year_9', 'proficient', 'short_answer', 'What is the mean monthly data use over the four months, in GB, to 1 decimal place?', null, null, 'Sum = 4.2 + 5.6 + 3.8 + 6.1 = 19.7. Mean = 19.7 ÷ 4 = 4.925, which rounds to 4.9 GB.', 'AC9M9ST01', null, true, true, '4.9', ARRAY['4.9 GB', '4.9GB']::text[]),
+('4d73d81a-ca45-4f8b-a7db-a5263619051f', 'statistics_probability', 'year_9', 'advanced', 'short_answer', 'The dot plot shows 100 m sprint times for 8 runners. What is the mean sprint time, in seconds, to 2 decimal places?', null, null, 'Sum = (13.2 × 3) + (13.5 × 2) + 13.8 + 13.6 + 13.9 = 107.9. Mean = 107.9 ÷ 8 = 13.4875, which rounds to 13.49 s.', 'AC9M9ST01', null, true, true, '13.49', null),
+('4f82c8c7-fc2a-42ec-8056-5d03c0e48037', 'statistics_probability', 'year_9', 'proficient', 'multiple_choice', 'What is the combined revenue of the two lowest-earning branches, in thousands of dollars?', '["150","196","163","133"]'::jsonb, 0, 'The two lowest branches are East ($68k) and North ($82k): 68 + 82 = 150.', 'AC9M9ST01', null, true, true, null, null),
+('2fa59acc-ab86-4afc-9259-5e007bba1400', 'statistics_probability', 'year_9', 'developing', 'multiple_choice', 'The dot plot shows delivery times for 8 orders. What is the mode delivery time, in minutes?', '["25","22","28","18"]'::jsonb, 1, '22 minutes occurs 3 times, more than any other value, so the mode is 22.', 'AC9M9ST01', null, true, true, null, null),
+('4670eacd-130d-4699-aeea-972fc08a07d7', 'geometry_measurement', 'year_9', 'developing', 'multiple_choice', 'What is the length of the hypotenuse of the right triangle shown?', '["21 cm","108 cm","15 cm","16 cm"]'::jsonb, 2, 'By Pythagoras'' theorem: √(9² + 12²) = √(81 + 144) = √225 = 15 cm.', 'AC9M9SP01', null, null, true, null, null),
+('c076bd10-0a92-4ce4-84ea-003023f6c8b2', 'geometry_measurement', 'year_9', 'developing', 'short_answer', 'The right triangle shown has a hypotenuse of 13 cm and one leg of 5 cm. What is the length of the other leg, in centimetres?', null, null, 'By Pythagoras'' theorem: the missing leg = √(13² − 5²) = √(169 − 25) = √144 = 12 cm.', 'AC9M9SP01', null, null, true, '12', ARRAY['12 cm', '12cm']::text[]),
+('bdd859c0-54c2-413d-8f00-b9be34c8cc52', 'geometry_measurement', 'year_9', 'proficient', 'multiple_choice', 'The right triangle shown has one leg of 24 cm and a hypotenuse of 25 cm. What is the length of the other leg, in centimetres?', '["7","1","49","17"]'::jsonb, 0, 'By Pythagoras'' theorem: the missing leg = √(25² − 24²) = √(625 − 576) = √49 = 7 cm.', 'AC9M9SP01', null, null, true, null, null),
+('6d8fab11-67d4-46f2-b87b-0722d7837bd6', 'geometry_measurement', 'year_9', 'developing', 'multiple_choice', 'What is the length of the hypotenuse of the right triangle shown?', '["23 cm","120 cm","19 cm","17 cm"]'::jsonb, 3, 'By Pythagoras'' theorem: √(8² + 15²) = √(64 + 225) = √289 = 17 cm.', 'AC9M9SP01', null, null, true, null, null),
+('afb486db-a69d-49be-afdd-08b9cae1f0c2', 'geometry_measurement', 'year_9', 'proficient', 'multiple_choice', 'In the right triangle shown, angle θ is at the bottom-left corner. Using tan θ = opposite ÷ adjacent, find the size of angle θ, to the nearest degree.', '["58°","32°","42°","25°"]'::jsonb, 1, 'tan θ = 9.2 ÷ 14.5 = 0.6345. θ = tan⁻¹(0.6345) ≈ 32°.', 'AC9M9SP02', null, true, true, null, null),
+('b80daca4-818e-468d-b4df-4d4998b1650b', 'geometry_measurement', 'year_9', 'advanced', 'short_answer', 'In the right triangle shown, angle θ is at the bottom-left corner. Using cos θ = adjacent ÷ hypotenuse, find the size of angle θ, in degrees, to the nearest degree.', null, null, 'cos θ = 11.3 ÷ 18.6 = 0.6075. θ = cos⁻¹(0.6075) ≈ 53°.', 'AC9M9SP02', null, true, true, '53', ARRAY['53°']::text[]),
+('0cc603ca-3055-4f80-bcee-590cba519e38', 'geometry_measurement', 'year_9', 'proficient', 'multiple_choice', 'In the right triangle shown, angle θ is at the bottom-left corner. Using sin θ = opposite ÷ hypotenuse, find the size of angle θ, to the nearest degree.', '["64°","35°","18°","26°"]'::jsonb, 3, 'sin θ = 7.4 ÷ 16.9 = 0.4379. θ = sin⁻¹(0.4379) ≈ 26°.', 'AC9M9SP02', null, true, true, null, null),
+('9ce8263b-741f-4bbb-ac1f-9ea1d0b97c99', 'geometry_measurement', 'year_9', 'developing', 'multiple_choice', 'What is the length of the hypotenuse of the right triangle shown, in centimetres?', '["28","39.2","20","15"]'::jsonb, 0, 'By Pythagoras'' theorem: √(22.4² + 16.8²) = √(501.76 + 282.24) = √784 = 28 cm.', 'AC9M9SP02', null, true, true, null, null)
 on conflict (id) do update set
   topic = excluded.topic,
   year_level = excluded.year_level,
