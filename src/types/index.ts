@@ -68,6 +68,50 @@ export type Difficulty = 'foundation' | 'developing' | 'proficient' | 'advanced'
 
 export type StimulusType = 'passage' | 'data_table' | 'image'
 
+// ─── Diagrams (graphical questions) ────────────────────────────────────────
+// Per-question graphic, rendered inline above the question text. Starts with
+// just 'bar_chart' (see docs/superpowers/specs/2026-09-11-naplan-visual-format-design.md
+// Phase 2) — more kinds get added one at a time as content actually needs them.
+
+export interface BarChartDiagram {
+  kind: 'bar_chart'
+  title?: string
+  unit?: string                              // e.g. 'students', '$' — shown on the axis label
+  bars: { label: string; value: number }[]
+}
+
+export interface NumberLineDiagram {
+  kind: 'number_line'
+  title?: string
+  min: number
+  max: number
+  step: number
+  marks: { value: number; label: string }[]  // highlighted points, e.g. a starting position
+}
+
+export interface DotPlotDiagram {
+  kind: 'dot_plot'
+  axisLabel?: string
+  values: number[]                           // raw data points; one dot per occurrence, stacked
+}
+
+export interface GridMapDiagram {
+  kind: 'grid_map'
+  title?: string
+  cols: string[]                             // column labels, e.g. ['A','B','C','D','E','F','G','H']
+  rowCount: number                           // rows numbered 1..rowCount, bottom to top (matches map convention)
+  unitLabel?: string                         // e.g. '1 kilometre' per cell, shown in a key
+  points: { col: string; row: number; label: string }[]
+}
+
+export interface SimpleShapeDiagram {
+  kind: 'simple_shape'
+  shape: 'rectangle' | 'right_triangle'
+  labels: { side: 'top' | 'bottom' | 'left' | 'right' | 'hypotenuse'; text: string }[]
+}
+
+export type Diagram = BarChartDiagram | NumberLineDiagram | DotPlotDiagram | GridMapDiagram | SimpleShapeDiagram
+
 export interface Stimulus {
   id: string
   type: StimulusType
@@ -92,6 +136,7 @@ interface QuestionBase {
   curriculum_code?: string   // e.g. "AC9M6N01"
   stimulus_id?: string          // FK into Stimulus — questions sharing an id are asked about the same passage/data
   calculator_allowed?: boolean  // Maths Yr7-9 Numeracy only; true = calculator section, unset/false = non-calculator
+  diagram?: Diagram             // per-question graphic (bar chart, etc.) rendered above the question text
   created_at: string
 }
 

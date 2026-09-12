@@ -80,6 +80,14 @@ export const pdfStyles = StyleSheet.create({
   stimulusBody: { fontSize: 10, lineHeight: 1.5 },
   questionRow: { marginBottom: 14 },
   questionText: { fontSize: 11, marginBottom: 6 },
+  // Per-question graphic (e.g. bar chart) — Phase 2 of the visual-format design.
+  diagramBox: { marginLeft: 12, marginBottom: 8, alignItems: 'center' },
+  diagramTitle: { fontSize: 9, color: '#666', marginBottom: 4, textTransform: 'uppercase', letterSpacing: 0.5 },
+  diagramLabelsRow: { flexDirection: 'row', width: 420, marginTop: 2, flexWrap: 'wrap' },
+  diagramLabel: { fontSize: 8, color: '#333', textAlign: 'center' },
+  // Caption under a diagram (marked points, axis label) — not uppercased like
+  // diagramTitle, since these often contain units/values that read oddly in caps.
+  diagramCaption: { fontSize: 8, color: '#666', marginTop: 3 },
   // Horizontal multiple-choice option boxes (real NAPLAN convention) — a
   // wrapping row of bordered boxes instead of a stacked vertical list.
   optionsWrap: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', marginLeft: 12, marginTop: 2 },
@@ -90,7 +98,11 @@ export const pdfStyles = StyleSheet.create({
   // (long_form's stacked lines) is unaffected since those sit in a column
   // container that already stretches children to full width.
   answerLine: { borderBottom: '0.5pt solid #999', height: 18, flexGrow: 1 },
-  shortAnswerRow: { flexDirection: 'row', alignItems: 'flex-end' },
+  // Bordered answer box for short_answer questions (real NAPLAN convention —
+  // a clearly boxed area, not just an underline) — sized to fit a short
+  // number/word/phrase, not a full-width blank.
+  answerBox: { border: '0.75pt solid #333', borderRadius: 2, height: 26, width: 110, marginTop: 2 },
+  shortAnswerRow: { flexDirection: 'row', alignItems: 'center' },
   shortAnswerUnit: { fontSize: 11, color: '#1a1a1a', marginHorizontal: 4, marginBottom: 2 },
   answerKeyRow: { marginBottom: 8, fontSize: 10 },
   answerKeyNum: { fontWeight: 700 },
