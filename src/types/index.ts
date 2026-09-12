@@ -110,7 +110,57 @@ export interface SimpleShapeDiagram {
   labels: { side: 'top' | 'bottom' | 'left' | 'right' | 'hypotenuse'; text: string }[]
 }
 
-export type Diagram = BarChartDiagram | NumberLineDiagram | DotPlotDiagram | GridMapDiagram | SimpleShapeDiagram
+// ─── Illustrations ───────────────────────────────────────────────────────────
+// The five diagram kinds above are hand-written chart renderers, which is fine
+// for data displays but cannot draw the pictorial figures real NAPLAN papers
+// lean on — clock faces, coins, spinners, balance scales, labelled geometric
+// figures. Those are authored as vector artwork instead, stored as a flat list
+// of primitives (never raw SVG markup, so it stays typed and renders the same
+// in the PDF and in the browser). See scripts/svg-to-illustration.mjs for the
+// authoring pipeline and src/lib/questions/illustrations.ts for the artwork.
+
+interface SvgBase {
+  stroke?: string
+  strokeWidth?: number
+  fill?: string
+}
+
+export interface SvgCircle extends SvgBase { t: 'circle'; cx: number; cy: number; r: number }
+export interface SvgEllipse extends SvgBase { t: 'ellipse'; cx: number; cy: number; rx: number; ry: number }
+export interface SvgRect extends SvgBase { t: 'rect'; x: number; y: number; width: number; height: number }
+export interface SvgLine extends SvgBase { t: 'line'; x1: number; y1: number; x2: number; y2: number }
+export interface SvgPath extends SvgBase { t: 'path'; d: string }
+export interface SvgPolygon extends SvgBase { t: 'polygon'; points: string }
+export interface SvgPolyline extends SvgBase { t: 'polyline'; points: string }
+export interface SvgText extends SvgBase {
+  t: 'text'
+  x: number
+  y: number
+  content: string
+  fontSize?: number
+  textAnchor?: 'start' | 'middle' | 'end'
+}
+
+export type SvgElement =
+  | SvgCircle | SvgEllipse | SvgRect | SvgLine | SvgPath | SvgPolygon | SvgPolyline | SvgText
+
+export interface Illustration {
+  width: number
+  height: number
+  elements: SvgElement[]
+}
+
+/** Points at a key in `ILLUSTRATIONS`, so one piece of artwork can be reused by
+ * several questions and the bank stays readable. */
+export interface IllustrationDiagram {
+  kind: 'illustration'
+  id: string
+  title?: string
+}
+
+export type Diagram =
+  | BarChartDiagram | NumberLineDiagram | DotPlotDiagram | GridMapDiagram | SimpleShapeDiagram
+  | IllustrationDiagram
 
 export interface Stimulus {
   id: string

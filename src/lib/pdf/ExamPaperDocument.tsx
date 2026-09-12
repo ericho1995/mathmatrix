@@ -1,10 +1,11 @@
-import { Document, Page, View, Text, Svg, Rect, Line, Circle } from '@react-pdf/renderer'
+import { Document, Page, View, Text, Svg, Rect, Line, Circle, Ellipse, Path, Polygon, Polyline, Text as SvgText } from '@react-pdf/renderer'
 import { pdfStyles } from './theme'
 import { Watermark, PageFooter } from './Brand'
 import { SUBJECTS, SELECTIVE_SUBJECTS } from '@/lib/curriculum'
+import { ILLUSTRATIONS } from '@/lib/questions/illustrations'
 import type { ResolvedExam, ResolvedQuestion } from './resolveExam'
 import type { PracticeExam, PracticeExamSection } from '@/lib/questions/exams'
-import type { Diagram, NumberLineDiagram, DotPlotDiagram, GridMapDiagram, SimpleShapeDiagram } from '@/types'
+import type { Diagram, NumberLineDiagram, DotPlotDiagram, GridMapDiagram, SimpleShapeDiagram, IllustrationDiagram } from '@/types'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -296,6 +297,53 @@ function SimpleShape({ diagram }: { diagram: SimpleShapeDiagram }) {
   )
 }
 
+/** Draws authored vector artwork (see src/lib/questions/illustrations.ts) — the
+ * pictorial figures real NAPLAN uses that a chart renderer cannot express:
+ * clock faces, coins, spinners, balance scales, labelled geometric figures.
+ * Scales down to fit the column width while keeping its aspect ratio. */
+function IllustrationView({ diagram }: { diagram: IllustrationDiagram }) {
+  const art = ILLUSTRATIONS[diagram.id]
+  if (!art) return null
+
+  const maxWidth = 300
+  const scale = art.width > maxWidth ? maxWidth / art.width : 1
+
+  return (
+    <View style={pdfStyles.diagramBox} wrap={false}>
+      {diagram.title ? <Text style={pdfStyles.diagramTitle}>{diagram.title}</Text> : null}
+      <Svg width={art.width * scale} height={art.height * scale} viewBox={`0 0 ${art.width} ${art.height}`}>
+        {art.elements.map((el, i) => {
+          const stroke = el.stroke
+          const strokeWidth = el.strokeWidth
+          const fill = el.fill
+          switch (el.t) {
+            case 'circle':
+              return <Circle key={i} cx={el.cx} cy={el.cy} r={el.r} stroke={stroke} strokeWidth={strokeWidth} fill={fill} />
+            case 'ellipse':
+              return <Ellipse key={i} cx={el.cx} cy={el.cy} rx={el.rx} ry={el.ry} stroke={stroke} strokeWidth={strokeWidth} fill={fill} />
+            case 'rect':
+              return <Rect key={i} x={el.x} y={el.y} width={el.width} height={el.height} stroke={stroke} strokeWidth={strokeWidth} fill={fill} />
+            case 'line':
+              return <Line key={i} x1={el.x1} y1={el.y1} x2={el.x2} y2={el.y2} stroke={stroke} strokeWidth={strokeWidth} />
+            case 'path':
+              return <Path key={i} d={el.d} stroke={stroke} strokeWidth={strokeWidth} fill={fill} />
+            case 'polygon':
+              return <Polygon key={i} points={el.points} stroke={stroke} strokeWidth={strokeWidth} fill={fill} />
+            case 'polyline':
+              return <Polyline key={i} points={el.points} stroke={stroke} strokeWidth={strokeWidth} fill={fill} />
+            case 'text':
+              return (
+                <SvgText key={i} x={el.x} y={el.y} fill={el.fill ?? '#000'} textAnchor={el.textAnchor} style={{ fontSize: el.fontSize ?? 12 }}>
+                  {el.content}
+                </SvgText>
+              )
+          }
+        })}
+      </Svg>
+    </View>
+  )
+}
+
 /** DiagramKind-keyed dispatch — the registry the Phase 2 design calls for.
  * Adding a new kind means adding one component above and one case here. */
 function DiagramView({ diagram }: { diagram: Diagram }) {
@@ -305,6 +353,7 @@ function DiagramView({ diagram }: { diagram: Diagram }) {
     case 'dot_plot': return <DotPlot diagram={diagram} />
     case 'grid_map': return <GridMap diagram={diagram} />
     case 'simple_shape': return <SimpleShape diagram={diagram} />
+    case 'illustration': return <IllustrationView diagram={diagram} />
   }
 }
 
