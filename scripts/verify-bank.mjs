@@ -134,14 +134,21 @@ for (const [key, qs] of groups) {
 // ─── 3. Answer-position distribution ─────────────────────────────────────────
 // A batch generated without shuffling distractors lands every answer on the same
 // index. That has shipped here before — 259 questions with correct_index 0.
+//
+// The threshold was 0.6, which was far too generous: it passed seventeen groups
+// where guessing one letter scored over 45%, including a Year 9 Reading section
+// where B was the answer 26 times out of 32. With four options an even spread is
+// 25%, so anything above 40% in a group of eight or more is worth a look.
+const ANSWER_SHARE_LIMIT = 0.4
 for (const [key, qs] of groups) {
   const mc = qs.filter((q) => typeof q.correct_index === 'number')
   if (mc.length < 8) continue
   const counts = {}
   for (const q of mc) counts[q.correct_index] = (counts[q.correct_index] ?? 0) + 1
   const top = Math.max(...Object.values(counts))
-  if (top / mc.length > 0.6) {
-    warn(`${key}: ${top}/${mc.length} answers share one position — ${JSON.stringify(counts)}`)
+  if (top / mc.length > ANSWER_SHARE_LIMIT) {
+    const pct = Math.round((top / mc.length) * 100)
+    warn(`${key}: ${top}/${mc.length} answers share one position (${pct}%) — ${JSON.stringify(counts)}`)
   }
 }
 
@@ -178,8 +185,17 @@ for (const q of QUESTION_BANK) {
     // only for place-value naming and comparison.
     const nums = (q.question_text.match(/\b\d[\d,]*\b/g) ?? []).map((n) => Number(n.replace(/,/g, '')))
     const big = nums.filter((n) => n >= 1000)
-    const isPlaceValue = /digit|place|written|value of the/i.test(q.question_text)
-    if (big.length && !isPlaceValue) warn(`${q.year_level}: computation involves ${big[0]} — above year level?`, q.id)
+    // What matters is the operation, not the magnitude. ACARA has Year 4
+    // rounding, comparing, adding and subtracting four-digit numbers, so
+    // flagging those produced six warnings that were all correct content and
+    // taught everyone to skim the list. Multiplying or dividing a number that
+    // large is a different matter, and stays flagged.
+    const isPlaceValue = /digit|place|written|value of the|round(ed)? to|nearest/i.test(q.question_text)
+    const isAddSubtract = /\b(left|remain|altogether|in total|how many more|fewer|sold|sum|difference)\b/i.test(q.question_text)
+      && !/\b(each|per|share[ds]?|divide[ds]?|equally|times|multiplie[ds]?)\b/i.test(q.question_text)
+    if (big.length && !isPlaceValue && !isAddSubtract) {
+      warn(`${q.year_level}: multiplies or divides with ${big[0]} — above year level?`, q.id)
+    }
   }
 }
 const STATS_TERMS = /\b(mean|median|interquartile|standard deviation)\b/i
