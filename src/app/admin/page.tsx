@@ -1,5 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import QuestionsTable from '@/components/admin/QuestionsTable'
+import DataLoadError from '@/components/DataLoadError'
+import { queryFailed } from '@/lib/supabase/logError'
 
 export default async function AdminPage() {
   const supabase = createClient()
@@ -14,11 +16,16 @@ export default async function AdminPage() {
     )
   }
 
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from('profiles')
     .select('role, full_name')
     .eq('id', user.id)
     .single()
+
+  // Logged but still refused: the gate fails closed, and without the log a
+  // genuine admin locked out by a broken policy sees the same page as someone
+  // who simply is not an admin.
+  queryFailed('admin.profile', profileError, { userId: user.id })
 
   if (!profile || profile.role !== 'admin') {
     return (
@@ -29,11 +36,17 @@ export default async function AdminPage() {
     )
   }
 
-  const { data: questions } = await supabase
+  const { data: questions, error: questionsError } = await supabase
     .from('questions')
     .select('id, topic, year_level, difficulty, question_text, is_published, curriculum_code')
     .order('topic')
     .order('year_level')
+
+  // An admin seeing an empty question bank would reasonably conclude the seed
+  // never ran, which is a very different problem from the read being refused.
+  if (queryFailed('admin.questions', questionsError)) {
+    return <DataLoadError title="Question bank" what="the question bank" />
+  }
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-10">

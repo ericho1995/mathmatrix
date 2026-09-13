@@ -100,15 +100,24 @@ two thirds of the bank, and the admin publish panel shows a stale catalogue.
 Root cause is that migrations are applied by hand in the SQL editor. That needs
 to become an actual deploy step before anything else depends on the database.
 
-### 6. Failures are invisible by design
+### 6. Failures are invisible by design — **mostly done**
 
-Supabase writes across the app are wrapped in `try/catch` so nothing crashes.
-The effect is that a broken migration, a missing RPC or an RLS rejection looks
-identical to success. This has already hidden three separate production bugs.
+Supabase reads across the app destructured only `data` and discarded `error`,
+so a broken migration, a missing RPC and an RLS rejection all rendered as an
+empty result. The worst cases were a parent whose `student_profiles` read failed
+being shown "link your account" as though no child were linked, and a student
+finishing a quiz inside a bare `catch {}` — told they had earned XP that was
+never written, with nothing logged anywhere.
 
-Once money is involved that is untenable — a failed entitlement write must not
-look like a completed purchase. Surface errors, add monitoring, and treat silent
-catch blocks in payment and entitlement paths as defects.
+Done: `queryFailed()` in `src/lib/supabase/logError.ts` logs with context and
+reports whether a read failed. Every read site now uses it. Pages that would
+otherwise show a plausible-but-wrong empty state render `DataLoadError` instead,
+and the quiz results screen tells a student when their result did not save.
+Entitlement and role checks still fail closed, but now log.
+
+Still open: **monitoring**. Errors reach the server logs, and nothing watches
+them. Wire up an alerting sink before launch, so a broken entitlement write is
+noticed by us rather than reported by the customer who paid for it.
 
 ---
 

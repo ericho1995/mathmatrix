@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar, { type NavUser } from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { createClient } from '@/lib/supabase/server'
+import { queryFailed } from '@/lib/supabase/logError'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -34,11 +35,16 @@ async function getNavUser(): Promise<NavUser | null> {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 
-  const { data: profile } = await supabase
+  const { data: profile, error } = await supabase
     .from('profiles')
     .select('full_name, role')
     .eq('id', user.id)
     .single()
+
+  // The nav still renders from the auth user alone, so a failed profile read
+  // degrades rather than breaking the whole app — but it silently drops the
+  // user's role, which is why it must not pass unlogged.
+  queryFailed('layout.navProfile', error, { userId: user.id })
 
   return {
     email: user.email ?? '',

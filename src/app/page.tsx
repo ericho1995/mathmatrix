@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES } from '@/lib/curriculum'
 import { QUESTION_BANK } from '@/lib/questions/bank'
 import { createClient } from '@/lib/supabase/server'
+import { queryFailed } from '@/lib/supabase/logError'
 import StudentDashboardTabs, { type SessionSummary } from '@/components/home/StudentDashboardTabs'
 import FAQAccordion from '@/components/home/FAQAccordion'
 
@@ -19,29 +20,37 @@ export default async function HomePage() {
     if (data.user) {
       user = { id: data.user.id, email: data.user.email ?? null }
 
-      const { data: profile } = await supabase
+      const { data: profile, error: profileError } = await supabase
         .from('profiles')
         .select('full_name, role')
         .eq('id', data.user.id)
         .single()
 
+      // Defaulting to 'student' on a failed read is the safe direction — it
+      // grants nothing — but it would silently demote a parent or admin to the
+      // student dashboard, so the failure has to be logged.
+      queryFailed('home.profile', profileError, { userId: data.user.id })
       role = (profile?.role as typeof role) ?? 'student'
       fullName = profile?.full_name ?? ''
 
       if (role === 'student') {
-        const { data: sp } = await supabase
+        const { data: sp, error: statsError } = await supabase
           .from('student_profiles')
           .select('xp_total, streak_days, year_level, parent_id')
           .eq('id', data.user.id)
           .single()
+        // A failed read here shows a student 0 XP and a broken streak, which
+        // looks like lost progress rather than an outage.
+        queryFailed('home.studentProfile', statsError, { userId: data.user.id })
         studentStats = sp
 
-        const { data: sessionRows } = await supabase
+        const { data: sessionRows, error: sessionsError } = await supabase
           .from('practice_sessions')
           .select('id, topic, completed_at, correct_count, total_questions')
           .eq('student_id', data.user.id)
           .order('completed_at', { ascending: false })
           .limit(30)
+        queryFailed('home.sessions', sessionsError, { userId: data.user.id })
         sessions = sessionRows ?? []
       }
     }

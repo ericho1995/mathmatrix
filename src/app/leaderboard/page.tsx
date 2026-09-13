@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { GRADES } from '@/lib/curriculum'
+import { queryFailed } from '@/lib/supabase/logError'
 
 interface LeaderboardRow {
   student_id: string
@@ -13,7 +14,11 @@ export default async function LeaderboardPage() {
 
   if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
     const supabase = createClient()
-    const { data } = await supabase.rpc('get_weekly_leaderboard', { limit_count: 20 })
+    const { data, error } = await supabase.rpc('get_weekly_leaderboard', { limit_count: 20 })
+    // A missing RPC renders identically to a quiet week, which is how this one
+    // stayed broken before. The empty state below is still the right thing to
+    // show a student, but the failure now reaches the logs.
+    queryFailed('leaderboard.rpc', error)
     rows = data ?? []
   }
 

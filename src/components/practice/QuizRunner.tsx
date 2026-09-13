@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { TopicSlug, YearLevel, QuestionFormat } from '@/types'
 import { createClient } from '@/lib/supabase/client'
 import { matchShortAnswer } from '@/lib/questions/matchShortAnswer'
+import { queryFailed } from '@/lib/supabase/logError'
 
 export interface QuizQuestion {
   id: string
@@ -39,6 +40,9 @@ export default function QuizRunner({
   const [selected, setSelected] = useState<number | null>(null)
   const [draftText, setDraftText] = useState('')
   const [revealed, setRevealed] = useState(false)
+  // True when the finished session could not be written. Shown on the results
+  // screen so a student is never told they earned XP that was never recorded.
+  const [saveFailed, setSaveFailed] = useState(false)
   const questionStartedAt = useRef(Date.now())
   const saved = useRef(false)
 
@@ -106,8 +110,12 @@ export default function QuizRunner({
     ? matchShortAnswer(responses[qIndex] as string, { expected_answer: q.expected_answer ?? '', accepted_answers: q.accepted_answers })
     : false
 
-  // Persist the finished session, best-effort. Signed-out visitors and any
-  // Supabase error are swallowed so the results screen never breaks on this.
+  // Persist the finished session. A failure here must never break the results
+  // screen — but it must not be invisible either. Until this was fixed, a
+  // student could finish a quiz, be told they had earned XP, and find their
+  // total unchanged, with nothing logged anywhere to explain it. Every step
+  // below now reports, and `saveFailed` tells the student their work did not
+  // save rather than implying it did.
   useEffect(() => {
     if (screen !== 'results' || saved.current || questions.length === 0) return
     saved.current = true
@@ -116,6 +124,7 @@ export default function QuizRunner({
       try {
         const supabase = createClient()
         const { data: { user } } = await supabase.auth.getUser()
+        // Signed-out visitors are not a failure — there is nowhere to save to.
         if (!user) return
 
         const xpEarned = correctCount * XP_PER_CORRECT
@@ -135,9 +144,12 @@ export default function QuizRunner({
           .select('id')
           .single()
 
-        if (sessionError || !session) return
+        if (queryFailed('quiz.createSession', sessionError, { userId: user.id }) || !session) {
+          setSaveFailed(true)
+          return
+        }
 
-        await supabase.from('question_attempts').insert(
+        const { error: attemptsError } = await supabase.from('question_attempts').insert(
           questions.map((question, i) => ({
             session_id: session.id,
             question_id: question.id,
@@ -152,11 +164,17 @@ export default function QuizRunner({
           }))
         )
 
-        const { data: studentProfile } = await supabase
+        // The session row exists but its answers do not, so the results screen
+        // is right about the score while the dashboard will disagree.
+        if (queryFailed('quiz.saveAttempts', attemptsError, { sessionId: session.id })) setSaveFailed(true)
+
+        const { data: studentProfile, error: profileError } = await supabase
           .from('student_profiles')
           .select('xp_total, streak_days, last_active')
           .eq('id', user.id)
           .single()
+
+        if (queryFailed('quiz.readStudentProfile', profileError, { userId: user.id })) setSaveFailed(true)
 
         if (studentProfile) {
           const today = new Date().toISOString().slice(0, 10)
@@ -170,7 +188,7 @@ export default function QuizRunner({
             streak = 1
           }
 
-          await supabase
+          const { error: xpError } = await supabase
             .from('student_profiles')
             .update({
               xp_total: studentProfile.xp_total + xpEarned,
@@ -178,9 +196,15 @@ export default function QuizRunner({
               last_active: today,
             })
             .eq('id', user.id)
+
+          // The one a student notices: XP and streak silently not moving.
+          if (queryFailed('quiz.updateXp', xpError, { userId: user.id, xpEarned })) setSaveFailed(true)
         }
-      } catch {
-        // best-effort, results screen already rendered regardless
+      } catch (error) {
+        // Still caught, so the results screen renders no matter what — but a
+        // thrown error (offline, bad client config) is now reported too.
+        console.error('[quiz.persist] unexpected error while saving the session', error)
+        setSaveFailed(true)
       }
     }
 
@@ -276,6 +300,15 @@ export default function QuizRunner({
         You got {correctCount} out of {gradableQuestions.length} correct.
         {longFormCount > 0 && ` Plus ${longFormCount} long-answer response${longFormCount === 1 ? '' : 's'} submitted for review.`}
       </p>
+      {saveFailed && (
+        <div className="card mb-6 text-left border-amber-200 bg-amber-50">
+          <p className="text-sm text-gray-800 mb-1">This result couldn&apos;t be saved to your account.</p>
+          <p className="text-sm text-gray-600">
+            Your score above is correct, but it may not appear in your progress or XP total. This
+            is a problem on our side — please try another quiz in a few minutes.
+          </p>
+        </div>
+      )}
       <div className="grid grid-cols-2 gap-3">
         <button onClick={onExit} className="btn-secondary">Back</button>
         {onRetry && <button onClick={onRetry} className="btn-primary">Try again</button>}

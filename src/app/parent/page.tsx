@@ -2,6 +2,8 @@ import { createClient } from '@/lib/supabase/server'
 import { GRADES, TOPICS } from '@/lib/curriculum'
 import { QUESTION_BANK } from '@/lib/questions/bank'
 import InviteCodeCard from '@/components/parent/InviteCodeCard'
+import DataLoadError from '@/components/DataLoadError'
+import { queryFailed } from '@/lib/supabase/logError'
 
 const TOPIC_BY_QUESTION_ID = new Map(QUESTION_BANK.map(q => [q.id, q.topic]))
 
@@ -29,10 +31,17 @@ export default async function ParentDashboardPage() {
     )
   }
 
-  const { data: linkedStudents } = await supabase
+  const { data: linkedStudents, error: studentsError } = await supabase
     .from('student_profiles')
     .select('id, year_level, xp_total, streak_days')
     .eq('parent_id', user.id)
+
+  // Distinguished from "no children linked" on purpose. Rendering the invite
+  // card after a failed read tells a parent who has already linked their child
+  // that nothing is linked, and invites them to fix a problem that is ours.
+  if (queryFailed('parent.linkedStudents', studentsError, { userId: user.id })) {
+    return <DataLoadError title="Parent dashboard" what="your children's progress" />
+  }
 
   if (!linkedStudents || linkedStudents.length === 0) {
     return (
@@ -46,7 +55,7 @@ export default async function ParentDashboardPage() {
 
   const studentIds = linkedStudents.map(s => s.id)
 
-  const [{ data: profiles }, { data: sessions }] = await Promise.all([
+  const [{ data: profiles, error: profilesError }, { data: sessions, error: sessionsError }] = await Promise.all([
     supabase.from('profiles').select('id, full_name').in('id', studentIds),
     supabase
       .from('practice_sessions')
@@ -54,10 +63,23 @@ export default async function ParentDashboardPage() {
       .in('student_id', studentIds),
   ])
 
+  // A failed sessions read would show every child at zero XP and 0% accuracy,
+  // which reads as "my child has done nothing" rather than as an outage.
+  if (
+    queryFailed('parent.profiles', profilesError, { studentIds }) ||
+    queryFailed('parent.sessions', sessionsError, { studentIds })
+  ) {
+    return <DataLoadError title="Parent dashboard" what="your children's progress" />
+  }
+
   const sessionIds = sessions?.map(s => s.id) ?? []
-  const { data: attempts } = sessionIds.length
+  const { data: attempts, error: attemptsError } = sessionIds.length
     ? await supabase.from('question_attempts').select('session_id, question_id, is_correct').in('session_id', sessionIds)
-    : { data: [] as { session_id: string; question_id: string; is_correct: boolean }[] }
+    : { data: [] as { session_id: string; question_id: string; is_correct: boolean }[], error: null }
+
+  if (queryFailed('parent.attempts', attemptsError, { sessionCount: sessionIds.length })) {
+    return <DataLoadError title="Parent dashboard" what="your children's progress" />
+  }
 
   const sessionToStudent = new Map(sessions?.map(s => [s.id, s.student_id]) ?? [])
   const weekAgo = Date.now() - 7 * 86400000
