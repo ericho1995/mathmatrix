@@ -57,6 +57,7 @@ export default async function MarkPaperPage({ params }: { params: { id: string }
   return (
     <PaperMarking
       sections={sections}
+      examId={exam.id}
       subject={exam.subject}
       yearLevel={exam.yearLevel}
       examTitle={exam.title}

@@ -29,7 +29,7 @@ export interface PaperSection {
 
 const LABELS = new Map(TOPICS.map(t => [t.slug, t.label]))
 
-function numberSections(sections: ResolvedSection[]): PaperSection[] {
+function numberSections(sections: ResolvedSection[]): IdentifiedPaperSection[] {
   // Same helper the PDF uses, so the numbers on screen match the numbers on the
   // page the student actually wrote on. A mismatch here would silently score the
   // wrong topics.
@@ -37,6 +37,7 @@ function numberSections(sections: ResolvedSection[]): PaperSection[] {
   return sections.map((section, i) => ({
     title: section.section.title,
     questions: section.questions.map((q, qi) => ({
+      id: q.id,
       n: starts[i] + qi + 1,
       topic: q.topic,
       label: LABELS.get(q.topic) ?? q.topic,
@@ -49,6 +50,27 @@ function numberSections(sections: ResolvedSection[]): PaperSection[] {
  * downloaded PDF numbers it, or null when the exam id is unknown.
  */
 export function paperQuestionMap(examId: string): PaperSection[] | null {
+  const withIds = paperQuestionMapWithIds(examId)
+  if (!withIds) return null
+  // Strip the ids on the way to the client. They give nothing away, but the
+  // marking screen has no use for them and the smallest payload that does the
+  // job is the one least likely to grow into a leak later.
+  return withIds.map(section => ({
+    title: section.title,
+    questions: section.questions.map(({ n, topic, label }) => ({ n, topic, label })),
+  }))
+}
+
+/**
+ * The same map with question ids attached — server-only, for recording a result
+ * against `question_attempts`. Never pass this to a client component.
+ */
+export interface IdentifiedPaperSection {
+  title: string
+  questions: (PaperQuestion & { id: string })[]
+}
+
+export function paperQuestionMapWithIds(examId: string): IdentifiedPaperSection[] | null {
   const resolved = resolveExam(examId)
   if (!resolved) return null
 

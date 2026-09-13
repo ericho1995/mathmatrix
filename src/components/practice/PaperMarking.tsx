@@ -17,14 +17,20 @@ import type { SubjectSlug, TopicSlug, YearLevel } from '@/types'
  * No correct answers are present in this component or its props. See
  * lib/exams/paperQuestions.ts.
  */
+/** Whether this result made it into the student's record. The diagnosis is
+ * shown regardless — saving is what an account adds, not what it unlocks. */
+type SaveState = 'idle' | 'saving' | 'saved' | 'signed-out' | 'failed'
+
 export default function PaperMarking({
   sections,
+  examId,
   subject,
   yearLevel,
   examTitle,
   backHref,
 }: {
   sections: PaperSection[]
+  examId: string
   subject: SubjectSlug
   yearLevel: YearLevel
   examTitle: string
@@ -32,6 +38,7 @@ export default function PaperMarking({
 }) {
   const [wrong, setWrong] = useState<Set<number>>(new Set())
   const [screen, setScreen] = useState<'mark' | 'result'>('mark')
+  const [saveState, setSaveState] = useState<SaveState>('idle')
 
   const allQuestions = useMemo(() => sections.flatMap(s => s.questions), [sections])
 
@@ -78,6 +85,33 @@ export default function PaperMarking({
   const practiceHref =
     `/practice?subject=${subject}&grade=${yearLevel}&topics=${weakTopics.join(',')}` as Route
 
+  /** Sends the marked positions — never question ids, never answers. */
+  async function saveResult() {
+    setSaveState('saving')
+    const marks = sections.flatMap((section, s) =>
+      section.questions.filter(q => wrong.has(keyOf(s, q.n))).map(q => ({ s, n: q.n }))
+    )
+    try {
+      const res = await fetch(`/api/exams/${examId}/result`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ wrong: marks }),
+      })
+      if (res.status === 401) return setSaveState('signed-out')
+      if (!res.ok) return setSaveState('failed')
+      setSaveState('saved')
+    } catch {
+      setSaveState('failed')
+    }
+  }
+
+  function showResult() {
+    setScreen('result')
+    // Attempted once per visit to the result screen. Re-marking and coming back
+    // saves again, which is correct — the earlier row was a different result.
+    void saveResult()
+  }
+
   // ── Marking ───────────────────────────────────────────────────────────────
   if (screen === 'mark') {
     return (
@@ -122,7 +156,7 @@ export default function PaperMarking({
               ? 'No mistakes marked yet'
               : `${wrong.size} marked wrong · ${correct} of ${total} correct`}
           </p>
-          <button onClick={() => setScreen('result')} className="btn-primary w-full">
+          <button onClick={showResult} className="btn-primary w-full">
             See what to work on
           </button>
         </div>
@@ -177,6 +211,27 @@ export default function PaperMarking({
           Practise these topics
         </Link>
       </div>
+
+      {/* The diagnosis above never needed an account. This is only about
+          whether the result is kept, so it sits under the useful part. */}
+      {saveState === 'signed-out' && (
+        <div className="card mb-4 bg-gray-50">
+          <p className="text-sm text-gray-700 mb-3">
+            Create a free account to keep this result and watch these topics improve over time.
+          </p>
+          <Link href={'/auth/register' as Route} className="btn-secondary w-full block text-center">
+            Create an account
+          </Link>
+        </div>
+      )}
+      {saveState === 'saved' && (
+        <p className="text-sm text-teal-700 mb-4">Saved to your progress.</p>
+      )}
+      {saveState === 'failed' && (
+        <p className="text-sm text-amber-700 mb-4">
+          Your results above are correct, but we couldn&apos;t save them to your account just now.
+        </p>
+      )}
 
       <div className="flex gap-3">
         <button onClick={() => setScreen('mark')} className="btn-secondary flex-1">
