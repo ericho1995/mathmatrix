@@ -1,15 +1,16 @@
 'use client'
 
 import { Suspense, useEffect, useState } from 'react'
+import Link from 'next/link'
+import type { Route } from 'next'
 import { useSearchParams } from 'next/navigation'
 import type { YearLevel, TopicSlug, SubjectSlug } from '@/types'
 import { TOPIC_COVERAGE, topicTotal, topicCountAt } from '@/lib/questions/coverage'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES, TOPICS } from '@/lib/curriculum'
 import QuizRunner, { type QuizQuestion } from '@/components/practice/QuizRunner'
 import PracticeModeTabs from '@/components/practice/PracticeModeTabs'
-import PremiumExamLock from '@/components/practice/PremiumExamLock'
 
-type Screen = 'select' | 'quiz' | 'exam-lock'
+type Screen = 'select' | 'quiz'
 type Mode = 'general' | 'selective'
 
 const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20]
@@ -133,13 +134,6 @@ function PracticePageInner() {
     }
   }
 
-  if (screen === 'exam-lock') {
-    const subjectLabel = [...SUBJECTS, ...SELECTIVE_SUBJECTS].find(s => s.slug === subject)?.label ?? 'exam'
-    return (
-      <PremiumExamLock title="Personalised exam paper" subjectLabel={subjectLabel} onBack={() => setScreen('select')} />
-    )
-  }
-
   if (screen === 'quiz' && quizQuestions.length > 0) {
     const primaryTopic = Array.from(topics)[0]
     const primaryYearLevel = mode === 'selective' ? 'year_11' : grade
@@ -254,9 +248,18 @@ function PracticePageInner() {
       <button onClick={buildQuiz} disabled={!readyToBuild || poolSize === 0 || building} className="btn-primary w-full">
         {building ? 'Building…' : 'Start practice'}
       </button>
-      <button onClick={() => setScreen('exam-lock')} disabled={!readyToBuild || poolSize === 0 || building} className="btn-secondary w-full mt-2">
-        Generate exam paper (PDF)
-      </button>
+      {/* There was a "Generate exam paper (PDF)" button here. It opened a
+          padlock screen and could never have done anything else: the PDF routes
+          serve catalogue ids only, and no endpoint builds a paper from an ad-hoc
+          topic selection. Offering it on the page new visitors land on advertised
+          a capability the product does not have. Full papers are in the
+          catalogue, which the link below actually reaches. */}
+      <p className="text-sm text-gray-500 text-center mt-4">
+        Looking for a full exam paper?{' '}
+        <Link href={'/practice/exams' as Route} className="text-brand-600 hover:underline">
+          Browse the catalogue
+        </Link>
+      </p>
     </main>
   )
 }

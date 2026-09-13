@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import type { Route } from 'next'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES } from '@/lib/curriculum'
 import { QUESTION_BANK } from '@/lib/questions/bank'
 import { createClient } from '@/lib/supabase/server'
@@ -84,10 +85,16 @@ export default async function HomePage() {
           <p className="text-gray-500 mb-8">
             {role === 'parent'
               ? 'Check in on your child’s progress.'
-              : 'Manage the question bank from the admin panel.'}
+              : 'Every exam paper in the catalogue, unlocked.'}
           </p>
-          <Link href={role === 'parent' ? '/parent' : '/admin'} className="btn-primary w-full text-center block">
-            {role === 'parent' ? 'Go to parent dashboard' : 'Go to admin panel'}
+          {/* Admins keep their paywall bypass (see getEntitlements), so the
+              catalogue is the useful landing place now the admin panel is gone —
+              the question bank is edited in the repo, not through a UI. */}
+          <Link
+            href={(role === 'parent' ? '/parent' : '/practice/exams') as Route}
+            className="btn-primary w-full text-center block"
+          >
+            {role === 'parent' ? 'Go to parent dashboard' : 'Browse exam papers'}
           </Link>
         </div>
       </main>

@@ -23,7 +23,6 @@ export default function Navbar({ user }: { user: NavUser | null }) {
     { href: '/practice', label: 'Practice' },
     { href: '/leaderboard', label: 'Leaderboard' },
     ...(user?.role === 'parent' ? [{ href: '/parent' as Route, label: 'Parent dashboard' }] : []),
-    ...(user?.role === 'admin' ? [{ href: '/admin' as Route, label: 'Admin' }] : []),
   ]
 
   return (
