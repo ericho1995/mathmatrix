@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { Route } from 'next'
 
 export default function ExamDownload({
   examId,
@@ -50,6 +51,14 @@ export default function ExamDownload({
           </a>
         </>
       )}
+      {/* The step that used to be missing: a sat paper had nowhere to go once it
+          was marked. This turns the answer key into a diagnosis and a next step. */}
+      <div className="border-t border-gray-100 pt-6 mt-3">
+        <p className="text-sm text-gray-500 mb-3">Already sat this paper?</p>
+        <Link href={`/practice/exams/${examId}/mark` as Route} className="btn-secondary w-full mb-6 block text-center">
+          Enter results
+        </Link>
+      </div>
       <Link href="/practice/exams" className="text-sm text-gray-400 hover:text-gray-600 underline">
         Back to exams
       </Link>

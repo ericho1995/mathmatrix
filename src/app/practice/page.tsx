@@ -34,16 +34,36 @@ function PracticePageInner() {
   const [screen, setScreen] = useState<Screen>('select')
   const [quizKey, setQuizKey] = useState(0)
 
-  // Preselect a subject when arriving from a link like /practice?subject=math
+  // Preselect from the query string, so a link can land someone on exactly the
+  // practice they need: /practice?subject=math&grade=grade_5&topics=a,b
+  //
+  // This is what makes marking a paper a loop rather than a report — the
+  // diagnosis hands the weak topics straight to the builder instead of asking
+  // the reader to remember them and pick them out of a list again.
+  //
+  // Every value is validated against the curriculum before it is used; a stale
+  // or hand-edited link should leave the page usable rather than half-selected.
   useEffect(() => {
     const s = searchParams.get('subject') as SubjectSlug | null
-    if (!s) return
-    if (SELECTIVE_SUBJECTS.some(sub => sub.slug === s)) {
-      setMode('selective')
-      setSubject(s)
-    } else if (SUBJECTS.some(sub => sub.slug === s)) {
-      setMode('general')
-      setSubject(s)
+    if (s) {
+      if (SELECTIVE_SUBJECTS.some(sub => sub.slug === s)) {
+        setMode('selective')
+        setSubject(s)
+      } else if (SUBJECTS.some(sub => sub.slug === s)) {
+        setMode('general')
+        setSubject(s)
+      }
+    }
+
+    const g = searchParams.get('grade') as YearLevel | null
+    if (g && GRADES.some(grade => grade.value === g)) setGrade(g)
+
+    const t = searchParams.get('topics')
+    if (t) {
+      const valid = t
+        .split(',')
+        .filter(slug => TOPICS.some(topic => topic.slug === slug && (!s || topic.subject === s))) as TopicSlug[]
+      if (valid.length) setTopics(new Set(valid))
     }
   }, [searchParams])
 
