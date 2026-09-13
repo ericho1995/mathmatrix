@@ -1324,19 +1324,77 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Maths Year 10 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Numeracy — non-calculator",
+        "time_minutes": 40,
+        "calculator_allowed": false,
         "question_ids": [
-          "98490cd9-b9c1-4b78-a692-4636eea71cbc",
-          "b32a0243-b462-4c90-a2aa-9aa87f309c90",
-          "b26bbf0f-a601-4b42-a98c-48023f080bbc",
+          "456f4200-20ca-492b-8d93-4d479e341b8b",
+          "71d378db-8066-4711-bf9b-ff80de443ca2",
+          "b8e5b1a6-5da6-4a37-84dc-10c54c85542a",
+          "391416ae-6e0f-4a5f-a2f9-26eef2a3943a",
+          "bc83d938-2514-4adb-b8a6-a254a85dd4aa",
+          "1dafe337-318b-4a9d-ad95-ea62a7dc74a6",
+          "c09f09ae-0de2-462f-802b-de1ae9ad9a12",
+          "cbe0df30-7aae-4c64-8300-9c1cf8e53bd3",
+          "e3a6b66d-82e2-459f-827b-756d2df8dd7d",
+          "b179a874-a2f2-4322-adb2-a55ec300a756",
           "ff00843a-5a16-4895-90d5-a33fe20a5ca6",
           "904bda3f-a679-4ee5-bcf9-e1a72312636e",
-          "d423a0cd-68bf-42d5-815e-ccecb203bcc6",
-          "e10e329a-885c-4e04-a86d-38d46211122e",
+          "5fca1100-2655-457c-ad58-4e83b0c67cc7",
+          "9eea03a2-7aaf-4102-9dae-7d1af6e23012",
+          "55fcaa6d-656a-470f-95ac-9cf5e2929f80",
+          "9f7deab6-167b-4f17-a61a-05337e7200de",
+          "c5137f27-5a0c-42ef-80a1-1d5249c2e0de",
+          "48147dcf-4399-4d8c-9c0e-981f4b7336d6",
+          "a10e3bcd-cf80-47c2-b650-0632776ecfd0",
+          "b38473c1-47fc-4301-a8cc-5bd40adbe16f",
           "c831234d-63b0-48fc-a865-d80d2c0d00fc",
+          "41e7faa5-12af-4a09-97bf-8f5afb0ec797",
           "5cd03b0a-fa8f-4aaf-a9ab-52d0e9c65fd9",
-          "9eea03a2-7aaf-4102-9dae-7d1af6e23012"
+          "10fa8c18-1ace-450b-9247-bb6a5867664d",
+          "42d3b920-d704-4b1f-be10-d7f601b169bc",
+          "65df085e-9719-44e8-b8b1-9a5da0ff05db",
+          "82c5107d-c853-4e9d-a517-bf34e9400856",
+          "c16fb2d1-019b-4923-8498-958687613455",
+          "1d4bf435-0263-4347-9a96-e71cb09fdf17",
+          "d423a0cd-68bf-42d5-815e-ccecb203bcc6"
+        ]
+      },
+      {
+        "title": "Numeracy — calculator",
+        "time_minutes": 40,
+        "calculator_allowed": true,
+        "question_ids": [
+          "08005e58-e02c-4ff2-851a-64160643c47e",
+          "7b2ac16e-c02a-4ace-bda1-2f137fc613a3",
+          "4c7901c9-53ea-4dd0-abc1-f7804b8f60db",
+          "643079c0-5c4c-4292-b926-2a12e8f1b55e",
+          "290cc990-afa0-413a-bcdd-f7d6640b5e0c",
+          "66171167-5d8b-42a4-9093-61dd4ff5dbce",
+          "7d28cedc-32ba-4fab-aa34-eba7a76b374d",
+          "1b2644a4-5063-434e-a82f-be4aeaca94cd",
+          "caa24c7a-49fe-4745-93dc-61afac2eff42",
+          "e5f6b754-ce98-44c9-8dcc-37a981a27c8f",
+          "e545797a-fbb2-4530-b711-d9f33bf4fd62",
+          "28c34612-7645-44fd-9c5e-3eba63c45137",
+          "f9d480cf-c4b6-411e-84e8-835cb7eb4504",
+          "57646da9-a703-4d82-8381-187580229d3f",
+          "9190e288-22eb-429b-bbff-ad3610605c4c",
+          "8902ffcf-2778-4ae0-8652-eae8ce244057",
+          "0f3a7cea-d5d9-4fa7-8864-25cf60a80440",
+          "b26bbf0f-a601-4b42-a98c-48023f080bbc",
+          "feba004b-ded1-46b5-9697-277d8e00e57c",
+          "5280ccfb-0f9d-4323-a313-2bbc8d6d5af9",
+          "1627fa12-a6e1-42f8-bb1f-9234b9c854a7",
+          "40012aea-951b-43cf-a4ea-71f35f66c638",
+          "0af92a03-0ee7-4a9f-8971-5dc55ae4a95f",
+          "5e685612-ef1c-4ef0-89d9-6b5640ef128f",
+          "24000870-6ac5-4b0d-a153-69cc7004cd34",
+          "3f53231a-1421-4160-846f-2cef9e8aec96",
+          "7a35bb9d-33fc-4ad3-9aad-0e57049227ed",
+          "881428f9-0926-4db2-b0e0-62f5748d2584",
+          "b353a08f-7d72-48af-833a-46de67966067",
+          "d405a6fb-cdc2-4f91-a521-b49bd68b81d1"
         ]
       }
     ],
@@ -1349,19 +1407,77 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Maths Year 10 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Numeracy — non-calculator",
+        "time_minutes": 40,
+        "calculator_allowed": false,
         "question_ids": [
-          "9190e288-22eb-429b-bbff-ad3610605c4c",
-          "22ac34c3-6ca4-41f6-a24b-c44d778edee9",
-          "b353a08f-7d72-48af-833a-46de67966067",
+          "75234c76-9386-4660-83ce-df43de87a635",
+          "98490cd9-b9c1-4b78-a692-4636eea71cbc",
+          "9d714660-aa30-460d-9824-f0c3b826acd3",
+          "ca19657d-e04a-4b48-86ef-abe16a5be7f2",
+          "f798eaf0-8c31-422e-b0cd-c00aa664965c",
+          "9938764c-9fdd-4600-ab44-a4800345901d",
           "33ba0bde-9e60-4363-b071-94f8999ec83e",
-          "1627fa12-a6e1-42f8-bb1f-9234b9c854a7",
-          "b38473c1-47fc-4301-a8cc-5bd40adbe16f",
+          "e20df3d9-2bad-4ebc-9e92-792e6d0f759d",
+          "e10e329a-885c-4e04-a86d-38d46211122e",
+          "7a15ccc5-134a-4a2b-ab95-25480bdb2252",
+          "9e290ad9-9bfe-4190-97c6-b52112b266a0",
+          "cc36aaa2-18eb-4606-88ef-45d951f113d6",
+          "b32a0243-b462-4c90-a2aa-9aa87f309c90",
+          "fae07aaf-c997-4aaf-b94d-d91c1768300d",
+          "70eb58e5-ddad-4b2c-be83-4fe846846afd",
+          "456f4200-20ca-492b-8d93-4d479e341b8b",
+          "71d378db-8066-4711-bf9b-ff80de443ca2",
+          "b8e5b1a6-5da6-4a37-84dc-10c54c85542a",
+          "391416ae-6e0f-4a5f-a2f9-26eef2a3943a",
+          "bc83d938-2514-4adb-b8a6-a254a85dd4aa",
+          "1dafe337-318b-4a9d-ad95-ea62a7dc74a6",
+          "c09f09ae-0de2-462f-802b-de1ae9ad9a12",
+          "cbe0df30-7aae-4c64-8300-9c1cf8e53bd3",
           "e3a6b66d-82e2-459f-827b-756d2df8dd7d",
+          "b179a874-a2f2-4322-adb2-a55ec300a756",
+          "ff00843a-5a16-4895-90d5-a33fe20a5ca6",
+          "904bda3f-a679-4ee5-bcf9-e1a72312636e",
+          "5fca1100-2655-457c-ad58-4e83b0c67cc7",
+          "9eea03a2-7aaf-4102-9dae-7d1af6e23012",
+          "55fcaa6d-656a-470f-95ac-9cf5e2929f80"
+        ]
+      },
+      {
+        "title": "Numeracy — calculator",
+        "time_minutes": 40,
+        "calculator_allowed": true,
+        "question_ids": [
+          "64649b31-7078-4b75-869e-33ea747cf71a",
+          "7b2ac16e-c02a-4ace-bda1-2f137fc613a3",
+          "9816e83e-8583-48ac-8eb0-ccea5244fda1",
+          "643079c0-5c4c-4292-b926-2a12e8f1b55e",
+          "7d67b4ca-735d-4bf6-ae52-499f6c822d4f",
+          "66171167-5d8b-42a4-9093-61dd4ff5dbce",
+          "22ac34c3-6ca4-41f6-a24b-c44d778edee9",
+          "94f38538-5b51-4dcf-b5e1-c9b4154136f7",
+          "b498b000-4d98-49ae-a943-a16fc1f517aa",
+          "676b11bb-0e4c-42e5-a7f7-94603f407b79",
+          "c2e91094-36f8-4156-ba3d-146bb1b5ba82",
+          "e1467128-5908-4719-b304-55b1729dd45b",
+          "2c8901de-b7cb-409d-9dc7-cea37d37d1b6",
+          "23d38c99-1f31-4295-bbe1-b477a38ad93d",
+          "b2733db7-5582-45d1-aa94-6b11c006f56f",
+          "ea37de0b-91fa-4b62-a4ea-92767566fbad",
+          "b68249df-2413-4f50-9178-21dbe4fbd93b",
+          "d328ceea-f0bc-4a5f-9973-8aa54f1b1b4b",
+          "08005e58-e02c-4ff2-851a-64160643c47e",
+          "4c7901c9-53ea-4dd0-abc1-f7804b8f60db",
+          "290cc990-afa0-413a-bcdd-f7d6640b5e0c",
+          "7d28cedc-32ba-4fab-aa34-eba7a76b374d",
+          "1b2644a4-5063-434e-a82f-be4aeaca94cd",
+          "caa24c7a-49fe-4745-93dc-61afac2eff42",
           "e5f6b754-ce98-44c9-8dcc-37a981a27c8f",
-          "1d4bf435-0263-4347-9a96-e71cb09fdf17",
-          "e1467128-5908-4719-b304-55b1729dd45b"
+          "e545797a-fbb2-4530-b711-d9f33bf4fd62",
+          "28c34612-7645-44fd-9c5e-3eba63c45137",
+          "f9d480cf-c4b6-411e-84e8-835cb7eb4504",
+          "57646da9-a703-4d82-8381-187580229d3f",
+          "9190e288-22eb-429b-bbff-ad3610605c4c"
         ]
       }
     ],
@@ -1374,19 +1490,77 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Maths Year 10 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Numeracy — non-calculator",
+        "time_minutes": 40,
+        "calculator_allowed": false,
         "question_ids": [
+          "9f7deab6-167b-4f17-a61a-05337e7200de",
+          "c5137f27-5a0c-42ef-80a1-1d5249c2e0de",
+          "48147dcf-4399-4d8c-9c0e-981f4b7336d6",
+          "a10e3bcd-cf80-47c2-b650-0632776ecfd0",
+          "b38473c1-47fc-4301-a8cc-5bd40adbe16f",
+          "c831234d-63b0-48fc-a865-d80d2c0d00fc",
+          "41e7faa5-12af-4a09-97bf-8f5afb0ec797",
+          "5cd03b0a-fa8f-4aaf-a9ab-52d0e9c65fd9",
           "10fa8c18-1ace-450b-9247-bb6a5867664d",
+          "42d3b920-d704-4b1f-be10-d7f601b169bc",
+          "65df085e-9719-44e8-b8b1-9a5da0ff05db",
+          "82c5107d-c853-4e9d-a517-bf34e9400856",
+          "c16fb2d1-019b-4923-8498-958687613455",
+          "1d4bf435-0263-4347-9a96-e71cb09fdf17",
+          "d423a0cd-68bf-42d5-815e-ccecb203bcc6",
+          "75234c76-9386-4660-83ce-df43de87a635",
+          "98490cd9-b9c1-4b78-a692-4636eea71cbc",
           "9d714660-aa30-460d-9824-f0c3b826acd3",
-          "9816e83e-8583-48ac-8eb0-ccea5244fda1",
-          "23d38c99-1f31-4295-bbe1-b477a38ad93d",
-          "28c34612-7645-44fd-9c5e-3eba63c45137",
-          "b2733db7-5582-45d1-aa94-6b11c006f56f",
+          "ca19657d-e04a-4b48-86ef-abe16a5be7f2",
+          "f798eaf0-8c31-422e-b0cd-c00aa664965c",
+          "9938764c-9fdd-4600-ab44-a4800345901d",
+          "33ba0bde-9e60-4363-b071-94f8999ec83e",
+          "e20df3d9-2bad-4ebc-9e92-792e6d0f759d",
+          "e10e329a-885c-4e04-a86d-38d46211122e",
+          "7a15ccc5-134a-4a2b-ab95-25480bdb2252",
+          "9e290ad9-9bfe-4190-97c6-b52112b266a0",
+          "cc36aaa2-18eb-4606-88ef-45d951f113d6",
+          "b32a0243-b462-4c90-a2aa-9aa87f309c90",
+          "fae07aaf-c997-4aaf-b94d-d91c1768300d",
+          "70eb58e5-ddad-4b2c-be83-4fe846846afd"
+        ]
+      },
+      {
+        "title": "Numeracy — calculator",
+        "time_minutes": 40,
+        "calculator_allowed": true,
+        "question_ids": [
+          "8902ffcf-2778-4ae0-8652-eae8ce244057",
+          "0f3a7cea-d5d9-4fa7-8864-25cf60a80440",
+          "b26bbf0f-a601-4b42-a98c-48023f080bbc",
+          "feba004b-ded1-46b5-9697-277d8e00e57c",
+          "5280ccfb-0f9d-4323-a313-2bbc8d6d5af9",
+          "1627fa12-a6e1-42f8-bb1f-9234b9c854a7",
+          "40012aea-951b-43cf-a4ea-71f35f66c638",
+          "0af92a03-0ee7-4a9f-8971-5dc55ae4a95f",
+          "5e685612-ef1c-4ef0-89d9-6b5640ef128f",
+          "24000870-6ac5-4b0d-a153-69cc7004cd34",
+          "3f53231a-1421-4160-846f-2cef9e8aec96",
           "7a35bb9d-33fc-4ad3-9aad-0e57049227ed",
+          "881428f9-0926-4db2-b0e0-62f5748d2584",
+          "b353a08f-7d72-48af-833a-46de67966067",
+          "d405a6fb-cdc2-4f91-a521-b49bd68b81d1",
+          "64649b31-7078-4b75-869e-33ea747cf71a",
+          "9816e83e-8583-48ac-8eb0-ccea5244fda1",
+          "7d67b4ca-735d-4bf6-ae52-499f6c822d4f",
+          "22ac34c3-6ca4-41f6-a24b-c44d778edee9",
+          "94f38538-5b51-4dcf-b5e1-c9b4154136f7",
           "b498b000-4d98-49ae-a943-a16fc1f517aa",
-          "e545797a-fbb2-4530-b711-d9f33bf4fd62",
-          "d405a6fb-cdc2-4f91-a521-b49bd68b81d1"
+          "676b11bb-0e4c-42e5-a7f7-94603f407b79",
+          "c2e91094-36f8-4156-ba3d-146bb1b5ba82",
+          "e1467128-5908-4719-b304-55b1729dd45b",
+          "2c8901de-b7cb-409d-9dc7-cea37d37d1b6",
+          "23d38c99-1f31-4295-bbe1-b477a38ad93d",
+          "b2733db7-5582-45d1-aa94-6b11c006f56f",
+          "ea37de0b-91fa-4b62-a4ea-92767566fbad",
+          "b68249df-2413-4f50-9178-21dbe4fbd93b",
+          "d328ceea-f0bc-4a5f-9973-8aa54f1b1b4b"
         ]
       }
     ],
@@ -2720,8 +2894,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 3 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
           "5ca913e1-318e-47f6-b043-4719b7bb1540",
           "5955cdef-1a18-49bc-867e-83772e0bb443",
@@ -2732,7 +2906,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "b4b3215c-864e-4ca0-80fa-960d40c14d9a",
           "d2188057-80d6-4a36-b71d-c14a8cb34619",
           "a3c33f6b-62a0-4c9a-b60a-142f65f87ad9",
-          "2a257334-197b-4b2f-9c94-dcc95344a84c"
+          "2a257334-197b-4b2f-9c94-dcc95344a84c",
+          "edb4d129-3d00-4472-a241-56443bf94ba2",
+          "8c40cd49-1fe5-48f0-a28d-b4e5b19ac88f",
+          "03431a77-0f9e-4291-9f77-fdeafb4055f9",
+          "93b93e73-e0ea-42a4-95df-d42b43c227d2",
+          "e4097d3e-fb18-42f1-9b01-eff03e271b19",
+          "b23ce590-1c67-4749-9823-4893c5324632"
         ]
       }
     ],
@@ -2745,19 +2925,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 3 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
-          "edb4d129-3d00-4472-a241-56443bf94ba2",
-          "8c40cd49-1fe5-48f0-a28d-b4e5b19ac88f",
-          "03431a77-0f9e-4291-9f77-fdeafb4055f9",
-          "93b93e73-e0ea-42a4-95df-d42b43c227d2",
-          "e4097d3e-fb18-42f1-9b01-eff03e271b19",
-          "b23ce590-1c67-4749-9823-4893c5324632",
           "a60f11d0-264e-44af-ac0b-f6a633c1f38e",
           "138bf44e-42db-4761-bd95-f6e1544684f5",
           "684fce64-d6fc-4ccb-9bb0-c5d2e1ec46b0",
-          "32f78ac9-0d19-4632-8c3e-32d847a61e85"
+          "32f78ac9-0d19-4632-8c3e-32d847a61e85",
+          "1e06d529-1455-480e-951f-af7735290e4e",
+          "d5bf65a8-e332-48fb-96f6-335b2c32293e",
+          "cae15de0-355d-4c41-a0d7-209d72721458",
+          "d77a959b-a9cc-49f4-99f5-95446e137891",
+          "5ca913e1-318e-47f6-b043-4719b7bb1540",
+          "5955cdef-1a18-49bc-867e-83772e0bb443",
+          "bd87032a-2119-4bd9-8312-d0c1bed22f8a",
+          "5a6507d3-3d3f-421f-b3c3-8626887b0506",
+          "6ba6575d-f63c-4c92-a584-cb7720e897c8",
+          "27876fbb-4ec2-4cfa-8a50-2c410ab85990",
+          "b4b3215c-864e-4ca0-80fa-960d40c14d9a",
+          "d2188057-80d6-4a36-b71d-c14a8cb34619"
         ]
       }
     ],
@@ -2770,19 +2956,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 3 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
+          "a3c33f6b-62a0-4c9a-b60a-142f65f87ad9",
+          "2a257334-197b-4b2f-9c94-dcc95344a84c",
+          "edb4d129-3d00-4472-a241-56443bf94ba2",
+          "8c40cd49-1fe5-48f0-a28d-b4e5b19ac88f",
+          "03431a77-0f9e-4291-9f77-fdeafb4055f9",
+          "93b93e73-e0ea-42a4-95df-d42b43c227d2",
+          "e4097d3e-fb18-42f1-9b01-eff03e271b19",
+          "b23ce590-1c67-4749-9823-4893c5324632",
+          "a60f11d0-264e-44af-ac0b-f6a633c1f38e",
+          "138bf44e-42db-4761-bd95-f6e1544684f5",
+          "684fce64-d6fc-4ccb-9bb0-c5d2e1ec46b0",
+          "32f78ac9-0d19-4632-8c3e-32d847a61e85",
           "1e06d529-1455-480e-951f-af7735290e4e",
           "d5bf65a8-e332-48fb-96f6-335b2c32293e",
           "cae15de0-355d-4c41-a0d7-209d72721458",
-          "d77a959b-a9cc-49f4-99f5-95446e137891",
-          "5ca913e1-318e-47f6-b043-4719b7bb1540",
-          "5955cdef-1a18-49bc-867e-83772e0bb443",
-          "bd87032a-2119-4bd9-8312-d0c1bed22f8a",
-          "5a6507d3-3d3f-421f-b3c3-8626887b0506",
-          "6ba6575d-f63c-4c92-a584-cb7720e897c8",
-          "27876fbb-4ec2-4cfa-8a50-2c410ab85990"
+          "d77a959b-a9cc-49f4-99f5-95446e137891"
         ]
       }
     ],
@@ -2795,8 +2987,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 5 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
           "9bf731e1-fa29-4479-92ed-ba7882e1b692",
           "c6fb52e0-4bff-4659-bb3d-5374d17ab882",
@@ -2807,7 +2999,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "a89f3d69-adcf-4940-b7b1-cc5740f22a28",
           "f285d11d-fdea-4178-b623-162113760bc9",
           "aafd55a4-fb09-4404-a213-541d1ce1d360",
-          "81b17d0e-ebba-49bb-86a9-59d06f8cb4aa"
+          "81b17d0e-ebba-49bb-86a9-59d06f8cb4aa",
+          "277455a3-4ac3-4b36-9818-1ebffbfaea19",
+          "d4d288c0-6575-470b-9e0b-16f7ea04dcbb",
+          "673a1ef3-1191-4d49-a14d-59533db7a825",
+          "4beff8bd-1407-45df-964c-3e21327980f2",
+          "40488c0d-1663-4350-a322-97d5c6bc197e",
+          "a31261e9-ddba-499c-aae4-9fcf63c5269c"
         ]
       }
     ],
@@ -2820,19 +3018,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 5 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
-          "277455a3-4ac3-4b36-9818-1ebffbfaea19",
-          "d4d288c0-6575-470b-9e0b-16f7ea04dcbb",
-          "673a1ef3-1191-4d49-a14d-59533db7a825",
-          "4beff8bd-1407-45df-964c-3e21327980f2",
-          "40488c0d-1663-4350-a322-97d5c6bc197e",
-          "a31261e9-ddba-499c-aae4-9fcf63c5269c",
           "e90ae909-6fca-4ea0-9a89-c0d1cb036462",
           "0e94eac9-4278-41b5-8b8a-b988c92769df",
           "78506a2f-ac00-445d-97e4-abe97b220dec",
-          "3c4c5603-5d8c-4167-8815-bfe7eb8b5544"
+          "3c4c5603-5d8c-4167-8815-bfe7eb8b5544",
+          "f5ffb58f-6bcd-44e5-b905-14c14acdbbbe",
+          "98bf2829-24c3-4872-be41-8517d6735327",
+          "a582a86d-28e4-4c27-8926-6249d59ce2a9",
+          "8dd39944-e43e-4f5e-bbd1-15b15e8f51af",
+          "9bf731e1-fa29-4479-92ed-ba7882e1b692",
+          "c6fb52e0-4bff-4659-bb3d-5374d17ab882",
+          "be4a6bdf-c30b-4c64-899f-1b932858ef2b",
+          "7de1f0b5-e8b1-4eaa-abc1-3caa76f5045a",
+          "64e3c69b-3f63-4b40-bebd-34488fe25a0d",
+          "a5343ce2-8552-4f7c-a18d-c23ae9b7ea37",
+          "a89f3d69-adcf-4940-b7b1-cc5740f22a28",
+          "f285d11d-fdea-4178-b623-162113760bc9"
         ]
       }
     ],
@@ -2845,19 +3049,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 5 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
+          "aafd55a4-fb09-4404-a213-541d1ce1d360",
+          "81b17d0e-ebba-49bb-86a9-59d06f8cb4aa",
+          "277455a3-4ac3-4b36-9818-1ebffbfaea19",
+          "d4d288c0-6575-470b-9e0b-16f7ea04dcbb",
+          "673a1ef3-1191-4d49-a14d-59533db7a825",
+          "4beff8bd-1407-45df-964c-3e21327980f2",
+          "40488c0d-1663-4350-a322-97d5c6bc197e",
+          "a31261e9-ddba-499c-aae4-9fcf63c5269c",
+          "e90ae909-6fca-4ea0-9a89-c0d1cb036462",
+          "0e94eac9-4278-41b5-8b8a-b988c92769df",
+          "78506a2f-ac00-445d-97e4-abe97b220dec",
+          "3c4c5603-5d8c-4167-8815-bfe7eb8b5544",
           "f5ffb58f-6bcd-44e5-b905-14c14acdbbbe",
           "98bf2829-24c3-4872-be41-8517d6735327",
           "a582a86d-28e4-4c27-8926-6249d59ce2a9",
-          "8dd39944-e43e-4f5e-bbd1-15b15e8f51af",
-          "9bf731e1-fa29-4479-92ed-ba7882e1b692",
-          "c6fb52e0-4bff-4659-bb3d-5374d17ab882",
-          "be4a6bdf-c30b-4c64-899f-1b932858ef2b",
-          "7de1f0b5-e8b1-4eaa-abc1-3caa76f5045a",
-          "64e3c69b-3f63-4b40-bebd-34488fe25a0d",
-          "a5343ce2-8552-4f7c-a18d-c23ae9b7ea37"
+          "8dd39944-e43e-4f5e-bbd1-15b15e8f51af"
         ]
       }
     ],
@@ -2870,8 +3080,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 6 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
           "12310b4f-6289-41b5-8379-2d52e086a163",
           "d7c1d9c5-c9de-4188-851b-fb10521c436b",
@@ -2882,7 +3092,14 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "38b6fda1-f9c8-4194-9364-bae79e78ad7f",
           "26a9c14b-0ae3-4a8c-a4d6-4a36132fb90a",
           "4af16baf-7024-4f17-8028-f6d77f8d5e43",
-          "43265bbe-19e9-4c0a-aa8e-48ad4b778295"
+          "43265bbe-19e9-4c0a-aa8e-48ad4b778295",
+          "a66279c6-c848-40e0-abc5-ed8825b64a38",
+          "a9fe29a8-16cc-48d8-b572-54bac049c42d",
+          "a41fe943-bd18-448b-96f8-673807a07814",
+          "0d12466d-92ce-49d8-8b9f-0f5a8c689f10",
+          "1ca087db-5e18-43fe-8712-99c191ccbfd3",
+          "fbd0c82a-fed7-4658-961c-e2da033f2a6d",
+          "bac08012-8cfa-4d1e-98f0-dc143bb9f6d2"
         ]
       }
     ],
@@ -2895,19 +3112,26 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 6 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
-          "a66279c6-c848-40e0-abc5-ed8825b64a38",
-          "a9fe29a8-16cc-48d8-b572-54bac049c42d",
-          "a41fe943-bd18-448b-96f8-673807a07814",
-          "0d12466d-92ce-49d8-8b9f-0f5a8c689f10",
-          "1ca087db-5e18-43fe-8712-99c191ccbfd3",
-          "fbd0c82a-fed7-4658-961c-e2da033f2a6d",
-          "bac08012-8cfa-4d1e-98f0-dc143bb9f6d2",
           "63b3f018-f28c-442b-a7cd-abbf40b50ce6",
           "ec922a29-13cb-4bed-9e42-b5afa144ad72",
-          "525d1e7f-9f95-4213-83b6-9b235a6e176d"
+          "525d1e7f-9f95-4213-83b6-9b235a6e176d",
+          "642a7adf-8930-4a6d-9049-f29ef5c6b4ef",
+          "6dd74bcf-62c9-4eb5-a698-e204a5036b7e",
+          "d8d1737f-5a22-4309-94c3-0a874d951c08",
+          "874bb01a-4792-46b2-b56e-d895ceeaff0a",
+          "f248c7ca-8778-413b-a062-8bb9a2a0cb19",
+          "1fa234be-6b87-44f3-afaf-506e9da9f3ea",
+          "12310b4f-6289-41b5-8379-2d52e086a163",
+          "d7c1d9c5-c9de-4188-851b-fb10521c436b",
+          "6eec1bb8-817f-4d8a-9cfe-f1fea7cc875b",
+          "90416ab9-5e63-4b2b-bc46-d71d4dd1f2a8",
+          "7a236cce-9535-4a4a-b389-30a5cc64d202",
+          "a0de0071-bbbf-4d98-8efa-460543a417c6",
+          "38b6fda1-f9c8-4194-9364-bae79e78ad7f",
+          "26a9c14b-0ae3-4a8c-a4d6-4a36132fb90a"
         ]
       }
     ],
@@ -2920,19 +3144,26 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 6 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
+          "4af16baf-7024-4f17-8028-f6d77f8d5e43",
+          "43265bbe-19e9-4c0a-aa8e-48ad4b778295",
+          "a66279c6-c848-40e0-abc5-ed8825b64a38",
+          "a9fe29a8-16cc-48d8-b572-54bac049c42d",
+          "a41fe943-bd18-448b-96f8-673807a07814",
+          "0d12466d-92ce-49d8-8b9f-0f5a8c689f10",
+          "1ca087db-5e18-43fe-8712-99c191ccbfd3",
+          "fbd0c82a-fed7-4658-961c-e2da033f2a6d",
+          "bac08012-8cfa-4d1e-98f0-dc143bb9f6d2",
+          "63b3f018-f28c-442b-a7cd-abbf40b50ce6",
+          "ec922a29-13cb-4bed-9e42-b5afa144ad72",
+          "525d1e7f-9f95-4213-83b6-9b235a6e176d",
           "642a7adf-8930-4a6d-9049-f29ef5c6b4ef",
           "6dd74bcf-62c9-4eb5-a698-e204a5036b7e",
           "d8d1737f-5a22-4309-94c3-0a874d951c08",
           "874bb01a-4792-46b2-b56e-d895ceeaff0a",
-          "f248c7ca-8778-413b-a062-8bb9a2a0cb19",
-          "1fa234be-6b87-44f3-afaf-506e9da9f3ea",
-          "12310b4f-6289-41b5-8379-2d52e086a163",
-          "d7c1d9c5-c9de-4188-851b-fb10521c436b",
-          "6eec1bb8-817f-4d8a-9cfe-f1fea7cc875b",
-          "90416ab9-5e63-4b2b-bc46-d71d4dd1f2a8"
+          "f248c7ca-8778-413b-a062-8bb9a2a0cb19"
         ]
       }
     ],
@@ -2945,8 +3176,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 7 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
           "a7543b7a-a68d-4973-bed4-370427f0228d",
           "b4135d64-f9bb-403b-8899-464791404fae",
@@ -2957,7 +3188,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "5921421d-f0a2-43b9-8d4d-bc8642d1edff",
           "43a9e33d-9bc6-4225-9f0a-e53f2d98f407",
           "34548b0f-1ceb-46d0-af4a-d7be95b21631",
-          "37d5ba84-b1b0-49de-b88e-3c6483a406b2"
+          "37d5ba84-b1b0-49de-b88e-3c6483a406b2",
+          "3fcb0332-ed03-4968-a37c-15c313ebfda1",
+          "64403791-d6de-4978-bd47-6e5c4419b935",
+          "793f6542-4f26-4ed5-adc6-df887b2fbcd1",
+          "cdb4a7f2-76d9-4eae-a60f-05c1eeebcaf3",
+          "46ef8104-e8cb-4306-b347-3c7be356109d",
+          "f0e8780a-0cc1-4577-a369-d20fb1b5a676"
         ]
       }
     ],
@@ -2970,19 +3207,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 7 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
-          "3fcb0332-ed03-4968-a37c-15c313ebfda1",
-          "64403791-d6de-4978-bd47-6e5c4419b935",
-          "793f6542-4f26-4ed5-adc6-df887b2fbcd1",
-          "cdb4a7f2-76d9-4eae-a60f-05c1eeebcaf3",
-          "46ef8104-e8cb-4306-b347-3c7be356109d",
-          "f0e8780a-0cc1-4577-a369-d20fb1b5a676",
           "dab28042-a340-4c87-8301-0dab7feb7641",
           "d3a3dba9-a543-4ccf-9c82-fb3bd7728576",
           "2ec61570-ca1b-4d43-b029-76c0dbba4bc9",
-          "5ea886f0-1c93-4f77-a19d-e9cbc446a443"
+          "5ea886f0-1c93-4f77-a19d-e9cbc446a443",
+          "31a917df-9f25-46c1-8c49-61b71ace957f",
+          "457cdc69-4fab-4d10-9de8-4b379478f894",
+          "0d8116f4-0042-42e2-aa49-ac6c4ca9ffd8",
+          "a47da750-3c09-4e2b-981a-2075795d6bd0",
+          "a7543b7a-a68d-4973-bed4-370427f0228d",
+          "b4135d64-f9bb-403b-8899-464791404fae",
+          "16eb5ce5-48a4-4390-86f8-bc10d75191e3",
+          "3ae05ecd-749d-41a9-9d1b-91ab3ccb7a98",
+          "660d6e9a-b0b7-4f13-8008-d45b4e2804ff",
+          "720f28c0-6494-4525-9af7-168e35ced411",
+          "5921421d-f0a2-43b9-8d4d-bc8642d1edff",
+          "43a9e33d-9bc6-4225-9f0a-e53f2d98f407"
         ]
       }
     ],
@@ -2995,19 +3238,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 7 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
+          "34548b0f-1ceb-46d0-af4a-d7be95b21631",
+          "37d5ba84-b1b0-49de-b88e-3c6483a406b2",
+          "3fcb0332-ed03-4968-a37c-15c313ebfda1",
+          "64403791-d6de-4978-bd47-6e5c4419b935",
+          "793f6542-4f26-4ed5-adc6-df887b2fbcd1",
+          "cdb4a7f2-76d9-4eae-a60f-05c1eeebcaf3",
+          "46ef8104-e8cb-4306-b347-3c7be356109d",
+          "f0e8780a-0cc1-4577-a369-d20fb1b5a676",
+          "dab28042-a340-4c87-8301-0dab7feb7641",
+          "d3a3dba9-a543-4ccf-9c82-fb3bd7728576",
+          "2ec61570-ca1b-4d43-b029-76c0dbba4bc9",
+          "5ea886f0-1c93-4f77-a19d-e9cbc446a443",
           "31a917df-9f25-46c1-8c49-61b71ace957f",
           "457cdc69-4fab-4d10-9de8-4b379478f894",
           "0d8116f4-0042-42e2-aa49-ac6c4ca9ffd8",
-          "a47da750-3c09-4e2b-981a-2075795d6bd0",
-          "a7543b7a-a68d-4973-bed4-370427f0228d",
-          "b4135d64-f9bb-403b-8899-464791404fae",
-          "16eb5ce5-48a4-4390-86f8-bc10d75191e3",
-          "3ae05ecd-749d-41a9-9d1b-91ab3ccb7a98",
-          "660d6e9a-b0b7-4f13-8008-d45b4e2804ff",
-          "720f28c0-6494-4525-9af7-168e35ced411"
+          "a47da750-3c09-4e2b-981a-2075795d6bd0"
         ]
       }
     ],
@@ -3020,8 +3269,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 9 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
           "75a77b8c-543b-4772-a94b-1f700d4c4f3f",
           "2a50a3c3-40ff-4e56-947a-394adc7cab21",
@@ -3032,7 +3281,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "06148d85-95f5-46c1-8bcc-bf0a878a9346",
           "a00cf390-03e0-4aac-b21d-710de91af173",
           "8a7bb997-6650-4ac7-b1b4-22fe56eadaf7",
-          "bf7ae28f-322b-459e-a179-dcda96748857"
+          "bf7ae28f-322b-459e-a179-dcda96748857",
+          "5522aa73-cdbe-4be7-91c0-68ef6b63b563",
+          "8f9593bb-1192-4729-b332-2cde6ae433fb",
+          "2e29ec3d-4463-4367-a993-cefb6ebddc1d",
+          "aed732ac-94ce-4597-ae8f-3bf5969da433",
+          "14e20853-9c3f-48cc-90e3-cfedaa366d27",
+          "c825e063-9d3a-4308-918d-4e6a84e310d6"
         ]
       }
     ],
@@ -3045,19 +3300,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 9 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
-          "5522aa73-cdbe-4be7-91c0-68ef6b63b563",
-          "8f9593bb-1192-4729-b332-2cde6ae433fb",
-          "2e29ec3d-4463-4367-a993-cefb6ebddc1d",
-          "aed732ac-94ce-4597-ae8f-3bf5969da433",
-          "14e20853-9c3f-48cc-90e3-cfedaa366d27",
-          "c825e063-9d3a-4308-918d-4e6a84e310d6",
           "6b54e9a0-9a88-4e36-8448-748e6bb3522e",
           "13242626-1991-4d90-90cf-6760fd4665a6",
           "a41b9977-a11c-4146-831a-1bfcc9dd38d5",
-          "ef4c9ad3-f4e5-4080-bf2c-987ec409857f"
+          "ef4c9ad3-f4e5-4080-bf2c-987ec409857f",
+          "a21d812b-3801-4278-94a8-bd87f0f80d9d",
+          "7514ca1c-e2c0-4560-bcc0-0142b67a499e",
+          "c530ab1c-8b38-43dc-83e2-2174a249280d",
+          "b20cec2b-9404-4769-ae83-72f5a8ad899c",
+          "75a77b8c-543b-4772-a94b-1f700d4c4f3f",
+          "2a50a3c3-40ff-4e56-947a-394adc7cab21",
+          "86b39d8e-f376-4bfa-b591-957f45768cc6",
+          "77def386-4f12-4f80-a33c-a06bf88d196c",
+          "b0f3fe36-1292-48a9-a45c-96d253ac6692",
+          "c2b4f143-93a0-4dcd-9001-3f5a2a3e8f9a",
+          "06148d85-95f5-46c1-8bcc-bf0a878a9346",
+          "a00cf390-03e0-4aac-b21d-710de91af173"
         ]
       }
     ],
@@ -3070,19 +3331,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 9 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
+          "8a7bb997-6650-4ac7-b1b4-22fe56eadaf7",
+          "bf7ae28f-322b-459e-a179-dcda96748857",
+          "5522aa73-cdbe-4be7-91c0-68ef6b63b563",
+          "8f9593bb-1192-4729-b332-2cde6ae433fb",
+          "2e29ec3d-4463-4367-a993-cefb6ebddc1d",
+          "aed732ac-94ce-4597-ae8f-3bf5969da433",
+          "14e20853-9c3f-48cc-90e3-cfedaa366d27",
+          "c825e063-9d3a-4308-918d-4e6a84e310d6",
+          "6b54e9a0-9a88-4e36-8448-748e6bb3522e",
+          "13242626-1991-4d90-90cf-6760fd4665a6",
+          "a41b9977-a11c-4146-831a-1bfcc9dd38d5",
+          "ef4c9ad3-f4e5-4080-bf2c-987ec409857f",
           "a21d812b-3801-4278-94a8-bd87f0f80d9d",
           "7514ca1c-e2c0-4560-bcc0-0142b67a499e",
           "c530ab1c-8b38-43dc-83e2-2174a249280d",
-          "b20cec2b-9404-4769-ae83-72f5a8ad899c",
-          "75a77b8c-543b-4772-a94b-1f700d4c4f3f",
-          "2a50a3c3-40ff-4e56-947a-394adc7cab21",
-          "86b39d8e-f376-4bfa-b591-957f45768cc6",
-          "77def386-4f12-4f80-a33c-a06bf88d196c",
-          "b0f3fe36-1292-48a9-a45c-96d253ac6692",
-          "c2b4f143-93a0-4dcd-9001-3f5a2a3e8f9a"
+          "b20cec2b-9404-4769-ae83-72f5a8ad899c"
         ]
       }
     ],
@@ -3095,8 +3362,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 4 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
           "2f9423e0-9e64-47f0-ba90-f0e31d32a1ff",
           "4d07eec0-dba8-4807-9da0-1829decb6cd3",
@@ -3107,7 +3374,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "b6f5d759-6eb3-4606-abca-1789ebdae9ad",
           "e1537fee-6551-4a53-8b51-48b3c07db65b",
           "516f74df-0e2c-4a3d-a2f7-491482a76075",
-          "959eb318-91f4-4a63-9915-ce32b628024f"
+          "959eb318-91f4-4a63-9915-ce32b628024f",
+          "a2808b56-6156-42f2-91e0-3e83609ad71c",
+          "8787955e-c833-4dc6-9396-740220634954",
+          "c16e18dc-53e6-4149-9af7-2d4890fa4a80",
+          "75a2addb-9ebe-4b17-8e91-3d25a3bc88ff",
+          "a25d74d4-cece-4b6b-a48c-e6f14137f07c",
+          "b682e090-b820-4a6f-91b5-3d88e9799591"
         ]
       }
     ],
@@ -3120,19 +3393,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 4 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
-          "a2808b56-6156-42f2-91e0-3e83609ad71c",
-          "8787955e-c833-4dc6-9396-740220634954",
-          "c16e18dc-53e6-4149-9af7-2d4890fa4a80",
-          "75a2addb-9ebe-4b17-8e91-3d25a3bc88ff",
-          "a25d74d4-cece-4b6b-a48c-e6f14137f07c",
-          "b682e090-b820-4a6f-91b5-3d88e9799591",
           "37cbf6c0-34c5-40a7-a270-1ba5df17d301",
           "2d03514e-06de-4673-8d5b-4eae5ac7bbb7",
           "10599864-b583-4bcf-ba2e-30b84c140ba1",
-          "3904efc1-5dfe-46f8-8091-9e054701823b"
+          "3904efc1-5dfe-46f8-8091-9e054701823b",
+          "83505fff-7d7f-42e5-a0b9-1b16ee0b2e8b",
+          "8e67d4f6-70fe-489d-ab57-34d1b99c33f0",
+          "6f42ae78-25a0-4ea0-8f48-e18ee5e76fcd",
+          "27a1c6ce-23db-4601-b05b-6d281dfb9130",
+          "2f9423e0-9e64-47f0-ba90-f0e31d32a1ff",
+          "4d07eec0-dba8-4807-9da0-1829decb6cd3",
+          "540f251a-a7fb-4da4-972a-1a23a376e6a3",
+          "0e5d077c-9a7b-4428-8cad-0cad99342c9e",
+          "840c6518-618a-47c8-a664-616eec72f143",
+          "78e23eeb-1e19-4212-bc80-16768376b4a4",
+          "b6f5d759-6eb3-4606-abca-1789ebdae9ad",
+          "e1537fee-6551-4a53-8b51-48b3c07db65b"
         ]
       }
     ],
@@ -3145,19 +3424,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Grade 4 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
+          "516f74df-0e2c-4a3d-a2f7-491482a76075",
+          "959eb318-91f4-4a63-9915-ce32b628024f",
+          "a2808b56-6156-42f2-91e0-3e83609ad71c",
+          "8787955e-c833-4dc6-9396-740220634954",
+          "c16e18dc-53e6-4149-9af7-2d4890fa4a80",
+          "75a2addb-9ebe-4b17-8e91-3d25a3bc88ff",
+          "a25d74d4-cece-4b6b-a48c-e6f14137f07c",
+          "b682e090-b820-4a6f-91b5-3d88e9799591",
+          "37cbf6c0-34c5-40a7-a270-1ba5df17d301",
+          "2d03514e-06de-4673-8d5b-4eae5ac7bbb7",
+          "10599864-b583-4bcf-ba2e-30b84c140ba1",
+          "3904efc1-5dfe-46f8-8091-9e054701823b",
           "83505fff-7d7f-42e5-a0b9-1b16ee0b2e8b",
           "8e67d4f6-70fe-489d-ab57-34d1b99c33f0",
           "6f42ae78-25a0-4ea0-8f48-e18ee5e76fcd",
-          "27a1c6ce-23db-4601-b05b-6d281dfb9130",
-          "2f9423e0-9e64-47f0-ba90-f0e31d32a1ff",
-          "4d07eec0-dba8-4807-9da0-1829decb6cd3",
-          "540f251a-a7fb-4da4-972a-1a23a376e6a3",
-          "0e5d077c-9a7b-4428-8cad-0cad99342c9e",
-          "840c6518-618a-47c8-a664-616eec72f143",
-          "78e23eeb-1e19-4212-bc80-16768376b4a4"
+          "27a1c6ce-23db-4601-b05b-6d281dfb9130"
         ]
       }
     ],
@@ -3170,8 +3455,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 8 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
           "08c4487d-e0de-45dd-a475-9b23f8d3b6ee",
           "5327c5a5-d566-472a-9c20-46d7b7130175",
@@ -3182,7 +3467,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "ab645c82-6fb3-441a-a747-df06d2113dba",
           "909dd0e9-4828-487e-a54b-8ec7a5d54dc1",
           "dfbeb1bd-0e2c-402b-b1ce-861fd91e9b1b",
-          "5f48e025-4c14-42e8-89b5-aaed3be746ab"
+          "5f48e025-4c14-42e8-89b5-aaed3be746ab",
+          "dbade988-155b-4c69-88ed-e54e37faf6ca",
+          "971fde25-bc5c-4406-92f1-864f18465d7b",
+          "7feb0878-7350-4c28-8663-5297fac0d6a2",
+          "6a9c251d-f7a0-4373-9a05-3dc6a5213439",
+          "4d66b7b7-d370-410a-b0fd-427ca9a423b1",
+          "82deb08f-a70f-4adc-ae72-91b5e6c4dfcf"
         ]
       }
     ],
@@ -3195,19 +3486,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 8 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
-          "dbade988-155b-4c69-88ed-e54e37faf6ca",
-          "971fde25-bc5c-4406-92f1-864f18465d7b",
-          "7feb0878-7350-4c28-8663-5297fac0d6a2",
-          "6a9c251d-f7a0-4373-9a05-3dc6a5213439",
-          "4d66b7b7-d370-410a-b0fd-427ca9a423b1",
-          "82deb08f-a70f-4adc-ae72-91b5e6c4dfcf",
           "346284af-42b7-4a72-8a6b-49ea2c15e11c",
           "9569d7a8-f20e-49a4-97fd-08025313a991",
           "b8e47782-c68c-41ab-9559-a0b5a1cbaad7",
-          "2c410695-ac54-42cf-941a-f09a08f67f75"
+          "2c410695-ac54-42cf-941a-f09a08f67f75",
+          "d16009fb-e6ac-41fa-8231-5120fcd85eb2",
+          "1b8e0cc2-4f0c-4ceb-b944-9b8297eaf0ee",
+          "34a78bcf-5502-4198-8c27-ce92ac7349e3",
+          "997fc171-7d16-42ef-b544-aef3e9a78bbb",
+          "08c4487d-e0de-45dd-a475-9b23f8d3b6ee",
+          "5327c5a5-d566-472a-9c20-46d7b7130175",
+          "97164156-018a-44bc-9612-73d79a81d9c3",
+          "790854c3-25d6-46d7-8173-d0cdb85b11e0",
+          "a53d1c70-b7d9-41e1-884c-ee93e78a9abc",
+          "347ef2ad-fb11-4182-8ab3-44512490561e",
+          "ab645c82-6fb3-441a-a747-df06d2113dba",
+          "909dd0e9-4828-487e-a54b-8ec7a5d54dc1"
         ]
       }
     ],
@@ -3220,19 +3517,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 8 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
+          "dfbeb1bd-0e2c-402b-b1ce-861fd91e9b1b",
+          "5f48e025-4c14-42e8-89b5-aaed3be746ab",
+          "dbade988-155b-4c69-88ed-e54e37faf6ca",
+          "971fde25-bc5c-4406-92f1-864f18465d7b",
+          "7feb0878-7350-4c28-8663-5297fac0d6a2",
+          "6a9c251d-f7a0-4373-9a05-3dc6a5213439",
+          "4d66b7b7-d370-410a-b0fd-427ca9a423b1",
+          "82deb08f-a70f-4adc-ae72-91b5e6c4dfcf",
+          "346284af-42b7-4a72-8a6b-49ea2c15e11c",
+          "9569d7a8-f20e-49a4-97fd-08025313a991",
+          "b8e47782-c68c-41ab-9559-a0b5a1cbaad7",
+          "2c410695-ac54-42cf-941a-f09a08f67f75",
           "d16009fb-e6ac-41fa-8231-5120fcd85eb2",
           "1b8e0cc2-4f0c-4ceb-b944-9b8297eaf0ee",
           "34a78bcf-5502-4198-8c27-ce92ac7349e3",
-          "997fc171-7d16-42ef-b544-aef3e9a78bbb",
-          "08c4487d-e0de-45dd-a475-9b23f8d3b6ee",
-          "5327c5a5-d566-472a-9c20-46d7b7130175",
-          "97164156-018a-44bc-9612-73d79a81d9c3",
-          "790854c3-25d6-46d7-8173-d0cdb85b11e0",
-          "a53d1c70-b7d9-41e1-884c-ee93e78a9abc",
-          "347ef2ad-fb11-4182-8ab3-44512490561e"
+          "997fc171-7d16-42ef-b544-aef3e9a78bbb"
         ]
       }
     ],
@@ -3245,8 +3548,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 10 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
           "fa75ee6b-7411-4dc0-8f24-9db75d523b3e",
           "4080e668-6840-4eb2-a059-eece6007a29b",
@@ -3257,7 +3560,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "a8fb4908-f37c-4d12-ab5b-19a39cc5a542",
           "38b503b8-fa93-4962-8eca-f38417780e67",
           "6de0e8f2-1778-4048-b023-ea41fe126300",
-          "9f679146-255a-419f-a8b7-35a0ea856654"
+          "9f679146-255a-419f-a8b7-35a0ea856654",
+          "1826d930-a611-4415-89da-1a8f78b3d561",
+          "e311c7e4-79b4-4227-af8b-dce8925952dc",
+          "6b39fe15-ae4e-45ac-a8e4-69323992403b",
+          "81f0d130-14f5-44c4-8482-421d2be96cbf",
+          "e0f81a76-aa5e-4c87-90de-947d080b0fb5",
+          "fbda5904-985f-41ef-962e-97a472c2a78a"
         ]
       }
     ],
@@ -3270,19 +3579,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 10 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
-          "1826d930-a611-4415-89da-1a8f78b3d561",
-          "e311c7e4-79b4-4227-af8b-dce8925952dc",
-          "6b39fe15-ae4e-45ac-a8e4-69323992403b",
-          "81f0d130-14f5-44c4-8482-421d2be96cbf",
-          "e0f81a76-aa5e-4c87-90de-947d080b0fb5",
-          "fbda5904-985f-41ef-962e-97a472c2a78a",
           "7c3cab0a-703b-4bb3-9fc1-f37e054870ce",
           "84795168-a24a-404f-a0e0-4362b914cc95",
           "8afd62a5-0d65-49f1-b916-bb3da58011e9",
-          "fd64c1df-155c-4b6b-8443-65368bd3f857"
+          "fd64c1df-155c-4b6b-8443-65368bd3f857",
+          "354839b8-687b-44b8-9334-704ad854bec0",
+          "2cf5198a-63d7-4fc1-ad56-7f0fffc1f263",
+          "f63640c7-5554-49c1-8df6-3f33cf4a0aa4",
+          "3a3fdd25-0ccf-419c-b73a-e1273b67867f",
+          "fa75ee6b-7411-4dc0-8f24-9db75d523b3e",
+          "4080e668-6840-4eb2-a059-eece6007a29b",
+          "092c450c-1e6d-46fb-ab36-eb483275c87c",
+          "da82552d-59a3-4e77-ac3a-5eef92ac4957",
+          "6f519d8e-2989-447a-a806-94cb2189dac8",
+          "69e15a87-caf3-4abf-b42c-79428dda33ed",
+          "a8fb4908-f37c-4d12-ab5b-19a39cc5a542",
+          "38b503b8-fa93-4962-8eca-f38417780e67"
         ]
       }
     ],
@@ -3295,19 +3610,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Science Year 10 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Science",
+        "time_minutes": 25,
         "question_ids": [
+          "6de0e8f2-1778-4048-b023-ea41fe126300",
+          "9f679146-255a-419f-a8b7-35a0ea856654",
+          "1826d930-a611-4415-89da-1a8f78b3d561",
+          "e311c7e4-79b4-4227-af8b-dce8925952dc",
+          "6b39fe15-ae4e-45ac-a8e4-69323992403b",
+          "81f0d130-14f5-44c4-8482-421d2be96cbf",
+          "e0f81a76-aa5e-4c87-90de-947d080b0fb5",
+          "fbda5904-985f-41ef-962e-97a472c2a78a",
+          "7c3cab0a-703b-4bb3-9fc1-f37e054870ce",
+          "84795168-a24a-404f-a0e0-4362b914cc95",
+          "8afd62a5-0d65-49f1-b916-bb3da58011e9",
+          "fd64c1df-155c-4b6b-8443-65368bd3f857",
           "354839b8-687b-44b8-9334-704ad854bec0",
           "2cf5198a-63d7-4fc1-ad56-7f0fffc1f263",
           "f63640c7-5554-49c1-8df6-3f33cf4a0aa4",
-          "3a3fdd25-0ccf-419c-b73a-e1273b67867f",
-          "fa75ee6b-7411-4dc0-8f24-9db75d523b3e",
-          "4080e668-6840-4eb2-a059-eece6007a29b",
-          "092c450c-1e6d-46fb-ab36-eb483275c87c",
-          "da82552d-59a3-4e77-ac3a-5eef92ac4957",
-          "6f519d8e-2989-447a-a806-94cb2189dac8",
-          "69e15a87-caf3-4abf-b42c-79428dda33ed"
+          "3a3fdd25-0ccf-419c-b73a-e1273b67867f"
         ]
       }
     ],
@@ -3320,8 +3641,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Chemistry Unit 1 & 2 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Chemistry",
+        "time_minutes": 40,
         "question_ids": [
           "3b42d2be-fbd4-4d3b-8827-22a090d39f3e",
           "065e91db-0de0-4986-9df8-b9511054b68a",
@@ -3332,7 +3653,25 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "a92eede6-c83d-4e2b-9332-da81f7464b43",
           "ec2e421f-7d5d-440a-8388-dd0d7a13c772",
           "d8c1ef5c-5ec7-4685-963a-697e60a7a0be",
-          "b53694b4-19e3-4392-801f-716046d4746a"
+          "b53694b4-19e3-4392-801f-716046d4746a",
+          "e1d34880-ea89-4a48-a8e6-e2963f88e52a",
+          "086fbfc9-dc42-4767-9ae6-0faed1e02d95",
+          "fc7f0a6a-7046-44cd-9719-8743c94b6570",
+          "8bcf73d5-f780-46c8-b6d1-97ee5d021b5f",
+          "a9bb8b8f-6e43-45a1-8134-27480896bfa5",
+          "78f7e4c1-0a09-4660-abdb-d10f3881992e",
+          "319d2e9b-c737-4b77-a3af-207a6085d735",
+          "352d78db-ef77-47b4-8bdb-33728430b120",
+          "3ca4e905-903c-4c3d-80d4-4b956c9ea328",
+          "58619491-39fc-4282-88d9-1799ddc7f9dd",
+          "e345838d-af45-4a6c-9b4f-5e6df3ad68a8",
+          "460732b7-ec78-47ac-bcdb-097eea57fd0a",
+          "f44ddd20-291a-4ac8-bfca-f357fbc79967",
+          "a3cbce93-cc54-4f45-94d0-e6184ff3a004",
+          "7d224802-0bfc-4b5d-9675-5e57e241c346",
+          "fef88a66-5d57-410f-9a16-e7841e0394bc",
+          "73f9815d-e40a-4cb8-88f9-092e9bf8a183",
+          "0d9e988e-14db-43e2-aaf0-bc1aa45a47fe"
         ]
       }
     ],
@@ -3346,19 +3685,37 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Chemistry Unit 1 & 2 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Chemistry",
+        "time_minutes": 40,
         "question_ids": [
+          "a0641057-35d5-4f38-941f-bb60628a2431",
+          "f31f32b5-d581-4dd2-85b7-84d7c059af56",
+          "5d5e955a-d837-4255-82d6-94a940259ac2",
+          "5c8554b8-fff5-4f2f-b887-c83b46e90e81",
+          "bdcb3b10-a21d-41b3-95b9-6c3010a8df5d",
+          "77cbf62c-73db-4099-95dc-accba19871c0",
+          "b6e31325-c9c5-43f5-8a81-816182e9e72f",
+          "a6933870-c5f7-49b9-8286-8d9611628175",
+          "8df03515-c1f7-415e-aab7-83d0a360e685",
+          "5e374041-1b75-4ee0-9366-26d9037f7687",
+          "9db68b91-c948-4bf6-97e4-ab47c73a3f11",
+          "048f1bc5-d400-4f8f-805f-7b10f86d5eb9",
+          "3131ac21-ddad-4232-aa15-7d13be8023e4",
+          "3a038a2f-a25c-4ba3-8e75-4542d6607eed",
+          "b03cdeee-9835-40a6-9a7b-50952f8475f8",
+          "3b42d2be-fbd4-4d3b-8827-22a090d39f3e",
+          "065e91db-0de0-4986-9df8-b9511054b68a",
+          "0ddf4f17-0812-4cdd-aa13-f4aaad38b896",
+          "557bbb2b-67b7-4b2b-9f4b-47b80434436d",
+          "148a2ead-f194-4f6b-9bd6-5cc9d82a08b2",
+          "13847855-2d4f-4490-b87d-26fcbb47be5f",
+          "a92eede6-c83d-4e2b-9332-da81f7464b43",
+          "ec2e421f-7d5d-440a-8388-dd0d7a13c772",
+          "d8c1ef5c-5ec7-4685-963a-697e60a7a0be",
+          "b53694b4-19e3-4392-801f-716046d4746a",
           "e1d34880-ea89-4a48-a8e6-e2963f88e52a",
           "086fbfc9-dc42-4767-9ae6-0faed1e02d95",
-          "fc7f0a6a-7046-44cd-9719-8743c94b6570",
-          "8bcf73d5-f780-46c8-b6d1-97ee5d021b5f",
-          "a9bb8b8f-6e43-45a1-8134-27480896bfa5",
-          "78f7e4c1-0a09-4660-abdb-d10f3881992e",
-          "319d2e9b-c737-4b77-a3af-207a6085d735",
-          "352d78db-ef77-47b4-8bdb-33728430b120",
-          "3ca4e905-903c-4c3d-80d4-4b956c9ea328",
-          "58619491-39fc-4282-88d9-1799ddc7f9dd"
+          "fc7f0a6a-7046-44cd-9719-8743c94b6570"
         ]
       }
     ],
@@ -3372,9 +3729,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Chemistry Unit 1 & 2 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Chemistry",
+        "time_minutes": 40,
         "question_ids": [
+          "8bcf73d5-f780-46c8-b6d1-97ee5d021b5f",
+          "a9bb8b8f-6e43-45a1-8134-27480896bfa5",
+          "78f7e4c1-0a09-4660-abdb-d10f3881992e",
+          "319d2e9b-c737-4b77-a3af-207a6085d735",
+          "352d78db-ef77-47b4-8bdb-33728430b120",
+          "3ca4e905-903c-4c3d-80d4-4b956c9ea328",
+          "58619491-39fc-4282-88d9-1799ddc7f9dd",
           "e345838d-af45-4a6c-9b4f-5e6df3ad68a8",
           "460732b7-ec78-47ac-bcdb-097eea57fd0a",
           "f44ddd20-291a-4ac8-bfca-f357fbc79967",
@@ -3384,7 +3748,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "73f9815d-e40a-4cb8-88f9-092e9bf8a183",
           "0d9e988e-14db-43e2-aaf0-bc1aa45a47fe",
           "a0641057-35d5-4f38-941f-bb60628a2431",
-          "f31f32b5-d581-4dd2-85b7-84d7c059af56"
+          "f31f32b5-d581-4dd2-85b7-84d7c059af56",
+          "5d5e955a-d837-4255-82d6-94a940259ac2",
+          "5c8554b8-fff5-4f2f-b887-c83b46e90e81",
+          "bdcb3b10-a21d-41b3-95b9-6c3010a8df5d",
+          "77cbf62c-73db-4099-95dc-accba19871c0",
+          "b6e31325-c9c5-43f5-8a81-816182e9e72f",
+          "a6933870-c5f7-49b9-8286-8d9611628175",
+          "8df03515-c1f7-415e-aab7-83d0a360e685",
+          "5e374041-1b75-4ee0-9366-26d9037f7687",
+          "9db68b91-c948-4bf6-97e4-ab47c73a3f11",
+          "048f1bc5-d400-4f8f-805f-7b10f86d5eb9",
+          "3131ac21-ddad-4232-aa15-7d13be8023e4"
         ]
       }
     ],
@@ -3398,8 +3773,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Physics Unit 1 & 2 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Physics",
+        "time_minutes": 45,
         "question_ids": [
           "0a07ed7f-3495-412f-843c-c967b7394a2b",
           "6c48df1d-33ae-4d32-91b5-6e353d6e176d",
@@ -3410,23 +3785,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "4da5641b-f95a-4cbf-b291-691fc6dd8b6c",
           "67bd79ea-d1f4-4e36-b3f0-b460773f5a5c",
           "ab8ee86c-9db0-40ab-a18a-a690d757a16c",
-          "8235976f-ed56-4801-9f47-565b3e4d14d3"
-        ]
-      }
-    ],
-    "premium": false,
-    "reading_minutes": 15
-  },
-  {
-    "id": "physics-year_11-2",
-    "subject": "physics",
-    "yearLevel": "year_11",
-    "title": "Physics Unit 1 & 2 — Practice Exam 2",
-    "sections": [
-      {
-        "title": "Questions",
-        "time_minutes": 20,
-        "question_ids": [
+          "8235976f-ed56-4801-9f47-565b3e4d14d3",
           "cbca9365-056c-4a3b-9052-35c732aa4cd1",
           "ff0469a5-bbfe-4e11-822f-d5bf750b3f29",
           "6eb6f7c9-bb6f-4d0f-9c5c-3b5a6e009842",
@@ -3436,23 +3795,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "205afd4c-b25d-4c6c-99dc-73e945ada9ce",
           "0f655e13-5eef-49d4-bd5e-a99c9658a07a",
           "0d6a5df5-385e-4833-8784-818535cc176b",
-          "16e04cc5-be59-4405-8ae8-d6eebda267c4"
-        ]
-      }
-    ],
-    "premium": true,
-    "reading_minutes": 15
-  },
-  {
-    "id": "physics-year_11-3",
-    "subject": "physics",
-    "yearLevel": "year_11",
-    "title": "Physics Unit 1 & 2 — Practice Exam 3",
-    "sections": [
-      {
-        "title": "Questions",
-        "time_minutes": 20,
-        "question_ids": [
+          "16e04cc5-be59-4405-8ae8-d6eebda267c4",
           "1bc89c1b-aaa7-4887-997e-29c0ab65973f",
           "daa9a0aa-a1dd-4eae-b0b1-d568ae34a6a5",
           "ae8eec0f-e469-4760-bd8b-5486977b0ff1",
@@ -3466,6 +3809,98 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
+    "premium": false,
+    "reading_minutes": 15
+  },
+  {
+    "id": "physics-year_11-2",
+    "subject": "physics",
+    "yearLevel": "year_11",
+    "title": "Physics Unit 1 & 2 — Practice Exam 2",
+    "sections": [
+      {
+        "title": "Physics",
+        "time_minutes": 45,
+        "question_ids": [
+          "be9c5738-003a-4398-a4bd-20411d76064b",
+          "fc627688-15b0-4557-a444-36c6a850ac94",
+          "6927bd54-003a-40c8-a0a1-96649b7d2b06",
+          "2a2ed0f7-c3ed-4bbf-af73-4fb2a3f80307",
+          "f2236b0a-515b-4f37-9bad-1b7be010af53",
+          "0e0f9f02-2675-4508-9b44-43c92652995b",
+          "15c50bda-5d40-4020-92c2-755722af63b4",
+          "165b6235-5f01-4317-8335-d0b85f7f1847",
+          "0115aea7-e380-49b0-9edb-77041ad9b491",
+          "58705955-8c62-4cf4-b58d-994e61e85f58",
+          "eeea9fc0-6977-4f5c-aef6-4822c58d4155",
+          "d95b19ec-3190-4121-beff-21aa6df6d022",
+          "6c9b9808-5a92-4a95-8cfe-343b9d014179",
+          "288e9f02-1418-42c3-9216-70b1e616df53",
+          "a7df931c-39b2-423f-8d1d-96721a0448fa",
+          "a36dda97-f19c-4c0b-99e3-56ea9f0036f9",
+          "9444b8a5-6a24-4f36-9ca0-c15b2584da1d",
+          "5f02671d-2d49-4f97-af65-7c700242415b",
+          "5243d9d3-f78f-48b8-8acb-25ed1da4b19b",
+          "0a07ed7f-3495-412f-843c-c967b7394a2b",
+          "6c48df1d-33ae-4d32-91b5-6e353d6e176d",
+          "f7de488d-5e3b-4931-b68a-5db63687a461",
+          "044beb53-783a-4caf-a5b7-26d10f2e1650",
+          "8ab671dd-8d31-4c98-9b08-81e60d6b3eb5",
+          "0c58d296-9287-47ac-8c91-aa056cfb45b3",
+          "4da5641b-f95a-4cbf-b291-691fc6dd8b6c",
+          "67bd79ea-d1f4-4e36-b3f0-b460773f5a5c",
+          "ab8ee86c-9db0-40ab-a18a-a690d757a16c",
+          "8235976f-ed56-4801-9f47-565b3e4d14d3",
+          "cbca9365-056c-4a3b-9052-35c732aa4cd1"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15
+  },
+  {
+    "id": "physics-year_11-3",
+    "subject": "physics",
+    "yearLevel": "year_11",
+    "title": "Physics Unit 1 & 2 — Practice Exam 3",
+    "sections": [
+      {
+        "title": "Physics",
+        "time_minutes": 45,
+        "question_ids": [
+          "ff0469a5-bbfe-4e11-822f-d5bf750b3f29",
+          "6eb6f7c9-bb6f-4d0f-9c5c-3b5a6e009842",
+          "4d40d0a3-5392-45aa-ad5a-5673d389e427",
+          "b9bf1e8b-c7c4-4461-affa-3f7e9567c146",
+          "d0a88c5f-f107-41bb-923c-3146b027450d",
+          "205afd4c-b25d-4c6c-99dc-73e945ada9ce",
+          "0f655e13-5eef-49d4-bd5e-a99c9658a07a",
+          "0d6a5df5-385e-4833-8784-818535cc176b",
+          "16e04cc5-be59-4405-8ae8-d6eebda267c4",
+          "1bc89c1b-aaa7-4887-997e-29c0ab65973f",
+          "daa9a0aa-a1dd-4eae-b0b1-d568ae34a6a5",
+          "ae8eec0f-e469-4760-bd8b-5486977b0ff1",
+          "c1928021-5f96-43e1-b06b-71ee841e22bb",
+          "0c4923a5-366d-4a7a-b672-2c4b409f5ba4",
+          "cc49dfda-a0a9-4d86-ba1d-1f4f756840fc",
+          "9e6a680c-61b6-4297-8d5e-095859689ff8",
+          "f10433b2-41b9-461c-b22a-c77eb566cb93",
+          "529f07dc-7627-4d22-b42c-c6e481fc50b2",
+          "824501ab-fffa-4c6c-b004-62788ed97fb4",
+          "be9c5738-003a-4398-a4bd-20411d76064b",
+          "fc627688-15b0-4557-a444-36c6a850ac94",
+          "6927bd54-003a-40c8-a0a1-96649b7d2b06",
+          "2a2ed0f7-c3ed-4bbf-af73-4fb2a3f80307",
+          "f2236b0a-515b-4f37-9bad-1b7be010af53",
+          "0e0f9f02-2675-4508-9b44-43c92652995b",
+          "15c50bda-5d40-4020-92c2-755722af63b4",
+          "165b6235-5f01-4317-8335-d0b85f7f1847",
+          "0115aea7-e380-49b0-9edb-77041ad9b491",
+          "58705955-8c62-4cf4-b58d-994e61e85f58",
+          "eeea9fc0-6977-4f5c-aef6-4822c58d4155"
+        ]
+      }
+    ],
     "premium": true,
     "reading_minutes": 15
   },
@@ -3476,8 +3911,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Maths Methods Unit 1 & 2 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Maths Methods",
+        "time_minutes": 35,
         "question_ids": [
           "c2a82f32-e1b5-4a7e-82e3-5843a6d0f39a",
           "2bd3853a-b67a-4cc7-baf4-227f343c1874",
@@ -3488,7 +3923,19 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "e0f8577c-c08d-411c-9783-1a80f09313fa",
           "b1074d16-1caa-4075-bff3-38d64c5273c0",
           "ae1dca68-d197-4d15-8766-80bf59e38448",
-          "0b939f58-e4c9-4c94-8234-5171b533274e"
+          "0b939f58-e4c9-4c94-8234-5171b533274e",
+          "e552d368-f94c-4168-9052-e16b4d8a8da2",
+          "9d22b63a-057f-470b-b725-e50c310ebafb",
+          "0a522667-4d68-42f6-95f6-2882f3a1b45a",
+          "ca8ceb94-0802-4794-adfb-53d9f438a48c",
+          "06620d3e-4b86-4327-959a-7e841c7dc2b4",
+          "8ca1f6ef-055f-4a21-966a-da0b5269bde4",
+          "eb4123c2-ff2a-414c-bb10-6ccf32138624",
+          "51625179-29a0-4c54-bf30-6dd4dd6051ca",
+          "e4680419-4c16-42fb-8033-b5a904db0d96",
+          "2be47a67-edd5-4810-82e4-bc7b5aaf9c42",
+          "ca91e652-8d09-4ef2-b9f0-bf90f44eb30f",
+          "82da0061-47a2-48c1-9c21-5412952cb06a"
         ]
       }
     ],
@@ -3502,19 +3949,31 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Maths Methods Unit 1 & 2 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Maths Methods",
+        "time_minutes": 35,
         "question_ids": [
-          "e552d368-f94c-4168-9052-e16b4d8a8da2",
-          "9d22b63a-057f-470b-b725-e50c310ebafb",
-          "0a522667-4d68-42f6-95f6-2882f3a1b45a",
-          "ca8ceb94-0802-4794-adfb-53d9f438a48c",
-          "06620d3e-4b86-4327-959a-7e841c7dc2b4",
-          "8ca1f6ef-055f-4a21-966a-da0b5269bde4",
-          "eb4123c2-ff2a-414c-bb10-6ccf32138624",
-          "51625179-29a0-4c54-bf30-6dd4dd6051ca",
-          "e4680419-4c16-42fb-8033-b5a904db0d96",
-          "2be47a67-edd5-4810-82e4-bc7b5aaf9c42"
+          "cb27677f-ad98-478d-aa92-e3e98c0203ee",
+          "75a4d06a-d128-4815-b778-404a973c0d50",
+          "2f0cff1b-3684-4be1-ad81-3acaa5ba4d6b",
+          "cbf48c4f-a3fd-4a1a-becd-459eeffe8173",
+          "73a49a89-6843-4d14-826d-1c31b8f32dab",
+          "45c97b8d-1022-4c91-a7cb-ca221a23375a",
+          "87e0b65b-8813-4f71-9c6c-f9cb6683d73a",
+          "52ba82f5-2b15-4704-af37-94c071435823",
+          "f4f547d8-93d3-4692-ab05-12ed4078e070",
+          "c3651524-530b-44f7-a37c-3fbf8a459e75",
+          "09c380b3-9b75-4b90-a92d-c97beda274c5",
+          "de4de1cb-fdcd-4f02-86fa-e1a83ae38927",
+          "4a0285e3-902b-4b21-8530-4acefecb8038",
+          "03aa4ee2-55f5-4f95-b79c-6ec188d4ec67",
+          "c2953179-fdd5-4f78-b028-50dd9316c8cd",
+          "b6501f56-d485-44a6-8a4e-0d1d6c8c7556",
+          "05792715-cc8a-4c2f-bd03-e9c5b978929f",
+          "50219735-b1e3-4ff8-879a-320401d8127e",
+          "fd7e14fb-4e80-45d1-b658-c0e362bc7fc8",
+          "670191eb-de28-4af6-b1e4-3b236c4d2a79",
+          "0282c968-12b3-4c5f-9134-dff24bb8e634",
+          "195aa9db-8108-433f-be10-fb56c465a48a"
         ]
       }
     ],
@@ -3528,19 +3987,31 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Maths Methods Unit 1 & 2 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Maths Methods",
+        "time_minutes": 35,
         "question_ids": [
-          "ca91e652-8d09-4ef2-b9f0-bf90f44eb30f",
-          "82da0061-47a2-48c1-9c21-5412952cb06a",
-          "cb27677f-ad98-478d-aa92-e3e98c0203ee",
-          "75a4d06a-d128-4815-b778-404a973c0d50",
-          "2f0cff1b-3684-4be1-ad81-3acaa5ba4d6b",
-          "cbf48c4f-a3fd-4a1a-becd-459eeffe8173",
-          "73a49a89-6843-4d14-826d-1c31b8f32dab",
-          "45c97b8d-1022-4c91-a7cb-ca221a23375a",
-          "87e0b65b-8813-4f71-9c6c-f9cb6683d73a",
-          "52ba82f5-2b15-4704-af37-94c071435823"
+          "349cc08b-0650-4783-8824-e0d536951e0c",
+          "a1400e3e-6d03-4f0f-9460-ea9fe9d2b37e",
+          "50c9a430-4d5a-4cf3-90bb-8879e83d598f",
+          "4a439f68-c47d-44cb-a89c-3483d887b900",
+          "6261ae1f-f033-4bcf-b1c0-265978718c3c",
+          "5b40f49c-dd2a-4990-919c-a2621f3e344e",
+          "e3a8a09f-869e-4548-99e8-f643cf8f7c93",
+          "abc7d3dd-f324-4a61-a1c6-e34a76dd13a8",
+          "2ed2074d-114c-4c4b-8a56-f6fa44ac9a3b",
+          "3f4244b4-b8b7-4b9f-9246-7ac03a5bd70b",
+          "b018475b-c96a-4ead-978b-9975eafa9039",
+          "c2a82f32-e1b5-4a7e-82e3-5843a6d0f39a",
+          "2bd3853a-b67a-4cc7-baf4-227f343c1874",
+          "8205de0f-8534-4eb8-8199-371a67bc7156",
+          "26ca60d4-2c6d-4f9e-b97c-c0f37655220c",
+          "d017ee6a-6aea-48f0-b97d-a441052976e6",
+          "26973d1f-693b-469d-9f0e-46e7dce7676a",
+          "e0f8577c-c08d-411c-9783-1a80f09313fa",
+          "b1074d16-1caa-4075-bff3-38d64c5273c0",
+          "ae1dca68-d197-4d15-8766-80bf59e38448",
+          "0b939f58-e4c9-4c94-8234-5171b533274e",
+          "e552d368-f94c-4168-9052-e16b4d8a8da2"
         ]
       }
     ],
@@ -3554,19 +4025,31 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Maths Methods Unit 1 & 2 — Practice Exam 4",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Maths Methods",
+        "time_minutes": 35,
         "question_ids": [
+          "9d22b63a-057f-470b-b725-e50c310ebafb",
+          "0a522667-4d68-42f6-95f6-2882f3a1b45a",
+          "ca8ceb94-0802-4794-adfb-53d9f438a48c",
+          "06620d3e-4b86-4327-959a-7e841c7dc2b4",
+          "8ca1f6ef-055f-4a21-966a-da0b5269bde4",
+          "eb4123c2-ff2a-414c-bb10-6ccf32138624",
+          "51625179-29a0-4c54-bf30-6dd4dd6051ca",
+          "e4680419-4c16-42fb-8033-b5a904db0d96",
+          "2be47a67-edd5-4810-82e4-bc7b5aaf9c42",
+          "ca91e652-8d09-4ef2-b9f0-bf90f44eb30f",
+          "82da0061-47a2-48c1-9c21-5412952cb06a",
+          "cb27677f-ad98-478d-aa92-e3e98c0203ee",
+          "75a4d06a-d128-4815-b778-404a973c0d50",
+          "2f0cff1b-3684-4be1-ad81-3acaa5ba4d6b",
+          "cbf48c4f-a3fd-4a1a-becd-459eeffe8173",
+          "73a49a89-6843-4d14-826d-1c31b8f32dab",
+          "45c97b8d-1022-4c91-a7cb-ca221a23375a",
+          "87e0b65b-8813-4f71-9c6c-f9cb6683d73a",
+          "52ba82f5-2b15-4704-af37-94c071435823",
           "f4f547d8-93d3-4692-ab05-12ed4078e070",
           "c3651524-530b-44f7-a37c-3fbf8a459e75",
-          "09c380b3-9b75-4b90-a92d-c97beda274c5",
-          "de4de1cb-fdcd-4f02-86fa-e1a83ae38927",
-          "4a0285e3-902b-4b21-8530-4acefecb8038",
-          "03aa4ee2-55f5-4f95-b79c-6ec188d4ec67",
-          "c2953179-fdd5-4f78-b028-50dd9316c8cd",
-          "b6501f56-d485-44a6-8a4e-0d1d6c8c7556",
-          "05792715-cc8a-4c2f-bd03-e9c5b978929f",
-          "50219735-b1e3-4ff8-879a-320401d8127e"
+          "09c380b3-9b75-4b90-a92d-c97beda274c5"
         ]
       }
     ],
@@ -3580,9 +4063,16 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Maths Methods Unit 1 & 2 — Practice Exam 5",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Maths Methods",
+        "time_minutes": 35,
         "question_ids": [
+          "de4de1cb-fdcd-4f02-86fa-e1a83ae38927",
+          "4a0285e3-902b-4b21-8530-4acefecb8038",
+          "03aa4ee2-55f5-4f95-b79c-6ec188d4ec67",
+          "c2953179-fdd5-4f78-b028-50dd9316c8cd",
+          "b6501f56-d485-44a6-8a4e-0d1d6c8c7556",
+          "05792715-cc8a-4c2f-bd03-e9c5b978929f",
+          "50219735-b1e3-4ff8-879a-320401d8127e",
           "fd7e14fb-4e80-45d1-b658-c0e362bc7fc8",
           "670191eb-de28-4af6-b1e4-3b236c4d2a79",
           "0282c968-12b3-4c5f-9134-dff24bb8e634",
@@ -3592,7 +4082,12 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "50c9a430-4d5a-4cf3-90bb-8879e83d598f",
           "4a439f68-c47d-44cb-a89c-3483d887b900",
           "6261ae1f-f033-4bcf-b1c0-265978718c3c",
-          "5b40f49c-dd2a-4990-919c-a2621f3e344e"
+          "5b40f49c-dd2a-4990-919c-a2621f3e344e",
+          "e3a8a09f-869e-4548-99e8-f643cf8f7c93",
+          "abc7d3dd-f324-4a61-a1c6-e34a76dd13a8",
+          "2ed2074d-114c-4c4b-8a56-f6fa44ac9a3b",
+          "3f4244b4-b8b7-4b9f-9246-7ac03a5bd70b",
+          "b018475b-c96a-4ead-978b-9975eafa9039"
         ]
       }
     ],
@@ -3606,8 +4101,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "General Mathematics Unit 1 & 2 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "General Mathematics",
+        "time_minutes": 30,
         "question_ids": [
           "91dd8c91-8f1f-491f-96b8-e2610b41fe99",
           "91c45557-dbe3-465b-9fd5-3be3080e9dc9",
@@ -3618,7 +4113,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "5d29cc6e-aafb-435a-b1ba-f0e770a2b2bb",
           "d908d7a3-c5fc-4ef7-9d08-bbdfce5615ba",
           "23ab2720-a108-4115-8abe-8580d6fd8f32",
-          "3ba40142-6bfe-4319-a80a-079977eb8e72"
+          "3ba40142-6bfe-4319-a80a-079977eb8e72",
+          "e276b18a-a60e-49ad-a8ab-c21fbf920163",
+          "ef6437b8-827a-4ca0-9c35-1d8a5c2e6f2b",
+          "400cdc68-f4ac-443b-988f-acda1fe55ea7",
+          "3f232a72-0e11-4f28-b1bf-49133d438cd3",
+          "eec6117a-44bf-433d-a3cf-931940534924",
+          "6e1b5b35-e265-4737-b5d7-58a0dcaffb34",
+          "521a3740-8510-4217-b96d-798a3c8c4ee3",
+          "5c635027-be5a-4f76-9429-8b2d2d004e15",
+          "573f379f-1c60-4633-8f67-b1c06e04f0a2",
+          "6a0880f6-97cb-4c2e-9107-4d6dc92ad737",
+          "ce8b7f9e-994e-404a-9e5e-a6f54acaa71a"
         ]
       }
     ],
@@ -3632,19 +4138,30 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "General Mathematics Unit 1 & 2 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "General Mathematics",
+        "time_minutes": 30,
         "question_ids": [
-          "e276b18a-a60e-49ad-a8ab-c21fbf920163",
-          "ef6437b8-827a-4ca0-9c35-1d8a5c2e6f2b",
-          "400cdc68-f4ac-443b-988f-acda1fe55ea7",
-          "3f232a72-0e11-4f28-b1bf-49133d438cd3",
-          "eec6117a-44bf-433d-a3cf-931940534924",
-          "6e1b5b35-e265-4737-b5d7-58a0dcaffb34",
-          "521a3740-8510-4217-b96d-798a3c8c4ee3",
-          "5c635027-be5a-4f76-9429-8b2d2d004e15",
-          "573f379f-1c60-4633-8f67-b1c06e04f0a2",
-          "6a0880f6-97cb-4c2e-9107-4d6dc92ad737"
+          "9302a2b8-ec8b-4781-8373-e6ef99835c75",
+          "226873d3-9000-49cb-8af6-f99362a202d1",
+          "7ec6a61e-a615-464c-b923-ccc785640dc5",
+          "9c3b5c45-25f0-4f1f-851d-6847d5057a91",
+          "13a49009-ce4c-469f-815d-29fa85b51fc0",
+          "28f13450-a76b-4719-88e7-f7f9227cda0c",
+          "340e40c6-9cac-4fa6-bf8c-dba1363fc7e4",
+          "39513678-33c4-4999-91bd-03d320dc17d5",
+          "617c9dfb-4372-4943-8742-f84cd1dad9a6",
+          "4721e3b8-91e6-41a1-8833-6b13f69b4e24",
+          "0ea30f56-d5a5-4a69-bdd1-50e1713dde84",
+          "f858a4e8-9038-4b23-bbba-89068d1e35ee",
+          "2ef8a53f-86b3-4183-bb56-87533dee3d58",
+          "c32b1f01-51b3-44b2-a15e-798257b96811",
+          "b0ec6cf8-1740-4851-9baa-ffa18426b452",
+          "0699361d-ec3e-4c69-9660-9e82e89e938e",
+          "6b323358-1249-40cf-ad4f-af0968b41fe6",
+          "c3fae135-9c21-47ca-a615-05d1c09e843c",
+          "b1f9e9fb-6f45-45bc-ba4c-c3342e250c8f",
+          "49aa1240-e14b-414d-9235-9ab0a37a987b",
+          "8535f30b-f8ad-4700-b7e9-a482a3129286"
         ]
       }
     ],
@@ -3658,19 +4175,30 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "General Mathematics Unit 1 & 2 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "General Mathematics",
+        "time_minutes": 30,
         "question_ids": [
-          "ce8b7f9e-994e-404a-9e5e-a6f54acaa71a",
-          "9302a2b8-ec8b-4781-8373-e6ef99835c75",
-          "226873d3-9000-49cb-8af6-f99362a202d1",
-          "7ec6a61e-a615-464c-b923-ccc785640dc5",
-          "9c3b5c45-25f0-4f1f-851d-6847d5057a91",
-          "13a49009-ce4c-469f-815d-29fa85b51fc0",
-          "28f13450-a76b-4719-88e7-f7f9227cda0c",
-          "340e40c6-9cac-4fa6-bf8c-dba1363fc7e4",
-          "39513678-33c4-4999-91bd-03d320dc17d5",
-          "617c9dfb-4372-4943-8742-f84cd1dad9a6"
+          "566eecd7-cfb2-4a4d-9405-2f5f75536629",
+          "30ef8f89-55eb-4437-804e-06bbb5f07834",
+          "0508ef6d-0797-4e9f-8c43-a7a6fc5ba879",
+          "0c91bf2e-e3ff-4dcc-afba-d70bb7e29820",
+          "a089dbbc-ad16-4710-8e31-59f12fa57af4",
+          "bbf77bf2-568b-46e6-bbd8-12177c6d71eb",
+          "ed0250e9-29a3-4630-8a6a-31f4cf70aa4f",
+          "944de1ad-cdce-45de-a75e-82f0d10aa509",
+          "b2039f86-4f44-44e5-aa57-6edb38c26486",
+          "244e0473-b506-45a8-9c0c-5779666b92f3",
+          "ef6b16f6-d50a-457e-81bd-2fe26f1bb888",
+          "91dd8c91-8f1f-491f-96b8-e2610b41fe99",
+          "91c45557-dbe3-465b-9fd5-3be3080e9dc9",
+          "23d8c575-deee-4f27-b355-ce6a665086d3",
+          "181fa7ab-86e6-4dde-b712-b5d3351df455",
+          "8ed2b902-989d-40e5-ba80-173237f28e3e",
+          "5be8f566-09ce-4593-b7a9-fd4a5114342b",
+          "5d29cc6e-aafb-435a-b1ba-f0e770a2b2bb",
+          "d908d7a3-c5fc-4ef7-9d08-bbdfce5615ba",
+          "23ab2720-a108-4115-8abe-8580d6fd8f32",
+          "3ba40142-6bfe-4319-a80a-079977eb8e72"
         ]
       }
     ],
@@ -3684,19 +4212,30 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "General Mathematics Unit 1 & 2 — Practice Exam 4",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "General Mathematics",
+        "time_minutes": 30,
         "question_ids": [
-          "4721e3b8-91e6-41a1-8833-6b13f69b4e24",
-          "0ea30f56-d5a5-4a69-bdd1-50e1713dde84",
-          "f858a4e8-9038-4b23-bbba-89068d1e35ee",
-          "2ef8a53f-86b3-4183-bb56-87533dee3d58",
-          "c32b1f01-51b3-44b2-a15e-798257b96811",
-          "b0ec6cf8-1740-4851-9baa-ffa18426b452",
-          "0699361d-ec3e-4c69-9660-9e82e89e938e",
-          "6b323358-1249-40cf-ad4f-af0968b41fe6",
-          "c3fae135-9c21-47ca-a615-05d1c09e843c",
-          "b1f9e9fb-6f45-45bc-ba4c-c3342e250c8f"
+          "e276b18a-a60e-49ad-a8ab-c21fbf920163",
+          "ef6437b8-827a-4ca0-9c35-1d8a5c2e6f2b",
+          "400cdc68-f4ac-443b-988f-acda1fe55ea7",
+          "3f232a72-0e11-4f28-b1bf-49133d438cd3",
+          "eec6117a-44bf-433d-a3cf-931940534924",
+          "6e1b5b35-e265-4737-b5d7-58a0dcaffb34",
+          "521a3740-8510-4217-b96d-798a3c8c4ee3",
+          "5c635027-be5a-4f76-9429-8b2d2d004e15",
+          "573f379f-1c60-4633-8f67-b1c06e04f0a2",
+          "6a0880f6-97cb-4c2e-9107-4d6dc92ad737",
+          "ce8b7f9e-994e-404a-9e5e-a6f54acaa71a",
+          "9302a2b8-ec8b-4781-8373-e6ef99835c75",
+          "226873d3-9000-49cb-8af6-f99362a202d1",
+          "7ec6a61e-a615-464c-b923-ccc785640dc5",
+          "9c3b5c45-25f0-4f1f-851d-6847d5057a91",
+          "13a49009-ce4c-469f-815d-29fa85b51fc0",
+          "28f13450-a76b-4719-88e7-f7f9227cda0c",
+          "340e40c6-9cac-4fa6-bf8c-dba1363fc7e4",
+          "39513678-33c4-4999-91bd-03d320dc17d5",
+          "617c9dfb-4372-4943-8742-f84cd1dad9a6",
+          "4721e3b8-91e6-41a1-8833-6b13f69b4e24"
         ]
       }
     ],
@@ -3710,9 +4249,18 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "General Mathematics Unit 1 & 2 — Practice Exam 5",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "General Mathematics",
+        "time_minutes": 30,
         "question_ids": [
+          "0ea30f56-d5a5-4a69-bdd1-50e1713dde84",
+          "f858a4e8-9038-4b23-bbba-89068d1e35ee",
+          "2ef8a53f-86b3-4183-bb56-87533dee3d58",
+          "c32b1f01-51b3-44b2-a15e-798257b96811",
+          "b0ec6cf8-1740-4851-9baa-ffa18426b452",
+          "0699361d-ec3e-4c69-9660-9e82e89e938e",
+          "6b323358-1249-40cf-ad4f-af0968b41fe6",
+          "c3fae135-9c21-47ca-a615-05d1c09e843c",
+          "b1f9e9fb-6f45-45bc-ba4c-c3342e250c8f",
           "49aa1240-e14b-414d-9235-9ab0a37a987b",
           "8535f30b-f8ad-4700-b7e9-a482a3129286",
           "566eecd7-cfb2-4a4d-9405-2f5f75536629",
@@ -3722,7 +4270,9 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "a089dbbc-ad16-4710-8e31-59f12fa57af4",
           "bbf77bf2-568b-46e6-bbd8-12177c6d71eb",
           "ed0250e9-29a3-4630-8a6a-31f4cf70aa4f",
-          "944de1ad-cdce-45de-a75e-82f0d10aa509"
+          "944de1ad-cdce-45de-a75e-82f0d10aa509",
+          "b2039f86-4f44-44e5-aa57-6edb38c26486",
+          "244e0473-b506-45a8-9c0c-5779666b92f3"
         ]
       }
     ],
@@ -3736,8 +4286,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "Specialist Mathematics Unit 1 & 2 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Specialist Mathematics",
+        "time_minutes": 45,
         "question_ids": [
           "3cad9f55-12a8-4c1a-86bb-c1aa38995a9d",
           "265515d5-2037-4970-afd7-2def26515b11",
@@ -3748,23 +4298,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "32ee668b-2615-4e4c-a153-93f90f2c3289",
           "6c139960-7a4e-4b3b-8686-f7ed84cc2bae",
           "b09765ca-7a25-4f4e-84c9-df4510e8ff17",
-          "aa542fe0-441f-4407-9de1-1d3e875057a7"
-        ]
-      }
-    ],
-    "premium": false,
-    "reading_minutes": 15
-  },
-  {
-    "id": "specialist_maths-year_11-2",
-    "subject": "specialist_maths",
-    "yearLevel": "year_11",
-    "title": "Specialist Mathematics Unit 1 & 2 — Practice Exam 2",
-    "sections": [
-      {
-        "title": "Questions",
-        "time_minutes": 20,
-        "question_ids": [
+          "aa542fe0-441f-4407-9de1-1d3e875057a7",
           "fbcaaace-58a7-4af4-b31c-77eb6e16fb65",
           "7c9f7c4d-4231-4ee2-ad0e-700dcf63956f",
           "26e96f10-dfd5-4ba0-a320-44c414cc32ac",
@@ -3774,23 +4308,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "e51e94b6-73a9-4e93-82d9-c99b6aed828a",
           "ecfb8afc-896b-4c15-9da7-9d96e2a95797",
           "63254d79-edab-41e5-9c37-ea4708d8df26",
-          "04c316fb-2bd7-4979-8bb8-eb0088f44cf9"
-        ]
-      }
-    ],
-    "premium": true,
-    "reading_minutes": 15
-  },
-  {
-    "id": "specialist_maths-year_11-3",
-    "subject": "specialist_maths",
-    "yearLevel": "year_11",
-    "title": "Specialist Mathematics Unit 1 & 2 — Practice Exam 3",
-    "sections": [
-      {
-        "title": "Questions",
-        "time_minutes": 20,
-        "question_ids": [
+          "04c316fb-2bd7-4979-8bb8-eb0088f44cf9",
           "dbdcd6d1-6800-4680-b13a-60056186f69f",
           "b643879b-32a5-41bb-908f-7f9980909146",
           "52fa73ea-8e3f-4f20-a75a-6bea7e751b92",
@@ -3804,6 +4322,98 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
+    "premium": false,
+    "reading_minutes": 15
+  },
+  {
+    "id": "specialist_maths-year_11-2",
+    "subject": "specialist_maths",
+    "yearLevel": "year_11",
+    "title": "Specialist Mathematics Unit 1 & 2 — Practice Exam 2",
+    "sections": [
+      {
+        "title": "Specialist Mathematics",
+        "time_minutes": 45,
+        "question_ids": [
+          "c1c1923e-251a-42b8-84b2-0a264d481c3f",
+          "77096f23-2f86-4ad6-ba24-0b78eb88e4e7",
+          "3888e23b-c920-4b42-96ad-66f1bd937d37",
+          "f34aac3f-e594-4346-a7dc-c8ff48f63bdd",
+          "e4958bb4-efeb-4e31-b3ca-17a5696e48a8",
+          "2a929f7a-2504-48fb-aa70-8dd52999c7e9",
+          "cbab321e-4160-4da6-b610-140a43cae811",
+          "c06f7a66-05ca-4830-bd45-46385db2d859",
+          "f48cda4a-2719-407d-8169-164443afd823",
+          "b900afb9-6216-48a2-8c92-b8bbd455281d",
+          "6badb5c3-39e1-4899-8ea2-5bb43c4e6536",
+          "6e5ab4cc-34d6-4ff2-b997-8e478724f13f",
+          "69e05fce-ba8f-4097-b696-4c4e071791f7",
+          "35dd36e9-7c1b-4e7e-95a9-36af505e4385",
+          "7adffeba-5d23-46fb-85ae-a5069a356fb0",
+          "03798709-bd7e-4875-a679-696c8e90886a",
+          "3cad9f55-12a8-4c1a-86bb-c1aa38995a9d",
+          "265515d5-2037-4970-afd7-2def26515b11",
+          "82f2daa3-b0b0-4c9f-be83-ca7d3b56b0c9",
+          "e1a9f16e-7ff7-4bbd-9f4b-599e364ceb21",
+          "0d928591-2223-4479-ac5b-2e88369d32ff",
+          "bcc3aef1-1fcc-48eb-9e21-3120ecc54a52",
+          "32ee668b-2615-4e4c-a153-93f90f2c3289",
+          "6c139960-7a4e-4b3b-8686-f7ed84cc2bae",
+          "b09765ca-7a25-4f4e-84c9-df4510e8ff17",
+          "aa542fe0-441f-4407-9de1-1d3e875057a7",
+          "fbcaaace-58a7-4af4-b31c-77eb6e16fb65",
+          "7c9f7c4d-4231-4ee2-ad0e-700dcf63956f",
+          "26e96f10-dfd5-4ba0-a320-44c414cc32ac",
+          "57e7d811-de54-4c0c-a3fc-ea6f65ed8b1e"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15
+  },
+  {
+    "id": "specialist_maths-year_11-3",
+    "subject": "specialist_maths",
+    "yearLevel": "year_11",
+    "title": "Specialist Mathematics Unit 1 & 2 — Practice Exam 3",
+    "sections": [
+      {
+        "title": "Specialist Mathematics",
+        "time_minutes": 45,
+        "question_ids": [
+          "fb85968c-97c0-45a6-a459-94e8f3783354",
+          "dc79b6d3-25cb-4e63-b710-3367a3d10807",
+          "e51e94b6-73a9-4e93-82d9-c99b6aed828a",
+          "ecfb8afc-896b-4c15-9da7-9d96e2a95797",
+          "63254d79-edab-41e5-9c37-ea4708d8df26",
+          "04c316fb-2bd7-4979-8bb8-eb0088f44cf9",
+          "dbdcd6d1-6800-4680-b13a-60056186f69f",
+          "b643879b-32a5-41bb-908f-7f9980909146",
+          "52fa73ea-8e3f-4f20-a75a-6bea7e751b92",
+          "b5458332-dd55-4eab-8c3d-71d48a1498bb",
+          "a5e558f9-dc92-4e4f-ac3c-a557d5e87a22",
+          "3b31d58c-9c9f-4c40-8c94-59c2fcbc05ee",
+          "ac4e33af-082b-4cd5-ad91-9d3ed9bc028f",
+          "cbba2d72-9521-4ca8-825e-e8667afcc93e",
+          "a38c0fb5-1518-4ccd-95c8-aed38297ec07",
+          "446594ed-de09-45b0-ab11-65599b30ac8b",
+          "c1c1923e-251a-42b8-84b2-0a264d481c3f",
+          "77096f23-2f86-4ad6-ba24-0b78eb88e4e7",
+          "3888e23b-c920-4b42-96ad-66f1bd937d37",
+          "f34aac3f-e594-4346-a7dc-c8ff48f63bdd",
+          "e4958bb4-efeb-4e31-b3ca-17a5696e48a8",
+          "2a929f7a-2504-48fb-aa70-8dd52999c7e9",
+          "cbab321e-4160-4da6-b610-140a43cae811",
+          "c06f7a66-05ca-4830-bd45-46385db2d859",
+          "f48cda4a-2719-407d-8169-164443afd823",
+          "b900afb9-6216-48a2-8c92-b8bbd455281d",
+          "6badb5c3-39e1-4899-8ea2-5bb43c4e6536",
+          "6e5ab4cc-34d6-4ff2-b997-8e478724f13f",
+          "69e05fce-ba8f-4097-b696-4c4e071791f7",
+          "35dd36e9-7c1b-4e7e-95a9-36af505e4385"
+        ]
+      }
+    ],
     "premium": true,
     "reading_minutes": 15
   },
@@ -3814,19 +4424,77 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "English Year 10 — Practice Exam 1",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Reading",
+        "time_minutes": 65,
         "question_ids": [
-          "436f667e-877d-420c-bbac-7fe10db6b9bd",
-          "a06f3979-5b58-46d5-a0e3-698f7430b297",
-          "ef3f93b1-2b8b-4db2-8299-e13112850520",
-          "1a2b8b90-23cb-4a4c-ba56-e1f69eb5bf8b",
-          "bdee6a98-b2c7-49e4-bca6-5437992f5bd8",
-          "52ec8f3e-bc8a-460b-a4be-6681e3f8604c",
+          "71fdc765-bc3c-48e8-81d3-8c15448aa4ae",
+          "dbc91c5d-32fc-4709-874b-c87f11f5c8de",
+          "93883f8d-4eb3-40a2-a4af-cbdcda991601",
+          "78e45e5d-f4ac-460f-aab2-a6fde86993b5",
+          "33e3e29f-950a-499a-ae22-2d2f2eabe1d2",
+          "0df36e85-ccc3-4d76-b1f2-9bb2f6c2cc88",
+          "77e5cce6-6273-4173-a177-04c5dee71b0e",
+          "f8548fbf-434c-4520-ab57-cc903b9610cf",
+          "8ab2126c-b4c6-4e7a-8822-19495c254daa",
+          "bbc7d9c8-830b-48b3-a962-a0ea2ed38224",
+          "8ee94c7f-fff9-4581-9ced-e61779e8e3a8",
+          "ed5b6c4c-3f25-4f65-bca4-983baaf5f9ae",
+          "deefbc0c-34ec-4387-9097-6dc360836da3",
+          "999a7ee4-fffe-4316-9228-c738824eeb01",
+          "8137ac09-9f88-45cc-9bbc-0fcc73dadd40",
+          "2edbb113-79d9-4dae-b535-52d12c928ca8",
+          "7b81e852-a395-48f5-b2a3-554616655697",
+          "80e7e965-96d2-480b-9610-0454c8f724e9",
+          "fe0ad41f-6276-4f28-a074-7e72e36d46b3",
+          "68763304-e17f-4db8-b6e6-60c731a479aa",
+          "980af171-60c1-46ac-a741-7c46281378c5",
+          "62763ec7-cf44-48ec-bb18-d28dc37bae6e",
+          "02140076-1c6a-4681-ba70-ae8955ffb800",
+          "8058371f-02ba-4188-b138-a10a201fc739",
+          "c3f44bc8-36e1-46f5-8944-f86d673d9dd3",
+          "a0e513de-bf35-41a1-93e1-43b6fcd17edf",
+          "dbb8e3b1-0e34-494a-a685-804c1cb28cf7",
+          "b0ac0236-2eb9-4b3a-98ba-44eaba9da403",
+          "8762436f-e83f-47e2-b36a-e02f72377b35",
+          "7e8dcfd8-1ccf-4f8b-94de-0df0acd18139",
+          "658c2267-ad41-4ec1-8bcd-5906c35ddecf",
+          "64400571-5155-4b8c-aa98-30e4940cd3fd"
+        ]
+      },
+      {
+        "title": "Language Conventions",
+        "time_minutes": 45,
+        "question_ids": [
+          "89c0e01a-c635-4010-81d9-c2c3b8f810a5",
+          "2bca7576-2868-454e-a9a1-1df9c6f413b1",
+          "84d86025-bd23-43b7-bc43-5e53eff973b4",
+          "ade859e0-51d1-435e-bbe3-397f6af02e5a",
           "ed01bd6d-9738-4f02-9096-481cac56cbd2",
-          "859b70f6-3f0b-4835-a3dd-3a101a6eee69",
-          "97bf7db1-10d8-4157-b4cc-7db974dabdb3",
-          "bdbd0fa3-4b84-420c-bf61-70a12659da75"
+          "90df1f9a-618e-4a07-ad93-ae56eb6e1962",
+          "a55c7062-dfc4-4052-a59c-c8ffa0297193",
+          "9efe6bc9-0918-4dad-a262-6f99ea91afad",
+          "20f162dc-04d1-4621-9b09-ea2f263dfe21",
+          "ef7ce74d-62f4-49d6-841d-092d2962a277",
+          "1a2b8b90-23cb-4a4c-ba56-e1f69eb5bf8b",
+          "f4ed3917-4b20-4291-85bd-4ff5f16d764c",
+          "bdee6a98-b2c7-49e4-bca6-5437992f5bd8",
+          "739acc77-42ce-42e5-b00c-efb3cbc8b018",
+          "f529df29-60c0-4f53-a559-781f15d6b4bc",
+          "86ee41d6-7a41-4fc7-9e98-2fc465862133",
+          "b15f1744-f54f-4dcf-9b09-946220aece89",
+          "967a8a85-d40b-41c7-bf03-346257fb79bd",
+          "8e928b35-0a11-4286-9a46-7556e42f5499",
+          "539972fb-4ca6-4f70-a666-62c714eba506",
+          "c86b203c-792c-4115-8442-ebf6e3310cf2",
+          "9b214275-e0d2-44ac-b784-7a584758a0fb",
+          "5f311cee-4b00-4131-8f74-ddde671ecba9",
+          "dda5644b-72c3-4c82-b645-8974a4158632",
+          "c8c9c2e6-d461-4f7a-96a8-d20bc2dbc253",
+          "8f042aa4-0056-4110-a072-e24811cda786",
+          "4259c816-c6d9-44cc-b54c-8a6cfbf8c199",
+          "7535da2f-fd8d-4b29-bac7-c65244468d6f",
+          "52ec8f3e-bc8a-460b-a4be-6681e3f8604c",
+          "9e97cd2a-bbe1-4434-b2f7-7a902a830c2a"
         ]
       }
     ],
@@ -3839,19 +4507,76 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "English Year 10 — Practice Exam 2",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Reading",
+        "time_minutes": 65,
         "question_ids": [
-          "080d4e88-959a-4aee-8dc0-f2dc6f2c4e5d",
-          "9f31895e-b403-4645-80f7-8d6be572466a",
-          "c1b4d5ef-2643-4fd3-8a97-1e8aceb1bfec",
-          "d0e8bc82-270f-4b8f-af5b-7a1eea9e4679",
-          "a1216c3f-edcf-482e-9ee2-6fc5c4446d6e",
+          "436f667e-877d-420c-bbac-7fe10db6b9bd",
+          "a06f3979-5b58-46d5-a0e3-698f7430b297",
+          "ef3f93b1-2b8b-4db2-8299-e13112850520",
           "bc89ca41-02c5-4bc4-9cd8-8ade6478635e",
           "aeeb5416-732b-47d6-9f4b-e8b634a6e695",
           "6bb71659-b303-4dcb-8ae1-d78053d3f7f5",
           "cb0d08f2-3420-45c9-8e74-b3a439fd2fb3",
-          "4259c816-c6d9-44cc-b54c-8a6cfbf8c199"
+          "71fdc765-bc3c-48e8-81d3-8c15448aa4ae",
+          "dbc91c5d-32fc-4709-874b-c87f11f5c8de",
+          "93883f8d-4eb3-40a2-a4af-cbdcda991601",
+          "78e45e5d-f4ac-460f-aab2-a6fde86993b5",
+          "33e3e29f-950a-499a-ae22-2d2f2eabe1d2",
+          "0df36e85-ccc3-4d76-b1f2-9bb2f6c2cc88",
+          "77e5cce6-6273-4173-a177-04c5dee71b0e",
+          "f8548fbf-434c-4520-ab57-cc903b9610cf",
+          "8ab2126c-b4c6-4e7a-8822-19495c254daa",
+          "bbc7d9c8-830b-48b3-a962-a0ea2ed38224",
+          "8ee94c7f-fff9-4581-9ced-e61779e8e3a8",
+          "ed5b6c4c-3f25-4f65-bca4-983baaf5f9ae",
+          "deefbc0c-34ec-4387-9097-6dc360836da3",
+          "999a7ee4-fffe-4316-9228-c738824eeb01",
+          "8137ac09-9f88-45cc-9bbc-0fcc73dadd40",
+          "2edbb113-79d9-4dae-b535-52d12c928ca8",
+          "7b81e852-a395-48f5-b2a3-554616655697",
+          "80e7e965-96d2-480b-9610-0454c8f724e9",
+          "fe0ad41f-6276-4f28-a074-7e72e36d46b3",
+          "68763304-e17f-4db8-b6e6-60c731a479aa",
+          "980af171-60c1-46ac-a741-7c46281378c5",
+          "62763ec7-cf44-48ec-bb18-d28dc37bae6e",
+          "02140076-1c6a-4681-ba70-ae8955ffb800",
+          "8058371f-02ba-4188-b138-a10a201fc739"
+        ]
+      },
+      {
+        "title": "Language Conventions",
+        "time_minutes": 45,
+        "question_ids": [
+          "89c0e01a-c635-4010-81d9-c2c3b8f810a5",
+          "2bca7576-2868-454e-a9a1-1df9c6f413b1",
+          "84d86025-bd23-43b7-bc43-5e53eff973b4",
+          "ade859e0-51d1-435e-bbe3-397f6af02e5a",
+          "ed01bd6d-9738-4f02-9096-481cac56cbd2",
+          "90df1f9a-618e-4a07-ad93-ae56eb6e1962",
+          "a55c7062-dfc4-4052-a59c-c8ffa0297193",
+          "9efe6bc9-0918-4dad-a262-6f99ea91afad",
+          "20f162dc-04d1-4621-9b09-ea2f263dfe21",
+          "ef7ce74d-62f4-49d6-841d-092d2962a277",
+          "1a2b8b90-23cb-4a4c-ba56-e1f69eb5bf8b",
+          "f4ed3917-4b20-4291-85bd-4ff5f16d764c",
+          "bdee6a98-b2c7-49e4-bca6-5437992f5bd8",
+          "739acc77-42ce-42e5-b00c-efb3cbc8b018",
+          "f529df29-60c0-4f53-a559-781f15d6b4bc",
+          "86ee41d6-7a41-4fc7-9e98-2fc465862133",
+          "b15f1744-f54f-4dcf-9b09-946220aece89",
+          "967a8a85-d40b-41c7-bf03-346257fb79bd",
+          "8e928b35-0a11-4286-9a46-7556e42f5499",
+          "539972fb-4ca6-4f70-a666-62c714eba506",
+          "c86b203c-792c-4115-8442-ebf6e3310cf2",
+          "9b214275-e0d2-44ac-b784-7a584758a0fb",
+          "5f311cee-4b00-4131-8f74-ddde671ecba9",
+          "dda5644b-72c3-4c82-b645-8974a4158632",
+          "c8c9c2e6-d461-4f7a-96a8-d20bc2dbc253",
+          "8f042aa4-0056-4110-a072-e24811cda786",
+          "4259c816-c6d9-44cc-b54c-8a6cfbf8c199",
+          "7535da2f-fd8d-4b29-bac7-c65244468d6f",
+          "52ec8f3e-bc8a-460b-a4be-6681e3f8604c",
+          "9e97cd2a-bbe1-4434-b2f7-7a902a830c2a"
         ]
       }
     ],
@@ -3864,19 +4589,24 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "title": "English Year 10 — Practice Exam 3",
     "sections": [
       {
-        "title": "Questions",
-        "time_minutes": 20,
+        "title": "Reading",
+        "time_minutes": 65,
         "question_ids": [
-          "c8c9c2e6-d461-4f7a-96a8-d20bc2dbc253",
-          "84d86025-bd23-43b7-bc43-5e53eff973b4",
-          "999422db-24a5-4c26-9598-57516b21bc01",
-          "f8187f67-9da9-4737-ae1f-35e90a00ec51",
-          "921cbfa9-de95-4b43-a42a-d39fbcaadf6b",
+          "c3f44bc8-36e1-46f5-8944-f86d673d9dd3",
+          "a0e513de-bf35-41a1-93e1-43b6fcd17edf",
+          "dbb8e3b1-0e34-494a-a685-804c1cb28cf7",
+          "b0ac0236-2eb9-4b3a-98ba-44eaba9da403",
+          "8762436f-e83f-47e2-b36a-e02f72377b35",
+          "7e8dcfd8-1ccf-4f8b-94de-0df0acd18139",
+          "658c2267-ad41-4ec1-8bcd-5906c35ddecf",
+          "64400571-5155-4b8c-aa98-30e4940cd3fd",
           "436f667e-877d-420c-bbac-7fe10db6b9bd",
           "a06f3979-5b58-46d5-a0e3-698f7430b297",
           "ef3f93b1-2b8b-4db2-8299-e13112850520",
-          "1a2b8b90-23cb-4a4c-ba56-e1f69eb5bf8b",
-          "bdee6a98-b2c7-49e4-bca6-5437992f5bd8"
+          "bc89ca41-02c5-4bc4-9cd8-8ade6478635e",
+          "aeeb5416-732b-47d6-9f4b-e8b634a6e695",
+          "6bb71659-b303-4dcb-8ae1-d78053d3f7f5",
+          "cb0d08f2-3420-45c9-8e74-b3a439fd2fb3"
         ]
       }
     ],

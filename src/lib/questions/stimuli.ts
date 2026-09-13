@@ -590,4 +590,86 @@ Then she played the Baillie brothers' song, and at 6.02 the carrier signal cut, 
 
 Her phone rang eleven minutes later. It was Mrs Dettmann, who said that Ellie had mispronounced "honour", and then did not hang up for a long time, and neither of them said anything else at all.`,
   },
+  {
+    id: '16cde21e-5438-40f6-a0d3-24b36a365731',
+    type: 'passage',
+    title: 'What the River Kept',
+    subject: 'english',
+    year_level: 'year_10',
+    word_count: 323,
+    body: `My grandfather worked the dredge for thirty-one years and never once, in all that time, described what he did as looking for anything.
+
+The distinction mattered to him. Looking implied you knew what you were after. The dredge simply took what the riverbed held and laid it out on a screen, and what came up was whatever the river had been carrying for as long as there had been a river. Bicycle frames. A cash register. Four hundred and some shopping trolleys. A Roman coin, once, which turned out not to be Roman.
+
+And, twice in thirty-one years, a person.
+
+He told me about the first one when I was nineteen, in the flat unhurried voice he used for everything, and I understood partway through that he was not telling me a story about a body. He was telling me a story about a wallet. The man had been in the water eleven months, and in his jacket was a wallet, and in the wallet, entirely legible, was a photograph of a woman on a beach.
+
+"Eleven months," he said. "And you could see her face."
+
+What he wanted me to take from this was not that the river preserves things, though it does. It was something about proportion. He had spent three decades hauling up the discarded weight of a city, and the object he could still describe in detail forty years on was four inches of card.
+
+I have thought about this more since he died than I did when he was alive, which I suspect is the general rule. The dredge is gone now; they use a suction system that does not lay anything out on a screen, and so nothing is looked at on the way past. Everything the river holds still comes up. It simply comes up unseen, and goes into a hopper, and is not the kind of thing anyone tells their grandchild about thirty years later.`,
+  },
+  {
+    id: 'f63ccae3-ee74-4da4-b6bc-980783818dc3',
+    type: 'passage',
+    title: 'The Tyranny of the Reasonable Voice',
+    subject: 'english',
+    year_level: 'year_10',
+    word_count: 345,
+    body: `There is a particular way of speaking that is very difficult to argue with, and it has almost nothing to do with being right.
+
+It goes like this. The speaker is calm. They concede a point early, which costs them nothing and purchases a great deal. They use the passive voice for anything uncomfortable — mistakes were made, concerns have been raised — so that no one is ever the person who did it. They describe their own position as pragmatic and the other as emotional, which is a neat trick, because the more strongly you object to being called emotional, the more emotional you appear.
+
+None of this is lying. That is what makes it worth noticing. Every individual sentence can be true while the whole performance is engineered to produce a conclusion the evidence does not support.
+
+We are trained to read tone as evidence of character. A raised voice suggests someone losing an argument; an even one suggests someone who does not need to win it. But volume is a choice, and the person with the least at stake in a dispute will always find calm easiest. The tenant facing eviction and the company lawyer are not equally free to be measured, and treating the lawyer's composure as a sign of the better case mistakes comfort for correctness.
+
+I am not arguing for shouting. Anger is not an argument either, and a great deal of nonsense arrives at high volume. The claim is narrower: that we routinely credit a manner as though it were a reason, and that the manner is cheapest for whoever has the most power in the room.
+
+The test is uncomfortable but simple. Take the calm speaker's claims and write them out flatly, stripped of the concessions and the passive constructions, in the plainest language you can manage. Then do the same to the person who sounded upset. Very often the flattened versions say something quite different from what you concluded while listening — and the difference is the size of the effect the voices had on you.`,
+  },
+  {
+    id: 'ca80ee66-fbcb-4c54-a54f-df4c7c7637bf',
+    type: 'passage',
+    title: 'Salvage',
+    subject: 'english',
+    year_level: 'year_10',
+    word_count: 357,
+    body: `The boat had been on the hard since before Ada was born, and by the time she was old enough to ask about it, the asking had become the wrong thing to do.
+
+It sat on two rusted cradles at the back of the yard with a tarpaulin over the cabin that her father replaced, wordlessly, every second autumn. Nothing else about it changed. The hull was still the colour it had been in the one photograph, which was propped inside the shed on a shelf of paint tins and had been there so long the light had taken most of the blue out of the sea.
+
+Her mother had gone out on it once, in 1994, and had not enjoyed it, and said so, often, in a way that suggested the complaint stood in for something else.
+
+Ada was fourteen when she climbed inside. The cabin smelled of hot canvas and old rope and, faintly, of diesel, which surprised her, because nothing had run in it for twenty years. There was a chart table with a pencil still in the groove. There was a tide book for a year she had not been alive in. And there was, screwed to the bulkhead in a brass frame with the glass missing, a list in her father's handwriting of everything that needed doing before she could sail.
+
+It was not a short list. It was not a long one either. Twenty-two items, and eleven of them had been ruled through.
+
+She sat with it for a while. Then she went inside and did not mention it, and her father did not ask where she had been, and they watched something on the television neither of them was following.
+
+She is forty now, and the boat is still on the cradles, and the tarpaulin has been replaced eight more times. She has never told him that she found the list. She has thought a great deal about the eleven that were crossed off, and about the exact moment he must have stopped, and she has decided, on the whole, that she would rather not know which item it was.`,
+  },
+  {
+    id: '793e2979-0458-4c5e-8b46-33a7b415d124',
+    type: 'passage',
+    title: 'The Museum of Objects Nobody Wanted',
+    subject: 'english',
+    year_level: 'year_10',
+    word_count: 354,
+    body: `On the second floor of a municipal building in a city I will not name, there is a room containing four thousand items that were handed in to police stations and never collected.
+
+It is not open to the public. I was allowed in because I asked eleven times.
+
+The contents are arranged by year rather than by type, which produces a strange effect: a shelf is not all umbrellas or all keys, but everything a single twelve-month period failed to reclaim. 2009 contains a viola, a wedding ring, a box of dentures, and a folder of what appear to be architectural drawings for an extension that may or may not have been built.
+
+The curator — not her official title, but the only accurate one — has worked there for nineteen years. I asked her the obvious question, which is whether it is sad.
+
+She said it was the question everyone asks and that the answer is no, and then gave a reason I have been unable to argue with since. Almost everything in the room, she said, was replaced. The umbrella was replaced that afternoon. The phone was replaced within a week. The ring was, in all likelihood, mourned and then replaced, or not replaced, and either way the person went on. What the room holds is not four thousand losses. It is four thousand things that turned out to be survivable.
+
+She conceded one exception. There is a shelf, near the window, of items she described as unreplaceable, and she did not elaborate, and I did not ask, and I have since decided that not asking was either the most tactful thing I did that year or the worst piece of journalism.
+
+What stays with me is not the viola or the dentures. It is that the room exists at all — that a city, having no legal obligation to keep any of it beyond a statutory period, has quietly decided to go on keeping it anyway. Nobody made that decision. Nineteen years of people simply did not throw anything away, and the accumulated result of not deciding is a museum.`,
+  },
 ]

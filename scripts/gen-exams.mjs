@@ -55,10 +55,14 @@ const GRADE_LABEL = {
 const EXAM_SIZE = 10
 const EXAM_COUNT = { general_maths: 5, maths_methods: 5 } // default 3 otherwise
 const NAPLAN_SUBJECTS = new Set(['math', 'english'])
-const NAPLAN_GRADES = new Set(['grade_3', 'grade_4', 'grade_5', 'grade_6', 'year_7', 'year_8', 'year_9'])
+// Years 10 is not a NAPLAN year — NAPLAN is sat at 3, 5, 7 and 9 — but every
+// school year uses NAPLAN's paper format as the house standard, pitched at the
+// year level being taught. Leaving Year 10 out of this set was why it fell
+// through to the generic 10-question builder and looked nothing like the rest.
+const NAPLAN_GRADES = new Set(['grade_3', 'grade_4', 'grade_5', 'grade_6', 'year_7', 'year_8', 'year_9', 'year_10'])
 const READING_TOPICS = new Set(['reading_comprehension', 'reading_literary_analysis'])
 const LANGUAGE_TOPICS = new Set(['grammar_punctuation', 'vocabulary'])
-const NUMERACY_CALC_SPLIT_GRADES = new Set(['year_7', 'year_8', 'year_9'])
+const NUMERACY_CALC_SPLIT_GRADES = new Set(['year_7', 'year_8', 'year_9', 'year_10'])
 // Questions per section in a NAPLAN-style paper. Real papers run ~30-55 items
 // per section; a section falls short of this only when its pool cannot fill it.
 const SECTION_SIZE = 30
@@ -188,7 +192,7 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
   // Every section targets SECTION_SIZE questions. Times follow the real NAPLAN
   // papers: Reading runs 45 min in the primary years and 65 min from Year 7,
   // Language Conventions 45 min at every year level.
-  const isSecondary = ['year_7', 'year_8', 'year_9'].includes(yearLevel)
+  const isSecondary = ['year_7', 'year_8', 'year_9', 'year_10'].includes(yearLevel)
   const readingPool = [...(questionsByTopic.reading_comprehension ?? []), ...(questionsByTopic.reading_literary_analysis ?? [])]
   if (readingPool.length) {
     sections.push({
@@ -408,7 +412,15 @@ for (const { subject, yearLevel, questions } of groups.values()) {
     continue
   }
   const examCount = EXAM_COUNT[subject] ?? 3
-  const examSize = Math.min(EXAM_SIZE, questions.length)
+  // Size each paper to what the pool can actually fill rather than to a fixed
+  // ten. Every question may be used twice, so a pool of n supports 2n slots
+  // spread over examCount papers — which for Year 11 Chemistry is 28 questions
+  // a paper, not 10. A flat EXAM_SIZE was why Science and every Year 11 subject
+  // produced a ten-question stub next to a thirty-question NAPLAN paper.
+  const examSize = Math.max(
+    Math.min(EXAM_SIZE, questions.length),
+    Math.min(SECTION_SIZE, Math.floor((questions.length * 2) / examCount))
+  )
   const exams = buildExams(questions, examCount, examSize)
   exams.forEach((questionIds, i) => {
     const gradeLabel = GRADE_LABEL[yearLevel] ?? yearLevel
@@ -417,7 +429,15 @@ for (const { subject, yearLevel, questions } of groups.values()) {
       subject,
       yearLevel,
       title: `${SUBJECT_LABEL[subject]} ${gradeLabel} — Practice Exam ${i + 1}`,
-      sections: [{ title: 'Questions', time_minutes: 20, question_ids: questionIds }],
+      // Named after the subject rather than the generic "Questions", so the
+      // running header reads like the rest of the catalogue.
+      sections: [{
+        title: SUBJECT_LABEL[subject],
+        // Roughly a minute and a half per question, the pace the NAPLAN
+        // sections use.
+        time_minutes: Math.max(20, Math.round((questionIds.length * 1.5) / 5) * 5),
+        question_ids: questionIds,
+      }],
       premium: i > 0,
       ...(SELECTIVE_SUBJECTS.has(subject) ? { reading_minutes: VCE_READING_MINUTES } : {}),
     })
