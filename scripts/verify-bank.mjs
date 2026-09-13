@@ -183,8 +183,15 @@ for (const q of QUESTION_BANK) {
   }
 }
 const STATS_TERMS = /\b(mean|median|interquartile|standard deviation)\b/i
+// Maths topics only. "mean" is also an ordinary English verb, so without this
+// the check fires on every reading question that asks what a writer means.
+const MATHS_TOPICS = new Set([
+  'number_operations', 'number_patterns', 'algebra_equations',
+  'geometry_measurement', 'statistics_probability',
+])
 for (const q of QUESTION_BANK) {
   if (!['grade_3', 'grade_4', 'grade_5'].includes(q.year_level)) continue
+  if (!MATHS_TOPICS.has(q.topic)) continue
   if (STATS_TERMS.test(q.question_text)) warn(`${q.year_level}: uses a statistic not introduced until Year 6-7`, q.id)
 }
 

@@ -360,4 +360,234 @@ This matters beyond literature. The ability to sit with a complicated argument y
 
 None of this requires anyone to pretend to enjoy a book they find dull. It requires only that we stop describing difficulty as a failure of the book, and consider the possibility that it is sometimes an invitation — one that asks something of the reader, and gives something back in proportion.`,
   },
+  {
+    id: '10759824-b2a1-43d2-a7be-36fc03b3fa92',
+    type: 'passage',
+    title: 'The Night of the Storm Birds',
+    subject: 'english',
+    year_level: 'grade_4',
+    word_count: 176,
+    body: `The wind had been building all afternoon, rattling the loose sheet of iron on the shed roof. By dusk, Mia could hear the sea from her bedroom, which only happened before the worst storms.
+
+Her grandmother came in carrying a torch and a folded blanket.
+
+"Get your boots," she said. "The shearwaters will be coming down tonight."
+
+Mia had heard about this but had never seen it. Every spring, thousands of shearwaters returned to the island to nest. On stormy nights the young birds became confused by the lights of the town and landed on roads and footpaths, where they could not take off again.
+
+Outside, the rain came sideways. Mia found the first bird near the bakery, a dark shape flapping against the kerb. She knelt down, folded its wings gently against its body the way her grandmother had shown her, and carried it to the grass above the beach.
+
+By midnight they had carried nineteen birds to safety. Mia's arms ached and her boots were full of water, and she had never felt prouder.`,
+  },
+  {
+    id: 'f69ff874-4b06-4905-a631-3eeb1b74d803',
+    type: 'passage',
+    title: 'Why Ants Are Great Builders',
+    subject: 'english',
+    year_level: 'grade_4',
+    word_count: 167,
+    body: `An ant is smaller than a grain of rice, but a colony of ants can build a nest that reaches two metres underground.
+
+Ants do not follow a plan, and no ant is in charge. Instead, each worker follows simple rules. When an ant digs, it carries the loose soil a short distance and drops it where other ants have already dropped theirs. Over time those small piles become walls, and the spaces between them become tunnels.
+
+The tunnels are not arranged by accident. Air flows through the widest ones, which keeps the deepest chambers cool even on hot days. Rain runs down the outer tunnels and away from the nursery, where the eggs are kept.
+
+Scientists who study ants have copied some of these ideas. Engineers have designed buildings that use tall shafts to move warm air upwards and out, in the same way an ant nest does. A creature with a brain the size of a full stop has taught us something about keeping cool.`,
+  },
+  {
+    id: 'eadfa9b1-873c-47a4-9750-2b5858392d75',
+    type: 'passage',
+    title: 'How to Make a Rain Gauge',
+    subject: 'english',
+    year_level: 'grade_4',
+    word_count: 156,
+    body: `You can measure how much rain falls at your house using a plastic bottle and a ruler.
+
+What you need
+A large plastic bottle, scissors, a ruler, a marker pen, and a handful of small stones.
+
+What to do
+1. Ask an adult to cut the top third off the bottle.
+2. Put the small stones in the bottom. These stop the bottle blowing over in the wind.
+3. Turn the cut-off top upside down and push it into the bottle so that it makes a funnel.
+4. Pour in water until it just covers the stones. Mark this line and write zero beside it.
+5. Using the ruler, mark every centimetre above the zero line.
+
+Put your rain gauge outside, away from trees and walls. Check it at the same time each day, write down the measurement, and then empty it.
+
+After a month you will have a record of the rainfall where you live.`,
+  },
+  {
+    id: '1d97bbcc-98e8-4b2a-bd0c-b4ddb02a1d9d',
+    type: 'passage',
+    title: 'Our School Needs a Buddy Bench',
+    subject: 'english',
+    year_level: 'grade_4',
+    word_count: 166,
+    body: `Every lunchtime, some students at our school have nobody to play with. A buddy bench would help fix that.
+
+A buddy bench is an ordinary bench with one extra rule: if you sit on it, you are saying that you would like someone to play with. Anyone who sees you there can come over and ask you to join their game.
+
+Schools in other towns have tried this. At Kingsley Primary, teachers noticed that far fewer students were spending lunchtime alone after the bench was put in. One student there said it was much easier to sit down than to walk up to a group and ask.
+
+Some people say that students should simply be braver. But asking to join a game is hard, especially if you are new. A bench does not ask you to be brave. It just gives you a way to say something without having to find the words.
+
+A bench costs very little. Loneliness at lunchtime costs a great deal more.`,
+  },
+  {
+    id: '9eccc254-1731-43cd-a597-a5b05ae79131',
+    type: 'passage',
+    title: 'The Keeper of the Light',
+    subject: 'english',
+    year_level: 'grade_6',
+    word_count: 244,
+    body: `For forty-one years, Tomas had climbed the ninety-eight steps to the lamp room every evening at dusk. He knew which step creaked, which one was worn smooth in the middle, and which one to avoid in winter when the damp came through the stone.
+
+The letter had arrived in March. The lighthouse was to be automated. A machine would switch the lamp on at dusk and off at dawn, and it would not need a keeper, a cottage, or ninety-eight steps climbed twice a day.
+
+Tomas did not argue. He understood the arithmetic of it. What he could not explain to the man from the department, who had been polite and had stayed exactly eleven minutes, was that the lamp was not the only thing he had been keeping.
+
+He had kept the record book, in which every ship that passed had been noted in his small, square handwriting. He had kept the habit of watching the water at three in the morning, when the fishing boats came back in weather that should have kept them home. Twice he had kept a man alive by noticing, from ninety-eight steps up, that a light on the water was not moving the way a light on the water should.
+
+On his last evening he climbed the steps as usual. He lit the lamp, though the machine was already installed and would have done it for him, and he sat with it until the sky went grey.`,
+  },
+  {
+    id: '681b853c-9ef9-40f9-afce-dde37a305b90',
+    type: 'passage',
+    title: 'The Truth About Sharks',
+    subject: 'english',
+    year_level: 'grade_6',
+    word_count: 247,
+    body: `If you asked a hundred people to name the animal most likely to kill them, a great many would say shark. They would be wrong by a very large margin.
+
+Worldwide, sharks are involved in fewer than ten fatal incidents a year. Hippopotamuses kill around five hundred people. Mosquitoes, which spread diseases such as malaria, are responsible for hundreds of thousands of deaths. A person is more likely to die from a falling coconut, a vending machine, or their own bathtub than from a shark.
+
+So why is the fear so strong? Part of the answer is that our sense of risk is built for stories, not for statistics. A shark attack is dramatic, unusual and easy to picture, and every one of them is reported. A malaria death is none of those things. When something is easy to bring to mind, we assume it must be common.
+
+The consequences are not harmless. Fear has made it politically easy to kill sharks in large numbers, and roughly a third of shark species are now threatened with extinction. Sharks mature slowly and produce few young, so their populations recover slowly or not at all.
+
+Meanwhile the animals themselves behave nothing like the films. Most species are smaller than an adult human and eat fish. Of the more than five hundred known species, fewer than ten have ever been involved in a fatal incident with a person.
+
+The shark, it turns out, has far more to fear from us.`,
+  },
+  {
+    id: '195be416-c28e-479b-aab3-7e472fa44712',
+    type: 'passage',
+    title: 'Let Us Choose What We Read',
+    subject: 'english',
+    year_level: 'grade_6',
+    word_count: 230,
+    body: `Every year our class is handed the same list of set novels, and every year the same thing happens. A few students love the book. Most get through it. Some quietly stop reading by chapter four and rely on class discussion to fill the gaps.
+
+We are told that set texts teach us to read closely, and that is true. But nobody reads closely a book they have already given up on.
+
+I am not arguing that students should only read what is easy. I am arguing that we should have some say in what we read closely. A teacher could offer four novels instead of one, all demanding, all worth studying, and let each student choose. The skills being taught — following an argument, noticing how a writer builds a character, reading past a confusing chapter — do not depend on everybody holding the same book.
+
+Schools that have tried this report something worth noticing. Students who choose their own text are more likely to finish it, and more likely to read another one afterwards without being asked. That second part matters more than any essay mark. The point of studying literature is not to survive one novel in Year 6. It is to become someone who still reads in Year 12, and after.
+
+Give us the choice, and you may find we choose harder books than you expect.`,
+  },
+  {
+    id: '110459fc-229e-4ca1-9724-f5fc18c35c3e',
+    type: 'passage',
+    title: 'The Day the River Rose',
+    subject: 'english',
+    year_level: 'grade_6',
+    word_count: 244,
+    body: `The water came up through the floor first, which nobody expected.
+
+We had watched the river all morning from the verandah. It was brown and fast and carrying things that did not belong in a river — a fence post, a plastic drum, most of somebody's shed. Dad said we had until evening. The council said we had until evening. The river had its own timetable.
+
+At about two o'clock my brother noticed that the carpet in the hallway had gone dark. Within twenty minutes there was water over our ankles, and we were carrying what we could up the internal stairs: photographs, the good chair, the box of my mother's letters, and the dog, who did not want to be carried and said so.
+
+What surprised me was how ordinary it felt while it was happening. Nobody shouted. We made decisions about objects in about two seconds each — upstairs, leave it, upstairs, leave it — and then we sat on the landing and watched our kitchen disappear.
+
+It was afterwards that was hard. The water went down in three days and left eleven centimetres of silt on everything, and a smell I still cannot describe. Neighbours we had never spoken to arrived with shovels. A man from two streets over cleaned our kitchen for six hours and left before we could thank him properly.
+
+People ask whether the flood was frightening. It was. But that is not the part I think about.`,
+  },
+  {
+    id: 'fff60ac6-1825-4f91-9604-7414da933061',
+    type: 'passage',
+    title: 'The Understudy',
+    subject: 'english',
+    year_level: 'year_8',
+    word_count: 293,
+    body: `Priya had been the understudy for nine weeks, which meant she had learned every line of a part she would never play.
+
+She knew the blocking better than Aisha did. She knew that the pause before the third-act letter should be four beats and not two, because at two it sounded like hesitation and at four it sounded like a decision. She had told nobody this. Understudies who offer notes to the lead do not remain understudies for long; they simply stop being invited.
+
+On the Thursday, Aisha's ankle went on the stairs outside the green room — not dramatically, not with a scream, just a wrong step and a small sound and then a long silence while everybody worked out what it meant.
+
+The director found Priya in the corridor. He did not ask whether she was ready. He said, "Third act. The letter. What are you going to do with the pause?"
+
+Priya said, "Four beats."
+
+He looked at her for slightly too long. "How long have you known that?"
+
+"Since the second week."
+
+"And you said nothing."
+
+It was not a question, so she did not answer it. He nodded once and walked away, and she understood that she had just been given the part and criticised in the same breath, and that both were fair.
+
+That night she played it at four beats. In the dark beyond the lights she could hear four hundred people not moving, which is a particular kind of silence and the only review that has ever mattered to her.
+
+Afterwards Aisha, on crutches, said the thing that Priya would still be turning over a decade later: "You were better. You were always going to be better. The difference is that now somebody else knows."`,
+  },
+  {
+    id: '90ef1ed8-8397-47d6-8606-f43f45f0bf5d',
+    type: 'passage',
+    title: 'What the Algorithm Wants',
+    subject: 'english',
+    year_level: 'year_8',
+    word_count: 312,
+    body: `A recommendation system has no opinion about what you should watch. It has a target, and the target is almost always the same: keep you here longer.
+
+This sounds harmless, and often it is. If you enjoy cooking videos, a system that notices this and offers you more cooking videos has done you a small service. The difficulty begins when the system discovers, as these systems reliably do, that certain kinds of material hold attention better than others.
+
+Content that provokes a strong reaction — outrage, alarm, indignation — is watched for longer and shared more often than content that is merely accurate. No engineer decided this. It emerged from the data, because it is true about human beings. A system optimising for watch time will therefore drift towards the inflammatory, not out of malice, but in the way water drifts downhill.
+
+There is a second effect, subtler and harder to notice. Because the system learns from what you do rather than from what you say you want, it will often serve you a version of yourself that you do not endorse. Almost everybody will click on something they would not have chosen deliberately. Do this a few hundred times and the system has built a model of your interests out of your weakest moments.
+
+The usual response is to blame the user for a failure of willpower. This misunderstands the contest. On one side is a person with ordinary self-control and about four seconds of attention to spare. On the other is a system running millions of experiments a day, refined continuously against the behaviour of billions of people, with no purpose other than to win exactly this exchange.
+
+None of this requires anybody to be villainous. It requires only that a measurable target be chosen, that the target be slightly wrong, and that enormous resources be applied to hitting it.`,
+  },
+  {
+    id: 'a2a4fb48-dc3f-47ff-8b3f-724b41c7aca6',
+    type: 'passage',
+    title: 'In Defence of Boredom',
+    subject: 'english',
+    year_level: 'year_8',
+    word_count: 294,
+    body: `We have, in about fifteen years, very nearly eliminated boredom from ordinary life. Any queue, any bus trip, any gap of ninety seconds can now be filled. This is presented as progress. I think we have thrown something away without checking what it was.
+
+Boredom is unpleasant, which is precisely its function. It is the mind's signal that current conditions are not worth attending to, and it is uncomfortable enough that we do something about it. Historically, what we did about it was invent. Children left alone in a backyard with nothing to do will, after a period of loud complaint, build something, or make up a game with rules of forbidding complexity. The complaint is not a failure of the process. It is the process.
+
+Researchers who ask people to sit and do nothing, and then set them a creative task, find that they perform better than people who were kept occupied beforehand. The explanation offered is that an unoccupied mind begins connecting things that have no business being connected, which is roughly a definition of an original idea.
+
+I am not romanticising discomfort. Boredom in a hospital waiting room is not productive; it is just boredom. The claim is narrower: that the specific state of having nothing to do and no way to escape it is where a great deal of invention has historically come from, and that we are now able to escape it every single time.
+
+What worries me is not the hour spent scrolling. It is that we no longer find out what we would have thought instead. That is not a loss anybody can measure, which is exactly why it will not appear in any argument about screen time, and why I suspect it is the important one.`,
+  },
+  {
+    id: 'aa1f4cb7-c601-4cb1-949f-57b78c33b269',
+    type: 'passage',
+    title: 'The Last Broadcast',
+    subject: 'english',
+    year_level: 'year_8',
+    word_count: 295,
+    body: `Station 4QR went off the air at 6.02 on a Tuesday evening, which meant Ellie had about ninety seconds left of being a radio announcer.
+
+She had known for six weeks. Everybody had. The network had sent a letter explaining that regional programming would now originate from Brisbane, and that listeners would continue to enjoy the same high standard of service, which was true in the way that a photograph of a meal is the same as the meal.
+
+There were four hundred and eleven people in the listening area with no internet connection. Ellie knew this because she had counted them, more or less, across eleven years of taking calls. Mrs Dettmann out at Karara, who rang every Thursday to correct her pronunciation. The Baillie brothers, who had not spoken to each other since 1998 but had both, separately, requested the same song. The night nurse at the hospital, who never gave her name and always said thank you.
+
+At 6.01 she did not read the closing statement the network had supplied. She said: "This is Ellie Nguyen at 4QR. I'm told you'll be able to hear us from Brisbane from tomorrow. I want to say that it has been the honour of my life to talk to a few hundred people who couldn't sleep, for eleven years, in the dark. Thank you for having me in your kitchens."
+
+Then she played the Baillie brothers' song, and at 6.02 the carrier signal cut, and the room went to the particular quiet of a place that has stopped transmitting.
+
+Her phone rang eleven minutes later. It was Mrs Dettmann, who said that Ellie had mispronounced "honour", and then did not hang up for a long time, and neither of them said anything else at all.`,
+  },
 ]
