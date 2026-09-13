@@ -323,7 +323,11 @@ function FunctionGraph({ diagram }: { diagram: FunctionGraphDiagram }) {
   }
   const xTicks = ticks(xMin, xMax, diagram.xStep)
   const yTicks = ticks(yMin, yMax, diagram.yStep)
-  // Real papers set negatives with a minus sign, not a hyphen.
+  // Real papers set negatives with a minus sign, not a hyphen. Every SvgText
+  // below must therefore name fontFamily explicitly: text inside <Svg> does
+  // not inherit the page's DejaVuSans and falls back to Helvetica, whose
+  // WinAnsi encoding has no U+2212 — the character is then dropped silently,
+  // so "−3" prints as "3" with no error anywhere.
   const tickLabel = (v: number) => String(v).replace('-', '−')
 
   // Axes sit on zero when it is in range, otherwise on the edge of the plot.
