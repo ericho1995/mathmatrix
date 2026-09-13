@@ -15,11 +15,11 @@ import type { TopicSlug, YearLevel } from '@/types'
 export type TopicCoverage = Partial<Record<TopicSlug, Partial<Record<YearLevel, number>>>>
 
 export const TOPIC_COVERAGE: TopicCoverage = {
-  algebra_equations: { year_10: 26, year_7: 21, year_8: 16, year_9: 25 },
+  algebra_equations: { year_10: 40, year_7: 21, year_8: 16, year_9: 25 },
   chem_atomic_structure: { year_11: 22 },
   chem_reactions: { year_11: 21 },
   earth_space: { grade_3: 7, grade_4: 7, grade_5: 7, grade_6: 8, year_10: 7, year_7: 6, year_8: 7, year_9: 7 },
-  geometry_measurement: { grade_3: 15, grade_4: 8, grade_5: 13, grade_6: 8, year_10: 20, year_7: 29, year_8: 16, year_9: 34 },
+  geometry_measurement: { grade_3: 15, grade_4: 8, grade_5: 13, grade_6: 8, year_10: 35, year_7: 29, year_8: 16, year_9: 34 },
   gm_data_analysis: { year_11: 27, year_12: 20 },
   gm_financial: { year_11: 26, year_12: 11 },
   gm_matrices: { year_12: 12 },
@@ -30,7 +30,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   mm_calculus: { year_11: 29, year_12: 10 },
   mm_functions: { year_12: 11 },
   mm_probability: { year_11: 26, year_12: 8 },
-  number_operations: { grade_3: 32, grade_4: 30, grade_5: 32, grade_6: 30, year_10: 26, year_7: 70, year_8: 60, year_9: 60 },
+  number_operations: { grade_3: 32, grade_4: 30, grade_5: 32, grade_6: 30, year_10: 36, year_7: 70, year_8: 60, year_9: 60 },
   number_patterns: { grade_3: 11, grade_4: 8, grade_5: 13, grade_6: 8 },
   phys_electricity: { year_11: 23 },
   phys_mechanics: { year_11: 26 },
@@ -39,7 +39,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   reading_literary_analysis: { year_10: 39, year_7: 32, year_8: 39, year_9: 32 },
   sm_complex_numbers: { year_11: 24 },
   sm_vectors: { year_11: 22 },
-  statistics_probability: { grade_3: 11, grade_4: 7, grade_5: 10, grade_6: 7, year_10: 18, year_7: 15, year_8: 7, year_9: 22 },
+  statistics_probability: { grade_3: 11, grade_4: 7, grade_5: 10, grade_6: 7, year_10: 41, year_7: 15, year_8: 7, year_9: 22 },
   vocabulary: { grade_3: 12, grade_4: 11, grade_5: 12, grade_6: 12, year_10: 11, year_7: 12, year_8: 11, year_9: 12 },
 }
 

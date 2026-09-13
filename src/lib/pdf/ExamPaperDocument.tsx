@@ -275,7 +275,10 @@ function SimpleShape({ diagram }: { diagram: SimpleShapeDiagram }) {
   // Hypotenuse dimension line, offset perpendicular and outward (away from
   // the right-angle corner at bottom-left) from the actual hypotenuse.
   const hypLen = Math.hypot(base, height) || 1
-  const offset = 14
+  // 22, not 14: the label is a horizontal text box sitting over a diagonal
+  // line, so its two ends reach back towards the line even when its centre
+  // clears it. At 14 the text crossed the dimension arrow.
+  const offset = 22
   const px = (height / hypLen) * offset, py = -(base / hypLen) * offset
   const hx1 = ox + px, hy1 = oy + py
   const hx2 = ox + base + px, hy2 = oy + height + py
@@ -294,7 +297,7 @@ function SimpleShape({ diagram }: { diagram: SimpleShapeDiagram }) {
       </Svg>
       {baseLabel ? <Text style={[pdfStyles.diagramLabel, { position: 'absolute', left: ox, width: base, top: oy + height + GAP + 2 }]}>{baseLabel}</Text> : null}
       {heightLabel ? <Text style={[pdfStyles.diagramLabel, { position: 'absolute', left: 0, width: padLeft - GAP - 4, top: oy + height / 2 - 4, textAlign: 'right' }]}>{heightLabel}</Text> : null}
-      {hypLabel ? <Text style={[pdfStyles.diagramLabel, { position: 'absolute', left: hMidX - 25, width: 50, top: hMidY - 10, textAlign: 'center' }]}>{hypLabel}</Text> : null}
+      {hypLabel ? <Text style={[pdfStyles.diagramLabel, { position: 'absolute', left: hMidX - 25, width: 50, top: hMidY - 14, textAlign: 'center' }]}>{hypLabel}</Text> : null}
     </View>
   )
 }

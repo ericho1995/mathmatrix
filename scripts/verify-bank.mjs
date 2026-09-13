@@ -354,7 +354,48 @@ if (vceSectionA.length || vceSectionB.length) {
   if (bMarks !== 60) warn(`VCE Exam 2 Section B totals ${bMarks} marks; the real paper is 60`)
 }
 
-// ─── 9. Diagrams are rendered BELOW the question text ────────────────────────
+// ─── 9. Numeracy question mix ────────────────────────────────────────────────
+// A paper of nothing but four-option word problems is not a NAPLAN paper, and
+// this drifted without anyone noticing: Year 10 shipped at 0% short answer and
+// 3% diagrams, and Grades 4 and 6 and Year 8 had no diagrams at all.
+//
+// The targets come from the real papers rather than taste. The 2013 Year 9
+// answer keys give the format of every question — a letter is multiple choice, a
+// number is written in — and they run 8 of 32 short answer on the calculator
+// paper and 10 of 32 on the non-calculator one, so 25-31%. Those papers also
+// carry a table or figure on almost every page; the composer already aims for
+// half the paper to be graphical, which it can only do if the pool supports it.
+//
+// Warnings, not errors: a pool that is still being built should report the gap
+// rather than block the commit that starts closing it.
+const NUMERACY_TOPICS = new Set([
+  'number_operations', 'number_patterns', 'algebra_equations',
+  'geometry_measurement', 'statistics_probability',
+])
+const MIN_SHORT_ANSWER_SHARE = 0.25
+const MIN_DIAGRAM_SHARE = 0.4
+const numeracyByYear = new Map()
+for (const q of QUESTION_BANK) {
+  if (!NUMERACY_TOPICS.has(q.topic)) continue
+  if (!['grade_3', 'grade_4', 'grade_5', 'grade_6', 'year_7', 'year_8', 'year_9', 'year_10'].includes(q.year_level)) continue
+  if (!numeracyByYear.has(q.year_level)) numeracyByYear.set(q.year_level, [])
+  numeracyByYear.get(q.year_level).push(q)
+}
+for (const [yearLevel, pool] of numeracyByYear) {
+  if (pool.length < 20) continue
+  const shortAnswer = pool.filter(q => q.format === 'short_answer').length
+  const withDiagram = pool.filter(q => q.diagram).length
+  const saShare = shortAnswer / pool.length
+  const diaShare = withDiagram / pool.length
+  if (saShare < MIN_SHORT_ANSWER_SHARE) {
+    warn(`${yearLevel} numeracy is ${Math.round(saShare * 100)}% short answer (${shortAnswer}/${pool.length}); real NAPLAN papers run 25-31%`)
+  }
+  if (diaShare < MIN_DIAGRAM_SHARE) {
+    warn(`${yearLevel} numeracy is ${Math.round(diaShare * 100)}% graphical (${withDiagram}/${pool.length}); the composer aims to fill half a paper with diagrams`)
+  }
+}
+
+// ─── 10. Diagrams are rendered BELOW the question text ───────────────────────
 // ExamPaperDocument prints the question, then its diagram. A question that says
 // "the graph above" therefore points at the previous question's graphic — which
 // no check catches at render time and no reader notices until they are holding
