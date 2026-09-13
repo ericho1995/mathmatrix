@@ -66,6 +66,15 @@ const NUMERACY_CALC_SPLIT_GRADES = new Set(['year_7', 'year_8', 'year_9', 'year_
 // Questions per section in a NAPLAN-style paper. Real papers run ~30-55 items
 // per section; a section falls short of this only when its pool cannot fill it.
 const SECTION_SIZE = 30
+// The floor below which a paper is not worth putting a price on. A section
+// thinner than this is a sample, not an exam, and shipping one next to a full
+// paper at the same price is how a catalogue loses trust.
+const MIN_SELLABLE_SECTION = 20
+
+/** True when every section of a paper is long enough to be worth downloading. */
+function isSellable(exam) {
+  return exam.sections.length > 0 && exam.sections.every(s => s.question_ids.length >= MIN_SELLABLE_SECTION)
+}
 
 // Group questions: general subjects by subject+grade, selective subjects by subject alone.
 const groups = new Map() // key -> { subject, yearLevel, questions: [] }
@@ -407,20 +416,29 @@ for (const { subject, yearLevel, questions } of groups.values()) {
     const usage = new Map(questions.map(q => [q.id, 0]))
     const examCount = EXAM_COUNT[subject] ?? 3
     for (let i = 0; i < examCount; i++) {
-      practiceExams.push(buildNaplanExam(subject, yearLevel, questionsByTopic, usage, i))
+      const exam = buildNaplanExam(subject, yearLevel, questionsByTopic, usage, i)
+      // Stop as soon as the pool can no longer fill a real paper. Building a
+      // fixed three regardless produced a "Grade 3 English Practice Exam 3"
+      // with a two-question Reading section, sold for the same price as the
+      // full ones. Two real papers is a smaller catalogue and an honest one.
+      if (!isSellable(exam)) break
+      practiceExams.push(exam)
     }
     continue
   }
-  const examCount = EXAM_COUNT[subject] ?? 3
-  // Size each paper to what the pool can actually fill rather than to a fixed
-  // ten. Every question may be used twice, so a pool of n supports 2n slots
-  // spread over examCount papers — which for Year 11 Chemistry is 28 questions
-  // a paper, not 10. A flat EXAM_SIZE was why Science and every Year 11 subject
-  // produced a ten-question stub next to a thirty-question NAPLAN paper.
-  const examSize = Math.max(
-    Math.min(EXAM_SIZE, questions.length),
-    Math.min(SECTION_SIZE, Math.floor((questions.length * 2) / examCount))
+  // Fill the paper first, then decide how many papers the pool supports —
+  // rather than fixing the count and letting the size collapse. Every question
+  // may be used twice, so a pool of n supports 2n slots.
+  //
+  // Science has 24 questions a level: as three papers that was 16 questions
+  // each, and as two it is a full 24. Year 11 Maths Methods has 55: as five
+  // papers that was 22 each, and as three it is the full 30.
+  const examSize = Math.min(SECTION_SIZE, questions.length)
+  const examCount = Math.max(
+    1,
+    Math.min(EXAM_COUNT[subject] ?? 3, Math.floor((questions.length * 2) / examSize))
   )
+  if (examSize < MIN_SELLABLE_SECTION) continue
   const exams = buildExams(questions, examCount, examSize)
   exams.forEach((questionIds, i) => {
     const gradeLabel = GRADE_LABEL[yearLevel] ?? yearLevel
