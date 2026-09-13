@@ -1,3 +1,4 @@
+import React from 'react'
 import { Document, Page, View, Text, Svg, Rect, Line, Circle, Ellipse, Path, Polygon, Polyline, Text as SvgText } from '@react-pdf/renderer'
 import { pdfStyles } from './theme'
 import { Watermark, PageFooter } from './Brand'
@@ -6,7 +7,7 @@ import { ILLUSTRATIONS } from '@/lib/questions/illustrations'
 import { firstQuestionNumbers } from './resolveExam'
 import type { ResolvedExam, ResolvedQuestion } from './resolveExam'
 import type { PracticeExam, PracticeExamSection } from '@/lib/questions/exams'
-import type { Diagram, NumberLineDiagram, DotPlotDiagram, GridMapDiagram, SimpleShapeDiagram, FunctionGraphDiagram, IllustrationDiagram } from '@/types'
+import type { Diagram, NumberLineDiagram, DotPlotDiagram, GridMapDiagram, SimpleShapeDiagram, FunctionGraphDiagram, BoxPlotDiagram, NetworkGraphDiagram, DataTableDiagram, MatrixDiagram, IllustrationDiagram } from '@/types'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -397,6 +398,237 @@ function FunctionGraph({ diagram }: { diagram: FunctionGraphDiagram }) {
   )
 }
 
+// Every SvgText in the renderers below names fontFamily for the reason given in
+// FunctionGraph: text inside <Svg> does not inherit the page font.
+const SVG_FONT = 'DejaVuSans'
+
+/** Box plot — five-number summary as a box and whiskers, with any outliers as
+ * separate dots. Several boxes share one axis, the way real General Mathematics
+ * papers set up a comparison. */
+function BoxPlot({ diagram }: { diagram: BoxPlotDiagram }) {
+  const width = 360
+  const padLeft = diagram.boxes.some(b => b.label) ? 56 : 16
+  const padRight = 16
+  const plotW = width - padLeft - padRight
+  const rowH = 34
+  const boxH = 16
+  const axisY = diagram.boxes.length * rowH + 10
+  const height = axisY + 26
+
+  const { min, max } = diagram
+  const sx = (v: number) => padLeft + ((v - min) / (max - min)) * plotW
+
+  const ticks: number[] = []
+  if (diagram.step > 0) {
+    for (let v = Math.ceil(min / diagram.step) * diagram.step; v <= max + 1e-9; v += diagram.step) {
+      ticks.push(Number(v.toFixed(6)))
+    }
+  }
+
+  return (
+    <View style={pdfStyles.diagramBox} wrap={false}>
+      {diagram.title ? <Text style={pdfStyles.graphTitle}>{diagram.title}</Text> : null}
+      <Svg width={width} height={height}>
+        {diagram.boxes.map((b, bi) => {
+          const cy = bi * rowH + rowH / 2
+          const top = cy - boxH / 2
+          return (
+            <React.Fragment key={`b${bi}`}>
+              {/* Whiskers, drawn to the ends of the non-outlier range. */}
+              <Line x1={sx(b.min)} y1={cy} x2={sx(b.q1)} y2={cy} stroke="#333" strokeWidth={0.8} />
+              <Line x1={sx(b.q3)} y1={cy} x2={sx(b.max)} y2={cy} stroke="#333" strokeWidth={0.8} />
+              <Line x1={sx(b.min)} y1={top} x2={sx(b.min)} y2={top + boxH} stroke="#333" strokeWidth={0.8} />
+              <Line x1={sx(b.max)} y1={top} x2={sx(b.max)} y2={top + boxH} stroke="#333" strokeWidth={0.8} />
+              <Rect x={sx(b.q1)} y={top} width={Math.max(sx(b.q3) - sx(b.q1), 0.5)} height={boxH} fill="#fff" stroke="#333" strokeWidth={0.8} />
+              <Line x1={sx(b.median)} y1={top} x2={sx(b.median)} y2={top + boxH} stroke="#185FA5" strokeWidth={1.6} />
+              {(b.outliers ?? []).map((o, oi) => (
+                <Circle key={`o${oi}`} cx={sx(o)} cy={cy} r={2.2} fill="none" stroke="#333" strokeWidth={0.8} />
+              ))}
+              {b.label ? (
+                <SvgText x={padLeft - 6} y={cy + 3} fill="#333" textAnchor="end" style={{ fontSize: 8, fontFamily: SVG_FONT }}>
+                  {b.label}
+                </SvgText>
+              ) : null}
+            </React.Fragment>
+          )
+        })}
+        <Line x1={padLeft} y1={axisY} x2={padLeft + plotW} y2={axisY} stroke="#333" strokeWidth={1} />
+        {ticks.map((t, i) => (
+          <React.Fragment key={`t${i}`}>
+            <Line x1={sx(t)} y1={axisY} x2={sx(t)} y2={axisY + 4} stroke="#333" strokeWidth={0.8} />
+            <SvgText x={sx(t)} y={axisY + 13} fill="#444" textAnchor="middle" style={{ fontSize: 7, fontFamily: SVG_FONT }}>
+              {String(t).replace('-', '−')}
+            </SvgText>
+          </React.Fragment>
+        ))}
+        {diagram.axisLabel ? (
+          <SvgText x={padLeft + plotW / 2} y={axisY + 24} fill="#444" textAnchor="middle" style={{ fontSize: 8, fontFamily: SVG_FONT }}>
+            {diagram.axisLabel}
+          </SvgText>
+        ) : null}
+      </Svg>
+    </View>
+  )
+}
+
+/** Vertices and edges for the networks and decision mathematics questions.
+ * Vertex positions come from the question (0-100 in each direction) — nothing
+ * is laid out at render time, so the same source always draws the same graph. */
+function NetworkGraph({ diagram }: { diagram: NetworkGraphDiagram }) {
+  const width = 300
+  const height = 200
+  const pad = 22
+  const R = 9 // vertex radius
+  const sx = (x: number) => pad + (x / 100) * (width - 2 * pad)
+  const sy = (y: number) => height - pad - (y / 100) * (height - 2 * pad)
+
+  const at = new Map(diagram.vertices.map(v => [v.id, v]))
+
+  return (
+    <View style={pdfStyles.diagramBox} wrap={false}>
+      {diagram.title ? <Text style={pdfStyles.graphTitle}>{diagram.title}</Text> : null}
+      <Svg width={width} height={height}>
+        {diagram.edges.map((e, ei) => {
+          const a = at.get(e.from), b = at.get(e.to)
+          if (!a || !b) return null
+          const ax = sx(a.x), ay = sy(a.y), bx = sx(b.x), by = sy(b.y)
+          const dx = bx - ax, dy = by - ay
+          const len = Math.hypot(dx, dy) || 1
+          const ux = dx / len, uy = dy / len
+          // Stop the line at the circle's edge so it never runs under a label.
+          const x1 = ax + ux * R, y1 = ay + uy * R
+          const x2 = bx - ux * R, y2 = by - uy * R
+          const mx = (x1 + x2) / 2, my = (y1 + y2) / 2
+          // Offset the weight perpendicular to the edge, on one consistent side.
+          const ox = -uy * 7, oy = ux * 7
+          return (
+            <React.Fragment key={`e${ei}`}>
+              <Line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#333" strokeWidth={0.9} />
+              {diagram.directed
+                ? arrowHeadWings(x2, y2, ux, uy, 6).map((w, wi) => (
+                    <Line key={`a${wi}`} x1={w.x1} y1={w.y1} x2={w.x2} y2={w.y2} stroke="#333" strokeWidth={0.9} />
+                  ))
+                : null}
+              {e.weight !== undefined ? (
+                <SvgText x={mx + ox} y={my + oy + 2.5} fill="#185FA5" textAnchor="middle" style={{ fontSize: 8, fontFamily: SVG_FONT }}>
+                  {String(e.weight)}
+                </SvgText>
+              ) : null}
+            </React.Fragment>
+          )
+        })}
+        {diagram.vertices.map(v => (
+          <React.Fragment key={v.id}>
+            <Circle cx={sx(v.x)} cy={sy(v.y)} r={R} fill="#fff" stroke="#333" strokeWidth={1} />
+            <SvgText x={sx(v.x)} y={sy(v.y) + 3} fill="#1a1a1a" textAnchor="middle" style={{ fontSize: 8, fontFamily: SVG_FONT }}>
+              {v.id}
+            </SvgText>
+          </React.Fragment>
+        ))}
+      </Svg>
+    </View>
+  )
+}
+
+/** A table of values. Laid out with Views rather than SVG so long cell text
+ * wraps and the table can break across a page like the rest of the paper. */
+function DataTable({ diagram }: { diagram: DataTableDiagram }) {
+  return (
+    <View style={pdfStyles.tableBox} wrap={false}>
+      {diagram.title ? <Text style={pdfStyles.graphTitle}>{diagram.title}</Text> : null}
+      <View style={pdfStyles.tableGrid}>
+        <View style={pdfStyles.tableHeaderRow}>
+          {diagram.columns.map((c, i) => (
+            <Text key={i} style={[pdfStyles.tableCell, pdfStyles.tableHeaderCell, { width: `${100 / diagram.columns.length}%` }]}>{c}</Text>
+          ))}
+        </View>
+        {diagram.rows.map((row, ri) => (
+          <View key={ri} style={pdfStyles.tableRow}>
+            {row.map((cell, ci) => (
+              <Text
+                key={ci}
+                style={[
+                  pdfStyles.tableCell,
+                  ci === 0 && diagram.rowHeader ? pdfStyles.tableHeaderCell : {},
+                  { width: `${100 / diagram.columns.length}%` },
+                ]}
+              >
+                {String(cell)}
+              </Text>
+            ))}
+          </View>
+        ))}
+      </View>
+    </View>
+  )
+}
+
+/** A matrix, drawn with the square brackets real papers use. The brackets are
+ * three lines each rather than a font glyph, so they scale with the matrix. */
+function MatrixView({ diagram }: { diagram: MatrixDiagram }) {
+  const cellW = 30
+  const cellH = 15
+  const cols = Math.max(...diagram.rows.map(r => r.length), 1)
+  const bracketPad = 5
+  const gridW = cols * cellW
+  const gridH = diagram.rows.length * cellH
+  const labelLeft = diagram.rowLabels?.length ? 22 : 0
+  const labelTop = diagram.colLabels?.length ? 12 : 0
+  const nameW = diagram.name ? 26 : 0
+  const width = nameW + labelLeft + bracketPad * 2 + gridW + 12
+  const height = labelTop + gridH + 10
+
+  const gridX = nameW + labelLeft + bracketPad
+  const tipIn = 4 // how far the bracket's top and bottom arms turn inward
+
+  return (
+    <View style={pdfStyles.diagramBox} wrap={false}>
+      <Svg width={width} height={height}>
+        {diagram.name ? (
+          <SvgText x={0} y={labelTop + gridH / 2 + 3} fill="#1a1a1a" textAnchor="start" style={{ fontSize: 10, fontFamily: SVG_FONT }}>
+            {diagram.name}
+          </SvgText>
+        ) : null}
+        {(diagram.colLabels ?? []).map((c, ci) => (
+          <SvgText key={`c${ci}`} x={gridX + ci * cellW + cellW / 2} y={labelTop - 2} fill="#666" textAnchor="middle" style={{ fontSize: 7, fontFamily: SVG_FONT }}>
+            {c}
+          </SvgText>
+        ))}
+        {(diagram.rowLabels ?? []).map((r, ri) => (
+          <SvgText key={`r${ri}`} x={nameW + labelLeft - 6} y={labelTop + ri * cellH + cellH / 2 + 3} fill="#666" textAnchor="end" style={{ fontSize: 7, fontFamily: SVG_FONT }}>
+            {r}
+          </SvgText>
+        ))}
+        {[gridX - bracketPad, gridX + gridW + bracketPad].map((bx, bi) => {
+          const inward = bi === 0 ? tipIn : -tipIn
+          const top = labelTop - 2, bottom = labelTop + gridH + 2
+          return (
+            <React.Fragment key={`br${bi}`}>
+              <Line x1={bx} y1={top} x2={bx} y2={bottom} stroke="#1a1a1a" strokeWidth={1} />
+              <Line x1={bx} y1={top} x2={bx + inward} y2={top} stroke="#1a1a1a" strokeWidth={1} />
+              <Line x1={bx} y1={bottom} x2={bx + inward} y2={bottom} stroke="#1a1a1a" strokeWidth={1} />
+            </React.Fragment>
+          )
+        })}
+        {diagram.rows.map((row, ri) =>
+          row.map((cell, ci) => (
+            <SvgText
+              key={`${ri}-${ci}`}
+              x={gridX + ci * cellW + cellW / 2}
+              y={labelTop + ri * cellH + cellH / 2 + 3}
+              fill="#1a1a1a"
+              textAnchor="middle"
+              style={{ fontSize: 9, fontFamily: SVG_FONT }}
+            >
+              {String(cell).replace('-', '−')}
+            </SvgText>
+          ))
+        )}
+      </Svg>
+    </View>
+  )
+}
+
 /** Draws authored vector artwork (see src/lib/questions/illustrations.ts) — the
  * pictorial figures real NAPLAN uses that a chart renderer cannot express:
  * clock faces, coins, spinners, balance scales, labelled geometric figures.
@@ -454,6 +686,10 @@ function DiagramView({ diagram }: { diagram: Diagram }) {
     case 'grid_map': return <GridMap diagram={diagram} />
     case 'simple_shape': return <SimpleShape diagram={diagram} />
     case 'function_graph': return <FunctionGraph diagram={diagram} />
+    case 'box_plot': return <BoxPlot diagram={diagram} />
+    case 'network_graph': return <NetworkGraph diagram={diagram} />
+    case 'data_table': return <DataTable diagram={diagram} />
+    case 'matrix': return <MatrixView diagram={diagram} />
     case 'illustration': return <IllustrationView diagram={diagram} />
   }
 }

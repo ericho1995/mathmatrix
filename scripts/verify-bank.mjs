@@ -293,11 +293,17 @@ for (const q of QUESTION_BANK) {
   }
 }
 
-// ─── 8. VCE paper structure ──────────────────────────────────────────────────
+// ─── 8. Mathematical Methods Unit 3 & 4 paper structure ──────────────────────
 // VCAA fixes these totals, so a drifting mark count means the paper no longer
 // matches the exam it is practice for.
+//
+// Every filter here is scoped by topic, not just by year level. Year 12 now
+// holds more than one VCE subject, and General Mathematics questions are also
+// year_12 with calculator_allowed — without the topic test they get counted as
+// Methods questions and the Exam 2 checks fire against the wrong paper.
+const isMethods = q => q.topic.startsWith('mm_')
 const vceExam1 = QUESTION_BANK.filter(
-  q => q.year_level === 'year_12' && q.format === 'extended_response' && q.calculator_allowed === false
+  q => isMethods(q) && q.year_level === 'year_12' && q.format === 'extended_response' && q.calculator_allowed === false
 )
 if (vceExam1.length) {
   const marks = vceExam1.reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
@@ -308,7 +314,7 @@ if (vceExam1.length) {
 // Exam 2 is CAS-permitted: Section A is 20 one-mark multiple choice, Section B
 // is 4 extended-response questions worth 60 marks. Section A also uses five
 // options, unlike every NAPLAN question in the bank, which uses four.
-const vceYear12 = QUESTION_BANK.filter(q => q.year_level === 'year_12' && q.calculator_allowed === true)
+const vceYear12 = QUESTION_BANK.filter(q => isMethods(q) && q.year_level === 'year_12' && q.calculator_allowed === true)
 const vceSectionA = vceYear12.filter(q => q.format !== 'extended_response')
 const vceSectionB = vceYear12.filter(q => q.format === 'extended_response')
 if (vceSectionA.length || vceSectionB.length) {
@@ -323,6 +329,67 @@ if (vceSectionA.length || vceSectionB.length) {
   if (vceSectionB.length !== 4) warn(`VCE Exam 2 Section B has ${vceSectionB.length} questions; the real paper has 4`)
   const bMarks = vceSectionB.reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
   if (bMarks !== 60) warn(`VCE Exam 2 Section B totals ${bMarks} marks; the real paper is 60`)
+}
+
+// ─── 9. Diagrams are rendered BELOW the question text ────────────────────────
+// ExamPaperDocument prints the question, then its diagram. A question that says
+// "the graph above" therefore points at the previous question's graphic — which
+// no check catches at render time and no reader notices until they are holding
+// the paper. Wording this wrong has slipped through twice.
+for (const q of QUESTION_BANK) {
+  if (q.diagram && / above\b/.test(q.question_text)) {
+    err('question_text says "above" but its diagram renders below the text — say "below"', q.id)
+  }
+}
+
+// ─── 10. General Mathematics Unit 3 & 4 paper structure ──────────────────────
+// VCAA's published specifications mandate the split between the four content
+// areas, so these are not style preferences — a paper that misses them is not
+// the exam it claims to be practice for. Exam 1 is 40 one-mark multiple choice
+// (16/8/8/8 by area); Exam 2 is 60 marks of extended response (24/12/12/12).
+const GM_EXAM1_QUESTIONS = { gm_data_analysis: 16, gm_financial: 8, gm_matrices: 8, gm_networks: 8 }
+const GM_EXAM2_MARKS = { gm_data_analysis: 24, gm_financial: 12, gm_matrices: 12, gm_networks: 12 }
+
+const gmYear12 = QUESTION_BANK.filter(q => q.year_level === 'year_12' && q.topic.startsWith('gm_'))
+if (gmYear12.length) {
+  const gmExam1 = gmYear12.filter(q => (q.format ?? 'multiple_choice') === 'multiple_choice')
+  const gmExam2 = gmYear12.filter(q => q.format === 'extended_response')
+
+  for (const q of gmExam1) {
+    if (q.options && q.options.length !== 5) {
+      err(`General Maths Exam 1 question has ${q.options.length} options; VCAA multiple choice offers five (A-E)`, q.id)
+    }
+    if ((q.marks ?? 0) !== 1) warn(`General Maths Exam 1 question is worth ${q.marks ?? 0} marks; every one is worth 1`, q.id)
+    if (q.calculator_allowed !== true) {
+      warn('General Maths Exam 1 question is not marked calculator_allowed; neither General paper is technology-free', q.id)
+    }
+  }
+  for (const q of gmExam2) {
+    if (q.calculator_allowed !== true) {
+      warn('General Maths Exam 2 question is not marked calculator_allowed; neither General paper is technology-free', q.id)
+    }
+  }
+
+  // Only check the split once a paper looks complete — a half-authored area
+  // should not produce four warnings on every run while it is being written.
+  if (gmExam1.length) {
+    if (gmExam1.length !== 40) warn(`General Maths Exam 1 has ${gmExam1.length} questions; the specifications require 40`)
+    for (const [topic, want] of Object.entries(GM_EXAM1_QUESTIONS)) {
+      const got = gmExam1.filter(q => q.topic === topic).length
+      if (got !== want) warn(`General Maths Exam 1 has ${got} ${topic} questions; the specifications require ${want}`)
+    }
+  }
+  if (gmExam2.length) {
+    const marksFor = topic => gmExam2
+      .filter(q => q.topic === topic)
+      .reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
+    const total = Object.keys(GM_EXAM2_MARKS).reduce((sum, t) => sum + marksFor(t), 0)
+    if (total !== 60) warn(`General Maths Exam 2 totals ${total} marks; the specifications require 60`)
+    for (const [topic, want] of Object.entries(GM_EXAM2_MARKS)) {
+      const got = marksFor(topic)
+      if (got !== want) warn(`General Maths Exam 2 allocates ${got} marks to ${topic}; the specifications require ${want}`)
+    }
+  }
 }
 
 // ─── Report ──────────────────────────────────────────────────────────────────

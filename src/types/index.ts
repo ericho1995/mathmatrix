@@ -52,7 +52,9 @@ export type TopicSlug =
   | 'chem_atomic_structure' | 'chem_reactions'
   | 'phys_mechanics' | 'phys_electricity'
   | 'mm_functions' | 'mm_algebra' | 'mm_calculus' | 'mm_probability'
-  | 'gm_data_analysis' | 'gm_financial'
+  // The four General Mathematics Unit 3 & 4 areas of study. gm_financial is
+  // VCAA's "recursion and financial modelling"; the slug predates Unit 3 & 4.
+  | 'gm_data_analysis' | 'gm_financial' | 'gm_matrices' | 'gm_networks'
   | 'sm_complex_numbers' | 'sm_vectors'
 
 export interface Topic {
@@ -143,6 +145,80 @@ export interface FunctionGraphDiagram {
   points?: { x: number; y: number; label?: string }[]
 }
 
+/**
+ * Box plot — the display VCE General Mathematics data analysis is built on.
+ * Several boxes can share one axis, which is how real papers set up the
+ * "compare these groups" questions.
+ */
+export interface BoxPlotDiagram {
+  kind: 'box_plot'
+  title?: string
+  axisLabel?: string
+  min: number
+  max: number
+  step: number
+  boxes: {
+    label?: string
+    min: number
+    q1: number
+    median: number
+    q3: number
+    max: number
+    /** Drawn as separate dots beyond the whiskers, as VCAA does. */
+    outliers?: number[]
+  }[]
+}
+
+/**
+ * Vertices and edges, for the networks and decision mathematics area — 20 of
+ * the 100 marks across the two General Mathematics papers, and unanswerable
+ * without the drawing.
+ *
+ * Positions are authored rather than computed by a layout algorithm. A graph
+ * whose coordinates are in the source renders identically every time and can be
+ * reviewed in a diff, and no layout library ever has to run at render time —
+ * the same reason FunctionGraphDiagram stores sampled points.
+ */
+export interface NetworkGraphDiagram {
+  kind: 'network_graph'
+  title?: string
+  /** Draw arrowheads — flow networks and project diagrams are directed. */
+  directed?: boolean
+  /** Coordinates in an abstract 0-100 box, scaled to the drawing area. */
+  vertices: { id: string; x: number; y: number }[]
+  edges: { from: string; to: string; weight?: number | string }[]
+}
+
+/**
+ * A table of values. Real General Mathematics papers lean on these in every
+ * area of study — raw data sets, assignment costs, activity predecessors.
+ *
+ * Note `Stimulus` has a `data_table` type that predates this and was never
+ * rendered. This is per-question and typed; prefer it.
+ */
+export interface DataTableDiagram {
+  kind: 'data_table'
+  title?: string
+  columns: string[]
+  rows: (string | number)[][]
+  /** Render the first column as a row heading rather than as data. */
+  rowHeader?: boolean
+}
+
+/**
+ * A matrix, drawn with the square brackets real papers use. Optional row and
+ * column labels sit outside the brackets, which is how VCAA labels the rows of
+ * a transition matrix.
+ */
+export interface MatrixDiagram {
+  kind: 'matrix'
+  /** Printed to the left of the bracket, e.g. 'M =' or 'T ='. */
+  name?: string
+  rows: (string | number)[][]
+  rowLabels?: string[]
+  colLabels?: string[]
+}
+
 // ─── Illustrations ───────────────────────────────────────────────────────────
 // The five diagram kinds above are hand-written chart renderers, which is fine
 // for data displays but cannot draw the pictorial figures real NAPLAN papers
@@ -193,7 +269,8 @@ export interface IllustrationDiagram {
 
 export type Diagram =
   | BarChartDiagram | NumberLineDiagram | DotPlotDiagram | GridMapDiagram | SimpleShapeDiagram
-  | FunctionGraphDiagram | IllustrationDiagram
+  | FunctionGraphDiagram | BoxPlotDiagram | NetworkGraphDiagram | DataTableDiagram | MatrixDiagram
+  | IllustrationDiagram
 
 export interface Stimulus {
   id: string

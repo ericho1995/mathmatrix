@@ -77,6 +77,8 @@ export const TOPICS: Topic[] = [
   // General Mathematics
   { slug: 'gm_data_analysis',       subject: 'general_maths', label: 'Data Analysis',      description: 'Median, quartiles, spread',             icon: '📉', color: '#BA7517' },
   { slug: 'gm_financial',           subject: 'general_maths', label: 'Financial Maths',    description: 'Interest, loans, investments',          icon: '💰', color: '#BA7517' },
+  { slug: 'gm_matrices',            subject: 'general_maths', label: 'Matrices',           description: 'Matrix operations, transition matrices', icon: '🔢', color: '#BA7517' },
+  { slug: 'gm_networks',            subject: 'general_maths', label: 'Networks',           description: 'Graphs, paths, trees, flow, scheduling', icon: '🕸️', color: '#BA7517' },
 
   // Specialist Maths
   { slug: 'sm_complex_numbers',     subject: 'specialist_maths', label: 'Complex Numbers', description: 'Imaginary unit, modulus',               icon: '🔢', color: '#0C447C' },

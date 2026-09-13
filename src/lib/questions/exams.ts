@@ -3672,5 +3672,83 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     ],
     "premium": false,
     "reading_minutes": 15
+  },
+  {
+    "id": "general_maths-year_12-1-exam1",
+    "subject": "general_maths",
+    "yearLevel": "year_12",
+    "title": "General Mathematics Unit 3 & 4 — Examination 1 (Practice 1)",
+    "sections": [
+      {
+        "title": "Data analysis",
+        "time_minutes": 36,
+        "calculator_allowed": true,
+        "question_ids": [
+          "168b8cb4-6e4d-4e7a-af05-5b690d7d410d",
+          "1149c202-4da9-42d1-8ba2-c8c075148f51",
+          "a011285d-fcaa-4734-b392-5293e85c7f1c",
+          "7ac94e73-2161-436e-a570-73d3b90dc3ca",
+          "460605c7-f575-40f7-93bd-a359610a8e35",
+          "baecd5be-10ec-4c0b-abda-c3a631c08e09",
+          "0403a4cc-5012-4001-afd4-c11c6dd93455",
+          "09ffb66c-72e6-4b47-85c5-d521a6b18281",
+          "7d1cae51-96f2-4498-a1bc-a11b60940dda",
+          "993d89ab-5a61-4061-8e1c-23dfdfc7e06d",
+          "7843a2b1-8a14-4efd-868b-da268f4f7444",
+          "9a959f16-ceda-4134-a4e4-8f560e2afe21",
+          "9e58fcac-bbe2-4062-a711-c6aad8220b94",
+          "cad1aac7-5344-44a5-b99a-55273b8e0e03",
+          "dbbebdef-0552-44bf-b0be-524c2a839de2",
+          "735a921a-4ac0-4b14-90ba-796ea54fd498"
+        ]
+      },
+      {
+        "title": "Recursion and financial modelling",
+        "time_minutes": 18,
+        "calculator_allowed": true,
+        "question_ids": [
+          "97550631-d033-4cc8-bd66-b0a2ade1818b",
+          "5ca38437-7393-4d1c-be71-b197dfe39350",
+          "03af7032-4a97-4873-8a78-7d1553e52d27",
+          "6281a162-2a5a-4537-941e-df04d6054a43",
+          "62d731e9-2274-4887-9f7d-5fe7c9d8535f",
+          "ea47ffdf-35b3-45ff-b735-c9a6f27c515e",
+          "af7863f1-89c3-42a7-a3a1-74f14ee91e8e",
+          "eb1c40f5-8cf7-42ea-8024-afeffd49aeb9"
+        ]
+      },
+      {
+        "title": "Matrices",
+        "time_minutes": 18,
+        "calculator_allowed": true,
+        "question_ids": [
+          "4cc0ff9c-064e-4ac3-a956-984002621c73",
+          "18ee3ee7-cf2e-49f9-8ea4-d6b7f86380a9",
+          "663f9054-56a9-418e-a85f-542c65192f1e",
+          "a03b4a18-521a-41ab-939b-0b046f0c4596",
+          "b0910fa8-85af-4e39-ba16-64bc82e99c1d",
+          "b5e4aeb0-a929-4406-858b-061d4d09e8f5",
+          "8c829bb6-8efb-4250-b6a0-822b1dfb819c",
+          "758f0812-d101-4b9b-b0a9-f8ffc8d8bccc"
+        ]
+      },
+      {
+        "title": "Networks and decision mathematics",
+        "time_minutes": 18,
+        "calculator_allowed": true,
+        "question_ids": [
+          "b189e097-0839-49a8-875e-a39518b64983",
+          "61f47945-06c6-4b2b-a1ae-657aa2d69c60",
+          "8a362497-0788-4df0-9821-00d653a8fc0f",
+          "2d49e5bc-f470-407b-a809-c77ea74ec968",
+          "7ef826c1-79c4-404c-8739-a4d06ee8085a",
+          "f07719b4-2088-4ec1-87c8-6d9e2b21002e",
+          "03d4676d-ddc2-4568-ab2f-0836524a63b1",
+          "c31fc559-6d29-4735-8e74-115dc1e681a5"
+        ]
+      }
+    ],
+    "premium": false,
+    "reading_minutes": 15
   }
 ]

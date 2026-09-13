@@ -86,6 +86,14 @@ export const pdfStyles = StyleSheet.create({
   // Title above a function graph. Not uppercased like diagramTitle, because
   // these are maths expressions — "y = f(x)" must not become "Y = F(X)".
   graphTitle: { fontSize: 9, color: '#444', marginBottom: 4 },
+  // Data tables (General Mathematics leans on these in every area of study).
+  // Laid out with Views, not SVG, so long cell text wraps.
+  tableBox: { marginLeft: 12, marginBottom: 8, alignItems: 'flex-start' },
+  tableGrid: { borderTop: '0.75pt solid #333', borderLeft: '0.75pt solid #333', minWidth: 240, maxWidth: 460 },
+  tableHeaderRow: { flexDirection: 'row', backgroundColor: '#f0f2f5' },
+  tableRow: { flexDirection: 'row' },
+  tableCell: { fontSize: 8, paddingVertical: 3, paddingHorizontal: 4, borderRight: '0.75pt solid #333', borderBottom: '0.75pt solid #333', textAlign: 'center' },
+  tableHeaderCell: { fontWeight: 700, textAlign: 'left' },
   diagramLabelsRow: { flexDirection: 'row', width: 420, marginTop: 2, flexWrap: 'wrap' },
   diagramLabel: { fontSize: 8, color: '#333', textAlign: 'center' },
   // Caption under a diagram (marked points, axis label) — not uppercased like

@@ -36,6 +36,7 @@ const TOPIC_TO_SUBJECT = {
   phys_mechanics: 'physics', phys_electricity: 'physics',
   mm_functions: 'maths_methods', mm_algebra: 'maths_methods', mm_calculus: 'maths_methods', mm_probability: 'maths_methods',
   gm_data_analysis: 'general_maths', gm_financial: 'general_maths',
+  gm_matrices: 'general_maths', gm_networks: 'general_maths',
   sm_complex_numbers: 'specialist_maths', sm_vectors: 'specialist_maths',
 }
 const SELECTIVE_SUBJECTS = new Set(['chemistry', 'physics', 'maths_methods', 'general_maths', 'specialist_maths'])
@@ -297,11 +298,91 @@ function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
   return exams
 }
 
+// ── General Mathematics Unit 3 & 4 ──────────────────────────────────────────
+// Structured from VCAA's published examination specifications (2023-2027), not
+// inferred from a paper: both examinations are 15 minutes reading plus 1 hour
+// 30 minutes writing, both permit CAS, and both are divided into the same four
+// content areas with a MANDATED split.
+//
+//   Examination 1 — 40 multiple choice, 1 mark each: 16 data analysis,
+//                   8 recursion and financial modelling, 8 matrices,
+//                   8 networks and decision mathematics.
+//   Examination 2 — 60 marks of short and extended answer: 24 / 12 / 12 / 12.
+//
+// Unlike Methods, neither paper is technology-free, so calculator_allowed
+// cannot tell the two apart — format does. Examination 1 is entirely multiple
+// choice, Examination 2 entirely extended response.
+const GM_AREAS = [
+  { topic: 'gm_data_analysis', title: 'Data analysis' },
+  { topic: 'gm_financial', title: 'Recursion and financial modelling' },
+  { topic: 'gm_matrices', title: 'Matrices' },
+  { topic: 'gm_networks', title: 'Networks and decision mathematics' },
+]
+const GM_WRITING_MINUTES = 90
+
+function buildGeneralMathsUnit34Exams(subject, yearLevel, questions, examIndex) {
+  const exams = []
+  const label = `${SUBJECT_LABEL[subject]} Unit 3 & 4`
+
+  // Reading time is for the whole paper; the per-area minutes below are a
+  // pacing guide proportional to each area's share, and always sum to 90.
+  const areaSections = pool => {
+    const byArea = GM_AREAS.map(a => ({ ...a, items: pool.filter(q => q.topic === a.topic) }))
+      .filter(a => a.items.length > 0)
+    const totalItems = byArea.reduce((sum, a) => sum + a.items.length, 0)
+    if (!totalItems) return []
+    let allocated = 0
+    return byArea.map((a, i) => {
+      const minutes = i === byArea.length - 1
+        ? GM_WRITING_MINUTES - allocated
+        : Math.round((a.items.length / totalItems) * GM_WRITING_MINUTES)
+      allocated += minutes
+      return {
+        title: a.title,
+        time_minutes: minutes,
+        calculator_allowed: true,
+        question_ids: a.items.map(q => q.id),
+      }
+    })
+  }
+
+  const mc = questions.filter(q => (q.format ?? 'multiple_choice') === 'multiple_choice')
+  const extended = questions.filter(q => q.format === 'extended_response')
+
+  const exam1Sections = areaSections(mc)
+  if (exam1Sections.length) {
+    exams.push({
+      id: `${subject}-${yearLevel}-${examIndex + 1}-exam1`,
+      subject,
+      yearLevel,
+      title: `${label} — Examination 1 (Practice ${examIndex + 1})`,
+      sections: exam1Sections,
+      premium: examIndex > 0,
+      reading_minutes: VCE_READING_MINUTES,
+    })
+  }
+
+  const exam2Sections = areaSections(extended)
+  if (exam2Sections.length) {
+    exams.push({
+      id: `${subject}-${yearLevel}-${examIndex + 1}-exam2`,
+      subject,
+      yearLevel,
+      title: `${label} — Examination 2 (Practice ${examIndex + 1})`,
+      sections: exam2Sections,
+      premium: examIndex > 0,
+      reading_minutes: VCE_READING_MINUTES,
+    })
+  }
+  return exams
+}
+
 const practiceExams = []
 for (const { subject, yearLevel, questions } of groups.values()) {
   if (yearLevel === 'year_12') {
     // Only one paper's worth of content exists so far, so only one is built.
-    practiceExams.push(...buildVceUnit34Exams(subject, yearLevel, questions, 0))
+    const build = subject === 'general_maths' ? buildGeneralMathsUnit34Exams : buildVceUnit34Exams
+    practiceExams.push(...build(subject, yearLevel, questions, 0))
     continue
   }
   if (NAPLAN_SUBJECTS.has(subject) && NAPLAN_GRADES.has(yearLevel)) {
