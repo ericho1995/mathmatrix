@@ -1,13 +1,14 @@
 import { Document, Page, View, Text } from '@react-pdf/renderer'
 import { pdfStyles, BRAND_BLUE } from './theme'
 import { Watermark, PageFooter } from './Brand'
+import { firstQuestionNumbers } from './resolveExam'
 import type { ResolvedExam } from './resolveExam'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
 export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
   const { exam, sections } = resolved
-  let questionNumber = 0
+  const sectionStart = firstQuestionNumbers(sections)
 
   return (
     <Document>
@@ -21,8 +22,8 @@ export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
         {sections.map((s, si) => (
           <View key={si}>
             <Text style={pdfStyles.sectionHeader}>{s.section.title}</Text>
-            {s.questions.map(q => {
-              questionNumber++
+            {s.questions.map((q, qi) => {
+              const questionNumber = sectionStart[si] + qi + 1
 
               // A VCE extended response is marked per part, so the key has to
               // show where each mark is earned rather than a single answer.

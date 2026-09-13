@@ -305,6 +305,26 @@ if (vceExam1.length) {
   if (marks !== 40) warn(`VCE Exam 1 totals ${marks} marks; the real paper is 40`)
 }
 
+// Exam 2 is CAS-permitted: Section A is 20 one-mark multiple choice, Section B
+// is 4 extended-response questions worth 60 marks. Section A also uses five
+// options, unlike every NAPLAN question in the bank, which uses four.
+const vceYear12 = QUESTION_BANK.filter(q => q.year_level === 'year_12' && q.calculator_allowed === true)
+const vceSectionA = vceYear12.filter(q => q.format !== 'extended_response')
+const vceSectionB = vceYear12.filter(q => q.format === 'extended_response')
+if (vceSectionA.length || vceSectionB.length) {
+  if (vceSectionA.length !== 20) warn(`VCE Exam 2 Section A has ${vceSectionA.length} questions; the real paper has 20`)
+  const aMarks = vceSectionA.reduce((sum, q) => sum + (q.marks ?? 0), 0)
+  if (aMarks !== 20) warn(`VCE Exam 2 Section A totals ${aMarks} marks; the real paper is 20 (1 mark each)`)
+  for (const q of vceSectionA) {
+    if (q.options && q.options.length !== 5) {
+      err(`VCE Exam 2 Section A question has ${q.options.length} options; VCAA multiple choice offers five (A-E)`, q.id)
+    }
+  }
+  if (vceSectionB.length !== 4) warn(`VCE Exam 2 Section B has ${vceSectionB.length} questions; the real paper has 4`)
+  const bMarks = vceSectionB.reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
+  if (bMarks !== 60) warn(`VCE Exam 2 Section B totals ${bMarks} marks; the real paper is 60`)
+}
+
 // ─── Report ──────────────────────────────────────────────────────────────────
 if (!quiet || errors.length) {
   console.log(`Checked ${QUESTION_BANK.length} questions, ${STIMULI.length} passages, ${Object.keys(ILLUSTRATIONS).length} illustrations.`)

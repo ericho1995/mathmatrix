@@ -110,6 +110,39 @@ export interface SimpleShapeDiagram {
   labels: { side: 'top' | 'bottom' | 'left' | 'right' | 'hypotenuse'; text: string }[]
 }
 
+/**
+ * A curve on Cartesian axes — the graphic VCE Methods papers are built from.
+ * Checking the real papers, they contain almost no photographs: the 2021-2024
+ * Exam 2 papers carry zero raster images and 800-1100 vector drawings each,
+ * nearly all of them function graphs with light gridlines, solid and dashed
+ * curves, and a key.
+ *
+ * Curves are stored as sampled points rather than an expression to evaluate.
+ * The renderer does no maths, the data is typed and diffable, and a curve can
+ * be checked by reading it — the same reason illustrations store primitives
+ * rather than SVG markup.
+ */
+export interface FunctionGraphDiagram {
+  kind: 'function_graph'
+  title?: string
+  xMin: number
+  xMax: number
+  yMin: number
+  yMax: number
+  /** Gridline and tick spacing. Omit to draw axes without a grid. */
+  xStep?: number
+  yStep?: number
+  xLabel?: string
+  yLabel?: string
+  curves: {
+    points: [number, number][]
+    dashed?: boolean
+    label?: string
+  }[]
+  /** Marked points — intercepts, turning points, a stated coordinate. */
+  points?: { x: number; y: number; label?: string }[]
+}
+
 // ─── Illustrations ───────────────────────────────────────────────────────────
 // The five diagram kinds above are hand-written chart renderers, which is fine
 // for data displays but cannot draw the pictorial figures real NAPLAN papers
@@ -160,7 +193,7 @@ export interface IllustrationDiagram {
 
 export type Diagram =
   | BarChartDiagram | NumberLineDiagram | DotPlotDiagram | GridMapDiagram | SimpleShapeDiagram
-  | IllustrationDiagram
+  | FunctionGraphDiagram | IllustrationDiagram
 
 export interface Stimulus {
   id: string

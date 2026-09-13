@@ -3,9 +3,10 @@ import { pdfStyles } from './theme'
 import { Watermark, PageFooter } from './Brand'
 import { SUBJECTS, SELECTIVE_SUBJECTS } from '@/lib/curriculum'
 import { ILLUSTRATIONS } from '@/lib/questions/illustrations'
+import { firstQuestionNumbers } from './resolveExam'
 import type { ResolvedExam, ResolvedQuestion } from './resolveExam'
 import type { PracticeExam, PracticeExamSection } from '@/lib/questions/exams'
-import type { Diagram, NumberLineDiagram, DotPlotDiagram, GridMapDiagram, SimpleShapeDiagram, IllustrationDiagram } from '@/types'
+import type { Diagram, NumberLineDiagram, DotPlotDiagram, GridMapDiagram, SimpleShapeDiagram, FunctionGraphDiagram, IllustrationDiagram } from '@/types'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -297,6 +298,101 @@ function SimpleShape({ diagram }: { diagram: SimpleShapeDiagram }) {
   )
 }
 
+/** Curves on Cartesian axes, the graphic VCE Methods papers are built from.
+ * Points arrive already sampled, so this only maps data coordinates to the
+ * drawing area — no expression is evaluated at render time. */
+function FunctionGraph({ diagram }: { diagram: FunctionGraphDiagram }) {
+  const width = 300
+  const height = 220
+  // top leaves room for the y-axis label to sit above the highest tick label.
+  const pad = { left: 30, right: 14, top: 18, bottom: 26 }
+  const plotW = width - pad.left - pad.right
+  const plotH = height - pad.top - pad.bottom
+
+  const { xMin, xMax, yMin, yMax } = diagram
+  const sx = (x: number) => pad.left + ((x - xMin) / (xMax - xMin)) * plotW
+  const sy = (y: number) => pad.top + plotH - ((y - yMin) / (yMax - yMin)) * plotH
+
+  const ticks = (min: number, max: number, step?: number) => {
+    if (!step || step <= 0) return []
+    const out: number[] = []
+    // Start from the first multiple of step at or above min, so gridlines land
+    // on round numbers rather than wherever the range happens to begin.
+    for (let v = Math.ceil(min / step) * step; v <= max + 1e-9; v += step) out.push(Number(v.toFixed(6)))
+    return out
+  }
+  const xTicks = ticks(xMin, xMax, diagram.xStep)
+  const yTicks = ticks(yMin, yMax, diagram.yStep)
+  // Real papers set negatives with a minus sign, not a hyphen.
+  const tickLabel = (v: number) => String(v).replace('-', '−')
+
+  // Axes sit on zero when it is in range, otherwise on the edge of the plot.
+  const axisY = yMin <= 0 && yMax >= 0 ? sy(0) : sy(yMin)
+  const axisX = xMin <= 0 && xMax >= 0 ? sx(0) : sx(xMin)
+
+  return (
+    <View style={pdfStyles.diagramBox} wrap={false}>
+      {diagram.title ? <Text style={pdfStyles.graphTitle}>{diagram.title}</Text> : null}
+      <Svg width={width} height={height}>
+        {xTicks.map((t, i) => (
+          <Line key={`gx${i}`} x1={sx(t)} y1={pad.top} x2={sx(t)} y2={pad.top + plotH} stroke="#d8d8d8" strokeWidth={0.5} />
+        ))}
+        {yTicks.map((t, i) => (
+          <Line key={`gy${i}`} x1={pad.left} y1={sy(t)} x2={pad.left + plotW} y2={sy(t)} stroke="#d8d8d8" strokeWidth={0.5} />
+        ))}
+
+        <Line x1={pad.left} y1={axisY} x2={pad.left + plotW} y2={axisY} stroke="#333" strokeWidth={1} />
+        <Line x1={axisX} y1={pad.top} x2={axisX} y2={pad.top + plotH} stroke="#333" strokeWidth={1} />
+
+        {xTicks.filter(t => t !== 0).map((t, i) => (
+          <SvgText key={`xt${i}`} x={sx(t)} y={axisY + 11} fill="#444" textAnchor="middle" style={{ fontSize: 7, fontFamily: 'DejaVuSans' }}>
+            {tickLabel(t)}
+          </SvgText>
+        ))}
+        {yTicks.filter(t => t !== 0).map((t, i) => (
+          <SvgText key={`yt${i}`} x={axisX - 4} y={sy(t) + 2.5} fill="#444" textAnchor="end" style={{ fontSize: 7, fontFamily: 'DejaVuSans' }}>
+            {tickLabel(t)}
+          </SvgText>
+        ))}
+
+        {diagram.curves.map((curve, ci) => (
+          <Polyline
+            key={`c${ci}`}
+            points={curve.points.map(([x, y]) => `${sx(x)},${sy(y)}`).join(' ')}
+            stroke="#185FA5"
+            strokeWidth={1.4}
+            strokeDasharray={curve.dashed ? '4 3' : undefined}
+            fill="none"
+          />
+        ))}
+
+        {(diagram.points ?? []).map((p, pi) => (
+          <Circle key={`p${pi}`} cx={sx(p.x)} cy={sy(p.y)} r={2.6} fill="#0F766E" />
+        ))}
+
+        {diagram.xLabel ? (
+          <SvgText x={pad.left + plotW} y={axisY + 20} fill="#444" textAnchor="end" style={{ fontSize: 8, fontFamily: 'DejaVuSans' }}>
+            {diagram.xLabel}
+          </SvgText>
+        ) : null}
+        {diagram.yLabel ? (
+          <SvgText x={2} y={8} fill="#444" textAnchor="start" style={{ fontSize: 8, fontFamily: 'DejaVuSans' }}>
+            {diagram.yLabel}
+          </SvgText>
+        ) : null}
+      </Svg>
+      {diagram.points?.some(p => p.label) || diagram.curves.some(c => c.label) ? (
+        <Text style={pdfStyles.diagramCaption}>
+          {[
+            ...diagram.curves.filter(c => c.label).map(c => `${c.dashed ? '– – ' : '—— '}${c.label}`),
+            ...(diagram.points ?? []).filter(p => p.label).map(p => `${p.label} (${p.x}, ${p.y})`),
+          ].join('    ')}
+        </Text>
+      ) : null}
+    </View>
+  )
+}
+
 /** Draws authored vector artwork (see src/lib/questions/illustrations.ts) — the
  * pictorial figures real NAPLAN uses that a chart renderer cannot express:
  * clock faces, coins, spinners, balance scales, labelled geometric figures.
@@ -353,6 +449,7 @@ function DiagramView({ diagram }: { diagram: Diagram }) {
     case 'dot_plot': return <DotPlot diagram={diagram} />
     case 'grid_map': return <GridMap diagram={diagram} />
     case 'simple_shape': return <SimpleShape diagram={diagram} />
+    case 'function_graph': return <FunctionGraph diagram={diagram} />
     case 'illustration': return <IllustrationView diagram={diagram} />
   }
 }
@@ -459,7 +556,7 @@ function RunningHeader({ exam, section }: { exam: PracticeExam; section: Practic
 
 export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
   const { exam, sections } = resolved
-  let questionNumber = 0
+  const sectionStart = firstQuestionNumbers(sections)
   const totalMinutes = sections.reduce((sum, s) => sum + s.section.time_minutes, 0)
 
   return (
@@ -517,6 +614,7 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
           {(() => {
             const rendered: JSX.Element[] = []
             let lastStimulusId: string | undefined
+            let questionNumber = sectionStart[si]
             for (const q of s.questions) {
               questionNumber++
               if (q.stimulus && q.stimulus.id !== lastStimulusId) {

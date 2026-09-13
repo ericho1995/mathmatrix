@@ -278,10 +278,10 @@ function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
   const extended = questions.filter(q => q.format === 'extended_response' && q.calculator_allowed === true)
   const sections = []
   if (mc.length) {
-    sections.push({ title: 'Section A — multiple choice', time_minutes: 45, calculator_allowed: true, question_ids: mc.map(q => q.id) })
+    sections.push({ title: 'Section A — multiple choice', time_minutes: 45, calculator_allowed: true, restart_numbering: true, question_ids: mc.map(q => q.id) })
   }
   if (extended.length) {
-    sections.push({ title: 'Section B — extended response', time_minutes: 75, calculator_allowed: true, question_ids: extended.map(q => q.id) })
+    sections.push({ title: 'Section B — extended response', time_minutes: 75, calculator_allowed: true, restart_numbering: true, question_ids: extended.map(q => q.id) })
   }
   if (sections.length) {
     exams.push({
@@ -346,6 +346,9 @@ export interface PracticeExamSection {
   title: string
   time_minutes: number
   calculator_allowed?: boolean
+  /** Start this section's question numbers again at 1. VCAA papers number
+   * within each section, so Section B opens at Question 1, not Question 21. */
+  restart_numbering?: boolean
   question_ids: string[]
 }
 

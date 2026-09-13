@@ -11,6 +11,9 @@ export interface PracticeExamSection {
   title: string
   time_minutes: number
   calculator_allowed?: boolean
+  /** Start this section's question numbers again at 1. VCAA papers number
+   * within each section, so Section B opens at Question 1, not Question 21. */
+  restart_numbering?: boolean
   question_ids: string[]
 }
 
@@ -3614,6 +3617,56 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "e03c8612-e047-483b-b344-785ff461aded",
           "e2382b12-c1da-43f2-907e-50d6812932e9",
           "83ade8ca-9359-473d-8184-7c8ec080f440"
+        ]
+      }
+    ],
+    "premium": false,
+    "reading_minutes": 15
+  },
+  {
+    "id": "maths_methods-year_12-1-exam2",
+    "subject": "maths_methods",
+    "yearLevel": "year_12",
+    "title": "Maths Methods Unit 3 & 4 — Examination 2 (Practice 1)",
+    "sections": [
+      {
+        "title": "Section A — multiple choice",
+        "time_minutes": 45,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "question_ids": [
+          "6d5fb2fa-1c54-4508-b5ca-f106eadb12fa",
+          "9b29536f-b939-4b9b-9188-60e2cceb05fc",
+          "534a9248-8e87-4ed9-bf89-d763705c2fed",
+          "6e74f584-ca26-4028-90a3-cf198116dbdc",
+          "c66d65d3-6012-4ad7-a370-e698e88f2f9b",
+          "3d94b57d-947f-4bac-83c5-5c1df1fa095b",
+          "71bc6802-7458-400b-a695-bc6f8606bca4",
+          "67dad046-4b2f-46ba-bf52-27b727558203",
+          "d2260e25-83c0-4584-9191-94587e5c00a1",
+          "aa91d514-6c8e-4cb4-8d8e-b33da807949b",
+          "18148677-e6ab-4743-b277-9baa12e8a208",
+          "2cf8bb95-59ae-485d-955d-7240d972e3a2",
+          "c2bb15dd-8f40-4b99-b18b-ca9a5ee85b4c",
+          "d063bb81-dae8-4d82-9873-bf3152ea620b",
+          "487dcb2c-afdc-47dd-a492-e6166c0c2550",
+          "65223e09-c630-4354-a695-c19045cc7026",
+          "b2354060-14c0-463d-8923-0c18949ffb22",
+          "98746c4e-05f7-4fe9-a7ee-bd758c39318c",
+          "13376ec0-08a6-4202-a679-42964bdc641e",
+          "0bab3e8d-6d97-44f5-b06c-e165aea83e77"
+        ]
+      },
+      {
+        "title": "Section B — extended response",
+        "time_minutes": 75,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "question_ids": [
+          "87190ce6-42e7-41aa-9f0d-b25bf595f169",
+          "1f6b35b8-a269-4beb-917e-ca143e43fa4c",
+          "af5f74e3-f8a1-4897-b41b-b7e328053e3f",
+          "f7953088-8bf2-41d2-a2ff-5749151af7e5"
         ]
       }
     ],

@@ -83,6 +83,9 @@ export const pdfStyles = StyleSheet.create({
   // Per-question graphic (e.g. bar chart) — Phase 2 of the visual-format design.
   diagramBox: { marginLeft: 12, marginBottom: 8, alignItems: 'center' },
   diagramTitle: { fontSize: 9, color: '#666', marginBottom: 4, textTransform: 'uppercase', letterSpacing: 0.5 },
+  // Title above a function graph. Not uppercased like diagramTitle, because
+  // these are maths expressions — "y = f(x)" must not become "Y = F(X)".
+  graphTitle: { fontSize: 9, color: '#444', marginBottom: 4 },
   diagramLabelsRow: { flexDirection: 'row', width: 420, marginTop: 2, flexWrap: 'wrap' },
   diagramLabel: { fontSize: 8, color: '#333', textAlign: 'center' },
   // Caption under a diagram (marked points, axis label) — not uppercased like
