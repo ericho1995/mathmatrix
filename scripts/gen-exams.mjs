@@ -325,17 +325,27 @@ function buildGeneralMathsUnit34Exams(subject, yearLevel, questions, examIndex) 
   const label = `${SUBJECT_LABEL[subject]} Unit 3 & 4`
 
   // Reading time is for the whole paper; the per-area minutes below are a
-  // pacing guide proportional to each area's share, and always sum to 90.
+  // pacing guide proportional to each area's share of the MARKS, and always
+  // sum to 90. Marks rather than question count, because Examination 2's four
+  // data analysis questions are worth 24 marks while its four matrices
+  // questions are worth 12 — splitting by count would tell a student to spend
+  // as long on the half-weight area. (In Examination 1 every question is worth
+  // one mark, so the two measures agree.)
+  const weightOf = q => (q.format === 'extended_response'
+    ? q.parts.reduce((sum, p) => sum + p.marks, 0)
+    : (q.marks ?? 1))
   const areaSections = pool => {
     const byArea = GM_AREAS.map(a => ({ ...a, items: pool.filter(q => q.topic === a.topic) }))
       .filter(a => a.items.length > 0)
-    const totalItems = byArea.reduce((sum, a) => sum + a.items.length, 0)
-    if (!totalItems) return []
+      .map(a => ({ ...a, weight: a.items.reduce((sum, q) => sum + weightOf(q), 0) }))
+    const totalWeight = byArea.reduce((sum, a) => sum + a.weight, 0)
+    if (!totalWeight) return []
     let allocated = 0
     return byArea.map((a, i) => {
+      // The last area absorbs the rounding so the sections always total 90.
       const minutes = i === byArea.length - 1
         ? GM_WRITING_MINUTES - allocated
-        : Math.round((a.items.length / totalItems) * GM_WRITING_MINUTES)
+        : Math.round((a.weight / totalWeight) * GM_WRITING_MINUTES)
       allocated += minutes
       return {
         title: a.title,

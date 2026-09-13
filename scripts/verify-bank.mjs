@@ -336,9 +336,18 @@ if (vceSectionA.length || vceSectionB.length) {
 // "the graph above" therefore points at the previous question's graphic — which
 // no check catches at render time and no reader notices until they are holding
 // the paper. Wording this wrong has slipped through twice.
+// Only questions that actually carry a diagram: "scored above 86" is ordinary
+// English, and flagging it would train everyone to ignore this check.
 for (const q of QUESTION_BANK) {
-  if (q.diagram && / above\b/.test(q.question_text)) {
+  if (!q.diagram) continue
+  const refersUp = text => / above\b/.test(text)
+  if (refersUp(q.question_text)) {
     err('question_text says "above" but its diagram renders below the text — say "below"', q.id)
+  }
+  for (const part of q.parts ?? []) {
+    if (refersUp(part.prompt)) {
+      err(`part ${part.label} says "above" but the diagram renders below the text — say "below"`, q.id)
+    }
   }
 }
 
