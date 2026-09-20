@@ -283,7 +283,11 @@ function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
         calculator_allowed: false,
         question_ids: techFree.map(q => q.id),
       }],
-      premium: examIndex > 0,
+      // The free sample is the FIRST PAPER of a subject and year level, not the
+      // first practice set. These builders emit two papers per set, so keying
+      // the rule on examIndex alone made both free — and since only set 1
+      // exists, that gave away the whole of Year 12.
+      premium: examIndex > 0 || exams.length > 0,
       reading_minutes: VCE_READING_MINUTES,
     })
   }
@@ -304,7 +308,7 @@ function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
       yearLevel,
       title: `${label} — Examination 2 (Practice ${examIndex + 1})`,
       sections,
-      premium: examIndex > 0,
+      premium: examIndex > 0 || exams.length > 0,
       reading_minutes: VCE_READING_MINUTES,
     })
   }
@@ -380,7 +384,9 @@ function buildGeneralMathsUnit34Exams(subject, yearLevel, questions, examIndex) 
       yearLevel,
       title: `${label} — Examination 1 (Practice ${examIndex + 1})`,
       sections: exam1Sections,
-      premium: examIndex > 0,
+      // One free sample per subject and year level — see the note in
+      // buildVceUnit34Exams. Two papers come out of each practice set here too.
+      premium: examIndex > 0 || exams.length > 0,
       reading_minutes: VCE_READING_MINUTES,
     })
   }
@@ -393,7 +399,7 @@ function buildGeneralMathsUnit34Exams(subject, yearLevel, questions, examIndex) 
       yearLevel,
       title: `${label} — Examination 2 (Practice ${examIndex + 1})`,
       sections: exam2Sections,
-      premium: examIndex > 0,
+      premium: examIndex > 0 || exams.length > 0,
       reading_minutes: VCE_READING_MINUTES,
     })
   }

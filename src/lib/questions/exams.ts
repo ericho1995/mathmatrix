@@ -4219,7 +4219,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   },
   {
@@ -4349,7 +4349,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   }
 ]
