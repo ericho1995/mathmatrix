@@ -39,3 +39,7 @@ Thumbs.db
 
 .vercel
 .env*
+
+# Chunked seed files for pasting into the Supabase SQL editor.
+# Regenerate with `node scripts/split-seed.mjs` — never hand-edited, never shipped.
+supabase/seed-parts/
