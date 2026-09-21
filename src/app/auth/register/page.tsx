@@ -1,11 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import type { Route } from 'next'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { GRADES } from '@/lib/curriculum'
 import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
+import { safeNext } from '@/lib/auth/safeNext'
 import type { UserRole, YearLevel } from '@/types'
 
 export default function RegisterPage() {
@@ -18,6 +20,13 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [message, setMessage] = useState<string | null>(null)
+  // Carried through sign-up and the confirmation email, so someone who started
+  // from a buy button ends up back at it. Validated by safeNext on the way in
+  // here and again in the auth callback.
+  const [next, setNext] = useState('/')
+  useEffect(() => {
+    setNext(safeNext(new URLSearchParams(window.location.search).get('next')))
+  }, [])
 
   async function handleRegister(e: React.FormEvent) {
     e.preventDefault()
@@ -47,7 +56,13 @@ export default function RegisterPage() {
           role,
           ...(role === 'student' ? { year_level: yearLevel } : {}),
         },
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        // Unchanged from before when there is nowhere special to return to, so
+        // the ordinary sign-up link stays exactly what Supabase's redirect
+        // allow-list has always seen.
+        emailRedirectTo:
+          next === '/'
+            ? `${window.location.origin}/auth/callback`
+            : `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
       },
     })
 
@@ -63,7 +78,7 @@ export default function RegisterPage() {
       return
     }
 
-    router.push('/')
+    router.push(next as Parameters<typeof router.push>[0])
     router.refresh()
   }
 
@@ -140,7 +155,10 @@ export default function RegisterPage() {
 
         <p className="text-center text-sm text-gray-500 mt-6">
           Already have an account?{' '}
-          <Link href="/auth/login" className="text-brand-600 hover:underline">
+          <Link
+            href={(next === '/' ? '/auth/login' : `/auth/login?next=${encodeURIComponent(next)}`) as Route}
+            className="text-brand-600 hover:underline"
+          >
             Sign in
           </Link>
         </p>
