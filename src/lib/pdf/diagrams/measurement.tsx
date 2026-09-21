@@ -238,31 +238,38 @@ export function Clock({ diagram: d, fit, bare }: { diagram: ClockDiagram } & Fit
 // ── Balance ──────────────────────────────────────────────────────────────────
 
 export function Balance({ diagram: d, fit, bare }: { diagram: BalanceDiagram } & Fit) {
-  const W = 300, H = 160
-  const cx = W / 2, pivotY = 62
   const tilt = d.tilt === 'left' ? 9 : d.tilt === 'right' ? -9 : 0
+  const blockW = (items: string[]) => Math.max(30, ...items.map(s => s.length * 6.4 + 12))
+  const perRow = (items: string[]) => Math.max(1, Math.floor(84 / (blockW(items) + 3)))
+  // Taller stacks hang their pans lower so the blocks stay under the beam;
+  // the canvas grows to fit instead of leaving a fixed gap above one row.
+  const rows = Math.max(...[d.left, d.right].map(items => Math.ceil(items.length / perRow(items))), 1)
+  const W = 300
+  const drop = (rows - 1) * 21
+  const pivotY = 16 + (tilt ? 17 : 0)
+  const H = pivotY + 104 + drop
+  const cx = W / 2
   const armL = 110
   const t = (tilt * Math.PI) / 180
   const lx = cx - Math.cos(t) * armL, ly = pivotY + Math.sin(t) * armL
   const rx = cx + Math.cos(t) * armL, ry = pivotY - Math.sin(t) * armL
   const pan = (px: number, py: number, items: string[], key: string) => {
-    const panY = py + 26
-    const blockW = Math.max(26, ...items.map(s => s.length * 5.2 + 10))
+    const panY = py + 32 + drop
+    const bw = blockW(items), per = perRow(items)
     return (
       <React.Fragment key={key}>
         <Line x1={px} y1={py} x2={px - 34} y2={panY} stroke={INK} strokeWidth={0.7} />
         <Line x1={px} y1={py} x2={px + 34} y2={panY} stroke={INK} strokeWidth={0.7} />
         <Polygon points={pts([[px - 44, panY], [px + 44, panY], [px + 36, panY + 7], [px - 36, panY + 7]])} fill={SHADES[2]} stroke={INK} strokeWidth={0.9} />
         {items.map((it, i) => {
-          const perRow = Math.max(1, Math.floor(84 / (blockW + 3)))
-          const row = Math.floor(i / perRow), col = i % perRow
-          const inRow = Math.min(perRow, items.length - row * perRow)
-          const bx = px - (inRow * (blockW + 3)) / 2 + col * (blockW + 3)
-          const by = panY - 16 - row * 17
+          const row = Math.floor(i / per), col = i % per
+          const inRow = Math.min(per, items.length - row * per)
+          const bx = px - (inRow * (bw + 3)) / 2 + col * (bw + 3)
+          const by = panY - 20 - row * 21
           return (
             <React.Fragment key={i}>
-              <Rect x={bx} y={by} width={blockW} height={16} fill="#fff" stroke={INK} strokeWidth={0.9} />
-              <T x={bx + blockW / 2} y={by + 11} size={7.5}>{it}</T>
+              <Rect x={bx} y={by} width={bw} height={20} fill="#fff" stroke={INK} strokeWidth={0.9} />
+              <T x={bx + bw / 2} y={by + 14} size={9.5}>{it}</T>
             </React.Fragment>
           )
         })}

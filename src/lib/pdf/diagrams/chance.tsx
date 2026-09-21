@@ -13,6 +13,11 @@ export function Spinner({ diagram: d, fit, bare }: { diagram: SpinnerDiagram } &
   const n = d.sectors.length
   const each = 360 / n
   const defaults = [1, 3, 0, 2, 4] as const
+  // Sectors with the same colour word share a shade — three "red" sectors in
+  // three different greys contradict their labels. Unlabelled sectors step
+  // through the greys by position.
+  const byLabel = new Map<string, (typeof defaults)[number]>()
+  for (const s of d.sectors) if (s.label && !byLabel.has(s.label)) byLabel.set(s.label, defaults[byLabel.size % defaults.length])
   // Label text must stay readable on dark sectors.
   const pointerAngle = d.pointer === undefined ? 90 : 90 - (d.pointer + 0.5) * each
   const pa = (pointerAngle * Math.PI) / 180
@@ -22,7 +27,7 @@ export function Spinner({ diagram: d, fit, bare }: { diagram: SpinnerDiagram } &
         {d.sectors.map((s, i) => {
           const from = 90 - (i + 1) * each
           const to = 90 - i * each
-          const shade = s.shade ?? defaults[i % defaults.length]
+          const shade = s.shade ?? (s.label ? byLabel.get(s.label)! : defaults[i % defaults.length])
           const mid = (((from + to) / 2) * Math.PI) / 180
           return (
             <React.Fragment key={i}>

@@ -311,6 +311,9 @@ export function Money({ diagram: d, fit, bare }: { diagram: MoneyDiagram } & Fit
   const out: React.ReactNode[] = []
   let x = 4, y = 4
   let rowH = 0
+  // Size the canvas to what is drawn, so a few coins are not shrunk into the
+  // corner of a fixed-width box when they appear as picture answer options.
+  let maxX = 0
   notes.forEach((n, i) => {
     const spec = NOTES[n]!
     const w = spec.w * 0.62
@@ -324,6 +327,7 @@ export function Money({ diagram: d, fit, bare }: { diagram: MoneyDiagram } & Fit
         <Ellipse cx={x + w / 2} cy={y + noteH / 2} rx={11} ry={13} fill="none" stroke={MUTED} strokeWidth={0.5} />
       </React.Fragment>
     )
+    maxX = Math.max(maxX, x + w)
     x += w + 8
     rowH = Math.max(rowH, noteH)
   })
@@ -345,10 +349,11 @@ export function Money({ diagram: d, fit, bare }: { diagram: MoneyDiagram } & Fit
     }
     out.push(<Circle key={`ci${i}`} cx={cx} cy={cy} r={r - 2.5} fill="none" stroke={MUTED} strokeWidth={0.4} />)
     out.push(<T key={`cl${i}`} x={cx} y={cy + 3.5} size={Math.max(7.5, r * 0.45)} bold>{spec.label}</T>)
+    maxX = Math.max(maxX, x + 2 * r)
     x += 2 * r + 7
     rowH = Math.max(rowH, 2 * r)
   })
-  const W = 404
+  const W = maxX + 4
   const H = y + rowH + 4
   return (
     <Frame bare={bare}>
@@ -361,8 +366,10 @@ export function Money({ diagram: d, fit, bare }: { diagram: MoneyDiagram } & Fit
 
 export function TilePattern({ diagram: d, fit, bare }: { diagram: TilePatternDiagram } & Fit) {
   const maxCols = Math.max(...d.designs.flatMap(g => g.rows.map(r => r.length)), 1)
-  const cell = Math.min(11, 300 / maxCols)
-  const labelW = 50
+  // A single pattern ("Rosa's pattern") has room for bigger tiles than a
+  // growing pattern's stack of designs. Labels get the width their text needs.
+  const cell = Math.min(d.designs.length === 1 ? 16 : 11, 300 / maxCols)
+  const labelW = Math.max(50, ...d.designs.map(g => g.label.length * 8 * 0.68 + 10))
   const gap = 10
   const heights = d.designs.map(g => g.rows.length * cell)
   const W = labelW + maxCols * cell + 6

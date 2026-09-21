@@ -549,6 +549,18 @@ function checkDiagram(d, id, where) {
       if (d.instrument === 'dial' && (d.value < 0 || d.value > d.max)) bad('reading is outside the scale')
       if (d.instrument === 'ruler' && d.object && (d.object.start < d.from || d.object.end > d.to)) bad('object runs off the ruler')
       if (d.instrument === 'protractor' && (d.angle <= 0 || d.angle >= 180)) bad('protractor angle must be between 0 and 180')
+      // labelEvery is in the scale's units, not a count of marks: labelEvery 2
+      // on a 100 mL jug labels every mark, which gives the reading away.
+      if (d.labelEvery !== undefined && 'step' in d) {
+        const r = d.labelEvery / d.step
+        if (r < 1 || Math.abs(r - Math.round(r)) > 1e-6) bad(`labelEvery ${d.labelEvery} is not a whole number of ${d.step}-unit marks (it is in scale units, not marks)`)
+      }
+      // The reading must sit on a mark.
+      const reading = d.instrument === 'jug' ? d.level : d.value
+      if ('step' in d && reading !== undefined) {
+        const r = (reading - (d.min ?? 0)) / d.step
+        if (Math.abs(r - Math.round(r)) > 1e-6) bad(`reading ${reading} falls between marks`)
+      }
       break
     case 'price_tags':
       if (d.items.length < 1 || d.items.length > 4) bad(`${d.items.length} items; the row fits 1–4`)
