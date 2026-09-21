@@ -444,7 +444,10 @@ export function DotPlot({ diagram: d, fit, bare }: { diagram: DotPlotDiagram } &
   const counts = new Map<number, number>()
   for (const v of d.values) counts.set(v, (counts.get(v) ?? 0) + 1)
   const maxStack = Math.max(...Array.from(counts.values()), 1)
-  const w = 360, padX = 18, dotR = 3.6, gap = 8.2
+  // About 40 points per unit up to the old 360 width, so a short axis (goals
+  // 2 to 5) is not stretched out and then shrunk unreadably as a picture option.
+  const padX = 18, dotR = 3.6, gap = 8.2
+  const w = Math.min(360, Math.max(180, (hi - lo) * 40 + 2 * padX))
   const plotH = maxStack * gap + 8
   const h = plotH + (d.axisLabel ? 30 : 18)
   const sx = (v: number) => padX + ((v - lo) / Math.max(hi - lo, 1)) * (w - 2 * padX)
@@ -591,7 +594,9 @@ export function DataTable({ diagram: d, fit, bare }: { diagram: DataTableDiagram
   const bodyH = headerH + rows * rowH
   const tearH = d.torn ? 10 : 0
   const w = tableW + 2
-  const h = topPad + bodyH + tearH + (receipt ? 6 : 2)
+  // Dockets draw their outline 4 below the last row, so leave room for it —
+  // a price list lost its bottom edge to the canvas.
+  const h = topPad + bodyH + tearH + (receipt || style === 'price_list' ? 6 : 2)
   const colX = colW.map((_, i) => 1 + colW.slice(0, i).reduce((a, b) => a + b, 0))
   // Dockets (receipts, price lists) right-align their prices; ruled tables
   // centre every column after the first, headers included, the way test

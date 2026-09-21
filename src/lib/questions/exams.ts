@@ -31,141 +31,6 @@ export interface PracticeExam {
 
 export const PRACTICE_EXAMS: PracticeExam[] = [
   {
-    "id": "math-grade_5-1",
-    "subject": "math",
-    "yearLevel": "grade_5",
-    "title": "Maths Grade 5 — Practice Exam 1",
-    "sections": [
-      {
-        "title": "Numeracy",
-        "time_minutes": 45,
-        "question_ids": [
-          "8bd04caa-98b8-45e7-8867-8157b88fd44b",
-          "427521d1-0a32-4578-8930-dd65cc176df8",
-          "94fed85d-71e8-407d-97a9-3e2c5a7bc803",
-          "453e23b0-7a91-4a65-ab71-53e0dd1082d0",
-          "c9cc76ac-412f-4113-be02-b5bb94a97845",
-          "f2359055-2c4b-455b-9274-b4071e433fd3",
-          "e5b4d400-24c9-4adf-bd57-6f5d80f87506",
-          "458f66e7-5d18-40f3-af46-16ff171e225f",
-          "a6eabaca-67a9-4632-9a11-927fc4833028",
-          "af1c2768-0723-46ae-8a8c-75e9de66a714",
-          "c2bbbfe9-28fb-4857-861d-f5050375b792",
-          "c1151912-2461-49c7-9031-04239c8e311c",
-          "eb12e8dc-d6f6-402c-90f3-bbd3b905e776",
-          "b7c0f814-8e8c-4fed-9ed9-ddd5374ce93e",
-          "a674cdc7-21d7-4863-bbeb-d1d02e043d89",
-          "13e3708c-35af-423c-b04e-e6206f020edb",
-          "94b03952-0b04-4173-85e6-146ad8c51cc0",
-          "cf36bd57-819a-422a-aab7-233cc3a8323e",
-          "e46d8e8d-fcf2-4f68-bb51-4a8c7b78189e",
-          "1f347057-49ff-45d0-886a-6adf2c58c5c6",
-          "f37cd7d3-6c11-4349-83c0-f03a6b6b3454",
-          "31423d8d-1fac-4a7f-8798-314928544653",
-          "c8ebddd3-f59d-4e22-8428-335b045f472f",
-          "b396a5f0-c2a2-4828-a4cb-915daad6737f",
-          "e14e37ee-2723-4fe7-9756-b36ac3aa65d1",
-          "8c72e036-bff1-4b2b-bbb6-5e6008b6edd7",
-          "789adfdf-12b7-4ca5-8979-2ea9d5b5e44f",
-          "fbb1607e-815f-4007-a538-bae10c9bb032",
-          "72c8a496-184a-4ba1-9a0d-125a119f86ea",
-          "958e5578-fd4e-471f-8e1d-1ff113a6665a"
-        ]
-      }
-    ],
-    "premium": false
-  },
-  {
-    "id": "math-grade_5-2",
-    "subject": "math",
-    "yearLevel": "grade_5",
-    "title": "Maths Grade 5 — Practice Exam 2",
-    "sections": [
-      {
-        "title": "Numeracy",
-        "time_minutes": 45,
-        "question_ids": [
-          "9a2d3e61-0aa6-4e86-a52e-fa3a2b0a9e7e",
-          "4a67ef72-45a7-4cf5-938c-c9c738cb0ab9",
-          "427521d1-0a32-4578-8930-dd65cc176df8",
-          "8bd04caa-98b8-45e7-8867-8157b88fd44b",
-          "f6474727-fc68-4455-b5f9-78dc3fb87d13",
-          "c9cc76ac-412f-4113-be02-b5bb94a97845",
-          "9975ada1-4dbb-4b3e-9a6d-a14ebd57f73f",
-          "3635ff5d-9926-4dea-b316-50f847a12e1d",
-          "e5b4d400-24c9-4adf-bd57-6f5d80f87506",
-          "a6eabaca-67a9-4632-9a11-927fc4833028",
-          "1b4a0989-5bc1-43bd-bdf5-562fcb8447d1",
-          "f2359055-2c4b-455b-9274-b4071e433fd3",
-          "eb12e8dc-d6f6-402c-90f3-bbd3b905e776",
-          "25fd2f7a-258e-41ea-a8f0-96f2834f000f",
-          "c2bbbfe9-28fb-4857-861d-f5050375b792",
-          "a674cdc7-21d7-4863-bbeb-d1d02e043d89",
-          "413724d7-b33b-4f6a-8abf-630c28857a14",
-          "94b03952-0b04-4173-85e6-146ad8c51cc0",
-          "cf36bd57-819a-422a-aab7-233cc3a8323e",
-          "b9244bba-7580-430f-978d-2e4643bcd68b",
-          "8f0f71bd-d18c-4e9e-a510-e25e308165f0",
-          "6cb7aa7f-c502-43ba-a864-2bf0d591dc9f",
-          "31dca204-02c7-4cfa-a74e-a051ff8dbc66",
-          "e14e37ee-2723-4fe7-9756-b36ac3aa65d1",
-          "f1bc1984-8fc0-4ef1-8a69-d3fdeaddffd3",
-          "2f241bf8-a32f-482d-9d4f-17b819705158",
-          "fbb1607e-815f-4007-a538-bae10c9bb032",
-          "126084be-5868-42f5-b3ee-bd92281d0827",
-          "b396a5f0-c2a2-4828-a4cb-915daad6737f",
-          "404e535b-f5e7-4379-a27b-9451fafa9ef3"
-        ]
-      }
-    ],
-    "premium": true
-  },
-  {
-    "id": "math-grade_5-3",
-    "subject": "math",
-    "yearLevel": "grade_5",
-    "title": "Maths Grade 5 — Practice Exam 3",
-    "sections": [
-      {
-        "title": "Numeracy",
-        "time_minutes": 45,
-        "question_ids": [
-          "94fed85d-71e8-407d-97a9-3e2c5a7bc803",
-          "8a39854d-fccc-4fcc-a074-7229d1fcfb82",
-          "4a67ef72-45a7-4cf5-938c-c9c738cb0ab9",
-          "af1c2768-0723-46ae-8a8c-75e9de66a714",
-          "3635ff5d-9926-4dea-b316-50f847a12e1d",
-          "4413d384-72f4-460a-99c9-b101c1b6898d",
-          "22633c3a-dee6-4cf1-8a3d-78db545838a8",
-          "b7c0f814-8e8c-4fed-9ed9-ddd5374ce93e",
-          "1c66d56a-f90f-4524-906e-a7b05fc1aa36",
-          "9975ada1-4dbb-4b3e-9a6d-a14ebd57f73f",
-          "1b4a0989-5bc1-43bd-bdf5-562fcb8447d1",
-          "25fd2f7a-258e-41ea-a8f0-96f2834f000f",
-          "62740b2d-a99b-4272-a081-fde83a817382",
-          "152831cb-93a9-4d6f-8fbd-b70e99abba1f",
-          "a2a3e65e-69a5-4435-a9cb-16e81ca9958b",
-          "b9e888a8-e8b0-4fb8-a34f-b74c6b6d9ab1",
-          "6dcba57d-e1de-405c-bbd6-4b3a366011f4",
-          "789adfdf-12b7-4ca5-8979-2ea9d5b5e44f",
-          "9e4abe76-525c-4675-a4a2-a6db3104c816",
-          "e31d089b-dc41-49a8-a289-3bdb27a7db14",
-          "72c8a496-184a-4ba1-9a0d-125a119f86ea",
-          "15ede988-3537-4eef-85de-958669f5e120",
-          "20f85400-d855-4052-b8f2-067e6957aba9",
-          "26f56c0a-882a-4120-9ae4-78b54eff2f24",
-          "f71000ed-9eb8-438f-b67b-11e223006aec",
-          "675a3cbb-713e-4cd8-8a35-1655aeedd3bc",
-          "703d75f8-1de5-45cb-b254-e5164d0b64f4",
-          "2fc9467d-2294-45b7-a22b-c06476b82924",
-          "92199cf7-b588-42bb-9ab8-509e52a1f87f",
-          "4b931541-6b2e-49ac-a063-03e550673822"
-        ]
-      }
-    ],
-    "premium": true
-  },
-  {
     "id": "math-year_7-1",
     "subject": "math",
     "yearLevel": "year_7",
@@ -4347,6 +4212,141 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "99dcee21-8912-4a20-8c89-5108a33ae0a8",
           "726a22fd-a073-4af7-bca2-4dee9b2376c3",
           "4fbc121c-e201-4db4-998a-a3e2906ca982"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "math-grade_5-1",
+    "subject": "math",
+    "yearLevel": "grade_5",
+    "title": "Maths Grade 5 — Practice Exam 1",
+    "sections": [
+      {
+        "title": "Numeracy",
+        "time_minutes": 45,
+        "question_ids": [
+          "c4a47546-d2fe-4076-bd1c-ccb6ac432421",
+          "b22fd128-5810-4619-ad8d-1faae27ff7e9",
+          "0918041f-d0e6-4798-90a7-e465f57fa21c",
+          "49baedba-68a6-46aa-8fe7-1447decc7de4",
+          "9048017b-73c5-4fbe-9539-d873ae8d3ecd",
+          "8ce43938-90e9-4c30-864e-0227a2ed5118",
+          "14876250-a1b9-4a7d-95ee-2295ca9f953f",
+          "ac6a2d3a-b337-4370-8ffa-be6478095c5e",
+          "e5576362-aff9-49bf-8f28-e7fca72c9706",
+          "ea5c582a-3110-4cb5-83d1-c9368c1382f2",
+          "9b616fb0-992e-4420-8618-f8e2c93a2fe7",
+          "811b3ca1-51d0-4136-89ca-0720771652ef",
+          "7ae65bb3-b1af-4674-a31a-9579f72152bb",
+          "aab4839f-e392-4420-882e-56e7e97c4a56",
+          "2f858cb3-39ce-4ae9-9974-2ada33e63b23",
+          "cd9f2d8d-e211-4248-9de6-a517e3b9e661",
+          "69fabf0f-3596-48bb-b10c-9c269cdccacd",
+          "a6b577a4-3564-4bf3-9aee-95872e3b34a2",
+          "c1797886-ee4c-4e00-a52c-68ff6f1e60d1",
+          "461fb170-6b78-4e2e-a85b-07d387d3ed69",
+          "27e9a5a5-b927-4ca5-8455-8b0094ab70ed",
+          "267ebb5f-5a35-4caa-8e66-d2c3ce11a91f",
+          "e21b16f7-d2b6-473b-9f88-e781c1820f4f",
+          "8802e3c5-490b-4e79-af50-88bacd53795d",
+          "ee0c2a37-171b-4b92-888e-1bfdad44eb9e",
+          "471a5e9b-810a-4dc7-8195-63180472979a",
+          "bc0ff119-fdaf-4619-9608-3c5c02e4a38c",
+          "f3729a60-cbd5-4210-bbe5-2c34d77bb5da",
+          "7275f3c9-a638-465d-9da0-1ff44ae30ddf",
+          "eb7bb278-ed6f-4f1d-999b-b0aec64ea8cf"
+        ]
+      }
+    ],
+    "premium": false
+  },
+  {
+    "id": "math-grade_5-2",
+    "subject": "math",
+    "yearLevel": "grade_5",
+    "title": "Maths Grade 5 — Practice Exam 2",
+    "sections": [
+      {
+        "title": "Numeracy",
+        "time_minutes": 45,
+        "question_ids": [
+          "c313cc16-2659-45f4-99f4-7ac0486c6ebc",
+          "aea6e29b-5d8c-4355-838d-072708cc317e",
+          "b4832762-18af-4573-8936-0010b4a3d5fb",
+          "fdeaabc4-a391-4ef6-a7ba-bbb36ac6daf2",
+          "0871cbba-adc7-4825-8d28-2383e3499e78",
+          "b22fd128-5810-4619-ad8d-1faae27ff7e9",
+          "9048017b-73c5-4fbe-9539-d873ae8d3ecd",
+          "14876250-a1b9-4a7d-95ee-2295ca9f953f",
+          "e5576362-aff9-49bf-8f28-e7fca72c9706",
+          "a849fda2-1bc8-4520-bb57-700f49f666fb",
+          "0918041f-d0e6-4798-90a7-e465f57fa21c",
+          "811b3ca1-51d0-4136-89ca-0720771652ef",
+          "cd9f2d8d-e211-4248-9de6-a517e3b9e661",
+          "2f858cb3-39ce-4ae9-9974-2ada33e63b23",
+          "80289d94-fb77-4140-af64-1006b17ed89d",
+          "a6b577a4-3564-4bf3-9aee-95872e3b34a2",
+          "27df8834-714f-410b-8770-df86bdc73671",
+          "f7544b9b-4c98-4f89-a108-fae92563fcc4",
+          "c1797886-ee4c-4e00-a52c-68ff6f1e60d1",
+          "0ad7e321-b2ed-403f-a0a8-dae2af56efd6",
+          "267ebb5f-5a35-4caa-8e66-d2c3ce11a91f",
+          "39a637f3-3c5f-4608-8186-e2ae42443e27",
+          "8802e3c5-490b-4e79-af50-88bacd53795d",
+          "d7304328-8239-466a-bbd3-f882a2d1eea5",
+          "fb6cc133-681b-4b4a-aba3-5e719b5f9dcb",
+          "7889fb22-9240-44d7-9bc0-32c5d5233036",
+          "162655aa-0632-43f5-8556-1ee29c402c3b",
+          "014c8993-641f-48f5-9651-56f2e032ff09",
+          "eb7bb278-ed6f-4f1d-999b-b0aec64ea8cf",
+          "8687c990-2ae6-4bb5-91af-04753e7fd086"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "math-grade_5-3",
+    "subject": "math",
+    "yearLevel": "grade_5",
+    "title": "Maths Grade 5 — Practice Exam 3",
+    "sections": [
+      {
+        "title": "Numeracy",
+        "time_minutes": 45,
+        "question_ids": [
+          "5cd80e1b-eff1-4e5c-8bc7-6d825d00fda0",
+          "fe4a5278-75f6-40fa-bf47-6bbb85fc9af0",
+          "aab4839f-e392-4420-882e-56e7e97c4a56",
+          "8ce43938-90e9-4c30-864e-0227a2ed5118",
+          "c313cc16-2659-45f4-99f4-7ac0486c6ebc",
+          "b4832762-18af-4573-8936-0010b4a3d5fb",
+          "fdeaabc4-a391-4ef6-a7ba-bbb36ac6daf2",
+          "ea5c582a-3110-4cb5-83d1-c9368c1382f2",
+          "49baedba-68a6-46aa-8fe7-1447decc7de4",
+          "ac6a2d3a-b337-4370-8ffa-be6478095c5e",
+          "a8cb4316-61cd-40ae-9c78-ee39801b2ab8",
+          "9b616fb0-992e-4420-8618-f8e2c93a2fe7",
+          "7ae65bb3-b1af-4674-a31a-9579f72152bb",
+          "222f9ed1-2b59-422d-8085-cf5807851ec6",
+          "ee0c2a37-171b-4b92-888e-1bfdad44eb9e",
+          "e21913a5-a4de-4123-bd3d-e8156a828b84",
+          "bc0ff119-fdaf-4619-9608-3c5c02e4a38c",
+          "c8569993-3ec9-49b6-8fec-2b5285fbbc6a",
+          "69fabf0f-3596-48bb-b10c-9c269cdccacd",
+          "27e9a5a5-b927-4ca5-8455-8b0094ab70ed",
+          "79caa324-ae64-4efa-86f7-436682d7f0c6",
+          "e21b16f7-d2b6-473b-9f88-e781c1820f4f",
+          "461fb170-6b78-4e2e-a85b-07d387d3ed69",
+          "471a5e9b-810a-4dc7-8195-63180472979a",
+          "f3729a60-cbd5-4210-bbe5-2c34d77bb5da",
+          "559168f3-cf52-45b1-be18-799ed7c7ce0b",
+          "7275f3c9-a638-465d-9da0-1ff44ae30ddf",
+          "4efe55a0-e6e2-40b8-a742-cdfc65bea091",
+          "7889fb22-9240-44d7-9bc0-32c5d5233036",
+          "08506427-3239-4d8d-ace4-22c38d17d076"
         ]
       }
     ],
