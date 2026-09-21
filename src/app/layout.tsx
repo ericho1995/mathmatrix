@@ -5,19 +5,26 @@ import Navbar, { type NavUser } from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { createClient } from '@/lib/supabase/server'
 import { queryFailed } from '@/lib/supabase/logError'
+import { CATALOGUE_TOTALS } from '@/lib/catalogue'
+import { SITE_URL } from '@/lib/site'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
+// Built from the catalogue so the search snippet can't drift from the site —
+// it said "Grade 5 to Year 12" while the catalogue started at Grade 3.
+const DESCRIPTION = `Printable NAPLAN and VCE practice exams for ${CATALOGUE_TOTALS.lowest} to ${CATALOGUE_TOTALS.highest}, each with a separate answer key. ${CATALOGUE_TOTALS.free} papers free to download.`
+
 export const metadata: Metadata = {
-  title: 'PrepNest: Practice Exams & Tutoring for Australian Students',
-  description:
-    'Curriculum-aligned practice exams across Maths, English & Science for Grade 5 to Year 12. Timed challenges, leaderboards, and parent progress reports.',
+  metadataBase: new URL(SITE_URL),
+  title: 'PrepNest — NAPLAN & VCE practice exams you can print',
+  description: DESCRIPTION,
   manifest: '/manifest.json',
   openGraph: {
-    title: 'PrepNest: Practice Exams & Tutoring for Australian Students',
-    description:
-      'Curriculum-aligned practice exams across Maths, English & Science for Grade 5 to Year 12.',
+    title: 'PrepNest — NAPLAN & VCE practice exams you can print',
+    description: DESCRIPTION,
     type: 'website',
+    siteName: 'PrepNest',
+    locale: 'en_AU',
   },
 }
 

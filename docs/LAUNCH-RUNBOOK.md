@@ -112,10 +112,16 @@ Copy each **Price** id — `price_...`, from the pricing section of the product,
 way this step goes wrong, and the error it produces (`No price configured`)
 doesn't say which one you used.
 
-> **Year 12 is deliberately absent.** Its two paid papers were only just
-> un-freed, and the app has no `STRIPE_PRICE_YEAR_12` wired up yet. Tell me when
-> you want Year 12 sellable and I'll add it — it's a one-line change plus a
-> tenth price.
+> **Year 12 is optional, and now needs no code change.** A year level becomes
+> buyable the moment its price variable exists — every buy button checks the
+> same environment checkout does. To sell Year 12, create a tenth A$29 price and
+> add `STRIPE_PRICE_YEAR_12` in Part C. Until then, Year 12 shows "purchases
+> open soon" instead of a button that would error.
+
+### B1b. Turn on receipts
+
+Settings → **Customer emails** → turn on **Successful payments**. The site tells
+customers "Stripe emails you a receipt", which is only true once this is on.
 
 ### B2. Create the webhook endpoint
 
@@ -162,8 +168,25 @@ write an entitlement without it, because row-level security deliberately gives
 the client no insert path. Treat it like a password — it must never appear in a
 `NEXT_PUBLIC_` variable or anywhere a browser can read it.
 
+**Strongly recommended — a thirteenth, public one:**
+
+```
+NEXT_PUBLIC_SUPPORT_EMAIL    help@yourdomain   (an inbox you actually read)
+```
+
+It puts a contact address in the footer, help centre and account page. It has
+no default on purpose: printing an address nobody reads is worse than printing
+none, because a customer whose purchase didn't unlock writes to it, hears
+nothing, and disputes the charge. Until it's set, contact lines stay hidden.
+
 **Then redeploy.** Vercel only picks up environment variables on a new
 deployment; setting them changes nothing until you do.
+
+Check them without exposing any values:
+
+```bash
+node scripts/check-vercel-env.mjs
+```
 
 ### C1. Check
 
