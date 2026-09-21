@@ -1,6 +1,6 @@
 import { PRACTICE_EXAMS, type PracticeExam } from '@/lib/questions/exams'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES } from '@/lib/curriculum'
-import { TOPIC_COVERAGE } from '@/lib/questions/coverage'
+import { QUESTION_TOTAL } from '@/lib/questions/coverage'
 import type { SubjectSlug, YearLevel } from '@/types'
 
 /**
@@ -70,16 +70,10 @@ export function statsFor(yearLevel: YearLevel): YearLevelStats | undefined {
   return YEAR_LEVEL_STATS.find(s => s.yearLevel === yearLevel)
 }
 
-// Summed from the generated coverage table rather than counted from bank.ts, so
-// a page quoting the number does not pull the whole question bank into its
-// server bundle just to take its length.
-const QUESTION_TOTAL = Object.values(TOPIC_COVERAGE).reduce(
-  (n, byYear) => n + Object.values(byYear ?? {}).reduce((m, c) => m + (c ?? 0), 0),
-  0
-)
-
 export const CATALOGUE_TOTALS = {
   papers: PRACTICE_EXAMS.length,
+  // From the generated coverage file rather than bank.ts, so a page quoting it
+  // does not pull the whole question bank into its server bundle.
   questions: QUESTION_TOTAL,
   subjects: ALL_SUBJECTS.length,
   free: PRACTICE_EXAMS.filter(e => !e.premium).length,
