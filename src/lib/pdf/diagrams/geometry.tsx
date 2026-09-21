@@ -163,15 +163,19 @@ export function Figure({ diagram: d, fit, bare }: { diagram: FigureDiagram } & F
 export function GridShape({ diagram: d, fit, bare }: { diagram: GridShapeDiagram } & Fit) {
   const cell = Math.min(20, 300 / d.cols, 190 / d.rows)
   const pad = 10
-  const W = d.cols * cell + pad * 2
+  // A key such as "Each small square has sides of 1 cm" can be wider than a
+  // small grid; widen the canvas to fit it and centre the grid instead.
+  const gridW = d.cols * cell + pad * 2
+  const W = Math.max(gridW, d.key ? d.key.length * 7.5 * 0.6 + pad * 2 : 0)
+  const ox = (W - gridW) / 2 + pad
   const H = d.rows * cell + pad * 2 + (d.key ? 14 : 0)
-  const gx = (x: number) => pad + x * cell
+  const gx = (x: number) => ox + x * cell
   const gy = (y: number) => pad + (d.rows - y) * cell
   const grid = d.grid ?? 'square'
   const fills: React.ReactNode[] = []
   ;(d.cells ?? []).forEach((row, ri) => {
     row.split('').forEach((ch, ci) => {
-      if (ch === '#' || ch === 'x') fills.push(<Rect key={`f${ri}-${ci}`} x={pad + ci * cell} y={pad + ri * cell} width={cell} height={cell} fill={ch === 'x' ? SHADES[3] : SHADES[2]} />)
+      if (ch === '#' || ch === 'x') fills.push(<Rect key={`f${ri}-${ci}`} x={ox + ci * cell} y={pad + ri * cell} width={cell} height={cell} fill={ch === 'x' ? SHADES[3] : SHADES[2]} />)
     })
   })
   return (
@@ -191,7 +195,7 @@ export function GridShape({ diagram: d, fit, bare }: { diagram: GridShapeDiagram
           row.split('').flatMap((ch, ci) => {
             if (ch !== '#' && ch !== 'x') return []
             const filled = (r: number, c: number) => ['#', 'x'].includes(d.cells?.[r]?.[c] ?? '.')
-            const x0 = pad + ci * cell, y0 = pad + ri * cell
+            const x0 = ox + ci * cell, y0 = pad + ri * cell
             const edges: React.ReactNode[] = []
             if (!filled(ri - 1, ci)) edges.push(<Line key={`e${ri}-${ci}-t`} x1={x0} y1={y0} x2={x0 + cell} y2={y0} stroke={INK} strokeWidth={1.1} />)
             if (!filled(ri + 1, ci)) edges.push(<Line key={`e${ri}-${ci}-b`} x1={x0} y1={y0 + cell} x2={x0 + cell} y2={y0 + cell} stroke={INK} strokeWidth={1.1} />)
@@ -216,7 +220,7 @@ export function GridShape({ diagram: d, fit, bare }: { diagram: GridShapeDiagram
         {(d.labels ?? []).map((l, i) => (
           <T key={`lb${i}`} x={gx(l.at[0])} y={gy(l.at[1]) + 3} size={8}>{l.text}</T>
         ))}
-        {d.key ? <T x={pad} y={H - 3} size={7.5} anchor="start" fill={MUTED}>{d.key}</T> : null}
+        {d.key ? <T x={W / 2} y={H - 3} size={7.5} fill={MUTED}>{d.key}</T> : null}
       </Canvas>
     </Frame>
   )

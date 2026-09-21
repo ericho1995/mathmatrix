@@ -138,20 +138,57 @@ function pickLeastUsed(pool, usage, count) {
 const isGraphical = q => Boolean(q.diagram || q.option_diagrams?.length)
 const DIFFICULTY_RANK = { foundation: 0, developing: 1, proficient: 2, advanced: 3 }
 
-function pickBalancedNumeracy(pool, usage, count) {
-  const withDiagram = pool.filter(isGraphical)
-  const withoutDiagram = pool.filter(q => !isGraphical(q))
-  const diagramTarget = Math.ceil(count / 2)
-  const chosenDiagram = pickLeastUsed(withDiagram, usage, diagramTarget)
-  const remaining = count - chosenDiagram.length
-  const chosenPlain = pickLeastUsed(withoutDiagram, usage, remaining)
-  // When the plain items run out (every one already used twice), top up with
-  // more graphical ones rather than shipping a short paper. Without this the
-  // third Year 8 paper came out at 21 questions a session while 20 unused
-  // picture questions sat in the pool.
-  if (chosenDiagram.length + chosenPlain.length < count) {
-    chosenDiagram.push(...pickLeastUsed(withDiagram, usage, count - chosenDiagram.length - chosenPlain.length))
+// Real numeracy papers keep their strand mix steady from paper to paper:
+// about half number and algebra, a third measurement and space, the rest
+// statistics and probability. Picking by usage alone left it to the hash —
+// one Grade 6 paper had 4 geometry questions and the next had 11.
+const STRAND = {
+  number_operations: 'number', number_patterns: 'number', algebra_equations: 'number',
+  geometry_measurement: 'space', statistics_probability: 'stats',
+}
+const STRAND_SHARE = { number: 0.5, space: 0.3, stats: 0.2 }
+
+/** How many questions each strand gets, moved to other strands when one runs short. */
+function strandQuotas(available, count) {
+  const strands = Object.keys(STRAND_SHARE)
+  const quota = Object.fromEntries(strands.map(s => [s, Math.round(count * STRAND_SHARE[s])]))
+  quota.number += count - strands.reduce((a, s) => a + quota[s], 0)
+  let spare = 0
+  for (const s of strands) {
+    if (quota[s] > available[s]) { spare += quota[s] - available[s]; quota[s] = available[s] }
   }
+  for (const s of strands) {
+    const take = Math.min(spare, available[s] - quota[s])
+    quota[s] += take
+    spare -= take
+  }
+  return quota
+}
+
+function pickBalancedNumeracy(pool, usage, count) {
+  const open = pool.filter(q => usage.get(q.id) < 2)
+  const strands = Object.keys(STRAND_SHARE)
+  const bucket = (s, g) => open.filter(q => (STRAND[q.topic] ?? 'number') === s && isGraphical(q) === g)
+  const graphicalOf = Object.fromEntries(strands.map(s => [s, bucket(s, true)]))
+  const plainOf = Object.fromEntries(strands.map(s => [s, bucket(s, false)]))
+  const quota = strandQuotas(Object.fromEntries(strands.map(s => [s, graphicalOf[s].length + plainOf[s].length])), count)
+
+  // Spread the half-graphical target across the strands. Each strand must take
+  // enough pictures to cover what its plain items can't; then add pictures one
+  // at a time wherever the most unused picture items are left. When plain
+  // items run out entirely the paper goes over half rather than coming up
+  // short (the third Year 8 paper once shipped at 21 questions a session).
+  const pictures = Object.fromEntries(strands.map(s => [s, Math.max(0, quota[s] - plainOf[s].length)]))
+  const target = Math.ceil(count / 2)
+  for (let total = strands.reduce((a, s) => a + pictures[s], 0); total < target; total++) {
+    const room = strands.filter(s => pictures[s] < Math.min(quota[s], graphicalOf[s].length))
+    if (!room.length) break
+    room.sort((a, b) => (graphicalOf[b].length - pictures[b]) - (graphicalOf[a].length - pictures[a]))
+    pictures[room[0]]++
+  }
+
+  const chosenDiagram = roundRobinByTopic(strands.map(s => pickLeastUsed(graphicalOf[s], usage, pictures[s])))
+  const chosenPlain = roundRobinByTopic(strands.map(s => pickLeastUsed(plainOf[s], usage, quota[s] - pictures[s])))
   // Interleave rather than block-group, so the paper doesn't read as
   // "all graphical questions, then all plain ones".
   const merged = []

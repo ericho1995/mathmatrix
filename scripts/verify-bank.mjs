@@ -120,6 +120,9 @@ for (const q of QUESTION_BANK) {
 for (const [key, qs] of groups) {
   for (let i = 0; i < qs.length; i++) {
     for (let j = i + 1; j < qs.length; j++) {
+      // Picture options: the captions are usually blank, so two unrelated
+      // picture questions would otherwise look like one item asked twice.
+      if (qs[i].option_diagrams || qs[j].option_diagrams) continue
       const a = new Set(qs[i].options)
       const shared = qs[j].options.filter((o) => a.has(o)).length
       const size = Math.min(qs[i].options.length, qs[j].options.length)

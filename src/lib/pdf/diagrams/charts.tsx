@@ -558,28 +558,32 @@ function Tally({ x, y, n }: { x: number; y: number; n: number }) {
   return <>{out}</>
 }
 
-const textW = (s: string | number, size = 8) => String(s).length * size * 0.56
+// DejaVu Sans runs wide, and wider again in bold (headers, footers).
+const textW = (s: string | number, size = 8, bold = false) => String(s).length * size * (bold ? 0.68 : 0.6)
 
 /**
- * Styled tables are drawn as SVG so they scale — as picture answer options too
- * ("Which table correctly shows…?"). The plain grid keeps the View-based layout
- * because older General Mathematics tables rely on its text wrapping.
+ * Tables are drawn as SVG so they size to their contents and scale — as
+ * picture answer options too ("Which table correctly shows…?"). A plain grid
+ * with long, wrapping text (older General Mathematics tables) keeps the
+ * View-based layout.
  */
 export function DataTable({ diagram: d, fit, bare }: { diagram: DataTableDiagram } & Fit) {
   const style = d.style ?? 'grid'
-  if (style === 'grid' && !fit) return <GridTable diagram={d} bare={bare} />
 
   const pad = 7
   const rowH = style === 'timetable' ? 15 : 16
   const colW = d.columns.map((c, ci) => {
-    const cells = [c, ...d.rows.map(r => r[ci]), ...(d.footer ? [d.footer[ci]] : [])]
+    const header = textW(c, 8, true) + 2 * pad
     if (style === 'tally' && ci === d.tallyColumn) {
       const maxN = Math.max(...d.rows.map(r => Number(r[ci]) || 0))
-      return Math.max(textW(c, 8) + 2 * pad, Math.floor(maxN / 5) * 17 + (maxN % 5) * 3.2 + 2 * pad + 4)
+      return Math.max(header, Math.floor(maxN / 5) * 17 + (maxN % 5) * 3.2 + 2 * pad + 4)
     }
-    return Math.max(...cells.map(v => textW(v ?? '', 8))) + 2 * pad
+    const body = [...d.rows.map(r => textW(r[ci] ?? '', 8, ci === 0 && d.rowHeader)), ...(d.footer ? [textW(d.footer[ci] ?? '', 8, true)] : [])]
+    return Math.max(header, ...body.map(w => w + 2 * pad))
   })
   const tableW = colW.reduce((a, b) => a + b, 0)
+  const longText = [...d.columns, ...d.rows.flat(), ...(d.footer ?? [])].some(v => String(v ?? '').length > 28)
+  if (style === 'grid' && !fit && (longText || tableW > FULL_WIDTH)) return <GridTable diagram={d} bare={bare} />
   const rows = d.rows.length + (d.footer ? 1 : 0)
   const headerH = 18
   const receipt = style === 'receipt'
@@ -589,8 +593,18 @@ export function DataTable({ diagram: d, fit, bare }: { diagram: DataTableDiagram
   const w = tableW + 2
   const h = topPad + bodyH + tearH + (receipt ? 6 : 2)
   const colX = colW.map((_, i) => 1 + colW.slice(0, i).reduce((a, b) => a + b, 0))
-  const alignRight = (v: string | number) => typeof v === 'number' || /^[$\d.,−-]+$/.test(String(v))
-  const cellX = (ci: number, v: string | number) => (alignRight(v) && ci > 0 ? colX[ci] + colW[ci] - pad : colX[ci] + pad)
+  // Dockets (receipts, price lists) right-align their prices; ruled tables
+  // centre every column after the first, headers included, the way test
+  // papers set them.
+  const docket = receipt || style === 'price_list'
+  const numeric = (v: string | number | undefined) => typeof v === 'number' || /^[$\d.,−-]+$/.test(String(v ?? ''))
+  const colNumeric = d.columns.map((_, ci) => d.rows.every(r => numeric(r[ci])))
+  const anchorOf = (ci: number, v?: string | number): 'start' | 'middle' | 'end' => {
+    if (ci === 0 || (style === 'tally' && ci === d.tallyColumn)) return 'start'
+    if (docket) return (v === undefined ? colNumeric[ci] : numeric(v)) ? 'end' : 'start'
+    return 'middle'
+  }
+  const xOf = (ci: number, a: 'start' | 'middle' | 'end') => (a === 'start' ? colX[ci] + pad : a === 'end' ? colX[ci] + colW[ci] - pad : colX[ci] + colW[ci] / 2)
 
   // Receipts are a single outlined docket with dotted separators; the others are ruled grids.
   const ruled = !receipt && style !== 'price_list'
@@ -617,7 +631,7 @@ export function DataTable({ diagram: d, fit, bare }: { diagram: DataTableDiagram
         {style === 'timetable' ? <Rect x={1} y={topPad} width={tableW} height={headerH} fill={SHADES[4]} /> : null}
         {ruled && style !== 'timetable' ? <Rect x={1} y={topPad} width={tableW} height={headerH} fill={SHADES[1]} /> : null}
         {d.columns.map((c, ci) => (
-          <T key={ci} x={colX[ci] + pad} y={topPad + 12} size={8} anchor="start" bold fill={style === 'timetable' ? '#fff' : INK}>{c}</T>
+          <T key={ci} x={xOf(ci, anchorOf(ci))} y={topPad + 12} size={8} anchor={anchorOf(ci)} bold fill={style === 'timetable' ? '#fff' : INK}>{c}</T>
         ))}
         {receipt || style === 'price_list' ? <Line x1={4} y1={topPad + headerH - 1} x2={w - 4} y2={topPad + headerH - 1} stroke={INK} strokeWidth={0.6} strokeDasharray="2 2" /> : null}
         {d.rows.map((r, ri) => {
@@ -629,7 +643,7 @@ export function DataTable({ diagram: d, fit, bare }: { diagram: DataTableDiagram
                 style === 'tally' && ci === d.tallyColumn ? (
                   <Tally key={ci} x={colX[ci] + pad + 2} y={y + rowH - 4} n={Number(v) || 0} />
                 ) : (
-                  <T key={ci} x={cellX(ci, v)} y={y + rowH - 4.5} size={8} anchor={alignRight(v) && ci > 0 ? 'end' : 'start'} bold={ci === 0 && d.rowHeader}>
+                  <T key={ci} x={xOf(ci, anchorOf(ci, v))} y={y + rowH - 4.5} size={8} anchor={anchorOf(ci, v)} bold={ci === 0 && d.rowHeader}>
                     {typeof v === 'number' ? minus(v) : v}
                   </T>
                 )
@@ -641,7 +655,7 @@ export function DataTable({ diagram: d, fit, bare }: { diagram: DataTableDiagram
           <>
             <Line x1={receipt ? 4 : 1} y1={topPad + headerH + d.rows.length * rowH} x2={receipt ? w - 4 : tableW + 1} y2={topPad + headerH + d.rows.length * rowH} stroke={INK} strokeWidth={0.9} />
             {d.footer.map((v, ci) => (
-              <T key={ci} x={cellX(ci, v)} y={topPad + headerH + d.rows.length * rowH + rowH - 4.5} size={8} anchor={alignRight(v) && ci > 0 ? 'end' : 'start'} bold>
+              <T key={ci} x={xOf(ci, anchorOf(ci, v))} y={topPad + headerH + d.rows.length * rowH + rowH - 4.5} size={8} anchor={anchorOf(ci, v)} bold>
                 {v}
               </T>
             ))}
@@ -664,6 +678,9 @@ export function DataTable({ diagram: d, fit, bare }: { diagram: DataTableDiagram
   )
 }
 
+// The first column holds row names, so it reads left-aligned; the rest centre.
+const FIRST_COL = { textAlign: 'left' as const }
+
 function GridTable({ diagram, bare }: { diagram: DataTableDiagram; bare?: boolean }) {
   return (
     <View style={bare ? {} : pdfStyles.tableBox} wrap={false}>
@@ -671,13 +688,13 @@ function GridTable({ diagram, bare }: { diagram: DataTableDiagram; bare?: boolea
       <View style={pdfStyles.tableGrid}>
         <View style={pdfStyles.tableHeaderRow}>
           {diagram.columns.map((c, i) => (
-            <Text key={i} style={[pdfStyles.tableCell, pdfStyles.tableHeaderCell, { width: `${100 / diagram.columns.length}%` }]}>{c}</Text>
+            <Text key={i} style={[pdfStyles.tableCell, pdfStyles.tableHeaderCell, i === 0 ? FIRST_COL : {}, { width: `${100 / diagram.columns.length}%` }]}>{c}</Text>
           ))}
         </View>
         {diagram.rows.map((row, ri) => (
           <View key={ri} style={pdfStyles.tableRow}>
             {row.map((cell, ci) => (
-              <Text key={ci} style={[pdfStyles.tableCell, ci === 0 && diagram.rowHeader ? pdfStyles.tableHeaderCell : {}, { width: `${100 / diagram.columns.length}%` }]}>
+              <Text key={ci} style={[pdfStyles.tableCell, ci === 0 && diagram.rowHeader ? pdfStyles.tableHeaderCell : {}, ci === 0 ? FIRST_COL : {}, { width: `${100 / diagram.columns.length}%` }]}>
                 {typeof cell === 'number' ? minus(cell) : String(cell)}
               </Text>
             ))}
@@ -686,7 +703,7 @@ function GridTable({ diagram, bare }: { diagram: DataTableDiagram; bare?: boolea
         {diagram.footer ? (
           <View style={pdfStyles.tableRow}>
             {diagram.footer.map((cell, ci) => (
-              <Text key={ci} style={[pdfStyles.tableCell, pdfStyles.tableHeaderCell, { width: `${100 / diagram.columns.length}%` }]}>{String(cell)}</Text>
+              <Text key={ci} style={[pdfStyles.tableCell, pdfStyles.tableHeaderCell, ci === 0 ? FIRST_COL : {}, { width: `${100 / diagram.columns.length}%` }]}>{String(cell)}</Text>
             ))}
           </View>
         ) : null}

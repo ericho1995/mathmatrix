@@ -31,11 +31,15 @@ clockwise from the top; venn regions A B C AB AC BC ABC none.
 
 Authoring workflow that worked: write items as data (`topic, difficulty, calc, q, options/correct or sa+answer, e, code, diagram/option_diagrams`), run the builder with `--dry` to check shares/variety/positions, then write, `npm run gen`, `npm run verify-bank`, render the pool and read every page.
 
-## Phase 3 — Grade 4 and Grade 6 Numeracy
-- [ ] Grade 4 new pool
-- [ ] Grade 6 new pool (no circle area / π)
+## Phase 3 — Grade 4 and Grade 6 Numeracy — DONE
+- [x] Grade 4: 60 new items (BANK_PART_12, replaces 53): 65% graphical across 20 picture kinds, 27% short answer; MAB blocks, coins, clocks, calendar, jug, ruler, grid map, picture-option angles / solids / symmetry / pictographs
+- [x] Grade 6: 60 new items (BANK_PART_13, replaces 53): 57% graphical across 18 kinds, 25% short answer; receipts, price lists, protractor, coordinate plane, translations, stem-and-leaf, integers in context; no circle area / π
+- [x] Every item rendered and read (`/api/dev/pool?year=grade_4&subject=math`, `grade_6`)
+- [x] Composer fills strand quotas (number 50%, measurement and space 30%, statistics 20%) and spreads the picture target across strands — one Grade 6 paper had 4 geometry questions and the next 11
+- [x] Renderer fixes from the read-through: tables size to their contents and centre columns after the first (headers overflowed and sat left of their values), grid-shape keys widen the canvas instead of being clipped, and words never hyphenate across lines
 
 ## Phase 4 — Grade 3, 5, Year 7, 9 Numeracy uplift
+Known before starting: each pool has 14–34 picture items, so paper 3 comes out with 0–4 pictures once papers 1 and 2 have used them twice. Grade 3 and 5 also run 14–21% short answer and 4–5 picture kinds.
 
 ## Phase 5 — Language Conventions, all years
 
