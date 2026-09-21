@@ -1,9 +1,9 @@
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
-import { SUBJECTS, SELECTIVE_SUBJECTS } from '@/lib/curriculum'
 import { getUserRole } from '@/lib/auth/getUserRole'
 import { hasEntitlement } from '@/lib/auth/getEntitlements'
 import { paperQuestionMap } from '@/lib/exams/paperQuestions'
 import PremiumExamLock from '@/components/practice/PremiumExamLock'
+import { lockPropsFor } from '@/lib/exams/lockProps'
 import PaperMarking from '@/components/practice/PaperMarking'
 
 /**
@@ -26,22 +26,13 @@ export default async function MarkPaperPage({ params }: { params: { id: string }
     )
   }
 
-  const subject = [...SUBJECTS, ...SELECTIVE_SUBJECTS].find(s => s.slug === exam.subject)
-
   const allowed =
     !exam.premium ||
     (await getUserRole()) === 'admin' ||
     (await hasEntitlement(exam.yearLevel))
 
   if (!allowed) {
-    return (
-      <PremiumExamLock
-        title={exam.title}
-        subjectLabel={subject?.label ?? 'exam'}
-        yearLevel={exam.yearLevel}
-        backHref="/practice/exams"
-      />
-    )
+    return <PremiumExamLock {...lockPropsFor(exam)} />
   }
 
   const sections = paperQuestionMap(exam.id)
