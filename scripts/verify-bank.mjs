@@ -81,7 +81,9 @@ for (const q of QUESTION_BANK) {
   } else {
     if (!Array.isArray(q.options) || q.options.length < 2) err('multiple choice needs at least 2 options', q.id)
     else {
-      if (new Set(q.options).size !== q.options.length) err(`duplicate option values: ${JSON.stringify(q.options)}`, q.id)
+      // Picture options carry their answer in the drawing; the captions are
+      // often all blank, and that is not a duplicate.
+      if (!q.option_diagrams && new Set(q.options).size !== q.options.length) err(`duplicate option values: ${JSON.stringify(q.options)}`, q.id)
       if (typeof q.correct_index !== 'number' || q.correct_index < 0 || q.correct_index >= q.options.length)
         err(`correct_index ${q.correct_index} out of range`, q.id)
     }
@@ -487,6 +489,7 @@ function checkDiagram(d, id, where) {
         for (const p of g.points) if (!ids.has(p)) bad(`polygon names unknown point "${p}"`)
       }
       for (const c of d.circles ?? []) if (!ids.has(c.center)) bad(`circle centre "${c.center}" is not a point`)
+      for (const a of d.arcs ?? []) if (!ids.has(a.center)) bad(`arc centre "${a.center}" is not a point`)
       for (const p of d.points) if (p.x < 0 || p.y < 0 || p.x > d.width || p.y > d.height) bad(`point ${p.id} lies outside ${d.width}×${d.height}`)
       break
     }

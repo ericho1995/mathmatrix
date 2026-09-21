@@ -134,13 +134,24 @@ function pickLeastUsed(pool, usage, count) {
 // dot plots, etc. — see docs/superpowers/specs/2026-09-11-naplan-visual-format-
 // design.md Phase 2). Falls back to whatever's available if the diagram pool
 // is smaller than half of `count`.
+// Picture answer options make an item graphical just as a diagram does.
+const isGraphical = q => Boolean(q.diagram || q.option_diagrams?.length)
+const DIFFICULTY_RANK = { foundation: 0, developing: 1, proficient: 2, advanced: 3 }
+
 function pickBalancedNumeracy(pool, usage, count) {
-  const withDiagram = pool.filter(q => q.diagram)
-  const withoutDiagram = pool.filter(q => !q.diagram)
+  const withDiagram = pool.filter(isGraphical)
+  const withoutDiagram = pool.filter(q => !isGraphical(q))
   const diagramTarget = Math.ceil(count / 2)
   const chosenDiagram = pickLeastUsed(withDiagram, usage, diagramTarget)
   const remaining = count - chosenDiagram.length
   const chosenPlain = pickLeastUsed(withoutDiagram, usage, remaining)
+  // When the plain items run out (every one already used twice), top up with
+  // more graphical ones rather than shipping a short paper. Without this the
+  // third Year 8 paper came out at 21 questions a session while 20 unused
+  // picture questions sat in the pool.
+  if (chosenDiagram.length + chosenPlain.length < count) {
+    chosenDiagram.push(...pickLeastUsed(withDiagram, usage, count - chosenDiagram.length - chosenPlain.length))
+  }
   // Interleave rather than block-group, so the paper doesn't read as
   // "all graphical questions, then all plain ones".
   const merged = []
@@ -149,7 +160,9 @@ function pickBalancedNumeracy(pool, usage, count) {
     if (chosenPlain[i]) merged.push(chosenPlain[i])
     if (chosenDiagram[i]) merged.push(chosenDiagram[i])
   }
-  return merged
+  // Real papers open easy and finish hard. The sort is stable, so within a
+  // difficulty band the plain/graphical interleave above survives.
+  return merged.sort((a, b) => (DIFFICULTY_RANK[a.difficulty] ?? 1) - (DIFFICULTY_RANK[b.difficulty] ?? 1))
 }
 
 // Interleaves several topic pools one-at-a-time (round robin) instead of

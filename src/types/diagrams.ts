@@ -356,6 +356,9 @@ export interface FigureDiagram {
     label?: string
     /** Which side of from→to the label sits on. Default: left. */
     labelSide?: 'left' | 'right'
+    /** Where along from→to the label sits, 0–1 (default 0.5). Moves a label
+     * off a point where lines cross, such as the middle of a kite. */
+    labelPos?: number
     /** Equal-length ticks. */
     ticks?: 1 | 2 | 3
     /** Parallel-line arrows. */
@@ -375,6 +378,9 @@ export interface FigureDiagram {
     arcs?: 1 | 2
   }[]
   circles?: { center: string; r: number; dashed?: boolean; shade?: Shade }[]
+  /** Circular arcs: degrees, 0 = east, counter-clockwise — a semicircle on the
+   * end of a rectangle is { fromDeg: -90, toDeg: 90 }. */
+  arcs?: { center: string; r: number; fromDeg: number; toDeg: number; dashed?: boolean }[]
   /** Free text, placed in figure units. */
   texts?: { x: number; y: number; text: string }[]
   notToScale?: boolean

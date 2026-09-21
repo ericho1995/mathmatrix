@@ -94,8 +94,8 @@ function Jug({ d, fit, bare }: { d: Extract<MeasureDiagram, { instrument: 'jug' 
 }
 
 function Thermometer({ d, fit, bare }: { d: Extract<MeasureDiagram, { instrument: 'thermometer' }> } & Fit) {
-  const W = 110, H = 220
-  const cx = 42, top = 14, bottom = 184, tubeW = 10
+  const W = 110, H = 172
+  const cx = 42, top = 14, bottom = 136, tubeW = 10
   const sy = (v: number) => bottom - ((v - d.min) / (d.max - d.min)) * (bottom - top - 6)
   const every = d.labelEvery ?? d.step * 2
   return (

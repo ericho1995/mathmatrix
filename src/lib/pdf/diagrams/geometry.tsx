@@ -41,6 +41,15 @@ export function Figure({ diagram: d, fit, bare }: { diagram: FigureDiagram } & F
           const [x, y] = get(c.center).xy
           return <Circle key={`c${i}`} cx={x} cy={y} r={c.r * s} fill={c.shade === undefined ? 'none' : SHADES[c.shade]} stroke={INK} strokeWidth={1.1} strokeDasharray={c.dashed ? '4 3' : undefined} />
         })}
+        {(d.arcs ?? []).map((a, i) => {
+          const c = get(a.center)
+          const ps: XY[] = []
+          for (let t = 0; t <= 32; t++) {
+            const ang = ((a.fromDeg + ((a.toDeg - a.fromDeg) * t) / 32) * Math.PI) / 180
+            ps.push(map(c.x + a.r * Math.cos(ang), c.y + a.r * Math.sin(ang)))
+          }
+          return <Polyline key={`arc${i}`} points={pts(ps)} fill="none" stroke={INK} strokeWidth={1.1} strokeDasharray={a.dashed ? '4 3' : undefined} />
+        })}
         {(d.segments ?? []).map((seg, i) => {
           let [x1, y1] = get(seg.from).xy
           let [x2, y2] = get(seg.to).xy
@@ -50,6 +59,8 @@ export function Figure({ diagram: d, fit, bare }: { diagram: FigureDiagram } & F
             x1 -= ux * 18; y1 -= uy * 18; x2 += ux * 18; y2 += uy * 18
           }
           const mx = (x1 + x2) / 2, my = (y1 + y2) / 2
+          const lp = seg.labelPos ?? 0.5
+          const lx = x1 + (x2 - x1) * lp, ly = y1 + (y2 - y1) * lp
           // Normal pointing to the left of from→to as seen on the page.
           const side = seg.labelSide === 'right' ? -1 : 1
           const nx = uy * side, ny = -ux * side
@@ -72,9 +83,9 @@ export function Figure({ diagram: d, fit, bare }: { diagram: FigureDiagram } & F
                 // centres above or below. Centring beside a vertical line put the
                 // text across the line itself.
                 Math.abs(nx) > 0.45 ? (
-                  <T x={mx + nx * 6} y={my + ny * 6 + 3} size={8} anchor={nx > 0 ? 'start' : 'end'}>{seg.label}</T>
+                  <T x={lx + nx * 6} y={ly + ny * 6 + 3} size={8} anchor={nx > 0 ? 'start' : 'end'}>{seg.label}</T>
                 ) : (
-                  <T x={mx + nx * 9} y={my + ny * 9 + (ny > 0 ? 6 : 0)} size={8}>{seg.label}</T>
+                  <T x={lx + nx * 9} y={ly + ny * 9 + (ny > 0 ? 6 : 0)} size={8}>{seg.label}</T>
                 )
               ) : null}
             </React.Fragment>
@@ -108,7 +119,9 @@ export function Figure({ diagram: d, fit, bare }: { diagram: FigureDiagram } & F
             arcs.push(<Polyline key={`arc${k}`} points={pts(ps)} fill="none" stroke={INK} strokeWidth={0.9} />)
           }
           const mid = a1 + sweep / 2
-          const lr = Math.abs(sweep) < 0.6 ? 34 : 25
+          // Long labels such as "(2x + 7)°" sit further out so they clear the
+          // arms of the angle instead of lying across them.
+          const lr = Math.max(Math.abs(sweep) < 0.6 ? 34 : 25, 16 + (a.label?.length ?? 0) * 2.8)
           return (
             <React.Fragment key={`an${i}`}>
               {arcs}
