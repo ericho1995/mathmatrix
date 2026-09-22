@@ -18,7 +18,10 @@ const LABEL_OFFSETS: Record<string, XY> = {
  */
 export function Figure({ diagram: d, fit, bare }: { diagram: FigureDiagram } & Fit) {
   const s = Math.min(300 / d.width, 170 / d.height)
-  const pad = 30
+  // Room for the longest label hanging off an edge: "(x − 1) cm" beside a
+  // side ran off a fixed 30-point margin.
+  const labels = [...(d.segments ?? []).map(g => g.label), ...(d.angles ?? []).map(a => a.label), ...d.points.map(p => p.label)]
+  const pad = Math.max(30, ...labels.map(l => (l ? l.length * 8 * 0.6 + 12 : 0)))
   const W = d.width * s + pad * 2
   const H = d.height * s + pad * 2 + (d.notToScale ? 8 : 0)
   const map = (x: number, y: number): XY => [pad + x * s, pad + (d.height - y) * s]

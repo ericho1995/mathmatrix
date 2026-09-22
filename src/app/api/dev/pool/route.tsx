@@ -30,7 +30,10 @@ export async function GET(req: NextRequest) {
   const subject = (req.nextUrl.searchParams.get('subject') ?? 'math') as SubjectSlug
   const topics = new Set(TOPICS.filter(t => t.subject === subject).map(t => t.slug))
   const stimulusById = new Map(STIMULI.map(s => [s.id, s]))
-  const pool = (QUESTION_BANK as Question[]).filter(q => q.year_level === year && topics.has(q.topic))
+  // Optional slice (&from=0&to=10) for rendering part of a pool.
+  const from = Number(req.nextUrl.searchParams.get('from') ?? 0)
+  const to = Number(req.nextUrl.searchParams.get('to') ?? Infinity)
+  const pool = (QUESTION_BANK as Question[]).filter(q => q.year_level === year && topics.has(q.topic)).slice(from, to)
 
   const groups: { title: string; calculator_allowed?: boolean; questions: Question[] }[] = pool.some(q => q.calculator_allowed)
     ? [
