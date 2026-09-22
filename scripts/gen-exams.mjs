@@ -204,8 +204,14 @@ function pickBalancedNumeracy(pool, usage, count) {
   const pictures = Object.fromEntries(strands.map(s => [s, Math.min(Math.max(0, quota[s] - fresh(plainOf[s])), quota[s], graphicalOf[s].length)]))
   for (const s of strands) pictures[s] = Math.max(pictures[s], quota[s] - plainOf[s].length)
   const target = Math.ceil(count / 2)
+  // A picture is only added towards the half-graphical target when it costs no
+  // freshness: either an unused picture is left in that strand, or the strand
+  // has run out of unused plain items anyway. Once the unused pictures are gone,
+  // a later paper comes out a little under half graphical rather than filling
+  // its picture quota with questions the buyer has already seen.
   for (let total = strands.reduce((a, s) => a + pictures[s], 0); total < target; total++) {
-    const room = strands.filter(s => pictures[s] < Math.min(quota[s], graphicalOf[s].length))
+    const room = strands.filter(s => pictures[s] < Math.min(quota[s], graphicalOf[s].length)
+      && (fresh(graphicalOf[s]) > pictures[s] || fresh(plainOf[s]) < quota[s] - pictures[s]))
     if (!room.length) break
     room.sort((a, b) => (fresh(graphicalOf[b]) - pictures[b]) - (fresh(graphicalOf[a]) - pictures[a]) || (graphicalOf[b].length - pictures[b]) - (graphicalOf[a].length - pictures[a]))
     pictures[room[0]]++

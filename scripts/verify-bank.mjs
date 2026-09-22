@@ -433,6 +433,18 @@ for (const q of QUESTION_BANK) {
   }
 }
 
+// ─── A literal "\n" in printed text ──────────────────────────────────────────
+// An over-escaped newline in the source prints as the two characters \ and n
+// instead of a line break. It has slipped in through scripted edits, and no
+// type check can see it.
+const LITERAL_NEWLINE = String.fromCharCode(92) + 'n'
+for (const q of QUESTION_BANK) {
+  const texts = [q.question_text, q.explanation, ...(q.options ?? []), ...(q.parts ?? []).flatMap(p => [p.prompt, p.expected_answer, p.explanation])]
+  if (texts.some(t => typeof t === 'string' && t.includes(LITERAL_NEWLINE))) {
+    err('text contains a literal backslash-n, which prints as "\\n" instead of a line break', q.id)
+  }
+}
+
 // ─── 10. General Mathematics Unit 3 & 4 paper structure ──────────────────────
 // VCAA's published specifications mandate the split between the four content
 // areas, so these are not style preferences — a paper that misses them is not
