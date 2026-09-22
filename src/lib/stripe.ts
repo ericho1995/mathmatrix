@@ -1,4 +1,6 @@
 import Stripe from 'stripe'
+import { stripePriceIdFor } from '@/lib/pricing'
+import type { YearLevel } from '@/types'
 
 /**
  * Stripe client, created lazily.
@@ -21,4 +23,16 @@ export function getStripe(): Stripe {
 
 export function isStripeConfigured(): boolean {
   return Boolean(process.env.STRIPE_SECRET_KEY)
+}
+
+/**
+ * Whether a year level can be bought right now. Server-only.
+ *
+ * Read from the same environment the checkout route reads, rather than kept as
+ * a separate list: a year level is sellable exactly when its Stripe price
+ * exists. That way a buy button can never be shown for something checkout will
+ * refuse, and adding STRIPE_PRICE_YEAR_12 turns Year 12 on everywhere at once.
+ */
+export function isYearLevelSellable(yearLevel: YearLevel): boolean {
+  return isStripeConfigured() && stripePriceIdFor(yearLevel) !== null
 }

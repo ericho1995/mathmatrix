@@ -81,7 +81,9 @@ for (const q of QUESTION_BANK) {
   } else {
     if (!Array.isArray(q.options) || q.options.length < 2) err('multiple choice needs at least 2 options', q.id)
     else {
-      if (new Set(q.options).size !== q.options.length) err(`duplicate option values: ${JSON.stringify(q.options)}`, q.id)
+      // Picture options carry their answer in the drawing; the captions are
+      // often all blank, and that is not a duplicate.
+      if (!q.option_diagrams && new Set(q.options).size !== q.options.length) err(`duplicate option values: ${JSON.stringify(q.options)}`, q.id)
       if (typeof q.correct_index !== 'number' || q.correct_index < 0 || q.correct_index >= q.options.length)
         err(`correct_index ${q.correct_index} out of range`, q.id)
     }
@@ -118,6 +120,9 @@ for (const q of QUESTION_BANK) {
 for (const [key, qs] of groups) {
   for (let i = 0; i < qs.length; i++) {
     for (let j = i + 1; j < qs.length; j++) {
+      // Picture options: the captions are usually blank, so two unrelated
+      // picture questions would otherwise look like one item asked twice.
+      if (qs[i].option_diagrams || qs[j].option_diagrams) continue
       const a = new Set(qs[i].options)
       const shared = qs[j].options.filter((o) => a.has(o)).length
       const size = Math.min(qs[i].options.length, qs[j].options.length)
@@ -384,7 +389,7 @@ for (const q of QUESTION_BANK) {
 for (const [yearLevel, pool] of numeracyByYear) {
   if (pool.length < 20) continue
   const shortAnswer = pool.filter(q => q.format === 'short_answer').length
-  const withDiagram = pool.filter(q => q.diagram).length
+  const withDiagram = pool.filter(q => q.diagram || q.option_diagrams?.length).length
   const saShare = shortAnswer / pool.length
   const diaShare = withDiagram / pool.length
   if (saShare < MIN_SHORT_ANSWER_SHARE) {
@@ -463,6 +468,154 @@ if (gmYear12.length) {
       if (got !== want) warn(`General Maths Exam 2 allocates ${got} marks to ${topic}; the specifications require ${want}`)
     }
   }
+}
+
+// ─── 11. Diagrams are well-formed ────────────────────────────────────────────
+// A diagram that type-checks can still be wrong in ways only the renderer
+// notices — a figure segment naming a point that does not exist throws at render
+// time and takes the whole paper's PDF down with it. These are the structural
+// mistakes that are cheap to catch here and expensive to catch from a customer.
+const VENN_TWO = new Set(['A', 'B', 'AB', 'none'])
+const VENN_THREE = new Set(['A', 'B', 'C', 'AB', 'AC', 'BC', 'ABC', 'none'])
+const NON_SCALING = new Set(['simple_shape'])
+
+function checkDiagram(d, id, where) {
+  const bad = msg => err(`${where} ${d.kind}: ${msg}`, id)
+  switch (d.kind) {
+    case 'figure': {
+      const ids = new Set(d.points.map(p => p.id))
+      if (ids.size !== d.points.length) bad('duplicate point ids')
+      for (const s of d.segments ?? []) for (const p of [s.from, s.to]) if (!ids.has(p)) bad(`segment names unknown point "${p}"`)
+      for (const a of d.angles ?? []) for (const p of [a.at, a.from, a.to]) if (!ids.has(p)) bad(`angle names unknown point "${p}"`)
+      for (const g of d.polygons ?? []) {
+        if (g.points.length < 3) bad('polygon needs at least 3 points')
+        for (const p of g.points) if (!ids.has(p)) bad(`polygon names unknown point "${p}"`)
+      }
+      for (const c of d.circles ?? []) if (!ids.has(c.center)) bad(`circle centre "${c.center}" is not a point`)
+      for (const a of d.arcs ?? []) if (!ids.has(a.center)) bad(`arc centre "${a.center}" is not a point`)
+      for (const p of d.points) if (p.x < 0 || p.y < 0 || p.x > d.width || p.y > d.height) bad(`point ${p.id} lies outside ${d.width}×${d.height}`)
+      break
+    }
+    case 'venn': {
+      const allowed = d.sets.length === 3 ? VENN_THREE : VENN_TWO
+      for (const r of [...Object.keys(d.values ?? {}), ...(d.shaded ?? [])]) if (!allowed.has(r)) bad(`region "${r}" does not exist in a ${d.sets.length}-set diagram`)
+      break
+    }
+    case 'bar_chart': {
+      const values = d.series ? d.series.flatMap(s => s.values) : (d.bars ?? []).map(b => b.value)
+      if (!d.bars?.length && !(d.categories?.length && d.series?.length)) bad('needs bars, or categories with series')
+      if (d.series) for (const s of d.series) if (s.values.length !== (d.categories ?? []).length) bad(`series "${s.label}" has ${s.values.length} values for ${(d.categories ?? []).length} categories`)
+      if (d.yStep && d.yMax !== undefined && Math.max(...values) > d.yMax) bad(`a value exceeds yMax ${d.yMax}`)
+      break
+    }
+    case 'line_graph':
+      for (const s of d.series) if (s.values.length !== d.xLabels.length) bad(`series has ${s.values.length} values for ${d.xLabels.length} x-labels`)
+      for (const v of d.series.flatMap(s => s.values)) if (v !== null && (v < d.yMin || v > d.yMax)) bad(`value ${v} is outside ${d.yMin}–${d.yMax}`)
+      break
+    case 'pictograph':
+      for (const r of d.rows) if (Math.round(r.count * 2) !== r.count * 2) bad(`row "${r.label}" count ${r.count} must be a whole or half icon`)
+      break
+    case 'data_table':
+      for (const r of d.rows) if (r.length !== d.columns.length) bad(`a row has ${r.length} cells for ${d.columns.length} columns`)
+      if (d.footer && d.footer.length !== d.columns.length) bad('footer width differs from the columns')
+      if (d.style === 'tally' && (d.tallyColumn === undefined || d.tallyColumn >= d.columns.length)) bad('tally table needs a valid tallyColumn')
+      break
+    case 'number_line': {
+      const inRange = v => v >= d.min - 1e-9 && v <= d.max + 1e-9
+      for (const p of d.points ?? []) if (!inRange(p.value)) bad(`point ${p.value} is off the line`)
+      for (const j of d.jumps ?? []) if (!inRange(j.from) || !inRange(j.to)) bad('a jump runs off the line')
+      if (d.arrowAt !== undefined && !inRange(d.arrowAt)) bad('arrowAt is off the line')
+      break
+    }
+    case 'spinner':
+      if (d.sectors.length < 2 || d.sectors.length > 12) bad(`${d.sectors.length} sectors; use 2–12`)
+      if (d.pointer !== undefined && (d.pointer < 0 || d.pointer >= d.sectors.length)) bad('pointer names a sector that does not exist')
+      break
+    case 'clock':
+      if (d.minute < 0 || d.minute > 59) bad(`minute ${d.minute}`)
+      if ((d.style ?? 'analog') === 'analog' ? d.hour < 1 || d.hour > 12 : d.hour < 0 || d.hour > 23) bad(`hour ${d.hour}`)
+      break
+    case 'grid_shape':
+      if ((d.cells ?? []).length > d.rows) bad('more cell rows than grid rows')
+      for (const row of d.cells ?? []) if (row.length > d.cols) bad('a cell row is wider than the grid')
+      break
+    case 'fraction_model':
+      if (d.shaded > d.parts * (d.wholes ?? 1) && d.model !== 'grid') bad('more parts shaded than exist')
+      if (d.model === 'grid' && d.shaded > (d.rows ?? 1) * (d.cols ?? d.parts) * (d.wholes ?? 1)) bad('more cells shaded than exist')
+      break
+    case 'measure':
+      if (d.instrument === 'jug' && (d.level < 0 || d.level > d.max)) bad('liquid level is outside the scale')
+      if (d.instrument === 'thermometer' && (d.value < d.min || d.value > d.max)) bad('reading is outside the scale')
+      if (d.instrument === 'dial' && (d.value < 0 || d.value > d.max)) bad('reading is outside the scale')
+      if (d.instrument === 'ruler' && d.object && (d.object.start < d.from || d.object.end > d.to)) bad('object runs off the ruler')
+      if (d.instrument === 'protractor' && (d.angle <= 0 || d.angle >= 180)) bad('protractor angle must be between 0 and 180')
+      // labelEvery is in the scale's units, not a count of marks: labelEvery 2
+      // on a 100 mL jug labels every mark, which gives the reading away.
+      if (d.labelEvery !== undefined && 'step' in d) {
+        const r = d.labelEvery / d.step
+        if (r < 1 || Math.abs(r - Math.round(r)) > 1e-6) bad(`labelEvery ${d.labelEvery} is not a whole number of ${d.step}-unit marks (it is in scale units, not marks)`)
+      }
+      // The reading must sit on a mark.
+      const reading = d.instrument === 'jug' ? d.level : d.value
+      if ('step' in d && reading !== undefined) {
+        const r = (reading - (d.min ?? 0)) / d.step
+        if (Math.abs(r - Math.round(r)) > 1e-6) bad(`reading ${reading} falls between marks`)
+      }
+      break
+    case 'price_tags':
+      if (d.items.length < 1 || d.items.length > 4) bad(`${d.items.length} items; the row fits 1–4`)
+      break
+    case 'calendar':
+      if (d.startDay < 0 || d.startDay > 6) bad('startDay must be 0 (Monday) to 6')
+      for (const n of [...(d.circled ?? []), ...(d.shaded ?? [])]) if (n < 1 || n > d.days) bad(`day ${n} is not in the month`)
+      break
+    case 'illustration':
+      if (!ILLUSTRATIONS[d.id]) bad(`illustration "${d.id}" does not exist`)
+      break
+  }
+}
+
+for (const q of QUESTION_BANK) {
+  if (q.diagram) checkDiagram(q.diagram, q.id, 'diagram')
+  if (q.option_diagrams) {
+    if (!q.options || q.option_diagrams.length !== q.options.length) err('option_diagrams must pair one-to-one with options (captions may be empty)', q.id)
+    if (q.option_diagrams.length < 2 || q.option_diagrams.length > 4) err(`${q.option_diagrams.length} picture options; the grid holds 2–4`, q.id)
+    q.option_diagrams.forEach((d, i) => {
+      if (NON_SCALING.has(d.kind)) err(`option ${i} uses ${d.kind}, which cannot shrink into an answer panel`, q.id)
+      checkDiagram(d, q.id, `option ${i}`)
+    })
+  }
+}
+
+// ─── 12. Tables belong in diagrams, not in the question text ─────────────────
+// Typing a table into question_text with pipes produced items that told the
+// student "a column graph shows" above a block of ASCII. A data_table renders as
+// a real table, and a bar_chart as a real graph.
+for (const q of QUESTION_BANK) {
+  const pipeLines = q.question_text.split('\n').filter(l => (l.match(/\|/g) ?? []).length >= 1)
+  if (pipeLines.length >= 2) warn('table typed into question_text — use a data_table diagram', q.id)
+  if (!q.diagram && !q.option_diagrams && /\b(graph|chart|diagram|table|map|spinner|picture|shown)\b/i.test(q.question_text)
+      && /\b(the|this) (column |bar |line |pie )?(graph|chart|diagram|table|map|spinner|picture)\b|\bshown\b/i.test(q.question_text)
+      && !q.stimulus_id && NUMERACY_TOPICS.has(q.topic)) {
+    warn('refers to a graph, table or picture but has no diagram', q.id)
+  }
+}
+
+// ─── 13. Picture variety within a year level ─────────────────────────────────
+// The user's complaint about the imagery was that it was "constantly the same
+// style". If one kind of picture carries more than a quarter of a NAPLAN-year
+// numeracy pool's graphical items, the papers composed from it will feel
+// repetitive however good each picture is.
+for (const [yearLevel, pool] of numeracyByYear) {
+  const kinds = pool.flatMap(q => [q.diagram, ...(q.option_diagrams ?? [])].filter(Boolean).slice(0, 1)).map(d => d.kind)
+  if (kinds.length < 12) continue
+  const counts = {}
+  for (const k of kinds) counts[k] = (counts[k] ?? 0) + 1
+  for (const [kind, n] of Object.entries(counts)) {
+    if (n / kinds.length > 0.25) warn(`${yearLevel} numeracy: ${kind} is ${n}/${kinds.length} of the graphical items — vary the pictures`)
+  }
+  const distinct = Object.keys(counts).length
+  if (distinct < 8) warn(`${yearLevel} numeracy uses only ${distinct} kinds of picture; real papers use far more`)
 }
 
 // ─── Report ──────────────────────────────────────────────────────────────────

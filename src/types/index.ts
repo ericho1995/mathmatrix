@@ -70,207 +70,10 @@ export type Difficulty = 'foundation' | 'developing' | 'proficient' | 'advanced'
 
 export type StimulusType = 'passage' | 'data_table' | 'image'
 
-// ─── Diagrams (graphical questions) ────────────────────────────────────────
-// Per-question graphic, rendered inline above the question text. Starts with
-// just 'bar_chart' (see docs/superpowers/specs/2026-09-11-naplan-visual-format-design.md
-// Phase 2) — more kinds get added one at a time as content actually needs them.
+// Diagram types live in ./diagrams — re-exported so '@/types' stays the one import.
+export * from './diagrams'
+import type { Diagram } from './diagrams'
 
-export interface BarChartDiagram {
-  kind: 'bar_chart'
-  title?: string
-  unit?: string                              // e.g. 'students', '$' — shown on the axis label
-  bars: { label: string; value: number }[]
-}
-
-export interface NumberLineDiagram {
-  kind: 'number_line'
-  title?: string
-  min: number
-  max: number
-  step: number
-  marks: { value: number; label: string }[]  // highlighted points, e.g. a starting position
-}
-
-export interface DotPlotDiagram {
-  kind: 'dot_plot'
-  axisLabel?: string
-  values: number[]                           // raw data points; one dot per occurrence, stacked
-}
-
-export interface GridMapDiagram {
-  kind: 'grid_map'
-  title?: string
-  cols: string[]                             // column labels, e.g. ['A','B','C','D','E','F','G','H']
-  rowCount: number                           // rows numbered 1..rowCount, bottom to top (matches map convention)
-  unitLabel?: string                         // e.g. '1 kilometre' per cell, shown in a key
-  points: { col: string; row: number; label: string }[]
-}
-
-export interface SimpleShapeDiagram {
-  kind: 'simple_shape'
-  shape: 'rectangle' | 'right_triangle'
-  labels: { side: 'top' | 'bottom' | 'left' | 'right' | 'hypotenuse'; text: string }[]
-}
-
-/**
- * A curve on Cartesian axes — the graphic VCE Methods papers are built from.
- * Checking the real papers, they contain almost no photographs: the 2021-2024
- * Exam 2 papers carry zero raster images and 800-1100 vector drawings each,
- * nearly all of them function graphs with light gridlines, solid and dashed
- * curves, and a key.
- *
- * Curves are stored as sampled points rather than an expression to evaluate.
- * The renderer does no maths, the data is typed and diffable, and a curve can
- * be checked by reading it — the same reason illustrations store primitives
- * rather than SVG markup.
- */
-export interface FunctionGraphDiagram {
-  kind: 'function_graph'
-  title?: string
-  xMin: number
-  xMax: number
-  yMin: number
-  yMax: number
-  /** Gridline and tick spacing. Omit to draw axes without a grid. */
-  xStep?: number
-  yStep?: number
-  xLabel?: string
-  yLabel?: string
-  curves: {
-    points: [number, number][]
-    dashed?: boolean
-    label?: string
-  }[]
-  /** Marked points — intercepts, turning points, a stated coordinate. */
-  points?: { x: number; y: number; label?: string }[]
-}
-
-/**
- * Box plot — the display VCE General Mathematics data analysis is built on.
- * Several boxes can share one axis, which is how real papers set up the
- * "compare these groups" questions.
- */
-export interface BoxPlotDiagram {
-  kind: 'box_plot'
-  title?: string
-  axisLabel?: string
-  min: number
-  max: number
-  step: number
-  boxes: {
-    label?: string
-    min: number
-    q1: number
-    median: number
-    q3: number
-    max: number
-    /** Drawn as separate dots beyond the whiskers, as VCAA does. */
-    outliers?: number[]
-  }[]
-}
-
-/**
- * Vertices and edges, for the networks and decision mathematics area — 20 of
- * the 100 marks across the two General Mathematics papers, and unanswerable
- * without the drawing.
- *
- * Positions are authored rather than computed by a layout algorithm. A graph
- * whose coordinates are in the source renders identically every time and can be
- * reviewed in a diff, and no layout library ever has to run at render time —
- * the same reason FunctionGraphDiagram stores sampled points.
- */
-export interface NetworkGraphDiagram {
-  kind: 'network_graph'
-  title?: string
-  /** Draw arrowheads — flow networks and project diagrams are directed. */
-  directed?: boolean
-  /** Coordinates in an abstract 0-100 box, scaled to the drawing area. */
-  vertices: { id: string; x: number; y: number }[]
-  edges: { from: string; to: string; weight?: number | string }[]
-}
-
-/**
- * A table of values. Real General Mathematics papers lean on these in every
- * area of study — raw data sets, assignment costs, activity predecessors.
- *
- * Note `Stimulus` has a `data_table` type that predates this and was never
- * rendered. This is per-question and typed; prefer it.
- */
-export interface DataTableDiagram {
-  kind: 'data_table'
-  title?: string
-  columns: string[]
-  rows: (string | number)[][]
-  /** Render the first column as a row heading rather than as data. */
-  rowHeader?: boolean
-}
-
-/**
- * A matrix, drawn with the square brackets real papers use. Optional row and
- * column labels sit outside the brackets, which is how VCAA labels the rows of
- * a transition matrix.
- */
-export interface MatrixDiagram {
-  kind: 'matrix'
-  /** Printed to the left of the bracket, e.g. 'M =' or 'T ='. */
-  name?: string
-  rows: (string | number)[][]
-  rowLabels?: string[]
-  colLabels?: string[]
-}
-
-// ─── Illustrations ───────────────────────────────────────────────────────────
-// The five diagram kinds above are hand-written chart renderers, which is fine
-// for data displays but cannot draw the pictorial figures real NAPLAN papers
-// lean on — clock faces, coins, spinners, balance scales, labelled geometric
-// figures. Those are authored as vector artwork instead, stored as a flat list
-// of primitives (never raw SVG markup, so it stays typed and renders the same
-// in the PDF and in the browser). See scripts/svg-to-illustration.mjs for the
-// authoring pipeline and src/lib/questions/illustrations.ts for the artwork.
-
-interface SvgBase {
-  stroke?: string
-  strokeWidth?: number
-  fill?: string
-}
-
-export interface SvgCircle extends SvgBase { t: 'circle'; cx: number; cy: number; r: number }
-export interface SvgEllipse extends SvgBase { t: 'ellipse'; cx: number; cy: number; rx: number; ry: number }
-export interface SvgRect extends SvgBase { t: 'rect'; x: number; y: number; width: number; height: number }
-export interface SvgLine extends SvgBase { t: 'line'; x1: number; y1: number; x2: number; y2: number }
-export interface SvgPath extends SvgBase { t: 'path'; d: string }
-export interface SvgPolygon extends SvgBase { t: 'polygon'; points: string }
-export interface SvgPolyline extends SvgBase { t: 'polyline'; points: string }
-export interface SvgText extends SvgBase {
-  t: 'text'
-  x: number
-  y: number
-  content: string
-  fontSize?: number
-  textAnchor?: 'start' | 'middle' | 'end'
-}
-
-export type SvgElement =
-  | SvgCircle | SvgEllipse | SvgRect | SvgLine | SvgPath | SvgPolygon | SvgPolyline | SvgText
-
-export interface Illustration {
-  width: number
-  height: number
-  elements: SvgElement[]
-}
-
-/** Points at a key in `ILLUSTRATIONS`, so one piece of artwork can be reused by
- * several questions and the bank stays readable. */
-export interface IllustrationDiagram {
-  kind: 'illustration'
-  id: string
-  title?: string
-}
-
-export type Diagram =
-  | BarChartDiagram | NumberLineDiagram | DotPlotDiagram | GridMapDiagram | SimpleShapeDiagram
-  | FunctionGraphDiagram | BoxPlotDiagram | NetworkGraphDiagram | DataTableDiagram | MatrixDiagram
-  | IllustrationDiagram
 
 export interface Stimulus {
   id: string
@@ -307,6 +110,13 @@ export interface MultipleChoiceQuestion extends QuestionBase {
   format?: 'multiple_choice'
   options: string[]
   correct_index: number
+  /**
+   * Picture answers — "Select the dot plot that correctly displays the data",
+   * "Which net folds into this cube?". One diagram per option, drawn as a 2×2
+   * grid of lettered panels; `options` then holds each panel's caption (which
+   * may be empty) and is what the answer key prints.
+   */
+  option_diagrams?: Diagram[]
 }
 
 // Free-response questions (used in premium selective-subject exams). Not

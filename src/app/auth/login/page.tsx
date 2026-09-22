@@ -1,10 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import type { Route } from 'next'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
+import { safeNext } from '@/lib/auth/safeNext'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -12,6 +14,15 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  // Where to go after signing in. A visitor sent here by a buy button must land
+  // back on the purchase they were making, not on the homepage — this was
+  // ignored before, so every signed-out checkout lost its place. Read from the
+  // URL after mount rather than with useSearchParams, which would force a
+  // Suspense boundary around the whole form.
+  const [next, setNext] = useState('/')
+  useEffect(() => {
+    setNext(safeNext(new URLSearchParams(window.location.search).get('next')))
+  }, [])
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault()
@@ -33,7 +44,7 @@ export default function LoginPage() {
       return
     }
 
-    router.push('/')
+    router.push(next as Parameters<typeof router.push>[0])
     router.refresh()
   }
 
@@ -73,7 +84,10 @@ export default function LoginPage() {
 
         <p className="text-center text-sm text-gray-500 mt-6">
           No account?{' '}
-          <Link href="/auth/register" className="text-brand-600 hover:underline">
+          <Link
+            href={(next === '/' ? '/auth/register' : `/auth/register?next=${encodeURIComponent(next)}`) as Route}
+            className="text-brand-600 hover:underline"
+          >
             Create one
           </Link>
         </p>

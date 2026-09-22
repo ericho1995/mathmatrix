@@ -14,6 +14,10 @@ Font.register({
   ],
 })
 
+// react-pdf hyphenates long words by default ("play-ing cards"). Test papers
+// never break words, so wrap only between them.
+Font.registerHyphenationCallback(word => [word])
+
 export const BRAND_BLUE = '#185FA5'
 export const BRAND_BLUE_DARK = '#0C447C'
 export const BRAND_TEAL = '#0F6E56'
@@ -93,7 +97,7 @@ export const pdfStyles = StyleSheet.create({
   tableHeaderRow: { flexDirection: 'row', backgroundColor: '#f0f2f5' },
   tableRow: { flexDirection: 'row' },
   tableCell: { fontSize: 8, paddingVertical: 3, paddingHorizontal: 4, borderRight: '0.75pt solid #333', borderBottom: '0.75pt solid #333', textAlign: 'center' },
-  tableHeaderCell: { fontWeight: 700, textAlign: 'left' },
+  tableHeaderCell: { fontWeight: 700 },
   diagramLabelsRow: { flexDirection: 'row', width: 420, marginTop: 2, flexWrap: 'wrap' },
   diagramLabel: { fontSize: 8, color: '#333', textAlign: 'center' },
   // Caption under a diagram (marked points, axis label) — not uppercased like

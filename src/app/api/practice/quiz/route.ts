@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { QUESTION_BANK } from '@/lib/questions/bank'
+import { isQuizPlayable } from '@/lib/questions/playable'
 import { TOPICS, GRADES } from '@/lib/curriculum'
 import type { TopicSlug, YearLevel } from '@/types'
 
@@ -75,7 +76,7 @@ export async function POST(req: NextRequest) {
 
   const topicSet = new Set(requestedTopics)
   const pool = QUESTION_BANK.filter(
-    q => topicSet.has(q.topic) && (year === null || q.year_level === year)
+    q => topicSet.has(q.topic) && (year === null || q.year_level === year) && isQuizPlayable(q)
   )
 
   // Fisher-Yates rather than sort(() => Math.random() - 0.5), which is biased.

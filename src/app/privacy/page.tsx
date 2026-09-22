@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { SUPPORT_EMAIL } from '@/lib/site'
 
 export const metadata: Metadata = { title: 'Privacy Policy — PrepNest' }
 
@@ -6,7 +8,7 @@ export default function PrivacyPage() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-10 flex-1 w-full prose-sm">
       <h1 className="text-2xl font-medium tracking-tight mb-1">Privacy Policy</h1>
-      <p className="text-gray-400 text-sm mb-8">Last updated: 8 September 2026</p>
+      <p className="text-gray-400 text-sm mb-8">Last updated: 22 September 2026</p>
 
       <div className="flex flex-col gap-6 text-sm text-gray-600 leading-relaxed">
         <p>
@@ -21,7 +23,9 @@ export default function PrivacyPage() {
             <li>Account details: name, email address, and account role (student, parent, or admin).</li>
             <li>For students: year level, and practice activity — questions attempted, answers, accuracy, time taken, XP and streaks.</li>
             <li>For parents: the invite code used to link to a student&apos;s account, and read-only access to that student&apos;s progress.</li>
+            <li>For purchases: which year level you bought, when, and Stripe&apos;s reference for the payment. Card details go to Stripe, never to us.</li>
             <li>Standard technical data collected by our hosting provider (Vercel) and database provider (Supabase), such as IP address and request logs, for security and reliability.</li>
+            <li>Anonymous usage statistics (Vercel Web Analytics): which pages are visited and roughly where from. It uses no cookies and does not identify you.</li>
           </ul>
         </section>
 
@@ -32,6 +36,16 @@ export default function PrivacyPage() {
             year level, track progress and streaks, power the leaderboard, and let a linked
             parent see their child&apos;s accuracy by topic. We do not sell personal data, and we
             do not use it for advertising.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-base font-medium text-gray-900 mb-2">Payments</h2>
+          <p>
+            Payments are processed by Stripe, which receives your card details and email address to take the
+            payment and send your receipt, under{' '}
+            <a href="https://stripe.com/au/privacy" className="text-brand-600 hover:underline">Stripe&apos;s privacy policy</a>.
+            We keep a record of the purchase so the papers stay unlocked on your account.
           </p>
         </section>
 
@@ -78,15 +92,16 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-base font-medium text-gray-900 mb-2">Contact</h2>
           <p>
-            Questions about this policy or your data: <a href="mailto:privacy@prepnest.com.au" className="text-brand-600 hover:underline">privacy@prepnest.com.au</a>.
+            Questions about this policy or your data:{' '}
+            {SUPPORT_EMAIL ? (
+              <a href={`mailto:${SUPPORT_EMAIL}`} className="text-brand-600 hover:underline">{SUPPORT_EMAIL}</a>
+            ) : (
+              <Link href="/help" className="text-brand-600 hover:underline">the help centre</Link>
+            )}
+            .
           </p>
         </section>
 
-        <p className="text-xs text-gray-400 pt-4 border-t border-gray-100">
-          This is a plain-language summary of our practices, not a substitute for formal legal
-          advice. Before launch, have this reviewed against the Australian Privacy Act 1988
-          (and the Australian Privacy Principles) given the product handles children&apos;s data.
-        </p>
       </div>
     </main>
   )

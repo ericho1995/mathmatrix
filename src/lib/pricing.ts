@@ -10,6 +10,15 @@ export const BUNDLE_PRICE_AUD = 29
 
 export const BUNDLE_PRICE = `$${BUNDLE_PRICE_AUD}`
 
+/**
+ * Change-of-mind refund window, in days from purchase. The terms page and the
+ * FAQ both read this, so the promise cannot drift between them. Offered
+ * because every year level has a free sample paper: a parent can see the
+ * product before paying, so the window costs little and removes the main
+ * hesitation on a first purchase from an unknown brand.
+ */
+export const REFUND_DAYS = 7
+
 /** Kept for the older per-paper copy still referenced in a couple of places. */
 export const PREMIUM_PRICE = BUNDLE_PRICE
 
