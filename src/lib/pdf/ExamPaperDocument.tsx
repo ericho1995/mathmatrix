@@ -47,12 +47,16 @@ function QuestionBlock({ question, number }: { question: ResolvedQuestion; numbe
     const total = question.parts.reduce((sum, p) => sum + p.marks, 0)
     return (
       <View style={pdfStyles.questionRow}>
-        <View style={pdfStyles.questionHeaderRow}>
-          <Text style={pdfStyles.questionText}>Question {number}</Text>
-          <Text style={pdfStyles.questionMarks}>({total} {total === 1 ? 'mark' : 'marks'})</Text>
+        {/* The heading, stem and diagram stay together: a stem stranded at the
+            foot of a page with its network or table overleaf is unreadable. */}
+        <View wrap={false}>
+          <View style={pdfStyles.questionHeaderRow}>
+            <Text style={pdfStyles.questionText}>Question {number}</Text>
+            <Text style={pdfStyles.questionMarks}>({total} {total === 1 ? 'mark' : 'marks'})</Text>
+          </View>
+          <Text style={pdfStyles.questionText}>{question.question_text}</Text>
+          {question.diagram ? <DiagramView diagram={question.diagram} /> : null}
         </View>
-        <Text style={pdfStyles.questionText}>{question.question_text}</Text>
-        {question.diagram ? <DiagramView diagram={question.diagram} /> : null}
         {question.parts.map((part, i) => (
           <View key={i} wrap={false}>
             <View style={pdfStyles.partRow}>

@@ -3218,6 +3218,135 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "reading_minutes": 15
   },
   {
+    "id": "general_maths-year_12-2-exam1",
+    "subject": "general_maths",
+    "yearLevel": "year_12",
+    "title": "General Mathematics Unit 3 & 4 — Examination 1 (Practice 2)",
+    "sections": [
+      {
+        "title": "Data analysis",
+        "time_minutes": 36,
+        "calculator_allowed": true,
+        "question_ids": [
+          "a810f7a1-3885-43d7-b544-e269567e0eb1",
+          "94d367fb-2fef-421c-b646-e5d30ee64760",
+          "1127f7af-1bd6-45f4-b005-d91bc71529e4",
+          "e43cf9b3-6e94-48bb-aa8d-72df0ea7d9b5",
+          "407153c0-b26a-45fe-9f21-b5fa0f63b3da",
+          "c39d0ee4-d5fe-4ec1-82a8-e2f2f379ec9b",
+          "64d30af5-a857-4577-b744-368401e11b2f",
+          "d95e94ec-0dc9-461f-a62e-e37943e0315c",
+          "75d5b31f-caf9-4e9e-a13d-254d4b992ad2",
+          "6217f663-7d0f-4727-8f68-f4fa9cf25904",
+          "b414962d-49a7-4527-bc5e-77c72f077b1b",
+          "6d51ee7a-7c7f-4035-953e-06a24f6e92e1",
+          "0d7467b4-ed27-4ffc-9b7a-0d46d0c5b130",
+          "e8be3f2b-c855-45c9-b0d2-e282c810a6f0",
+          "c92b9390-ed64-4e4a-95f8-50d8ce31a972",
+          "d00d1333-8ff3-46c8-b116-e3c4290ad1b4"
+        ]
+      },
+      {
+        "title": "Recursion and financial modelling",
+        "time_minutes": 18,
+        "calculator_allowed": true,
+        "question_ids": [
+          "e0686350-5671-4a66-b9df-eaddd1f3d746",
+          "16fe020d-c8d4-42c8-b9ac-4e974d01ebba",
+          "2a61390f-55ee-45c9-a758-0a4b6fc69acc",
+          "8d0c19e4-72c9-46d9-be9b-9caa93d760c7",
+          "3409669b-7f72-4762-9062-b5d25c585e7a",
+          "0479df62-1ceb-4969-afc9-55dcf5696570",
+          "bfcf1c80-a2e2-4899-8dae-eb969039f494",
+          "852167b4-e7c9-4620-9e74-24158815edae"
+        ]
+      },
+      {
+        "title": "Matrices",
+        "time_minutes": 18,
+        "calculator_allowed": true,
+        "question_ids": [
+          "d10393eb-eaa1-48a3-845f-9b0d5a8da27f",
+          "095f775f-9e7c-4104-8e03-fa672f0e58af",
+          "968829a2-2364-4d5f-ae65-bcb45355b32b",
+          "202c95e1-3ed9-4f61-ac13-336f0ec91fcb",
+          "5a9cc900-c1d7-4797-97fc-4125b30c3577",
+          "8bc8ceb1-ec0a-4af7-9963-21e428b5b587",
+          "2901c082-f566-478d-828a-996dfe85a789",
+          "177e7b35-1ca2-45fd-a1fa-1706e89d5915"
+        ]
+      },
+      {
+        "title": "Networks and decision mathematics",
+        "time_minutes": 18,
+        "calculator_allowed": true,
+        "question_ids": [
+          "5efb790c-6a68-42a2-9b40-8160bcb45e47",
+          "6eda3093-238e-4a5e-9f41-eaec2d665413",
+          "04ac7e4e-8350-4979-aa38-cd26c73245b2",
+          "823e3147-6454-4db0-8926-25c4c1227e00",
+          "f02f8c64-e703-40c8-91c1-3f1be6374c11",
+          "7e592206-4d7d-438e-b6b0-e08b0c2295ec",
+          "93cff110-5db5-481d-a94c-8231badec583",
+          "aa8b3467-b428-463b-8b81-a7363eaecb68"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15
+  },
+  {
+    "id": "general_maths-year_12-2-exam2",
+    "subject": "general_maths",
+    "yearLevel": "year_12",
+    "title": "General Mathematics Unit 3 & 4 — Examination 2 (Practice 2)",
+    "sections": [
+      {
+        "title": "Data analysis",
+        "time_minutes": 36,
+        "calculator_allowed": true,
+        "question_ids": [
+          "e2ff11bd-5f1e-499c-b286-43afd761371d",
+          "bcd114b3-bdf6-4eff-8949-96d6ebc3d7bb",
+          "95e2ed7b-218e-4450-b326-a3390a852f03",
+          "9465166d-21ed-4bdf-8c8a-1a2c4931be71"
+        ]
+      },
+      {
+        "title": "Recursion and financial modelling",
+        "time_minutes": 18,
+        "calculator_allowed": true,
+        "question_ids": [
+          "71bd21fa-d45f-4a42-bf3c-1170b2784272",
+          "af3e68ec-f6a9-4c1f-b58c-0e29df3b3bf1",
+          "c5dd5725-ed2b-49b4-8cc7-afc1fa27f8d4"
+        ]
+      },
+      {
+        "title": "Matrices",
+        "time_minutes": 18,
+        "calculator_allowed": true,
+        "question_ids": [
+          "1c3ccdd7-78b6-4d7a-8357-ab9593e86b15",
+          "825ada4d-a331-4b61-b897-7735d08d9ad8",
+          "217ab6b7-0f96-4d71-a796-4c09e68b9a69"
+        ]
+      },
+      {
+        "title": "Networks and decision mathematics",
+        "time_minutes": 18,
+        "calculator_allowed": true,
+        "question_ids": [
+          "526d0727-d499-40f5-921a-4bce9be97400",
+          "5bdbf045-da84-4f57-aa93-9f529fdd1c90",
+          "9c288356-f444-45ff-a47f-53b22c2f06d7"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15
+  },
+  {
     "id": "math-year_8-1",
     "subject": "math",
     "yearLevel": "year_8",
