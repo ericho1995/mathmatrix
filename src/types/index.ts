@@ -101,6 +101,9 @@ interface QuestionBase {
   calculator_allowed?: boolean  // Maths Yr7-9 Numeracy only; true = calculator section, unset/false = non-calculator
   diagram?: Diagram             // per-question graphic (bar chart, etc.) rendered above the question text
   marks?: number                // VCE only; NAPLAN papers are scored by question count, not marks
+  /** VCE Unit 3 & 4 only: which practice set (1, 2, 3…) the question belongs to. Each set is composed
+   * into its own Examination 1 and Examination 2, so a set is a complete paper pair. Defaults to 1. */
+  practice_set?: number
   created_at: string
 }
 

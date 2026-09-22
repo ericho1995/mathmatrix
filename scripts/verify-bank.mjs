@@ -329,34 +329,47 @@ for (const q of QUESTION_BANK) {
 // holds more than one VCE subject, and General Mathematics questions are also
 // year_12 with calculator_allowed — without the topic test they get counted as
 // Methods questions and the Exam 2 checks fire against the wrong paper.
+//
+// Checked per practice set: gen-exams composes each set into its own
+// Examination 1 and 2, so the totals only mean something set by set.
 const isMethods = q => q.topic.startsWith('mm_')
-const vceExam1 = QUESTION_BANK.filter(
-  q => isMethods(q) && q.year_level === 'year_12' && q.format === 'extended_response' && q.calculator_allowed === false
-)
-if (vceExam1.length) {
-  const marks = vceExam1.reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
-  if (vceExam1.length !== 9) warn(`VCE Exam 1 has ${vceExam1.length} questions; the real paper has 9`)
-  if (marks !== 40) warn(`VCE Exam 1 totals ${marks} marks; the real paper is 40`)
-}
-
-// Exam 2 is CAS-permitted: Section A is 20 one-mark multiple choice, Section B
-// is 4 extended-response questions worth 60 marks. Section A also uses five
-// options, unlike every NAPLAN question in the bank, which uses four.
-const vceYear12 = QUESTION_BANK.filter(q => isMethods(q) && q.year_level === 'year_12' && q.calculator_allowed === true)
-const vceSectionA = vceYear12.filter(q => q.format !== 'extended_response')
-const vceSectionB = vceYear12.filter(q => q.format === 'extended_response')
-if (vceSectionA.length || vceSectionB.length) {
-  if (vceSectionA.length !== 20) warn(`VCE Exam 2 Section A has ${vceSectionA.length} questions; the real paper has 20`)
-  const aMarks = vceSectionA.reduce((sum, q) => sum + (q.marks ?? 0), 0)
-  if (aMarks !== 20) warn(`VCE Exam 2 Section A totals ${aMarks} marks; the real paper is 20 (1 mark each)`)
-  for (const q of vceSectionA) {
-    if (q.options && q.options.length !== 5) {
-      err(`VCE Exam 2 Section A question has ${q.options.length} options; VCAA multiple choice offers five (A-E)`, q.id)
-    }
+const bySet = qs => {
+  const sets = new Map()
+  for (const q of qs) {
+    const set = q.practice_set ?? 1
+    if (!sets.has(set)) sets.set(set, [])
+    sets.get(set).push(q)
   }
-  if (vceSectionB.length !== 4) warn(`VCE Exam 2 Section B has ${vceSectionB.length} questions; the real paper has 4`)
-  const bMarks = vceSectionB.reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
-  if (bMarks !== 60) warn(`VCE Exam 2 Section B totals ${bMarks} marks; the real paper is 60`)
+  return [...sets].sort(([a], [b]) => a - b)
+}
+for (const [set, methods] of bySet(QUESTION_BANK.filter(q => isMethods(q) && q.year_level === 'year_12'))) {
+  const tag = `Methods set ${set}`
+  const vceExam1 = methods.filter(q => q.format === 'extended_response' && q.calculator_allowed === false)
+  if (vceExam1.length) {
+    const marks = vceExam1.reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
+    if (vceExam1.length !== 9) warn(`${tag}: Exam 1 has ${vceExam1.length} questions; the real paper has 9`)
+    if (marks !== 40) warn(`${tag}: Exam 1 totals ${marks} marks; the real paper is 40`)
+  }
+
+  // Exam 2 is CAS-permitted: Section A is 20 one-mark multiple choice, Section B
+  // is 4 extended-response questions worth 60 marks. Section A also uses five
+  // options, unlike every NAPLAN question in the bank, which uses four.
+  const vceYear12 = methods.filter(q => q.calculator_allowed === true)
+  const vceSectionA = vceYear12.filter(q => q.format !== 'extended_response')
+  const vceSectionB = vceYear12.filter(q => q.format === 'extended_response')
+  if (vceSectionA.length || vceSectionB.length) {
+    if (vceSectionA.length !== 20) warn(`${tag}: Exam 2 Section A has ${vceSectionA.length} questions; the real paper has 20`)
+    const aMarks = vceSectionA.reduce((sum, q) => sum + (q.marks ?? 0), 0)
+    if (aMarks !== 20) warn(`${tag}: Exam 2 Section A totals ${aMarks} marks; the real paper is 20 (1 mark each)`)
+    for (const q of vceSectionA) {
+      if (q.options && q.options.length !== 5) {
+        err(`VCE Exam 2 Section A question has ${q.options.length} options; VCAA multiple choice offers five (A-E)`, q.id)
+      }
+    }
+    if (vceSectionB.length !== 4) warn(`${tag}: Exam 2 Section B has ${vceSectionB.length} questions; the real paper has 4`)
+    const bMarks = vceSectionB.reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
+    if (bMarks !== 60) warn(`${tag}: Exam 2 Section B totals ${bMarks} marks; the real paper is 60`)
+  }
 }
 
 // ─── 9. Numeracy question mix ────────────────────────────────────────────────
@@ -420,16 +433,29 @@ for (const q of QUESTION_BANK) {
   }
 }
 
+// ─── A literal "\n" in printed text ──────────────────────────────────────────
+// An over-escaped newline in the source prints as the two characters \ and n
+// instead of a line break. It has slipped in through scripted edits, and no
+// type check can see it.
+const LITERAL_NEWLINE = String.fromCharCode(92) + 'n'
+for (const q of QUESTION_BANK) {
+  const texts = [q.question_text, q.explanation, ...(q.options ?? []), ...(q.parts ?? []).flatMap(p => [p.prompt, p.expected_answer, p.explanation])]
+  if (texts.some(t => typeof t === 'string' && t.includes(LITERAL_NEWLINE))) {
+    err('text contains a literal backslash-n, which prints as "\\n" instead of a line break', q.id)
+  }
+}
+
 // ─── 10. General Mathematics Unit 3 & 4 paper structure ──────────────────────
 // VCAA's published specifications mandate the split between the four content
 // areas, so these are not style preferences — a paper that misses them is not
 // the exam it claims to be practice for. Exam 1 is 40 one-mark multiple choice
 // (16/8/8/8 by area); Exam 2 is 60 marks of extended response (24/12/12/12).
+// Checked per practice set, like Methods above.
 const GM_EXAM1_QUESTIONS = { gm_data_analysis: 16, gm_financial: 8, gm_matrices: 8, gm_networks: 8 }
 const GM_EXAM2_MARKS = { gm_data_analysis: 24, gm_financial: 12, gm_matrices: 12, gm_networks: 12 }
 
-const gmYear12 = QUESTION_BANK.filter(q => q.year_level === 'year_12' && q.topic.startsWith('gm_'))
-if (gmYear12.length) {
+for (const [set, gmYear12] of bySet(QUESTION_BANK.filter(q => q.year_level === 'year_12' && q.topic.startsWith('gm_')))) {
+  const tag = `General Maths set ${set}`
   const gmExam1 = gmYear12.filter(q => (q.format ?? 'multiple_choice') === 'multiple_choice')
   const gmExam2 = gmYear12.filter(q => q.format === 'extended_response')
 
@@ -451,10 +477,10 @@ if (gmYear12.length) {
   // Only check the split once a paper looks complete — a half-authored area
   // should not produce four warnings on every run while it is being written.
   if (gmExam1.length) {
-    if (gmExam1.length !== 40) warn(`General Maths Exam 1 has ${gmExam1.length} questions; the specifications require 40`)
+    if (gmExam1.length !== 40) warn(`${tag}: Exam 1 has ${gmExam1.length} questions; the specifications require 40`)
     for (const [topic, want] of Object.entries(GM_EXAM1_QUESTIONS)) {
       const got = gmExam1.filter(q => q.topic === topic).length
-      if (got !== want) warn(`General Maths Exam 1 has ${got} ${topic} questions; the specifications require ${want}`)
+      if (got !== want) warn(`${tag}: Exam 1 has ${got} ${topic} questions; the specifications require ${want}`)
     }
   }
   if (gmExam2.length) {
@@ -462,10 +488,10 @@ if (gmYear12.length) {
       .filter(q => q.topic === topic)
       .reduce((sum, q) => sum + q.parts.reduce((t, p) => t + p.marks, 0), 0)
     const total = Object.keys(GM_EXAM2_MARKS).reduce((sum, t) => sum + marksFor(t), 0)
-    if (total !== 60) warn(`General Maths Exam 2 totals ${total} marks; the specifications require 60`)
+    if (total !== 60) warn(`${tag}: Exam 2 totals ${total} marks; the specifications require 60`)
     for (const [topic, want] of Object.entries(GM_EXAM2_MARKS)) {
       const got = marksFor(topic)
-      if (got !== want) warn(`General Maths Exam 2 allocates ${got} marks to ${topic}; the specifications require ${want}`)
+      if (got !== want) warn(`${tag}: Exam 2 allocates ${got} marks to ${topic}; the specifications require ${want}`)
     }
   }
 }

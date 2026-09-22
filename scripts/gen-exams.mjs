@@ -53,7 +53,9 @@ const GRADE_LABEL = {
   year_11: 'Unit 1 & 2',
 }
 const EXAM_SIZE = 10
-const EXAM_COUNT = { general_maths: 5, maths_methods: 5 } // default 3 otherwise
+// How many papers to try for. Each is only published while it stays mostly new
+// (MAX_REPEAT_SHARE), so these are ceilings, not promises: a thin pool yields fewer.
+const EXAM_COUNT = { general_maths: 5, maths_methods: 5, math: 4 } // default 3 otherwise
 const NAPLAN_SUBJECTS = new Set(['math', 'english'])
 // Years 10 is not a NAPLAN year — NAPLAN is sat at 3, 5, 7 and 9 — but every
 // school year uses NAPLAN's paper format as the house standard, pitched at the
@@ -70,6 +72,21 @@ const SECTION_SIZE = 30
 // thinner than this is a sample, not an exam, and shipping one next to a full
 // paper at the same price is how a catalogue loses trust.
 const MIN_SELLABLE_SECTION = 20
+
+// The most of a paid paper that may repeat questions from earlier papers in the
+// same subject and year level. The pickers allow any question into two papers,
+// and with small pools that quietly produced premium papers that were the free
+// sample again: every paid science paper was identical to its free one, and the
+// paid English papers repeated 87-98% of theirs. A customer paying for a
+// catalogue is paying for new questions, so a paper that is mostly repeats is
+// not published — the fix for a short catalogue is a bigger pool.
+const MAX_REPEAT_SHARE = 1 / 3
+
+/** Share of a paper's questions that already appeared in the given earlier papers. */
+function repeatShare(questionIds, earlierIds) {
+  if (!questionIds.length) return 0
+  return questionIds.filter(id => earlierIds.has(id)).length / questionIds.length
+}
 
 /** True when every section of a paper is long enough to be worth downloading. */
 function isSellable(exam) {
@@ -178,12 +195,25 @@ function pickBalancedNumeracy(pool, usage, count) {
   // at a time wherever the most unused picture items are left. When plain
   // items run out entirely the paper goes over half rather than coming up
   // short (the third Year 8 paper once shipped at 21 questions a session).
-  const pictures = Object.fromEntries(strands.map(s => [s, Math.max(0, quota[s] - plainOf[s].length)]))
+  //
+  // Only unused items count as available here. Counting items already in an
+  // earlier paper let a strand fill its plain share with repeats while fresh
+  // picture items sat unused, which made later papers fail MAX_REPEAT_SHARE with
+  // new questions still in the pool. On a fresh pool this is the same as before.
+  const fresh = qs => qs.filter(q => usage.get(q.id) === 0).length
+  const pictures = Object.fromEntries(strands.map(s => [s, Math.min(Math.max(0, quota[s] - fresh(plainOf[s])), quota[s], graphicalOf[s].length)]))
+  for (const s of strands) pictures[s] = Math.max(pictures[s], quota[s] - plainOf[s].length)
   const target = Math.ceil(count / 2)
+  // A picture is only added towards the half-graphical target when it costs no
+  // freshness: either an unused picture is left in that strand, or the strand
+  // has run out of unused plain items anyway. Once the unused pictures are gone,
+  // a later paper comes out a little under half graphical rather than filling
+  // its picture quota with questions the buyer has already seen.
   for (let total = strands.reduce((a, s) => a + pictures[s], 0); total < target; total++) {
-    const room = strands.filter(s => pictures[s] < Math.min(quota[s], graphicalOf[s].length))
+    const room = strands.filter(s => pictures[s] < Math.min(quota[s], graphicalOf[s].length)
+      && (fresh(graphicalOf[s]) > pictures[s] || fresh(plainOf[s]) < quota[s] - pictures[s]))
     if (!room.length) break
-    room.sort((a, b) => (graphicalOf[b].length - pictures[b]) - (graphicalOf[a].length - pictures[a]))
+    room.sort((a, b) => (fresh(graphicalOf[b]) - pictures[b]) - (fresh(graphicalOf[a]) - pictures[a]) || (graphicalOf[b].length - pictures[b]) - (graphicalOf[a].length - pictures[a]))
     pictures[room[0]]++
   }
 
@@ -459,9 +489,15 @@ function buildGeneralMathsUnit34Exams(subject, yearLevel, questions, examIndex) 
 const practiceExams = []
 for (const { subject, yearLevel, questions } of groups.values()) {
   if (yearLevel === 'year_12') {
-    // Only one paper's worth of content exists so far, so only one is built.
+    // Each practice set is a complete Examination 1 + Examination 2 pair, built
+    // from the questions tagged with that set. Sets are never mixed: a VCAA-style
+    // paper is balanced as a whole, and reusing a question across sets would sell
+    // the same item twice.
     const build = subject === 'general_maths' ? buildGeneralMathsUnit34Exams : buildVceUnit34Exams
-    practiceExams.push(...build(subject, yearLevel, questions, 0))
+    const sets = [...new Set(questions.map(q => q.practice_set ?? 1))].sort((a, b) => a - b)
+    for (const set of sets) {
+      practiceExams.push(...build(subject, yearLevel, questions.filter(q => (q.practice_set ?? 1) === set), set - 1))
+    }
     continue
   }
   if (NAPLAN_SUBJECTS.has(subject) && NAPLAN_GRADES.has(yearLevel)) {
@@ -471,6 +507,7 @@ for (const { subject, yearLevel, questions } of groups.values()) {
     }
     const usage = new Map(questions.map(q => [q.id, 0]))
     const examCount = EXAM_COUNT[subject] ?? 3
+    const published = new Set()
     for (let i = 0; i < examCount; i++) {
       const exam = buildNaplanExam(subject, yearLevel, questionsByTopic, usage, i)
       // Stop as soon as the pool can no longer fill a real paper. Building a
@@ -478,6 +515,9 @@ for (const { subject, yearLevel, questions } of groups.values()) {
       // with a two-question Reading section, sold for the same price as the
       // full ones. Two real papers is a smaller catalogue and an honest one.
       if (!isSellable(exam)) break
+      const ids = exam.sections.flatMap(s => s.question_ids)
+      if (repeatShare(ids, published) > MAX_REPEAT_SHARE) break
+      ids.forEach(id => published.add(id))
       practiceExams.push(exam)
     }
     continue
@@ -496,7 +536,15 @@ for (const { subject, yearLevel, questions } of groups.values()) {
   )
   if (examSize < MIN_SELLABLE_SECTION) continue
   const exams = buildExams(questions, examCount, examSize)
-  exams.forEach((questionIds, i) => {
+  // Keep papers only while each is mostly new (see MAX_REPEAT_SHARE).
+  const published = new Set()
+  const fresh = []
+  for (const ids of exams) {
+    if (repeatShare(ids, published) > MAX_REPEAT_SHARE) break
+    ids.forEach(id => published.add(id))
+    fresh.push(ids)
+  }
+  fresh.forEach((questionIds, i) => {
     const gradeLabel = GRADE_LABEL[yearLevel] ?? yearLevel
     practiceExams.push({
       id: `${subject}-${yearLevel}-${i + 1}`,
