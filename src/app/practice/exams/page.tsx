@@ -4,21 +4,18 @@ import type { Route } from 'next'
 import type { PracticeExam } from '@/lib/questions/exams'
 import PracticeModeTabs from '@/components/practice/PracticeModeTabs'
 import PurchaseBanner from '@/components/practice/PurchaseBanner'
-import BuyBundleButton from '@/components/practice/BuyBundleButton'
 import ScrollActiveIntoView from '@/components/practice/ScrollActiveIntoView'
-import { BUNDLE_PRICE } from '@/lib/pricing'
-import { listEntitledYearLevels } from '@/lib/auth/getEntitlements'
-import { getUserRole } from '@/lib/auth/getUserRole'
-import { createClient } from '@/lib/supabase/server'
-import { isYearLevelSellable } from '@/lib/stripe'
+import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, isVceYear } from '@/lib/pricing'
+import { canOpen, getAccess } from '@/lib/auth/access'
+import { isPlanSellable } from '@/lib/stripe'
 import {
   CATALOGUE_TOTALS,
+  PLAN_TOTALS,
   YEAR_LEVEL_STATS,
   isYearLevel,
   shortTitle,
   subjectIcon,
   subjectLabel,
-  yearLabel,
   type YearLevelStats,
 } from '@/lib/catalogue'
 import type { YearLevel } from '@/types'
@@ -31,8 +28,8 @@ export const metadata: Metadata = {
 /**
  * The catalogue, grouped by year level.
  *
- * It used to be grouped subject-first, but the product is sold per year level
- * and parents think in year levels ("my son is in Year 5"). Grouped by subject,
+ * It used to be grouped subject-first, but parents think in year levels ("my
+ * son is in Year 5"). Grouped by subject,
  * a parent had to assemble their child's view by scrolling across three
  * sections, and the thing a purchase unlocks was never shown together in one
  * place. `?year=` narrows to one level, which is what the NAPLAN, VCE and
@@ -41,28 +38,20 @@ export const metadata: Metadata = {
 export default async function ExamsPage({
   searchParams,
 }: {
-  searchParams?: { purchased?: string; year?: string }
+  searchParams?: { subscribed?: string; year?: string }
 }) {
-  // What this visitor can already download. Admins see everything unlocked so
-  // the catalogue stays inspectable in production, matching the exam detail
-  // page and the PDF routes — all three decide access the same way.
-  const [entitled, role, { data: auth }] = await Promise.all([
-    listEntitledYearLevels(),
-    getUserRole(),
-    createClient().auth.getUser(),
-  ])
-  const owned = new Set<YearLevel>(entitled)
-  const isAdmin = role === 'admin'
-  const signedIn = Boolean(auth.user)
+  // What this visitor can already download — the same rule the exam page and
+  // the PDF routes use. Admins see everything unlocked so the catalogue stays
+  // inspectable in production.
+  const access = await getAccess()
+  const unlocked = (exam: PracticeExam) => canOpen(exam, access)
+  const yearUnlocked = (s: YearLevelStats) => s.exams.every(unlocked)
+  const owned = new Set<YearLevel>(YEAR_LEVEL_STATS.filter(yearUnlocked).map(s => s.yearLevel))
+  const plansOpen = PLANS.some(p => isPlanSellable(p.id))
 
-  const unlocked = (exam: PracticeExam) => !exam.premium || isAdmin || owned.has(exam.yearLevel)
-
-  // Stripe's success_url comes back here. Validated against the real year
-  // levels rather than rendering whatever is in the query string, and only for
-  // a signed-in visitor — checkout requires an account, so anyone else reached
-  // this by typing the parameter and should not be told a payment succeeded.
-  const purchasedParam = searchParams?.purchased
-  const purchased = signedIn && isYearLevel(purchasedParam) ? purchasedParam : null
+  // Stripe's success_url for a plan comes back here. Only a signed-in visitor
+  // can have paid, so anyone else who typed the parameter sees nothing.
+  const subscribed = access.signedIn && searchParams?.subscribed === '1'
 
   const yearParam = searchParams?.year
   const selected = isYearLevel(yearParam) ? yearParam : null
@@ -75,19 +64,17 @@ export default async function ExamsPage({
         Printable practice exams, each with a separate answer key. Print it, sit it, mark it.
       </p>
 
-      {purchased && (
-        <PurchaseBanner yearLabel={yearLabel(purchased)} settled={isAdmin || owned.has(purchased)} />
-      )}
+      {subscribed && <PurchaseBanner kind="plan" settled={access.admin || Boolean(access.plan)} />}
 
       <PracticeModeTabs />
 
-      {/* The pricing sentence a visitor reads before anything else. It said
-          "{price} each" while the product is a whole-year-level bundle and a
-          third of these papers are free — the storefront contradicting the
-          checkout. */}
+      {/* The pricing sentence a visitor reads before anything else — it must
+          match what checkout actually sells. */}
       <p className="text-sm text-gray-500 mb-6">
-        One payment of <span className="font-medium text-gray-700">{BUNDLE_PRICE}</span> unlocks every paper for a
-        year level. {CATALOGUE_TOTALS.free} sample papers are free, so you can see exactly what you are buying first.{' '}
+        Every {PLAN_TOTALS.range} paper is included in a PrepNest plan, from{' '}
+        <span className="font-medium text-gray-700">{FROM_PER_MONTH} a month</span>. VCE papers are{' '}
+        {VCE_PAPER_PRICE} each. {CATALOGUE_TOTALS.free} sample papers are free, so you can see exactly what you are
+        getting first.{' '}
         <Link href={'/pricing' as Route} className="underline hover:text-gray-700">
           How pricing works
         </Link>
@@ -100,8 +87,8 @@ export default async function ExamsPage({
           <YearSection
             key={stats.yearLevel}
             stats={stats}
-            owned={isAdmin || owned.has(stats.yearLevel)}
-            sellable={isYearLevelSellable(stats.yearLevel)}
+            owned={owned.has(stats.yearLevel)}
+            plansOpen={plansOpen}
             unlocked={unlocked}
             focused={Boolean(selected)}
           />
@@ -142,13 +129,13 @@ function YearChips({ selected, owned }: { selected: YearLevel | null; owned: Set
 function YearSection({
   stats,
   owned,
-  sellable,
+  plansOpen,
   unlocked,
   focused,
 }: {
   stats: YearLevelStats
   owned: boolean
-  sellable: boolean
+  plansOpen: boolean
   unlocked: (exam: PracticeExam) => boolean
   focused: boolean
 }) {
@@ -157,6 +144,7 @@ function YearSection({
     exams: stats.exams.filter(e => e.subject === subject),
   }))
   const locked = stats.exams.filter(e => !unlocked(e)).length
+  const vce = isVceYear(stats.yearLevel)
 
   return (
     <section aria-labelledby={`year-${stats.yearLevel}`}>
@@ -178,14 +166,20 @@ function YearSection({
         <div className="sm:w-64">
           {owned ? (
             <p className="text-sm text-teal-600 sm:text-right">✓ Every {stats.label} paper is unlocked</p>
-          ) : locked > 0 ? (
-            <BuyBundleButton
-              yearLevel={stats.yearLevel}
-              yearLabel={stats.label}
-              sellable={sellable}
-              variant={focused ? 'primary' : 'secondary'}
-            />
-          ) : null}
+          ) : locked === 0 ? null : vce ? (
+            <p className="text-sm text-gray-500 sm:text-right">
+              {VCE_PAPER_PRICE} per paper — open a paper to buy it
+            </p>
+          ) : plansOpen ? (
+            <Link
+              href={'/pricing' as Route}
+              className={`${focused ? 'btn-primary' : 'btn-secondary'} w-full block text-center text-sm`}
+            >
+              Unlock with a plan — from {FROM_PER_MONTH}/mo
+            </Link>
+          ) : (
+            <p className="text-xs text-gray-400 sm:text-right">Plans open soon.</p>
+          )}
         </div>
       </div>
 
@@ -208,6 +202,7 @@ function YearSection({
                       {shortTitle(exam)}
                       {!exam.premium && <span className="text-xs text-teal-600">Free</span>}
                       {exam.premium && open && <span className="text-xs text-teal-600">Unlocked</span>}
+                      {exam.premium && !open && vce && <span className="text-xs text-gray-400">{VCE_PAPER_PRICE}</span>}
                     </Link>
                   </li>
                 )

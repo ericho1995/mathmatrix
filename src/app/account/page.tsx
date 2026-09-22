@@ -7,6 +7,10 @@ import { queryFailed } from '@/lib/supabase/logError'
 import { GRADES } from '@/lib/curriculum'
 import { statsFor, subjectLabel, yearLabel, isYearLevel } from '@/lib/catalogue'
 import { SUPPORT_EMAIL } from '@/lib/site'
+import { getAccess } from '@/lib/auth/access'
+import { FROM_PER_MONTH } from '@/lib/pricing'
+import { PRACTICE_EXAMS } from '@/lib/questions/exams'
+import { PLAN_TOTALS } from '@/lib/catalogue'
 import type { YearLevel } from '@/types'
 
 export const metadata: Metadata = {
@@ -22,22 +26,31 @@ export const metadata: Metadata = {
  * remember which year level they bought, find it in the catalogue, and infer
  * from missing padlocks that it had worked.
  */
-export default async function AccountPage() {
+export default async function AccountPage({ searchParams }: { searchParams?: { billing?: string } }) {
   const supabase = createClient()
   const {
     data: { user },
   } = await supabase.auth.getUser()
   if (!user) redirect('/auth/login?next=/account')
 
-  const [{ data: profile, error: profileError }, { data: rows, error: entitlementsError }] = await Promise.all([
+  const [{ data: profile, error: profileError }, { data: rows, error: entitlementsError }, access] = await Promise.all([
     supabase.from('profiles').select('full_name, role').eq('id', user.id).single(),
     supabase.from('entitlements').select('year_level, created_at').eq('user_id', user.id).order('created_at'),
+    getAccess(),
   ])
   queryFailed('account.profile', profileError, { userId: user.id })
   // Kept distinct from "you have bought nothing": telling a paying customer
-  // they own no year levels because a read failed is the one message on this
-  // page that must never be wrong.
-  const purchasesFailed = queryFailed('account.entitlements', entitlementsError, { userId: user.id })
+  // they own nothing because a read failed is the one message on this page
+  // that must never be wrong.
+  const purchasesFailed = queryFailed('account.entitlements', entitlementsError, { userId: user.id }) || access.failed
+  const plan = access.plan
+  const vcePapers = PRACTICE_EXAMS.filter(e => access.papers.has(e.id))
+  const billingNotice =
+    searchParams?.billing === 'none'
+      ? 'There is no subscription on this account to manage.'
+      : searchParams?.billing === 'unavailable'
+        ? 'Billing management is unavailable right now — please try again shortly, or email us.'
+        : null
 
   const role = (profile?.role as 'student' | 'parent' | 'admin' | undefined) ?? 'student'
 
@@ -76,31 +89,90 @@ export default async function AccountPage() {
         </dl>
       </section>
 
+      {billingNotice && (
+        <div className="card mb-6 border-amber-400 bg-amber-50">
+          <p className="text-sm text-gray-800">{billingNotice}</p>
+        </div>
+      )}
+
       <section className="card mb-6">
-        <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">Your year levels</h2>
+        <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">Your plan</h2>
+        {purchasesFailed ? (
+          <p className="text-sm text-gray-600">
+            We couldn&apos;t load your plan just now. Nothing has been lost — please refresh in a moment.
+          </p>
+        ) : role === 'admin' ? (
+          <p className="text-sm text-gray-600">Admin accounts can open every paper without a plan.</p>
+        ) : plan ? (
+          <>
+            <p className="text-sm font-medium">
+              {plan.plan?.name ?? 'PrepNest'} plan
+              {plan.status === 'past_due' && <span className="text-red-600 font-normal"> · payment overdue</span>}
+            </p>
+            <p className="text-xs text-gray-400 mt-1 mb-4">
+              Every {PLAN_TOTALS.range} paper ·{' '}
+              {plan.cancelAtPeriodEnd
+                ? `cancelled — access ends ${formatDate(plan.periodEnd)}`
+                : `renews ${formatDate(plan.periodEnd)}`}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/practice/exams" className="btn-primary text-sm text-center">
+                Open papers
+              </Link>
+              <form action="/api/billing/portal" method="post">
+                <button type="submit" className="btn-secondary text-sm w-full">
+                  {plan.cancelAtPeriodEnd ? 'Restart or change plan' : 'Manage or cancel plan'}
+                </button>
+              </form>
+            </div>
+            <p className="text-xs text-gray-400 mt-3">
+              Change plan, update your card, download invoices or cancel — handled securely by Stripe.
+            </p>
+          </>
+        ) : (
+          <>
+            <p className="text-sm text-gray-600 mb-4">
+              You don&apos;t have a plan. A plan unlocks every {PLAN_TOTALS.range} paper, from {FROM_PER_MONTH} a
+              month. The free sample papers are open to everyone.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href={'/pricing' as Route} className="btn-primary text-sm text-center">
+                See plans
+              </Link>
+              <Link
+                href={(studentYear ? `/practice/exams?year=${studentYear}` : '/practice/exams') as Route}
+                className="btn-secondary text-sm text-center"
+              >
+                {studentYear ? `Browse ${yearLabel(studentYear)} papers` : 'Browse exam papers'}
+              </Link>
+            </div>
+          </>
+        )}
+      </section>
+
+      {vcePapers.length > 0 && (
+        <section className="card mb-6">
+          <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">Your VCE papers</h2>
+          <ul className="flex flex-col divide-y divide-gray-100">
+            {vcePapers.map(e => (
+              <li key={e.id} className="py-3 first:pt-0 last:pb-0 flex items-center justify-between gap-4">
+                <p className="text-sm min-w-0 truncate">{e.title}</p>
+                <Link href={`/practice/exams/${e.id}` as Route} className="btn-secondary text-sm py-2 px-4 shrink-0">
+                  Open
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {purchases.length > 0 && !purchasesFailed && (
+      <section className="card mb-6">
+        <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">Year levels you bought</h2>
         {purchasesFailed ? (
           <p className="text-sm text-gray-600">
             We couldn&apos;t load your purchases just now. Nothing has been lost — please refresh in a moment.
           </p>
-        ) : role === 'admin' ? (
-          <p className="text-sm text-gray-600">Admin accounts can open every paper without buying.</p>
-        ) : purchases.length === 0 ? (
-          <>
-            <p className="text-sm text-gray-600 mb-4">
-              You haven&apos;t unlocked a year level yet. The free sample papers are open to everyone.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href={(studentYear ? `/practice/exams?year=${studentYear}` : '/practice/exams') as Route}
-                className="btn-primary text-sm text-center"
-              >
-                {studentYear ? `Browse ${yearLabel(studentYear)} papers` : 'Browse exam papers'}
-              </Link>
-              <Link href={'/pricing' as Route} className="btn-secondary text-sm text-center">
-                How pricing works
-              </Link>
-            </div>
-          </>
         ) : (
           <ul className="flex flex-col divide-y divide-gray-100">
             {purchases.map(p => {
@@ -125,10 +197,11 @@ export default async function AccountPage() {
             })}
           </ul>
         )}
-        {!purchasesFailed && purchases.length > 0 && (
-          <p className="text-xs text-gray-400 mt-4">Receipts are emailed by Stripe when you pay.</p>
-        )}
+        <p className="text-xs text-gray-400 mt-4">Bought under the earlier year-level pricing — yours to keep.</p>
       </section>
+      )}
+
+      <p className="text-xs text-gray-400 mb-6">Receipts are emailed by Stripe whenever you pay.</p>
 
       <section className="card mb-6">
         <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">Shortcuts</h2>

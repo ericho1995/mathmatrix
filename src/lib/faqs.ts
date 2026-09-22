@@ -1,5 +1,5 @@
-import { BUNDLE_PRICE, REFUND_DAYS } from '@/lib/pricing'
-import { CATALOGUE_TOTALS } from '@/lib/catalogue'
+import { FROM_PER_MONTH, MONTHLY_PRICE, PLANS, REFUND_DAYS, VCE_PAPER_PRICE } from '@/lib/pricing'
+import { CATALOGUE_TOTALS, PLAN_TOTALS } from '@/lib/catalogue'
 
 /**
  * Every FAQ answer on the site, in one place.
@@ -9,9 +9,10 @@ import { CATALOGUE_TOTALS } from '@/lib/catalogue'
  * another — the homepage FAQ was still describing XP and streaks as the
  * product after the product had become printable papers.
  *
- * Rule for editing: every answer must be true of the code as it stands. Refund
- * terms come from REFUND_DAYS, the same value the terms page uses. No promise
- * that future papers are included
+ * Rule for editing: every answer must be true of the code as it stands. Prices
+ * and the refund window come from lib/pricing, the same values the pricing and
+ * terms pages use. New papers joining the plan at no extra cost is a promise
+ * the owner made (2026-09-22). No other commercial promise
  * (a commercial commitment, not a UI line), no payment methods Stripe has not
  * been configured to offer.
  */
@@ -74,18 +75,23 @@ export const FAQS: Faq[] = [
     category: 'buying',
     home: true,
     q: 'How much does it cost?',
-    a: `${BUNDLE_PRICE} once unlocks every paper for one year level, across every subject at that level. It is a one-off payment, not a subscription. ${CATALOGUE_TOTALS.free} papers — one per subject at every year level — are free, so you can see exactly what you are buying first.`,
+    a: `A plan unlocks every ${PLAN_TOTALS.range} paper — NAPLAN and school years, every subject, every year level: ${PLANS.map(p => `$${p.priceAud} for ${p.name}`).join(', ')}, from ${FROM_PER_MONTH} a month. VCE papers are ${VCE_PAPER_PRICE} each, bought once. ${CATALOGUE_TOTALS.free} papers — one per subject at every year level — are free, so you can see exactly what you are getting first.`,
   },
   {
     category: 'buying',
     q: 'Is it a subscription?',
-    a: 'No. You pay once for a year level and there is nothing to cancel.',
+    a: `Plans are. They renew automatically at the same price — ${MONTHLY_PRICE} a month, or every 3 or 12 months on the longer plans — until you cancel. VCE papers are one-off purchases with nothing to cancel.`,
+  },
+  {
+    category: 'buying',
+    q: 'How do I cancel?',
+    a: 'From your account page: choose "Manage or cancel plan" and cancel in one click. There is no phone call or form. You keep access until the end of the period you have already paid for, and you are not charged again.',
   },
   {
     category: 'buying',
     home: true,
     q: 'Can I get a refund?',
-    a: `Yes. If you change your mind within ${REFUND_DAYS} days of buying, email us from the address you signed up with and we will refund you in full — no questions asked. The free sample paper at every year level is there so you can check first.`,
+    a: `Yes. If you change your mind within ${REFUND_DAYS} days of your first payment for a plan, or of buying a VCE paper, email us from the address you signed up with and we will refund you in full — no questions asked. The free sample paper at every year level is there so you can check first.`,
   },
   {
     category: 'buying',
@@ -105,7 +111,13 @@ export const FAQS: Faq[] = [
   {
     category: 'buying',
     q: 'My children are in different year levels.',
-    a: 'Each year level is a separate purchase, so buy the year level for each child. One account can hold several.',
+    a: `One plan covers them all: it unlocks every ${PLAN_TOTALS.range} paper, whatever year each child is in.`,
+  },
+  {
+    category: 'buying',
+    home: true,
+    q: 'Will there be more papers?',
+    a: 'Yes. New papers are added throughout the year, and every new paper for Grade 3 to Year 10 is included in your plan at no extra cost as soon as it is published.',
   },
 
   // ── Accounts ──────────────────────────────────────────────────────────────

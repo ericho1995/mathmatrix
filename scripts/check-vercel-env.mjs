@@ -24,11 +24,10 @@ const argv = process.argv.slice(2)
 const envFlag = argv.indexOf('--environment')
 const ENVIRONMENT = envFlag === -1 ? 'production' : argv[envFlag + 1]
 
-const PRICE_VARS = [
-  'STRIPE_PRICE_GRADE_3', 'STRIPE_PRICE_GRADE_4', 'STRIPE_PRICE_GRADE_5', 'STRIPE_PRICE_GRADE_6',
-  'STRIPE_PRICE_YEAR_7', 'STRIPE_PRICE_YEAR_8', 'STRIPE_PRICE_YEAR_9', 'STRIPE_PRICE_YEAR_10',
-  'STRIPE_PRICE_YEAR_11',
-]
+// The three plan prices (recurring) and the one VCE paper price (one-off).
+// The old STRIPE_PRICE_<YEAR_LEVEL> variables from the $29 bundle are no longer
+// read and can be deleted from Vercel.
+const PRICE_VARS = ['STRIPE_PRICE_PLAN_MONTH', 'STRIPE_PRICE_PLAN_QUARTER', 'STRIPE_PRICE_PLAN_YEAR', 'STRIPE_PRICE_VCE_PAPER']
 
 const dir = mkdtempSync(join(tmpdir(), 'prepnest-env-'))
 const file = join(dir, '.env.check')
@@ -102,8 +101,8 @@ check('SUPABASE_SERVICE_ROLE_KEY', v => {
   return 'does not look like a Supabase service_role key'
 })
 
-// Every price must be distinct: two year levels sharing one price id means one
-// of them was pasted twice and a year level is selling the wrong product.
+// Every price must be distinct: two variables sharing one price id means one
+// of them was pasted twice and a plan is selling the wrong product.
 const priceValues = PRICE_VARS.map(n => vars[n]).filter(v => v && !/^\[sensitive\]$/i.test(v))
 const duplicates = priceValues.length !== new Set(priceValues).size
 
@@ -112,7 +111,7 @@ for (const [name, ok, note] of results) {
   const mark = ok === true ? '✓' : ok === null ? '?' : '✗'
   console.log(`  ${mark} ${name.padEnd(28)} ${note}`)
 }
-if (duplicates) console.log('\n  ✗ Two or more year levels share the same price id — one was pasted twice.')
+if (duplicates) console.log('\n  ✗ Two or more prices share the same id — one was pasted twice.')
 if (keyMode) console.log(`\n  Stripe is in ${keyMode.toUpperCase()} mode.`)
 if (results.some(([, ok]) => ok === null)) {
   console.log('\n  ? Sensitive values can only be confirmed present, not read back. The test purchase (runbook Part D) is what proves them right.')

@@ -1,40 +1,40 @@
 import Link from 'next/link'
 import type { Route } from 'next'
-import { BUNDLE_PRICE } from '@/lib/pricing'
+import { FROM_PER_MONTH, REFUND_DAYS, VCE_PAPER_PRICE } from '@/lib/pricing'
 import type { PaperSummary } from '@/lib/catalogue'
-import type { YearLevel } from '@/types'
-import BuyBundleButton from './BuyBundleButton'
+import CheckoutButton from './CheckoutButton'
 import PaperFacts from './PaperFacts'
 
 /**
  * The screen between a visitor and a paid paper.
  *
  * It answers the three questions in the order a parent asks them: what is in
- * this paper, what does the $29 actually cover, and can I try one first. The
+ * this paper, what does paying actually get me, and can I try one first. The
  * free sample link matters most — it is the difference between "pay to find
  * out" and "you have already seen what you are buying".
  *
- * Deliberately makes no promise about papers added later. The entitlement
- * would cover them as built, but "future papers included" is a commercial
- * commitment for the owner to make, not a line of UI copy.
+ * Grade 3 – Year 10 papers come with a plan, so this points at the plan
+ * choice. VCE papers are sold one at a time, so this is the checkout.
  */
 export default function PremiumExamLock({
+  examId,
   title,
-  yearLevel,
   yearLabel,
   summary,
+  vce,
   sellable,
-  bundle,
+  plan,
   freeSample,
   backHref,
 }: {
+  examId: string
   title: string
-  yearLevel: YearLevel
   yearLabel: string
   summary?: PaperSummary
+  vce: boolean
   sellable: boolean
-  /** What one purchase unlocks at this year level. */
-  bundle: { papers: number; subjects: string[] }
+  /** What a plan unlocks, for the non-VCE message. */
+  plan: { range: string; papers: number }
   /** The free paper in the same subject and year, when there is one. */
   freeSample?: { id: string; title: string; subjectLabel: string }
   backHref?: Route
@@ -46,13 +46,27 @@ export default function PremiumExamLock({
       </div>
       <h1 className="text-2xl font-medium tracking-tight mb-2">{title}</h1>
       <p className="text-gray-500 mb-6">
-        Part of the {yearLabel} bundle — {bundle.papers} papers across {bundle.subjects.join(', ')}, each with a
-        printable exam and a separate answer key, for {BUNDLE_PRICE} once.
+        {vce
+          ? `Buy this paper for ${VCE_PAPER_PRICE} — the printable exam and its full answer key, yours to keep.`
+          : `Included with a PrepNest plan: every ${plan.range} paper (${plan.papers} today, more on the way), each with a printable answer key, from ${FROM_PER_MONTH} a month.`}
       </p>
 
       {summary && <PaperFacts summary={summary} />}
 
-      <BuyBundleButton yearLevel={yearLevel} yearLabel={yearLabel} sellable={sellable} className="mb-3" />
+      {vce ? (
+        <CheckoutButton
+          purchase={{ examId }}
+          label={`Buy this paper — ${VCE_PAPER_PRICE}`}
+          sellable={sellable}
+          className="mb-3"
+        />
+      ) : sellable ? (
+        <Link href={'/pricing' as Route} className="btn-primary w-full block text-center mb-3">
+          See plans — from {FROM_PER_MONTH} a month
+        </Link>
+      ) : (
+        <p className="text-xs text-gray-400 mb-3">Plans open soon. The free sample papers are available now.</p>
+      )}
 
       {freeSample && (
         <Link
@@ -64,7 +78,7 @@ export default function PremiumExamLock({
       )}
 
       <p className="text-xs text-gray-400 mb-6">
-        One payment — no subscription.{' '}
+        {vce ? 'One-off payment — no subscription.' : `Cancel anytime. Full refund within ${REFUND_DAYS} days.`}{' '}
         <Link href={'/pricing' as Route} className="underline hover:text-gray-600">
           How pricing works
         </Link>

@@ -122,9 +122,13 @@ const MIGRATIONS = [
     file: 'schema_entitlements.sql',
     checks: [() => tableExists('entitlements')],
   },
+  {
+    file: 'schema_subscriptions.sql',
+    checks: [() => tableExists('subscriptions'), () => tableExists('paper_purchases')],
+  },
 ]
 
-const EXPECTED_QUESTIONS = 1900 // seed.sql currently carries ~1,946
+const EXPECTED_QUESTIONS = 1800 // seed.sql currently carries 1,825
 
 console.log(`\nLive project: ${URL_BASE}\n`)
 

@@ -1,6 +1,5 @@
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
-import { getUserRole } from '@/lib/auth/getUserRole'
-import { hasEntitlement } from '@/lib/auth/getEntitlements'
+import { canOpen, getAccess } from '@/lib/auth/access'
 import { paperQuestionMap } from '@/lib/exams/paperQuestions'
 import PremiumExamLock from '@/components/practice/PremiumExamLock'
 import { lockPropsFor } from '@/lib/exams/lockProps'
@@ -26,10 +25,7 @@ export default async function MarkPaperPage({ params }: { params: { id: string }
     )
   }
 
-  const allowed =
-    !exam.premium ||
-    (await getUserRole()) === 'admin' ||
-    (await hasEntitlement(exam.yearLevel))
+  const allowed = canOpen(exam, await getAccess())
 
   if (!allowed) {
     return <PremiumExamLock {...lockPropsFor(exam)} />
