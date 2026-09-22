@@ -76,7 +76,7 @@ export default function ExamDownload({
           <li>Print the exam paper. Keep the answer key somewhere else.</li>
           <li>Sit it in one go, timed, without notes — the way the real test runs.</li>
           <li>Mark it together afterwards using the answer key.</li>
-          <li>Enter the marks below to see which topics to practise next.</li>
+          <li>Enter the marks below to see which topics to practice next.</li>
         </ol>
       </div>
 

@@ -11,7 +11,7 @@ export const SUBJECTS: Subject[] = [
   { slug: 'science', label: 'Science', tagline: 'Life, physical & earth science',        icon: '🔬', color: '#BA7517' },
 ]
 
-// Selective subjects — VCE-style Year 11-12 electives, practised separately
+// Selective subjects — VCE-style Year 11-12 electives, practiced separately
 // from the general Grade 5-10 subjects above.
 export const SELECTIVE_SUBJECTS: Subject[] = [
   { slug: 'chemistry',        label: 'Chemistry',          tagline: 'Atomic structure, reactions',      icon: '⚗️', color: '#0F6E56', selective: true },

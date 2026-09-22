@@ -181,7 +181,7 @@ export default function QuizRunner({
           const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10)
           let streak = studentProfile.streak_days
           if (studentProfile.last_active === today) {
-            // already practised today, streak unchanged
+            // already practiced today, streak unchanged
           } else if (studentProfile.last_active === yesterday) {
             streak += 1
           } else {

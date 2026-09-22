@@ -23,8 +23,8 @@ const NAPLAN_SUBJECTS = new Set(['math', 'english'])
  * The NAPLAN hub — the page a parent lands on from "NAPLAN practice test".
  *
  * Honest about coverage on purpose: NAPLAN has four domains and PrepNest papers
- * cover three. A parent who buys expecting Writing and finds none asks for a
- * refund, so the gap is stated where they decide, not discovered afterwards.
+ * cover three. A parent who purchases expecting Writing and finds none feels
+ * misled, so the gap is stated where they decide, not discovered afterwards.
  */
 export default function NaplanPage() {
   const naplan = nextNaplanWindow()
@@ -136,7 +136,7 @@ export default function NaplanPage() {
               where your child is, rather than guessing.
             </li>
             <li>
-              <span className="font-medium text-gray-900">Practise the gaps, not the whole test.</span> Marking a
+              <span className="font-medium text-gray-900">Practice the gaps, not the whole test.</span> Marking a
               paper on PrepNest shows which topics lost marks and links straight to practice on those topics.
             </li>
             <li>

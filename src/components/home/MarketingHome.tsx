@@ -166,7 +166,7 @@ export default function MarketingHome() {
               },
               {
                 step: '4',
-                title: 'Practise the gaps',
+                title: 'Practice the gaps',
                 body: 'See which topics lost marks and jump straight into practice on exactly those.',
               },
             ].map(s => (

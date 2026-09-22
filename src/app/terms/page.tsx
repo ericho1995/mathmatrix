@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { PLANS, REFUND_DAYS, VCE_PAPER_PRICE } from '@/lib/pricing'
+import { PLANS, VCE_PAPER_PRICE } from '@/lib/pricing'
 import { PLAN_TOTALS } from '@/lib/catalogue'
 import { SUPPORT_EMAIL } from '@/lib/site'
 
@@ -22,7 +22,7 @@ export default function TermsPage() {
 
       <div className="flex flex-col gap-6 text-sm text-gray-600 leading-relaxed">
         <p>
-          By creating a PrepNest account, buying papers, or using the practice tools at prepnest.com.au, you
+          By creating a PrepNest account, purchasing papers, or using the practice tools at prepnest.com.au, you
           agree to these terms. If you&apos;re under 18, a parent or guardian should read these terms with you,
           and purchases should be made by a parent or guardian.
         </p>
@@ -65,7 +65,7 @@ export default function TermsPage() {
           <h2 className="text-base font-medium text-gray-900 mb-2">VCE papers</h2>
           <p>
             Year 11 and 12 (VCE) papers are sold individually for {VCE_PAPER_PRICE} each. A VCE paper is a one-off
-            purchase: it is attached to the account that bought it and does not expire.
+            purchase: it is attached to the account that purchased it and does not expire.
           </p>
         </section>
 
@@ -78,18 +78,8 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-medium text-gray-900 mb-2">Refunds</h2>
-          <p>
-            If you change your mind, email us within {REFUND_DAYS} days of your first payment for a plan, or of
-            buying a VCE paper, from the address on your account, and we will refund you in full — whether or not you
-            have downloaded any papers. Renewals are not refunded for change of mind, so cancel before the renewal
-            date if you don&apos;t want the next period. We will always fix or refund a purchase that doesn&apos;t
-            work as described.
-          </p>
-          <p className="mt-2">
-            Nothing in these terms limits your rights under the Australian Consumer Law, including your rights to
-            a refund or remedy where a product has a major problem.
-          </p>
+          <h2 className="text-base font-medium text-gray-900 mb-2">Your rights</h2>
+          <p>Nothing in these terms limits your rights under the Australian Consumer Law.</p>
         </section>
 
         <section>
@@ -153,7 +143,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-base font-medium text-gray-900 mb-2">Contact</h2>
           <p>
-            Questions about these terms, or a refund request: <Contact />.
+            Questions about these terms: <Contact />.
           </p>
         </section>
       </div>

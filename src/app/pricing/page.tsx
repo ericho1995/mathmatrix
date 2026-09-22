@@ -3,7 +3,7 @@ import Link from 'next/link'
 import type { Route } from 'next'
 import FAQAccordion from '@/components/home/FAQAccordion'
 import PlanCards from '@/components/pricing/PlanCards'
-import { FROM_PER_MONTH, REFUND_DAYS, VCE_PAPER_PRICE } from '@/lib/pricing'
+import { FROM_PER_MONTH, VCE_PAPER_PRICE } from '@/lib/pricing'
 import { CATALOGUE_TOTALS, PLAN_STATS, PLAN_TOTALS, VCE_STATS, VCE_TOTALS, subjectLabel } from '@/lib/catalogue'
 import { getAccess } from '@/lib/auth/access'
 import { faqsIn } from '@/lib/faqs'
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
  *
  * Every number is derived at render time — prices and savings from
  * lib/pricing, paper counts from the catalogue — so the page cannot quietly
- * overstate what a plan buys. Pricing pages that promise a library and deliver
- * a handful are how a first payment turns into a refund request.
+ * overstate what a plan includes. Pricing pages that promise a library and
+ * deliver a handful are how a first customer becomes a lost one.
  */
 export default async function PricingPage() {
   const access = await getAccess()
@@ -53,8 +53,7 @@ export default async function PricingPage() {
         <PlanCards current={current} />
         <p className="text-xs text-gray-400 text-center mt-6">
           Prices in Australian dollars. Plans renew automatically at the same price until you cancel — cancel anytime
-          from your account and keep access until the end of the period you&apos;ve paid for. Changed your mind?
-          Full refund within {REFUND_DAYS} days of your first payment.
+          from your account and keep access until the end of the period you&apos;ve paid for.
         </p>
       </section>
 
@@ -69,7 +68,7 @@ export default async function PricingPage() {
             'A separate printable answer key for every paper',
             'Every child and every year level in your family, on one plan',
             'New papers as they are added, at no extra cost',
-            'Mark a paper in minutes and see which topics to practise next',
+            'Mark a paper in minutes and see which topics to practice next',
             'Parent dashboard and progress tracking by topic',
             'Cancel anytime from your account — no phone calls',
           ].map(item => (
@@ -100,7 +99,7 @@ export default async function PricingPage() {
               <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-2">VCE · Year 11 &amp; 12</p>
               <h2 className="text-2xl font-medium tracking-tight mb-2">{VCE_PAPER_PRICE} per paper, yours to keep</h2>
               <p className="text-sm text-gray-500 leading-relaxed">
-                VCE papers are bought one at a time, so a senior student pays only for the subjects they sit. Each is
+                VCE papers are purchased one at a time, so a senior student pays only for the subjects they sit. Each is
                 laid out like a VCAA exam, with reading time and a full answer key. {VCE_TOTALS.papers} papers today,{' '}
                 {VCE_TOTALS.free} of them free samples, and more on the way.
               </p>
@@ -154,7 +153,7 @@ export default async function PricingPage() {
         <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-6 text-center">
           Questions about plans and billing
         </h2>
-        <FAQAccordion items={faqsIn('buying')} />
+        <FAQAccordion items={faqsIn('purchasing')} />
         <p className="text-sm text-gray-500 text-center mt-8">
           Something else?{' '}
           <Link href={'/help' as Route} className="text-brand-600 underline">

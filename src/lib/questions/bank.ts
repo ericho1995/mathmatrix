@@ -961,10 +961,10 @@ const BANK_PART_1: BankQuestion[] = [
     topic: 'reading_comprehension',
     year_level: 'grade_4',
     difficulty: 'proficient',
-    question_text: 'Read: "Lily wanted to join the soccer team, but she practised kicking a ball alone in her backyard for weeks first." What does this show about Lily?',
+    question_text: 'Read: "Lily wanted to join the soccer team, but she practiced kicking a ball alone in her backyard for weeks first." What does this show about Lily?',
     options: ['She is not a team player', 'She gave up on her goal', 'She prepares before taking on a challenge', 'She dislikes soccer'],
     correct_index: 2,
-    explanation: 'Practising alone for weeks before joining shows Lily prepares herself before facing a new challenge.',
+    explanation: 'Practicing alone for weeks before joining shows Lily prepares herself before facing a new challenge.',
     curriculum_code: 'AC9E4LY07',
   },
   {
@@ -975,7 +975,7 @@ const BANK_PART_1: BankQuestion[] = [
     question_text: 'Read: "The librarian whispered even when the library was empty, out of habit." What does this detail suggest about the librarian?',
     options: ['The librarian is afraid of being heard', 'Years of habit shape behaviour even when it is not needed', 'The librarian dislikes silence', 'The library is never empty'],
     correct_index: 1,
-    explanation: 'Whispering out of habit, even alone, shows how a long-practised behaviour can continue automatically.',
+    explanation: 'Whispering out of habit, even alone, shows how a long-practiced behaviour can continue automatically.',
     curriculum_code: 'AC9E5LY07',
   },
   {
@@ -4450,10 +4450,10 @@ const BANK_PART_3: BankQuestion[] = [
   {
     id: 'e668e6a0-f901-4f30-8837-82f437e4b72b',
     topic: 'reading_comprehension', year_level: 'grade_5', difficulty: 'foundation',
-    question_text: '"Maria practised piano for an hour every day before her recital." What can you conclude about Maria?',
+    question_text: '"Maria practiced piano for an hour every day before her recital." What can you conclude about Maria?',
     options: ['She was a beginner', 'She skipped practice often', 'She was dedicated to improving', 'She disliked piano'],
     correct_index: 2,
-    explanation: 'Practising daily before an important event shows dedication.',
+    explanation: 'Practicing daily before an important event shows dedication.',
     curriculum_code: 'AC9E5LY02',
   },
   {
@@ -10845,7 +10845,7 @@ const BANK_PART_7: BankQuestion[] = [
     topic: 'reading_comprehension', year_level: 'grade_6', difficulty: 'advanced',
     stimulus_id: '195be416-c28e-479b-aab3-7e472fa44712',
     question_text: 'Why does the writer say the skills being taught do not depend on everybody holding the same book?',
-    options: ['Because the skills are never tested', 'Because those skills can be practised on any demanding novel', 'Because students already have those skills', 'Because teachers do not check them'],
+    options: ['Because the skills are never tested', 'Because those skills can be practiced on any demanding novel', 'Because students already have those skills', 'Because teachers do not check them'],
     correct_index: 1,
     explanation: 'The listed skills are general reading skills, so they can be developed using any sufficiently challenging text rather than one particular title.',
     curriculum_code: 'AC9E6LY05',

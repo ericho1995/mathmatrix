@@ -67,15 +67,6 @@ export function isVceYear(yearLevel: YearLevel): boolean {
   return yearLevel === 'year_11' || yearLevel === 'year_12'
 }
 
-/**
- * Change-of-mind refund window, in days from a purchase. The terms page and the
- * FAQ both read this, so the promise cannot drift between them. Offered
- * because every year level has a free sample paper: a parent can see the
- * product before paying, so the window costs little and removes the main
- * hesitation on a first purchase from an unknown brand.
- */
-export const REFUND_DAYS = 7
-
 function money(aud: number): string {
   return Number.isInteger(aud) ? `$${aud}` : `$${aud.toFixed(2)}`
 }
