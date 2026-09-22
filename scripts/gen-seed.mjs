@@ -18,7 +18,7 @@ const bankPath = join(repoRoot, 'src/lib/questions/bank.ts')
 const stimuliPath = join(repoRoot, 'src/lib/questions/stimuli.ts')
 const seedPath = join(repoRoot, 'supabase/seed.sql')
 
-let src = readFileSync(bankPath, 'utf8')
+let src = readFileSync(bankPath, 'utf8').replace(/\r\n/g, '\n') // tolerate a Windows (CRLF) checkout
 
 // Assign an id to any question object that doesn't already have one.
 let added = 0

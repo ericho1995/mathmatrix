@@ -44,7 +44,7 @@ const headers = { apikey: key, 'Content-Type': 'application/json' }
 if (key.startsWith('eyJ')) headers.Authorization = `Bearer ${key}`
 
 // Load bank.ts the way the generators do.
-const src = readFileSync(join(repo, 'src/lib/questions/bank.ts'), 'utf8')
+const src = readFileSync(join(repo, 'src/lib/questions/bank.ts'), 'utf8').replace(/\r\n/g, '\n') // tolerate a Windows (CRLF) checkout
   .replace(/^import type .+\n/m, '')
   .replace(/^type BankQuestion =[\s\S]*?\n\n/m, '')
   .replace(/const (\w+): BankQuestion\[\] = \[/g, 'const $1 = [')

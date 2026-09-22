@@ -18,7 +18,7 @@ const repoRoot = join(__dirname, '..')
 const bankPath = join(repoRoot, 'src/lib/questions/bank.ts')
 const examsPath = join(repoRoot, 'src/lib/questions/exams.ts')
 
-const src = readFileSync(bankPath, 'utf8')
+const src = readFileSync(bankPath, 'utf8').replace(/\r\n/g, '\n') // tolerate a Windows (CRLF) checkout
 const jsSrc = src
   .replace(/^import type .+\n/m, '')
   .replace(/^type BankQuestion =[\s\S]*?\n\n/m, '')
