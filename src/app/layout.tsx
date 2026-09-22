@@ -7,6 +7,7 @@ import { createClient } from '@/lib/supabase/server'
 import { queryFailed } from '@/lib/supabase/logError'
 import { CATALOGUE_TOTALS } from '@/lib/catalogue'
 import { SITE_URL } from '@/lib/site'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -73,6 +74,9 @@ export default async function RootLayout({
         <Navbar user={navUser} />
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />
+        {/* Cookieless page-view counts, so no consent banner. Collects nothing until
+            Web Analytics is enabled for the project in the Vercel dashboard. */}
+        <Analytics />
       </body>
     </html>
   )

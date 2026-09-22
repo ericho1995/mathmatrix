@@ -79,6 +79,13 @@ as its own query, **in filename order**:
 Each is a complete, idempotent upsert — safe to re-run, and safe to re-run just
 the one that failed. Do `01-stimuli` first; the question rows reference it.
 
+**After any later content change**, load the new questions with one command
+instead: `node scripts/load-questions.mjs` reports what is missing (read-only),
+and `--write` upserts every question through the REST API. `--write` needs
+`SUPABASE_SERVICE_ROLE_KEY` in `.env.local` (gitignored). Content rewrites change
+question ids, and a question missing from the table cannot have its attempts
+saved.
+
 ### A4. Check
 
 ```bash
@@ -265,7 +272,14 @@ exercises all three.
 
 ---
 
-## Two decisions I need from you
+## Two decisions — both now made (2026-09-22)
+
+Refund policy: **7 days, no questions asked**, set by `REFUND_DAYS` in
+`src/lib/pricing.ts` and shown on /terms and in the FAQ. Analytics: **Vercel Web
+Analytics** is in the root layout; enable it under Vercel → Analytics. Error
+monitoring (Sentry) is still not set up.
+
+The original notes follow.
 
 **1. Refund policy.** `terms/page.tsx` (447 words) and `privacy/page.tsx` (571
 words) don't mention payments, refunds, or Stripe at all. You need this for

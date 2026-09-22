@@ -65,8 +65,10 @@ const results = []
 function check(name, test) {
   const value = vars[name]
   if (value === undefined) return results.push([name, false, 'missing'])
-  // Vercel will not hand back a variable marked Sensitive, so it arrives empty.
-  if (value === '') return results.push([name, null, 'set, but marked Sensitive — cannot inspect'])
+  // Vercel will not hand back a variable marked Sensitive. Older CLIs write it
+  // empty; newer ones (59.x) write the literal placeholder "[SENSITIVE]", which
+  // otherwise fails every prefix check and looks like 12 wrong values.
+  if (value === '' || /^\[sensitive\]$/i.test(value)) return results.push([name, null, 'set, but marked Sensitive — cannot inspect'])
   const problem = test(value)
   results.push([name, !problem, problem ?? 'ok'])
 }
@@ -102,7 +104,7 @@ check('SUPABASE_SERVICE_ROLE_KEY', v => {
 
 // Every price must be distinct: two year levels sharing one price id means one
 // of them was pasted twice and a year level is selling the wrong product.
-const priceValues = PRICE_VARS.map(n => vars[n]).filter(Boolean)
+const priceValues = PRICE_VARS.map(n => vars[n]).filter(v => v && !/^\[sensitive\]$/i.test(v))
 const duplicates = priceValues.length !== new Set(priceValues).size
 
 console.log(`\nVercel ${ENVIRONMENT} — payment variables\n`)
@@ -112,6 +114,9 @@ for (const [name, ok, note] of results) {
 }
 if (duplicates) console.log('\n  ✗ Two or more year levels share the same price id — one was pasted twice.')
 if (keyMode) console.log(`\n  Stripe is in ${keyMode.toUpperCase()} mode.`)
+if (results.some(([, ok]) => ok === null)) {
+  console.log('\n  ? Sensitive values can only be confirmed present, not read back. The test purchase (runbook Part D) is what proves them right.')
+}
 
 const failures = results.filter(([, ok]) => ok === false).length + (duplicates ? 1 : 0)
 console.log(

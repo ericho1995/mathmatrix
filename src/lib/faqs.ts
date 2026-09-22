@@ -1,4 +1,4 @@
-import { BUNDLE_PRICE } from '@/lib/pricing'
+import { BUNDLE_PRICE, REFUND_DAYS } from '@/lib/pricing'
 import { CATALOGUE_TOTALS } from '@/lib/catalogue'
 
 /**
@@ -9,8 +9,9 @@ import { CATALOGUE_TOTALS } from '@/lib/catalogue'
  * another — the homepage FAQ was still describing XP and streaks as the
  * product after the product had become printable papers.
  *
- * Rule for editing: every answer must be true of the code as it stands. No
- * refund terms (not yet decided), no promise that future papers are included
+ * Rule for editing: every answer must be true of the code as it stands. Refund
+ * terms come from REFUND_DAYS, the same value the terms page uses. No promise
+ * that future papers are included
  * (a commercial commitment, not a UI line), no payment methods Stripe has not
  * been configured to offer.
  */
@@ -79,6 +80,12 @@ export const FAQS: Faq[] = [
     category: 'buying',
     q: 'Is it a subscription?',
     a: 'No. You pay once for a year level and there is nothing to cancel.',
+  },
+  {
+    category: 'buying',
+    home: true,
+    q: 'Can I get a refund?',
+    a: `Yes. If you change your mind within ${REFUND_DAYS} days of buying, email us from the address you signed up with and we will refund you in full — no questions asked. The free sample paper at every year level is there so you can check first.`,
   },
   {
     category: 'buying',
