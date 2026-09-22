@@ -16,11 +16,11 @@ import type { TopicSlug, YearLevel } from '@/types'
 export type TopicCoverage = Partial<Record<TopicSlug, Partial<Record<YearLevel, number>>>>
 
 export const TOPIC_COVERAGE: TopicCoverage = {
-  algebra_equations: { year_10: 26, year_7: 18, year_8: 10, year_9: 25 },
+  algebra_equations: { year_10: 26, year_7: 12, year_8: 10, year_9: 25 },
   chem_atomic_structure: { year_11: 22 },
   chem_reactions: { year_11: 21 },
   earth_space: { grade_3: 7, grade_4: 7, grade_5: 7, grade_6: 8, year_10: 7, year_7: 6, year_8: 7, year_9: 7 },
-  geometry_measurement: { grade_3: 2, grade_4: 1, grade_5: 1, grade_6: 1, year_10: 20, year_7: 16, year_8: 3, year_9: 24 },
+  geometry_measurement: { grade_3: 2, grade_4: 1, grade_5: 1, grade_6: 1, year_10: 20, year_7: 3, year_8: 3, year_9: 24 },
   gm_data_analysis: { year_11: 27, year_12: 11 },
   gm_financial: { year_11: 26, year_12: 8 },
   gm_matrices: { year_12: 3 },
@@ -31,7 +31,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   mm_calculus: { year_11: 29, year_12: 5 },
   mm_functions: { year_12: 6 },
   mm_probability: { year_11: 26, year_12: 5 },
-  number_operations: { grade_3: 11, grade_4: 13, grade_5: 12, grade_6: 17, year_10: 26, year_7: 60, year_8: 17, year_9: 60 },
+  number_operations: { grade_3: 11, grade_4: 13, grade_5: 12, grade_6: 17, year_10: 26, year_7: 19, year_8: 17, year_9: 60 },
   number_patterns: { grade_3: 3, grade_4: 5, grade_5: 5, grade_6: 5 },
   phys_electricity: { year_11: 23 },
   phys_mechanics: { year_11: 26 },
@@ -40,12 +40,12 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   reading_literary_analysis: { year_10: 7, year_7: 8, year_8: 7, year_9: 8 },
   sm_complex_numbers: { year_11: 24 },
   sm_vectors: { year_11: 22 },
-  statistics_probability: { grade_3: 1, grade_4: 2, grade_6: 3, year_10: 15, year_7: 7, year_8: 6, year_9: 13 },
+  statistics_probability: { grade_3: 1, grade_4: 2, grade_6: 3, year_10: 15, year_7: 4, year_8: 6, year_9: 13 },
   vocabulary: { grade_3: 12, grade_4: 11, grade_5: 12, grade_6: 12, year_10: 11, year_7: 12, year_8: 11, year_9: 12 },
 }
 
 /** Every question in the bank, including those only on the printable papers. */
-export const QUESTION_TOTAL = 1909
+export const QUESTION_TOTAL = 1870
 
 /** Total questions available for a topic, across every year level. */
 export function topicTotal(topic: TopicSlug): number {

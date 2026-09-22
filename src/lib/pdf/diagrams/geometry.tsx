@@ -332,7 +332,8 @@ export function Solid({ diagram: d, fit, bare }: { diagram: SolidDiagram } & Fit
     if (lbl.length) content.push(<T key="ll" x={x0 + L / 2} y={y0 + 13} size={8.5}>{lbl.length}</T>)
     if (lbl.height) {
       content.push(<Line key="hl" x1={F.ap[0]} y1={F.ap[1]} x2={F.ap[0]} y2={y0} {...hidden} />)
-      content.push(<T key="lh" x={F.ap[0] + 4} y={y0 - Hh / 2 + 3} size={8.5} anchor="start">{lbl.height}</T>)
+      // Left of the dashed height: the hidden back edges cross the right side.
+      content.push(<T key="lh" x={F.ap[0] - 4} y={y0 - Hh / 2 + 3} size={8.5} anchor="end">{lbl.height}</T>)
     }
     if (lbl.width) content.push(<T key="lw" x={x0 + L + dx / 2 + 6} y={y0 - dy / 2 + 8} size={8.5} anchor="start">{lbl.width}</T>)
   } else if (d.shape === 'square_pyramid') {
