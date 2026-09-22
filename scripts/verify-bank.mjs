@@ -24,7 +24,7 @@ const err = (msg, id) => errors.push(id ? `${msg}  [${id}]` : msg)
 const warn = (msg, id) => warnings.push(id ? `${msg}  [${id}]` : msg)
 
 function loadModule(relPath, exportName, transform = (s) => s) {
-  const src = readFileSync(join(repoRoot, relPath), 'utf8')
+  const src = readFileSync(join(repoRoot, relPath), 'utf8').replace(/\r\n/g, '\n') // tolerate a Windows (CRLF) checkout
   const js = transform(
     src
       .replace(/^import type .+\n/m, '')
