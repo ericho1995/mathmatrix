@@ -459,9 +459,15 @@ function buildGeneralMathsUnit34Exams(subject, yearLevel, questions, examIndex) 
 const practiceExams = []
 for (const { subject, yearLevel, questions } of groups.values()) {
   if (yearLevel === 'year_12') {
-    // Only one paper's worth of content exists so far, so only one is built.
+    // Each practice set is a complete Examination 1 + Examination 2 pair, built
+    // from the questions tagged with that set. Sets are never mixed: a VCAA-style
+    // paper is balanced as a whole, and reusing a question across sets would sell
+    // the same item twice.
     const build = subject === 'general_maths' ? buildGeneralMathsUnit34Exams : buildVceUnit34Exams
-    practiceExams.push(...build(subject, yearLevel, questions, 0))
+    const sets = [...new Set(questions.map(q => q.practice_set ?? 1))].sort((a, b) => a - b)
+    for (const set of sets) {
+      practiceExams.push(...build(subject, yearLevel, questions.filter(q => (q.practice_set ?? 1) === set), set - 1))
+    }
     continue
   }
   if (NAPLAN_SUBJECTS.has(subject) && NAPLAN_GRADES.has(yearLevel)) {

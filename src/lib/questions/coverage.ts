@@ -27,10 +27,10 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   gm_networks: { year_12: 2 },
   grammar_punctuation: { grade_3: 31, grade_4: 30, grade_5: 30, grade_6: 30, year_10: 30, year_7: 31, year_8: 30, year_9: 30 },
   life_science: { grade_3: 9, grade_4: 9, grade_5: 9, grade_6: 9, year_10: 8, year_7: 9, year_8: 8, year_9: 9 },
-  mm_algebra: { year_12: 2 },
-  mm_calculus: { year_11: 29, year_12: 5 },
-  mm_functions: { year_12: 6 },
-  mm_probability: { year_11: 26, year_12: 5 },
+  mm_algebra: { year_12: 4 },
+  mm_calculus: { year_11: 29, year_12: 10 },
+  mm_functions: { year_12: 11 },
+  mm_probability: { year_11: 26, year_12: 12 },
   number_operations: { grade_3: 11, grade_4: 13, grade_5: 12, grade_6: 17, year_10: 26, year_7: 19, year_8: 17, year_9: 18 },
   number_patterns: { grade_3: 3, grade_4: 5, grade_5: 5, grade_6: 5 },
   phys_electricity: { year_11: 23 },
@@ -45,7 +45,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
 }
 
 /** Every question in the bank, including those only on the printable papers. */
-export const QUESTION_TOTAL = 1825
+export const QUESTION_TOTAL = 1858
 
 /** Total questions available for a topic, across every year level. */
 export function topicTotal(topic: TopicSlug): number {

@@ -2936,6 +2936,82 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "reading_minutes": 15
   },
   {
+    "id": "maths_methods-year_12-2-exam1",
+    "subject": "maths_methods",
+    "yearLevel": "year_12",
+    "title": "Maths Methods Unit 3 & 4 — Examination 1 (Practice 2)",
+    "sections": [
+      {
+        "title": "Examination 1 — technology-free",
+        "time_minutes": 60,
+        "calculator_allowed": false,
+        "question_ids": [
+          "3d41f78f-69dd-42b0-964a-80f6884a7837",
+          "9b823ef3-412d-4a80-bc6a-b5d628537c24",
+          "1ac472d2-61f6-4527-9e77-1dc9a6adcde7",
+          "9504270c-716f-4a15-a463-f820f5d2156d",
+          "d0dcc0c2-08c4-49d8-8c97-0cab4ca1b8e8",
+          "25cafef0-8b5c-4664-9fe9-0f2fb33b8937",
+          "6efe98f7-0234-4d97-8ea9-fe1699686ee3",
+          "e542c355-e6d4-41d6-802c-36d7e818e27b",
+          "956bbaf3-3b8d-42fb-ac76-cb230c842c31"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15
+  },
+  {
+    "id": "maths_methods-year_12-2-exam2",
+    "subject": "maths_methods",
+    "yearLevel": "year_12",
+    "title": "Maths Methods Unit 3 & 4 — Examination 2 (Practice 2)",
+    "sections": [
+      {
+        "title": "Section A — multiple choice",
+        "time_minutes": 45,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "question_ids": [
+          "35de23b4-cb20-41a9-9e1d-6a6c0258d950",
+          "ab195b7e-37e2-484e-b238-740fdc9d36ed",
+          "2b949348-5c8c-48cc-8f1e-f588663c6c0c",
+          "df8a4051-4531-4246-9f1f-30cdb59265c4",
+          "c6aabc05-f57e-4140-8bf1-092ce299963a",
+          "bcea535d-0149-4863-999b-6a97fb513805",
+          "047471eb-2bf5-4e0e-8c4a-2ac6a7c2e967",
+          "ba43bba8-14f9-44c2-8fe3-21e97efc3df8",
+          "1db23f3e-1459-4604-a35b-0cefdc83691f",
+          "f6adba9b-d1b3-4025-8c59-8d2938c59fca",
+          "5438497f-6b79-466a-8e54-9f867e959661",
+          "32acf366-560a-4adc-a29b-f8a067df7649",
+          "bcbde6aa-03bf-4b57-8b35-b22b7af48f36",
+          "62b8184d-029c-40b9-a735-abb8e1ced47e",
+          "33884d8c-8e29-4931-82e5-16bd1daabef5",
+          "fbb70b8a-d484-463a-8dbf-c23ea63cb199",
+          "8d7e8ba7-067c-4b77-b830-8b869e8ac160",
+          "790b4b11-8db2-4181-a859-2b87c60fff28",
+          "19cad3f0-f788-4676-87fd-ccbdbc7a2eb8",
+          "4627d1c6-d10d-4b4c-afbe-970f0b75fb51"
+        ]
+      },
+      {
+        "title": "Section B — extended response",
+        "time_minutes": 75,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "question_ids": [
+          "2b3141b8-3dea-4ed3-85e1-311f399116b9",
+          "77f20c14-c201-4fd1-a6a0-7a68e66d9c69",
+          "92c7fb5e-836c-4cac-9c63-df264af28d1a",
+          "fe8d8647-3f94-4a60-b17e-112f67ff1bf0"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15
+  },
+  {
     "id": "general_maths-year_12-1-exam1",
     "subject": "general_maths",
     "yearLevel": "year_12",

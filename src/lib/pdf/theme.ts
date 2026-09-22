@@ -123,7 +123,9 @@ export const pdfStyles = StyleSheet.create({
   questionHeaderRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 4 },
   questionMarks: { fontSize: 10, color: '#444' },
   partRow: { flexDirection: 'row', marginTop: 8, marginBottom: 2 },
-  partLabel: { fontSize: 11, width: 22 },
+  // minWidth, not width: VCE sub-part labels such as "e.iii" are wider than a
+  // single letter and would otherwise wrap onto a second line.
+  partLabel: { fontSize: 11, minWidth: 22, paddingRight: 4 },
   partPrompt: { fontSize: 11, flex: 1, paddingRight: 8 },
   partMarks: { fontSize: 10, color: '#444', width: 52, textAlign: 'right' },
   partWorkingLine: { borderBottom: '0.5pt solid #bbb', height: 16, marginLeft: 22 },
