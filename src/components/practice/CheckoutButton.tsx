@@ -1,29 +1,27 @@
 'use client'
 
 import { useState } from 'react'
-import { BUNDLE_PRICE } from '@/lib/pricing'
-import type { YearLevel } from '@/types'
 
 /**
- * Starts checkout for one year level.
+ * Starts Stripe Checkout for a plan or a VCE paper.
  *
- * Shared by the lock screen, the catalogue and the pricing page so there is one
- * checkout call, not three that drift — the paper and answer-key routes did
- * exactly that with their paywall check.
+ * One component for every buy button on the site — the pricing cards, the
+ * lock screen and the catalogue — so there is one checkout call, not several
+ * that drift. The paper and answer-key routes once drifted exactly that way.
  *
- * `sellable` comes from the server (isYearLevelSellable). When a year level has
- * no Stripe price, this renders a notice instead of a button: a button that
- * always errors is the worst thing to put on the screen that takes money.
+ * `sellable` comes from the server. Without a Stripe price configured this
+ * renders a notice instead of a button: a button that always errors is the
+ * worst thing to put on the screen that takes money.
  */
-export default function BuyBundleButton({
-  yearLevel,
-  yearLabel,
+export default function CheckoutButton({
+  purchase,
+  label,
   sellable,
   variant = 'primary',
   className = '',
 }: {
-  yearLevel: YearLevel
-  yearLabel: string
+  purchase: { plan: 'month' | 'quarter' | 'year' } | { examId: string }
+  label: string
   sellable: boolean
   variant?: 'primary' | 'secondary'
   className?: string
@@ -34,7 +32,7 @@ export default function BuyBundleButton({
   if (!sellable) {
     return (
       <p className={`text-xs text-gray-400 ${className}`}>
-        {yearLabel} purchases open soon. The free sample papers are available now.
+        Purchases open soon. The free sample papers are available now.
       </p>
     )
   }
@@ -46,7 +44,7 @@ export default function BuyBundleButton({
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ yearLevel }),
+        body: JSON.stringify(purchase),
       })
       const data = await res.json().catch(() => ({}))
       if (res.status === 401) {
@@ -73,7 +71,7 @@ export default function BuyBundleButton({
         disabled={busy}
         className={`${variant === 'primary' ? 'btn-primary' : 'btn-secondary'} w-full disabled:opacity-50`}
       >
-        {busy ? 'Starting checkout…' : `Unlock ${yearLabel} for ${BUNDLE_PRICE}`}
+        {busy ? 'Starting checkout…' : label}
       </button>
       {error && <p className="text-xs text-red-600 mt-2">{error}</p>}
     </div>

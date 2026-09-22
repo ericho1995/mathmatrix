@@ -18,7 +18,7 @@
  *
  * Where failing closed is the safer default — anything gating paid content or
  * admin access — keep returning the restrictive value, but still log here so
- * the failure is diagnosable. See getEntitlements.ts.
+ * the failure is diagnosable. See lib/auth/access.ts.
  */
 
 /** The shape of both PostgrestError and AuthError, without importing either. */

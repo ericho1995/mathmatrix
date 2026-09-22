@@ -12,6 +12,12 @@ recurring failure in this project is a step that appears to succeed: the app
 wraps its database reads, so a missing table renders as an empty page rather
 than an error, and a truncated SQL paste still parses as valid SQL.
 
+> **Pricing changed on 2026-09-22.** The $29 year-level bundle is replaced by
+> plans (Grade 3 – Year 10, auto-renewing: $29 / month, $59 / 3 months, $119 /
+> year) and VCE papers at $20 each. Parts A–E below are the original launch and
+> are done. **Part P** at the end is the setup the new pricing needs, and it
+> supersedes B1 and the price variables in Part C.
+
 ---
 
 ## Part A — Bring the live database up to date
@@ -316,3 +322,66 @@ marketing:
 - **No tests.** CI runs type-check, lint, `verify-bank` and build. Nothing
   exercises checkout → webhook → entitlement → PDF, which is why Part D is done
   by hand.
+
+---
+
+## Part P — Plans and VCE papers (2026-09-22)
+
+Do these **in order**, in whichever Stripe mode you are testing (repeat in Live
+mode afterwards, as in Part E). Code: branch `feat/plans-pricing`.
+
+### P1. Database
+
+Run `supabase/schema_subscriptions.sql` in the SQL editor (one query). It adds
+`subscriptions` and `paper_purchases`, read-own only, written by the webhook.
+Check: `node scripts/check-live-schema.mjs` shows it `✓ applied`.
+
+### P2. Stripe products and prices
+
+1. **Product "PrepNest plan"** with three **recurring** prices, AUD:
+   A$29 every 1 month · A$59 every 3 months · A$119 every 1 year.
+2. **Product "VCE practice paper"** with one **one-off** price, A$20.
+3. Copy the four `price_...` ids.
+
+### P3. Webhook events
+
+Stripe → Developers → Webhooks → the existing endpoint → **add events**:
+`customer.subscription.created`, `customer.subscription.updated`,
+`customer.subscription.deleted` (keep `checkout.session.completed`).
+
+### P4. Customer portal
+
+Stripe → Settings → Billing → **Customer portal**: turn on cancelling (and
+switching between the three plan prices if you want), then **Save**. The
+account page's "Manage or cancel plan" button opens it.
+
+### P5. Vercel
+
+Add, Production, Sensitive:
+
+```
+STRIPE_PRICE_PLAN_MONTH      price_...   (A$29 monthly)
+STRIPE_PRICE_PLAN_QUARTER    price_...   (A$59 every 3 months)
+STRIPE_PRICE_PLAN_YEAR       price_...   (A$119 yearly)
+STRIPE_PRICE_VCE_PAPER       price_...   (A$20 one-off)
+```
+
+The nine `STRIPE_PRICE_GRADE_*` / `STRIPE_PRICE_YEAR_*` variables are no
+longer read; delete them when convenient. Check: `node scripts/check-vercel-env.mjs`.
+
+### P6. Deploy and test
+
+Merge the pull request (Vercel deploys `main`). Then, signed in:
+
+1. `/pricing` → **Choose 3 months** → pay → back on the catalogue the banner
+   says "Your plan is active". A Grade 3 – Year 10 paid paper downloads, exam
+   and answer key.
+2. `select * from subscriptions;` — one row, `status = active`.
+3. `/account` → **Manage or cancel plan** opens Stripe's portal. Cancel there;
+   the account page then says "cancelled — access ends <date>" and papers stay
+   open until then.
+4. A paid VCE paper → **Buy this paper — $20** → pay → it downloads.
+   `select * from paper_purchases;` — one row.
+
+Specials: checkout accepts Stripe **promotion codes**. Create a coupon and a
+code under Products → Coupons, and customers enter it at checkout — no deploy.

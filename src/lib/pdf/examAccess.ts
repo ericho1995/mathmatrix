@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
-import { hasEntitlement } from '@/lib/auth/getEntitlements'
-import { BUNDLE_PRICE } from '@/lib/pricing'
+import { canOpen, getAccess } from '@/lib/auth/access'
 import type { ResolvedExam } from './resolveExam'
 
 /**
@@ -16,11 +15,8 @@ import type { ResolvedExam } from './resolveExam'
  * Returns a 402 response when access should be refused, or null to proceed.
  */
 export async function denyIfNotEntitled(resolved: ResolvedExam): Promise<NextResponse | null> {
-  if (!resolved.exam.premium) return null
-  if (await hasEntitlement(resolved.exam.yearLevel)) return null
+  const exam = { id: resolved.exam.id, yearLevel: resolved.exam.yearLevel, premium: resolved.exam.premium }
+  if (canOpen(exam, await getAccess())) return null
 
-  return NextResponse.json(
-    { error: 'Payment required', price: BUNDLE_PRICE, yearLevel: resolved.exam.yearLevel },
-    { status: 402 }
-  )
+  return NextResponse.json({ error: 'Payment required', examId: exam.id, yearLevel: exam.yearLevel }, { status: 402 })
 }

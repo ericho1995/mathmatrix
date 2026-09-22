@@ -3,9 +3,8 @@ import Link from 'next/link'
 import type { Route } from 'next'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { SELECTIVE_SUBJECTS } from '@/lib/curriculum'
-import { BUNDLE_PRICE } from '@/lib/pricing'
+import { VCE_PAPER_PRICE } from '@/lib/pricing'
 import { shortTitle } from '@/lib/catalogue'
-import { isYearLevelSellable } from '@/lib/stripe'
 import {
   VCE_EXAM_PERIOD_2026,
   VCE_SOURCE,
@@ -38,7 +37,6 @@ export default function VcePage() {
   const upcoming = upcomingVceExams()
   const periodDays = daysUntil(VCE_EXAM_PERIOD_2026.start)
   const periodOver = daysUntil(VCE_EXAM_PERIOD_2026.end) < 0
-  const year12Sellable = isYearLevelSellable('year_12')
 
   const papersFor = (subject: SubjectSlug, year: 'year_11' | 'year_12') =>
     PRACTICE_EXAMS.filter(e => e.subject === subject && e.yearLevel === year)
@@ -164,10 +162,8 @@ export default function VcePage() {
       <section className="bg-gray-50 border-y border-gray-100">
         <div className="max-w-3xl mx-auto px-4 py-14 text-center">
           <p className="text-gray-500 mb-5">
-            {year12Sellable
-              ? `Year 11 is one purchase and Year 12 is another — ${BUNDLE_PRICE} each, once.`
-              : `Year 11 is ${BUNDLE_PRICE} once. Year 12 purchases open soon.`}{' '}
-            The first paper in every subject is free.
+            Every VCE paper is {VCE_PAPER_PRICE}, bought once and yours to keep — pay only for the subjects you sit.
+            The first paper in every subject is free, and more papers are on the way.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href={'/practice/exams?year=year_12' as Route} className="btn-primary">

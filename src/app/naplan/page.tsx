@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import type { Route } from 'next'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
-import { BUNDLE_PRICE } from '@/lib/pricing'
+import { FROM_PER_MONTH } from '@/lib/pricing'
 import { NAPLAN_YEARS, statsFor, yearLabel } from '@/lib/catalogue'
 import { NAPLAN_SOURCE, dayWord, daysUntil, formatWindow, nextNaplanWindow } from '@/lib/examDates'
 import type { YearLevel } from '@/types'
@@ -153,7 +153,8 @@ export default function NaplanPage() {
 
       <section className="max-w-3xl mx-auto px-4 py-14 text-center">
         <p className="text-gray-500 mb-5">
-          Every paper for a year level — Maths, English and Science — with answer keys, for {BUNDLE_PRICE} once.
+          One plan unlocks every NAPLAN and school-year paper — Maths, English and Science, every year level, each
+          with an answer key — from {FROM_PER_MONTH} a month. New papers are added throughout the year.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/practice/exams" className="btn-primary">

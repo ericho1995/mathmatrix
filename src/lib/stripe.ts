@@ -1,6 +1,5 @@
 import Stripe from 'stripe'
-import { stripePriceIdFor } from '@/lib/pricing'
-import type { YearLevel } from '@/types'
+import { stripePriceIdForPlan, stripePriceIdForVcePaper, type PlanId } from '@/lib/pricing'
 
 /**
  * Stripe client, created lazily.
@@ -26,13 +25,26 @@ export function isStripeConfigured(): boolean {
 }
 
 /**
- * Whether a year level can be bought right now. Server-only.
- *
- * Read from the same environment the checkout route reads, rather than kept as
- * a separate list: a year level is sellable exactly when its Stripe price
- * exists. That way a buy button can never be shown for something checkout will
- * refuse, and adding STRIPE_PRICE_YEAR_12 turns Year 12 on everywhere at once.
+ * Whether a plan can be bought right now. Server-only. Derived from the same
+ * environment checkout reads, so a button is never shown for a plan checkout
+ * would refuse — without its Stripe price, the UI says "opening soon" instead.
  */
-export function isYearLevelSellable(yearLevel: YearLevel): boolean {
-  return isStripeConfigured() && stripePriceIdFor(yearLevel) !== null
+export function isPlanSellable(plan: PlanId): boolean {
+  return isStripeConfigured() && stripePriceIdForPlan(plan) !== null
+}
+
+export function isVcePaperSellable(): boolean {
+  return isStripeConfigured() && stripePriceIdForVcePaper() !== null
+}
+
+/**
+ * When the subscription's paid period ends. Stripe moved this from the
+ * subscription to its items in API version 2025-03-31; read either, so the
+ * webhook keeps working whichever shape arrives.
+ */
+export function periodEnd(sub: Stripe.Subscription): Date {
+  const itemEnd = sub.items?.data?.[0]?.current_period_end
+  const legacyEnd = (sub as unknown as { current_period_end?: number }).current_period_end
+  const seconds = itemEnd ?? legacyEnd ?? sub.billing_cycle_anchor
+  return new Date(seconds * 1000)
 }

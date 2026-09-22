@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Route } from 'next'
 import type { PaperSummary } from '@/lib/catalogue'
+import type { AccessReason } from '@/lib/auth/access'
 import type { YearLevel } from '@/types'
 import PaperFacts from './PaperFacts'
 
@@ -16,16 +17,17 @@ export default function ExamDownload({
   title: string
   splitEligible?: boolean
   /** Why this visitor may download — changes only the note under the title. */
-  access: 'free' | 'purchased' | 'admin'
+  access: AccessReason
   summary?: PaperSummary
   yearLevel?: YearLevel
 }) {
-  const note =
-    access === 'admin'
-      ? 'Admin access — no payment required. Regular visitors see the paywall here.'
-      : access === 'free'
-        ? 'This is the free sample paper for this year level.'
-        : 'You have full access to this year level.'
+  const note = {
+    admin: 'Admin access — no payment required. Regular visitors see the paywall here.',
+    free: 'This is the free sample paper for this year level.',
+    plan: 'Included in your plan.',
+    paper: 'You own this paper.',
+    purchased: 'You have full access to this year level.',
+  }[access]
   const yearHref = (yearLevel ? `/practice/exams?year=${yearLevel}` : '/practice/exams') as Route
 
   return (

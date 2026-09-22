@@ -1,6 +1,7 @@
 import { PRACTICE_EXAMS, type PracticeExam } from '@/lib/questions/exams'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES } from '@/lib/curriculum'
 import { QUESTION_TOTAL } from '@/lib/questions/coverage'
+import { isVceYear } from '@/lib/pricing'
 import type { SubjectSlug, YearLevel } from '@/types'
 
 /**
@@ -80,6 +81,26 @@ export const CATALOGUE_TOTALS = {
   paid: PRACTICE_EXAMS.filter(e => e.premium).length,
   lowest: YEAR_LEVEL_STATS[0]?.label ?? 'Grade 3',
   highest: YEAR_LEVEL_STATS[YEAR_LEVEL_STATS.length - 1]?.label ?? 'Year 12',
+}
+
+/** Year levels the plan covers (Grade 3 – Year 10), and those sold by the paper (VCE). */
+export const PLAN_STATS = YEAR_LEVEL_STATS.filter(s => !isVceYear(s.yearLevel))
+export const VCE_STATS = YEAR_LEVEL_STATS.filter(s => isVceYear(s.yearLevel))
+
+const sum = (stats: YearLevelStats[], key: 'papers' | 'free' | 'paid') => stats.reduce((n, s) => n + s[key], 0)
+
+export const PLAN_TOTALS = {
+  papers: sum(PLAN_STATS, 'papers'),
+  paid: sum(PLAN_STATS, 'paid'),
+  free: sum(PLAN_STATS, 'free'),
+  /** "Grade 3 – Year 10" */
+  range: `${PLAN_STATS[0]?.label ?? 'Grade 3'} – ${PLAN_STATS[PLAN_STATS.length - 1]?.label ?? 'Year 10'}`,
+}
+
+export const VCE_TOTALS = {
+  papers: sum(VCE_STATS, 'papers'),
+  paid: sum(VCE_STATS, 'paid'),
+  free: sum(VCE_STATS, 'free'),
 }
 
 /** The NAPLAN year levels. Papers exist for 4, 6, 8 and 10 too, in the same format. */

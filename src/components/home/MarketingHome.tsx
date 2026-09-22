@@ -2,8 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Route } from 'next'
 import FAQAccordion from '@/components/home/FAQAccordion'
-import { BUNDLE_PRICE } from '@/lib/pricing'
-import { CATALOGUE_TOTALS } from '@/lib/catalogue'
+import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, perMonth, savingPercent } from '@/lib/pricing'
+import { CATALOGUE_TOTALS, PLAN_TOTALS } from '@/lib/catalogue'
 import { HOME_FAQS } from '@/lib/faqs'
 import {
   VCE_EXAM_PERIOD_2026,
@@ -59,7 +59,7 @@ export default function MarketingHome() {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-gray-400">
               <span>✓ {CATALOGUE_TOTALS.free} papers free</span>
               <span>✓ No credit card to start</span>
-              <span>✓ {BUNDLE_PRICE} per year level, no subscription</span>
+              <span>✓ Plans from {FROM_PER_MONTH} a month, cancel anytime</span>
             </div>
           </div>
 
@@ -189,24 +189,35 @@ export default function MarketingHome() {
         </div>
       </section>
 
-      {/* Pricing, stated plainly on the homepage. */}
-      <section className="max-w-3xl mx-auto px-4 py-16">
-        <div className="card sm:flex sm:items-center sm:gap-8 text-center sm:text-left">
-          <div className="sm:w-40 shrink-0 mb-4 sm:mb-0">
-            <p className="text-4xl font-medium tracking-tight text-brand-600">{BUNDLE_PRICE}</p>
-            <p className="text-xs text-gray-400">once, per year level</p>
-          </div>
-          <div className="flex-1">
-            <p className="font-medium mb-1">One payment unlocks every paper for a year level.</p>
-            <p className="text-sm text-gray-500 mb-4">
-              Every subject at that level, each with an answer key. No subscription. The first paper in every subject
-              is free, so you can see what you are buying before you buy it.
-            </p>
-            <Link href={'/pricing' as Route} className="text-sm text-brand-600 underline">
-              See what each year level includes
+      {/* Pricing, stated plainly on the homepage: the three plans at a glance,
+          with the full cards and checkout on /pricing. */}
+      <section className="max-w-3xl mx-auto px-4 py-16 text-center">
+        <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-2">Simple plans</h2>
+        <p className="font-medium text-lg mb-1">Every {PLAN_TOTALS.range} paper, for the whole family.</p>
+        <p className="text-sm text-gray-500 mb-8">
+          NAPLAN and school-year papers with answer keys. New papers added throughout the year. Cancel anytime.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+          {PLANS.map(plan => (
+            <Link
+              key={plan.id}
+              href={'/pricing' as Route}
+              className={`card hover:border-brand-400 ${plan.id === 'quarter' ? 'border-brand-500 ring-1 ring-brand-500' : ''}`}
+            >
+              <p className="text-sm text-gray-500">{plan.name}</p>
+              <p className="text-3xl font-medium tracking-tight text-brand-600 mt-1">${plan.priceAud}</p>
+              <p className="text-xs text-gray-400 mt-1">
+                {savingPercent(plan) > 0 ? `${perMonth(plan)}/mo · save ${savingPercent(plan)}%` : 'per month'}
+              </p>
             </Link>
-          </div>
+          ))}
         </div>
+        <p className="text-sm text-gray-500">
+          VCE papers are {VCE_PAPER_PRICE} each.{' '}
+          <Link href={'/pricing' as Route} className="text-brand-600 underline">
+            Compare plans
+          </Link>
+        </p>
       </section>
 
       {/* Parent value prop */}

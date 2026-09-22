@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { BUNDLE_PRICE, REFUND_DAYS } from '@/lib/pricing'
+import { PLANS, REFUND_DAYS, VCE_PAPER_PRICE } from '@/lib/pricing'
+import { PLAN_TOTALS } from '@/lib/catalogue'
 import { SUPPORT_EMAIL } from '@/lib/site'
 
 export const metadata: Metadata = { title: 'Terms of Service — PrepNest' }
@@ -37,28 +38,53 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-medium text-gray-900 mb-2">Buying papers</h2>
+          <h2 className="text-base font-medium text-gray-900 mb-2">Plans</h2>
           <ul className="list-disc pl-5 flex flex-col gap-1">
             <li>
-              A year-level bundle costs {BUNDLE_PRICE} (Australian dollars) and unlocks every paid paper for that
-              year level, across every subject at that level. It is a one-off payment, not a subscription, and
-              there are no recurring charges.
+              A plan unlocks every paid {PLAN_TOTALS.range} paper, at every year level, including papers added while
+              your plan is active. Plans cost{' '}
+              {PLANS.map(p => `$${p.priceAud} for ${p.name}`).join(', ')} (Australian dollars).
             </li>
-            <li>Access is attached to the account that made the purchase and does not expire.</li>
             <li>
-              Payments are processed by Stripe on its secure checkout page. PrepNest never sees or stores your
-              card details. Stripe emails you a receipt.
+              <span className="font-medium">Plans renew automatically</span> at the end of each period, at the price
+              shown when you subscribed, until you cancel. We will tell you before any price change applies to your
+              plan.
             </li>
-            <li>The papers included in a bundle are the ones listed on the exam papers page at the time you buy.</li>
+            <li>
+              You can cancel anytime from your account page. Cancelling stops future renewals; you keep access until
+              the end of the period you have already paid for.
+            </li>
+            <li>
+              If a renewal payment fails, Stripe retries it over the following days and your access continues while
+              it does. If it still can&apos;t be collected, the plan ends and access stops.
+            </li>
           </ul>
+        </section>
+
+        <section>
+          <h2 className="text-base font-medium text-gray-900 mb-2">VCE papers</h2>
+          <p>
+            Year 11 and 12 (VCE) papers are sold individually for {VCE_PAPER_PRICE} each. A VCE paper is a one-off
+            purchase: it is attached to the account that bought it and does not expire.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-base font-medium text-gray-900 mb-2">Payments</h2>
+          <p>
+            Payments are processed by Stripe on its secure checkout page. PrepNest never sees or stores your card
+            details. Stripe emails you a receipt for every payment, including each renewal.
+          </p>
         </section>
 
         <section>
           <h2 className="text-base font-medium text-gray-900 mb-2">Refunds</h2>
           <p>
-            If you change your mind, email us within {REFUND_DAYS} days of your purchase from the address on your
-            account and we will refund you in full, whether or not you have downloaded any papers. After{' '}
-            {REFUND_DAYS} days, we will still fix or refund a purchase that doesn&apos;t work as described.
+            If you change your mind, email us within {REFUND_DAYS} days of your first payment for a plan, or of
+            buying a VCE paper, from the address on your account, and we will refund you in full — whether or not you
+            have downloaded any papers. Renewals are not refunded for change of mind, so cancel before the renewal
+            date if you don&apos;t want the next period. We will always fix or refund a purchase that doesn&apos;t
+            work as described.
           </p>
           <p className="mt-2">
             Nothing in these terms limits your rights under the Australian Consumer Law, including your rights to

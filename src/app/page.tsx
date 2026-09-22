@@ -83,7 +83,7 @@ export default async function HomePage() {
               ? 'Check in on your child’s progress.'
               : 'Every exam paper in the catalogue, unlocked.'}
           </p>
-          {/* Admins keep their paywall bypass (see getEntitlements), so the
+          {/* Admins keep their paywall bypass (see lib/auth/access.ts), so the
               catalogue is the useful landing place now the admin panel is gone —
               the question bank is edited in the repo, not through a UI. */}
           <Link
