@@ -408,7 +408,93 @@ She said it was the question everyone asks and that the answer is no, and then g
 
 She conceded one exception. There is a shelf, near the window, of items she described as unreplaceable, and she did not elaborate, and I did not ask, and I have since decided that not asking was either the most tactful thing I did that year or the worst piece of journalism.
 
-What stays with me is not the viola or the dentures. It is that the room exists at all — that a city, having no legal obligation to keep any of it beyond a statutory period, has quietly decided to go on keeping it anyway. Nobody made that decision. Nineteen years of people simply did not throw anything away, and the accumulated result of not deciding is a museum.', 'english', 'year_10', 354)
+What stays with me is not the viola or the dentures. It is that the room exists at all — that a city, having no legal obligation to keep any of it beyond a statutory period, has quietly decided to go on keeping it anyway. Nobody made that decision. Nineteen years of people simply did not throw anything away, and the accumulated result of not deciding is a museum.', 'english', 'year_10', 354),
+('e7398d81-aed9-4d75-85ee-f3229bd264ee', 'passage', 'The sandwich thief', 'Every lunchtime, Ravi put his lunchbox on the low wall near the bike racks. Every lunchtime, one half of his sandwich disappeared.
+
+“Someone is taking my lunch,” Ravi told his friend Amina. “It is always the half with the cheese.”
+
+Amina looked at the wall. She looked at the tree above the wall. Then she smiled.
+
+“Tomorrow,” she said, “we will watch from the library window.”
+
+The next day the two friends knelt at the window and waited. Ravi’s lunchbox sat on the wall in the sun. Nothing happened for a long time.
+
+Then a grey bird with a black head landed on the wall. It tipped its head to one side, hopped twice, and lifted the lid with its beak.
+
+“A currawong!” whispered Ravi.
+
+The bird took the cheese half in its beak and flew up into the tree. Ravi laughed so loudly that the librarian looked up.
+
+After that, Ravi kept his lunchbox in his bag. He still left one small crust on the wall, because the currawong had made him laugh, and that was worth a crust.', 'english', 'grade_3', 180),
+('69ea2036-e7ed-4a68-9e0c-f01afce52cf2', 'passage', 'Wombats', 'Wombats are short, strong animals that live in Australia. A wombat is about as long as a school ruler and two hand spans wide. It has thick grey or brown fur.
+
+Wombats dig burrows under the ground with their strong front legs and flat claws. A burrow can be longer than a classroom. Inside the burrow it stays cool in summer and warm in winter.
+
+A wombat is a marsupial, so a wombat mother carries her baby in a pouch. Her pouch faces backwards. This means the pouch does not fill with soil while she digs.
+
+Wombats eat grass, roots and bark. They come out to feed at night when the air is cool. During the hot part of the day they sleep in the burrow.
+
+Wombat facts
+• A baby wombat is called a joey.
+• Wombat droppings are shaped like little cubes.
+• A wombat can run as fast as a person for a short way.', 'english', 'grade_3', 158),
+('f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', 'passage', 'Where does rain come from?', 'Rain has been falling on Earth for a very long time. The same water goes around and around. This is called the water cycle.
+
+The sun warms the sea. Some of the water turns into a gas called water vapour and rises into the sky. You cannot see water vapour.
+
+High in the sky the air is cold. The water vapour cools and turns back into tiny drops. Millions of these drops together make a cloud.
+
+The drops bump into each other and join up. When a drop is too heavy to float, it falls as rain. The rain runs into creeks and rivers, and the rivers carry it back to the sea. Then the cycle starts again.
+
+[The water cycle]', 'english', 'grade_3', 121),
+('82c87b63-2028-405a-8484-80ecf332f671', 'passage', 'A garden for our school', 'Dear Mrs Patel
+
+I am writing because I think our school should grow a vegetable garden in the empty corner near the hall.
+
+At the moment that corner has nothing in it but weeds and one old bench. Nobody plays there. A garden would make it the nicest part of the school.
+
+A garden would also help us learn. In Year 3 we are learning about living things. It is easier to understand how a plant grows when you water it yourself and watch it every week.
+
+My grandfather says that beans and carrots are easy to grow, and that a garden costs very little to start. Our class could look after it at lunchtime. When the vegetables are ready, the canteen could use them in the salads.
+
+Please think about my idea. I would be very happy to show you the corner and where the beds could go.
+
+From Sophie Nguyen, Year 3B', 'english', 'grade_3', 154),
+('e588b40c-a1e6-436f-be14-14e40251fc4b', 'passage', 'Tiny visitor', 'A green tree frog is on the glass,
+flat feet spread like sticky stars.
+He watches every moth that comes
+to dance around our kitchen lamp.
+
+He does not hurry. Frogs can wait.
+He sits so still he looks asleep,
+then — quick as blinking — out it goes,
+that long pink ribbon of a tongue.
+
+By morning he has slipped away
+to somewhere cool and dark and damp,
+but on the window, small and round,
+he leaves five footprints and a smudge.', 'english', 'grade_3', 83),
+('4abb2bb3-7679-48b9-aac2-160e1b6c1310', 'passage', 'Make a paper boat', 'You will need one sheet of paper. Thin paper folds best. Do each fold carefully and press it flat.
+
+1. Fold the paper in half so the short edges meet. Press the fold flat.
+2. Fold the two top corners down to the middle so they make a point.
+3. Fold the strip at the bottom up on each side to make a hat shape.
+4. Open the hat and push the two side points together to make a square.
+5. Fold the bottom corners of the square up to the top point.
+6. Hold the middle of the square and pull the two top points apart until a boat appears.
+
+Before you sail
+• Rub a candle over the paper to help the boat last longer in water.
+• Test the boat in a sink or a bucket, never in a creek or a pool on your own.', 'english', 'grade_3', 149),
+('4096bfb7-d979-4517-b9cf-2afadc3d7b53', 'passage', 'Junior Fun Run', 'Run, jog or walk — every finisher gets a medal!
+
+The Riverside Junior Fun Run is on Sunday 14 June at Riverside Park. Money raised will buy new sports equipment for local primary schools.
+
+• Bring a water bottle and wear a hat.
+• Every runner needs a grown-up with them at the park.
+• Entry is $5. Pay at the tent near the gate.
+
+Come early to collect your number. Runners who arrive after their start time can still run, but they will not be timed.', 'english', 'grade_3', 87)
 on conflict (id) do update set
   type = excluded.type,
   title = excluded.title,
@@ -4003,7 +4089,45 @@ How many cubes are there?', '["48","60","120","480"]'::jsonb, 0, '12 ÷ 2 = 6 an
 ('4288a893-143a-4599-acd3-06d6f8127ca1', 'geometry_measurement', 'year_10', 'advanced', 'multiple_choice', 'A map has a scale of 1 : 25 000. A park covers 12 cm² on the map.
 What is the real area of the park? (1 hectare = 10 000 m²)', '["0.75 ha","7.5 ha","75 ha","750 ha"]'::jsonb, 2, '1 cm on the map is 250 m, so 1 cm² is 250 × 250 = 62 500 m². 12 cm² is 750 000 m², which is 75 ha.', 'AC9M10SP01', null, true, true, null, null, null, null),
 ('8c36b8f1-3b4f-490d-ab14-23ec7501faf5', 'geometry_measurement', 'year_10', 'proficient', 'multiple_choice', 'A length is measured as 12.5 cm, but it is actually 12.8 cm.
-What is the percentage error, to one decimal place?', '["0.3%","2.3%","2.4%","97.7%"]'::jsonb, 1, 'The error is 0.3 cm, and 0.3 ÷ 12.8 × 100% ≈ 2.3%. 2.4% divides by the measured value instead of the actual value.', 'AC9M10M02', null, true, true, null, null, null, null)
+What is the percentage error, to one decimal place?', '["0.3%","2.3%","2.4%","97.7%"]'::jsonb, 1, 'The error is 0.3 cm, and 0.3 ÷ 12.8 × 100% ≈ 2.3%. 2.4% divides by the measured value instead of the actual value.', 'AC9M10M02', null, true, true, null, null, null, null),
+('655a7024-0e37-4279-b283-0d07375da639', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Where did Ravi put his lunchbox?', '["on the low wall near the bike racks","in the library","in the tree","in his school bag"]'::jsonb, 0, 'The first sentence says he put it on the low wall near the bike racks every lunchtime.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('510eaa0d-f5ca-4806-9498-7ff0168fdeea', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Which part of the lunch disappeared each day?', '["the crust","the half with the cheese","the whole sandwich","the apple"]'::jsonb, 1, 'Ravi tells Amina that it is always the half with the cheese.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('fddf0804-d8e7-4367-9dbb-555dcc478a1c', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Amina smiled after she looked at the tree because she', '["wanted to climb the tree","was hungry too","had guessed what was taking the lunch","had seen Ravi hide the lunchbox"]'::jsonb, 2, 'She looks at the wall, then the tree, then smiles and plans to watch — she has worked out that something in the tree is the thief.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('6b3aa087-ce8a-45e1-ab2c-fff3a15d6daa', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What was taking the sandwich?', '["a dog","another student","the librarian","a currawong"]'::jsonb, 3, 'A grey bird with a black head lifts the lid, and Ravi whispers “A currawong!”', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('a69af340-a3fb-4329-a487-742e710638f7', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why did the librarian look up?', '["Ravi laughed loudly.","The bird flew inside.","Amina called out.","The bell rang."]'::jsonb, 0, 'The text says Ravi laughed so loudly that the librarian looked up.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('eabb9708-ec2b-4a0f-bcd3-31a85b2d29f6', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'Ravi still left a crust on the wall because he', '["wanted to catch the bird","thought the bird had earned it","did not like crusts","forgot to put it away"]'::jsonb, 1, 'The last sentence says the currawong had made him laugh, and that was worth a crust.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('202a30d1-bd35-47bc-bf95-45312d84569a', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What does a wombat dig its burrow with?', '["its back legs","its teeth","its strong front legs and claws","its nose"]'::jsonb, 2, 'The text says wombats dig with their strong front legs and flat claws.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('c7693734-fbab-4e27-a267-9942ba663a13', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does a wombat mother’s pouch face backwards?', '["so the joey can see where they are going","to keep the joey warmer","so she can run faster","so soil does not fill it while she digs"]'::jsonb, 3, 'The text explains that a backwards pouch does not fill with soil while she digs.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('32fbbe27-5ad2-42b5-a8b2-a97acc7b5a60', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'According to the text, a wombat burrow can be', '["longer than a classroom","as long as a ruler","as deep as a well","as wide as a road"]'::jsonb, 0, 'The text compares the length of a burrow with a classroom.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('3d8b0a0c-5b5e-4a5f-892e-141d58a5a960', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'When do wombats come out to feed?', '["early in the morning","at night, when the air is cool","in the middle of the day","only in winter"]'::jsonb, 1, 'They feed at night when it is cool and sleep in the burrow during the hot part of the day.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('69585761-ee36-48c8-b98a-e80680f9d8c2', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Which fact is in the box beside the text?', '["Wombats eat grass and roots.","Wombats live in Australia.","Wombat droppings are shaped like little cubes.","Wombats sleep in burrows."]'::jsonb, 2, 'The other three facts are in the paragraphs. Only the shape of the droppings is in the fact box.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('4148bcd2-3023-4f11-a093-8abf3d602351', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The main purpose of this text is to', '["tell a story about a wombat","teach you how to draw a wombat","ask people to protect wombats","give facts about wombats"]'::jsonb, 3, 'It is an information report: every paragraph gives facts, and it does not tell a story or ask the reader to do anything.', 'AC9E3LY03', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('7107abc1-7e0b-4a62-a51c-b4c34783424d', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What warms the sea?', '["the sun","the wind","the clouds","the rain"]'::jsonb, 0, 'The second paragraph begins by saying the sun warms the sea.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('9c999195-3d46-48ef-9a44-a82e3bbeb123', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Water vapour is', '["a kind of cloud","a gas you cannot see","tiny drops of ice","salty water"]'::jsonb, 1, 'The text says water turns into a gas called water vapour, and that you cannot see it.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('a1c18e77-d853-4543-bb69-f0d08a32ddf0', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'A cloud is made of', '["water vapour only","dust and cold air","millions of tiny drops","rain and snow"]'::jsonb, 2, 'When vapour cools it turns back into tiny drops, and millions of them together make a cloud.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('71afafa7-e3a1-43ae-96b4-ae09f2b57f54', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does a drop fall as rain?', '["The cloud gets colder.","The wind pushes it down.","The sun heats it.","It becomes too heavy to float."]'::jsonb, 3, 'Drops join together, and when a drop is too heavy to float it falls.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('d4f68120-8d8c-44f4-969d-da28203d1303', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The diagram with this text shows that after rain falls it', '["goes back to the sea","stays in the clouds","turns into vapour in the sky","disappears"]'::jsonb, 0, 'The arrows go from the sea to the cloud, from the cloud to the rain, and from the rain back to the sea: a cycle.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('e00240ef-76eb-4596-94a3-502ba0c4e642', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Who is Sophie writing to?', '["her grandfather","Mrs Patel","her class","the canteen manager"]'::jsonb, 1, 'The letter opens “Dear Mrs Patel”.', 'AC9E3LY05', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('7d7485d5-5814-4f96-96b1-945e38b3c160', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What is in the corner near the hall at the moment?', '["a garden bed","play equipment","weeds and one old bench","a garden shed"]'::jsonb, 2, 'Sophie writes that the corner has nothing in it but weeds and one old bench.', 'AC9E3LY05', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('a1cfc11c-bf50-41da-9a13-d2973f668071', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Sophie says a garden would help the class learn because', '["gardening is in the test","the canteen needs salad","her grandfather is a gardener","they are learning about living things"]'::jsonb, 3, 'She links the garden to what Year 3 is learning about living things, and says watching a plant grow makes it easier to understand.', 'AC9E3LY05', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('f188774c-8902-4072-9f7f-96be5b95a27a', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Who does Sophie say would look after the garden?', '["her class, at lunchtime","the canteen staff","her grandfather","every class in the school"]'::jsonb, 0, 'She writes that our class could look after it at lunchtime.', 'AC9E3LY05', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('475214a7-d0fe-40b5-9df4-aa4ab9e28817', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'Which sentence from the letter is an opinion?', '["The corner has weeds and one old bench.","A garden would make it the nicest part of the school.","In Year 3 we are learning about living things.","The canteen could use the vegetables in salads."]'::jsonb, 1, '“The nicest part of the school” is what Sophie thinks. The others are things that can be checked.', 'AC9E3LY03', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('81d477ba-77e2-423f-86c2-5507558eefeb', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Sophie finishes her letter by offering to', '["start digging the beds","bring in seeds","show Mrs Patel the corner","ask her grandfather for help"]'::jsonb, 2, 'The last paragraph says she would be happy to show Mrs Patel the corner and where the beds could go.', 'AC9E3LY03', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('8864fed6-65fe-48a5-8118-875955d39abc', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Where is the frog at the start of the poem?', '["on the lamp","in the kitchen sink","in the garden","on the window glass"]'::jsonb, 3, 'The first line says the green tree frog is on the glass.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('47a188fb-54f8-496d-ac52-b5f90ba06679', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', '“flat feet spread like sticky stars” tells you the frog’s feet are', '["spread out and sticky","cold and wet","shiny and hard","small and sharp"]'::jsonb, 0, 'The comparison is about the shape and the stickiness of the feet, which is how the frog holds onto glass.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('ebed6714-76bc-429f-b10f-56cb57e886ec', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What is the frog waiting for?', '["rain","moths","morning","the lamp to go out"]'::jsonb, 1, 'He watches every moth that comes to dance around the lamp, and then catches one with his tongue.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('77a46146-636f-4e95-9505-764c11492abf', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', '“quick as blinking” describes', '["how the moths fly","how the poet feels","how fast the tongue moves","how long the frog waits"]'::jsonb, 2, 'It comes just before “that long pink ribbon of a tongue”, so it describes the speed of the tongue.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('4f88c696-39e0-40bb-ae32-27a637f810fe', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What does the frog leave behind in the morning?', '["a moth","a pink ribbon","nothing at all","five footprints and a smudge"]'::jsonb, 3, 'The last two lines say he leaves five footprints and a smudge on the window.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('c81f1269-4a4a-4c52-ac0e-66ee640bf9ed', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What do you need to make the boat?', '["one sheet of paper","scissors and glue","two sheets and some tape","a candle and a bucket"]'::jsonb, 0, 'The text says you will need one sheet of paper, and that thin paper folds best.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, null, null, null, null),
+('508b4937-1042-424c-a4ae-2804107d3c23', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What do you do first?', '["fold the top corners down","fold the paper in half","open the hat into a square","pull the two top points apart"]'::jsonb, 1, 'Step 1 is to fold the paper in half so the short edges meet.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, null, null, null, null),
+('30aff503-f862-4681-9558-c5709545577c', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does the text tell you to rub a candle over the paper?', '["to make the paper fold more easily","to make the boat go faster","to help the boat last longer in water","to make the boat shine"]'::jsonb, 2, 'The wax keeps the water out for longer, which is why it is listed under “Before you sail”.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, null, null, null, null),
+('fb3e6504-b98b-4bfd-a724-cfb937d58ded', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What shape do you make when you open the hat?', '["a hat","a triangle","a boat","a square"]'::jsonb, 3, 'Step 4 says to push the side points together to make a square.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, null, null, null, null),
+('30c146e2-ebb9-47b2-bc04-418bb3849528', 'reading_comprehension', 'grade_3', 'proficient', 'short_answer', 'Where does the text say you should test your boat?', null, null, 'The last fact box says to test the boat in a sink or a bucket, never in a creek or a pool on your own.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, 'in a sink or a bucket', ARRAY['a sink or a bucket', 'sink', 'bucket', 'in a sink', 'in a bucket', 'sink or bucket']::text[], null, null),
+('932fd804-574e-4d69-89a1-93b983cfdba8', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What time does the 1 km race start?', '["9:30 am","9:00 am","10:15 am","10:00 am"]'::jsonb, 0, 'The table shows the 1 km race, for 8 to 10 year olds, starting at 9:30 am.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('afdbb35d-781d-49ce-aadf-25cc5c8c3831', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Ben is 6 years old. Which race is for him?', '["the 1 km","the Dash","the 2 km","none of them"]'::jsonb, 1, 'The table shows the Dash is for 5 to 7 year olds.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('585e09e9-ab15-4357-b264-023b682a77e6', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What will the money raised be used for?', '["medals for the runners","hats and water bottles","sports equipment for local primary schools","new benches for the park"]'::jsonb, 2, 'The first paragraph says the money will buy new sports equipment for local primary schools.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('7c0514e9-c377-468d-a2e5-50e38d106eb7', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'What happens to a runner who arrives after their start time?', '["They cannot run at all.","They start with the next race.","They get their money back.","They can still run, but they are not timed."]'::jsonb, 3, 'The last line says late runners can still run but will not be timed.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('bf75d7f3-4337-4551-909b-9cc17fe98c47', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What must every runner have at the park?', '["a grown-up with them","exactly $5 in coins","running shoes","a race number from school"]'::jsonb, 0, 'The bullet points say every runner needs a grown-up with them at the park.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null)
 on conflict (id) do update set
   topic = excluded.topic,
   year_level = excluded.year_level,

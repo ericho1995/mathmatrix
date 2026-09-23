@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, unlinkSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import { loadMagazines, loadStimuli } from './lib/content.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = join(__dirname, '..')
@@ -28,9 +29,14 @@ writeFileSync(tmpPath, jsSrc)
 const { QUESTION_BANK } = await import('file://' + tmpPath)
 unlinkSync(tmpPath)
 
+// Reading magazines: a Reading paper is composed from one magazine, and every
+// block of questions names the text and the page it prints on.
+const MAGAZINES = await loadMagazines(repoRoot)
+const STIMULI = await loadStimuli(repoRoot)
+
 const TOPIC_TO_SUBJECT = {
   number_operations: 'math', number_patterns: 'math', algebra_equations: 'math', geometry_measurement: 'math', statistics_probability: 'math',
-  reading_comprehension: 'english', reading_literary_analysis: 'english', grammar_punctuation: 'english', vocabulary: 'english',
+  reading_comprehension: 'reading', reading_literary_analysis: 'reading', grammar_punctuation: 'english', vocabulary: 'english',
   life_science: 'science', physical_science: 'science', earth_space: 'science',
   chem_atomic_structure: 'chemistry', chem_reactions: 'chemistry',
   phys_mechanics: 'physics', phys_electricity: 'physics',
@@ -43,7 +49,7 @@ const SELECTIVE_SUBJECTS = new Set(['chemistry', 'physics', 'maths_methods', 'ge
 // VCAA exams give students 15 minutes of reading time (no writing allowed) before the writing time starts.
 const VCE_READING_MINUTES = 15
 const SUBJECT_LABEL = {
-  math: 'Maths', english: 'English', science: 'Science',
+  math: 'Maths', english: 'Language Conventions', reading: 'Reading', science: 'Science',
   chemistry: 'Chemistry', physics: 'Physics', maths_methods: 'Maths Methods',
   general_maths: 'General Mathematics', specialist_maths: 'Specialist Mathematics',
 }
@@ -62,6 +68,10 @@ const NAPLAN_SUBJECTS = new Set(['math', 'english'])
 // year level being taught. Leaving Year 10 out of this set was why it fell
 // through to the generic 10-question builder and looked nothing like the rest.
 const NAPLAN_GRADES = new Set(['grade_3', 'grade_4', 'grade_5', 'grade_6', 'year_7', 'year_8', 'year_9', 'year_10'])
+// The years NAPLAN is actually sat. Science is not a NAPLAN test, so these years
+// carry Reading, Language Conventions and Numeracy only; the years between keep
+// Science as general practice.
+const NAPLAN_TEST_YEARS = new Set(['grade_3', 'grade_5', 'year_7', 'year_9'])
 const READING_TOPICS = new Set(['reading_comprehension', 'reading_literary_analysis'])
 const LANGUAGE_TOPICS = new Set(['grammar_punctuation', 'vocabulary'])
 const NUMERACY_CALC_SPLIT_GRADES = new Set(['year_7', 'year_8', 'year_9', 'year_10'])
@@ -486,8 +496,92 @@ function buildGeneralMathsUnit34Exams(subject, yearLevel, questions, examIndex) 
   return exams
 }
 
+// ── Reading papers ──────────────────────────────────────────────────────────
+// One paper per magazine. Each text becomes a section whose title tells the
+// student where to read, exactly as the real paper does ("Read Wombats on page
+// 3 of the magazine"), and the questions run 1..n straight through the paper.
+// Times follow the real tests: 45 minutes at Year 3, 50 at Year 5, 65 from
+// Year 7.
+const READING_MINUTES = { grade_3: 45, grade_4: 45, grade_5: 50, grade_6: 50, year_7: 65, year_8: 65, year_9: 65, year_10: 65 }
+
+function buildReadingExams(yearLevel, questions) {
+  const magazines = MAGAZINES.filter(m => m.yearLevel === yearLevel).sort((a, b) => a.set - b.set)
+  if (!magazines.length) return buildPassageReadingExam(yearLevel, questions)
+  const exams = []
+  for (const magazine of magazines) {
+    const mine = questions.filter(q => (q.practice_set ?? 1) === magazine.set)
+    if (!mine.length) continue
+    const sections = []
+    for (const text of magazine.texts) {
+      const ids = mine.filter(q => q.stimulus_id === text.id).map(q => q.id)
+      if (!ids.length) continue
+      sections.push({
+        title: `${text.title} — page ${text.page} of the magazine`,
+        time_minutes: 0,
+        question_ids: ids,
+      })
+    }
+    if (!sections.length) continue
+    const gradeLabel = GRADE_LABEL[yearLevel] ?? yearLevel
+    exams.push({
+      id: `reading-${yearLevel}-${magazine.set}`,
+      subject: 'reading',
+      yearLevel,
+      title: `Reading ${gradeLabel} — Practice Paper ${magazine.set}`,
+      // The whole paper is one sitting; the per-section times are 0 because the
+      // sections are texts, not timed parts.
+      total_minutes: READING_MINUTES[yearLevel] ?? 50,
+      magazine_id: magazine.id,
+      sections,
+      premium: magazine.set > 1,
+    })
+  }
+  return exams
+}
+
+// A level with no magazine still gets a Reading paper: the authored passages,
+// each printed in the paper above its own questions, which is how the English
+// papers carried Reading before it became its own subject. This covers the
+// years between NAPLAN tests, which have no magazine.
+function buildPassageReadingExam(yearLevel, questions) {
+  const passageOrder = new Map(STIMULI.map((s, i) => [s.id, i]))
+  const titleOf = new Map(STIMULI.map(s => [s.id, s.title]))
+  const byPassage = new Map()
+  const standalone = []
+  for (const q of questions) {
+    if (!q.stimulus_id) standalone.push(q)
+    else if (titleOf.has(q.stimulus_id)) {
+      if (!byPassage.has(q.stimulus_id)) byPassage.set(q.stimulus_id, [])
+      byPassage.get(q.stimulus_id).push(q)
+    }
+  }
+  const sections = [...byPassage.entries()]
+    .sort(([a], [b]) => passageOrder.get(a) - passageOrder.get(b))
+    .map(([id, qs]) => ({ title: titleOf.get(id), time_minutes: 0, question_ids: qs.map(q => q.id) }))
+  // Items that quote their own sentence or two, rather than pointing at a passage.
+  if (standalone.length) sections.push({ title: 'Short texts', time_minutes: 0, question_ids: standalone.map(q => q.id) })
+  const count = sections.reduce((n, s) => n + s.question_ids.length, 0)
+  if (count < MIN_SELLABLE_SECTION) return []
+  const gradeLabel = GRADE_LABEL[yearLevel] ?? yearLevel
+  return [{
+    id: `reading-${yearLevel}-1`,
+    subject: 'reading',
+    yearLevel,
+    title: `Reading ${gradeLabel} — Practice Paper 1`,
+    total_minutes: READING_MINUTES[yearLevel] ?? 50,
+    sections,
+    premium: false,
+  }]
+}
+
 const practiceExams = []
 for (const { subject, yearLevel, questions } of groups.values()) {
+  if (subject === 'reading') {
+    practiceExams.push(...buildReadingExams(yearLevel, questions))
+    continue
+  }
+  // NAPLAN does not test Science, so the NAPLAN years do not sell it.
+  if (subject === 'science' && NAPLAN_TEST_YEARS.has(yearLevel)) continue
   if (yearLevel === 'year_12') {
     // Each practice set is a complete Examination 1 + Examination 2 pair, built
     // from the questions tagged with that set. Sets are never mixed: a VCAA-style
@@ -587,6 +681,10 @@ export interface PracticeExamSection {
 
 export interface PracticeExam {
   id: string
+  /** Reading papers only: the magazine the student reads alongside the paper. */
+  magazine_id?: string
+  /** Reading papers only: minutes for the whole paper, since its sections are texts. */
+  total_minutes?: number
   subject: SubjectSlug
   yearLevel: YearLevel
   title: string
