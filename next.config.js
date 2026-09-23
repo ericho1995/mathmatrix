@@ -15,6 +15,19 @@ const nextConfig = {
   images: {
     remotePatterns: [],
   },
+  // One address for the site. www.prepnest.com.au used to serve every page
+  // itself, so a customer who signed up there sent Supabase a redirect URL on a
+  // second origin, and search engines saw two copies of each page.
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.prepnest.com.au' }],
+        destination: 'https://prepnest.com.au/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

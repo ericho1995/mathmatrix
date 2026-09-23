@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
@@ -10,6 +10,12 @@ export default function ForgotPasswordPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
+  // Set when a reset link could not be used (expired, already used, or opened
+  // twice) and /auth/confirm sent the visitor back here to ask for another.
+  const [linkExpired, setLinkExpired] = useState(false)
+  useEffect(() => {
+    setLinkExpired(new URLSearchParams(window.location.search).get('link') === 'expired')
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -18,7 +24,7 @@ export default function ForgotPasswordPage() {
 
     const supabase = createClient()
     const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/auth/callback?next=/auth/reset-password`,
+      redirectTo: `${window.location.origin}/auth/confirm?next=/auth/reset-password`,
     })
 
     setLoading(false)
@@ -38,6 +44,12 @@ export default function ForgotPasswordPage() {
           Prep<span className="text-brand-400">Nest</span>
         </h1>
         <p className="text-gray-500 text-center mb-8">Reset your password</p>
+
+        {linkExpired && !sent && (
+          <p className="text-sm text-gray-600 bg-brand-50 border border-brand-100 rounded-xl px-4 py-3 mb-4">
+            That reset link has expired or has already been used. Enter your email and we&apos;ll send a new one.
+          </p>
+        )}
 
         {sent ? (
           <p className="text-teal-600 text-sm text-center">

@@ -2546,10 +2546,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_11-1",
     "subject": "maths_methods",
     "yearLevel": "year_11",
-    "title": "Maths Methods Unit 1 & 2 — Practice Exam 1",
+    "title": "Mathematical Methods Unit 1 & 2 — Practice Exam 1",
     "sections": [
       {
-        "title": "Maths Methods",
+        "title": "Mathematical Methods",
         "time_minutes": 45,
         "question_ids": [
           "c2a82f32-e1b5-4a7e-82e3-5843a6d0f39a",
@@ -2592,10 +2592,10 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_11-2",
     "subject": "maths_methods",
     "yearLevel": "year_11",
-    "title": "Maths Methods Unit 1 & 2 — Practice Exam 2",
+    "title": "Mathematical Methods Unit 1 & 2 — Practice Exam 2",
     "sections": [
       {
-        "title": "Maths Methods",
+        "title": "Mathematical Methods",
         "time_minutes": 45,
         "question_ids": [
           "f4f547d8-93d3-4692-ab05-12ed4078e070",
@@ -3193,7 +3193,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-1-exam1",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 1 (Practice 1)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 1 (Practice 1)",
     "sections": [
       {
         "title": "Examination 1 — technology-free",
@@ -3219,7 +3219,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-1-exam2",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 2 (Practice 1)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 2 (Practice 1)",
     "sections": [
       {
         "title": "Section A — multiple choice",
@@ -3269,7 +3269,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-2-exam1",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 1 (Practice 2)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 1 (Practice 2)",
     "sections": [
       {
         "title": "Examination 1 — technology-free",
@@ -3295,7 +3295,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-2-exam2",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 2 (Practice 2)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 2 (Practice 2)",
     "sections": [
       {
         "title": "Section A — multiple choice",
@@ -3345,7 +3345,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-3-exam1",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 1 (Practice 3)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 1 (Practice 3)",
     "sections": [
       {
         "title": "Examination 1 — technology-free",
@@ -3371,7 +3371,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-3-exam2",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 2 (Practice 3)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 2 (Practice 3)",
     "sections": [
       {
         "title": "Section A — multiple choice",
@@ -3421,7 +3421,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-4-exam1",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 1 (Practice 4)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 1 (Practice 4)",
     "sections": [
       {
         "title": "Examination 1 — technology-free",
@@ -3447,7 +3447,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-4-exam2",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 2 (Practice 4)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 2 (Practice 4)",
     "sections": [
       {
         "title": "Section A — multiple choice",
@@ -3497,7 +3497,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-5-exam1",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 1 (Practice 5)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 1 (Practice 5)",
     "sections": [
       {
         "title": "Examination 1 — technology-free",
@@ -3523,7 +3523,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "maths_methods-year_12-5-exam2",
     "subject": "maths_methods",
     "yearLevel": "year_12",
-    "title": "Maths Methods Unit 3 & 4 — Examination 2 (Practice 5)",
+    "title": "Mathematical Methods Unit 3 & 4 — Examination 2 (Practice 5)",
     "sections": [
       {
         "title": "Section A — multiple choice",

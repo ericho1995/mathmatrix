@@ -81,19 +81,19 @@ export const SAMPLES = {
   },
   vcePaper: {
     image: vcePage,
-    alt: 'A page of a VCE Maths Methods Examination 1 practice paper, with marks shown for each part',
+    alt: 'A page of a VCE Mathematical Methods Examination 1 practice paper, with marks shown for each part',
     title: 'VCE exam layout',
     caption: 'Marks for every part, reading time, and the technology-free and technology-active split.',
     paperId: 'maths_methods-year_12-1-exam1',
-    paperTitle: 'Maths Methods Unit 3 & 4 — Examination 1 (Practice 1)',
+    paperTitle: 'Mathematical Methods Unit 3 & 4 — Examination 1 (Practice 1)',
   },
   vceKey: {
     image: vceKey,
-    alt: 'The VCE Maths Methods answer key, showing where each mark is earned',
+    alt: 'The VCE Mathematical Methods answer key, showing where each mark is earned',
     title: 'VCE marking guide',
     caption: 'The answer key shows where each mark is earned, part by part.',
     paperId: 'maths_methods-year_12-1-exam1',
-    paperTitle: 'Maths Methods Unit 3 & 4 — Examination 1 (Practice 1)',
+    paperTitle: 'Mathematical Methods Unit 3 & 4 — Examination 1 (Practice 1)',
   },
 } satisfies Record<string, SamplePage>
 
