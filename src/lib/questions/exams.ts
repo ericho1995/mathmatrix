@@ -1545,6 +1545,116 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": true
   },
   {
+    "id": "reading-year_9-3",
+    "subject": "reading",
+    "yearLevel": "year_9",
+    "title": "Reading Year 9 — Practice Paper 3",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_9-3",
+    "sections": [
+      {
+        "title": "Firebreak — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "609212d0-c03a-48be-be9c-944d4488c2ca",
+          "06593cb5-10b3-46e0-a210-65ef2d218d84",
+          "dec517b8-806a-4141-a101-8499c95af244",
+          "df46e5c9-a858-4e7b-811e-73bf3dd7e357",
+          "117bcd4f-bf6c-4347-9cf4-293c15a9e00e",
+          "edb2677a-1cd9-4795-907b-deefd6f3ef7f",
+          "30da296c-7114-4aa3-bf6e-373cf85f255a",
+          "c12b4a85-bef2-4629-ae02-e88ea2690973"
+        ]
+      },
+      {
+        "title": "How bats see with sound — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "b31a4f56-c708-4322-91e3-4de347e5a477",
+          "46887551-d269-47b3-ac6a-8aca970bb316",
+          "98ef0055-a10e-495c-a3b8-92ad7365c570",
+          "0222ce47-6fec-4714-acae-437a5e53c866",
+          "ad08f8bf-0ea9-4a8b-a19d-704a7c8b20ff",
+          "9a2a8b19-2549-4304-b0dc-83d0a1668d9c",
+          "4cb88f7c-99f4-4373-8fe8-dd2f2b7c68ac"
+        ]
+      },
+      {
+        "title": "Is social media good for teenagers? — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e543c4b3-dba8-4378-af1e-3dcf4fca5ef9",
+          "171e3af3-5af6-416e-9c39-0240fa5d6c98",
+          "15da34f6-8cca-4be2-9a01-ca695be49fc2",
+          "2861e869-e435-4f4f-8776-4c69d2f09014",
+          "911a2a87-b87b-43d6-b8fa-a57566cd431a",
+          "c4df7766-2977-4221-9d05-47e088b01c3d",
+          "71f86b32-b430-49cd-a5f4-0574193b20c7"
+        ]
+      },
+      {
+        "title": "Heirloom — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "971344f9-0c57-455d-a05b-049e671ccd80",
+          "dee5fd9d-bb98-4495-9575-bd185fe2f94d",
+          "663a9873-f594-41be-92de-8d9717759ff3",
+          "52c32a87-993b-4ac5-b77b-1e0c2cff22d6",
+          "6d09856a-1c69-4a5f-bf87-10aad6b244f7",
+          "a155ba08-595f-4efe-bdb3-76b00f828f59"
+        ]
+      },
+      {
+        "title": "The 1967 referendum — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "323a9850-14f3-4331-b229-a07064da6361",
+          "af700768-7ede-4a57-b8be-e61f834d6973",
+          "c62baa71-76cf-4084-9bc1-fa7ce7200563",
+          "2e2d9e4e-4eda-4e56-9bec-7bd7ef11f5b2",
+          "ddcb9de7-d786-478e-aefd-b7263eae3e5a",
+          "b3e0c984-2883-4616-b94e-13e9a67e7e20",
+          "5c10fde7-e5c0-40f3-994b-b36d6453d44c"
+        ]
+      },
+      {
+        "title": "Farewell, class of 2026 — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "b8bd99b5-0085-4206-b427-7983d8197e5a",
+          "eb05b209-0429-477b-9134-92e576823a8a",
+          "5978af7e-8e35-48b3-a9b7-538cb1569720",
+          "a77c95d8-ae5e-4ffd-95c5-b83a3f91a94b",
+          "3e5fb98d-d1ea-4920-9b87-26e63c8b3523",
+          "b18c95e6-b79b-4803-b456-9d99c80fe18a"
+        ]
+      },
+      {
+        "title": "Lao Ma’s Kitchen — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "28591723-2b4d-4139-ab4a-561c2c24436f",
+          "693b832f-5ff4-465a-9438-7a3810b1d997",
+          "60f28198-dc0b-4900-9bca-4d2160b9ed6f",
+          "033396fd-3140-4321-819e-0991af8cdde0",
+          "d4fd1ab1-ce53-4c88-a9db-ff9a88f73d82"
+        ]
+      },
+      {
+        "title": "How Westbrook students get to school — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0c85a4a9-9ba3-4a70-855d-a32b88aeb665",
+          "326d7153-a81c-43ae-84cf-482de4b78203",
+          "109d53e5-2fb6-43c2-bc6d-1778a0fc9545",
+          "24327820-eb7f-40f1-a6ca-2561132a68f8",
+          "ffe14bdf-9594-4d8d-8c18-7bfdd3d93e32"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
     "id": "english-grade_3-1",
     "subject": "english",
     "yearLevel": "grade_3",
