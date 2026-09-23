@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page('/naplan', 0.9),
     page('/vce', 0.9),
     page('/pricing', 0.8),
+    page('/whats-new', 0.6),
     page('/practice', 0.7),
     page('/help', 0.5, 'monthly'),
     page('/leaderboard', 0.3, 'daily'),

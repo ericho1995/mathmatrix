@@ -4,6 +4,7 @@ import type { Route } from 'next'
 import FAQAccordion from '@/components/home/FAQAccordion'
 import PlanCards from '@/components/pricing/PlanCards'
 import LookInside from '@/components/marketing/LookInside'
+import LibraryGrowth from '@/components/marketing/LibraryGrowth'
 import { CalendarX, Check, LockKeyhole, ShieldCheck, X, type LucideIcon } from 'lucide-react'
 import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, perPaper } from '@/lib/pricing'
 import { CATALOGUE_TOTALS, PLAN_STATS, PLAN_TOTALS, VCE_STATS, VCE_TOTALS, subjectLabel } from '@/lib/catalogue'
@@ -105,6 +106,15 @@ export default async function PricingPage() {
             </li>
           ))}
         </ul>
+      </section>
+
+      {/* The plan is a library that grows, not a download; show the dates. */}
+      <section className="max-w-4xl mx-auto px-4 pb-14">
+        <LibraryGrowth
+          scope="plan"
+          heading="Your plan keeps growing"
+          intro="New papers are added throughout the year and join every plan automatically, at no extra cost. Here is what has landed recently and what is being written now."
+        />
       </section>
 
       {/* Look inside: what the money buys, before anyone has to download. */}

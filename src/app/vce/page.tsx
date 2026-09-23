@@ -16,6 +16,7 @@ import {
 } from '@/lib/examDates'
 import type { SubjectSlug } from '@/types'
 import LookInside from '@/components/marketing/LookInside'
+import LibraryGrowth from '@/components/marketing/LibraryGrowth'
 import SubjectIcon from '@/components/ui/SubjectIcon'
 import { FileText } from 'lucide-react'
 
@@ -148,6 +149,15 @@ export default function VcePage() {
           Pages from the free Maths Methods Examination 1. Every VCE paper comes with a marking guide like this one.
         </p>
         <LookInside items={['vcePaper', 'vceKey']} />
+      </section>
+
+      {/* More papers on the way: VCE releases and what is being written. */}
+      <section className="max-w-4xl mx-auto px-4 pt-14">
+        <LibraryGrowth
+          scope="vce"
+          heading="More VCE papers on the way"
+          intro="New Unit 3 & 4 practice sets are being written in the VCAA format, each with a full marking guide. Every paper is a one-off purchase."
+        />
       </section>
 
       {/* What exists per subject, split by unit. */}

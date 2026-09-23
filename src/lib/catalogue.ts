@@ -4,6 +4,7 @@ import { QUESTION_TOTAL } from '@/lib/questions/coverage'
 import { isVceYear } from '@/lib/pricing'
 import { paperMinutes } from '@/lib/exams/paperTime'
 import type { SubjectSlug, YearLevel } from '@/types'
+import { RELEASES, type Release } from '@/lib/releases'
 
 /**
  * What the catalogue holds, counted once.
@@ -136,3 +137,22 @@ export function summarisePaper(exam: PracticeExam): PaperSummary {
     magazine: Boolean(exam.magazine_id),
   }
 }
+
+// ── Releases ────────────────────────────────────────────────────────────────
+
+export type ReleaseScope = 'all' | 'vce' | 'plan'
+
+/** A release's papers that are still in the catalogue, optionally only VCE or only plan papers. */
+export function releasedPapers(release: Release, scope: ReleaseScope = 'all'): PracticeExam[] {
+  return release.examIds
+    .map(id => EXAMS_BY_ID.get(id))
+    .filter((e): e is PracticeExam => Boolean(e))
+    .filter(e => scope === 'all' || (scope === 'vce' ? isVceYear(e.yearLevel) : !isVceYear(e.yearLevel)))
+}
+
+/** Releases that still add at least one paper in scope, newest first. */
+export function releasesIn(scope: ReleaseScope = 'all'): { release: Release; papers: PracticeExam[] }[] {
+  return RELEASES.map(release => ({ release, papers: releasedPapers(release, scope) })).filter(r => r.papers.length > 0)
+}
+
+const EXAMS_BY_ID = new Map(PRACTICE_EXAMS.map(e => [e.id, e]))

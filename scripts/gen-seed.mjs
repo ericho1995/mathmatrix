@@ -32,7 +32,7 @@ if (added > 0) {
   console.log(`Assigned ids to ${added} new question(s) in bank.ts.`)
 }
 
-let stimuliSrc = readFileSync(stimuliPath, 'utf8')
+let stimuliSrc = readFileSync(stimuliPath, 'utf8').replace(/\r\n/g, '\n') // tolerate a Windows (CRLF) checkout
 let stimuliAdded = 0
 stimuliSrc = stimuliSrc.replace(/\{\n(\s+)(?!id:)type:/g, (m, indent) => {
   stimuliAdded++

@@ -10,7 +10,8 @@ import { SUPPORT_EMAIL } from '@/lib/site'
 import { getAccess } from '@/lib/auth/access'
 import { FROM_PER_MONTH } from '@/lib/pricing'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
-import { PLAN_TOTALS } from '@/lib/catalogue'
+import { PLAN_TOTALS, releasesIn } from '@/lib/catalogue'
+import { ROADMAP, formatReleaseDate } from '@/lib/releases'
 import type { YearLevel } from '@/types'
 
 export const metadata: Metadata = {
@@ -128,6 +129,35 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
             <p className="text-xs text-gray-400 mt-3">
               Change plan, update your card, download invoices or cancel — handled securely by Stripe.
             </p>
+            {/* Beside the cancel button on purpose: the moment someone decides
+                whether to keep paying is when they most need to see that the
+                plan is still growing. */}
+            <div className="mt-5 pt-5 border-t border-gray-100">
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">New in your plan</p>
+              <ul className="flex flex-col gap-2 mb-3">
+                {releasesIn('plan')
+                  .slice(0, 3)
+                  .map(({ release, papers }) => (
+                    <li key={release.title} className="text-sm">
+                      <span className="text-gray-400">{formatReleaseDate(release.date)}</span>{' '}
+                      <span className="text-gray-800">{release.title}</span>{' '}
+                      <span className="text-teal-700">
+                        · {papers.length} {papers.length === 1 ? 'paper' : 'papers'}
+                      </span>
+                    </li>
+                  ))}
+              </ul>
+              <p className="text-xs text-gray-500 mb-3">
+                Being written now:{' '}
+                {ROADMAP.filter(item => item.audience !== 'VCE')
+                  .map(item => item.title)
+                  .join(' · ')}
+                . Each is added to your plan at no extra cost.
+              </p>
+              <Link href={'/whats-new' as Route} className="text-sm text-brand-600 hover:underline">
+                See everything that&apos;s new →
+              </Link>
+            </div>
           </>
         ) : (
           <>
