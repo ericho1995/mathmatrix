@@ -34,5 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page('/terms', 0.2, 'monthly'),
     ...YEAR_LEVEL_STATS.map(s => page(`/practice/exams?year=${s.yearLevel}`, 0.7)),
     ...PRACTICE_EXAMS.map(e => page(`/practice/exams/${e.id}`, e.premium ? 0.5 : 0.6, 'monthly')),
+    // The free Reading papers can be sat on screen by anyone — the closest thing
+    // on the site to a NAPLAN Online practice test, which is what people search for.
+    ...PRACTICE_EXAMS.filter(e => e.subject === 'reading' && !e.premium).map(e => page(`/practice/reading/${e.id}`, 0.6, 'monthly')),
   ]
 }
