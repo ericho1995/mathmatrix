@@ -494,7 +494,206 @@ The Riverside Junior Fun Run is on Sunday 14 June at Riverside Park. Money raise
 • Every runner needs a grown-up with them at the park.
 • Entry is $5. Pay at the tent near the gate.
 
-Come early to collect your number. Runners who arrive after their start time can still run, but they will not be timed.', 'english', 'grade_3', 87)
+Come early to collect your number. Runners who arrive after their start time can still run, but they will not be timed.', 'english', 'grade_3', 87),
+('c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', 'passage', 'The blue ribbon', 'Max had never liked the deep end. At swimming lessons he always stayed near the steps, where his feet could touch the bottom.
+
+“The school swimming carnival is in two weeks,” said Mr Tran, the swimming coach. “Everyone in Year 3 can swim one lap.”
+
+Max’s stomach felt as if it were full of fish.
+
+That night he told his big sister, Lena. She did not laugh. “Then we practice,” she said. “Every afternoon.”
+
+So they did. On Monday Max floated on his back. On Wednesday he kicked across the pool holding a board. By Friday he could swim half a lap without stopping.
+
+On the day of the carnival, Max stood on the edge with five other swimmers. The whistle blew. He pushed off and swam, and swam, and swam. His arms ached. He could hear people shouting, but he did not look up.
+
+When his hand touched the wall, the other swimmers were already out of the pool. Max had come last.
+
+Then he saw Lena in the crowd, jumping up and down and waving. Mr Tran walked over and pinned a blue ribbon to his towel. It said Best Effort.
+
+Max had come last, but he had swum the whole lap. He did not stop smiling all day.', 'english', 'grade_3', 211),
+('c7359999-7442-4cef-9807-80f0de90a21b', 'passage', 'Pelican saved at Bellbird Lake', 'By Sam Okafor, Bellbird News
+
+A pelican that was tangled in fishing line was rescued at Bellbird Lake on Sunday morning.
+
+Nine-year-old Chloe Martin saw the bird while she was walking her dog along the jetty. “One of its wings was stuck to its side,” Chloe said. “It kept trying to fly, but it just flapped in a circle.”
+
+Chloe’s mother called a wildlife rescue group. Two volunteers arrived in a small boat. They gently wrapped the pelican in a towel and cut away the line with special scissors.
+
+“The towel keeps the bird calm,” said volunteer Priya Das. “If it cannot see, it is not so frightened.”
+
+The pelican has been taken to a wildlife hospital. Vets say it should be back on the lake in about two weeks.
+
+How you can help
+• Put old fishing line in the bins at the jetty.
+• If you see a hurt animal, do not touch it. Tell an adult.
+• Ask an adult to call a wildlife rescue group.', 'english', 'grade_3', 169),
+('a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', 'passage', 'Octopuses', 'Octopuses are sea animals with soft bodies and eight arms. They have no bones at all, so they can squeeze through a gap not much bigger than a coin.
+
+Each arm is covered in suckers. The suckers can grip rocks and hold food. They can even taste whatever they touch.
+
+An octopus can change colour in less than a second. It turns brown, red or white to match the rocks and weed around it. This helps it hide from sharks and seals, and it helps it sneak up on crabs.
+
+If an octopus is in danger, it squirts a cloud of dark ink into the water. While the enemy cannot see, the octopus swims away.
+
+Octopuses are clever. Scientists have watched them open jars, solve puzzles and carry shells to use as shelters.
+
+Octopus facts
+• An octopus has three hearts.
+• Its blood is blue.
+• Most octopuses live for only one or two years.', 'english', 'grade_3', 156),
+('73b62823-6354-447e-a996-0cdcc2f7bf97', 'passage', 'Rainbow fruit sticks', 'A cool, healthy snack for a hot day. Makes 6 sticks.
+
+You will need
+
+• 6 strawberries
+• 1 small pineapple
+• 2 kiwi fruit
+• 18 blueberries
+• 6 wooden skewers
+• a chopping board and a knife
+
+What to do
+
+1. Wash your hands and the fruit.
+2. Ask an adult to peel the pineapple and kiwi fruit and cut them into small cubes.
+3. Push a strawberry onto each skewer, then a piece of pineapple.
+4. Add a piece of kiwi fruit, then three blueberries.
+5. Keep going until each stick is full.
+6. Put the sticks in the fridge for 20 minutes so they are nice and cold.
+
+Safety tip
+• Skewers are sharp. Hold them by the flat end and point them away from your face.', 'english', 'grade_3', 131),
+('57195d86-97f2-44e1-b460-9c5e709b2751', 'passage', 'Wind', 'The wind came running down our street,
+it rattled every gate,
+it stole a hat from Mr Pike
+and made the washing wave.
+
+It whistled through the letterbox,
+it pushed the bins around,
+it tossed the autumn leaves up high
+then dropped them on the ground.
+
+At bedtime it was tired out,
+it curled up by the door,
+and all night long I heard it breathe
+a soft and sleepy snore.', 'english', 'grade_3', 71),
+('4019abd7-43dc-4caf-ae43-2825fdf2a399', 'passage', 'Pip and the Quiet Roar', 'Book review by Jack, Year 3
+
+Pip and the Quiet Roar by Elsa Moon is about a young dragon called Pip. All the other dragons can roar so loudly that the mountains shake, but when Pip tries, only a tiny squeak comes out.
+
+The other dragons laugh at Pip, so she runs away into the forest. There she meets a lost baby owl that is being chased by a fox. Pip cannot scare the fox away by roaring, so she has to think of another plan. I will not tell you what she does, because that would spoil the ending!
+
+My favourite part is when Pip sings to the baby owl to help it sleep. The pictures are bright and funny, and the words are easy to read.
+
+The only thing I did not like was that the book was too short. I wanted it to keep going.
+
+I think this book would be great for kids aged 5 to 9, and especially for anyone who feels different from everyone else.
+
+My rating: 4 out of 5 stars', 'english', 'grade_3', 178),
+('904ca47d-4a96-4342-ad39-89c459dcc928', 'passage', 'Holiday fun at Greenfield Library', 'These school holidays, Greenfield Library has activities for children aged 5 to 12. Most activities are indoors, so they will go ahead even if it rains. The science show is outside in Greenfield Park, so wear a hat.
+
+• All activities are free.
+• Book a place at the front desk or on this website.
+• Children under 8 must bring an adult.
+
+Places fill up fast, so book early! If you cannot come, please tell us so that someone else can have your place.', 'english', 'grade_3', 85),
+('7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', 'passage', 'Grandma’s new phone', 'Grandma bought her first mobile phone on a Tuesday. By Wednesday, Zoe had eleven messages from her.
+
+The first message was a photo of Grandma’s ear. The second was a photo of her thumb. The third just said HELLO ZOE IS THIS WORKING.
+
+“Why is Grandma shouting?” asked Zoe’s little brother, Ben.
+
+“She isn’t shouting,” laughed Zoe. “She just doesn’t know how to turn off the capital letters.”
+
+On Saturday, Zoe rode her bike to Grandma’s flat. She showed Grandma how to hold the phone the right way round for a photo, how to make the letters small and how to send a smiling face.
+
+Grandma practiced all afternoon. She took photos of her tea cup, her cat and the geraniums on the balcony.
+
+That night Zoe’s phone buzzed. It was a photo of the sunset over the sea, sharp and bright. Under it, Grandma had written: Thank you, my clever girl. Now it is my turn to teach you something. Bring your knitting needles next Saturday!
+
+Zoe smiled. She had never knitted anything in her life.', 'english', 'grade_3', 177),
+('1a943783-ffb7-4d18-b084-b671b0f203bf', 'passage', 'How do bees make honey?', 'Honey is made by honeybees. It takes a lot of hard work, and a whole hive of bees working together.
+
+A worker bee flies from flower to flower, drinking a sweet liquid called nectar. She stores the nectar in a special part of her body called a honey stomach.
+
+Back at the hive, she passes the nectar to a younger bee. That bee chews it and passes it on again. Each time, the nectar gets a little thicker.
+
+Next, the bees spread the nectar into the small six-sided rooms of the honeycomb, called cells. They fan it with their wings to dry out the water. Slowly, the runny nectar turns into thick, sticky honey.
+
+Finally, the bees cover each full cell with a lid of wax. The honey keeps there for months, ready to feed the hive through winter.
+
+[How nectar becomes honey]', 'english', 'grade_3', 143),
+('93aefda4-7c41-4b9c-83af-ee542a613174', 'passage', 'Every class needs a pet', 'A speech by Aiden, Year 3
+
+Good morning, everyone. Today I am going to tell you why every class in our school should have a pet.
+
+First, a pet teaches us to be responsible. If our class had a guinea pig, we would take turns to feed it, give it fresh water and clean its cage. Nobody would want it to go hungry.
+
+Second, a pet makes a classroom calmer. When I stroke my dog at home, I feel relaxed. I think a class pet would help children who feel worried or upset.
+
+Third, a pet helps us learn. We could measure how much our guinea pig grows, write stories about it and find out what it needs to stay healthy.
+
+Some people say pets are noisy or messy. But a guinea pig is small and quiet, and if we clean its cage every Friday it will not be messy at all.
+
+So please vote yes for class pets. Our classrooms will be happier, calmer and smarter places. Thank you.', 'english', 'grade_3', 170),
+('b6867e34-7ef0-4e37-aaf0-d6b959d56c89', 'passage', 'Thank you, Ranger Kim', 'Dear Ranger Kim
+
+Thank you for showing Class 3K around Blue Gum National Park last Thursday. We had the best day.
+
+Our favourite part was the night walk. We never knew that sugar gliders could glide further than the length of a netball court! When you shone the red torch into the trees, we saw two of them eating. You told us that red light does not frighten animals the way white light does.
+
+We also learned why we must stay on the track. If people walk off the track, they crush small plants and the homes of lizards and insects.
+
+When we got back to school, we made posters about looking after the bush. We have put them up in the library so the whole school can see them.
+
+We hope we can visit again next year.
+
+From Class 3K, Wattle Hill Primary School', 'english', 'grade_3', 145),
+('4f3b68de-ab63-479a-b1af-819b5e43efc5', 'passage', 'Night market', 'Lanterns hang like paper moons,
+the smoky grill goes hiss,
+a man is spinning sugar clouds —
+I’ve never tasted this!
+
+The noodles curl like yellow string,
+the dumplings steam and pop,
+a drummer taps a happy beat
+that makes my feet go hop.
+
+We walk home slowly, full and warm,
+the stars come out to see,
+and in my pocket, wrapped in foil,
+a dumpling just for me.', 'english', 'grade_3', 69),
+('8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', 'passage', 'Emus', 'The emu is Australia’s largest bird. An adult emu can be taller than a grown-up person and weigh as much as a big dog.
+
+Emus cannot fly. Their wings are tiny, only about as long as a pencil. Instead of flying, emus run. They have long, strong legs and can run faster than a car in a school zone.
+
+Emus eat seeds, fruit, flowers and insects. When they eat fruit, the seeds pass through their bodies and are dropped in new places, where they can grow into new plants.
+
+The female emu lays the eggs, but the male does the rest. He sits on the eggs for about eight weeks and hardly eats or drinks the whole time. After the chicks hatch, he looks after them for many months.
+
+Emu facts
+• Emu eggs are dark green.
+• Emu chicks have stripes, which help them hide in the grass.
+• The emu is on Australia’s coat of arms.', 'english', 'grade_3', 158),
+('f00df197-ee7e-4ffa-834a-a7957f1642b2', 'passage', 'Lost dog', 'Please help us find Biscuit!
+
+Biscuit went missing from Acacia Street on Sunday afternoon when our gate was left open. He is friendly but shy, and he may hide if you call him loudly.
+
+What Biscuit looks like
+
+• small brown dog with one white ear
+• red collar with a silver bell
+• very fluffy tail
+
+If you see him
+
+• Do not chase him. Sit down and hold out your hand.
+• Knock on the door of 14 Acacia Street, or tell a grown-up.
+
+A reward of $50 will be given to the person who brings Biscuit home.
+
+Thank you! From Hana and Leo', 'english', 'grade_3', 106)
 on conflict (id) do update set
   type = excluded.type,
   title = excluded.title,
@@ -4127,7 +4326,83 @@ What is the percentage error, to one decimal place?', '["0.3%","2.3%","2.4%","97
 ('afdbb35d-781d-49ce-aadf-25cc5c8c3831', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Ben is 6 years old. Which race is for him?', '["the 1 km","the Dash","the 2 km","none of them"]'::jsonb, 1, 'The table shows the Dash is for 5 to 7 year olds.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
 ('585e09e9-ab15-4357-b264-023b682a77e6', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What will the money raised be used for?', '["medals for the runners","hats and water bottles","sports equipment for local primary schools","new benches for the park"]'::jsonb, 2, 'The first paragraph says the money will buy new sports equipment for local primary schools.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
 ('7c0514e9-c377-468d-a2e5-50e38d106eb7', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'What happens to a runner who arrives after their start time?', '["They cannot run at all.","They start with the next race.","They get their money back.","They can still run, but they are not timed."]'::jsonb, 3, 'The last line says late runners can still run but will not be timed.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
-('bf75d7f3-4337-4551-909b-9cc17fe98c47', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What must every runner have at the park?', '["a grown-up with them","exactly $5 in coins","running shoes","a race number from school"]'::jsonb, 0, 'The bullet points say every runner needs a grown-up with them at the park.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null)
+('bf75d7f3-4337-4551-909b-9cc17fe98c47', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What must every runner have at the park?', '["a grown-up with them","exactly $5 in coins","running shoes","a race number from school"]'::jsonb, 0, 'The bullet points say every runner needs a grown-up with them at the park.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('58ad53ee-4c46-451d-ac7b-3fecfdb521eb', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'At the start of the story, where did Max stay at swimming lessons?', '["near the steps","in the deep end","next to Mr Tran","on the edge of the pool"]'::jsonb, 0, 'He always stayed near the steps, where his feet could touch the bottom.', 'AC9E3LY05', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('4d301b0a-72cf-449d-b883-fdb941b263e3', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', '“Max’s stomach felt as if it were full of fish.” This shows that Max felt', '["hungry","nervous","excited","sick from the pool water"]'::jsonb, 1, 'A fluttering stomach is a way of describing nerves. He has just heard he must swim a whole lap.', 'AC9E3LE03', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('d83b96e1-36e4-48e7-b6a3-237db2598df5', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What did Lena do when Max told her about the carnival?', '["She laughed at him.","She told Mr Tran.","She offered to help him practice.","She said he did not have to swim."]'::jsonb, 2, 'She did not laugh. She said, “Then we practice. Every afternoon.”', 'AC9E3LY05', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('4526b254-f45c-4fb6-a087-c50a4d602963', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'By Friday, Max could', '["swim a whole lap","float on his back for the first time","swim faster than Lena","swim half a lap without stopping"]'::jsonb, 3, 'The story says, “By Friday he could swim half a lap without stopping.”', 'AC9E3LY05', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('81b44fc0-bafb-435a-91be-6efd89f73ba5', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why did Mr Tran give Max a ribbon?', '["Max had tried hard and swum the whole lap.","Max had won the race.","Max had helped the other swimmers.","Every swimmer was given a ribbon."]'::jsonb, 0, 'The ribbon says Best Effort, and Max came last but swam the whole lap.', 'AC9E3LY05', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('1cefba2d-56c0-4939-bed3-2ebf636dab87', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Which word best describes how Max felt at the end of the story?', '["embarrassed","proud","tired of swimming","angry"]'::jsonb, 1, 'He had come last but swum the whole lap, and he did not stop smiling all day.', 'AC9E3LE02', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('5fef0148-c33d-47b7-912e-09c0a8758025', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Who first saw the pelican?', '["a fisherman on the jetty","a volunteer in a boat","a girl walking her dog","a vet"]'::jsonb, 2, 'Chloe Martin saw the bird while she was walking her dog along the jetty.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('853428e7-f767-4895-a74a-b2332f4589e4', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What was wrong with the pelican?', '["It had hurt its foot on the jetty.","It was too hungry to fly.","It had lost its way home.","It was tangled in fishing line."]'::jsonb, 3, 'The first sentence says the pelican was tangled in fishing line.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('c3512a96-b7e5-4a38-b864-d60961ecffcb', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why did the volunteers wrap the pelican in a towel?', '["to keep it calm","to keep it warm","to dry its feathers","to stop it biting"]'::jsonb, 0, 'Priya Das says the towel keeps the bird calm, because if it cannot see it is not so frightened.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('e275163e-8211-4d3b-b21c-ae18fa34a972', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'In the text, the word “gently” means', '["quickly and roughly","carefully and softly","very loudly","without looking"]'::jsonb, 1, 'The volunteers handle a frightened, hurt bird, so they are careful and soft with it.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('060766bc-5723-4e99-b37a-8cd5c1e2f6df', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Where is the pelican now?', '["back on the lake","at Chloe’s house","at a wildlife hospital","at the jetty"]'::jsonb, 2, 'The text says it has been taken to a wildlife hospital and should be back in about two weeks.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('52ef477b-3c28-4594-ab16-f851dd94952d', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The box called How you can help is there to', '["tell the story of the rescue again","explain how pelicans catch fish","list the people who saved the pelican","tell readers what they can do to protect wild animals"]'::jsonb, 3, 'Each point in the box is something a reader can do: bin old line, tell an adult, call a rescue group.', 'AC9E3LY03', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('e4cc61ef-0e42-4b8e-9693-84925bbc7729', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why can an octopus squeeze through small gaps?', '["It has no bones.","It has eight arms.","It can change colour.","It is very small."]'::jsonb, 0, 'The text says they have no bones at all, so they can squeeze through a gap not much bigger than a coin.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('f4d240a9-aec3-4b29-b72e-6a89588cb0e8', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What can an octopus do with its suckers?', '["breathe under water","grip rocks, hold food and taste","make ink","change colour"]'::jsonb, 1, 'The suckers can grip rocks and hold food, and they can even taste whatever they touch.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('e607eabb-183c-4ba9-af5e-a0173c28d811', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'How does changing colour help an octopus?', '["It helps it stay warm.","It helps it find other octopuses.","It helps it hide and catch food.","It helps it swim faster."]'::jsonb, 2, 'Matching the rocks and weed hides it from sharks and seals and helps it sneak up on crabs.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('77c24f40-b6fd-4bf9-a441-0673bbace155', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What does an octopus do when it is in danger?', '["It hides inside a jar.","It grabs the enemy with its suckers.","It stays very still on the sand.","It squirts ink and swims away."]'::jsonb, 3, 'It squirts a cloud of dark ink, and while the enemy cannot see, it swims away.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('93df0564-2979-46bd-b0cc-aaeb1f0663d6', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Which sentence from the text shows that octopuses are clever?', '["Scientists have watched them open jars.","Its blood is blue.","Each arm is covered in suckers.","They have no bones at all."]'::jsonb, 0, 'Opening jars and solving puzzles are signs of intelligence; the other sentences describe their bodies.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('1965f4b3-fb0f-4793-9a4a-b89073c0fb31', 'reading_comprehension', 'grade_3', 'foundation', 'short_answer', 'How many hearts does an octopus have? Write a number.', null, null, 'The fact box says an octopus has three hearts.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, '3', ARRAY['three']::text[], null, null),
+('d8e24060-d69f-408e-a1e9-8b1f212663e2', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What should you do first?', '["Push a strawberry onto a skewer.","Wash your hands and the fruit.","Cut the fruit into cubes.","Put the sticks in the fridge."]'::jsonb, 1, 'Step 1 is to wash your hands and the fruit.', 'AC9E3LY03', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('3b2a7cd0-7774-486b-8afe-909375b7c4d1', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Step 2 says to ask an adult because', '["adults like pineapple","only adults can buy fruit","cutting with a knife can be dangerous","kiwi fruit are hard to find"]'::jsonb, 2, 'Step 2 needs a knife to peel and cut the fruit, and knives are dangerous for children to use alone.', 'AC9E3LY05', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('1c14f301-a60c-4fd7-8d2f-e506c8ddb2a9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which fruit goes on straight after the strawberry?', '["kiwi fruit","blueberries","another strawberry","pineapple"]'::jsonb, 3, 'Step 3 says push a strawberry onto each skewer, then a piece of pineapple.', 'AC9E3LY05', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('ab1c642e-1779-497f-b796-67502c444bf3', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why are the sticks put in the fridge?', '["so they are cold to eat","so the fruit stays on the skewers","so the colours stay bright","so no one eats them too early"]'::jsonb, 0, 'Step 6 says the fridge is so they are nice and cold, and the recipe is for a hot day.', 'AC9E3LY05', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('306551a8-87b8-4139-8fae-c773c6531b79', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does the recipe have a Safety tip?', '["to tell readers which fruit to buy","to stop people hurting themselves on the skewers","to explain why fruit is healthy","to say how long the sticks take to make"]'::jsonb, 1, 'The tip says skewers are sharp and explains how to hold them safely.', 'AC9E3LY03', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('e0cf0409-892b-45e9-8069-8300c6121ae4', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'In this poem, the wind is described as if it were', '["a machine","a storm cloud","a person or animal","a bird"]'::jsonb, 2, 'The wind runs, steals, whistles, gets tired, curls up and snores, which are things people and animals do.', 'AC9E3LE03', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('329d5e45-c3d7-4c45-bbe0-c7309b071ab0', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What did the wind steal?', '["the washing","a letter","the bins","a hat"]'::jsonb, 3, 'The poem says it stole a hat from Mr Pike.', 'AC9E3LY05', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('b94e7c70-9ca3-44c0-86cf-4576c244f167', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', '“and made the washing wave” means that the washing', '["flapped in the wind","fell on the ground","got wet","blew away"]'::jsonb, 0, 'Washing on a line moves back and forth in the wind, like a hand waving.', 'AC9E3LY05', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('57c5f324-f05e-494b-a03d-e4190ef63dc3', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'How does the wind change in the last part of the poem?', '["It goes from calm to wild.","It goes from wild to calm.","It gets colder.","It moves to another street."]'::jsonb, 1, 'All day it rattles and tosses things; at bedtime it is tired, curls up and snores softly.', 'AC9E3LE02', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('0610cf92-fdd2-489a-84f8-99b1ea33198c', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which two words from the poem rhyme?', '["street and gate","high and leaves","around and ground","door and breathe"]'::jsonb, 2, 'Around and ground end with the same sound. The poem also rhymes door and snore.', 'AC9E3LE03', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('7817a684-4650-41d3-a3f7-ebdb2240e879', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What is Pip’s problem at the start of the book?', '["She is lost in the forest.","She cannot fly.","She has no friends at school.","She can only squeak, not roar."]'::jsonb, 3, 'When Pip tries to roar, only a tiny squeak comes out.', 'AC9E3LY05', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('bc5470da-01cb-440d-886e-0e28d82d6fdc', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why does Pip run away into the forest?', '["The other dragons laugh at her.","She wants to find the owl.","A fox is chasing her.","She wants to practice roaring."]'::jsonb, 0, 'The review says the other dragons laugh at Pip, so she runs away.', 'AC9E3LY05', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('54555282-cf3b-453d-b3b3-46573df3433e', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why doesn’t Jack tell us what Pip does to save the owl?', '["He cannot remember.","It would spoil the ending.","The book does not say.","He did not like that part."]'::jsonb, 1, 'Jack writes, “I will not tell you what she does, because that would spoil the ending!”', 'AC9E3LY05', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('5ab046fb-3a8e-4cf5-bb97-7d6c14b23d26', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What did Jack not like about the book?', '["The pictures were dull.","The words were hard to read.","It was too short.","The ending was sad."]'::jsonb, 2, 'He says the only thing he did not like was that the book was too short.', 'AC9E3LY05', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('a1d78bc1-ad56-4ef7-b391-0040ffbdf387', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The main purpose of Jack’s review is to', '["tell the whole story of the book","explain how to write a book","sell the book in a shop","tell readers what the book is like and whether it is worth reading"]'::jsonb, 3, 'A review describes a book, gives the writer’s opinion and a rating, and says who would enjoy it.', 'AC9E3LY01', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('144de5ca-4b79-4236-a09d-b15525026181', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'How much do the activities cost?', '["nothing","$5 each","$2 for children under 8","It depends on the activity."]'::jsonb, 0, 'The first dot point says all activities are free.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('22dc857e-ac38-42f1-8e59-01ce03af54dd', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'On which day is Story time?', '["Monday","Tuesday","Wednesday","Friday"]'::jsonb, 1, 'The table shows Story time on Tuesday at 11:00 am.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('dcdf6596-9c97-4edf-b197-621d431876e7', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which activity is held outside?', '["Lego building","Make a comic","Science show","Movie morning"]'::jsonb, 2, 'The first paragraph says the science show is outside in Greenfield Park.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('a84b9b4b-65b4-4bfd-ae39-68096721cdfa', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Who must bring an adult?', '["children over 12","everyone","children going to the science show","children under 8"]'::jsonb, 3, 'The third dot point says children under 8 must bring an adult.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('9241a34f-38c3-42ae-9a0b-42c43addcdbc', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does the library ask you to tell them if you cannot come?', '["so someone else can have your place","so they can cancel the activity","so they can send you a new time","so they know how much food to buy"]'::jsonb, 0, 'The text says places fill up fast and asks you to tell them so that someone else can have your place.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('4fc892b4-dcd2-427e-a2ca-d91ccdbe4131', 'reading_comprehension', 'grade_3', 'foundation', 'short_answer', 'How many messages had Grandma sent Zoe by Wednesday? Write a number.', null, null, 'The story says, “By Wednesday, Zoe had eleven messages from her.”', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, '11', ARRAY['eleven']::text[], null, null),
+('02f16f73-25e9-4814-b79f-b0fe3db09ffb', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why did Grandma send a photo of her ear?', '["She did not know how to use the phone yet.","She had a sore ear.","She wanted to make Zoe laugh.","Zoe had asked for it."]'::jsonb, 0, 'It was her first phone and a day old; the thumb photo and the capital letters show she was still learning how it worked.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('fed5c012-8d30-4549-aa10-c4d35e12eabc', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Ben thought Grandma was shouting because', '["she had called him on the phone","her message was all in capital letters","she was angry with Zoe","she could not hear well"]'::jsonb, 1, 'Zoe explains that Grandma just does not know how to turn off the capital letters.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('dd5a0e4e-9d69-43b9-909c-33d236a56539', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which of these did Zoe teach Grandma?', '["how to knit","how to ride a bike","how to make the letters small","how to buy a phone"]'::jsonb, 2, 'Zoe showed her how to take a photo the right way round, make the letters small and send a smiling face.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('4a922298-b7bb-461d-9546-6b463a7d965a', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'The photo of the sunset shows that Grandma', '["was on holiday by the sea","had bought a better phone","wanted Zoe to visit","had learned how to use the phone"]'::jsonb, 3, 'Her first photos were of her ear and thumb; after practicing, she sends a sharp, bright photo.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('d5660da4-ba02-487d-8a80-4e1ba54b4c70', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'What will probably happen next Saturday?', '["Grandma will teach Zoe to knit.","Zoe will teach Grandma to send photos.","Ben will get a phone.","Grandma will buy knitting needles."]'::jsonb, 0, 'Grandma writes that it is her turn to teach, and asks Zoe to bring knitting needles. Zoe has never knitted.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('662541a2-e6d1-4367-810f-2061793a5bb3', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What is nectar?', '["a kind of wax","a sweet liquid from flowers","the room where honey is kept","a young bee"]'::jsonb, 1, 'The text says the bee drinks a sweet liquid called nectar from flowers.', 'AC9E3LY05', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('8dea1823-c042-4e1f-b33c-ae920cef4758', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Where does a bee keep nectar while she is flying?', '["on her legs","in her wings","in her honey stomach","in a cell"]'::jsonb, 2, 'She stores the nectar in a special part of her body called a honey stomach.', 'AC9E3LY05', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('e61480b3-3df3-4f92-904e-d7d9184df160', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What happens each time the nectar is passed from bee to bee?', '["It turns into wax.","It gets sweeter and runnier.","It is given to the queen.","It gets a little thicker."]'::jsonb, 3, 'The third paragraph says each time, the nectar gets a little thicker.', 'AC9E3LY05', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('0bf2ba49-fbaf-44e4-a045-5abe17b60c71', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why do the bees fan the nectar with their wings?', '["to dry out the water","to keep the hive cool","to spread the smell","to scare away other insects"]'::jsonb, 0, 'The text says they fan it with their wings to dry out the water, so runny nectar becomes thick honey.', 'AC9E3LY05', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('9b6630d7-0ce2-421f-ba32-ce39c38fd90d', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The word Finally at the start of the last paragraph tells the reader that', '["this step is the most important","this is the last step","this step happens every day","the bees are tired"]'::jsonb, 1, 'Finally is a time word used to show the last step in a sequence, after Next.', 'AC9E3LY03', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('1335fc54-1a79-4c5e-9541-386ab3f3dbcd', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'What does the diagram with this text show?', '["the parts of a bee’s body","where bees find flowers","the steps for making honey in order","how many bees live in a hive"]'::jsonb, 2, 'The boxes and arrows go from drinking nectar to covering the cells with wax: the steps of the text in order.', 'AC9E3LY03', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('0e2d815e-8c0e-4394-b880-eb9a81d12ffc', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What does Aiden want?', '["a dog at home","a new classroom","guinea pigs to be banned","every class to have a pet"]'::jsonb, 3, 'In his first paragraph he says every class in the school should have a pet.', 'AC9E3LY01', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('4f9cd2bf-0584-432d-812e-87eacbaef6b4', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What is Aiden’s first reason?', '["A pet teaches us to be responsible.","A pet makes a classroom calmer.","A pet helps us learn.","A pet is small and quiet."]'::jsonb, 0, 'The paragraph starting First is about being responsible: feeding, water and cleaning the cage.', 'AC9E3LY05', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('8d536caf-c438-4b18-84a0-1a06759975d0', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does Aiden talk about stroking his dog at home?', '["to show that he already has a pet","to give an example of how pets help people feel calm","to ask if he can bring his dog to school","to explain how to look after a dog"]'::jsonb, 1, 'It comes in the paragraph about pets making a classroom calmer, as an example from his own life.', 'AC9E3LY05', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('847812d6-076f-435a-ba47-6e6a76b46a80', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Some people think a class pet would be', '["too expensive","lonely at night","noisy or messy","dangerous"]'::jsonb, 2, 'Aiden says, “Some people say pets are noisy or messy.”', 'AC9E3LY05', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('2912fb1d-bf6a-433e-b386-eb5dd892a28b', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'How does Aiden answer people who say pets are messy?', '["He says mess does not matter.","He says teachers can clean up.","He agrees with them.","He says the cage can be cleaned every Friday."]'::jsonb, 3, 'He says that if the class cleans the cage every Friday, it will not be messy at all.', 'AC9E3LY05', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('855dcd35-7737-43b0-aaeb-37160b4fa926', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'Aiden uses the words First, Second and Third to', '["help listeners follow his reasons","count the pets in the school","show which reason he likes least","tell a story in order"]'::jsonb, 0, 'Each word starts a new reason, so listeners can keep track of his argument.', 'AC9E3LY03', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('a3624133-29cd-42ba-87e4-6655440f0715', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Why did Class 3K write to Ranger Kim?', '["to ask for a visit","to thank her for their visit","to report a lost animal","to invite her to their school"]'::jsonb, 1, 'The letter opens by thanking her for showing the class around the park.', 'AC9E3LY01', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('ed6731d3-0a2b-4e39-9158-57b88832b820', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What was the class’s favourite part of the day?', '["making posters","the bus trip","the night walk","lunch at the park"]'::jsonb, 2, 'The letter says, “Our favourite part was the night walk.”', 'AC9E3LY05', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('f3f0d9a3-c55d-4658-b733-702880b436e9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why did Ranger Kim use a red torch?', '["Red light is brighter.","The white torch was broken.","Sugar gliders like the colour red.","Red light does not frighten animals."]'::jsonb, 3, 'The class writes that red light does not frighten animals the way white light does.', 'AC9E3LY05', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('2dbd915d-ea95-41b2-8a56-026161d5d30d', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What happens when people walk off the track?', '["They crush small plants and animal homes.","They get lost in the bush.","They frighten the sugar gliders.","They have to pay a fine."]'::jsonb, 0, 'The letter says walking off the track crushes small plants and the homes of lizards and insects.', 'AC9E3LY05', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('f42a73f0-0c92-4576-b873-fb814dbbe5b1', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why did the class put their posters in the library?', '["because the classroom was full","so the whole school could see them","because Ranger Kim asked them to","so they could sell them"]'::jsonb, 1, 'The letter says they put them up in the library so the whole school can see them.', 'AC9E3LY05', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('dab47891-9785-42d0-b50e-37e53e7da309', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', '“Lanterns hang like paper moons.” The lanterns are like moons because they are', '["far away","made of rock","round and glowing","only out in the day"]'::jsonb, 2, 'A lit paper lantern is round and glows in the dark, like the moon.', 'AC9E3LE03', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('c4737dbd-0de6-45f2-ae9a-50379a208141', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'The man “spinning sugar clouds” is most likely making', '["noodles","dumplings","pancakes","fairy floss"]'::jsonb, 3, 'Fairy floss is spun from sugar into fluffy shapes that look like clouds.', 'AC9E3LY05', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('7e2b767f-666f-427e-8096-7292107962d9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which sense does “the smoky grill goes hiss” use most?', '["hearing","touch","taste","sight"]'::jsonb, 0, 'Hiss is a sound, so the line makes the reader hear the grill.', 'AC9E3LE03', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('4a2e93bf-33fd-460a-9c68-831a1b7abbd9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'How does the speaker feel about the night market?', '["bored","happy and excited","scared","sad to be there"]'::jsonb, 1, 'The drumbeat is happy, their feet hop, they have tasted something new and they walk home full and warm.', 'AC9E3LE02', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('38c9ce66-9838-489f-b8fa-1f755838ebbf', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What does the speaker take home?', '["a lantern","some noodles","a dumpling","a drum"]'::jsonb, 2, 'The last lines say that in their pocket, wrapped in foil, is a dumpling just for them.', 'AC9E3LY05', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('4385b97d-e013-48e3-9823-e0dca03a019a', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Emus cannot fly. How do they get around quickly?', '["They swim.","They glide.","They hop like kangaroos.","They run on their long, strong legs."]'::jsonb, 3, 'The text says instead of flying, emus run, faster than a car in a school zone.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('cd46f300-9f0c-4f08-9fdd-4512278bf5de', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'How do emus help new plants to grow?', '["They drop seeds in new places.","They dig the soil with their feet.","They eat the insects that harm plants.","They sit on the seeds to keep them warm."]'::jsonb, 0, 'Seeds from the fruit they eat pass through their bodies and are dropped in new places.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('765b94ec-61c3-4994-a145-278941e6dfb4', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Who sits on the emu eggs?', '["the female emu","the male emu","both parents, taking turns","no one"]'::jsonb, 1, 'The female lays the eggs, but the male sits on them for about eight weeks.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('5452ce48-e0be-434a-86ce-5ffff6b242ad', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'While he sits on the eggs, the male emu', '["eats a lot of fruit","runs away from danger","hardly eats or drinks","builds a new nest"]'::jsonb, 2, 'The text says he hardly eats or drinks the whole time.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('73597a18-b019-4e8a-a858-01cb673c79f9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'How do stripes help emu chicks?', '["They keep them warm.","They help their father find them.","They show how old the chicks are.","They help them hide in the grass."]'::jsonb, 3, 'The fact box says the stripes help them hide in the grass.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('f41f2425-c2d0-4afe-812a-c98014e467fe', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'When did Biscuit go missing?', '["on Sunday afternoon","on Saturday morning","on Monday night","last week"]'::jsonb, 0, 'The poster says Biscuit went missing on Sunday afternoon.', 'AC9E3LY05', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null),
+('4d121f9b-a628-488a-96ed-e58d245157bc', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'How did Biscuit get out?', '["He dug under the fence.","The gate was left open.","He jumped over the wall.","He ran off at the park."]'::jsonb, 1, 'He went missing when the gate was left open.', 'AC9E3LY05', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null),
+('c1c2a411-ad38-4194-bae5-a6228b63e3f6', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does the poster say not to call Biscuit loudly?', '["He does not know his name.","He might bite.","He is shy and may hide.","He cannot hear well."]'::jsonb, 2, 'The poster says he is friendly but shy, and he may hide if you call him loudly.', 'AC9E3LY05', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null),
+('b9208ac2-ca58-4bed-923b-13d366e2cf1e', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which of these would help you know a dog is Biscuit?', '["a black tail","a blue collar","long legs","one white ear"]'::jsonb, 3, 'Biscuit is a small brown dog with one white ear, a red collar with a silver bell and a fluffy tail.', 'AC9E3LY05', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null),
+('d951c889-b1ef-47a7-8978-9c7f6851ed15', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'The main purpose of this poster is to', '["get help to find a lost dog","sell a dog","tell people how to train a dog","warn people about a dangerous dog"]'::jsonb, 0, 'It asks readers to help find Biscuit, describes him and offers a reward.', 'AC9E3LY01', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null)
 on conflict (id) do update set
   topic = excluded.topic,
   year_level = excluded.year_level,

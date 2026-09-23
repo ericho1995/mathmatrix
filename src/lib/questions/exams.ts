@@ -458,6 +458,188 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": false
   },
   {
+    "id": "reading-grade_3-2",
+    "subject": "reading",
+    "yearLevel": "grade_3",
+    "title": "Reading Grade 3 — Practice Paper 2",
+    "total_minutes": 45,
+    "magazine_id": "reading-grade_3-2",
+    "sections": [
+      {
+        "title": "The blue ribbon — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "58ad53ee-4c46-451d-ac7b-3fecfdb521eb",
+          "4d301b0a-72cf-449d-b883-fdb941b263e3",
+          "d83b96e1-36e4-48e7-b6a3-237db2598df5",
+          "4526b254-f45c-4fb6-a087-c50a4d602963",
+          "81b44fc0-bafb-435a-91be-6efd89f73ba5",
+          "1cefba2d-56c0-4939-bed3-2ebf636dab87"
+        ]
+      },
+      {
+        "title": "Pelican saved at Bellbird Lake — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "5fef0148-c33d-47b7-912e-09c0a8758025",
+          "853428e7-f767-4895-a74a-b2332f4589e4",
+          "c3512a96-b7e5-4a38-b864-d60961ecffcb",
+          "e275163e-8211-4d3b-b21c-ae18fa34a972",
+          "060766bc-5723-4e99-b37a-8cd5c1e2f6df",
+          "52ef477b-3c28-4594-ab16-f851dd94952d"
+        ]
+      },
+      {
+        "title": "Octopuses — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e4cc61ef-0e42-4b8e-9693-84925bbc7729",
+          "f4d240a9-aec3-4b29-b72e-6a89588cb0e8",
+          "e607eabb-183c-4ba9-af5e-a0173c28d811",
+          "77c24f40-b6fd-4bf9-a441-0673bbace155",
+          "93df0564-2979-46bd-b0cc-aaeb1f0663d6",
+          "1965f4b3-fb0f-4793-9a4a-b89073c0fb31"
+        ]
+      },
+      {
+        "title": "Rainbow fruit sticks — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "d8e24060-d69f-408e-a1e9-8b1f212663e2",
+          "3b2a7cd0-7774-486b-8afe-909375b7c4d1",
+          "1c14f301-a60c-4fd7-8d2f-e506c8ddb2a9",
+          "ab1c642e-1779-497f-b796-67502c444bf3",
+          "306551a8-87b8-4139-8fae-c773c6531b79"
+        ]
+      },
+      {
+        "title": "Wind — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e0cf0409-892b-45e9-8069-8300c6121ae4",
+          "329d5e45-c3d7-4c45-bbe0-c7309b071ab0",
+          "b94e7c70-9ca3-44c0-86cf-4576c244f167",
+          "57c5f324-f05e-494b-a03d-e4190ef63dc3",
+          "0610cf92-fdd2-489a-84f8-99b1ea33198c"
+        ]
+      },
+      {
+        "title": "Pip and the Quiet Roar — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "7817a684-4650-41d3-a3f7-ebdb2240e879",
+          "bc5470da-01cb-440d-886e-0e28d82d6fdc",
+          "54555282-cf3b-453d-b3b3-46573df3433e",
+          "5ab046fb-3a8e-4cf5-bb97-7d6c14b23d26",
+          "a1d78bc1-ad56-4ef7-b391-0040ffbdf387"
+        ]
+      },
+      {
+        "title": "Holiday fun at Greenfield Library — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "144de5ca-4b79-4236-a09d-b15525026181",
+          "22dc857e-ac38-42f1-8e59-01ce03af54dd",
+          "dcdf6596-9c97-4edf-b197-621d431876e7",
+          "a84b9b4b-65b4-4bfd-ae39-68096721cdfa",
+          "9241a34f-38c3-42ae-9a0b-42c43addcdbc"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-grade_3-3",
+    "subject": "reading",
+    "yearLevel": "grade_3",
+    "title": "Reading Grade 3 — Practice Paper 3",
+    "total_minutes": 45,
+    "magazine_id": "reading-grade_3-3",
+    "sections": [
+      {
+        "title": "Grandma’s new phone — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "4fc892b4-dcd2-427e-a2ca-d91ccdbe4131",
+          "02f16f73-25e9-4814-b79f-b0fe3db09ffb",
+          "fed5c012-8d30-4549-aa10-c4d35e12eabc",
+          "dd5a0e4e-9d69-43b9-909c-33d236a56539",
+          "4a922298-b7bb-461d-9546-6b463a7d965a",
+          "d5660da4-ba02-487d-8a80-4e1ba54b4c70"
+        ]
+      },
+      {
+        "title": "How do bees make honey? — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "662541a2-e6d1-4367-810f-2061793a5bb3",
+          "8dea1823-c042-4e1f-b33c-ae920cef4758",
+          "e61480b3-3df3-4f92-904e-d7d9184df160",
+          "0bf2ba49-fbaf-44e4-a045-5abe17b60c71",
+          "9b6630d7-0ce2-421f-ba32-ce39c38fd90d",
+          "1335fc54-1a79-4c5e-9541-386ab3f3dbcd"
+        ]
+      },
+      {
+        "title": "Every class needs a pet — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0e2d815e-8c0e-4394-b880-eb9a81d12ffc",
+          "4f9cd2bf-0584-432d-812e-87eacbaef6b4",
+          "8d536caf-c438-4b18-84a0-1a06759975d0",
+          "847812d6-076f-435a-ba47-6e6a76b46a80",
+          "2912fb1d-bf6a-433e-b386-eb5dd892a28b",
+          "855dcd35-7737-43b0-aaeb-37160b4fa926"
+        ]
+      },
+      {
+        "title": "Thank you, Ranger Kim — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a3624133-29cd-42ba-87e4-6655440f0715",
+          "ed6731d3-0a2b-4e39-9158-57b88832b820",
+          "f3f0d9a3-c55d-4658-b733-702880b436e9",
+          "2dbd915d-ea95-41b2-8a56-026161d5d30d",
+          "f42a73f0-0c92-4576-b873-fb814dbbe5b1"
+        ]
+      },
+      {
+        "title": "Night market — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "dab47891-9785-42d0-b50e-37e53e7da309",
+          "c4737dbd-0de6-45f2-ae9a-50379a208141",
+          "7e2b767f-666f-427e-8096-7292107962d9",
+          "4a2e93bf-33fd-460a-9c68-831a1b7abbd9",
+          "38c9ce66-9838-489f-b8fa-1f755838ebbf"
+        ]
+      },
+      {
+        "title": "Emus — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "4385b97d-e013-48e3-9823-e0dca03a019a",
+          "cd46f300-9f0c-4f08-9fdd-4512278bf5de",
+          "765b94ec-61c3-4994-a145-278941e6dfb4",
+          "5452ce48-e0be-434a-86ce-5ffff6b242ad",
+          "73597a18-b019-4e8a-a858-01cb673c79f9"
+        ]
+      },
+      {
+        "title": "Lost dog — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "f41f2425-c2d0-4afe-812a-c98014e467fe",
+          "4d121f9b-a628-488a-96ed-e58d245157bc",
+          "c1c2a411-ad38-4194-bae5-a6228b63e3f6",
+          "b9208ac2-ca58-4bed-923b-13d366e2cf1e",
+          "d951c889-b1ef-47a7-8978-9c7f6851ed15"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
     "id": "reading-grade_5-1",
     "subject": "reading",
     "yearLevel": "grade_5",
