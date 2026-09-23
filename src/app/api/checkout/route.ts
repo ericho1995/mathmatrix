@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
   // A purchase has to attach to an account.
-  if (!user) return NextResponse.json({ error: 'Sign in to buy' }, { status: 401 })
+  if (!user) return NextResponse.json({ error: 'Sign in to purchase' }, { status: 401 })
 
   let body: unknown
   try {

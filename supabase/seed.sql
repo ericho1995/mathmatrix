@@ -408,7 +408,1470 @@ She said it was the question everyone asks and that the answer is no, and then g
 
 She conceded one exception. There is a shelf, near the window, of items she described as unreplaceable, and she did not elaborate, and I did not ask, and I have since decided that not asking was either the most tactful thing I did that year or the worst piece of journalism.
 
-What stays with me is not the viola or the dentures. It is that the room exists at all — that a city, having no legal obligation to keep any of it beyond a statutory period, has quietly decided to go on keeping it anyway. Nobody made that decision. Nineteen years of people simply did not throw anything away, and the accumulated result of not deciding is a museum.', 'english', 'year_10', 354)
+What stays with me is not the viola or the dentures. It is that the room exists at all — that a city, having no legal obligation to keep any of it beyond a statutory period, has quietly decided to go on keeping it anyway. Nobody made that decision. Nineteen years of people simply did not throw anything away, and the accumulated result of not deciding is a museum.', 'english', 'year_10', 354),
+('e7398d81-aed9-4d75-85ee-f3229bd264ee', 'passage', 'The sandwich thief', 'Every lunchtime, Ravi put his lunchbox on the low wall near the bike racks. Every lunchtime, one half of his sandwich disappeared.
+
+“Someone is taking my lunch,” Ravi told his friend Amina. “It is always the half with the cheese.”
+
+Amina looked at the wall. She looked at the tree above the wall. Then she smiled.
+
+“Tomorrow,” she said, “we will watch from the library window.”
+
+The next day the two friends knelt at the window and waited. Ravi’s lunchbox sat on the wall in the sun. Nothing happened for a long time.
+
+Then a grey bird with a black head landed on the wall. It tipped its head to one side, hopped twice, and lifted the lid with its beak.
+
+“A currawong!” whispered Ravi.
+
+The bird took the cheese half in its beak and flew up into the tree. Ravi laughed so loudly that the librarian looked up.
+
+After that, Ravi kept his lunchbox in his bag. He still left one small crust on the wall, because the currawong had made him laugh, and that was worth a crust.', 'english', 'grade_3', 180),
+('69ea2036-e7ed-4a68-9e0c-f01afce52cf2', 'passage', 'Wombats', 'Wombats are short, strong animals that live in Australia. A wombat is about as long as a school ruler and two hand spans wide. It has thick grey or brown fur.
+
+Wombats dig burrows under the ground with their strong front legs and flat claws. A burrow can be longer than a classroom. Inside the burrow it stays cool in summer and warm in winter.
+
+A wombat is a marsupial, so a wombat mother carries her baby in a pouch. Her pouch faces backwards. This means the pouch does not fill with soil while she digs.
+
+Wombats eat grass, roots and bark. They come out to feed at night when the air is cool. During the hot part of the day they sleep in the burrow.
+
+Wombat facts
+• A baby wombat is called a joey.
+• Wombat droppings are shaped like little cubes.
+• A wombat can run as fast as a person for a short way.', 'english', 'grade_3', 158),
+('f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', 'passage', 'Where does rain come from?', 'Rain has been falling on Earth for a very long time. The same water goes around and around. This is called the water cycle.
+
+The sun warms the sea. Some of the water turns into a gas called water vapour and rises into the sky. You cannot see water vapour.
+
+High in the sky the air is cold. The water vapour cools and turns back into tiny drops. Millions of these drops together make a cloud.
+
+The drops bump into each other and join up. When a drop is too heavy to float, it falls as rain. The rain runs into creeks and rivers, and the rivers carry it back to the sea. Then the cycle starts again.
+
+[The water cycle]', 'english', 'grade_3', 121),
+('82c87b63-2028-405a-8484-80ecf332f671', 'passage', 'A garden for our school', 'Dear Mrs Patel
+
+I am writing because I think our school should grow a vegetable garden in the empty corner near the hall.
+
+At the moment that corner has nothing in it but weeds and one old bench. Nobody plays there. A garden would make it the nicest part of the school.
+
+A garden would also help us learn. In Year 3 we are learning about living things. It is easier to understand how a plant grows when you water it yourself and watch it every week.
+
+My grandfather says that beans and carrots are easy to grow, and that a garden costs very little to start. Our class could look after it at lunchtime. When the vegetables are ready, the canteen could use them in the salads.
+
+Please think about my idea. I would be very happy to show you the corner and where the beds could go.
+
+From Sophie Nguyen, Year 3B', 'english', 'grade_3', 154),
+('e588b40c-a1e6-436f-be14-14e40251fc4b', 'passage', 'Tiny visitor', 'A green tree frog is on the glass,
+flat feet spread like sticky stars.
+He watches every moth that comes
+to dance around our kitchen lamp.
+
+He does not hurry. Frogs can wait.
+He sits so still he looks asleep,
+then — quick as blinking — out it goes,
+that long pink ribbon of a tongue.
+
+By morning he has slipped away
+to somewhere cool and dark and damp,
+but on the window, small and round,
+he leaves five footprints and a smudge.', 'english', 'grade_3', 83),
+('4abb2bb3-7679-48b9-aac2-160e1b6c1310', 'passage', 'Make a paper boat', 'You will need one sheet of paper. Thin paper folds best. Do each fold carefully and press it flat.
+
+1. Fold the paper in half so the short edges meet. Press the fold flat.
+2. Fold the two top corners down to the middle so they make a point.
+3. Fold the strip at the bottom up on each side to make a hat shape.
+4. Open the hat and push the two side points together to make a square.
+5. Fold the bottom corners of the square up to the top point.
+6. Hold the middle of the square and pull the two top points apart until a boat appears.
+
+Before you sail
+• Rub a candle over the paper to help the boat last longer in water.
+• Test the boat in a sink or a bucket, never in a creek or a pool on your own.', 'english', 'grade_3', 149),
+('4096bfb7-d979-4517-b9cf-2afadc3d7b53', 'passage', 'Junior Fun Run', 'Run, jog or walk — every finisher gets a medal!
+
+The Riverside Junior Fun Run is on Sunday 14 June at Riverside Park. Money raised will buy new sports equipment for local primary schools.
+
+• Bring a water bottle and wear a hat.
+• Every runner needs a grown-up with them at the park.
+• Entry is $5. Pay at the tent near the gate.
+
+Come early to collect your number. Runners who arrive after their start time can still run, but they will not be timed.', 'english', 'grade_3', 87),
+('c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', 'passage', 'The blue ribbon', 'Max had never liked the deep end. At swimming lessons he always stayed near the steps, where his feet could touch the bottom.
+
+“The school swimming carnival is in two weeks,” said Mr Tran, the swimming coach. “Everyone in Year 3 can swim one lap.”
+
+Max’s stomach felt as if it were full of fish.
+
+That night he told his big sister, Lena. She did not laugh. “Then we practice,” she said. “Every afternoon.”
+
+So they did. On Monday Max floated on his back. On Wednesday he kicked across the pool holding a board. By Friday he could swim half a lap without stopping.
+
+On the day of the carnival, Max stood on the edge with five other swimmers. The whistle blew. He pushed off and swam, and swam, and swam. His arms ached. He could hear people shouting, but he did not look up.
+
+When his hand touched the wall, the other swimmers were already out of the pool. Max had come last.
+
+Then he saw Lena in the crowd, jumping up and down and waving. Mr Tran walked over and pinned a blue ribbon to his towel. It said Best Effort.
+
+Max had come last, but he had swum the whole lap. He did not stop smiling all day.', 'english', 'grade_3', 211),
+('c7359999-7442-4cef-9807-80f0de90a21b', 'passage', 'Pelican saved at Bellbird Lake', 'By Sam Okafor, Bellbird News
+
+A pelican that was tangled in fishing line was rescued at Bellbird Lake on Sunday morning.
+
+Nine-year-old Chloe Martin saw the bird while she was walking her dog along the jetty. “One of its wings was stuck to its side,” Chloe said. “It kept trying to fly, but it just flapped in a circle.”
+
+Chloe’s mother called a wildlife rescue group. Two volunteers arrived in a small boat. They gently wrapped the pelican in a towel and cut away the line with special scissors.
+
+“The towel keeps the bird calm,” said volunteer Priya Das. “If it cannot see, it is not so frightened.”
+
+The pelican has been taken to a wildlife hospital. Vets say it should be back on the lake in about two weeks.
+
+How you can help
+• Put old fishing line in the bins at the jetty.
+• If you see a hurt animal, do not touch it. Tell an adult.
+• Ask an adult to call a wildlife rescue group.', 'english', 'grade_3', 169),
+('a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', 'passage', 'Octopuses', 'Octopuses are sea animals with soft bodies and eight arms. They have no bones at all, so they can squeeze through a gap not much bigger than a coin.
+
+Each arm is covered in suckers. The suckers can grip rocks and hold food. They can even taste whatever they touch.
+
+An octopus can change colour in less than a second. It turns brown, red or white to match the rocks and weed around it. This helps it hide from sharks and seals, and it helps it sneak up on crabs.
+
+If an octopus is in danger, it squirts a cloud of dark ink into the water. While the enemy cannot see, the octopus swims away.
+
+Octopuses are clever. Scientists have watched them open jars, solve puzzles and carry shells to use as shelters.
+
+Octopus facts
+• An octopus has three hearts.
+• Its blood is blue.
+• Most octopuses live for only one or two years.', 'english', 'grade_3', 156),
+('73b62823-6354-447e-a996-0cdcc2f7bf97', 'passage', 'Rainbow fruit sticks', 'A cool, healthy snack for a hot day. Makes 6 sticks.
+
+You will need
+
+• 6 strawberries
+• 1 small pineapple
+• 2 kiwi fruit
+• 18 blueberries
+• 6 wooden skewers
+• a chopping board and a knife
+
+What to do
+
+1. Wash your hands and the fruit.
+2. Ask an adult to peel the pineapple and kiwi fruit and cut them into small cubes.
+3. Push a strawberry onto each skewer, then a piece of pineapple.
+4. Add a piece of kiwi fruit, then three blueberries.
+5. Keep going until each stick is full.
+6. Put the sticks in the fridge for 20 minutes so they are nice and cold.
+
+Safety tip
+• Skewers are sharp. Hold them by the flat end and point them away from your face.', 'english', 'grade_3', 131),
+('57195d86-97f2-44e1-b460-9c5e709b2751', 'passage', 'Wind', 'The wind came running down our street,
+it rattled every gate,
+it stole a hat from Mr Pike
+and made the washing wave.
+
+It whistled through the letterbox,
+it pushed the bins around,
+it tossed the autumn leaves up high
+then dropped them on the ground.
+
+At bedtime it was tired out,
+it curled up by the door,
+and all night long I heard it breathe
+a soft and sleepy snore.', 'english', 'grade_3', 71),
+('4019abd7-43dc-4caf-ae43-2825fdf2a399', 'passage', 'Pip and the Quiet Roar', 'Book review by Jack, Year 3
+
+Pip and the Quiet Roar by Elsa Moon is about a young dragon called Pip. All the other dragons can roar so loudly that the mountains shake, but when Pip tries, only a tiny squeak comes out.
+
+The other dragons laugh at Pip, so she runs away into the forest. There she meets a lost baby owl that is being chased by a fox. Pip cannot scare the fox away by roaring, so she has to think of another plan. I will not tell you what she does, because that would spoil the ending!
+
+My favourite part is when Pip sings to the baby owl to help it sleep. The pictures are bright and funny, and the words are easy to read.
+
+The only thing I did not like was that the book was too short. I wanted it to keep going.
+
+I think this book would be great for kids aged 5 to 9, and especially for anyone who feels different from everyone else.
+
+My rating: 4 out of 5 stars', 'english', 'grade_3', 178),
+('904ca47d-4a96-4342-ad39-89c459dcc928', 'passage', 'Holiday fun at Greenfield Library', 'These school holidays, Greenfield Library has activities for children aged 5 to 12. Most activities are indoors, so they will go ahead even if it rains. The science show is outside in Greenfield Park, so wear a hat.
+
+• All activities are free.
+• Book a place at the front desk or on this website.
+• Children under 8 must bring an adult.
+
+Places fill up fast, so book early! If you cannot come, please tell us so that someone else can have your place.', 'english', 'grade_3', 85),
+('7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', 'passage', 'Grandma’s new phone', 'Grandma bought her first mobile phone on a Tuesday. By Wednesday, Zoe had eleven messages from her.
+
+The first message was a photo of Grandma’s ear. The second was a photo of her thumb. The third just said HELLO ZOE IS THIS WORKING.
+
+“Why is Grandma shouting?” asked Zoe’s little brother, Ben.
+
+“She isn’t shouting,” laughed Zoe. “She just doesn’t know how to turn off the capital letters.”
+
+On Saturday, Zoe rode her bike to Grandma’s flat. She showed Grandma how to hold the phone the right way round for a photo, how to make the letters small and how to send a smiling face.
+
+Grandma practiced all afternoon. She took photos of her tea cup, her cat and the geraniums on the balcony.
+
+That night Zoe’s phone buzzed. It was a photo of the sunset over the sea, sharp and bright. Under it, Grandma had written: Thank you, my clever girl. Now it is my turn to teach you something. Bring your knitting needles next Saturday!
+
+Zoe smiled. She had never knitted anything in her life.', 'english', 'grade_3', 177),
+('1a943783-ffb7-4d18-b084-b671b0f203bf', 'passage', 'How do bees make honey?', 'Honey is made by honeybees. It takes a lot of hard work, and a whole hive of bees working together.
+
+A worker bee flies from flower to flower, drinking a sweet liquid called nectar. She stores the nectar in a special part of her body called a honey stomach.
+
+Back at the hive, she passes the nectar to a younger bee. That bee chews it and passes it on again. Each time, the nectar gets a little thicker.
+
+Next, the bees spread the nectar into the small six-sided rooms of the honeycomb, called cells. They fan it with their wings to dry out the water. Slowly, the runny nectar turns into thick, sticky honey.
+
+Finally, the bees cover each full cell with a lid of wax. The honey keeps there for months, ready to feed the hive through winter.
+
+[How nectar becomes honey]', 'english', 'grade_3', 143),
+('93aefda4-7c41-4b9c-83af-ee542a613174', 'passage', 'Every class needs a pet', 'A speech by Aiden, Year 3
+
+Good morning, everyone. Today I am going to tell you why every class in our school should have a pet.
+
+First, a pet teaches us to be responsible. If our class had a guinea pig, we would take turns to feed it, give it fresh water and clean its cage. Nobody would want it to go hungry.
+
+Second, a pet makes a classroom calmer. When I stroke my dog at home, I feel relaxed. I think a class pet would help children who feel worried or upset.
+
+Third, a pet helps us learn. We could measure how much our guinea pig grows, write stories about it and find out what it needs to stay healthy.
+
+Some people say pets are noisy or messy. But a guinea pig is small and quiet, and if we clean its cage every Friday it will not be messy at all.
+
+So please vote yes for class pets. Our classrooms will be happier, calmer and smarter places. Thank you.', 'english', 'grade_3', 170),
+('b6867e34-7ef0-4e37-aaf0-d6b959d56c89', 'passage', 'Thank you, Ranger Kim', 'Dear Ranger Kim
+
+Thank you for showing Class 3K around Blue Gum National Park last Thursday. We had the best day.
+
+Our favourite part was the night walk. We never knew that sugar gliders could glide further than the length of a netball court! When you shone the red torch into the trees, we saw two of them eating. You told us that red light does not frighten animals the way white light does.
+
+We also learned why we must stay on the track. If people walk off the track, they crush small plants and the homes of lizards and insects.
+
+When we got back to school, we made posters about looking after the bush. We have put them up in the library so the whole school can see them.
+
+We hope we can visit again next year.
+
+From Class 3K, Wattle Hill Primary School', 'english', 'grade_3', 145),
+('4f3b68de-ab63-479a-b1af-819b5e43efc5', 'passage', 'Night market', 'Lanterns hang like paper moons,
+the smoky grill goes hiss,
+a man is spinning sugar clouds —
+I’ve never tasted this!
+
+The noodles curl like yellow string,
+the dumplings steam and pop,
+a drummer taps a happy beat
+that makes my feet go hop.
+
+We walk home slowly, full and warm,
+the stars come out to see,
+and in my pocket, wrapped in foil,
+a dumpling just for me.', 'english', 'grade_3', 69),
+('8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', 'passage', 'Emus', 'The emu is Australia’s largest bird. An adult emu can be taller than a grown-up person and weigh as much as a big dog.
+
+Emus cannot fly. Their wings are tiny, only about as long as a pencil. Instead of flying, emus run. They have long, strong legs and can run faster than a car in a school zone.
+
+Emus eat seeds, fruit, flowers and insects. When they eat fruit, the seeds pass through their bodies and are dropped in new places, where they can grow into new plants.
+
+The female emu lays the eggs, but the male does the rest. He sits on the eggs for about eight weeks and hardly eats or drinks the whole time. After the chicks hatch, he looks after them for many months.
+
+Emu facts
+• Emu eggs are dark green.
+• Emu chicks have stripes, which help them hide in the grass.
+• The emu is on Australia’s coat of arms.', 'english', 'grade_3', 158),
+('f00df197-ee7e-4ffa-834a-a7957f1642b2', 'passage', 'Lost dog', 'Please help us find Biscuit!
+
+Biscuit went missing from Acacia Street on Sunday afternoon when our gate was left open. He is friendly but shy, and he may hide if you call him loudly.
+
+What Biscuit looks like
+
+• small brown dog with one white ear
+• red collar with a silver bell
+• very fluffy tail
+
+If you see him
+
+• Do not chase him. Sit down and hold out your hand.
+• Knock on the door of 14 Acacia Street, or tell a grown-up.
+
+A reward of $50 will be given to the person who brings Biscuit home.
+
+Thank you! From Hana and Leo', 'english', 'grade_3', 106),
+('56ba0211-7562-4b33-8c35-945f034a5122', 'passage', 'The violin', 'Anika’s grandfather kept his violin in a case under his bed. The case was black and scratched, and the clasps squeaked when you opened them.
+
+“I played this on the ship that brought me to Australia,” Dadu told her. “Every night, for six weeks. It was the only thing that stopped me feeling homesick.”
+
+When Anika was nine, he put the case in her arms. “It is yours now,” he said. “My fingers are too stiff to play, but yours are not.”
+
+Anika was delighted — until she tried to play it. The bow screeched across the strings like a cat whose tail had been stepped on. Her dog, Pepper, got up and left the room.
+
+For weeks, every note came out wrong. Her fingers ached. Twice she put the violin back in its case and announced that she was giving up. Both times, the next afternoon, she opened the squeaky clasps again.
+
+Slowly, the screeches turned into notes, and the notes turned into tunes. By winter she could play the song Dadu used to hum while he cooked, a gentle, rocking tune from the village where he grew up. Her teacher helped her write it down, because nobody had ever written it down before.
+
+On Dadu’s eightieth birthday, the family squeezed into his small lounge room. Anika lifted the violin to her chin. Her hands were shaking. She took a deep breath and began to play.
+
+Halfway through, she looked up. Dadu’s eyes were closed and there were tears on his cheeks. Anika almost stopped, but her mother gave a tiny nod, so she kept going.
+
+When the last note faded, Dadu opened his eyes. “For sixty years that song lived only in my head,” he said quietly. “Now it lives in yours.”', 'english', 'grade_5', 294),
+('a197b8e8-7adc-4afa-b574-01481abf3891', 'passage', 'Antarctica', 'Antarctica is the continent at the very bottom of the world. It is the coldest, windiest and driest continent on Earth. Almost all of it is covered by a sheet of ice that is, in places, more than four kilometres thick.
+
+A frozen desert
+
+Although Antarctica is covered in ice, very little new snow falls there each year. Because it gets so little rain or snow, scientists call it a desert. In winter, the temperature can drop below minus 80 degrees Celsius.
+
+Who lives there?
+
+No people live in Antarctica permanently. About a thousand scientists and support staff stay through the winter, and several thousand more arrive in summer. They study the ice, the weather and the animals.
+
+The animals that live there are suited to the cold. Emperor penguins huddle together in groups of thousands to keep warm. Seals have a thick layer of fat, called blubber, under their skin.
+
+Protecting Antarctica
+
+In 1959, twelve countries signed an agreement called the Antarctic Treaty. They agreed that Antarctica would be used only for peaceful purposes and for science. Today more than fifty countries have signed it, and mining is not allowed.
+
+Antarctica at a glance
+• Size: almost twice as big as Australia
+• Lowest temperature recorded: minus 89 degrees Celsius
+• Its ice holds about 70 per cent of the world’s fresh water', 'english', 'grade_5', 224),
+('253c0ea2-49d6-4d30-acaf-36310338ebeb', 'passage', 'Should homework be banned?', 'Two readers wrote to the Hillview Gazette.
+
+Yes — let kids be kids
+
+After six hours at school, children need time to play, rest and be with their families. Many nights my son spends an hour on homework sheets that he could finish in ten minutes if they were not so boring. By the time he is done, it is dark, and he has missed his chance to kick a ball in the park.
+
+Some people say homework teaches children to work on their own. But children can learn that at school, with a teacher there to help. Let’s ban homework and give childhood back to our kids.
+
+Maria Costa, parent
+
+No — practice makes progress
+
+I am in Year 5 and I think homework is useful. When I practice my times tables at home, I remember them better in class the next day. Homework also shows my parents what I am learning, so they can help me.
+
+I agree that homework should not be boring or take too long. Twenty minutes a night is plenty. But banning it completely would be like a soccer team that only trains on game day.
+
+Tom Nguyen, age 10', 'english', 'grade_5', 196),
+('7cff2b63-6079-49ec-ad16-eb62805f33e6', 'passage', 'Make a floating compass', 'Long before phones and GPS, travellers used compasses to find their way. You can make a simple compass with things from around the house.
+
+You will need
+
+• a sewing needle
+• a small magnet (a fridge magnet will do)
+• a slice of cork, or a small piece of foam
+• a shallow bowl of water
+
+What to do
+
+1. Hold the needle by its eye. Stroke the magnet along the needle from the eye to the point about 30 times. Always stroke in the same direction, and lift the magnet away at the end of each stroke.
+2. Carefully push the needle through the cork, or lay it on top of the foam.
+3. Float the cork in the middle of the bowl of water, away from any metal.
+4. Watch as the needle slowly turns and settles. One end now points north.
+
+How does it work?
+• Stroking the needle with a magnet turns the needle into a weak magnet.
+• The Earth acts like a giant magnet, so a magnet that is free to turn lines up north to south.
+• Metal objects can pull the needle the wrong way, so keep them away from your compass.', 'english', 'grade_5', 201),
+('268428c5-2156-411b-a7d7-f9f0915431de', 'passage', 'When the rain came', 'All summer long the paddocks cracked
+like crusts of burnt-brown bread;
+the creek became a dusty track,
+the gum leaves hung like lead.
+
+Each evening Dad would watch the west,
+his hat pulled low and still;
+the clouds rolled in, then rolled away
+and left the empty hill.
+
+Then late one night the thunder rolled,
+the tin roof drummed and rang;
+we ran outside into the cold
+and splashed and laughed and sang.
+
+By morning, green was creeping back
+where only dust had been,
+and Dad was smiling by the creek —
+the first in months I’d seen.', 'english', 'grade_5', 98),
+('3a5e0eef-465a-4b83-8bd7-4fbd04d5f1cd', 'passage', 'Meet a volcano scientist', 'Dr Lena Park studies volcanoes. Year 5 reporter Kai Thompson asked her about her job.
+
+What does a volcano scientist do?
+
+We try to work out when a volcano might erupt, so that people living nearby can get to safety in time. We measure tiny earthquakes, changes in the shape of the ground and the gases coming out of the volcano.
+
+Have you ever been close to an eruption?
+
+Yes, in Hawaii. I stood about a hundred metres from a river of lava. The heat on my face felt like opening an oven door. It was the most amazing thing I have ever seen, but we never go closer than it is safe to be.
+
+Can scientists tell exactly when a volcano will erupt?
+
+Not exactly, not yet. It is a bit like a weather forecast. We can say that an eruption is likely soon, but not the exact day or hour. That is why we watch our volcanoes all day, every day.
+
+What advice would you give a kid who wants to do your job?
+
+Be curious and ask lots of questions. Work hard at maths and science, and get outside! Rocks are everywhere, and every one of them has a story.', 'english', 'grade_5', 203),
+('2d762d85-01ef-42bc-900d-0ee2dd76186a', 'passage', 'Ask Dr Paws', 'Every week, vet Dr Sam Ahmed answers readers’ questions about their pets.
+
+My dog ate a chocolate biscuit. Should I be worried?
+
+Chocolate contains a chemical that is poisonous to dogs, and dark chocolate is the most dangerous kind. One biscuit may not harm a big dog, but it could make a small dog very sick. Call your vet straight away and tell them what your dog ate, how much it ate and how big your dog is.
+
+How often should I wash my cat?
+
+Almost never! Cats keep themselves clean with their rough tongues. Only wash a cat if it has rolled in something sticky or smelly, and use a shampoo made for cats.
+
+Why does my rabbit chew everything?
+
+A rabbit’s teeth never stop growing. Chewing wears them down, so give your rabbit plenty of hay and safe wooden toys, and keep electrical cords out of reach.', 'english', 'grade_5', 149),
+('d8ca2412-921b-4b65-95a6-7a0388bb1a44', 'passage', 'The map behind the wallpaper', 'Grandma’s house was ninety years old, and Mum said it was falling apart. So in the summer holidays, the whole family came to help fix it up.
+
+Rosa and her cousin Sam were given the worst job: scraping the old wallpaper off the walls of the back bedroom. It was covered in faded pink roses, and it came off in tiny, stubborn strips.
+
+“This is taking forever,” Sam groaned, flicking a curl of paper off his scraper.
+
+Rosa didn’t answer. Behind the roses, something was drawn on the plaster in pencil. She scraped more carefully, and slowly a picture appeared: a wobbly outline of the backyard, the big lemon tree, the shed — and a small, dark X beside the back fence.
+
+Underneath, in round, careful letters, someone had written: M.B. aged 10. Do not dig until 2025.
+
+“M.B.,” whispered Sam. “Margaret Bell. That’s Grandma!”
+
+They ran to find her. Grandma was on the veranda with a cup of tea. When they told her about the map, she put the cup down so quickly that it rattled.
+
+“I had forgotten all about that,” she said slowly. “I buried a tin the summer I turned ten. I wanted to see what the future would be like when I opened it.”
+
+It took an hour of digging beside the fence before Sam’s spade hit metal. Inside the rusty tin were six glass marbles, a black-and-white photo of a girl on a bicycle and a letter folded very small.
+
+Grandma unfolded the letter and read it aloud. “Dear future me, do people still ride bikes? Do you still like lemons? I hope you have had lots of adventures.”
+
+Grandma laughed until her eyes were wet. Then she picked a lemon from the tree and took a big bite.', 'english', 'grade_5', 295),
+('fa17b047-9b4f-44c7-8def-cfe9002e733f', 'passage', 'How does a submarine dive?', 'A submarine is a ship that can travel under the water as well as on top of it. To dive and to rise again, it changes how heavy it is.
+
+A submarine has large spaces called ballast tanks between its inner and outer walls. When the submarine is floating on the surface, these tanks are full of air. Air is much lighter than water, so the submarine floats, just as a plastic bottle full of air bobs on the surface of a bath.
+
+To dive, the crew open valves that let seawater rush into the tanks. The water pushes the air out. Now the submarine is heavier, and it begins to sink.
+
+To rise again, the crew blow air from high-pressure tanks into the ballast tanks. The air pushes the water out through the bottom. The submarine becomes lighter and floats back up to the surface.
+
+By letting in just the right amount of water, the crew can make the submarine hover at any depth, neither rising nor sinking. Small fins called hydroplanes help steer it up or down as it moves forward.
+
+[How a submarine dives and rises]', 'english', 'grade_5', 189),
+('0507006b-b26c-4335-87cd-7582355617a6', 'passage', 'Students clear 212 kilograms of rubbish from creek', 'Bayside Herald
+
+More than sixty students from Bayside Primary School spent Saturday morning pulling rubbish out of Mangrove Creek, and what they found shocked them.
+
+In just three hours, the students and their families collected 212 kilograms of rubbish from the banks and shallow water of the creek. They found a shopping trolley, two car tyres and a garden chair, but most of what they picked up was much smaller.
+
+“We thought we would find big things,” said Year 5 student Jarrah Collins, who organised the event with his class. “But the worst part was the thousands of tiny pieces of plastic. Birds and fish think they are food.”
+
+Council officer Deb Nguyen said the clean-up had made a real difference. “Rubbish from the streets washes down the drains and into the creek every time it rains,” she said. “This creek flows into the bay, so what these students did will help the whole bay.”
+
+The students plan to hold another clean-up in autumn. They are also asking shops near the creek to stop giving out plastic straws.', 'english', 'grade_5', 178),
+('ebff407c-ab33-479f-9383-b5658039d02f', 'passage', 'Wildwood Adventure Park', 'Wildwood — where every day is an adventure!
+
+Bored of the same old weekend? Swap the couch for the trees at Wildwood Adventure Park, just 40 minutes from the city!
+
+• Fly through the forest on our giant flying fox*
+• Climb the Giant’s Ladder, 20 metres above the ground*
+• Cool off on the Rapids Ride — you will get wet!
+• Feed the goats and alpacas at Wildwood Farm
+
+Thousands of happy families visit every year. Don’t miss out — the best adventures fill up fast!
+
+*Riders on the flying fox and the Giant’s Ladder must be at least 120 cm tall. All tickets must be booked online.', 'english', 'grade_5', 110),
+('02026c54-f707-469a-aef8-09b6c2674484', 'passage', 'What’s in my pocket?', 'A stone that looks a bit like Mum,
+a rubber band, a lump of gum,
+a magpie feather, black and white,
+a bottle top I found last night.
+
+A ticket from the Easter show,
+a note from Jess that says HELLO,
+a shell with sand still in its curl,
+a marble with a milky swirl.
+
+A key that doesn’t fit our door,
+a crayon worn down to the core —
+and something wriggling. Oh, no, Fred!
+“So that’s where your frog went,” I said.', 'english', 'grade_5', 84),
+('d983081e-5f2f-43eb-89fa-817155ccc094', 'passage', 'Mary Anning, fossil hunter', 'Mary Anning was born in 1799 in Lyme Regis, a small town on the south coast of England. The cliffs near her home were crumbling and full of fossils — the stony remains of animals that lived millions of years ago.
+
+Mary’s family was poor. Her father collected fossils and sold them to tourists, and he taught Mary and her brother Joseph how to find them. After he died, when Mary was only eleven, fossil hunting helped the family survive.
+
+Around 1811, Joseph found the skull of a strange creature in the cliffs. Mary searched for months and dug out the rest of its skeleton. It was an ichthyosaur, a sea reptile that looked a little like a dolphin. Few scientists had ever seen such a complete one.
+
+In 1823, Mary found the first complete skeleton of a plesiosaur, a sea reptile with a very long neck. Some experts did not believe it was real until they had examined it for themselves.
+
+Many scientists bought her fossils and asked for her advice, but Mary was not allowed to join the Geological Society of London, because it did not accept women. Often, the men who bought her fossils took the credit for her discoveries.
+
+Mary Anning died in 1847. Today she is remembered as one of the most important fossil hunters in history.', 'english', 'grade_5', 222),
+('683d9c6f-9fed-4db0-89aa-a3ca62da6143', 'passage', 'How to play Four Square', 'Four Square is a fast ball game played on a court divided into four squares. You need four players at a time, a bouncy ball, and anyone else waiting in a line.
+
+The court
+
+Draw a large square on the ground, about three metres on each side, and divide it into four smaller squares. Number them 1 to 4. The player in square 4 is the King, and the King serves.
+
+How to play
+
+1. The King bounces the ball once in their own square, then hits it into another player’s square.
+2. The player in that square must let the ball bounce once, then hit it with their hands into any other square.
+3. Play continues until someone breaks a rule.
+4. The player who breaks a rule leaves the court. Everyone in a lower square moves up one, and the first person in the line joins in square 1.
+
+You are out if
+• the ball bounces twice in your square
+• you hit the ball before it bounces
+• you hit the ball outside the court
+• you catch or carry the ball', 'english', 'grade_5', 186),
+('6761590d-a1be-43ff-b1ae-35fd3b0285b5', 'passage', 'The new kid', 'On the first day of Term 2, a new boy stood at the front of Class 5P, holding his bag in front of him like a shield.
+
+“This is Yusuf,” said Mr Peters. “He has just moved here, and he is still learning English. I know you will all make him welcome.”
+
+Yusuf sat at the desk next to Priya. He did not say a word all morning. At lunch he ate by himself on the bench near the canteen, and Priya felt a small, uncomfortable ache in her chest every time she looked over.
+
+The next day, Priya noticed that Yusuf was drawing in the back of his maths book. She leaned over to look. It was a comic: a cat in a spacesuit, floating past the moon, chasing a fish-shaped rocket. The drawings were so good that Priya forgot she was supposed to be doing long division.
+
+“Wow,” she whispered. Yusuf looked up, worried, and closed the book.
+
+That night Priya dug out her own comic from under her bed. It was about a superhero chicken called Captain Cluck. The drawings were not nearly as good, but the jokes were funny.
+
+In the morning she slid it onto Yusuf’s desk. He turned the pages slowly. When he reached the part where Captain Cluck sneezed and blew a bank robber into a pond, his shoulders began to shake. He was laughing.
+
+He pointed at the chicken, then at his cat. Then he drew a small box on a fresh page and, inside it, a cat in a spacesuit shaking hands with a chicken in a cape.
+
+For the rest of the term, Priya wrote the stories and Yusuf drew the pictures. Their comic, The Space Cat and Captain Cluck, grew to thirty pages. At the school fete they sold fifty copies and gave the money to the library.
+
+On the last day of term, Yusuf handed Priya a folded piece of paper. Inside was a drawing of the two of them, and underneath, in careful English letters, he had written one word: Friends.', 'english', 'grade_5', 344),
+('bd16eb98-9aad-4581-9a8b-e587ae6a28af', 'passage', 'The platypus', 'The platypus is one of the strangest animals in the world. It has a bill like a duck, a flat tail like a beaver and webbed feet like an otter. When the first platypus skin was sent from Australia to England in 1798, some scientists thought it was a joke — a duck’s bill sewn onto a furry body.
+
+A mammal that lays eggs
+
+The platypus is a mammal. It has fur and feeds its babies milk. But unlike almost every other mammal, the platypus lays eggs. The only other mammals that lay eggs are echidnas. The mother lays one or two soft, leathery eggs in a burrow and curls around them to keep them warm.
+
+Hunting with its bill
+
+A platypus hunts in creeks and rivers, mostly at night. When it dives, it closes its eyes, ears and nose. It finds food with its bill, which can sense the tiny electric signals made by shrimps, worms and insect larvae as they move.
+
+Watch out!
+
+The male platypus has a sharp spur on each back ankle. The spur can deliver venom strong enough to kill a dog, and it causes terrible pain to people.
+
+Platypus facts
+• Lives only in eastern Australia, including Tasmania
+• Length: about 50 centimetres, including the tail
+• Stores fat in its tail for times when food is hard to find', 'english', 'grade_5', 226),
+('8def7d66-519c-4a96-b99b-b9914a7cf2ed', 'passage', 'Our playground needs fixing', 'To the Mayor, Riverside Council
+
+We are writing to ask the council to fix the playground in Hollis Park. The slide has a crack down the middle, two swings are missing their seats, and the soft rubber under the climbing frame has worn away, so the ground underneath is hard concrete.
+
+Last month, a boy in Year 2 fell off the climbing frame and broke his wrist. We think that if the soft rubber had been there, he might not have been hurt so badly.
+
+Lots of families use Hollis Park every day. It is the only playground in our suburb. Please fix it before someone else gets hurt.
+
+Year 5 students, Hollis Primary School
+
+The council’s reply
+
+Dear students, thank you for your letter. You are right that the playground needs work, and we are sorry to hear about the student who was injured.
+
+Our workers inspected the playground the day after your letter arrived. The slide and the climbing frame have been fenced off so that no one uses them until they are safe. New swing seats will be fitted next week, and the whole playground will be rebuilt in March, with new soft rubber under every piece of equipment.
+
+We would like to invite your class to help choose the new equipment. Your teacher will receive an invitation soon.
+
+Councillor Anna Lee, Riverside Council', 'english', 'grade_5', 227),
+('0aa97b0b-ad12-4a7b-8a1b-031827d60f5c', 'passage', 'Grow a bean in a jar', 'Have you ever wondered what happens under the soil when a seed starts to grow? In this experiment, you can watch it happen.
+
+You will need
+
+• a clear glass jar
+• paper towel
+• three dried broad beans
+• water
+
+What to do
+
+1. Fold two sheets of paper towel and line the inside of the jar with them.
+2. Push the beans between the paper towel and the glass, about halfway down, so you can see them from outside.
+3. Pour a little water into the bottom of the jar so the paper towel is damp but not dripping.
+4. Put the jar somewhere warm and bright, but out of direct sunlight.
+5. Check the jar every day. Add a little water if the paper towel starts to dry out, and write down what you see.
+
+Here is what one student recorded.', 'english', 'grade_5', 144),
+('33518661-b1e7-4be9-bd51-25a771135cee', 'passage', 'Fishing with Pop', 'We’re on the jetty before the sun,
+my grandpa, me and a bucket of bait,
+the water flat as a sheet of glass,
+the gulls already lined up to wait.
+
+Pop doesn’t talk much. He shows me how
+to thread the hook and cast out wide,
+then hands me a thermos cup of tea
+and we sit there, watching the turning tide.
+
+We don’t catch much — one tiny bream
+we slip back in to grow some more —
+but I come home with a sunburnt nose
+and a feeling I can’t find words for.', 'english', 'grade_5', 95),
+('653bdd09-078a-4ca1-a560-483371401147', 'passage', 'How is a rainbow made?', 'A rainbow is one of the most beautiful sights in nature, but it is really just sunlight and water working together.
+
+Sunlight looks white, but it is actually made of many colours mixed together: red, orange, yellow, green, blue, indigo and violet.
+
+When sunlight shines into a raindrop, the light bends as it passes from the air into the water. Each colour bends by a slightly different amount, so the white light spreads out into its colours, like a fan opening.
+
+The light then bounces off the back of the raindrop and bends again as it comes out. Millions of raindrops do this at once. Each drop sends one colour towards your eyes, depending on where it is in the sky, and together they make the arc of a rainbow.
+
+To see a rainbow, you need the sun behind you and rain in front of you. That is why rainbows often appear in the late afternoon, when the sun is low and a shower is passing.
+
+[Inside one raindrop]', 'english', 'grade_5', 169),
+('830a4251-31f5-4ba7-8a6f-ac4cbe2fb292', 'passage', 'Stay safe online', 'The internet is a great place to learn, play and talk with friends. But just like crossing a road, it is safer when you know the rules.
+
+Keep private things private
+
+Never share your full name, address, school, phone number or passwords online. A password is like the key to your house: you would not give it to a stranger.
+
+Think before you post
+
+Anything you put online can be copied and shared, even if you delete it later. Before you post a photo or a comment, ask yourself: would I be happy for my teacher or my grandparent to see this?
+
+Be kind
+
+Treat people online the way you would treat them face to face. If someone is being unkind to you or to someone else, do not reply. Take a screenshot and tell an adult you trust.
+
+If something feels wrong, tell someone
+
+If anything online makes you feel scared, confused or uncomfortable, close it and talk to a parent, carer or teacher. You will not be in trouble for telling.', 'english', 'grade_5', 173),
+('11070a97-3494-461e-a774-e0687f26b1e5', 'passage', 'The night shift', 'The alarm went off at 2.45 am. For a moment Mei didn’t know where she was. Then she remembered: she was thirteen today, and she had asked for the strangest birthday present any of her friends had ever heard of.
+
+“You’re sure?” Dad whispered from the doorway. He was already in his white apron, and the hallway light made a halo of his messy hair. “You can go back to sleep. No one would blame you.”
+
+“I’m sure,” she said, although her body was begging her to stay under the doona.
+
+For as long as she could remember, Dad had left for the bakery while the rest of the street was asleep. She knew him as a man who napped on the couch in the afternoons, who smelled faintly of yeast, and who missed every school assembly that started before lunch. She had always wanted to know what he actually did in those dark hours. Now she was going to find out.
+
+The bakery was a cave of warmth after the cold street. Two ovens ticked as they heated. Flour dusted every surface like a light fall of snow, and the radio murmured an old song Mei half recognised.
+
+Dad handed her an apron that reached her ankles. “Rule one,” he said. “Everything happens in order. You can’t rush bread.”
+
+For the next three hours she weighed flour on the big steel scales, watched the mixer fold the dough over and over like a slow wave, and learned to shape rolls by cupping her hand and turning the dough against the bench until it pulled itself tight. Her first ones were lumpy and lopsided. Dad baked them anyway.
+
+At half past five the first trays came out, and the smell was so good it was almost a sound. By six, Mrs Kowalski from the flats next door was knocking on the glass, as she did every morning, to buy a loaf of rye before her shift at the hospital. Then came the tradies, the nurses, the bus drivers — all the people who were awake while Mei usually slept.
+
+“They’re my people,” Dad said, sliding a warm roll into her hand. “Someone has to feed the ones who start early.”
+
+Mei looked at the line of tired faces brightening as they reached the counter, and something clicked into place. All those missed assemblies had not been because Dad didn’t care. He had been here, making sure a nurse could eat before a twelve-hour shift.
+
+At seven he drove her home to get ready for school. She fell asleep in the car with flour still in her hair.
+
+That afternoon there was a small paper bag on the kitchen bench. Inside was one lumpy, lopsided roll, and a note in Dad’s blocky capitals: YOUR FIRST BATCH. NOT BAD FOR A BEGINNER.', 'english', 'year_7', 470),
+('5856f408-278c-43e1-9e79-3a1c9f62796d', 'passage', 'Why do we yawn?', 'Everybody does it. Babies do it before they are even born. Dogs, cats, snakes and fish do it too. Yet for such a common action, the yawn is surprisingly mysterious. Scientists still disagree about why we yawn at all.
+
+The oxygen idea
+
+For a long time, the most popular explanation was that we yawn to take in extra oxygen when our blood is running low. It sounds sensible, but it does not hold up. In one well-known experiment in the 1980s, volunteers breathed air with extra oxygen, and then air with extra carbon dioxide. They yawned just as often either way.
+
+The cooling idea
+
+A newer theory is that yawning cools the brain. When we yawn, we stretch our jaw wide and pull in a big gulp of air, which may carry heat away from the blood flowing to the head. Some studies have found that people yawn more when the air around them is cooler than their body, and less on very hot days, when a gulp of air would not cool them down. Supporters of this theory say a cooler brain is a more alert brain, which could explain why we yawn when we are bored or sleepy: the body may be trying to wake us up.
+
+Catching a yawn
+
+Then there is the strangest thing about yawning: it is contagious. Seeing someone yawn, hearing a yawn, even reading about yawning can set you off. (Are you yawning yet?) Contagious yawning seems to be linked to empathy, our ability to understand other people’s feelings. People are more likely to catch a yawn from a family member or friend than from a stranger, and children usually do not start catching yawns until they are about four or five years old.
+
+So why do we yawn? The honest answer is that nobody knows for certain. The yawn may do more than one job. For now it remains one of the everyday mysteries of the human body — and if you have yawned while reading this, you have just helped prove how powerful it is.', 'english', 'year_7', 344),
+('6b2e5bae-8d0f-4359-989f-05934fa0a672', 'passage', 'Balloons belong on the ground', 'Opinion — Tariq Hassan
+
+It is a moment that looks magical in photographs: hundreds of bright balloons drifting up into a blue sky at a wedding, a sports final or a memorial. But what goes up must come down, and when balloons come down, they become rubbish, often in the places least able to cope with it.
+
+A released balloon can travel hundreds of kilometres before it bursts or slowly loses its gas. Many end up in the ocean. There, a deflated balloon with its trailing ribbon looks remarkably like a jellyfish, one of the favourite foods of sea turtles. A study of seabirds found that although balloons made up only a small share of the plastic the birds had swallowed, they were by far the most likely item to kill them. Ribbons tangle around the legs and wings of birds and other animals.
+
+Some balloon makers claim their latex balloons are biodegradable. The word sounds reassuring, but latex can take months or even years to break down, especially in cold sea water. Months is more than enough time for a turtle to mistake one for a meal.
+
+Several Australian states have already banned or restricted deliberate mass balloon releases. The rest of the country should follow.
+
+None of this means our celebrations have to be dull. Bubbles, flags, paper streamers, planting a tree or lighting candles can all mark an important moment without leaving a trail of litter across the sea.
+
+When we release a balloon, we are not sending it to the sky. We are sending it to someone else’s beach, or into someone else’s stomach. It is time we kept our balloons on the ground.', 'english', 'year_7', 278),
+('1dffd20c-bc1b-469a-9c72-c4af7a31ee18', 'passage', 'Nan’s garden, after', 'The tomatoes didn’t know she’d gone.
+They kept on reddening in rows,
+the beans kept climbing up their strings,
+the roses kept their pink and gold.
+
+We came in March to clear the house.
+Mum boxed the plates. I found her gloves
+still on the tap, still curled to fit
+the shape of hands that pulled the weeds.
+
+Outside, the lemon tree was heavy.
+Nobody spoke. Mum picked one, then
+another, till her arms were full,
+and held them like she used to hold me.
+
+We drove home with the windows down,
+the whole car smelling sharp and bright,
+and every meal that week had lemon —
+Nan’s way of staying for a while.', 'english', 'year_7', 114),
+('1267d34c-2776-4fda-8da1-3ba4b7971464', 'passage', 'How do noise-cancelling headphones work?', 'If you have ever worn noise-cancelling headphones on a plane, you will know the strange moment when you switch them on and the roar of the engines suddenly fades away. It feels a little like magic, but it is really a clever use of the science of sound.
+
+Sound is a wave
+
+Sound travels through the air as a wave of pressure. Air particles are squeezed together, then spread apart, over and over again, and our ears detect these changes. We can draw a sound wave as a wavy line with peaks, where the air is squeezed, and troughs, where it is spread out.
+
+Fighting a wave with a wave
+
+Noise-cancelling headphones have tiny microphones on the outside of each ear cup. The microphones pick up the noise around you: the engine hum, the air conditioner, the traffic. A small computer chip inside the headphones then creates a new sound wave that is the exact opposite of the noise. Where the noise has a peak, the new wave has a trough.
+
+When the two waves meet, they cancel each other out, and the noise seems to disappear. Scientists call this destructive interference.
+
+Why some sounds still get through
+
+Noise cancelling works best on steady, low sounds, like the drone of an engine, because the chip can predict what is coming next. Sudden or high sounds, like a baby crying or a door slamming, change too quickly to cancel completely. That is why the headphones also have soft, padded ear cups, which block some sound in the ordinary way.', 'english', 'year_7', 258),
+('0d4b8bb5-0d97-4607-aa46-d171c8f51643', 'passage', 'Fred Hollows: the doctor who gave sight', 'Fred Hollows was born in New Zealand in 1929. He trained as a doctor and specialised in eye surgery, and in 1965 he moved to Sydney, where he became the head of the eye department at a large hospital.
+
+Seeing the problem
+
+In the late 1960s and early 1970s, Hollows visited communities in outback Australia and was shocked by what he found. Many Aboriginal people, including children, had trachoma, an infectious eye disease that scars the inside of the eyelids and can lead to blindness. Trachoma had been wiped out in most wealthy countries, yet here it was, in one of the richest nations on Earth.
+
+Taking the clinic on the road
+
+From 1976 to 1978, Hollows led a national program in which teams of doctors and nurses travelled to Aboriginal communities across Australia. They visited more than four hundred communities, examined tens of thousands of people, and treated thousands for trachoma and other eye diseases.
+
+A cheaper way to see
+
+Hollows later worked in Nepal, Eritrea and Vietnam, where millions of people were blind from cataracts, a clouding of the lens inside the eye. Cataracts can be fixed with a short operation that replaces the cloudy lens with a plastic one, but the plastic lenses were too expensive for poor countries. Hollows believed they could be made for a small fraction of the price. After his death, the foundation he had started built factories in Nepal and Eritrea to do exactly that.
+
+A lasting gift
+
+Fred Hollows died in 1993. He had been named Australian of the Year in 1990, although he was famously blunt and had little interest in fame. The Fred Hollows Foundation has since helped restore sight to millions of people. His belief was simple: every person, wherever they live, deserves to see.', 'english', 'year_7', 297),
+('7407e7ea-da61-423c-be34-918af9c02e4b', 'passage', 'Tidebreaker', 'Film review
+
+Tidebreaker, the new animated adventure from Lantern Studios, is gorgeous to look at and frustrating to watch.
+
+The film follows Nia, a twelve-year-old who lives in a floating village and dreams of sailing beyond the reef. When a storm sinks the village’s fishing fleet, she sets out in a stolen boat to find the legendary Tidebreaker, a whale said to calm any sea.
+
+Visually, the film is stunning. The ocean is almost a character in its own right, shifting from glassy calm to towering grey walls of water, and the underwater scenes glow with a light that seems to come from inside the screen. Younger viewers will love Scuttle, Nia’s wisecracking hermit crab companion, who steals every scene he is in.
+
+Unfortunately, the story does not match the pictures. The first half moves slowly, with too many scenes of Nia gazing sadly at the horizon, and the ending is rushed. Characters who seem important early on simply vanish, and the big final twist can be seen coming from a mile away.
+
+The songs are pleasant but forgettable. I could not hum a single one on the way out of the cinema.
+
+Still, there is plenty here for families. Tidebreaker has heart, a brave and likeable hero and some genuinely breathtaking moments. Just don’t expect it to stay with you once the lights come up.
+
+Rating: 3 out of 5', 'english', 'year_7', 231),
+('59eaebcc-1d06-4aad-bb93-c45a5f5600a6', 'passage', 'How Year 7 spends its afternoons', 'This term, the Student Council at Lakeside College asked 200 Year 7 students how they usually spend the three hours between the end of school and dinner. The survey was anonymous, so students could answer honestly without worrying about what teachers or parents might think. Here are the results.
+
+Screens took up the biggest share of the afternoon by far, about 40 per cent. Reading for fun came last, at just 11 minutes.
+
+One result surprised the Student Council. When students were asked what they would most like to do more of, the most popular answer was not more screen time. It was to hang out with friends in person.
+
+What would you like to do more of?
+• Hang out with friends in person: 38%
+• Sport: 24%
+• Sleep: 19%
+• Screens: 12%
+• Something else: 7%
+
+The Council plans to use the results to argue for more lunchtime and after-school clubs.', 'english', 'year_7', 154),
+('945db61d-fd77-4bcc-bfd8-5d525eee4a33', 'passage', 'Low tide', 'The rock shelf at Hollow Point only appears for a few hours each day, when the sea pulls back and uncovers a wide, flat world of pools and weed. Luca had been begging to explore it since the start of the holidays, and on the last Saturday his sister Gemma finally said yes.
+
+“Two hours,” she said, checking the tide chart on her phone. “Low tide is at ten. We turn back at eleven, no arguments.”
+
+The shelf was better than Luca had imagined. Every pool was a tiny, glittering room. There were purple sea urchins wedged in cracks, crabs that sidled away from his shadow and, in one deep pool, a blue-ringed octopus the size of a golf ball. Gemma grabbed his wrist before he could lean closer. “Look with your eyes,” she said. “That one could kill you.”
+
+They wandered further than they meant to, around a jutting headland and onto a second, even wider shelf. Luca lost track of time. He only looked up when a wave slapped against the rocks behind them and sent a sheet of white water sliding across the path they had walked in on.
+
+Gemma checked her phone. It was 11.40.
+
+For a second neither of them spoke. The way back around the headland was already under knee-deep water, and each new wave pushed further in.
+
+“We could run for it,” Luca said. His voice came out high and thin.
+
+Gemma shook her head. She was looking up, not back. Behind the shelf, the cliff rose in a series of broken ledges, like a giant’s staircase. “Waves are stronger than they look,” she said. “We go up, not through.”
+
+They climbed slowly, testing every hold. Luca’s hands were shaking so much that he scraped both knees. Halfway up they found a wide, dry ledge well above the reach of the spray, and Gemma sat down with her back against the rock as if they were waiting for a bus.
+
+“Now we call someone,” she said, and dialled triple zero.
+
+It was nearly an hour before the rescue boat came around the headland, its orange hull bright against the grey water. By the time they were wrapped in foil blankets on the beach, Luca’s legs had turned to jelly.
+
+“You made the right call,” the lifeguard told Gemma. “Most people who get into trouble here try to wade back.”
+
+That night, Luca found the tide chart on Gemma’s phone and studied it for a long time. The next day, he printed his own copy and stuck it on the fridge.', 'english', 'year_7', 427),
+('28d873ff-5765-4f6f-80d2-b4e5e419df7e', 'passage', 'Lightning', 'Lightning is one of nature’s most powerful forces. A single bolt can heat the air around it to about 30,000 degrees Celsius, roughly five times hotter than the surface of the Sun. Somewhere on Earth, lightning flashes about 40 to 50 times every second.
+
+How lightning forms
+
+Inside a storm cloud, strong winds toss tiny pieces of ice and water up and down. As they crash into each other, they build up electric charges, in the same way that rubbing a balloon on your hair can build up a charge. The lighter, positively charged pieces rise to the top of the cloud, while the heavier, negatively charged pieces sink to the bottom.
+
+When the difference between the charges becomes big enough, electricity leaps across the gap: between parts of the cloud, between two clouds, or between the cloud and the ground. That leap is lightning.
+
+Why we hear thunder
+
+The heat of a lightning bolt makes the air around it expand so quickly that it creates a shock wave, which we hear as thunder. Because light travels much faster than sound, we see the flash before we hear the rumble. Counting the seconds between them tells you roughly how far away the storm is: every three seconds is about one kilometre.
+
+Staying safe
+
+If you can hear thunder, you are close enough to be struck. Go inside a solid building or a car with a metal roof, and stay there until 30 minutes after the last thunder. Keep away from open fields, lone tall trees and water.
+
+Did you know?
+• Lightning can strike the same place more than once. Tall buildings are hit many times each year.
+• A lightning bolt is only about as wide as your thumb, but it can be several kilometres long.', 'english', 'year_7', 297),
+('c139eb4a-de86-4158-a10e-85f2b20ec784', 'passage', 'Our streets need more trees', 'Opinion — Dr Helen Obi, urban planner
+
+Walk down a bare suburban street on a 38-degree afternoon and you will feel it: the heat bouncing off the road, the footpath too hot to touch, the air so thick it is hard to breathe. Now walk down a street lined with big, leafy trees. The difference is not your imagination.
+
+Roads, roofs and car parks soak up the sun’s heat during the day and release it slowly at night. This makes cities hotter than the countryside around them, an effect scientists call the urban heat island. On a summer afternoon, a road in full sun can be far hotter than the air, while the ground in the shade of a tree stays much cooler. Trees also cool the air by releasing water from their leaves, a little like a person sweating.
+
+This matters, because heatwaves kill more Australians than any other natural disaster. The people most at risk — the elderly, babies and people with health problems — are often the ones who cannot escape to an air-conditioned shopping centre.
+
+Trees do more than provide shade. They soak up rainwater and reduce flooding, give homes to birds and insects, and make streets more pleasant to walk along. Studies have even found that people who live near green spaces tend to feel less stressed.
+
+Some residents worry that trees drop leaves, crack footpaths or block views. These are real concerns, but they can be managed by choosing the right species for each street and planting them properly. A few leaves in the gutter are a small price to pay for a street that is safe to walk along in January.
+
+Our council plants about 500 street trees a year. That is not enough. I am calling on it to double that number, and to plant first in the suburbs that are hottest and have the least shade today.
+
+Every tree planted now will be cooling our streets long after the people who planted it are gone.', 'english', 'year_7', 334),
+('20bd74d8-b179-4304-8cc4-7500daa811b3', 'passage', 'The sprinter', 'On your marks.
+The whole stadium shrinks
+to one white line
+and the sound of my own heart.
+
+Set.
+I am a spring pressed flat,
+a held breath,
+a door about to slam.
+
+The gun cracks the sky in half
+and I am gone —
+legs like pistons,
+arms slicing air,
+the finish rushing at me
+like the ground in a dream of falling.
+
+Eleven seconds.
+A whole year of mornings
+spent
+in eleven seconds.', 'english', 'year_7', 75),
+('80c74de5-5ab1-4e6a-a330-b1a14833537a', 'passage', 'Make a stop-motion animation', 'Stop-motion is the technique behind many famous animated films. Instead of drawing each picture, animators move real objects a tiny bit at a time and take a photo after every move. When the photos are played quickly one after another, the objects seem to move by themselves.
+
+You will need
+
+• a phone or tablet with a free stop-motion app
+• a small stand, or a pile of books to hold the phone steady
+• modelling clay, toys or building blocks
+• a lamp
+
+Steps
+
+1. Plan your story. Keep it short: a ten-second animation needs around 120 photos.
+2. Set up your scene on a table and fix the phone in place so it cannot move. Even a tiny bump will make your film jump.
+3. Turn on the lamp and close the curtains. Daylight changes as clouds pass, which makes the film flicker.
+4. Take your first photo. Move your character a very small amount, then take another. Repeat.
+5. Play back your photos every so often to check how the movement looks.
+6. When you have finished, add sound effects or music in the app.
+
+Tips from the experts
+• Small moves make smooth motion. Big moves make it jerky.
+• Most stop-motion films use 12 photos for each second of film.
+• Be patient. Professional animators may finish only a few seconds of film in a whole day.', 'english', 'year_7', 232),
+('18c645c8-7591-4f92-8a26-8f4a467e7457', 'passage', 'My first (and last?) camping trip', 'Friday
+
+Dad says camping is “good for the soul”. I say my soul was fine at home with Wi-Fi. We arrived at Pelican Creek at four o’clock, and it took us two hours to put up the tent, mostly because Dad refused to read the instructions. When it was finally up, it leaned to one side like it was tired too. Dinner was sausages that were black on the outside and pink in the middle. I ate three packets of chips instead.
+
+Saturday
+
+I woke at 5.30 am because a kookaburra was laughing directly above the tent. It sounded like it was laughing at me. Then it started raining. We spent the morning playing cards in the tent while water dripped onto my sleeping bag.
+
+In the afternoon the rain stopped, and Dad and I walked up to the lookout. I was ready to complain about that too, but when we got to the top, I forgot to. The whole valley was steaming as the sun came out, and the river below was silver. We saw a wedge-tailed eagle circling so close I could see the pale feathers under its wings. Dad didn’t say “I told you so”, which was nice of him.
+
+Sunday
+
+Last night Dad and I lay outside the tent and looked at the stars. There were so many that the sky looked dusty. Dad showed me the Southern Cross and the two pointer stars, and told me how sailors used them to find south. I didn’t think about my phone once, which I am only writing here because nobody will read this.
+
+We packed up this morning. The tent went back into its bag much faster than it came out. On the drive home Dad asked if I would come again next year. I said, “Maybe.” I think we both knew that meant yes.', 'english', 'year_7', 308),
+('1d2414f5-a020-4a72-977e-507322011eb2', 'passage', 'Meet Jordan Reyes, wheelchair basketballer', 'Jordan Reyes, 19, plays for her state wheelchair basketball team and hopes to represent Australia. She spoke to us after training.
+
+How did you start playing?
+
+I was injured in a car accident when I was eleven, and for a while I didn’t want to do anything. Then a physiotherapist took me to watch a wheelchair basketball game. It was so fast and so loud, and the players were crashing into each other. I remember thinking, I want to do that.
+
+What do people get wrong about the sport?
+
+They think it’s gentle. It isn’t! The chairs are specially built, with wheels that angle outwards so they don’t tip over when you turn hard. We collide all the time. My hands are covered in calluses from pushing and stopping the wheels.
+
+What are the rules?
+
+Mostly the same as ordinary basketball. The hoop is the same height and the court is the same size. The big difference is dribbling: you can push your wheels twice, but then you have to bounce the ball, pass or shoot.
+
+What keeps you going?
+
+Honestly, the team. After the accident, I felt like people only saw my chair. On court, nobody cares about that. They care whether you can shoot.
+
+What’s next?
+
+The national team selection camp is in May. I’m training six days a week. Whatever happens, I’m not stopping.', 'english', 'year_7', 227),
+('37bfc549-fde8-4266-9056-036a1cd46317', 'passage', 'Two wheels: how the bicycle was invented', 'The bicycle seems simple today, but it took inventors more than seventy years to get it right. The first one, built by Karl Drais in Germany in 1817, had no pedals at all.
+
+The penny-farthing was fast, but it was also dangerous. Riders sat high above the huge front wheel, and a small bump could throw them over the handlebars head first. The safety bicycle got its name because it was so much less likely to cause these falls. Its design was so successful that most bicycles today still follow it.
+
+The air-filled tyre was developed by John Dunlop, a Scottish vet living in Ireland, who wanted to make his son’s tricycle more comfortable to ride.', 'english', 'year_7', 116),
+('4acb78b3-827f-4e3b-9a07-334be2770ce4', 'passage', 'Tryouts', 'Ava had been counting down to the under-14 tryouts for a month. Every afternoon she dribbled a ball around the wheelie bins in her driveway until her mum called her in for dinner, and every night she fell asleep thinking about the team list that would be pinned on the clubhouse door.
+
+On Saturday morning, forty girls turned up for eighteen places. Ava recognised some of them from school; others she had only seen on the other side of the pitch, usually running past her.
+
+The coach, a tall woman named Ms Adeyemi with a whistle and a clipboard, ran them through drills: sprints, passing in pairs, shooting at a goal guarded by a keeper who seemed to have arms twice as long as anyone else’s. Ava’s first shot sailed over the crossbar. Her second hit the post. Her third rolled gently into the keeper’s hands.
+
+In the practice match, things were better. Ava was quick, and twice she won the ball back from girls who were taller than her. But when her big chance came — the goal wide open, the ball at her feet — she hesitated, and a defender swept it away.
+
+The list went up on Tuesday. Ava read it three times, starting from the top and then from the bottom, in case her name had somehow slipped between the lines. It wasn’t there.
+
+She walked home the long way so that no one would see her face.
+
+That evening there was an email from Ms Adeyemi. Ava almost deleted it without reading it.
+
+“Dear Ava,” it said. “I know you will be disappointed. You were very close. Your finishing needs work, but you read the game better than almost anyone I saw on Saturday, and you never stopped chasing. I would like you to train with the squad as a reserve this season. Reserves don’t play every week, but they train with the team, and places open up more often than you would think.”
+
+Ava read it three times too.
+
+The next afternoon she went back out to the driveway. This time she didn’t dribble around the bins. She stood an old bucket against the garage door, stepped back ten paces and started shooting. When she missed, she fetched the ball and tried again.
+
+Her mum called her in for dinner at half past six. Ava called back, “Ten more minutes,” and meant twenty.', 'english', 'year_7', 399),
+('6431a914-1b1a-45cd-ba55-60294c0a6ac4', 'passage', 'Why is the sea salty?', 'If you have ever swallowed a mouthful of sea water, you know it tastes nothing like the water from a tap. Every litre of sea water contains about 35 grams of salt, roughly six teaspoons. Yet rivers and lakes are fresh. So where does all the salt come from?
+
+It starts with rain
+
+As rain falls through the air, it picks up a little carbon dioxide, which makes it very slightly acidic. When this rain lands on rocks, it slowly breaks them down, dissolving tiny amounts of minerals such as sodium and calcium.
+
+Rivers carry it away
+
+Streams and rivers carry these dissolved minerals down to the sea. River water tastes fresh because the amount of salt in it is tiny. But rivers have been pouring into the oceans for millions of years, and the salt has been building up the whole time.
+
+The sun leaves it behind
+
+When the sun heats the ocean, water evaporates into the air, but the salt does not. It stays behind in the sea. The water vapour forms clouds, falls as rain and flows back through the rivers, bringing a little more salt each time.
+
+Salt from below
+
+Some salt comes from the sea floor itself. Hot springs called hydrothermal vents release minerals from deep inside the Earth, and underwater volcanoes add more.
+
+Scientists think the oceans have been about as salty as they are now for a very long time, because salt is also being removed: it settles on the sea floor and slowly becomes part of new rock.', 'english', 'year_7', 256),
+('cb13bf15-c972-4dac-9f79-3807f3593782', 'passage', 'Should zoos exist?', 'Two students debated this question at the Westbrook College public speaking final.
+
+For: Zoos save species — Oliver
+
+Zoos are not what they were a hundred years ago. The best modern zoos are centres for conservation. They run breeding programs for animals that are close to disappearing in the wild. The Tasmanian devil is a good example: when a deadly face cancer swept through wild devils, zoos across Australia kept healthy populations safe, and some of those devils have since been returned to the wild.
+
+Zoos also teach. Most people will never see a gorilla in a rainforest, but seeing one in person can make a child care about protecting forests for the rest of their life. And the money visitors pay helps fund research and conservation work in the wild.
+
+Closing zoos would not free animals. It would take away one of the few safety nets they have left.
+
+Against: No cage is big enough — Amira
+
+My opponent talks about the best zoos. But not every zoo is the best. Around the world, many animals still live in small, bare enclosures, far from anything like their natural home.
+
+Some animals simply do not cope with captivity. Elephants walk many kilometres a day in the wild; in a zoo they may walk a tiny fraction of that. Animals under stress can develop repetitive behaviours, such as pacing the same path again and again.
+
+If we truly want to protect animals, the answer is to protect their habitats. Money spent on enclosures could be spent on stopping land clearing and poaching. A species that survives only behind glass has not really been saved.', 'english', 'year_7', 273),
+('e3413c91-ceed-4980-a731-3ebe2e4ddab7', 'passage', 'Six a.m.', 'The suburb is still yawning.
+Sprinklers tick across the lawns
+like slow clocks,
+and a magpie tests its voice
+against the silence —
+one clear note, then another,
+as if tuning up.
+
+Down the street, a garage door
+groans open,
+headlights blink awake,
+and the first bus sighs
+at the corner stop,
+kneeling for a woman
+with a pram.
+
+The sky goes pink, then gold,
+then ordinary blue.
+Somewhere a kettle whistles.
+The day has started
+without asking anyone.', 'english', 'year_7', 79),
+('104c9ba8-5a03-4844-a879-386311301fc9', 'passage', 'Teen’s smoke sensor could spot bushfires sooner', 'Regional Times
+
+A Year 10 student from the Blue Mountains has designed a low-cost sensor that could help detect bushfires minutes after they start.
+
+Sixteen-year-old Isla Martin built the device, about the size of a lunchbox, in her school’s science club. It is fixed to a tree and uses a small sensor to detect the particles in smoke. When it senses smoke, it sends a text message with its location to a phone.
+
+“My family had to leave our house during the 2019 fires,” Isla said. “We didn’t know how close the fire was until we could see the orange sky. I wanted to find a way to know sooner.”
+
+Isla’s prototype cost less than $60 to build, using parts that are easy to buy online. It runs on a small solar panel, so its battery never needs changing.
+
+The device won first prize in the state Young Innovators Awards last month. The judges praised its simple design and low cost, which would make it possible to place hundreds of sensors across large areas of bush.
+
+Isla admits there are still problems to solve. Her sensor has been set off by smoke from a neighbour’s barbecue, and it only works where there is mobile phone coverage.
+
+“Those are the next things I want to fix,” she said. “Maybe a sensor that can tell the difference between a barbecue and a bushfire.”
+
+A spokesperson for the local fire service said early warning tools were valuable, but that any new technology would need careful testing before people could rely on it. “Nothing replaces having a bushfire plan and knowing when to leave,” she said.', 'english', 'year_7', 272),
+('e5e4265d-f864-42a9-8069-688e32d98770', 'passage', 'The boy who flew too high', 'A Greek myth, retold
+
+Long ago, on the island of Crete, there lived an inventor named Daedalus. He was the cleverest craftsman in the world, and King Minos had made him build a vast maze called the Labyrinth. But when the work was done, the king would not let Daedalus leave, for fear he would reveal the maze’s secrets. Daedalus and his young son, Icarus, were locked in a tall tower by the sea.
+
+For months Daedalus watched the gulls wheeling past the window. Then he had an idea. “Minos may rule the land and the sea,” he said, “but he does not rule the sky.”
+
+He began to collect the feathers the birds dropped, small ones and large ones, grey and white. He laid them out in rows from the shortest to the longest, and bound them with thread and with wax from the candles until he had made two great pairs of wings.
+
+When the wings were ready, Daedalus strapped a pair onto his son’s shoulders. “Listen to me carefully,” he said. “Do not fly too low, or the spray from the sea will soak the feathers and drag you down. Do not fly too high, or the sun will melt the wax. Follow me, and keep to the middle way.”
+
+They leapt from the tower window. At first Icarus clung close to his father, his heart hammering. But soon he felt the wind lift him, and a wild joy filled him. He swooped and climbed. Fishermen below dropped their nets and stared, thinking the two figures must be gods.
+
+Icarus forgot his father’s warning. Higher and higher he flew, towards the blazing sun, laughing at how small the world looked beneath him. He did not notice the wax growing soft, or the first feathers drifting away.
+
+Then his arms were beating at empty air. He fell, crying out for his father, and the sea closed over him.
+
+Daedalus turned and saw only feathers floating on the waves. He flew on alone to safety, but he never built another pair of wings. The sea where Icarus fell is still called the Icarian Sea.', 'english', 'year_7', 355),
+('ff79a601-2a6f-4e47-b022-823cb906efcc', 'passage', 'Skyward Farm', 'Game review
+
+Farming games are nothing new, but Skyward Farm has a clever twist: your farm floats on a tiny island in the clouds, and every carrot, cow and cabbage you raise has to be squeezed onto a patch of land barely bigger than a netball court.
+
+At first the lack of space feels frustrating. But that is the point. Every choice matters. Should you plant fruit trees that take ten days to grow, or quick-growing radishes? Build a barn, or a windmill? As you complete tasks for the sky merchants who drift past in hot-air balloons, you earn new pieces of land to bolt onto your island, and watching it slowly spread across the sky is deeply satisfying.
+
+The art is charming, with soft pastel colours and animals that bounce when they are happy. The music is gentle, which makes the game relaxing to play for a few minutes before bed.
+
+There are some problems. The early game moves slowly, and the tutorial explains too little, so it took me an hour to work out how to water my crops properly. Later on, the tasks start to repeat, and I found myself making the same deliveries over and over.
+
+Overall, Skyward Farm is a calm, creative game that rewards patience. It won’t suit players who want fast action, but anyone who enjoys planning and building will find it hard to put down.
+
+Score: 8 out of 10', 'english', 'year_7', 238),
+('04629c7e-4d29-429f-aeef-ee26620eec36', 'passage', 'Visiting the Harbour Museum', 'The Harbour Museum tells the story of our city’s port, from the first sailing ships to the modern container terminal. Entry to the permanent galleries is free. Some special exhibitions have a charge.
+
+Before you visit
+
+• Open every day from 9.30 am to 5 pm, except Christmas Day.
+• Last entry is at 4.30 pm.
+• Large bags must be left in the free lockers near the entrance.
+• Photography is allowed, but please do not use a flash in the Shipwreck Gallery, because bright light damages the old timber.
+
+Getting here
+
+The museum is a five-minute walk from Harbour Street station. There is no parking at the museum, but there is a paid car park on Dock Road.', 'english', 'year_7', 120),
+('04b5cf01-cb94-467c-8aaa-3b4e8fe7724f', 'passage', 'The keeper’s daughter', 'Nobody else wanted the Saturday shift at the Cape Farrow Lighthouse Museum, which was how Zara, fifteen and newly hired, came to be alone in the keeper’s cottage with a box of documents that had arrived that morning from a deceased estate.
+
+“Catalogue them,” Mrs Hendry had said, handing her a pair of white cotton gloves. “Date, description, condition. Don’t read them properly, or you’ll never finish.”
+
+Zara read them properly.
+
+The box held a logbook bound in cracked green leather. The first pages were in a man’s cramped, slanting hand — wind directions, oil levels, ships sighted — the weekly ritual of a keeper in the 1890s. But halfway through, the handwriting changed. It became rounder, younger, pressed so hard into the paper that some letters had torn through.
+
+14 June 1894. Father ill with fever. I have lit the lamp myself these three nights. The oil is heavy and my arms shake on the stairs, but the light has not failed. Mother says I must not write in the log, as it is not my place. I say if I keep the light, I keep the log.
+
+Zara sat back. Outside, the real lighthouse stood white against a sky the colour of pewter, its lamp long since replaced by an automatic beacon that no one needed to climb to. She turned the page.
+
+21 June 1894. A storm from the south-west. The schooner Margaret Ellis passed close under the cape at two in the morning, too close. I kept the lamp turning though the glass rattled in its frame. At dawn she was safe in the bay. I do not think her captain will ever know my name.
+
+The entries went on for seven weeks. The girl — she never wrote her name — recorded every ship, every change of wind, every measure of oil. Her father’s handwriting returned in August, shaky at first, then firmer. Beneath the entry for 3 August, in the girl’s hand, were five words: He says I did well.
+
+Zara looked for the girl in the museum’s displays. There was a photograph of the keeper, stern and bearded, beside a list of every keeper who had served at Cape Farrow, all of them men. There was no mention of a daughter who had carried oil up ninety-two steps for seven weeks while the storms came in.
+
+When Mrs Hendry came back at four, Zara had catalogued three items out of forty. “I said not to read them,” Mrs Hendry sighed. Then she saw Zara’s face. “What is it?”
+
+Zara turned the logbook around and pointed to the rounded handwriting. “Who was she?”
+
+It took the two of them a month of searching old newspapers and church records to find out. Her name was Annie Walsh. She had died in 1961, in a town far inland, at the age of eighty-one. Her obituary said she had been a devoted mother and a keen gardener. It did not mention the lighthouse.
+
+The following spring, a new card appeared beside the photograph of the stern, bearded keeper. It was small and plainly printed, and Zara had written it herself: Annie Walsh, aged 14, kept the Cape Farrow light alone from 11 June to 2 August 1894.', 'english', 'year_9', 540),
+('86662f93-4bc1-406f-8c74-d4ed0312e5bf', 'passage', 'Why forgetting is good for you', 'Mind & Brain
+
+We tend to treat forgetting as a failure: the name that slips away, the formula that vanishes the moment the exam paper lands on the desk. But a growing number of memory scientists argue that forgetting is not a fault in the system. It is part of how the system works.
+
+The curve
+
+In the 1880s, the German psychologist Hermann Ebbinghaus spent years memorising lists of meaningless syllables, such as “dax” and “bup”, and testing how many he could recall after different delays. He found that much of what he learned disappeared within a day, and that the rate of forgetting then slowed. The shape of his results, a steep drop followed by a long, gentle slope, became known as the forgetting curve.
+
+A brain that edits
+
+Why would a brain throw information away? One answer is efficiency. Every day we take in an enormous amount of detail: what we ate, where we parked, the colour of a stranger’s jacket. Remembering all of it would bury the important things under the trivial. By letting unused memories fade, the brain keeps what we actually need easy to find.
+
+Forgetting may also help us think more flexibly. If you remembered every detail of every dog you had ever met, you might struggle to recognise a new dog as a dog at all. Forgetting the details helps the brain hold on to the general pattern.
+
+Making memories stick
+
+The good news is that the forgetting curve can be flattened. Ebbinghaus himself noticed that relearning a list took less time than learning it the first time, and that spreading out his sessions made memories last much longer. Today this is known as spaced practice.
+
+Another powerful technique is retrieval practice: testing yourself rather than simply rereading. Each time you drag a memory back up, you strengthen the pathway to it. Rereading notes feels productive, but it can create an illusion of knowing — the words look familiar, so we assume we have learned them.
+
+Sleep matters too. During deep sleep, the brain appears to replay and strengthen the day’s important memories, while weaker ones fade. So the next time a fact escapes you, remember that your brain is not broken. It is deciding what is worth keeping — and with a little strategy, you can help it choose.', 'english', 'year_9', 387),
+('e0582eaf-4b11-4462-ac30-e8b98b0db9bc', 'passage', 'The case for handwriting', 'Opinion — Maya Chen
+
+Last year, my school stopped teaching handwriting after Year 4. The reasoning was simple: students type everything now, so why spend time on a skill that belongs to the past? I understand the argument. I also think it is wrong.
+
+Start with what happens in the brain. When we write by hand, we have to form each letter, which forces us to slow down. That slowness turns out to be useful. In one well-known study, university students who took notes by hand understood lectures better than students who typed, even though the typists recorded more words. The typists tended to copy the lecture word for word; the hand-writers, unable to keep up, had to decide what mattered and put it in their own words. That decision is where the learning happens.
+
+Handwriting is also a matter of fairness. Many exams, including those in the final years of school, are still sat on paper. A student who has barely written by hand since Year 4 is at a disadvantage when she has to write for three hours without stopping.
+
+Then there are the moments when a screen simply is not there: a birthday card, a note left on the kitchen bench, a form filled in at the doctor’s, a signature. These are small things, but they are part of ordinary adult life.
+
+None of this means we should throw away our laptops. Typing is faster for long pieces of writing and easier to edit, and for some students with disabilities it opens up learning that handwriting closes off. The point is not to choose one over the other. It is to make sure every student can do both.
+
+Twenty minutes of handwriting a week in the middle years of school would be enough to keep the skill alive. That is a small price for better learning, fairer exams and a skill people will use for the rest of their lives.
+
+Before you disagree, try this: write down the three most important points from this article by hand, from memory. Then ask yourself which version you will still remember next week.', 'english', 'year_9', 353),
+('4e37c461-8d5e-4fd5-9c72-1ddd43c66389', 'passage', 'Migration', 'Each autumn the godwits leave
+the mudflats where my grandmother walks,
+rising in their thousands, a blur of wings
+that tilts and gathers and is gone,
+bound for the far edge of the world
+along a road they cannot see.
+
+She came the other way
+in 1968, on a ship that smelled
+of diesel and oranges,
+a cardboard suitcase, a word or two
+of English folded in her pocket
+like a map she could not read.
+
+She tells me the first winter
+was the loneliest thing she ever knew.
+She tells me, too, how one day
+the strange streets began to hold her
+the way the tide holds the flats,
+gently, and then completely.
+
+Now she stands at the water’s edge,
+her hand above her eyes,
+watching the birds begin their journey,
+and I think she is the only one
+on this whole shore who knows
+exactly what they are leaving.', 'english', 'year_9', 151),
+('a228e875-3426-4055-bbb5-2e30da6b2c00', 'passage', 'The wire that shrank the world', 'In the 1860s, news from Britain took around two months to reach Australia. It travelled by ship, and by the time Australians read about an election, a war or a royal birth, the world had already moved on.
+
+That changed on 22 August 1872, when the final join was made in the Overland Telegraph Line, a single wire stretching more than 3,000 kilometres across the continent. It connected Adelaide with Darwin, where an undersea cable carried messages on to Java and, from there, all the way to London. A message that had taken weeks could now arrive in hours.
+
+The project was the idea of Charles Todd, South Australia’s superintendent of telegraphs, and many people thought it could not be done. The route crossed deserts, gorges and tropical swamps — country that few Europeans had seen, although Aboriginal people had known and travelled it for tens of thousands of years. The explorer John McDouall Stuart had crossed the continent a decade earlier, and his route was used as a guide.
+
+Work began in 1870. Teams of workers dug holes for more than 36,000 poles, often in heat above 40 degrees. In the north, termites ate the wooden poles, and many had to be replaced with iron ones shipped from England. In the wet season, floods washed away camps and bogged the wagons. Supplies ran short, and some workers died. The line was meant to take two years. It took almost three.
+
+The effects were enormous. Businesses could check prices in London within a day. Newspapers printed overseas news while it was still news. Families could send urgent messages across the world. Historians often say the telegraph began to end what one writer called Australia’s “tyranny of distance”.
+
+The line also changed the country it crossed. Repeater stations, built every few hundred kilometres to boost the signal, became the seeds of towns; Alice Springs grew from one of them. For many Aboriginal communities along the route, the line and its stations brought lasting, and often painful, disruption to their lives and lands.
+
+Today, a message crosses the same distance in a fraction of a second. But for the Australians of 1872, that single wire must have felt like the whole world arriving at once.', 'english', 'year_9', 373),
+('379a1efb-cedb-4444-b84d-30aa30fe8f6c', 'passage', 'Local family discovers “outside”', 'The Weekly Ruckus — satire
+
+A Westfield family has made a shocking discovery just metres from their own back door: a vast, uncharted region they are calling “outside”.
+
+The Tran family made the find on Sunday afternoon, when the Wi-Fi went down for almost forty minutes. With no other options, fourteen-year-old Daniel Tran opened the sliding door “just to see what was there”.
+
+“It was huge,” Daniel said. “There was this blue ceiling that went on forever, and the lighting was incredible. Honestly, the graphics were better than anything I’ve played.”
+
+His sister Kim, 12, described meeting a “fuzzy four-legged creature” on the lawn, which later turned out to be the family’s dog, Pickles. “We thought he lived in the laundry,” she admitted. “Apparently he’s been out there for years.”
+
+Experts say the family’s experience is increasingly common. “We are seeing more and more families stumble on outside by accident,” said Dr Sunny Greene of the Institute of Obvious Studies. “The symptoms are always the same: squinting, confusion about where the sound of birds is coming from, and a strange urge to kick a ball.”
+
+Not everyone was impressed. “There was no charging port anywhere,” said Mrs Tran. “And it had no pause button. I tried to stop the rain and it just kept going.”
+
+Despite this, the family say they may return. Daniel is already planning a second expedition. “I’ve heard that if you go far enough, there’s a thing called a park,” he said. “I’m not saying I believe it. But I want to see.”
+
+The Institute of Obvious Studies recommends that families visit outside at least once a day, preferably without a device, and reminds parents that, unlike most games, it is free to play.', 'english', 'year_9', 288),
+('b2810061-b810-4e2d-bf1c-416277f5e8ec', 'passage', 'The Glass Orchard', 'Book review
+
+The Glass Orchard is Rosalind Mercer’s first novel for young adults, and it arrives carrying a great deal of excitement. It deserves most of it.
+
+The story is set in a near-future Tasmania where orchards have been sealed under vast glass domes to protect them from a blight that has wiped out fruit trees across the world. Sixteen-year-old Wren works in the Huon dome, pollinating apple blossoms by hand, because the bees are long gone. When she finds a single wild apple tree growing outside the dome, healthy and heavy with fruit, she begins to suspect that the story everyone has been told about the blight is not the whole truth.
+
+Mercer is at her best describing the domes themselves: the damp, humming warmth, the condensation running down the glass “like the orchard was sweating out a fever”, the eerie silence of a spring without insects. The world feels thought-through and unsettlingly possible.
+
+Wren is a memorable narrator, prickly and funny, and her friendship with Tomas, an engineer’s son who has never been outside, is handled with real tenderness. It never tips into the predictable romance that the first chapters seem to promise, which is a welcome surprise.
+
+The novel is less sure-footed in its final third. Once Wren leaves the dome, the plot speeds up so much that important revelations are rushed, and the villain, a company director with a fondness for long speeches, is disappointingly one-dimensional. A book that has spent two hundred pages asking complex questions settles for simple answers.
+
+Even so, The Glass Orchard is an absorbing, intelligent debut. Readers who enjoy stories that ask what we owe the natural world will find plenty to think about, and Wren’s voice will stay with them long after the last page.
+
+Four stars out of five', 'english', 'year_9', 300),
+('644002de-7d7c-486d-b00b-9ac838c1cbc5', 'passage', 'Food waste in Westvale', 'Last year, Westvale Council asked 500 households to sort their rubbish for one week and record every piece of food they threw away. The results surprised even the council’s own waste team.
+
+On average, each household threw out 4.2 kilograms of food a week. Over a year, that adds up to more than 200 kilograms per household, about the weight of an upright piano.
+
+Fresh fruit and vegetables made up the largest share. Many were thrown out whole and uncooked, often because they had been bought and then forgotten at the back of the fridge. Leftovers were the second-largest category.
+
+The survey also asked households why they threw food away. The most common reasons were that food had gone off before it could be eaten, that people had cooked too much, and confusion about date labels. Many households did not know that a best-before date is about quality, while a use-by date is about safety. Food can often be eaten safely after its best-before date, but it should never be eaten after its use-by date.
+
+The council will use the results in a campaign called Buy It, Use It, with tips on planning meals, storing food and understanding labels.', 'english', 'year_9', 199),
+('f5f0969a-bb7d-47b7-b850-095fcf3e8522', 'passage', 'The tapes', 'Every Sunday, Leila’s mother drove them out to Greenhaven, where Grandpa had lived since the spring. The corridors smelled of lemon polish and boiled vegetables, and somewhere a television was always playing too loudly.
+
+Grandpa no longer knew who Leila was. Some weeks he called her Suzie, which had been her mother’s childhood nickname. Some weeks he was polite and distant, the way people are with strangers on trains. Leila had stopped correcting him. It only frightened him when she did.
+
+Today he was sitting by the window, turning a teaspoon over and over in his fingers. “Lovely day for it,” he said, to nobody in particular.
+
+Leila’s mother had brought a shoebox from the garage. Inside, wrapped in rubber bands that had gone brittle with age, were dozens of cassette tapes, each labelled in Grandpa’s neat capitals: RIVERVIEW BREAKFAST — MAY 1979. RIVERVIEW BREAKFAST — XMAS 1981.
+
+“He was on the radio for twenty years,” her mother said. “Did you know that? Half the town woke up to him.”
+
+Leila hadn’t known. She had only ever known the quiet man who fixed bicycles in the shed and fell asleep in front of the cricket.
+
+It took the staff twenty minutes to find something that could still play a cassette: an old stereo from the recreation room, with a handle on top and a tape deck that squeaked when it opened. Leila chose a tape at random, pushed it in and pressed play.
+
+For a moment there was only hiss. Then a voice filled the room — young, bright, impossibly quick. “Good morning, Riverview! It’s six o’clock, it’s thirteen degrees and the frost is on the paddocks, so put the kettle on and stay with me —”
+
+Leila looked at her grandfather. He had stopped turning the spoon.
+
+On the tape, the young man laughed at his own joke, read the school closures, wished a Mrs Pollard a happy ninetieth birthday and introduced a song. The music was old and crackly, a man crooning about the moon over some faraway bay. Grandpa’s lips began to move.
+
+He was singing. Quietly, a little behind the beat, but he knew every word. His hand tapped the arm of his chair. When the song ended, he leaned towards the stereo as if he were waiting for the voice to come back, and when it did, he said softly, “That’s me.”
+
+Leila’s mother put her hand over her mouth.
+
+“That’s you,” Leila said. “You were brilliant.”
+
+He turned and looked at her properly then, for the first time in months. His eyes were very clear. “Did you listen?” he asked. “In the mornings?”
+
+She could have explained that she had not been born yet. Instead she said, “Every morning.”
+
+He smiled, satisfied, and turned back to the window. By the time the tape reached the weather, he was calling her Suzie again.
+
+But the next Sunday, and the Sunday after that, they brought another tape. And every week, for the length of a song, he knew exactly who he was.', 'english', 'year_9', 506),
+('43051448-acd7-443b-8760-c578fe52ba97', 'passage', 'Stage fright: your body’s false alarm', 'Your name is called. You walk to the front of the room, and suddenly your heart is pounding, your mouth is dry and your hands are shaking so badly that your notes rattle. You are not in danger. So why does your body behave as if you are?
+
+An ancient alarm
+
+Stage fright is a version of the fight-or-flight response, a survival system that evolved long before speeches and school assemblies. When the brain senses a threat, it signals the adrenal glands to release adrenaline. Within seconds, the heart beats faster to pump more blood to the muscles, breathing quickens and digestion slows down — which is why your mouth goes dry and your stomach feels full of butterflies.
+
+For our ancestors, facing a predator, this was exactly the right reaction. The problem is that the same alarm goes off when the “threat” is a room full of classmates. Our brains are very sensitive to being judged, perhaps because, for most of human history, being rejected by your group was genuinely dangerous.
+
+Nervous or excited?
+
+Here is the curious thing: the physical feelings of fear and excitement are almost identical. A racing heart and quick breathing could mean terror before a speech or a thrill before a roller-coaster. The difference lies largely in how we interpret them.
+
+In one well-known experiment, researchers asked people to prepare a speech. Before speaking, some were told to say “I am calm” and others to say “I am excited”. Those who called their feelings excitement gave speeches that were rated as more persuasive and confident. Trying to calm down, it seems, is harder than relabelling the energy you already have.
+
+Taming the alarm
+
+Other strategies help too. Slow breathing, with a longer breath out than in, signals to the body that it is safe. Practice builds familiarity, so the brain sees less of a threat. And remembering that audiences usually want a speaker to succeed can shrink the imagined danger.
+
+Stage fright may never disappear completely; many famous performers still feel it before every show. But understanding it — an old alarm doing its job a little too enthusiastically — can make it easier to turn into fuel.', 'english', 'year_9', 364),
+('97d9404b-6d02-4372-9084-c9f11944203b', 'passage', 'Sixteen is old enough', 'A speech to the Youth Parliament by Harriet Okoye
+
+Madam Speaker, members of the Youth Parliament: at sixteen, an Australian can leave school, work and pay tax, and in most states can get a learner’s permit to drive. What a sixteen-year-old cannot do is vote for the people who make decisions about all of those things. Today I argue that this should change.
+
+My first argument is about fairness. Decisions made by governments now — about climate, housing and education — will shape the lives of young people for decades, long after many of today’s voters are gone. If we are old enough to live with the consequences, we are old enough to have a say.
+
+My second argument is that voting is a habit. Research from countries such as Austria, which lowered its voting age to sixteen in 2007, suggests that people who vote in their first election are more likely to keep voting for the rest of their lives. At sixteen, most young people are still living at home and going to school, where they can be taught how to enrol and how voting works. At eighteen, many have just moved out, started work or begun university, and their first election can slip past unnoticed.
+
+My opponents will say that sixteen-year-olds are not mature enough. But we do not give adults a maturity test before they vote. And studies in countries that have lowered the age have found little evidence that sixteen- and seventeen-year-olds make less informed choices than older first-time voters.
+
+Others will say that young people are not interested in politics. Some are not — and neither are some forty-year-olds. Interest grows when people are given responsibility, not when they are told to wait.
+
+Members of this Parliament, a vote is not a reward for turning eighteen. It is a voice in the decisions that shape our lives. I ask you to support this motion, and to trust sixteen-year-olds with a say in the future they will inherit.', 'english', 'year_9', 332),
+('190a29d4-c990-4653-8e7e-547e81404fd4', 'passage', 'What the river knows', 'The river has been here
+longer than the town,
+longer than the bridge
+and the people on the bridge
+who throw in coins and wishes.
+
+It remembers the floods
+the way skin remembers a scar.
+It remembers canoes of bark,
+the paddle-steamers’ smoke,
+the drought that showed its bones.
+
+It does not hurry.
+It has carved a valley
+one grain at a time,
+and it will carve another
+long after the bridge is rust.
+
+Stand at the edge on a still night
+and you can hear it
+saying the only thing it knows:
+go on, go on, go on.', 'english', 'year_9', 99),
+('f3446884-d8c0-461c-9b10-876c9f62fe65', 'passage', 'Marie Tharp: mapping the ocean floor', 'In the early 1950s, most people imagined the bottom of the ocean as a flat, featureless plain of mud. Marie Tharp proved them wrong, and in doing so helped change our understanding of the planet.
+
+Tharp was born in the United States in 1920. After studying geology, she joined a research laboratory at Columbia University in New York, where she worked with a geologist named Bruce Heezen. At the time, women were not allowed on the laboratory’s research ships, so while Heezen and the other men went to sea, Tharp stayed behind.
+
+Her job was to turn their measurements into maps. The ships used echo sounders, which sent pulses of sound down to the sea floor and timed how long the echoes took to return. From thousands of these readings taken along the ships’ routes, Tharp plotted the depth of the Atlantic Ocean, line by line, by hand.
+
+As the map took shape, she noticed something extraordinary. Running down the middle of the Mid-Atlantic Ridge, a vast underwater mountain range, was a deep V-shaped valley. Tharp believed it was a rift: a crack where the Earth’s crust was being pulled apart. That would mean the continents on either side were slowly moving away from each other — an idea called continental drift, which most scientists at the time rejected.
+
+When she showed Heezen, he dismissed it as “girl talk”. It took him about a year to be convinced, when the pattern of earthquakes along the ridge turned out to match her valley exactly. Their maps, published in the 1950s and 1960s, gave powerful support to the theory now known as plate tectonics.
+
+For years, Tharp received little credit. Much of the work was published under Heezen’s name, and she was not allowed to join a research voyage until 1968. In 1977 the pair published a map of the entire ocean floor, painted by an Austrian artist, which is still widely reproduced today.
+
+Tharp died in 2006. Late in life she was honoured by several scientific organisations, and her maps are now recognised as one of the great achievements of twentieth-century science.', 'english', 'year_9', 351),
+('6713fe99-73a3-4a12-8dc1-19b4b1f0f030', 'passage', 'Caught in a rip', 'Rip currents are the most common hazard on Australian beaches. Every year they are involved in more drownings than sharks, bushfires and floods combined. Knowing how to spot a rip, and what to do if you are caught in one, could save your life.
+
+What is a rip?
+
+When waves break on a beach, they push water towards the shore. That water has to get back out to sea somehow. It usually finds the easiest path, often a deeper channel between sandbanks, and flows back out in a narrow, fast-moving current. That current is a rip. Some rips move faster than an Olympic swimmer.
+
+How to spot one
+
+• darker, deeper-looking water
+• fewer breaking waves than on either side
+• a rippled or choppy surface in otherwise calm water
+• sand, foam or seaweed being carried out beyond the waves
+
+Rips can be hard to see, even for experienced swimmers. The safest choice is always to swim between the red and yellow flags, where lifesavers are watching.
+
+If you are caught
+
+1. Stay calm. A rip will not pull you under; it pulls you out.
+2. Float on your back to save energy, and raise one arm to signal for help.
+3. You may be able to escape by swimming parallel to the beach, or towards breaking waves.
+4. Keep checking where you are, and keep floating if you get tired. Many rips circle back towards the shore.
+
+Don’t
+• Do not try to swim straight back to shore against the rip. Even strong swimmers become exhausted.
+• Do not swim at unpatrolled beaches if you can avoid it.', 'english', 'year_9', 270),
+('3f5c3152-0d8b-4118-88aa-f9fe164ad028', 'passage', 'The new Harbourside Library', 'Architecture review
+
+From the outside, the new Harbourside Library looks less like a library than a stack of enormous books that someone has knocked slightly askew. Its five floors jut out at different angles over the water, each wrapped in pale timber slats that glow gold in the late afternoon. It is bold, playful and impossible to ignore — which, for a building that wants to be noticed by teenagers as much as by book clubs, is exactly the point.
+
+Inside, it is even better. The ground floor is one huge open room, with a café, a stage for talks and floor-to-ceiling windows looking across the harbour. A wide staircase, lined with cushioned steps where people can sit and read, winds up through the middle of the building like a spine. On a Tuesday afternoon it was crowded with students, retirees and a toddler conducting an imaginary orchestra.
+
+The upper floors are quieter. The fourth floor has soundproof study rooms that can be booked online, and the fifth is a hushed reading room under a sloping glass roof. Sitting there as rain drummed overhead, I understood why the architects called it “the lantern”.
+
+There are problems. The children’s area, tucked into a windowless corner of the second floor, feels like an afterthought in a building otherwise obsessed with light. The signs are small and hard to follow; I got lost twice looking for the toilets. And the timber slats, beautiful as they are, will need careful maintenance in a salty harbour wind.
+
+The building also cost a great deal: $78 million, far over its original budget. Critics have asked whether the money might have been better spent on smaller libraries in the suburbs.
+
+But on the evidence of a single wet Tuesday, Harbourside Library has already done what the best public buildings do. It has made people want to be there. The books, it seems, were only the beginning.', 'english', 'year_9', 319),
+('a8284ceb-7f3f-4831-ad67-36855a25397f', 'passage', 'Riverton Dam over ten summers', 'Riverton Dam supplies drinking water to about 60,000 people. It was built in 1964, and when it is full it holds enough water to supply the town for about three years. At the end of every summer, the regional water authority records how full it is. The chart shows the results for the past ten years.
+
+The low point came in 2020, after three dry years in a row, when the dam fell to just 38 per cent. Residents were asked to keep showers to four minutes, and watering gardens with a hose was banned.
+
+Heavy rain in the following years refilled the dam, and in 2023 it reached 95 per cent, its highest level in the period. Restrictions were eased in 2021 and lifted completely in 2022.
+
+The authority says levels have now fallen for two years in a row, and it is urging residents to keep saving water. “The chart shows how quickly things can change,” a spokesperson said. “Three dry summers took us from comfortable to critical.”
+
+Water restrictions return automatically if the dam is below 50 per cent full at the end of summer.', 'english', 'year_9', 188),
+('7179809e-7f2b-4ee8-a9b7-b6a66901f6f8', 'passage', 'Firebreak', 'The first hot northerly of the season arrived in the second week of October, and by nine o’clock the paddocks were already shimmering. Josh’s grandfather stood at the back gate, sniffing the wind the way other people check a weather app.
+
+“Early,” was all he said. Then: “Get the rake-hoe. We’re doing the break today.”
+
+The firebreak ran around the whole house block: a strip of bare earth, ten metres wide, between the homestead garden and the long dry grass of the paddocks. Every spring Pop scraped it clean of anything that could burn. Every spring Josh, who had lived with him since his parents split up, complained about it.
+
+He didn’t complain this year. Last summer he had stood on this same veranda and watched the sky to the west turn the colour of a bruise, seen ash drifting down like grey snow, and heard the radio say the fire had jumped the highway. It had missed them by eleven kilometres. Eleven kilometres was not very far.
+
+They worked for three hours without much talking. Pop worked slowly but never stopped, his shirt dark with sweat, dragging dead branches from under the gums and piling them on the trailer. Josh raked leaves and bark into heaps until his palms blistered. The cicadas screamed. Every so often a willy-willy whirled across the paddock, lifting a column of dust and straw into the air, then collapsed as suddenly as it had come.
+
+At lunch they sat in the shade of the tank stand with cold tea and sandwiches.
+
+“Pop,” Josh said. “If a fire comes, are we staying?”
+
+His grandfather took a long time to answer. He looked out at the house his own father had built, at the woodpile, at the old dog asleep under the ute.
+
+“When I was your age,” he said at last, “everyone stayed. You fought it with wet bags and buckets, and some years you won.” He rubbed his thumb over a scar on his wrist. “And some years you didn’t.”
+
+Josh waited.
+
+“The fires are different now,” Pop said. “Hotter. Faster. The fella from the fire brigade said to me, a house can be rebuilt. You can’t.” He finished his tea. “So here’s the plan. On a bad day — a really bad day — we go early. We don’t wait to see smoke. We load the dog and the photo albums and we drive to your aunt’s in town before breakfast.”
+
+“And the house?”
+
+“The house has the break,” Pop said. “And the sprinklers on the roof. That’s its best chance. Us leaving is ours.”
+
+That evening Josh wrote the plan on the back of an envelope and stuck it to the fridge with a magnet shaped like a cow: WHEN TO GO. WHAT TO TAKE. WHERE TO MEET. Pop read it twice, then added one line at the bottom in his square, careful capitals: DON’T FORGET THE DOG.', 'english', 'year_9', 486),
+('9d56e80a-d8e7-4e47-9ead-c1779799eb48', 'passage', 'How bats see with sound', 'On a warm evening, bats flit through the dark, snatching insects out of the air with astonishing precision. Many of them do it in near-total darkness. Their secret is echolocation: finding things by listening to echoes.
+
+Calls and echoes
+
+As a bat flies, it sends out a stream of very high-pitched calls, most of them far too high for human ears to hear. When these sound waves hit an object — a tree, a wall, a moth — they bounce back. The bat’s large, sensitive ears pick up the returning echoes, and its brain turns them into a detailed picture of its surroundings.
+
+The time an echo takes to return tells the bat how far away something is: the longer the delay, the further away the object. Tiny differences between the echoes reaching its left and right ears tell it the direction. The strength and pattern of an echo can even reveal an object’s size, shape and texture — enough for some bats to tell a moth from a falling leaf.
+
+The feeding buzz
+
+When a bat closes in on an insect, it speeds up its calls dramatically, from around ten calls a second to as many as two hundred. Scientists call this the feeding buzz. The faster calls give the bat constant updates on exactly where its prey is, right up to the moment of capture.
+
+An arms race
+
+Some insects have evolved defences. Certain moths can hear bat calls and dive towards the ground when a bat approaches. Some tiger moths go further, producing clicking sounds of their own that may jam the bat’s echolocation or warn that they taste bad.
+
+Not all bats echolocate. Many large fruit bats, including Australia’s flying-foxes, rely mainly on their excellent eyesight and sense of smell.
+
+Did you know?
+• Australia has around 80 species of bats.
+• A single small bat can catch hundreds of insects in an hour.', 'english', 'year_9', 318),
+('61bf687f-3f40-4fbf-8c40-412e465fa537', 'passage', 'Is social media good for teenagers?', 'Two views, published side by side in a school magazine
+
+It connects us — Priya, Year 10
+
+Adults love to blame social media for everything, but for many teenagers it is a lifeline. When I moved schools in Year 8, the group chat with my old friends kept me from feeling completely alone. For young people who feel different — because of their culture, their interests or a disability — online communities can be the first place they find others like them.
+
+Social media is also where a lot of us learn about the world. I follow scientists, environmental campaigners and artists I would never have heard of otherwise. And creating things online — videos, music, art — has given many teenagers real skills and even an income.
+
+Of course there are risks. But the answer is to teach young people to use social media wisely, not to pretend we can switch it off.
+
+It costs us more than it gives — Tom, Year 10
+
+I deleted my social media apps six months ago, and I have never been happier. I sleep better, because I am not scrolling at midnight. I get more homework done. And I no longer spend my evenings comparing my life with carefully edited photos of other people’s.
+
+My experience is not unusual. Many studies have found links between heavy social media use and poor sleep, and some have found links with anxiety and low self-esteem. The apps are designed to keep us scrolling for as long as possible, because that is how their makers earn money from advertising.
+
+I am not saying no one should use social media. But we should be honest that it is built to capture our attention, and that our attention is worth protecting.', 'english', 'year_9', 293),
+('2d7140fd-283a-411a-a841-84b1f3af95e0', 'passage', 'Heirloom', 'My grandfather’s watch
+does not keep time any more.
+It stopped the winter he did,
+at ten past four,
+and no one has had the heart
+to wind it.
+
+It sits in a drawer with the buttons
+and the keys to doors we no longer own,
+the gold gone soft and pale
+where his thumb wore it smooth
+over fifty years of asking
+How long now? How long?
+
+Sometimes I hold it to my ear
+the way he taught me,
+expecting nothing,
+and hear it anyway —
+the small, steady sound
+of someone who was always on time.', 'english', 'year_9', 98),
+('fd171f8b-8b6c-48a3-be89-bed73aebea67', 'passage', 'The 1967 referendum', 'On 27 May 1967, Australians voted in a referendum that is still remembered as one of the most important in the nation’s history. More than 90 per cent of voters said Yes — the highest Yes vote ever recorded in an Australian referendum.
+
+What was the question?
+
+The referendum asked Australians whether to change two parts of the Constitution, the set of rules that governs how the country is run. One section said that Aboriginal people should not be counted when working out the population of the states and the nation. Another stopped the federal government from making laws specifically for Aboriginal people; that power was left to the states.
+
+A Yes vote would remove the first section entirely and change the second, so that the Commonwealth could make laws for Aboriginal and Torres Strait Islander people.
+
+A long campaign
+
+The change did not come from nowhere. For a decade, Aboriginal and non-Aboriginal activists had campaigned together, gathering signatures on petitions, speaking at public meetings and lobbying politicians. One of the best-known campaigners was Faith Bandler, a woman of South Sea Islander heritage who became a leading voice for the Yes case.
+
+What it changed, and what it did not
+
+The referendum is often misremembered. It did not give Aboriginal people the right to vote in federal elections; that had been granted by law in 1962. What it did was powerful in a different way. It allowed the federal government to make national laws and policies, and it removed wording from the Constitution that many people saw as a symbol of exclusion. For many Australians, the huge Yes vote was a statement about the kind of country they wanted to live in.
+
+A beginning, not an end
+
+Many campaigners hoped that change would follow quickly. In many areas, progress was far slower than they had hoped, and the struggle for land rights and equality continued for decades. But the referendum remains a landmark: a moment when Australians, voting together, agreed that the Constitution should change.', 'english', 'year_9', 335),
+('0fbfff9d-d713-4f9a-bf8c-e9dfc301096e', 'passage', 'Farewell, class of 2026', 'Speech by the school captain, Daniel Mwangi, at the Year 12 graduation
+
+Good evening, teachers, families and fellow graduates.
+
+Six years ago, most of us walked through the front gate of this school for the first time, in blazers two sizes too big because our parents were sure we would grow into them. Some of us did. Some of us are still waiting.
+
+I have been asked to say something wise tonight. The trouble is, I am eighteen, and most of what I know I learned from the people in this room. So instead of giving advice, I want to say thank you.
+
+To our teachers: thank you for the extra classes at lunchtime, the comments in the margins, and the patience you showed when we asked the same question for the fourth time. I understand now that the hardest assignments you set were the ones you believed we could do.
+
+To our families: thank you for the lifts, the lunches and the late nights. Thank you for pretending to understand my chemistry homework. Mum, I know you didn’t, but you asked me to explain it anyway, and explaining it was how I learned it.
+
+To my fellow graduates: thank you for six years of friendship, arguments, inside jokes and shared panic before exams. We have grown up together. We have seen each other at our worst — Year 8 haircuts come to mind — and stayed friends anyway.
+
+Tomorrow we scatter. Some of us will go to university, some to work, some to travel. We will make new friends and new mistakes. But I hope we take one thing with us from this place: the knowledge that people believed in us before we believed in ourselves.
+
+If we can one day do that for someone else, then everything this school gave us will have been passed on. Congratulations, class of 2026. Thank you.', 'english', 'year_9', 314),
+('131bb1fc-9134-44bf-bb76-e50530e99d7f', 'passage', 'Lao Ma’s Kitchen', 'Food review
+
+There is no sign outside Lao Ma’s Kitchen, just a red lantern and a queue. On a Friday night the queue stretches past the laundromat next door, and after one bowl of the hand-pulled noodles it is easy to see why.
+
+The noodles are made to order in an open kitchen at the back, where a cook stretches and folds the dough, slapping it against the bench until a single lump becomes a bundle of long, even strands. Watching is half the fun. Eating is the other half: the beef noodle soup ($17) is rich and deeply savoury, the broth clearly simmered for hours, the noodles chewy and springy in a way that packet noodles can only dream of.
+
+The pork and chive dumplings ($14 for ten) are almost as good, crisp on the bottom and juicy inside, though they arrived lukewarm on our visit. The smashed cucumber salad ($9), cold and garlicky, is the perfect partner to all that richness.
+
+Lao Ma’s is not a place for a quiet dinner. The tables are crammed together, the room is loud, and you will almost certainly share a table with strangers. Service is fast to the point of being brisk: our plates were cleared the moment we put down our chopsticks. It is also cash only, which caught out the couple in front of us.
+
+None of this seems to bother the regulars, and after one visit it did not bother me either. Lao Ma’s does one thing — noodles — and does it brilliantly, at prices that feel like a gift. Bring cash, bring patience and bring an appetite.
+
+Rating: 4 out of 5', 'english', 'year_9', 276),
+('da17867c-4d99-44dc-b1e2-ba38eb654b8c', 'passage', 'How Westbrook students get to school', 'Last term, the Westbrook College Student Council surveyed all 850 students about how they usually travel to school. The results are shown in the pie chart. Most students who walk, ride or scoot live within two kilometres of the school, while most of those who catch a bus or train live further away.
+
+More than a third of students arrive by car, making it the most common way to get to school. Many families said they drive because the school is on a busy road with no bike lane, and they feel it is unsafe for children to ride.
+
+The Council has used the results to ask the local council for a separated bike lane along Station Road. It points out that the 11 per cent of students who already ride or scoot do so despite the conditions, and that another 20 per cent said they would ride if there were a safe lane.
+
+If those students switched from car trips, the Council estimates, around 170 fewer cars would stop at the school gate each morning. The local council has agreed to study the proposal and will report back next year.', 'english', 'year_9', 191)
 on conflict (id) do update set
   type = excluded.type,
   title = excluded.title,
@@ -502,8 +1965,8 @@ values
 ('436f667e-877d-420c-bbac-7fe10db6b9bd', 'reading_literary_analysis', 'year_10', 'advanced', 'multiple_choice', 'In a persuasive text, an appeal to the audience''s emotions is known as:', '["Kairos","Pathos","Logos","Ethos"]'::jsonb, 1, 'Pathos refers to a persuasive appeal to the audience''s emotions, as distinct from logos (logic) and ethos (credibility).', 'AC9E10LE05', null, null, true, null, null, null, null),
 ('a06f3979-5b58-46d5-a0e3-698f7430b297', 'reading_literary_analysis', 'year_10', 'proficient', 'multiple_choice', 'Read: "The report concluded that further research was needed, a phrase repeated in every study the company had funded for a decade." What does this suggest about the company''s intentions?', '["It may be deliberately delaying a definitive conclusion","It is committed to rapid scientific progress","It has already solved the problem","It disagrees with all its own research"]'::jsonb, 0, 'A decade of studies all reaching the same inconclusive result suggests the delay may be intentional rather than accidental.', 'AC9E10LY07', null, null, true, null, null, null, null),
 ('18b155bb-548c-4040-9968-5522e31026cb', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Read: "Ben planted a seed and watered it every day until a tiny green sprout appeared." What lesson does this story teach?', '["Seeds grow without water","Patience and care lead to growth","Plants grow overnight","Watering plants is unnecessary"]'::jsonb, 1, 'Ben''s daily care over time, ending in a sprout, shows that patience and care lead to results.', 'AC9E3LY06', null, null, true, null, null, null, null),
-('ee79bbce-3912-4e91-bd70-d0589438a95d', 'reading_comprehension', 'grade_4', 'proficient', 'multiple_choice', 'Read: "Lily wanted to join the soccer team, but she practised kicking a ball alone in her backyard for weeks first." What does this show about Lily?', '["She is not a team player","She gave up on her goal","She prepares before taking on a challenge","She dislikes soccer"]'::jsonb, 2, 'Practising alone for weeks before joining shows Lily prepares herself before facing a new challenge.', 'AC9E4LY07', null, null, true, null, null, null, null),
-('fbb0f1ed-8775-4083-9e1e-ef902c7fe830', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Read: "The librarian whispered even when the library was empty, out of habit." What does this detail suggest about the librarian?', '["The librarian is afraid of being heard","Years of habit shape behaviour even when it is not needed","The librarian dislikes silence","The library is never empty"]'::jsonb, 1, 'Whispering out of habit, even alone, shows how a long-practised behaviour can continue automatically.', 'AC9E5LY07', null, null, true, null, null, null, null),
+('ee79bbce-3912-4e91-bd70-d0589438a95d', 'reading_comprehension', 'grade_4', 'proficient', 'multiple_choice', 'Read: "Lily wanted to join the soccer team, but she practiced kicking a ball alone in her backyard for weeks first." What does this show about Lily?', '["She is not a team player","She gave up on her goal","She prepares before taking on a challenge","She dislikes soccer"]'::jsonb, 2, 'Practicing alone for weeks before joining shows Lily prepares herself before facing a new challenge.', 'AC9E4LY07', null, null, true, null, null, null, null),
+('fbb0f1ed-8775-4083-9e1e-ef902c7fe830', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Read: "The librarian whispered even when the library was empty, out of habit." What does this detail suggest about the librarian?', '["The librarian is afraid of being heard","Years of habit shape behaviour even when it is not needed","The librarian dislikes silence","The library is never empty"]'::jsonb, 1, 'Whispering out of habit, even alone, shows how a long-practiced behaviour can continue automatically.', 'AC9E5LY07', null, null, true, null, null, null, null),
 ('6bb7f299-1ee6-49a3-b7a1-9be4915d8ffb', 'reading_comprehension', 'grade_6', 'proficient', 'multiple_choice', 'Read: "The map was old and torn, but the explorer trusted it more than the shiny new one in his pocket." What can you infer about the explorer?', '["He values experience and familiarity over newness","He dislikes maps in general","He is lost without any map","He prefers new technology"]'::jsonb, 0, 'Trusting the old, worn map over a new one suggests the explorer values familiarity and proven reliability.', 'AC9E6LY08', null, null, true, null, null, null, null),
 ('7e00dce8-0d74-4a87-a49e-2c0c5debd1ed', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Read: "The crowd fell silent the moment the conductor raised his baton." What is the effect of this sentence?', '["It shows the audience was bored","It suggests the concert had ended","It describes the conductor leaving the stage","It builds anticipation before the music begins"]'::jsonb, 3, 'The sudden silence right before the baton rises creates a sense of anticipation for what is about to happen.', 'AC9E7LE05', null, null, true, null, null, null, null),
 ('f5f03776-8a15-41a2-9526-81c26f13d799', 'reading_literary_analysis', 'year_8', 'proficient', 'multiple_choice', 'Read: "He apologised with his mouth, but his eyes never left his phone." What technique is the author using?', '["Foreshadowing a future event","A direct statement of the character''s honesty","Contrasting words and actions to reveal insincerity","A literal description of an apology"]'::jsonb, 2, 'Placing the spoken apology next to the distracted action reveals that the apology was not sincere.', 'AC9E8LE05', null, null, true, null, null, null, null),
@@ -818,7 +2281,7 @@ values
 ('8f68d6a2-e9a2-4f35-b494-f5a6f1712a1e', 'reading_comprehension', 'grade_4', 'foundation', 'multiple_choice', '"The bakery opens at 6 am so fresh bread is ready for morning customers." Why does the bakery open early?', '["To have fresh bread ready for customers","To clean the ovens","Because bread is cheap","Because it closes early"]'::jsonb, 0, 'The passage states the bakery opens early so bread is ready for customers.', 'AC9E4LY01', null, null, true, null, null, null, null),
 ('9866ca1e-d6f8-48b1-a9ee-5409400ab1a0', 'reading_comprehension', 'grade_4', 'developing', 'multiple_choice', '"Even though it was raining, Leo smiled the whole walk home." What does this suggest about Leo?', '["He was in a good mood","He forgot his coat","He was lost","He hated the rain"]'::jsonb, 0, 'Smiling despite bad weather suggests Leo was in a good mood.', 'AC9E4LY02', null, null, true, null, null, null, null),
 ('45edc9f0-b303-4da3-b32b-3a1565a0dc5b', 'reading_comprehension', 'grade_4', 'proficient', 'multiple_choice', 'What is the main idea of a passage about how bees pollinate flowers to help plants grow?', '["Bees help plants reproduce through pollination","Bees live in hives","Bees make honey","Flowers are colourful"]'::jsonb, 0, 'The main idea focuses on the central purpose of the passage: pollination helping plants grow.', 'AC9E4LY01', null, null, true, null, null, null, null),
-('e668e6a0-f901-4f30-8837-82f437e4b72b', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', '"Maria practised piano for an hour every day before her recital." What can you conclude about Maria?', '["She was a beginner","She skipped practice often","She was dedicated to improving","She disliked piano"]'::jsonb, 2, 'Practising daily before an important event shows dedication.', 'AC9E5LY02', null, null, true, null, null, null, null),
+('e668e6a0-f901-4f30-8837-82f437e4b72b', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', '"Maria practiced piano for an hour every day before her recital." What can you conclude about Maria?', '["She was a beginner","She skipped practice often","She was dedicated to improving","She disliked piano"]'::jsonb, 2, 'Practicing daily before an important event shows dedication.', 'AC9E5LY02', null, null, true, null, null, null, null),
 ('b449663f-9eaa-478a-991f-1c77747e0702', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'In a story, the author writes "dark clouds gathered and the wind howled." What mood does this create?', '["Tense or ominous","Peaceful","Silly","Cheerful"]'::jsonb, 0, 'Dark clouds and howling wind create a tense, ominous mood, often before something dramatic happens.', 'AC9E5LY03', null, null, true, null, null, null, null),
 ('065b0fbf-f94d-4032-b09a-719a0afa9e7c', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'A persuasive text about recycling would most likely try to:', '["Entertain readers with a story","Give step-by-step instructions","Describe a place in detail","Convince readers to recycle"]'::jsonb, 3, 'Persuasive texts aim to convince the reader of a viewpoint or action.', 'AC9E5LY01', null, null, true, null, null, null, null),
 ('19bc9323-26f3-4e5f-b01c-0cb749c54a30', 'reading_comprehension', 'grade_6', 'foundation', 'multiple_choice', '"Although Jack was nervous, he walked on stage and delivered his speech confidently." What is the contrast in this sentence?', '["Being on stage vs backstage","Speaking loudly vs quietly","Being early vs late","Feeling nervous but acting confident"]'::jsonb, 3, '"Although" signals a contrast between Jack''s nervous feelings and his confident actions.', 'AC9E6LY02', null, null, true, null, null, null, null),
@@ -1549,7 +3012,7 @@ Pr(X = x): 0.1   0.3    k    0.2', null, null, 'See the per-part marking guidanc
 ('7730a8e3-27d0-440a-bf7a-b84546d99f9e', 'reading_comprehension', 'grade_6', 'foundation', 'multiple_choice', 'According to the writer, what do some students do by chapter four?', '["They read ahead of the class","They choose a different book","They stop reading and rely on class discussion","They ask the teacher for help"]'::jsonb, 2, 'The text says some students "quietly stop reading by chapter four and rely on class discussion to fill the gaps".', 'AC9E6LY05', '195be416-c28e-479b-aab3-7e472fa44712', null, true, null, null, null, null),
 ('2f23a3aa-a6cd-4998-b481-f5907ef80c8a', 'reading_comprehension', 'grade_6', 'proficient', 'multiple_choice', 'What does the writer admit is true about set texts?', '["They teach students to read closely","They are always too difficult","They are chosen by students","They are cheaper for schools"]'::jsonb, 0, 'The writer concedes this directly: "We are told that set texts teach us to read closely, and that is true."', 'AC9E6LY05', '195be416-c28e-479b-aab3-7e472fa44712', null, true, null, null, null, null),
 ('f5c23b53-e59c-4d53-a711-c5e9d4b9f066', 'reading_comprehension', 'grade_6', 'proficient', 'multiple_choice', 'What is the writer actually proposing?', '["That novels should be removed from school","That students should read only easy books","That class discussion should be banned","That teachers should offer several demanding novels and let students choose"]'::jsonb, 3, 'The writer proposes offering "four novels instead of one, all demanding, all worth studying", with each student choosing.', 'AC9E6LY05', '195be416-c28e-479b-aab3-7e472fa44712', null, true, null, null, null, null),
-('79183cd5-8703-4447-bc27-9caef985584e', 'reading_comprehension', 'grade_6', 'advanced', 'multiple_choice', 'Why does the writer say the skills being taught do not depend on everybody holding the same book?', '["Because the skills are never tested","Because those skills can be practised on any demanding novel","Because students already have those skills","Because teachers do not check them"]'::jsonb, 1, 'The listed skills are general reading skills, so they can be developed using any sufficiently challenging text rather than one particular title.', 'AC9E6LY05', '195be416-c28e-479b-aab3-7e472fa44712', null, true, null, null, null, null),
+('79183cd5-8703-4447-bc27-9caef985584e', 'reading_comprehension', 'grade_6', 'advanced', 'multiple_choice', 'Why does the writer say the skills being taught do not depend on everybody holding the same book?', '["Because the skills are never tested","Because those skills can be practiced on any demanding novel","Because students already have those skills","Because teachers do not check them"]'::jsonb, 1, 'The listed skills are general reading skills, so they can be developed using any sufficiently challenging text rather than one particular title.', 'AC9E6LY05', '195be416-c28e-479b-aab3-7e472fa44712', null, true, null, null, null, null),
 ('c9616f20-fa8d-4975-a808-15684934dd78', 'reading_comprehension', 'grade_6', 'proficient', 'multiple_choice', 'What do schools that have tried this report?', '["Students read fewer books overall","Students are more likely to finish and to read another book afterwards","Essay marks improve immediately","Teachers find it harder to plan lessons"]'::jsonb, 1, 'The text says students who choose "are more likely to finish it, and more likely to read another one afterwards without being asked".', 'AC9E6LY05', '195be416-c28e-479b-aab3-7e472fa44712', null, true, null, null, null, null),
 ('aa3b128c-a889-4777-a8c6-aaf188087e39', 'reading_comprehension', 'grade_6', 'proficient', 'multiple_choice', 'Which does the writer say matters more than an essay mark?', '["Finishing the set novel","Choosing a difficult book","Taking part in class discussion","Reading another book without being asked"]'::jsonb, 3, 'The writer says of that finding, "That second part matters more than any essay mark."', 'AC9E6LY05', '195be416-c28e-479b-aab3-7e472fa44712', null, true, null, null, null, null),
 ('6e600f74-cc35-44eb-ba22-c0825551f01e', 'reading_comprehension', 'grade_6', 'advanced', 'multiple_choice', '"The point of studying literature is not to survive one novel in Year 6." What does the word survive suggest?', '["That the novel is endured rather than enjoyed","That the novel is dangerous","That the novel is very long","That most students fail"]'::jsonb, 0, 'Survive is a word used about hardship, so choosing it for reading a novel implies the experience is something to be got through rather than valued.', 'AC9E6LY05', '195be416-c28e-479b-aab3-7e472fa44712', null, true, null, null, null, null),
@@ -4003,7 +5466,543 @@ How many cubes are there?', '["48","60","120","480"]'::jsonb, 0, '12 ÷ 2 = 6 an
 ('4288a893-143a-4599-acd3-06d6f8127ca1', 'geometry_measurement', 'year_10', 'advanced', 'multiple_choice', 'A map has a scale of 1 : 25 000. A park covers 12 cm² on the map.
 What is the real area of the park? (1 hectare = 10 000 m²)', '["0.75 ha","7.5 ha","75 ha","750 ha"]'::jsonb, 2, '1 cm on the map is 250 m, so 1 cm² is 250 × 250 = 62 500 m². 12 cm² is 750 000 m², which is 75 ha.', 'AC9M10SP01', null, true, true, null, null, null, null),
 ('8c36b8f1-3b4f-490d-ab14-23ec7501faf5', 'geometry_measurement', 'year_10', 'proficient', 'multiple_choice', 'A length is measured as 12.5 cm, but it is actually 12.8 cm.
-What is the percentage error, to one decimal place?', '["0.3%","2.3%","2.4%","97.7%"]'::jsonb, 1, 'The error is 0.3 cm, and 0.3 ÷ 12.8 × 100% ≈ 2.3%. 2.4% divides by the measured value instead of the actual value.', 'AC9M10M02', null, true, true, null, null, null, null)
+What is the percentage error, to one decimal place?', '["0.3%","2.3%","2.4%","97.7%"]'::jsonb, 1, 'The error is 0.3 cm, and 0.3 ÷ 12.8 × 100% ≈ 2.3%. 2.4% divides by the measured value instead of the actual value.', 'AC9M10M02', null, true, true, null, null, null, null),
+('655a7024-0e37-4279-b283-0d07375da639', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Where did Ravi put his lunchbox?', '["on the low wall near the bike racks","in the library","in the tree","in his school bag"]'::jsonb, 0, 'The first sentence says he put it on the low wall near the bike racks every lunchtime.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('510eaa0d-f5ca-4806-9498-7ff0168fdeea', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Which part of the lunch disappeared each day?', '["the crust","the half with the cheese","the whole sandwich","the apple"]'::jsonb, 1, 'Ravi tells Amina that it is always the half with the cheese.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('fddf0804-d8e7-4367-9dbb-555dcc478a1c', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Amina smiled after she looked at the tree because she', '["wanted to climb the tree","was hungry too","had guessed what was taking the lunch","had seen Ravi hide the lunchbox"]'::jsonb, 2, 'She looks at the wall, then the tree, then smiles and plans to watch — she has worked out that something in the tree is the thief.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('6b3aa087-ce8a-45e1-ab2c-fff3a15d6daa', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What was taking the sandwich?', '["a dog","another student","the librarian","a currawong"]'::jsonb, 3, 'A grey bird with a black head lifts the lid, and Ravi whispers “A currawong!”', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('a69af340-a3fb-4329-a487-742e710638f7', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why did the librarian look up?', '["Ravi laughed loudly.","The bird flew inside.","Amina called out.","The bell rang."]'::jsonb, 0, 'The text says Ravi laughed so loudly that the librarian looked up.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('eabb9708-ec2b-4a0f-bcd3-31a85b2d29f6', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'Ravi still left a crust on the wall because he', '["wanted to catch the bird","thought the bird had earned it","did not like crusts","forgot to put it away"]'::jsonb, 1, 'The last sentence says the currawong had made him laugh, and that was worth a crust.', 'AC9E3LY05', 'e7398d81-aed9-4d75-85ee-f3229bd264ee', null, true, null, null, null, null),
+('202a30d1-bd35-47bc-bf95-45312d84569a', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What does a wombat dig its burrow with?', '["its back legs","its teeth","its strong front legs and claws","its nose"]'::jsonb, 2, 'The text says wombats dig with their strong front legs and flat claws.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('c7693734-fbab-4e27-a267-9942ba663a13', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does a wombat mother’s pouch face backwards?', '["so the joey can see where they are going","to keep the joey warmer","so she can run faster","so soil does not fill it while she digs"]'::jsonb, 3, 'The text explains that a backwards pouch does not fill with soil while she digs.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('32fbbe27-5ad2-42b5-a8b2-a97acc7b5a60', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'According to the text, a wombat burrow can be', '["longer than a classroom","as long as a ruler","as deep as a well","as wide as a road"]'::jsonb, 0, 'The text compares the length of a burrow with a classroom.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('3d8b0a0c-5b5e-4a5f-892e-141d58a5a960', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'When do wombats come out to feed?', '["early in the morning","at night, when the air is cool","in the middle of the day","only in winter"]'::jsonb, 1, 'They feed at night when it is cool and sleep in the burrow during the hot part of the day.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('69585761-ee36-48c8-b98a-e80680f9d8c2', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Which fact is in the box beside the text?', '["Wombats eat grass and roots.","Wombats live in Australia.","Wombat droppings are shaped like little cubes.","Wombats sleep in burrows."]'::jsonb, 2, 'The other three facts are in the paragraphs. Only the shape of the droppings is in the fact box.', 'AC9E3LY05', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('4148bcd2-3023-4f11-a093-8abf3d602351', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The main purpose of this text is to', '["tell a story about a wombat","teach you how to draw a wombat","ask people to protect wombats","give facts about wombats"]'::jsonb, 3, 'It is an information report: every paragraph gives facts, and it does not tell a story or ask the reader to do anything.', 'AC9E3LY03', '69ea2036-e7ed-4a68-9e0c-f01afce52cf2', null, true, null, null, null, null),
+('7107abc1-7e0b-4a62-a51c-b4c34783424d', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What warms the sea?', '["the sun","the wind","the clouds","the rain"]'::jsonb, 0, 'The second paragraph begins by saying the sun warms the sea.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('9c999195-3d46-48ef-9a44-a82e3bbeb123', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Water vapour is', '["a kind of cloud","a gas you cannot see","tiny drops of ice","salty water"]'::jsonb, 1, 'The text says water turns into a gas called water vapour, and that you cannot see it.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('a1c18e77-d853-4543-bb69-f0d08a32ddf0', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'A cloud is made of', '["water vapour only","dust and cold air","millions of tiny drops","rain and snow"]'::jsonb, 2, 'When vapour cools it turns back into tiny drops, and millions of them together make a cloud.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('71afafa7-e3a1-43ae-96b4-ae09f2b57f54', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does a drop fall as rain?', '["The cloud gets colder.","The wind pushes it down.","The sun heats it.","It becomes too heavy to float."]'::jsonb, 3, 'Drops join together, and when a drop is too heavy to float it falls.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('d4f68120-8d8c-44f4-969d-da28203d1303', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The diagram with this text shows that after rain falls it', '["goes back to the sea","stays in the clouds","turns into vapour in the sky","disappears"]'::jsonb, 0, 'The arrows go from the sea to the cloud, from the cloud to the rain, and from the rain back to the sea: a cycle.', 'AC9E3LY05', 'f1c56d83-40b7-49cc-9f8d-f7ba4b48df01', null, true, null, null, null, null),
+('e00240ef-76eb-4596-94a3-502ba0c4e642', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Who is Sophie writing to?', '["her grandfather","Mrs Patel","her class","the canteen manager"]'::jsonb, 1, 'The letter opens “Dear Mrs Patel”.', 'AC9E3LY05', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('7d7485d5-5814-4f96-96b1-945e38b3c160', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What is in the corner near the hall at the moment?', '["a garden bed","play equipment","weeds and one old bench","a garden shed"]'::jsonb, 2, 'Sophie writes that the corner has nothing in it but weeds and one old bench.', 'AC9E3LY05', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('a1cfc11c-bf50-41da-9a13-d2973f668071', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Sophie says a garden would help the class learn because', '["gardening is in the test","the canteen needs salad","her grandfather is a gardener","they are learning about living things"]'::jsonb, 3, 'She links the garden to what Year 3 is learning about living things, and says watching a plant grow makes it easier to understand.', 'AC9E3LY05', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('f188774c-8902-4072-9f7f-96be5b95a27a', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Who does Sophie say would look after the garden?', '["her class, at lunchtime","the canteen staff","her grandfather","every class in the school"]'::jsonb, 0, 'She writes that our class could look after it at lunchtime.', 'AC9E3LY05', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('475214a7-d0fe-40b5-9df4-aa4ab9e28817', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'Which sentence from the letter is an opinion?', '["The corner has weeds and one old bench.","A garden would make it the nicest part of the school.","In Year 3 we are learning about living things.","The canteen could use the vegetables in salads."]'::jsonb, 1, '“The nicest part of the school” is what Sophie thinks. The others are things that can be checked.', 'AC9E3LY03', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('81d477ba-77e2-423f-86c2-5507558eefeb', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Sophie finishes her letter by offering to', '["start digging the beds","bring in seeds","show Mrs Patel the corner","ask her grandfather for help"]'::jsonb, 2, 'The last paragraph says she would be happy to show Mrs Patel the corner and where the beds could go.', 'AC9E3LY03', '82c87b63-2028-405a-8484-80ecf332f671', null, true, null, null, null, null),
+('8864fed6-65fe-48a5-8118-875955d39abc', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Where is the frog at the start of the poem?', '["on the lamp","in the kitchen sink","in the garden","on the window glass"]'::jsonb, 3, 'The first line says the green tree frog is on the glass.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('47a188fb-54f8-496d-ac52-b5f90ba06679', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', '“flat feet spread like sticky stars” tells you the frog’s feet are', '["spread out and sticky","cold and wet","shiny and hard","small and sharp"]'::jsonb, 0, 'The comparison is about the shape and the stickiness of the feet, which is how the frog holds onto glass.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('ebed6714-76bc-429f-b10f-56cb57e886ec', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What is the frog waiting for?', '["rain","moths","morning","the lamp to go out"]'::jsonb, 1, 'He watches every moth that comes to dance around the lamp, and then catches one with his tongue.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('77a46146-636f-4e95-9505-764c11492abf', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', '“quick as blinking” describes', '["how the moths fly","how the poet feels","how fast the tongue moves","how long the frog waits"]'::jsonb, 2, 'It comes just before “that long pink ribbon of a tongue”, so it describes the speed of the tongue.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('4f88c696-39e0-40bb-ae32-27a637f810fe', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What does the frog leave behind in the morning?', '["a moth","a pink ribbon","nothing at all","five footprints and a smudge"]'::jsonb, 3, 'The last two lines say he leaves five footprints and a smudge on the window.', 'AC9E3LE01', 'e588b40c-a1e6-436f-be14-14e40251fc4b', null, true, null, null, null, null),
+('c81f1269-4a4a-4c52-ac0e-66ee640bf9ed', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What do you need to make the boat?', '["one sheet of paper","scissors and glue","two sheets and some tape","a candle and a bucket"]'::jsonb, 0, 'The text says you will need one sheet of paper, and that thin paper folds best.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, null, null, null, null),
+('508b4937-1042-424c-a4ae-2804107d3c23', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What do you do first?', '["fold the top corners down","fold the paper in half","open the hat into a square","pull the two top points apart"]'::jsonb, 1, 'Step 1 is to fold the paper in half so the short edges meet.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, null, null, null, null),
+('30aff503-f862-4681-9558-c5709545577c', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does the text tell you to rub a candle over the paper?', '["to make the paper fold more easily","to make the boat go faster","to help the boat last longer in water","to make the boat shine"]'::jsonb, 2, 'The wax keeps the water out for longer, which is why it is listed under “Before you sail”.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, null, null, null, null),
+('fb3e6504-b98b-4bfd-a724-cfb937d58ded', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What shape do you make when you open the hat?', '["a hat","a triangle","a boat","a square"]'::jsonb, 3, 'Step 4 says to push the side points together to make a square.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, null, null, null, null),
+('30c146e2-ebb9-47b2-bc04-418bb3849528', 'reading_comprehension', 'grade_3', 'proficient', 'short_answer', 'Where does the text say you should test your boat?', null, null, 'The last fact box says to test the boat in a sink or a bucket, never in a creek or a pool on your own.', 'AC9E3LY05', '4abb2bb3-7679-48b9-aac2-160e1b6c1310', null, true, 'in a sink or a bucket', ARRAY['a sink or a bucket', 'sink', 'bucket', 'in a sink', 'in a bucket', 'sink or bucket']::text[], null, null),
+('932fd804-574e-4d69-89a1-93b983cfdba8', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What time does the 1 km race start?', '["9:30 am","9:00 am","10:15 am","10:00 am"]'::jsonb, 0, 'The table shows the 1 km race, for 8 to 10 year olds, starting at 9:30 am.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('afdbb35d-781d-49ce-aadf-25cc5c8c3831', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Ben is 6 years old. Which race is for him?', '["the 1 km","the Dash","the 2 km","none of them"]'::jsonb, 1, 'The table shows the Dash is for 5 to 7 year olds.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('585e09e9-ab15-4357-b264-023b682a77e6', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What will the money raised be used for?', '["medals for the runners","hats and water bottles","sports equipment for local primary schools","new benches for the park"]'::jsonb, 2, 'The first paragraph says the money will buy new sports equipment for local primary schools.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('7c0514e9-c377-468d-a2e5-50e38d106eb7', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'What happens to a runner who arrives after their start time?', '["They cannot run at all.","They start with the next race.","They get their money back.","They can still run, but they are not timed."]'::jsonb, 3, 'The last line says late runners can still run but will not be timed.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('bf75d7f3-4337-4551-909b-9cc17fe98c47', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What must every runner have at the park?', '["a grown-up with them","exactly $5 in coins","running shoes","a race number from school"]'::jsonb, 0, 'The bullet points say every runner needs a grown-up with them at the park.', 'AC9E3LY05', '4096bfb7-d979-4517-b9cf-2afadc3d7b53', null, true, null, null, null, null),
+('58ad53ee-4c46-451d-ac7b-3fecfdb521eb', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'At the start of the story, where did Max stay at swimming lessons?', '["near the steps","in the deep end","next to Mr Tran","on the edge of the pool"]'::jsonb, 0, 'He always stayed near the steps, where his feet could touch the bottom.', 'AC9E3LY05', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('4d301b0a-72cf-449d-b883-fdb941b263e3', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', '“Max’s stomach felt as if it were full of fish.” This shows that Max felt', '["hungry","nervous","excited","sick from the pool water"]'::jsonb, 1, 'A fluttering stomach is a way of describing nerves. He has just heard he must swim a whole lap.', 'AC9E3LE03', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('d83b96e1-36e4-48e7-b6a3-237db2598df5', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What did Lena do when Max told her about the carnival?', '["She laughed at him.","She told Mr Tran.","She offered to help him practice.","She said he did not have to swim."]'::jsonb, 2, 'She did not laugh. She said, “Then we practice. Every afternoon.”', 'AC9E3LY05', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('4526b254-f45c-4fb6-a087-c50a4d602963', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'By Friday, Max could', '["swim a whole lap","float on his back for the first time","swim faster than Lena","swim half a lap without stopping"]'::jsonb, 3, 'The story says, “By Friday he could swim half a lap without stopping.”', 'AC9E3LY05', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('81b44fc0-bafb-435a-91be-6efd89f73ba5', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why did Mr Tran give Max a ribbon?', '["Max had tried hard and swum the whole lap.","Max had won the race.","Max had helped the other swimmers.","Every swimmer was given a ribbon."]'::jsonb, 0, 'The ribbon says Best Effort, and Max came last but swam the whole lap.', 'AC9E3LY05', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('1cefba2d-56c0-4939-bed3-2ebf636dab87', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Which word best describes how Max felt at the end of the story?', '["embarrassed","proud","tired of swimming","angry"]'::jsonb, 1, 'He had come last but swum the whole lap, and he did not stop smiling all day.', 'AC9E3LE02', 'c8a4ee6c-b1f7-4380-8bb7-92fd46ea6597', null, true, null, null, null, null),
+('5fef0148-c33d-47b7-912e-09c0a8758025', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Who first saw the pelican?', '["a fisherman on the jetty","a volunteer in a boat","a girl walking her dog","a vet"]'::jsonb, 2, 'Chloe Martin saw the bird while she was walking her dog along the jetty.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('853428e7-f767-4895-a74a-b2332f4589e4', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What was wrong with the pelican?', '["It had hurt its foot on the jetty.","It was too hungry to fly.","It had lost its way home.","It was tangled in fishing line."]'::jsonb, 3, 'The first sentence says the pelican was tangled in fishing line.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('c3512a96-b7e5-4a38-b864-d60961ecffcb', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why did the volunteers wrap the pelican in a towel?', '["to keep it calm","to keep it warm","to dry its feathers","to stop it biting"]'::jsonb, 0, 'Priya Das says the towel keeps the bird calm, because if it cannot see it is not so frightened.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('e275163e-8211-4d3b-b21c-ae18fa34a972', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'In the text, the word “gently” means', '["quickly and roughly","carefully and softly","very loudly","without looking"]'::jsonb, 1, 'The volunteers handle a frightened, hurt bird, so they are careful and soft with it.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('060766bc-5723-4e99-b37a-8cd5c1e2f6df', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Where is the pelican now?', '["back on the lake","at Chloe’s house","at a wildlife hospital","at the jetty"]'::jsonb, 2, 'The text says it has been taken to a wildlife hospital and should be back in about two weeks.', 'AC9E3LY05', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('52ef477b-3c28-4594-ab16-f851dd94952d', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The box called How you can help is there to', '["tell the story of the rescue again","explain how pelicans catch fish","list the people who saved the pelican","tell readers what they can do to protect wild animals"]'::jsonb, 3, 'Each point in the box is something a reader can do: bin old line, tell an adult, call a rescue group.', 'AC9E3LY03', 'c7359999-7442-4cef-9807-80f0de90a21b', null, true, null, null, null, null),
+('e4cc61ef-0e42-4b8e-9693-84925bbc7729', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why can an octopus squeeze through small gaps?', '["It has no bones.","It has eight arms.","It can change colour.","It is very small."]'::jsonb, 0, 'The text says they have no bones at all, so they can squeeze through a gap not much bigger than a coin.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('f4d240a9-aec3-4b29-b72e-6a89588cb0e8', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What can an octopus do with its suckers?', '["breathe under water","grip rocks, hold food and taste","make ink","change colour"]'::jsonb, 1, 'The suckers can grip rocks and hold food, and they can even taste whatever they touch.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('e607eabb-183c-4ba9-af5e-a0173c28d811', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'How does changing colour help an octopus?', '["It helps it stay warm.","It helps it find other octopuses.","It helps it hide and catch food.","It helps it swim faster."]'::jsonb, 2, 'Matching the rocks and weed hides it from sharks and seals and helps it sneak up on crabs.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('77c24f40-b6fd-4bf9-a441-0673bbace155', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What does an octopus do when it is in danger?', '["It hides inside a jar.","It grabs the enemy with its suckers.","It stays very still on the sand.","It squirts ink and swims away."]'::jsonb, 3, 'It squirts a cloud of dark ink, and while the enemy cannot see, it swims away.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('93df0564-2979-46bd-b0cc-aaeb1f0663d6', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Which sentence from the text shows that octopuses are clever?', '["Scientists have watched them open jars.","Its blood is blue.","Each arm is covered in suckers.","They have no bones at all."]'::jsonb, 0, 'Opening jars and solving puzzles are signs of intelligence; the other sentences describe their bodies.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, null, null, null, null),
+('1965f4b3-fb0f-4793-9a4a-b89073c0fb31', 'reading_comprehension', 'grade_3', 'foundation', 'short_answer', 'How many hearts does an octopus have? Write a number.', null, null, 'The fact box says an octopus has three hearts.', 'AC9E3LY05', 'a8ae90e9-18f6-4128-bed3-fdaa5b98a66d', null, true, '3', ARRAY['three']::text[], null, null),
+('d8e24060-d69f-408e-a1e9-8b1f212663e2', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What should you do first?', '["Push a strawberry onto a skewer.","Wash your hands and the fruit.","Cut the fruit into cubes.","Put the sticks in the fridge."]'::jsonb, 1, 'Step 1 is to wash your hands and the fruit.', 'AC9E3LY03', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('3b2a7cd0-7774-486b-8afe-909375b7c4d1', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Step 2 says to ask an adult because', '["adults like pineapple","only adults can buy fruit","cutting with a knife can be dangerous","kiwi fruit are hard to find"]'::jsonb, 2, 'Step 2 needs a knife to peel and cut the fruit, and knives are dangerous for children to use alone.', 'AC9E3LY05', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('1c14f301-a60c-4fd7-8d2f-e506c8ddb2a9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which fruit goes on straight after the strawberry?', '["kiwi fruit","blueberries","another strawberry","pineapple"]'::jsonb, 3, 'Step 3 says push a strawberry onto each skewer, then a piece of pineapple.', 'AC9E3LY05', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('ab1c642e-1779-497f-b796-67502c444bf3', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why are the sticks put in the fridge?', '["so they are cold to eat","so the fruit stays on the skewers","so the colours stay bright","so no one eats them too early"]'::jsonb, 0, 'Step 6 says the fridge is so they are nice and cold, and the recipe is for a hot day.', 'AC9E3LY05', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('306551a8-87b8-4139-8fae-c773c6531b79', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does the recipe have a Safety tip?', '["to tell readers which fruit to buy","to stop people hurting themselves on the skewers","to explain why fruit is healthy","to say how long the sticks take to make"]'::jsonb, 1, 'The tip says skewers are sharp and explains how to hold them safely.', 'AC9E3LY03', '73b62823-6354-447e-a996-0cdcc2f7bf97', null, true, null, null, null, null),
+('e0cf0409-892b-45e9-8069-8300c6121ae4', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'In this poem, the wind is described as if it were', '["a machine","a storm cloud","a person or animal","a bird"]'::jsonb, 2, 'The wind runs, steals, whistles, gets tired, curls up and snores, which are things people and animals do.', 'AC9E3LE03', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('329d5e45-c3d7-4c45-bbe0-c7309b071ab0', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What did the wind steal?', '["the washing","a letter","the bins","a hat"]'::jsonb, 3, 'The poem says it stole a hat from Mr Pike.', 'AC9E3LY05', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('b94e7c70-9ca3-44c0-86cf-4576c244f167', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', '“and made the washing wave” means that the washing', '["flapped in the wind","fell on the ground","got wet","blew away"]'::jsonb, 0, 'Washing on a line moves back and forth in the wind, like a hand waving.', 'AC9E3LY05', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('57c5f324-f05e-494b-a03d-e4190ef63dc3', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'How does the wind change in the last part of the poem?', '["It goes from calm to wild.","It goes from wild to calm.","It gets colder.","It moves to another street."]'::jsonb, 1, 'All day it rattles and tosses things; at bedtime it is tired, curls up and snores softly.', 'AC9E3LE02', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('0610cf92-fdd2-489a-84f8-99b1ea33198c', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which two words from the poem rhyme?', '["street and gate","high and leaves","around and ground","door and breathe"]'::jsonb, 2, 'Around and ground end with the same sound. The poem also rhymes door and snore.', 'AC9E3LE03', '57195d86-97f2-44e1-b460-9c5e709b2751', null, true, null, null, null, null),
+('7817a684-4650-41d3-a3f7-ebdb2240e879', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What is Pip’s problem at the start of the book?', '["She is lost in the forest.","She cannot fly.","She has no friends at school.","She can only squeak, not roar."]'::jsonb, 3, 'When Pip tries to roar, only a tiny squeak comes out.', 'AC9E3LY05', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('bc5470da-01cb-440d-886e-0e28d82d6fdc', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why does Pip run away into the forest?', '["The other dragons laugh at her.","She wants to find the owl.","A fox is chasing her.","She wants to practice roaring."]'::jsonb, 0, 'The review says the other dragons laugh at Pip, so she runs away.', 'AC9E3LY05', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('54555282-cf3b-453d-b3b3-46573df3433e', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why doesn’t Jack tell us what Pip does to save the owl?', '["He cannot remember.","It would spoil the ending.","The book does not say.","He did not like that part."]'::jsonb, 1, 'Jack writes, “I will not tell you what she does, because that would spoil the ending!”', 'AC9E3LY05', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('5ab046fb-3a8e-4cf5-bb97-7d6c14b23d26', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What did Jack not like about the book?', '["The pictures were dull.","The words were hard to read.","It was too short.","The ending was sad."]'::jsonb, 2, 'He says the only thing he did not like was that the book was too short.', 'AC9E3LY05', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('a1d78bc1-ad56-4ef7-b391-0040ffbdf387', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The main purpose of Jack’s review is to', '["tell the whole story of the book","explain how to write a book","sell the book in a shop","tell readers what the book is like and whether it is worth reading"]'::jsonb, 3, 'A review describes a book, gives the writer’s opinion and a rating, and says who would enjoy it.', 'AC9E3LY01', '4019abd7-43dc-4caf-ae43-2825fdf2a399', null, true, null, null, null, null),
+('144de5ca-4b79-4236-a09d-b15525026181', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'How much do the activities cost?', '["nothing","$5 each","$2 for children under 8","It depends on the activity."]'::jsonb, 0, 'The first dot point says all activities are free.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('22dc857e-ac38-42f1-8e59-01ce03af54dd', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'On which day is Story time?', '["Monday","Tuesday","Wednesday","Friday"]'::jsonb, 1, 'The table shows Story time on Tuesday at 11:00 am.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('dcdf6596-9c97-4edf-b197-621d431876e7', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which activity is held outside?', '["Lego building","Make a comic","Science show","Movie morning"]'::jsonb, 2, 'The first paragraph says the science show is outside in Greenfield Park.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('a84b9b4b-65b4-4bfd-ae39-68096721cdfa', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Who must bring an adult?', '["children over 12","everyone","children going to the science show","children under 8"]'::jsonb, 3, 'The third dot point says children under 8 must bring an adult.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('9241a34f-38c3-42ae-9a0b-42c43addcdbc', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does the library ask you to tell them if you cannot come?', '["so someone else can have your place","so they can cancel the activity","so they can send you a new time","so they know how much food to buy"]'::jsonb, 0, 'The text says places fill up fast and asks you to tell them so that someone else can have your place.', 'AC9E3LY05', '904ca47d-4a96-4342-ad39-89c459dcc928', null, true, null, null, null, null),
+('4fc892b4-dcd2-427e-a2ca-d91ccdbe4131', 'reading_comprehension', 'grade_3', 'foundation', 'short_answer', 'How many messages had Grandma sent Zoe by Wednesday? Write a number.', null, null, 'The story says, “By Wednesday, Zoe had eleven messages from her.”', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, '11', ARRAY['eleven']::text[], null, null),
+('02f16f73-25e9-4814-b79f-b0fe3db09ffb', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why did Grandma send a photo of her ear?', '["She did not know how to use the phone yet.","She had a sore ear.","She wanted to make Zoe laugh.","Zoe had asked for it."]'::jsonb, 0, 'It was her first phone and a day old; the thumb photo and the capital letters show she was still learning how it worked.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('fed5c012-8d30-4549-aa10-c4d35e12eabc', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Ben thought Grandma was shouting because', '["she had called him on the phone","her message was all in capital letters","she was angry with Zoe","she could not hear well"]'::jsonb, 1, 'Zoe explains that Grandma just does not know how to turn off the capital letters.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('dd5a0e4e-9d69-43b9-909c-33d236a56539', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which of these did Zoe teach Grandma?', '["how to knit","how to ride a bike","how to make the letters small","how to buy a phone"]'::jsonb, 2, 'Zoe showed her how to take a photo the right way round, make the letters small and send a smiling face.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('4a922298-b7bb-461d-9546-6b463a7d965a', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'The photo of the sunset shows that Grandma', '["was on holiday by the sea","had bought a better phone","wanted Zoe to visit","had learned how to use the phone"]'::jsonb, 3, 'Her first photos were of her ear and thumb; after practicing, she sends a sharp, bright photo.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('d5660da4-ba02-487d-8a80-4e1ba54b4c70', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'What will probably happen next Saturday?', '["Grandma will teach Zoe to knit.","Zoe will teach Grandma to send photos.","Ben will get a phone.","Grandma will buy knitting needles."]'::jsonb, 0, 'Grandma writes that it is her turn to teach, and asks Zoe to bring knitting needles. Zoe has never knitted.', 'AC9E3LY05', '7de6fc03-fd8b-4b9a-aef0-864da5ad96a5', null, true, null, null, null, null),
+('662541a2-e6d1-4367-810f-2061793a5bb3', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What is nectar?', '["a kind of wax","a sweet liquid from flowers","the room where honey is kept","a young bee"]'::jsonb, 1, 'The text says the bee drinks a sweet liquid called nectar from flowers.', 'AC9E3LY05', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('8dea1823-c042-4e1f-b33c-ae920cef4758', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Where does a bee keep nectar while she is flying?', '["on her legs","in her wings","in her honey stomach","in a cell"]'::jsonb, 2, 'She stores the nectar in a special part of her body called a honey stomach.', 'AC9E3LY05', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('e61480b3-3df3-4f92-904e-d7d9184df160', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What happens each time the nectar is passed from bee to bee?', '["It turns into wax.","It gets sweeter and runnier.","It is given to the queen.","It gets a little thicker."]'::jsonb, 3, 'The third paragraph says each time, the nectar gets a little thicker.', 'AC9E3LY05', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('0bf2ba49-fbaf-44e4-a045-5abe17b60c71', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why do the bees fan the nectar with their wings?', '["to dry out the water","to keep the hive cool","to spread the smell","to scare away other insects"]'::jsonb, 0, 'The text says they fan it with their wings to dry out the water, so runny nectar becomes thick honey.', 'AC9E3LY05', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('9b6630d7-0ce2-421f-ba32-ce39c38fd90d', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'The word Finally at the start of the last paragraph tells the reader that', '["this step is the most important","this is the last step","this step happens every day","the bees are tired"]'::jsonb, 1, 'Finally is a time word used to show the last step in a sequence, after Next.', 'AC9E3LY03', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('1335fc54-1a79-4c5e-9541-386ab3f3dbcd', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'What does the diagram with this text show?', '["the parts of a bee’s body","where bees find flowers","the steps for making honey in order","how many bees live in a hive"]'::jsonb, 2, 'The boxes and arrows go from drinking nectar to covering the cells with wax: the steps of the text in order.', 'AC9E3LY03', '1a943783-ffb7-4d18-b084-b671b0f203bf', null, true, null, null, null, null),
+('0e2d815e-8c0e-4394-b880-eb9a81d12ffc', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What does Aiden want?', '["a dog at home","a new classroom","guinea pigs to be banned","every class to have a pet"]'::jsonb, 3, 'In his first paragraph he says every class in the school should have a pet.', 'AC9E3LY01', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('4f9cd2bf-0584-432d-812e-87eacbaef6b4', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What is Aiden’s first reason?', '["A pet teaches us to be responsible.","A pet makes a classroom calmer.","A pet helps us learn.","A pet is small and quiet."]'::jsonb, 0, 'The paragraph starting First is about being responsible: feeding, water and cleaning the cage.', 'AC9E3LY05', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('8d536caf-c438-4b18-84a0-1a06759975d0', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does Aiden talk about stroking his dog at home?', '["to show that he already has a pet","to give an example of how pets help people feel calm","to ask if he can bring his dog to school","to explain how to look after a dog"]'::jsonb, 1, 'It comes in the paragraph about pets making a classroom calmer, as an example from his own life.', 'AC9E3LY05', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('847812d6-076f-435a-ba47-6e6a76b46a80', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Some people think a class pet would be', '["too expensive","lonely at night","noisy or messy","dangerous"]'::jsonb, 2, 'Aiden says, “Some people say pets are noisy or messy.”', 'AC9E3LY05', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('2912fb1d-bf6a-433e-b386-eb5dd892a28b', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'How does Aiden answer people who say pets are messy?', '["He says mess does not matter.","He says teachers can clean up.","He agrees with them.","He says the cage can be cleaned every Friday."]'::jsonb, 3, 'He says that if the class cleans the cage every Friday, it will not be messy at all.', 'AC9E3LY05', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('855dcd35-7737-43b0-aaeb-37160b4fa926', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'Aiden uses the words First, Second and Third to', '["help listeners follow his reasons","count the pets in the school","show which reason he likes least","tell a story in order"]'::jsonb, 0, 'Each word starts a new reason, so listeners can keep track of his argument.', 'AC9E3LY03', '93aefda4-7c41-4b9c-83af-ee542a613174', null, true, null, null, null, null),
+('a3624133-29cd-42ba-87e4-6655440f0715', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Why did Class 3K write to Ranger Kim?', '["to ask for a visit","to thank her for their visit","to report a lost animal","to invite her to their school"]'::jsonb, 1, 'The letter opens by thanking her for showing the class around the park.', 'AC9E3LY01', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('ed6731d3-0a2b-4e39-9158-57b88832b820', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What was the class’s favourite part of the day?', '["making posters","the bus trip","the night walk","lunch at the park"]'::jsonb, 2, 'The letter says, “Our favourite part was the night walk.”', 'AC9E3LY05', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('f3f0d9a3-c55d-4658-b733-702880b436e9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Why did Ranger Kim use a red torch?', '["Red light is brighter.","The white torch was broken.","Sugar gliders like the colour red.","Red light does not frighten animals."]'::jsonb, 3, 'The class writes that red light does not frighten animals the way white light does.', 'AC9E3LY05', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('2dbd915d-ea95-41b2-8a56-026161d5d30d', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'What happens when people walk off the track?', '["They crush small plants and animal homes.","They get lost in the bush.","They frighten the sugar gliders.","They have to pay a fine."]'::jsonb, 0, 'The letter says walking off the track crushes small plants and the homes of lizards and insects.', 'AC9E3LY05', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('f42a73f0-0c92-4576-b873-fb814dbbe5b1', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why did the class put their posters in the library?', '["because the classroom was full","so the whole school could see them","because Ranger Kim asked them to","so they could sell them"]'::jsonb, 1, 'The letter says they put them up in the library so the whole school can see them.', 'AC9E3LY05', 'b6867e34-7ef0-4e37-aaf0-d6b959d56c89', null, true, null, null, null, null),
+('dab47891-9785-42d0-b50e-37e53e7da309', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', '“Lanterns hang like paper moons.” The lanterns are like moons because they are', '["far away","made of rock","round and glowing","only out in the day"]'::jsonb, 2, 'A lit paper lantern is round and glows in the dark, like the moon.', 'AC9E3LE03', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('c4737dbd-0de6-45f2-ae9a-50379a208141', 'reading_comprehension', 'grade_3', 'advanced', 'multiple_choice', 'The man “spinning sugar clouds” is most likely making', '["noodles","dumplings","pancakes","fairy floss"]'::jsonb, 3, 'Fairy floss is spun from sugar into fluffy shapes that look like clouds.', 'AC9E3LY05', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('7e2b767f-666f-427e-8096-7292107962d9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which sense does “the smoky grill goes hiss” use most?', '["hearing","touch","taste","sight"]'::jsonb, 0, 'Hiss is a sound, so the line makes the reader hear the grill.', 'AC9E3LE03', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('4a2e93bf-33fd-460a-9c68-831a1b7abbd9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'How does the speaker feel about the night market?', '["bored","happy and excited","scared","sad to be there"]'::jsonb, 1, 'The drumbeat is happy, their feet hop, they have tasted something new and they walk home full and warm.', 'AC9E3LE02', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('38c9ce66-9838-489f-b8fa-1f755838ebbf', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'What does the speaker take home?', '["a lantern","some noodles","a dumpling","a drum"]'::jsonb, 2, 'The last lines say that in their pocket, wrapped in foil, is a dumpling just for them.', 'AC9E3LY05', '4f3b68de-ab63-479a-b1af-819b5e43efc5', null, true, null, null, null, null),
+('4385b97d-e013-48e3-9823-e0dca03a019a', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Emus cannot fly. How do they get around quickly?', '["They swim.","They glide.","They hop like kangaroos.","They run on their long, strong legs."]'::jsonb, 3, 'The text says instead of flying, emus run, faster than a car in a school zone.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('cd46f300-9f0c-4f08-9fdd-4512278bf5de', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'How do emus help new plants to grow?', '["They drop seeds in new places.","They dig the soil with their feet.","They eat the insects that harm plants.","They sit on the seeds to keep them warm."]'::jsonb, 0, 'Seeds from the fruit they eat pass through their bodies and are dropped in new places.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('765b94ec-61c3-4994-a145-278941e6dfb4', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'Who sits on the emu eggs?', '["the female emu","the male emu","both parents, taking turns","no one"]'::jsonb, 1, 'The female lays the eggs, but the male sits on them for about eight weeks.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('5452ce48-e0be-434a-86ce-5ffff6b242ad', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'While he sits on the eggs, the male emu', '["eats a lot of fruit","runs away from danger","hardly eats or drinks","builds a new nest"]'::jsonb, 2, 'The text says he hardly eats or drinks the whole time.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('73597a18-b019-4e8a-a858-01cb673c79f9', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'How do stripes help emu chicks?', '["They keep them warm.","They help their father find them.","They show how old the chicks are.","They help them hide in the grass."]'::jsonb, 3, 'The fact box says the stripes help them hide in the grass.', 'AC9E3LY05', '8ee4f2de-bd09-4db8-b3da-7a08824f2e5b', null, true, null, null, null, null),
+('f41f2425-c2d0-4afe-812a-c98014e467fe', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'When did Biscuit go missing?', '["on Sunday afternoon","on Saturday morning","on Monday night","last week"]'::jsonb, 0, 'The poster says Biscuit went missing on Sunday afternoon.', 'AC9E3LY05', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null),
+('4d121f9b-a628-488a-96ed-e58d245157bc', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'How did Biscuit get out?', '["He dug under the fence.","The gate was left open.","He jumped over the wall.","He ran off at the park."]'::jsonb, 1, 'He went missing when the gate was left open.', 'AC9E3LY05', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null),
+('c1c2a411-ad38-4194-bae5-a6228b63e3f6', 'reading_comprehension', 'grade_3', 'proficient', 'multiple_choice', 'Why does the poster say not to call Biscuit loudly?', '["He does not know his name.","He might bite.","He is shy and may hide.","He cannot hear well."]'::jsonb, 2, 'The poster says he is friendly but shy, and he may hide if you call him loudly.', 'AC9E3LY05', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null),
+('b9208ac2-ca58-4bed-923b-13d366e2cf1e', 'reading_comprehension', 'grade_3', 'developing', 'multiple_choice', 'Which of these would help you know a dog is Biscuit?', '["a black tail","a blue collar","long legs","one white ear"]'::jsonb, 3, 'Biscuit is a small brown dog with one white ear, a red collar with a silver bell and a fluffy tail.', 'AC9E3LY05', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null),
+('d951c889-b1ef-47a7-8978-9c7f6851ed15', 'reading_comprehension', 'grade_3', 'foundation', 'multiple_choice', 'The main purpose of this poster is to', '["get help to find a lost dog","sell a dog","tell people how to train a dog","warn people about a dangerous dog"]'::jsonb, 0, 'It asks readers to help find Biscuit, describes him and offers a reward.', 'AC9E3LY01', 'f00df197-ee7e-4ffa-834a-a7957f1642b2', null, true, null, null, null, null),
+('c7ab02c7-5dbc-4875-a564-730e0a7ead36', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'Why did Dadu play the violin every night on the ship?', '["It stopped him feeling homesick.","The other passengers asked him to.","He was practicing for a concert.","He could not sleep because of the waves."]'::jsonb, 0, 'Dadu says it was the only thing that stopped him feeling homesick.', 'AC9E5LY05', '56ba0211-7562-4b33-8c35-945f034a5122', null, true, null, null, null, null),
+('28cb3b53-7779-44ce-8eb5-b81a240988f4', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'Why did Dadu give the violin to Anika?', '["He had bought a new violin.","His fingers were too stiff to play.","She had asked him for it.","It was her birthday."]'::jsonb, 1, 'He says, “My fingers are too stiff to play, but yours are not.”', 'AC9E5LY05', '56ba0211-7562-4b33-8c35-945f034a5122', null, true, null, null, null, null),
+('2be48d5c-c3f5-4b2a-8d25-c6067a0b7493', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', '“The bow screeched across the strings like a cat whose tail had been stepped on.” This tells the reader that', '["Anika had hurt her cat","the violin was broken","Anika’s first attempts sounded terrible","Anika was playing very quietly"]'::jsonb, 2, 'The comparison describes a harsh, unpleasant noise; even the dog leaves the room.', 'AC9E5LE03', '56ba0211-7562-4b33-8c35-945f034a5122', null, true, null, null, null, null),
+('20744e39-a281-4de1-9540-a8c13fb8018f', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'What do we learn about Anika from the fact that she opened the case again after saying she would give up?', '["She changed her mind often.","Her mother made her practice.","She liked the sound of the clasps.","She did not give up easily."]'::jsonb, 3, 'Twice she announced she was quitting and twice she came back to it the next day: she was determined.', 'AC9E5LE02', '56ba0211-7562-4b33-8c35-945f034a5122', null, true, null, null, null, null),
+('12edab64-85b6-4db3-bfe3-737a7b438725', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why did Anika’s teacher help her write the song down?', '["Nobody had ever written it down before.","Anika kept forgetting it.","Dadu asked for a copy.","She needed it for an exam."]'::jsonb, 0, 'The story says the teacher helped because nobody had ever written it down before.', 'AC9E5LY05', '56ba0211-7562-4b33-8c35-945f034a5122', null, true, null, null, null, null),
+('e1ea33b8-f2cf-4695-a711-c1267d51e43f', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', 'Why did Anika almost stop playing halfway through?', '["She forgot the rest of the tune.","She saw that Dadu was crying and thought something was wrong.","Her hands were too sore.","Her mother shook her head."]'::jsonb, 1, 'She looks up, sees tears on his cheeks and almost stops; her mother’s nod tells her to keep going, because they are happy tears.', 'AC9E5LY05', '56ba0211-7562-4b33-8c35-945f034a5122', null, true, null, null, null, null),
+('8c6b78de-6d2f-40ad-b870-29f3b4d41fb7', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', 'What does Dadu mean when he says, “Now it lives in yours”?', '["Anika has learned to write music.","Anika should play it every night.","Anika will now keep the song alive.","He has forgotten the song."]'::jsonb, 2, 'The song existed only in his memory; now Anika can play it, so it will go on after him.', 'AC9E5LE02', '56ba0211-7562-4b33-8c35-945f034a5122', null, true, null, null, null, null),
+('0adfb3cb-21c0-412f-b9e7-9ee4550887e3', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why do scientists call Antarctica a desert?', '["It is covered in sand under the ice.","Nobody lives there.","It is very windy.","It gets very little rain or snow."]'::jsonb, 3, 'The section A frozen desert says that because it gets so little rain or snow, scientists call it a desert.', 'AC9E5LY05', 'a197b8e8-7adc-4afa-b574-01481abf3891', null, true, null, null, null, null),
+('8b3d48b4-e67c-4822-9252-849fd743096f', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'In the text, the word “permanently” means', '["all the time, for good","for a short visit","during the summer","in the coldest part"]'::jsonb, 0, 'People stay for a winter or a summer, but no one lives there for good.', 'AC9E5LY05', 'a197b8e8-7adc-4afa-b574-01481abf3891', null, true, null, null, null, null),
+('aa2b467f-da57-4dad-b058-6fcc83085c88', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'How do emperor penguins keep warm?', '["They have a layer of blubber.","They huddle together in large groups.","They stay in the water.","They dig into the snow."]'::jsonb, 1, 'The text says emperor penguins huddle together in groups of thousands; it is seals that have blubber.', 'AC9E5LY05', 'a197b8e8-7adc-4afa-b574-01481abf3891', null, true, null, null, null, null),
+('b3947104-4fab-4b47-8b21-60887d7713fd', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'The countries that signed the Antarctic Treaty agreed that Antarctica would be used', '["for mining and fishing","as a home for new towns","only for peace and science","only by those twelve countries"]'::jsonb, 2, 'They agreed it would be used only for peaceful purposes and for science, and mining is not allowed.', 'AC9E5LY05', 'a197b8e8-7adc-4afa-b574-01481abf3891', null, true, null, null, null, null),
+('711b83f1-71e0-47af-8a1d-f77ac2a847da', 'reading_comprehension', 'grade_5', 'foundation', 'short_answer', 'In which year was the Antarctic Treaty signed?', null, null, 'The section Protecting Antarctica says twelve countries signed it in 1959.', 'AC9E5LY05', 'a197b8e8-7adc-4afa-b574-01481abf3891', null, true, '1959', null, null, null),
+('057a42f4-3461-4f63-b9f9-403cb9f0d1d7', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'How do the headings help the reader?', '["They list the most important facts.","They tell the reader what to think.","They show the order things happened in.","They show what each section is about."]'::jsonb, 3, 'Each heading names the topic of the section under it: the desert, who lives there, protection.', 'AC9E5LY03', 'a197b8e8-7adc-4afa-b574-01481abf3891', null, true, null, null, null, null),
+('dfc76838-9fe7-41d0-ab91-d218164cdc5d', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'According to the fact box, Antarctica is', '["almost twice as big as Australia","about the same size as Australia","half the size of Australia","the smallest continent"]'::jsonb, 0, 'The fact box gives its size as almost twice as big as Australia.', 'AC9E5LY05', 'a197b8e8-7adc-4afa-b574-01481abf3891', null, true, null, null, null, null),
+('a8b1a77b-4871-4c07-8cd0-5f2c5dca53d3', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'What does Maria Costa want?', '["for homework to be shorter","for homework to be banned","more sport at school","longer school days"]'::jsonb, 1, 'Her letter is headed Yes — let kids be kids and ends, “Let’s ban homework.”', 'AC9E5LY01', '253c0ea2-49d6-4d30-acaf-36310338ebeb', null, true, null, null, null, null),
+('f1838fc1-97fd-418d-b878-8c6a44715df0', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why does Maria’s son miss his chance to kick a ball?', '["He does not like playing sport.","The park is too far away.","His homework takes so long that it gets dark.","His school day is too long."]'::jsonb, 2, 'She says by the time he is done it is dark, and he has missed his chance.', 'AC9E5LY05', '253c0ea2-49d6-4d30-acaf-36310338ebeb', null, true, null, null, null, null),
+('7cdf7dcd-abbf-4496-aa09-ae70b57d6721', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Maria says children can learn to work on their own', '["by doing homework","from their parents","by playing sport","at school, with a teacher to help"]'::jsonb, 3, 'She answers the argument for homework by saying children can learn that at school, with a teacher there to help.', 'AC9E5LY05', '253c0ea2-49d6-4d30-acaf-36310338ebeb', null, true, null, null, null, null),
+('e412fd77-c625-4c26-b6bc-92ee96e5d5db', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Which is one reason Tom gives for homework?', '["It helps him remember what he learned.","It keeps him busy after school.","His teacher gives prizes for it.","It is never boring."]'::jsonb, 0, 'He says practicing his times tables at home helps him remember them in class the next day.', 'AC9E5LY05', '253c0ea2-49d6-4d30-acaf-36310338ebeb', null, true, null, null, null, null),
+('aa11ce84-14d7-474f-9155-43c31ed5eb0b', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', 'On which point do Maria and Tom agree?', '["Homework should be banned.","Homework should not be boring or too long.","Children should practice times tables.","Parents should help with homework."]'::jsonb, 1, 'Maria complains of boring sheets that take an hour; Tom agrees homework should not be boring or take too long.', 'AC9E5LY05', '253c0ea2-49d6-4d30-acaf-36310338ebeb', null, true, null, null, null, null),
+('8c63d3b5-b4b6-4fa1-825b-e28e1f04fa4f', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', 'Tom says banning homework would be “like a soccer team that only trains on game day.” He means that', '["homework should be done on weekends","sport is more important than homework","regular practice is needed to do well","soccer teams should train less"]'::jsonb, 2, 'A team that trains only on game day would play badly; learning also needs regular practice.', 'AC9E5LY03', '253c0ea2-49d6-4d30-acaf-36310338ebeb', null, true, null, null, null, null),
+('62cbc14a-1e99-458f-8705-be6d70ae8067', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'The main purpose of this text is to', '["describe the history of travel","sell compasses","explain how magnets are made","explain how to make a compass"]'::jsonb, 3, 'It lists what you need and the steps to follow to make a compass.', 'AC9E5LY01', '7cff2b63-6079-49ec-ad16-eb62805f33e6', null, true, null, null, null, null),
+('444d7c6e-c3dd-44a1-9c41-28363f10ce04', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'In step 1, what should you do at the end of each stroke?', '["Lift the magnet away.","Turn the needle over.","Stroke back the other way.","Dip the needle in water."]'::jsonb, 0, 'Step 1 says to lift the magnet away at the end of each stroke.', 'AC9E5LY05', '7cff2b63-6079-49ec-ad16-eb62805f33e6', null, true, null, null, null, null),
+('07e3b7f4-b9f6-4cce-8612-c29cf4c38efb', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why is the needle put on a piece of cork or foam?', '["so it does not rust","so it can float and turn freely","so it is easier to see","to make it into a magnet"]'::jsonb, 1, 'The cork floats on the water, and a magnet that is free to turn lines up north to south.', 'AC9E5LY05', '7cff2b63-6079-49ec-ad16-eb62805f33e6', null, true, null, null, null, null),
+('608280fa-d1e7-4bc1-8677-a758924cd916', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why should the bowl be kept away from metal?', '["Metal makes the water too cold.","The needle might stick to the bowl.","Metal can pull the needle the wrong way.","Metal stops the cork floating."]'::jsonb, 2, 'Step 3 and the fact box both say to keep away from metal, which can pull the needle the wrong way.', 'AC9E5LY05', '7cff2b63-6079-49ec-ad16-eb62805f33e6', null, true, null, null, null, null),
+('51a22011-a844-4189-857e-9ec73da60559', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'According to the text, why does the needle end up pointing north?', '["The water flows toward the north.","The needle is heavier at one end.","The cork always turns north.","The Earth acts like a giant magnet."]'::jsonb, 3, 'The fact box says the Earth acts like a giant magnet, so a magnet free to turn lines up north to south.', 'AC9E5LY05', '7cff2b63-6079-49ec-ad16-eb62805f33e6', null, true, null, null, null, null),
+('f347459c-65c6-4663-9e67-2d608875d646', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'What is happening at the start of the poem?', '["There is a drought.","There is a flood.","It is the middle of winter.","A storm is coming."]'::jsonb, 0, 'All summer the paddocks crack, the creek is a dusty track and there is no rain.', 'AC9E5LY05', '268428c5-2156-411b-a7d7-f9f0915431de', null, true, null, null, null, null),
+('5a414385-4343-467a-9115-c091d223cb77', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', '“The gum leaves hung like lead” suggests that the leaves were', '["bright and shiny","heavy and drooping","falling to the ground","moving in the wind"]'::jsonb, 1, 'Lead is a very heavy metal. In the heat and dryness the leaves hang limp and still.', 'AC9E5LE03', '268428c5-2156-411b-a7d7-f9f0915431de', null, true, null, null, null, null),
+('fa1dce17-225a-47ea-98b9-fa519a402f7c', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why did Dad watch the west each evening?', '["He was watching the sunset.","He was waiting for visitors.","He was hoping to see rain clouds.","He was checking on the sheep."]'::jsonb, 2, 'The clouds rolled in and then away again; he was waiting for rain.', 'AC9E5LY05', '268428c5-2156-411b-a7d7-f9f0915431de', null, true, null, null, null, null),
+('3fc4988f-b763-4e72-9836-fdfcbfd04e03', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'How did the family feel when the rain came?', '["frightened","worried","annoyed","overjoyed"]'::jsonb, 3, 'They ran out into the cold and splashed, laughed and sang.', 'AC9E5LE02', '268428c5-2156-411b-a7d7-f9f0915431de', null, true, null, null, null, null),
+('6043d065-14ce-4eba-89d8-627f22ca5449', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', '“The first in months I’d seen” tells the reader that', '["Dad had not smiled for a long time","the creek had been hidden for months","the speaker had been away from the farm","green grass had never grown there before"]'::jsonb, 0, 'It is the first smile on Dad the speaker has seen in months, which shows how worried he had been.', 'AC9E5LY05', '268428c5-2156-411b-a7d7-f9f0915431de', null, true, null, null, null, null),
+('485162e4-a38a-4c27-baa0-c8e6bbe89e9c', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why do volcano scientists try to work out when a volcano might erupt?', '["so that tourists can watch","so that people nearby can get to safety","so that they can stop the eruption","so that they can collect lava"]'::jsonb, 1, 'Dr Park says they do it so that people living nearby can get to safety in time.', 'AC9E5LY05', '3a5e0eef-465a-4b83-8bd7-4fbd04d5f1cd', null, true, null, null, null, null),
+('067fd461-7a60-43d3-8ba6-376f575cba78', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'Dr Park says the heat “felt like opening an oven door”. This shows that the lava was', '["very bright","moving fast","very hot","dangerous to breathe"]'::jsonb, 2, 'The comparison is about the heat she felt on her face.', 'AC9E5LY05', '3a5e0eef-465a-4b83-8bd7-4fbd04d5f1cd', null, true, null, null, null, null),
+('dda2e02c-2fd4-4176-8c29-82347e56b1b0', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why does Dr Park compare predicting eruptions to a weather forecast?', '["Volcanoes cause bad weather.","Weather forecasters also study volcanoes.","Both are always correct.","Scientists can say an eruption is likely, but not exactly when."]'::jsonb, 3, 'She says they can say an eruption is likely soon, but not the exact day or hour.', 'AC9E5LY05', '3a5e0eef-465a-4b83-8bd7-4fbd04d5f1cd', null, true, null, null, null, null),
+('531c9f22-a36d-4212-9d46-620bdc3ec106', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Which of these does Dr Park NOT say scientists measure?', '["the colour of the sky","tiny earthquakes","changes in the shape of the ground","gases from the volcano"]'::jsonb, 0, 'She lists tiny earthquakes, changes in the ground and gases. The sky is not mentioned.', 'AC9E5LY05', '3a5e0eef-465a-4b83-8bd7-4fbd04d5f1cd', null, true, null, null, null, null),
+('69e7c40d-60ed-461b-a830-a879c90d17d8', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'The lines in dark type in this text are', '["the most important facts","the questions Kai asked","what Dr Park said","the titles of chapters"]'::jsonb, 1, 'Each one is a question, and Dr Park’s answer follows it: the format of an interview.', 'AC9E5LY03', '3a5e0eef-465a-4b83-8bd7-4fbd04d5f1cd', null, true, null, null, null, null),
+('8ac151b7-70a8-4de1-bd2d-9d32ff2dd7e7', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'Which kind of chocolate is most dangerous for dogs?', '["milk chocolate","white chocolate","dark chocolate","chocolate biscuits"]'::jsonb, 2, 'Dr Ahmed says dark chocolate is the most dangerous kind.', 'AC9E5LY05', '2d762d85-01ef-42bc-900d-0ee2dd76186a', null, true, null, null, null, null),
+('46f5e90f-a9d6-471f-bff2-b3f60be5997f', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'If your dog eats chocolate, what should you tell the vet?', '["what time it happened","where you bought the chocolate","what the dog usually eats","what it ate, how much and how big the dog is"]'::jsonb, 3, 'The answer says to tell them what your dog ate, how much it ate and how big your dog is.', 'AC9E5LY05', '2d762d85-01ef-42bc-900d-0ee2dd76186a', null, true, null, null, null, null),
+('d8de9a79-5a69-4d8a-8f10-d06d68b9c2ae', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why do cats hardly ever need washing?', '["They clean themselves with their tongues.","They do not get dirty.","Water is bad for their fur.","They stay indoors."]'::jsonb, 0, 'Cats keep themselves clean with their rough tongues.', 'AC9E5LY05', '2d762d85-01ef-42bc-900d-0ee2dd76186a', null, true, null, null, null, null),
+('a3aa90b6-36a7-4f9b-9c8e-645806ac577b', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why does Dr Paws say to keep electrical cords away from rabbits?', '["Cords are too hot for rabbits.","Rabbits chew everything, and could chew the cords.","Rabbits are scared of cords.","Cords stop their teeth growing."]'::jsonb, 1, 'Rabbits chew to wear their teeth down, so a cord in reach is likely to be chewed.', 'AC9E5LY05', '2d762d85-01ef-42bc-900d-0ee2dd76186a', null, true, null, null, null, null),
+('9b43ce74-8da8-458e-9391-52432508b39b', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'Why had the whole family come to Grandma’s house?', '["to help fix it up","to celebrate her birthday","to look for a buried tin","to help her move out"]'::jsonb, 0, 'The house was falling apart, so the family came in the holidays to help fix it up.', 'AC9E5LY05', 'd8ca2412-921b-4b65-95a6-7a0388bb1a44', null, true, null, null, null, null),
+('55168e95-0137-4b06-bb58-8c723ee35371', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Sam says, “This is taking forever.” He feels', '["curious","bored and fed up","frightened","proud of his work"]'::jsonb, 1, 'The wallpaper comes off in tiny, stubborn strips, and he groans; it is slow, dull work.', 'AC9E5LY05', 'd8ca2412-921b-4b65-95a6-7a0388bb1a44', null, true, null, null, null, null),
+('d6ce0bc4-d6d0-4216-a181-24810fc99305', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'What did Rosa find behind the wallpaper?', '["a rusty tin","an old photograph","a map drawn in pencil","a letter"]'::jsonb, 2, 'Behind the roses was a pencil drawing of the backyard with an X beside the fence.', 'AC9E5LY05', 'd8ca2412-921b-4b65-95a6-7a0388bb1a44', null, true, null, null, null, null),
+('1ffd5218-697a-4191-9766-b5fd40baa5a3', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'How did Sam work out who M.B. was?', '["Grandma had told them about the map.","The photo had a name on it.","Rosa guessed it for him.","Grandma’s name is Margaret Bell."]'::jsonb, 3, 'Sam reads the initials and says, “Margaret Bell. That’s Grandma!”', 'AC9E5LY05', 'd8ca2412-921b-4b65-95a6-7a0388bb1a44', null, true, null, null, null, null),
+('6308ba95-22f5-4d78-a36e-e1fd07625a29', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Grandma put her cup down so quickly that it rattled. This shows she was', '["surprised","angry","tired","clumsy"]'::jsonb, 0, 'She had forgotten all about the map; the news startles her.', 'AC9E5LY05', 'd8ca2412-921b-4b65-95a6-7a0388bb1a44', null, true, null, null, null, null),
+('20a9bde0-688b-4e35-b14c-ab39a9b26a2d', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why had Grandma buried the tin?', '["She was hiding it from her brother.","She wanted to open it in the future and see how things had changed.","She wanted to keep her marbles safe.","Her teacher had told her to."]'::jsonb, 1, 'She says she wanted to see what the future would be like when she opened it. The map says not to dig until 2025.', 'AC9E5LY05', 'd8ca2412-921b-4b65-95a6-7a0388bb1a44', null, true, null, null, null, null),
+('26686eb7-47fc-4c04-9b9d-f424435082da', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', 'Why does Grandma bite into a lemon at the end of the story?', '["because she was hungry after digging","to make the children laugh","to answer the question her younger self asked","because the lemon tree was dying"]'::jsonb, 2, 'Her letter asked, “Do you still like lemons?” Biting one is her answer to herself.', 'AC9E5LE02', 'd8ca2412-921b-4b65-95a6-7a0388bb1a44', null, true, null, null, null, null),
+('d100316d-efa9-4105-9da6-af724035e122', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Where are a submarine’s ballast tanks?', '["at the very front","on top, near the tower","inside the crew’s cabins","between its inner and outer walls"]'::jsonb, 3, 'The second paragraph says they are between its inner and outer walls.', 'AC9E5LY05', 'fa17b047-9b4f-44c7-8def-cfe9002e733f', null, true, null, null, null, null),
+('88352ecc-3fa0-442c-8b31-a5ec8efba4f7', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why does a submarine float when its tanks are full of air?', '["Air is much lighter than water.","The engines push it up.","The hydroplanes hold it up.","Seawater is heavier at the surface."]'::jsonb, 0, 'The text says air is much lighter than water, so the submarine floats.', 'AC9E5LY05', 'fa17b047-9b4f-44c7-8def-cfe9002e733f', null, true, null, null, null, null),
+('439ca3e2-c6a8-4027-92d9-49b1f2f0cfbb', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why does the writer mention a plastic bottle in a bath?', '["to show how small submarines are","to compare the submarine to something familiar","to explain how to build a model","to warn about plastic in the sea"]'::jsonb, 1, 'A bottle full of air floating in a bath is an everyday example of the same idea.', 'AC9E5LY03', 'fa17b047-9b4f-44c7-8def-cfe9002e733f', null, true, null, null, null, null),
+('79ca7560-ed53-4376-9e8d-6941c72578a9', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'What happens when the crew open the valves?', '["Air rushes in and the submarine rises.","The hydroplanes turn.","Seawater rushes in and the submarine sinks.","The engines start."]'::jsonb, 2, 'Opening the valves lets seawater into the tanks, making the submarine heavier so it sinks.', 'AC9E5LY05', 'fa17b047-9b4f-44c7-8def-cfe9002e733f', null, true, null, null, null, null),
+('6bb01935-acc8-48d6-8f0c-b2ce79981c81', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'In the last paragraph, the word “hover” means', '["sink very fast","turn around","rise to the surface","stay at the same level"]'::jsonb, 3, 'The text explains it straight after: neither rising nor sinking.', 'AC9E5LY05', 'fa17b047-9b4f-44c7-8def-cfe9002e733f', null, true, null, null, null, null),
+('ae8bc1e2-0254-45da-9061-f64aea3e1e6a', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'What are hydroplanes for?', '["helping to steer up or down","storing air","letting water in","pushing the submarine forward"]'::jsonb, 0, 'Small fins called hydroplanes help steer it up or down as it moves forward.', 'AC9E5LY05', 'fa17b047-9b4f-44c7-8def-cfe9002e733f', null, true, null, null, null, null),
+('ecdafd45-d60d-4912-a13d-6c18e0836963', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'How long did the clean-up take?', '["one hour","three hours","a whole day","two days"]'::jsonb, 1, 'The article says they collected the rubbish in just three hours.', 'AC9E5LY05', '0507006b-b26c-4335-87cd-7582355617a6', null, true, null, null, null, null),
+('ee785dcb-ebb0-4cb6-aa23-a88544d20eb4', 'reading_comprehension', 'grade_5', 'foundation', 'short_answer', 'How many large items did the students find? Write a number.', null, null, 'The table lists 6 large items: the article names a shopping trolley, two car tyres and a garden chair among them.', 'AC9E5LY05', '0507006b-b26c-4335-87cd-7582355617a6', null, true, '6', ARRAY['six']::text[], null, null),
+('78a30302-e49b-450a-9a16-fa80eeb0f1a7', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why did Jarrah say the tiny pieces of plastic were the worst part?', '["They were the hardest to carry.","There were only a few of them.","Birds and fish think they are food.","They were stuck in the mud."]'::jsonb, 2, 'Jarrah says birds and fish think they are food.', 'AC9E5LY05', '0507006b-b26c-4335-87cd-7582355617a6', null, true, null, null, null, null),
+('e8f00211-15e7-499f-8c02-7e72eef0dc1b', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'According to Deb Nguyen, how does rubbish get into the creek?', '["People throw it from boats.","The wind blows it from the bay.","Shops dump it there.","It washes down the drains when it rains."]'::jsonb, 3, 'She says rubbish from the streets washes down the drains and into the creek every time it rains.', 'AC9E5LY05', '0507006b-b26c-4335-87cd-7582355617a6', null, true, null, null, null, null),
+('ecff38cd-95e2-4a58-9a14-b8d61be3dc36', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why will the clean-up help the whole bay?', '["The creek flows into the bay.","The students also cleaned the beach.","The council will clean the bay next.","Birds carry rubbish from the creek to the bay."]'::jsonb, 0, 'Deb Nguyen explains that the creek flows into the bay, so less rubbish reaches it.', 'AC9E5LY05', '0507006b-b26c-4335-87cd-7582355617a6', null, true, null, null, null, null),
+('cf0e549c-e7d8-49ec-980e-3bf0cccde184', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'According to the table, what did the students find the most of?', '["plastic bottles","food wrappers","plastic straws","cans"]'::jsonb, 1, 'Food wrappers have the biggest number in the table: 615.', 'AC9E5LY05', '0507006b-b26c-4335-87cd-7582355617a6', null, true, null, null, null, null),
+('e8f7f21a-3271-459d-b709-beb5235384f2', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'What are the students asking nearby shops to do?', '["pay for the next clean-up","put bins near the creek","stop giving out plastic straws","sell reusable bottles"]'::jsonb, 2, 'The last paragraph says they are asking shops to stop giving out plastic straws.', 'AC9E5LY05', '0507006b-b26c-4335-87cd-7582355617a6', null, true, null, null, null, null),
+('a5a33a7f-2cd0-4635-b866-93a2210d5853', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Who is this advertisement mainly aimed at?', '["people who want to work at the park","farmers who keep alpacas","schools planning a science trip","families looking for something to do"]'::jsonb, 3, 'It talks about bored weekends and happy families, and sells family tickets.', 'AC9E5LY01', 'ebff407c-ab33-479f-9383-b5658039d02f', null, true, null, null, null, null),
+('227b2dbd-479b-4a73-a96e-b2ec04eccacb', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', '“Swap the couch for the trees” is used to', '["persuade readers to get out and visit the park","tell readers to buy new furniture","describe the park’s picnic area","warn readers about fallen trees"]'::jsonb, 0, 'It contrasts a lazy weekend on the couch with an active day in the forest, to make readers want to go.', 'AC9E5LY03', 'ebff407c-ab33-479f-9383-b5658039d02f', null, true, null, null, null, null),
+('52f25cca-8ba8-4f59-8fce-2c7e0da7a842', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', 'Which of these is an opinion, not a fact?', '["The park is 40 minutes from the city.","Every day is an adventure.","The ladder is 20 metres above the ground.","Children under 5 get in free."]'::jsonb, 1, 'Whether every day is an adventure cannot be checked; the others can be measured or looked up.', 'AC9E5LY03', 'ebff407c-ab33-479f-9383-b5658039d02f', null, true, null, null, null, null),
+('541b947a-2a25-4930-8377-948b8aedfd10', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why does the advertisement say “the best adventures fill up fast”?', '["to warn that the park is too crowded","to explain why tickets are expensive","to make readers book quickly","to tell readers the park is closing"]'::jsonb, 2, 'Suggesting you might miss out is a way to hurry readers into booking.', 'AC9E5LY03', 'ebff407c-ab33-479f-9383-b5658039d02f', null, true, null, null, null, null),
+('00806750-49c8-426e-9830-4e2e3ea182a0', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'The star (*) after some activities tells the reader to', '["choose those activities first","pay more for them","bring a friend","look for extra information at the bottom"]'::jsonb, 3, 'The note at the bottom starts with a star and gives the height rule for those rides.', 'AC9E5LY03', 'ebff407c-ab33-479f-9383-b5658039d02f', null, true, null, null, null, null),
+('65fb7a55-1270-46e9-8075-4c0011bb23c5', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Who cannot go on the flying fox?', '["anyone shorter than 120 cm","children under 15","adults","people who have not booked the farm"]'::jsonb, 0, 'The note says riders must be at least 120 cm tall.', 'AC9E5LY05', 'ebff407c-ab33-479f-9383-b5658039d02f', null, true, null, null, null, null),
+('d2f32049-42d5-4a67-b73c-6917a1aacb6b', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'What is this poem mostly about?', '["a trip to the Easter show","the things in the speaker’s pocket","a lost frog","the speaker’s family"]'::jsonb, 1, 'Every line lists something found in the pocket, until the last surprise.', 'AC9E5LY05', '02026c54-f707-469a-aef8-09b6c2674484', null, true, null, null, null, null),
+('8a9ec1c4-2620-44fb-b92e-d2570f88ff3a', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'What kind of person is the speaker most likely to be?', '["someone who is very tidy","someone who dislikes animals","someone who keeps small things they find","someone who has just moved house"]'::jsonb, 2, 'Stones, feathers, bottle tops, shells and old tickets are all small things kept rather than thrown away.', 'AC9E5LE02', '02026c54-f707-469a-aef8-09b6c2674484', null, true, null, null, null, null),
+('5b7c0a9b-2b8f-4386-8573-fa4943708256', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', '“A crayon worn down to the core” tells the reader that the crayon', '["was brand new","was broken in half","was the speaker’s favourite colour","had been used a lot"]'::jsonb, 3, 'Worn down to the core means there is hardly any crayon left.', 'AC9E5LE03', '02026c54-f707-469a-aef8-09b6c2674484', null, true, null, null, null, null),
+('ac172301-3556-43ed-8aa5-f71d667274c7', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'What is the surprise at the end of the poem?', '["There is a live frog in the pocket.","The pocket has a hole in it.","The note from Jess is a secret.","The key opens the front door."]'::jsonb, 0, 'Something is wriggling, and the speaker realises it is Fred’s frog.', 'AC9E5LE03', '02026c54-f707-469a-aef8-09b6c2674484', null, true, null, null, null, null),
+('44ecfef3-1d54-4004-92b3-03683cefec56', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Who is Fred most likely to be?', '["the speaker’s pet frog","someone whose frog had gone missing","the speaker’s teacher","a friend who wrote a note"]'::jsonb, 1, 'The speaker says to Fred, “So that’s where your frog went”: Fred had lost it.', 'AC9E5LY05', '02026c54-f707-469a-aef8-09b6c2674484', null, true, null, null, null, null),
+('54208584-a895-47cc-b8b9-01da57142286', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'Why were there so many fossils near Mary’s home?', '["Her father buried them there.","Tourists left them on the beach.","The crumbling cliffs were full of them.","A museum had been built there."]'::jsonb, 2, 'The first paragraph says the cliffs near her home were crumbling and full of fossils.', 'AC9E5LY05', 'd983081e-5f2f-43eb-89fa-817155ccc094', null, true, null, null, null, null),
+('0488b930-29c5-4d98-a97c-431b23ece0ef', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'After her father died, fossil hunting helped Mary’s family because', '["it kept Mary busy","scientists paid for Mary to go to school","it made the family famous","they could sell the fossils"]'::jsonb, 3, 'Her father sold fossils to tourists; after he died, finding and selling fossils helped the family survive.', 'AC9E5LY05', 'd983081e-5f2f-43eb-89fa-817155ccc094', null, true, null, null, null, null),
+('1cb11e8b-cf98-4990-aafb-c2b98a956a90', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'What was an ichthyosaur?', '["a sea reptile that looked a little like a dolphin","a long-necked dinosaur that lived on land","a type of fish still alive today","a kind of fossil tool"]'::jsonb, 0, 'The text says it was a sea reptile that looked a little like a dolphin.', 'AC9E5LY05', 'd983081e-5f2f-43eb-89fa-817155ccc094', null, true, null, null, null, null),
+('10d31e82-5a6c-4687-9983-2fc4bf5fbeba', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why was Mary not allowed to join the Geological Society of London?', '["She was too young.","It did not accept women.","She did not live in London.","She had sold fossils to tourists."]'::jsonb, 1, 'The text says it did not accept women.', 'AC9E5LY05', 'd983081e-5f2f-43eb-89fa-817155ccc094', null, true, null, null, null, null),
+('137a879f-15bc-4fbd-b67f-268bec570713', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Which word best describes the way Mary was often treated by the men who bought her fossils?', '["kindly","generously","unfairly","respectfully"]'::jsonb, 2, 'They often took the credit for her discoveries.', 'AC9E5LY05', 'd983081e-5f2f-43eb-89fa-817155ccc094', null, true, null, null, null, null),
+('d49b5a51-9898-4da5-812d-d3fee55d9ec5', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'How is this text mainly organised?', '["as a list of questions and answers","as an argument for and against","as steps to follow","in the order that events happened"]'::jsonb, 3, 'It moves through her life by date: 1799, 1811, 1823, 1847. That is how a biography is usually organised.', 'AC9E5LY03', 'd983081e-5f2f-43eb-89fa-817155ccc094', null, true, null, null, null, null),
+('4d63cd86-14ae-4876-a11c-7c0d27f37b76', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'How many players are on the court at one time?', '["four","two","three","as many as want to play"]'::jsonb, 0, 'The first paragraph says you need four players at a time.', 'AC9E5LY05', '683d9c6f-9fed-4db0-89aa-a3ca62da6143', null, true, null, null, null, null),
+('9c368ac5-26a4-4f5c-bfa7-fe89684b8dc7', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'Who serves the ball?', '["the player in square 1","the player in square 4","the first person in the line","whoever is holding the ball"]'::jsonb, 1, 'The player in square 4 is the King, and the King serves.', 'AC9E5LY05', '683d9c6f-9fed-4db0-89aa-a3ca62da6143', null, true, null, null, null, null),
+('00eb69fc-08f7-452f-822e-6f019dd03e8c', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'What must a player do before hitting the ball?', '["catch it with both hands","call out the next player’s name","let it bounce once in their square","step outside the court"]'::jsonb, 2, 'Step 2 says to let the ball bounce once, then hit it. Hitting it before it bounces is on the list of ways to be out.', 'AC9E5LY05', '683d9c6f-9fed-4db0-89aa-a3ca62da6143', null, true, null, null, null, null),
+('150a184d-a7ed-476d-b2ea-97f362ab8175', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'What happens after a player breaks a rule?', '["They swap squares with the King.","They serve the next ball.","The game starts again from the beginning.","They leave, the others move up, and a new player joins in square 1."]'::jsonb, 3, 'Step 4 describes the player leaving, everyone in a lower square moving up and the next person joining in square 1.', 'AC9E5LY05', '683d9c6f-9fed-4db0-89aa-a3ca62da6143', null, true, null, null, null, null),
+('090c4eed-8d93-4c7f-85ab-e3c737cf1968', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Yusuf holds his bag in front of him “like a shield”. This suggests he feels', '["nervous and unsure","proud of his new bag","angry with the class","ready to go home"]'::jsonb, 0, 'A shield protects you. Standing in front of a new class, he is holding his bag as if to protect himself.', 'AC9E5LE03', '6761590d-a1be-43ff-b1ae-35fd3b0285b5', null, true, null, null, null, null),
+('f496b113-456d-4aec-bdd5-93a0fac4ae68', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why does Yusuf not say a word all morning?', '["He is not allowed to talk in class.","He is new and still learning English.","He is angry about moving.","He has a sore throat."]'::jsonb, 1, 'Mr Peters says he has just moved and is still learning English.', 'AC9E5LY05', '6761590d-a1be-43ff-b1ae-35fd3b0285b5', null, true, null, null, null, null),
+('3223d5ce-4c4b-46fa-86f4-f771dd88b774', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Priya feels “a small, uncomfortable ache in her chest” when she sees Yusuf eating alone. This shows she', '["is hungry","is unwell","feels sorry for him","is jealous of him"]'::jsonb, 2, 'The ache is her sympathy for a boy sitting by himself.', 'AC9E5LE02', '6761590d-a1be-43ff-b1ae-35fd3b0285b5', null, true, null, null, null, null),
+('a3e5ec82-3dbb-4d7a-bfb0-7041f651c363', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why does Priya forget about her long division?', '["Mr Peters starts a new lesson.","She has already finished it.","Yusuf asks her for help.","She is amazed by Yusuf’s drawings."]'::jsonb, 3, 'The drawings were so good that she forgot she was supposed to be doing long division.', 'AC9E5LY05', '6761590d-a1be-43ff-b1ae-35fd3b0285b5', null, true, null, null, null, null),
+('c8b7edf3-8aae-4be9-9b87-634acc5ba931', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why does Priya give Yusuf her own comic?', '["to share something they both enjoy","to show him her drawing is better","so he can finish it for her","because Mr Peters asked her to"]'::jsonb, 0, 'She has seen he loves drawing comics; sharing hers is a way of making friends without needing many words.', 'AC9E5LY05', '6761590d-a1be-43ff-b1ae-35fd3b0285b5', null, true, null, null, null, null),
+('b33c757d-a3b5-43a3-81a0-a7cfa9c0db48', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', 'What does Yusuf mean by drawing the cat shaking hands with the chicken?', '["that cats and chickens are friends","that he would like them to work together","that he wants to swap comics","that the comic is finished"]'::jsonb, 1, 'The cat is his character and the chicken is hers. Putting them together in one picture is an offer to make a comic together.', 'AC9E5LY05', '6761590d-a1be-43ff-b1ae-35fd3b0285b5', null, true, null, null, null, null),
+('8afca967-af5e-471c-ab4f-09cee9dc6133', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'What did Priya and Yusuf do with the money from the fete?', '["bought more paper","shared it between them","gave it to the library","gave it to Mr Peters"]'::jsonb, 2, 'They sold fifty copies and gave the money to the library.', 'AC9E5LY05', '6761590d-a1be-43ff-b1ae-35fd3b0285b5', null, true, null, null, null, null),
+('e8575d87-e64b-4173-bc72-348978962c30', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why did some scientists think the first platypus skin was a joke?', '["It was sent on April Fools’ Day.","It was far too small.","It had no fur.","It looked like parts of different animals sewn together."]'::jsonb, 3, 'They thought it might be a duck’s bill sewn onto a furry body.', 'AC9E5LY05', 'bd16eb98-9aad-4581-9a8b-e587ae6a28af', null, true, null, null, null, null),
+('de892779-7c9d-4afc-aef0-2731a9ffb04f', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'What makes the platypus different from almost every other mammal?', '["It lays eggs.","It has fur.","It feeds its babies milk.","It lives in rivers."]'::jsonb, 0, 'The section A mammal that lays eggs explains that almost no other mammals do.', 'AC9E5LY05', 'bd16eb98-9aad-4581-9a8b-e587ae6a28af', null, true, null, null, null, null),
+('b89eb6d6-4528-4505-9a68-59b50d92c628', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'Which other animal lays eggs and is a mammal?', '["the duck","the echidna","the otter","the beaver"]'::jsonb, 1, 'The text says the only other mammals that lay eggs are echidnas.', 'AC9E5LY05', 'bd16eb98-9aad-4581-9a8b-e587ae6a28af', null, true, null, null, null, null),
+('8d0d88d4-9fa0-4c00-9202-1b5b5ef47dc0', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'How does a platypus find its food under water?', '["It watches for movement.","It follows the smell of the food.","Its bill senses tiny electric signals.","It listens for splashing."]'::jsonb, 2, 'It closes its eyes, ears and nose, and its bill senses the electric signals made by moving prey.', 'AC9E5LY05', 'bd16eb98-9aad-4581-9a8b-e587ae6a28af', null, true, null, null, null, null),
+('1a5939b0-f937-4cb1-bc96-8eef4f16f5c9', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why is one section headed Watch out!?', '["It tells readers where to see a platypus.","It explains how platypuses avoid danger.","It describes how the mother guards her eggs.","It warns readers about the male’s venomous spur."]'::jsonb, 3, 'The section describes the sharp spur and its painful venom, so the heading is a warning.', 'AC9E5LY03', 'bd16eb98-9aad-4581-9a8b-e587ae6a28af', null, true, null, null, null, null),
+('e1f2291b-2bf3-436e-8494-60c628128c68', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'According to the fact box, why does the platypus store fat in its tail?', '["for times when food is hard to find","to help it float","to keep its eggs warm","to make it swim faster"]'::jsonb, 0, 'The fact box says it stores fat in its tail for times when food is hard to find.', 'AC9E5LY05', 'bd16eb98-9aad-4581-9a8b-e587ae6a28af', null, true, null, null, null, null),
+('a60f505c-a1af-4541-a0e8-219103ddc4cb', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'Why did the students write to the council?', '["to thank the council for a new playground","to ask for the playground to be fixed","to complain about a noisy park","to invite the mayor to their school"]'::jsonb, 1, 'The first sentence asks the council to fix the playground in Hollis Park.', 'AC9E5LY01', '8def7d66-519c-4a96-b99b-b9914a7cf2ed', null, true, null, null, null, null),
+('9eb956f6-6d1e-4245-ae2b-290c42981dd6', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Which problem do the students link to the boy’s broken wrist?', '["The slide was cracked.","The swings had no seats.","The soft rubber under the climbing frame had worn away.","The park was too crowded."]'::jsonb, 2, 'They say that if the soft rubber had been there, he might not have been hurt so badly.', 'AC9E5LY05', '8def7d66-519c-4a96-b99b-b9914a7cf2ed', null, true, null, null, null, null),
+('afe58a2c-0470-418d-885c-44e4f17331e5', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why do the students say Hollis Park is the only playground in their suburb?', '["to complain that there are too few parks","to explain where the park is","to ask for a second playground","to show how many people depend on it"]'::jsonb, 3, 'It strengthens their case: lots of families have nowhere else to go.', 'AC9E5LY03', '8def7d66-519c-4a96-b99b-b9914a7cf2ed', null, true, null, null, null, null),
+('4fffb9ea-d81e-47e5-aab2-9e8e9f214ddc', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'What did the council do the day after the letter arrived?', '["inspected the playground","rebuilt the playground","fitted new swing seats","visited the school"]'::jsonb, 0, 'The reply says workers inspected the playground the day after the letter arrived.', 'AC9E5LY05', '8def7d66-519c-4a96-b99b-b9914a7cf2ed', null, true, null, null, null, null),
+('0157093b-1b17-493a-aecf-926fa93aa962', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'When will the whole playground be rebuilt?', '["next week","in March","the day after the letter","next year"]'::jsonb, 1, 'The reply says it will be rebuilt in March. The swing seats are next week.', 'AC9E5LY05', '8def7d66-519c-4a96-b99b-b9914a7cf2ed', null, true, null, null, null, null),
+('8fb77bcd-9659-4649-b653-885f78f5e0d3', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', 'The council invites the class to help choose the new equipment. This shows that the council', '["could not decide what to buy","wanted the students to pay for it","took the students’ letter seriously","was annoyed by the letter"]'::jsonb, 2, 'It acted quickly, agreed with them and now asks for their ideas: signs it valued the letter.', 'AC9E5LY05', '8def7d66-519c-4a96-b99b-b9914a7cf2ed', null, true, null, null, null, null),
+('8290a8df-4d55-4f32-8106-b6d7691dc446', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why is a clear jar used in this experiment?', '["so the beans get more water","so the jar does not break","so the beans stay warm","so you can see the beans growing"]'::jsonb, 3, 'Step 2 places the beans against the glass so you can see them from outside.', 'AC9E5LY05', '0aa97b0b-ad12-4a7b-8a1b-031827d60f5c', null, true, null, null, null, null),
+('c055285e-3bee-4b99-9874-307f0f2884eb', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'What should you do if the paper towel starts to dry out?', '["Add a little water.","Put in new beans.","Move the jar into the sun.","Put a lid on the jar."]'::jsonb, 0, 'Step 5 says to add a little water if the paper towel starts to dry out.', 'AC9E5LY05', '0aa97b0b-ad12-4a7b-8a1b-031827d60f5c', null, true, null, null, null, null),
+('fa820379-9193-4675-8c09-8ff7f9d99689', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Where should the jar be kept?', '["in a dark cupboard","somewhere warm and bright, but out of direct sunlight","in the fridge","outside in full sun"]'::jsonb, 1, 'Step 4 gives exactly this.', 'AC9E5LY05', '0aa97b0b-ad12-4a7b-8a1b-031827d60f5c', null, true, null, null, null, null),
+('bc2d9da3-737d-4442-a4ad-9e51b76e4192', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'According to the table, what grew first?', '["a shoot","two leaves","a root","a flower"]'::jsonb, 2, 'On Day 5 a small white root is growing; the shoot appears on Day 8.', 'AC9E5LY05', '0aa97b0b-ad12-4a7b-8a1b-031827d60f5c', null, true, null, null, null, null),
+('5cb89669-262a-40bb-8557-2b5959b58e61', 'reading_comprehension', 'grade_5', 'foundation', 'short_answer', 'On which day did the student first see a green shoot? Write the number.', null, null, 'The table says: Day 8, a green shoot is growing up towards the light.', 'AC9E5LY05', '0aa97b0b-ad12-4a7b-8a1b-031827d60f5c', null, true, '8', ARRAY['day 8', 'eight']::text[], null, null),
+('759384ff-04b1-4de3-bcbb-a3844f19d303', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'The shoot grew “up towards the light”. This suggests that', '["the jar was upside down","the root was too long","the bean needed more water","plants grow towards light"]'::jsonb, 3, 'The shoot heads for the light, because green plants need light to make their food.', 'AC9E5LY05', '0aa97b0b-ad12-4a7b-8a1b-031827d60f5c', null, true, null, null, null, null),
+('fecaa1b2-8825-40ef-9736-bdbb5679bd4f', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'When do the speaker and Pop get to the jetty?', '["before sunrise","at lunchtime","in the evening","late at night"]'::jsonb, 0, 'The first line says they are on the jetty before the sun.', 'AC9E5LY05', '33518661-b1e7-4be9-bd51-25a771135cee', null, true, null, null, null, null),
+('0f88834a-8576-4742-bccd-ff7444476110', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', '“The water flat as a sheet of glass” tells the reader that the water was', '["very cold","very calm","frozen","dirty"]'::jsonb, 1, 'A sheet of glass is smooth and flat, like water with no waves.', 'AC9E5LE03', '33518661-b1e7-4be9-bd51-25a771135cee', null, true, null, null, null, null),
+('60e96f0d-763b-4518-85fb-614974ca0853', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why are the gulls “already lined up to wait”?', '["They are frightened of Pop.","They are waiting for the sun to rise.","They are hoping for bait or fish.","They are sleeping on the jetty."]'::jsonb, 2, 'Gulls gather where people fish, waiting for bait or scraps. There is a bucket of bait on the jetty.', 'AC9E5LY05', '33518661-b1e7-4be9-bd51-25a771135cee', null, true, null, null, null, null),
+('dfd93990-d11a-46e8-87a0-a3118c88bfea', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why do they put the bream back in the water?', '["Pop does not like bream.","They have caught too many fish.","It is not allowed at that jetty.","It is too small."]'::jsonb, 3, 'It is one tiny bream, slipped back in to grow some more.', 'AC9E5LY05', '33518661-b1e7-4be9-bd51-25a771135cee', null, true, null, null, null, null),
+('aed0391f-325f-439f-90f8-6d44b44cc751', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', '“A feeling I can’t find words for” suggests that the speaker', '["treasured the morning with Pop, even though they caught little","was disappointed with the fishing","was upset about the sunburn","did not enjoy talking to Pop"]'::jsonb, 0, 'Despite catching almost nothing, they come home with a warm feeling too big to put into words.', 'AC9E5LE02', '33518661-b1e7-4be9-bd51-25a771135cee', null, true, null, null, null, null),
+('9396c40e-6492-49e1-bf3e-658032350646', 'reading_comprehension', 'grade_5', 'foundation', 'multiple_choice', 'According to the text, what is sunlight made of?', '["only white light","many colours mixed together","tiny drops of water","red and yellow light"]'::jsonb, 1, 'The second paragraph says sunlight looks white but is made of many colours mixed together.', 'AC9E5LY05', '653bdd09-078a-4ca1-a560-483371401147', null, true, null, null, null, null),
+('b54c8897-b023-4ee7-a5dd-4d92a6dacfb8', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why does white light spread out into colours inside a raindrop?', '["The raindrop is coloured.","The sun shines in different colours at different times.","Each colour bends by a slightly different amount.","The light is reflected by clouds."]'::jsonb, 2, 'The third paragraph says each colour bends by a slightly different amount, so the light spreads out.', 'AC9E5LY05', '653bdd09-078a-4ca1-a560-483371401147', null, true, null, null, null, null),
+('25a6f49f-63b2-4948-afd3-01240fc45f76', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'The words “like a fan opening” help the reader to picture', '["a fan cooling the raindrop","the shape of a raindrop","the wind blowing rain","the colours spreading out"]'::jsonb, 3, 'A folding fan spreads out from a point, as the colours do from white light.', 'AC9E5LY03', '653bdd09-078a-4ca1-a560-483371401147', null, true, null, null, null, null),
+('cab502e5-a702-4ab5-ad90-d02d9e77f644', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'To see a rainbow, where must the sun be?', '["behind you","in front of you","directly above you","hidden by clouds"]'::jsonb, 0, 'The last paragraph says you need the sun behind you and rain in front of you.', 'AC9E5LY05', '653bdd09-078a-4ca1-a560-483371401147', null, true, null, null, null, null),
+('d31e24ec-9283-4f81-8618-bbed706855af', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why do rainbows often appear in the late afternoon?', '["Raindrops are bigger in the afternoon.","The sun is low and showers are passing.","The air is warmer in the afternoon.","Sunlight is brightest then."]'::jsonb, 1, 'The text says the sun is low and a shower is passing at that time of day.', 'AC9E5LY05', '653bdd09-078a-4ca1-a560-483371401147', null, true, null, null, null, null),
+('e23ad0aa-1d0a-49de-b9b8-68f0545982f1', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'The writer compares using the internet to crossing a road to show that', '["it is dangerous and should be avoided","you should only use it with a parent","it is safer when you know the rules","it is faster than walking"]'::jsonb, 2, 'The opening says that, just like crossing a road, it is safer when you know the rules.', 'AC9E5LY03', '830a4251-31f5-4ba7-8a6f-ac4cbe2fb292', null, true, null, null, null, null),
+('0839ff2b-5ae1-457b-bb77-fa2a3d19b524', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'Why does the writer say a password is like the key to your house?', '["It is made of metal.","You need a new one every year.","It opens every website.","You should not give it to a stranger."]'::jsonb, 3, 'The text says you would not give your house key to a stranger, so you should not share your password.', 'AC9E5LY05', '830a4251-31f5-4ba7-8a6f-ac4cbe2fb292', null, true, null, null, null, null),
+('a0c1fb87-2b16-424c-a1a1-50931bd04830', 'reading_comprehension', 'grade_5', 'proficient', 'multiple_choice', 'Why should you think before you post?', '["Posts can be copied and shared, even after you delete them.","Your teacher checks every post.","Posting costs money.","Only grown-ups can delete posts."]'::jsonb, 0, 'The section Think before you post says anything you put online can be copied and shared, even if you delete it later.', 'AC9E5LY05', '830a4251-31f5-4ba7-8a6f-ac4cbe2fb292', null, true, null, null, null, null),
+('ceb17c14-ebf9-4f4e-82a7-a55882163302', 'reading_comprehension', 'grade_5', 'developing', 'multiple_choice', 'What does the text say to do if someone is unkind online?', '["Reply and tell them to stop.","Do not reply, take a screenshot and tell an adult.","Delete your account.","Tell all your friends."]'::jsonb, 1, 'The Be kind section gives these three steps.', 'AC9E5LY05', '830a4251-31f5-4ba7-8a6f-ac4cbe2fb292', null, true, null, null, null, null),
+('b0511651-ba58-479a-9f95-bf97ca10dfdc', 'reading_comprehension', 'grade_5', 'advanced', 'multiple_choice', 'Why does the text end with “You will not be in trouble for telling”?', '["to warn children about getting into trouble","to explain the school rules","to encourage children to speak up","to remind adults to be strict"]'::jsonb, 2, 'Children sometimes stay quiet because they fear being blamed; the writer removes that worry.', 'AC9E5LY03', '830a4251-31f5-4ba7-8a6f-ac4cbe2fb292', null, true, null, null, null, null),
+('f070a0ae-9cc9-41a7-8a50-ac83219e5d94', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'What was unusual about the birthday present Mei asked for?', '["She asked to spend a night shift at the bakery with her father.","She asked for her own bakery.","She asked to sleep in on a school day.","She asked her father to come to an assembly."]'::jsonb, 0, 'She calls it the strangest present her friends had heard of: going with Dad to the bakery at 2.45 am.', 'AC9E7LY05', '11070a97-3494-461e-a774-e0687f26b1e5', null, true, null, null, null, null),
+('a44221b0-0dc2-4a26-b5e7-9e97963d3040', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', '“Her body was begging her to stay under the doona.” This sentence suggests that Mei', '["was cold and unwell","was very tired","had changed her mind about going","was afraid of the dark"]'::jsonb, 1, 'Her body is given a voice pleading to stay in bed; she still says she is sure, so it shows tiredness, not a change of mind.', 'AC9E7LE05', '11070a97-3494-461e-a774-e0687f26b1e5', null, true, null, null, null, null),
+('704f3c50-5310-4a9b-a173-b96716761538', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Before her birthday, Mei mostly knew her father as someone who', '["worked late into the night at an office","baked cakes for special occasions","had just started working at a bakery","slept in the afternoons and missed early assemblies"]'::jsonb, 3, 'She knew him as a man who napped in the afternoons, smelled of yeast and missed every assembly before lunch.', 'AC9E7LY05', '11070a97-3494-461e-a774-e0687f26b1e5', null, true, null, null, null, null),
+('3d6322df-ec2a-4729-b76a-fb728b74115f', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', '“Flour dusted every surface like a light fall of snow.” The writer uses this comparison to show that the flour', '["lay in a thin white layer over everything","was very cold","was falling from the ceiling","had been spilt by accident"]'::jsonb, 0, 'A light fall of snow leaves a thin white covering, like the flour on every surface.', 'AC9E7LE05', '11070a97-3494-461e-a774-e0687f26b1e5', null, true, null, null, null, null),
+('94a92fb7-da20-4883-afed-27b6ed9512d3', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'When Dad says, “You can’t rush bread,” he means that', '["bread tastes better when it is cold","each step takes time and must be done in order","Mei is working too slowly","the bakery opens late"]'::jsonb, 1, 'It follows his rule one, “Everything happens in order”: bread-making cannot be hurried.', 'AC9E7LY05', '11070a97-3494-461e-a774-e0687f26b1e5', null, true, null, null, null, null),
+('d0754139-5f75-41a7-862d-3963da911cda', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', '“The smell was so good it was almost a sound.” This description suggests that the smell was', '["unpleasant","coming from the radio","so strong it seemed to fill everything","very faint"]'::jsonb, 2, 'Describing a smell as nearly a sound exaggerates how powerfully it filled the bakery.', 'AC9E7LE05', '11070a97-3494-461e-a774-e0687f26b1e5', null, true, null, null, null, null),
+('8a7a2801-5704-4278-843a-48dc81208eb1', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'What does Mei come to understand about her father’s missed assemblies?', '["He had been too tired to come because he napped in the afternoons.","He had not known when the assemblies were on.","He did not like school events.","He missed them because he was feeding people who start work early, not because he did not care."]'::jsonb, 3, 'Watching the early workers served, “something clicked into place”: he had been at work feeding them.', 'AC9E7LY05', '11070a97-3494-461e-a774-e0687f26b1e5', null, true, null, null, null, null),
+('e86a9601-6905-4bb6-9e11-b1f413981aee', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Why does Dad leave the lumpy roll and the note on the bench?', '["to show he is proud of her effort","to tease her about her poor baking","because there was nothing else for afternoon tea","to remind her to practice at home"]'::jsonb, 0, 'He keeps her first imperfect roll and writes “Not bad for a beginner”: affectionate pride, a keepsake of the day.', 'AC9E7LE02', '11070a97-3494-461e-a774-e0687f26b1e5', null, true, null, null, null, null),
+('1fe03a79-cae1-45ed-b4f2-e72ed0935fb5', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What is the main purpose of the first paragraph?', '["to explain the oxygen theory","to show that yawning is common but still a mystery","to list animals that yawn","to argue that yawning is rude"]'::jsonb, 1, 'It establishes how common yawning is, then says scientists still disagree about why we do it.', 'AC9E7LY03', '5856f408-278c-43e1-9e79-3a1c9f62796d', null, true, null, null, null, null),
+('1bd8eddf-7e95-4bf9-aaf7-16e344ee2f12', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'What did the experiment in the 1980s suggest?', '["People yawn more when they breathe extra oxygen.","Carbon dioxide makes people sleepy.","The oxygen theory is probably wrong.","Yawning cools the brain."]'::jsonb, 2, 'Volunteers yawned just as often with extra oxygen or extra carbon dioxide, so yawning did not track oxygen levels.', 'AC9E7LY05', '5856f408-278c-43e1-9e79-3a1c9f62796d', null, true, null, null, null, null),
+('ffd81ff6-27d6-47dd-af5a-997457d9e1f3', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'According to the cooling theory, why might people yawn less on very hot days?', '["People are less bored in summer.","Hot air contains less oxygen.","People sleep more in summer.","A gulp of hot air would not cool the brain."]'::jsonb, 3, 'The text says people yawn less on very hot days, when a gulp of air would not cool them down.', 'AC9E7LY05', '5856f408-278c-43e1-9e79-3a1c9f62796d', null, true, null, null, null, null),
+('b6454234-d0e8-4109-8ec9-b794c633c28c', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'How might the cooling theory explain why we yawn when we are bored?', '["The body may be trying to make the brain more alert.","Boredom makes the brain hotter than sleep does.","Bored people breathe less oxygen.","Boredom is contagious."]'::jsonb, 0, 'Supporters say a cooler brain is a more alert brain, so the body may be trying to wake us up.', 'AC9E7LY05', '5856f408-278c-43e1-9e79-3a1c9f62796d', null, true, null, null, null, null),
+('af49c540-52ef-46b5-9f08-88fc534b72da', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why does the writer include “(Are you yawning yet?)”?', '["to ask readers to take part in a study","to involve the reader and show how contagious yawning is","to suggest the article is boring","to introduce the cooling theory"]'::jsonb, 1, 'It speaks directly to the reader and plays on the point just made: even reading about yawning can set you off.', 'AC9E7LY03', '5856f408-278c-43e1-9e79-3a1c9f62796d', null, true, null, null, null, null),
+('2d878630-df61-4d4b-a784-1d906a1aa7b6', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'Contagious yawning seems to be linked to', '["age","hunger","empathy","oxygen"]'::jsonb, 2, 'The text says contagious yawning seems to be linked to empathy, our ability to understand others’ feelings.', 'AC9E7LY05', '5856f408-278c-43e1-9e79-3a1c9f62796d', null, true, null, null, null, null),
+('944584f9-522c-476d-9eae-9a162478c3c5', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Which statement best sums up what the writer concludes about yawning?', '["Yawning is caused by a lack of oxygen.","Yawning is only a sign of boredom.","The cooling theory has been proven.","Nobody knows for certain, and yawning may have more than one purpose."]'::jsonb, 3, 'The final paragraph says nobody knows for certain and the yawn may do more than one job.', 'AC9E7LY05', '5856f408-278c-43e1-9e79-3a1c9f62796d', null, true, null, null, null, null),
+('71e36bae-5044-409e-9c61-791c519fb312', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'What is the writer’s main argument?', '["Deliberate balloon releases should be stopped.","Balloons should only be used at weddings.","Latex balloons are safe for the ocean.","Sea turtles should be kept in sanctuaries."]'::jsonb, 0, 'The title and closing line argue for keeping balloons on the ground, and he calls for the rest of the country to ban releases.', 'AC9E7LY01', '6b2e5bae-8d0f-4359-989f-05934fa0a672', null, true, null, null, null, null),
+('52a0b7e6-416f-4ceb-9573-c219b09a032a', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why does the writer begin by describing a “magical” balloon release?', '["to show that he enjoys balloon releases","to set up a contrast with the harm balloons cause","to describe a wedding he went to","to explain how balloons are made"]'::jsonb, 1, 'He starts with the attractive image, then turns with “But what goes up must come down” to the damage.', 'AC9E7LY03', '6b2e5bae-8d0f-4359-989f-05934fa0a672', null, true, null, null, null, null),
+('3f76133f-6f9a-4b3c-ae59-d57bf9081eab', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why do sea turtles swallow balloons?', '["Turtles like the bright colours.","Balloons taste like seaweed.","Deflated balloons look like jellyfish, which turtles eat.","Turtles cannot see well underwater."]'::jsonb, 2, 'A deflated balloon with its ribbon looks remarkably like a jellyfish, a favourite turtle food.', 'AC9E7LY05', '6b2e5bae-8d0f-4359-989f-05934fa0a672', null, true, null, null, null, null),
+('e5b67583-1b17-49c1-8bd7-846d57ce5381', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'What does the study of seabirds show?', '["Most seabirds eat balloons every day.","Seabirds avoid balloons.","Balloons are the most common plastic in the sea.","Balloons were a small share of the plastic swallowed but the most likely to kill."]'::jsonb, 3, 'Although balloons were only a small share of what the birds swallowed, they were by far the most likely item to kill them.', 'AC9E7LY05', '6b2e5bae-8d0f-4359-989f-05934fa0a672', null, true, null, null, null, null),
+('248914bd-1c26-4a48-8428-30ec910dc7ef', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Why does the writer discuss the word “biodegradable”?', '["to show that the claim is less reassuring than it sounds","to praise balloon makers","to explain how latex is made","to suggest balloons break down in hours"]'::jsonb, 0, 'He grants that the word sounds reassuring, then points out latex can take months or years to break down.', 'AC9E7LY03', '6b2e5bae-8d0f-4359-989f-05934fa0a672', null, true, null, null, null, null),
+('30e036bd-3b53-4e13-b777-1a53dadfb5f0', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why does the writer list bubbles, flags, streamers, trees and candles?', '["to describe his favourite party","to answer the worry that celebrations would be dull without balloons","to show which items are also dangerous","to sell party supplies"]'::jsonb, 1, 'The paragraph begins, “None of this means our celebrations have to be dull,” then offers alternatives.', 'AC9E7LY03', '6b2e5bae-8d0f-4359-989f-05934fa0a672', null, true, null, null, null, null),
+('ebc44109-d2a1-4d4c-aa42-5fe8882f2fcf', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', '“We are sending it … into someone else’s stomach.” By “someone else” the writer means', '["a person at the celebration","the balloon maker","an animal that might swallow the balloon","a child who catches the balloon"]'::jsonb, 2, 'Earlier paragraphs describe turtles and seabirds swallowing balloons; “someone” makes the animal’s suffering personal.', 'AC9E7LE05', '6b2e5bae-8d0f-4359-989f-05934fa0a672', null, true, null, null, null, null),
+('0040ad11-4b73-48b6-9742-5253937d795b', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What has happened to Nan?', '["She has moved into a new house.","She has gone on holiday.","She has stopped gardening.","She has died."]'::jsonb, 3, 'The family has come to clear her house, and “she’d gone”; the last line talks of her way of staying.', 'AC9E7LY05', '1dffd20c-bc1b-469a-9c72-c4af7a31ee18', null, true, null, null, null, null),
+('f489ad2a-eff9-4d4c-9273-73a61e318ff1', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', '“The tomatoes didn’t know she’d gone.” This opening line suggests that', '["the garden carries on growing as if nothing has changed","the tomatoes are dying","Nan had forgotten to pick the tomatoes","the family has not told anyone"]'::jsonb, 0, 'Giving the tomatoes a mind of their own shows the garden continuing, unaware of the loss.', 'AC9E7LE05', '1dffd20c-bc1b-469a-9c72-c4af7a31ee18', null, true, null, null, null, null),
+('23adc1cc-e050-4c5b-8846-cb886d9fde96', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Why does the speaker notice that the gloves are “still curled to fit the shape of hands”?', '["The gloves are too small for anyone else.","They keep a trace of Nan, as if she had only just taken them off.","The speaker wants to use them.","The gloves have been damaged by the tap."]'::jsonb, 1, 'The gloves still hold the shape of her hands, a physical reminder of her presence and her work in the garden.', 'AC9E7LE05', '1dffd20c-bc1b-469a-9c72-c4af7a31ee18', null, true, null, null, null, null),
+('7abd4b95-7159-4df4-8af4-68d3772962f2', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Mum holds the lemons “like she used to hold me”. This shows that Mum', '["finds them heavy","is about to throw them away","holds them tenderly, as something precious","is angry with the speaker"]'::jsonb, 2, 'The comparison to how she held her child shows care and love: the lemons have become precious because they are Nan’s.', 'AC9E7LE05', '1dffd20c-bc1b-469a-9c72-c4af7a31ee18', null, true, null, null, null, null),
+('26fd317a-8c1e-4e90-802c-954ef600d14e', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Which words best describe the mood of the poem?', '["angry and bitter","excited and cheerful","frightening","sad but gentle"]'::jsonb, 3, 'It is about loss and grief, but it is quiet and tender, and it ends with a comforting thought.', 'AC9E7LE02', '1dffd20c-bc1b-469a-9c72-c4af7a31ee18', null, true, null, null, null, null),
+('1c59d596-3ad3-4cd1-8961-fbb01d555ec6', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'What does the last line, “Nan’s way of staying for a while”, suggest?', '["The lemons from her tree kept her memory close for a time.","Nan came back to visit that week.","The family decided to keep Nan’s house.","Nan had asked them to eat lemons."]'::jsonb, 0, 'Every meal that week had her lemons in it, so part of her stayed with them for a while.', 'AC9E7LE02', '1dffd20c-bc1b-469a-9c72-c4af7a31ee18', null, true, null, null, null, null),
+('466f1519-72ba-4f5c-905a-043ed8f772bc', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'How does the writer begin the explanation?', '["with a definition of sound","by describing an experience the reader may have had","with a warning about loud noise","by comparing different brands"]'::jsonb, 1, 'It opens with switching the headphones on in a plane and the engine roar fading away.', 'AC9E7LY03', '1267d34c-2776-4fda-8da1-3ba4b7971464', null, true, null, null, null, null),
+('fcbbd37e-53e8-4ac0-bcfb-a05cde7d4652', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'On a drawing of a sound wave, a peak shows where the air is', '["spread apart","moving fastest","squeezed together","silent"]'::jsonb, 2, 'The text says peaks are where the air is squeezed and troughs where it is spread out.', 'AC9E7LY05', '1267d34c-2776-4fda-8da1-3ba4b7971464', null, true, null, null, null, null),
+('e0d7f00d-2df5-482c-865b-4dbf87f7b74c', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What do the microphones on the outside of the ear cups do?', '["play the music","block sound from entering","record your voice","pick up the noise around you"]'::jsonb, 3, 'The microphones pick up the noise around you.', 'AC9E7LY05', '1267d34c-2776-4fda-8da1-3ba4b7971464', null, true, null, null, null, null),
+('51ea1dd1-a1d4-414a-b9e2-1b806abb987e', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'What does the chip inside the headphones create?', '["a sound wave that is the exact opposite of the noise","a louder copy of the noise","a recording of the music","a wave that matches the noise exactly"]'::jsonb, 0, 'It creates a new wave where the noise has a peak and it has a trough, so the two cancel.', 'AC9E7LY05', '1267d34c-2776-4fda-8da1-3ba4b7971464', null, true, null, null, null, null),
+('97296a7f-7ebc-4708-8c96-a59622a53e10', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'In the text, “destructive interference” is the name for', '["a fault in the headphones","two waves cancelling each other out","noise that damages your hearing","sound bouncing off walls"]'::jsonb, 1, 'The sentence before it describes the two waves cancelling; the term names that effect.', 'AC9E7LY05', '1267d34c-2776-4fda-8da1-3ba4b7971464', null, true, null, null, null, null),
+('65e7d791-ebba-46ef-aa58-422a294b3f10', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Why are sudden sounds harder to cancel than an engine’s drone?', '["They are always louder.","The microphones cannot hear them.","They change too quickly for the chip to predict.","They come from inside the plane."]'::jsonb, 2, 'Steady low sounds can be predicted; sudden or high sounds change too quickly to cancel completely.', 'AC9E7LY05', '1267d34c-2776-4fda-8da1-3ba4b7971464', null, true, null, null, null, null),
+('cefd25a1-56ae-492e-9a61-9a3553e9674e', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'What is trachoma?', '["a clouding of the lens of the eye","a type of eye surgery","an eye test used by doctors","an infectious eye disease that can cause blindness"]'::jsonb, 3, 'The text defines it as an infectious disease that scars the eyelids and can lead to blindness. Cataracts are the clouding of the lens.', 'AC9E7LY05', '0d4b8bb5-0d97-4607-aa46-d171c8f51643', null, true, null, null, null, null),
+('c19fd405-4f83-4145-ab0a-894b214ca423', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why was Hollows shocked by what he found in outback communities?', '["A disease gone from most wealthy countries was common there.","There were no doctors in Australia.","Children refused to be treated.","The communities had too many hospitals."]'::jsonb, 0, 'Trachoma had been wiped out in most wealthy countries, yet it was common in one of the richest nations on Earth.', 'AC9E7LY05', '0d4b8bb5-0d97-4607-aa46-d171c8f51643', null, true, null, null, null, null),
+('14a23aa9-0931-465e-bade-b55675d21bfd', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What was the aim of the program Hollows led from 1976 to 1978?', '["to build eye hospitals in Sydney","to take eye care to Aboriginal communities across Australia","to train doctors in Nepal","to make cheap plastic lenses"]'::jsonb, 1, 'Teams travelled to Aboriginal communities across Australia to examine and treat people.', 'AC9E7LY05', '0d4b8bb5-0d97-4607-aa46-d171c8f51643', null, true, null, null, null, null),
+('37aad8f6-15f6-428d-a09b-3b841bc8c504', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why were cataract operations out of reach in poor countries?', '["The operation takes many days.","Cataracts cannot be treated.","The plastic lenses were too expensive.","There were no people with cataracts."]'::jsonb, 2, 'The operation is short, but the plastic lenses were too expensive for poor countries.', 'AC9E7LY05', '0d4b8bb5-0d97-4607-aa46-d171c8f51643', null, true, null, null, null, null),
+('1875ef07-a5fd-4507-929a-915849cf3fe1', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What did Hollows’ foundation do after his death?', '["closed down","moved to New Zealand","stopped working overseas","built factories in Nepal and Eritrea to make cheap lenses"]'::jsonb, 3, 'The foundation built factories in Nepal and Eritrea to make lenses for a small fraction of the price.', 'AC9E7LY05', '0d4b8bb5-0d97-4607-aa46-d171c8f51643', null, true, null, null, null, null),
+('79eab3eb-32da-402e-93a9-2068fd7d928a', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Which sentence best states the main idea of this text?', '["Hollows worked to bring eye care to people who could not otherwise get it.","Hollows was named Australian of the Year in 1990.","Trachoma scars the inside of the eyelids.","Hollows moved from New Zealand to Sydney."]'::jsonb, 0, 'Every section shows him taking eye care to those without it; the other options are single details.', 'AC9E7LY03', '0d4b8bb5-0d97-4607-aa46-d171c8f51643', null, true, null, null, null, null),
+('daf6f6f1-cb77-4dd1-bb76-8ac91c93cffa', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'The first sentence tells the reader that the reviewer thinks the film', '["is perfect for everyone","looks beautiful but has problems","is too frightening for children","is not worth seeing at all"]'::jsonb, 1, '“Gorgeous to look at and frustrating to watch” sets up the praise for the visuals and the criticism of the story.', 'AC9E7LY05', '7407e7ea-da61-423c-be34-918af9c02e4b', null, true, null, null, null, null),
+('0d4f288e-c56e-438a-bcfb-565dc4400718', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'Why does Nia set out to find the Tidebreaker?', '["She wants to become famous.","Her boat was stolen.","A storm has sunk the fishing fleet, and the whale is said to calm any sea.","Scuttle asks her to."]'::jsonb, 2, 'After the storm sinks the fleet, she goes to find the legendary whale said to calm any sea.', 'AC9E7LY05', '7407e7ea-da61-423c-be34-918af9c02e4b', null, true, null, null, null, null),
+('535ef172-1ecc-4f9b-b799-8169455c1b0b', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', '“The ocean is almost a character in its own right.” The reviewer means that', '["the ocean can talk in the film","the ocean is the villain","the ocean is the main character’s name","the ocean is shown so vividly that it seems alive"]'::jsonb, 3, 'The ocean changes mood from calm to towering walls of water, as if it had a personality.', 'AC9E7LE05', '7407e7ea-da61-423c-be34-918af9c02e4b', null, true, null, null, null, null),
+('963c056a-9f0a-4dad-86cf-32a3f6f5f145', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Which of these is NOT a criticism the reviewer makes?', '["The hermit crab is annoying.","The first half is slow.","The ending is rushed.","The songs are forgettable."]'::jsonb, 0, 'Scuttle the hermit crab is praised: younger viewers will love him and he steals every scene.', 'AC9E7LY05', '7407e7ea-da61-423c-be34-918af9c02e4b', null, true, null, null, null, null),
+('f00b28be-17ec-47bc-b005-633996cd5e62', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'The final twist “can be seen coming from a mile away”. This means the twist is', '["exciting","predictable","confusing","set far out at sea"]'::jsonb, 1, 'Seeing something coming from a mile away means you expect it long before it happens.', 'AC9E7LE05', '7407e7ea-da61-423c-be34-918af9c02e4b', null, true, null, null, null, null),
+('dc4ac0bc-ca52-48bb-b0ec-d83334a6bfa1', 'reading_literary_analysis', 'year_7', 'foundation', 'short_answer', 'How many students took part in the survey? Write a number.', null, null, 'The Student Council asked 200 Year 7 students.', 'AC9E7LY05', '59eaebcc-1d06-4aad-bb93-c45a5f5600a6', null, true, '200', null, null, null),
+('e17d2b7b-6bff-41be-8b7a-7ba7b4d75320', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'According to the table, how long did students spend on homework on an average afternoon?', '["18 minutes","31 minutes","34 minutes","72 minutes"]'::jsonb, 2, 'The table gives Homework as 34 minutes.', 'AC9E7LY05', '59eaebcc-1d06-4aad-bb93-c45a5f5600a6', null, true, null, null, null, null),
+('2102739a-5f96-4b14-a4b6-d89b1c2e366b', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Which activity took the least time?', '["chores and jobs","sport or exercise","reading for fun","other"]'::jsonb, 2, 'Reading for fun is the smallest amount in the table, at 11 minutes, and the text says it came last.', 'AC9E7LY05', '59eaebcc-1d06-4aad-bb93-c45a5f5600a6', null, true, null, null, null, null),
+('06a9e124-713c-46fc-9629-e341762e1f84', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why was the Student Council surprised?', '["Students spent so little time on screens.","Students wanted more homework.","Hardly anyone did sport.","Most students wanted more time with friends in person, not more screen time."]'::jsonb, 3, 'Screens took most time, yet the top wish was to hang out with friends in person (38%); screens were only 12%.', 'AC9E7LY05', '59eaebcc-1d06-4aad-bb93-c45a5f5600a6', null, true, null, null, null, null),
+('7ce9e08a-1f0e-463e-b950-f6c24e4927df', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'How does the Student Council plan to use the results?', '["to argue for more lunchtime and after-school clubs","to ban phones at school","to set more homework","to shorten the school day"]'::jsonb, 0, 'The last sentence says they will argue for more lunchtime and after-school clubs.', 'AC9E7LY05', '59eaebcc-1d06-4aad-bb93-c45a5f5600a6', null, true, null, null, null, null),
+('ccdb3e91-b7a7-482c-9ffe-7e9a437620cc', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'Why can the rock shelf be explored for only a few hours each day?', '["It is uncovered only at low tide.","It is closed to the public most of the day.","It is too hot in the middle of the day.","Gemma only had two hours free."]'::jsonb, 0, 'The first sentence says it only appears when the sea pulls back at low tide.', 'AC9E7LY05', '945db61d-fd77-4bcc-bfd8-5d525eee4a33', null, true, null, null, null, null),
+('3afbbcd8-c43e-426d-a3e5-687004ea91c0', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', '“Every pool was a tiny, glittering room.” This description suggests that the pools were', '["dark and frightening","small and full of interesting things","deep enough to swim in","crowded with other visitors"]'::jsonb, 1, 'Each pool is pictured as a little room of its own, sparkling with urchins, crabs and an octopus.', 'AC9E7LE05', '945db61d-fd77-4bcc-bfd8-5d525eee4a33', null, true, null, null, null, null),
+('dd7f7feb-7ed4-47e8-a3cc-4ef3d6bca157', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why does Gemma grab Luca’s wrist?', '["to stop him slipping into a pool","to hurry him back to the beach","to stop him getting close to a dangerous octopus","to show him a crab"]'::jsonb, 2, 'The blue-ringed octopus could kill him; she tells him to look with his eyes.', 'AC9E7LY05', '945db61d-fd77-4bcc-bfd8-5d525eee4a33', null, true, null, null, null, null),
+('930d8abf-7367-4ebc-894f-12281a2571a2', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why do the two of them end up so far from the path they came in on?', '["Gemma had planned to go around the headland.","The tide chart was wrong.","Luca ran away from Gemma.","They were so caught up in exploring that they lost track of time."]'::jsonb, 3, 'They wandered further than they meant to, and Luca lost track of time.', 'AC9E7LY05', '945db61d-fd77-4bcc-bfd8-5d525eee4a33', null, true, null, null, null, null),
+('a138960a-1ddf-4099-ada6-8b24fa81977f', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', '“His voice came out high and thin.” This tells the reader that Luca was', '["frightened","excited","shouting","tired"]'::jsonb, 0, 'A tight, high voice is a sign of fear; they have just realised the way back is under water.', 'AC9E7LE05', '945db61d-fd77-4bcc-bfd8-5d525eee4a33', null, true, null, null, null, null),
+('f717155b-12e3-4054-ab76-a419738fa77f', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why does Gemma decide to climb instead of wading back?', '["She wants a better view of the sea.","She knows the waves are more dangerous than they look.","She thinks climbing will be quicker.","She has lost the path."]'::jsonb, 1, 'She says, “Waves are stronger than they look. We go up, not through.” The lifeguard later confirms waders get into trouble.', 'AC9E7LY05', '945db61d-fd77-4bcc-bfd8-5d525eee4a33', null, true, null, null, null, null),
+('f0449eae-860a-4966-a794-8c240ffa911c', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Gemma sits down “as if they were waiting for a bus”. This shows that she', '["is bored by the rescue","does not understand the danger","stays calm, which helps keep Luca calm","is too tired to call for help"]'::jsonb, 2, 'Comparing a cliff ledge in an emergency to a bus stop shows how composed she is, in contrast to Luca’s shaking hands.', 'AC9E7LE05', '945db61d-fd77-4bcc-bfd8-5d525eee4a33', null, true, null, null, null, null),
+('706df074-f36a-47d3-828d-890db3c69d3e', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'What does Luca’s action with the tide chart at the end of the story suggest?', '["He wants to go back to Hollow Point tomorrow.","He is annoyed with Gemma.","He wants to become a lifeguard.","He has learned how important it is to know the tides."]'::jsonb, 3, 'He studies the chart and puts his own copy on the fridge: the scare has taught him to pay attention to the tide.', 'AC9E7LE02', '945db61d-fd77-4bcc-bfd8-5d525eee4a33', null, true, null, null, null, null),
+('4e869604-7c50-467a-8c54-c36c0c758764', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'How hot can a bolt of lightning make the air around it?', '["about five times hotter than the surface of the Sun","about as hot as the surface of the Sun","about as hot as a kitchen oven","about twice as hot as boiling water"]'::jsonb, 0, 'The text says about 30,000 degrees Celsius, roughly five times hotter than the surface of the Sun.', 'AC9E7LY05', '28d873ff-5765-4f6f-80d2-b4e5e419df7e', null, true, null, null, null, null),
+('e10724c5-98e8-4a0c-a82e-95ccb601a2e5', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why does the writer mention rubbing a balloon on your hair?', '["to show how lightning can be made at home","to explain electric charge with a familiar example","to warn readers about static electricity","to explain why hair stands up in a storm"]'::jsonb, 1, 'It compares charges building up in a cloud to something most readers have tried.', 'AC9E7LY03', '28d873ff-5765-4f6f-80d2-b4e5e419df7e', null, true, null, null, null, null),
+('da4836d7-02ea-4eee-ae82-6faf20163c3c', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'According to the text, what causes thunder?', '["clouds crashing into each other","lightning hitting the ground","air expanding so quickly that it makes a shock wave","ice falling inside the cloud"]'::jsonb, 2, 'The heat makes the air expand so fast it creates a shock wave, which we hear as thunder.', 'AC9E7LY05', '28d873ff-5765-4f6f-80d2-b4e5e419df7e', null, true, null, null, null, null),
+('2b9c11ac-6eda-4435-bf34-f63d9cdbc16c', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why do we see lightning before we hear thunder?', '["Thunder happens after the lightning has finished.","Our eyes are faster than our ears.","The sound bounces off the clouds first.","Light travels much faster than sound."]'::jsonb, 3, 'The text says because light travels much faster than sound, we see the flash first.', 'AC9E7LY05', '28d873ff-5765-4f6f-80d2-b4e5e419df7e', null, true, null, null, null, null),
+('9d13eac5-8f61-4b81-a967-77761ba36ce4', 'reading_literary_analysis', 'year_7', 'proficient', 'short_answer', 'You count 9 seconds between a flash and its thunder. About how many kilometres away is the storm? Write a number.', null, null, 'Every three seconds is about one kilometre, so 9 seconds is about 3 kilometres.', 'AC9E7LY05', '28d873ff-5765-4f6f-80d2-b4e5e419df7e', null, true, '3', ARRAY['3 km', 'three']::text[], null, null),
+('ccb662c7-5d33-466c-97cf-10753834dbf8', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Which of these is a safe place to be in a thunderstorm?', '["inside a car with a metal roof","under a tall tree on its own","in an open field","in a swimming pool"]'::jsonb, 0, 'The text says go inside a solid building or a car with a metal roof; the others are places to avoid.', 'AC9E7LY05', '28d873ff-5765-4f6f-80d2-b4e5e419df7e', null, true, null, null, null, null),
+('e62240c8-e422-49a2-ada7-7b52efad3494', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'The first fact in the Did you know? box goes against the common belief that', '["lightning is hotter than the Sun","lightning never strikes the same place twice","thunder is dangerous","lightning only happens in summer"]'::jsonb, 1, 'It says lightning can strike the same place more than once, correcting the well-known saying.', 'AC9E7LY05', '28d873ff-5765-4f6f-80d2-b4e5e419df7e', null, true, null, null, null, null),
+('a024e55a-2825-421c-9a68-0ee169495ddc', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'How does Dr Obi begin her article?', '["by giving the number of trees the council plants","by describing a flood","by asking readers to imagine two very different streets","by explaining what an urban planner does"]'::jsonb, 2, 'She contrasts walking down a bare, baking street with walking down a leafy one.', 'AC9E7LY03', 'c139eb4a-de86-4158-a10e-85f2b20ec784', null, true, null, null, null, null),
+('711be141-3fca-46c1-89aa-92431e5b57a8', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What is the “urban heat island”?', '["a hot island near the city","a park with no trees","a heatwave that lasts a week","cities being hotter than the countryside around them"]'::jsonb, 3, 'Hard surfaces soak up and release heat, making cities hotter than the countryside: an effect scientists call the urban heat island.', 'AC9E7LY05', 'c139eb4a-de86-4158-a10e-85f2b20ec784', null, true, null, null, null, null),
+('01850614-f630-4058-803e-205218c4c8c9', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why does the writer say trees cool the air “a little like a person sweating”?', '["to help the reader understand how trees release water to cool down","to suggest that trees are alive","to show that trees need watering","to make the argument funny"]'::jsonb, 0, 'Sweat cools us as it evaporates; the comparison explains the leaf process in familiar terms.', 'AC9E7LE05', 'c139eb4a-de86-4158-a10e-85f2b20ec784', null, true, null, null, null, null),
+('2ca0eabb-80cd-462d-a495-27b0d3da27dd', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why does the writer point out that heatwaves kill more Australians than any other natural disaster?', '["to frighten readers away from cities","to show how serious the problem of heat is","to argue for more air-conditioned shopping centres","to compare heatwaves with floods"]'::jsonb, 1, 'The statistic raises the stakes: street trees are a matter of safety, not just comfort.', 'AC9E7LY03', 'c139eb4a-de86-4158-a10e-85f2b20ec784', null, true, null, null, null, null),
+('9c1a2882-7f5f-472e-a671-c93d798ce0af', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Who does the writer say is most at risk in a heatwave?', '["people who work outdoors","people in the countryside","the elderly, babies and people with health problems","children at school"]'::jsonb, 2, 'She names the elderly, babies and people with health problems.', 'AC9E7LY05', 'c139eb4a-de86-4158-a10e-85f2b20ec784', null, true, null, null, null, null),
+('00d965ee-f08f-43c8-abd4-1969aea954db', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'How does the writer respond to residents who worry about leaves and cracked footpaths?', '["She says the worries are silly.","She suggests planting no trees near houses.","She ignores them.","She agrees they are real concerns but says they can be managed."]'::jsonb, 3, 'She calls them real concerns, then explains choosing and planting the right species manages them.', 'AC9E7LY03', 'c139eb4a-de86-4158-a10e-85f2b20ec784', null, true, null, null, null, null),
+('5f1ca9c9-77b3-4ae1-981c-46a5c9ed34af', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'What exactly is Dr Obi asking the council to do?', '["double the trees it plants, starting in the hottest suburbs","stop building roads","plant 500 trees next year","remove trees that crack footpaths"]'::jsonb, 0, 'It plants about 500 a year; she wants double that, planted first where it is hottest and shade is scarcest.', 'AC9E7LY05', 'c139eb4a-de86-4158-a10e-85f2b20ec784', null, true, null, null, null, null),
+('385d431b-3cab-4c8a-9968-86ca5e7e1926', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', '“The whole stadium shrinks to one white line and the sound of my own heart.” This suggests that the runner', '["feels faint and dizzy","is completely focused on the race","is standing far from the crowd","cannot see properly"]'::jsonb, 1, 'Everything else fades away until only the line and their heartbeat are left: total concentration.', 'AC9E7LE05', '20bd74d8-b179-4304-8cc4-7500daa811b3', null, true, null, null, null, null),
+('6294a0ce-6ac2-4f65-8575-d3f6c954e27e', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', '“I am a spring pressed flat” shows that the runner is', '["squashed by the crowd","lying on the track","ready to burst forward","too tired to move"]'::jsonb, 2, 'A spring pressed flat is full of stored energy, ready to release.', 'AC9E7LE05', '20bd74d8-b179-4304-8cc4-7500daa811b3', null, true, null, null, null, null),
+('fed633af-c1f6-4a8f-9584-4a692d532164', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why do the first two sections begin with “On your marks.” and “Set.”?', '["to show the runner giving orders","to count the verses","to show that the race is cancelled","to follow the stages of the start of a race"]'::jsonb, 3, 'These are the starter’s commands; the poem moves through them to the gun.', 'AC9E7LY03', '20bd74d8-b179-4304-8cc4-7500daa811b3', null, true, null, null, null, null),
+('37d32f68-62fd-43e7-ad89-1891498decdb', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', '“The gun cracks the sky in half” emphasises that the starting gun is', '["sudden and loud","dangerous","high in the air","broken"]'::jsonb, 0, 'Cracking the sky is an exaggeration for a sharp, sudden bang.', 'AC9E7LE05', '20bd74d8-b179-4304-8cc4-7500daa811b3', null, true, null, null, null, null),
+('9e82eb1c-da04-4a60-9772-49bfe7bc7f6c', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', '“A whole year of mornings spent in eleven seconds.” The poet means that', '["the runner wasted a year","a year of early training led to a race that lasted eleven seconds","the race was held in the morning","the runner took a year to finish"]'::jsonb, 1, 'All those mornings of practice are used up in one short race: its brevity against the effort behind it.', 'AC9E7LE02', '20bd74d8-b179-4304-8cc4-7500daa811b3', null, true, null, null, null, null),
+('84940017-97e9-45fc-99f2-fb95cc314f0e', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why is the poem written using “I” and “my”?', '["because the poet is describing a friend","to make the poem rhyme","so the reader experiences the race through the runner’s eyes","to show the runner is proud"]'::jsonb, 2, 'The first person puts the reader inside the runner’s head and body.', 'AC9E7LE05', '20bd74d8-b179-4304-8cc4-7500daa811b3', null, true, null, null, null, null),
+('c6ae099d-1f8e-4dca-b05d-cbc6aa40d4ed', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'How does stop-motion make objects seem to move?', '["The objects have small motors inside.","The app draws the movement.","The camera moves around the objects.","Photos of tiny moves are played quickly one after another."]'::jsonb, 3, 'Animators move objects a tiny bit, photograph each move, and play the photos quickly.', 'AC9E7LY05', '80c74de5-5ab1-4e6a-a330-b1a14833537a', null, true, null, null, null, null),
+('d425cb54-84a1-493c-8533-e0bc393253ad', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why must the phone be fixed in place?', '["Even a tiny bump will make the film jump.","It might fall and break.","The app will not work otherwise.","The lamp needs to be behind it."]'::jsonb, 0, 'Step 2 says even a tiny bump will make your film jump.', 'AC9E7LY05', '80c74de5-5ab1-4e6a-a330-b1a14833537a', null, true, null, null, null, null),
+('9aa6986a-672b-460e-b587-990cebaaba11', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why does the text say to use a lamp and close the curtains?', '["Sunlight damages modelling clay.","Changing daylight makes the film flicker.","The app needs a dark room.","It makes the colours brighter."]'::jsonb, 1, 'Step 3 says daylight changes as clouds pass, which makes the film flicker.', 'AC9E7LY05', '80c74de5-5ab1-4e6a-a330-b1a14833537a', null, true, null, null, null, null),
+('4e37f3b9-e04b-47e7-b3c6-51d126fd5574', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'The text says a ten-second film needs about 120 photos. Which other part of the text agrees with this?', '["Small moves make smooth motion.","Play back your photos every so often.","Most films use 12 photos for each second.","Professionals finish only a few seconds a day."]'::jsonb, 2, 'Twelve photos a second for ten seconds is 120 photos.', 'AC9E7LY05', '80c74de5-5ab1-4e6a-a330-b1a14833537a', null, true, null, null, null, null),
+('1ae7daee-4e4e-4ef0-983b-94c4f901abf5', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What is the purpose of the Tips from the experts box?', '["to list the equipment needed","to repeat the steps in order","to name famous films","to give extra advice for better results"]'::jsonb, 3, 'The tips add advice on smoothness, speed and patience beyond the basic steps.', 'AC9E7LY03', '80c74de5-5ab1-4e6a-a330-b1a14833537a', null, true, null, null, null, null),
+('d4525507-5f8f-45cc-bb0b-d1e6740677b1', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'How does the writer feel about camping at the start of the diary?', '["reluctant","excited","frightened","proud"]'::jsonb, 0, 'They say their soul was fine at home with Wi-Fi, and complain about the tent and the food.', 'AC9E7LY05', '18c645c8-7591-4f92-8a26-8f4a467e7457', null, true, null, null, null, null),
+('fc2e6b36-89bb-4370-a245-b7ccc2e043b1', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'The tent “leaned to one side like it was tired too”. This is a humorous way of showing that', '["the tent was very old","the tent had been put up badly","the wind was blowing hard","the writer had fallen asleep"]'::jsonb, 1, 'After two hours without instructions, the tent is lopsided; the writer jokes that it is as worn out as they are.', 'AC9E7LE05', '18c645c8-7591-4f92-8a26-8f4a467e7457', null, true, null, null, null, null),
+('1a0b0995-ef91-4a30-b93d-12b20e327a5f', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why does the writer think the kookaburra is laughing at them?', '["The kookaburra is watching them eat.","Dad tells them it is.","They are grumpy about being woken so early.","They have fallen out of the tent."]'::jsonb, 2, 'Woken at 5.30 am and already unhappy, the writer takes the bird’s call personally.', 'AC9E7LY05', '18c645c8-7591-4f92-8a26-8f4a467e7457', null, true, null, null, null, null),
+('74beeaa3-0331-4946-b0ae-70e68fe9f268', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'What first changes the writer’s attitude to the trip?', '["the card games in the tent","the sausages for dinner","packing up the tent","the view from the lookout"]'::jsonb, 3, 'At the lookout they forget to complain: the steaming valley, the silver river and the eagle.', 'AC9E7LY05', '18c645c8-7591-4f92-8a26-8f4a467e7457', null, true, null, null, null, null),
+('4c8b32b5-c917-4fbf-97b0-6ffd6589b6b0', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Why does the writer add “which I am only writing here because nobody will read this”?', '["They do not want to admit openly that they enjoyed being without a phone.","They plan to throw the diary away.","They are angry that no one reads their diary.","They want Dad to read it."]'::jsonb, 0, 'Not missing the phone goes against their opening attitude, so they only admit it privately.', 'AC9E7LE02', '18c645c8-7591-4f92-8a26-8f4a467e7457', null, true, null, null, null, null),
+('0bff3052-327e-490b-a417-e568ae0af823', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'What does the last sentence, “I think we both knew that meant yes”, suggest?', '["Dad does not want to go again.","The writer wants to go again but does not want to say so directly.","The writer is unsure what they want.","Dad misheard the answer."]'::jsonb, 1, '“Maybe” is a face-saving answer; both of them understand it is really a yes.', 'AC9E7LY05', '18c645c8-7591-4f92-8a26-8f4a467e7457', null, true, null, null, null, null),
+('f420e060-875d-4257-ad78-d1251399d945', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'How did Jordan become interested in wheelchair basketball?', '["She saw it on television.","Her school had a team.","A physiotherapist took her to watch a game.","Her parents played it."]'::jsonb, 2, 'She says a physiotherapist took her to watch a game, and she knew she wanted to play.', 'AC9E7LY05', '1d2414f5-a020-4a72-977e-507322011eb2', null, true, null, null, null, null),
+('309f5003-4606-4f56-87b7-f83cd7aa81af', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What does Jordan say people get wrong about the sport?', '["They think it has no rules.","They think it is only for adults.","They think it is too dangerous.","They think it is gentle."]'::jsonb, 3, 'She says, “They think it’s gentle. It isn’t!”', 'AC9E7LY05', '1d2414f5-a020-4a72-977e-507322011eb2', null, true, null, null, null, null),
+('97cd881f-c69c-406d-a444-46ece9b65371', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why do the chairs have wheels that angle outwards?', '["so they do not tip over in hard turns","so they can go faster in a straight line","so they are easier to carry","so players can bump each other"]'::jsonb, 0, 'She explains they angle outwards so they don’t tip over when you turn hard.', 'AC9E7LY05', '1d2414f5-a020-4a72-977e-507322011eb2', null, true, null, null, null, null),
+('537ef80b-bc0e-4543-85d4-147d4573b2fd', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'How is dribbling different in wheelchair basketball?', '["You may not bounce the ball at all.","You may push your wheels twice, then must bounce, pass or shoot.","You must hold the ball on your lap.","You may push as often as you like."]'::jsonb, 1, 'She says you can push your wheels twice, but then you have to bounce the ball, pass or shoot.', 'AC9E7LY05', '1d2414f5-a020-4a72-977e-507322011eb2', null, true, null, null, null, null),
+('161a7a53-ad99-4f25-a837-08f9d3a91d96', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'When Jordan says people “only saw my chair”, she means that', '["her chair was very noticeable","people wanted a chair like hers","people noticed her wheelchair instead of her as a person","she did not like her chair"]'::jsonb, 2, 'She contrasts this with the court, where team-mates care about her skill, not her chair.', 'AC9E7LE02', '1d2414f5-a020-4a72-977e-507322011eb2', null, true, null, null, null, null),
+('0b459e97-4810-4a1a-8873-e81fb48df531', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'How did riders move the running machine of 1817?', '["They turned pedals on the front wheel.","They pedalled a chain.","They were pulled by a horse.","They pushed along the ground with their feet."]'::jsonb, 3, 'The table says riders pushed along the ground with their feet; the text says it had no pedals.', 'AC9E7LY05', '37bfc549-fde8-4266-9056-036a1cd46317', null, true, null, null, null, null),
+('b19245b0-2861-4968-a23a-21b68443e932', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'Which bicycle was nicknamed the boneshaker?', '["the velocipede","the penny-farthing","the safety bicycle","the running machine"]'::jsonb, 0, 'The table gives the velocipede’s nickname as the boneshaker.', 'AC9E7LY05', '37bfc549-fde8-4266-9056-036a1cd46317', null, true, null, null, null, null),
+('fc9f5745-890d-4997-ab5b-0d827a4bfaea', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why did the penny-farthing have such a huge front wheel?', '["so it was safer","so each turn of the pedals went further","so it could carry two people","so it looked impressive"]'::jsonb, 1, 'The table says each turn of the pedals went further.', 'AC9E7LY05', '37bfc549-fde8-4266-9056-036a1cd46317', null, true, null, null, null, null),
+('f3cf65c3-eddd-45d7-a03d-27934848e6cb', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why was the safety bicycle given that name?', '["It had brakes for the first time.","It was sold with a helmet.","It was much less likely to throw riders over the handlebars.","It was slower than other bicycles."]'::jsonb, 2, 'The text says it got its name because it was much less likely to cause penny-farthing-style falls.', 'AC9E7LY05', '37bfc549-fde8-4266-9056-036a1cd46317', null, true, null, null, null, null),
+('21c61ba4-9bc6-4ab6-912b-c2ba71f529f5', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why did John Dunlop develop the air-filled tyre?', '["to win a bicycle race","to make bicycles cheaper","to stop bicycles from skidding","to make his son’s tricycle more comfortable"]'::jsonb, 3, 'The text says he wanted to make his son’s tricycle more comfortable to ride.', 'AC9E7LY05', '37bfc549-fde8-4266-9056-036a1cd46317', null, true, null, null, null, null),
+('27046f79-ebce-42a7-8081-120df44298c3', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'How is the information in the table organised?', '["in time order","from most to least popular","from cheapest to most expensive","in alphabetical order"]'::jsonb, 0, 'The rows run by date from 1817 to 1888.', 'AC9E7LY03', '37bfc549-fde8-4266-9056-036a1cd46317', null, true, null, null, null, null),
+('3d65b1f5-3383-4ef8-b21f-97495bf284b0', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'How did Ava prepare for the tryouts?', '["She dribbled a ball around the bins every afternoon.","She trained with the under-14 team.","She watched soccer on television.","She took shots at a bucket."]'::jsonb, 0, 'Every afternoon for a month she dribbled around the wheelie bins. The bucket comes at the end, after the email.', 'AC9E7LY05', '4acb78b3-827f-4e3b-9a07-334be2770ce4', null, true, null, null, null, null),
+('23a89909-84b0-4eef-a80d-a1b30020aac8', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', '“Forty girls turned up for eighteen places.” This tells the reader that', '["the team needed more players","most girls were from Ava’s school","more than half the girls would miss out","the coach had to cancel the tryouts"]'::jsonb, 2, 'With 18 places for 40 girls, 22 would not make the team: the competition was tough.', 'AC9E7LY05', '4acb78b3-827f-4e3b-9a07-334be2770ce4', null, true, null, null, null, null),
+('76af7656-152b-41e9-bebf-b2be2c6250a2', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'The keeper “seemed to have arms twice as long as anyone else’s”. This exaggeration shows that', '["the keeper was the tallest girl there","the keeper was wearing large gloves","Ava did not like the keeper","the keeper seemed very hard to score against"]'::jsonb, 3, 'It is how the goal felt to Ava: impossible to get the ball past her.', 'AC9E7LE05', '4acb78b3-827f-4e3b-9a07-334be2770ce4', null, true, null, null, null, null),
+('f93c6236-996c-4352-9f0a-ca190b8e9be7', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'What went wrong when Ava’s big chance came?', '["She hesitated, and a defender took the ball.","She kicked the ball over the crossbar.","She fell over.","The coach blew the whistle."]'::jsonb, 0, 'With the goal wide open, she hesitated and a defender swept the ball away.', 'AC9E7LY05', '4acb78b3-827f-4e3b-9a07-334be2770ce4', null, true, null, null, null, null),
+('df23668f-b889-468a-bb83-64478998e8b6', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why did Ava read the list from the bottom as well as the top?', '["The names were in alphabetical order.","She hoped she had somehow missed her name.","She wanted to see who else had missed out.","The coach told her to."]'::jsonb, 1, 'She checks again in case her name had slipped between the lines; she cannot believe it is not there.', 'AC9E7LY05', '4acb78b3-827f-4e3b-9a07-334be2770ce4', null, true, null, null, null, null),
+('ee39d698-0705-4cff-8054-c8845b458b46', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why did Ava walk home the long way?', '["She wanted to practice on the way.","The usual way was closed.","She did not want anyone to see she was upset.","She was meeting the coach."]'::jsonb, 2, 'The story says she walked the long way so that no one would see her face.', 'AC9E7LY05', '4acb78b3-827f-4e3b-9a07-334be2770ce4', null, true, null, null, null, null),
+('f39d4c45-05fb-4698-8fd5-c604f43c048c', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'According to Ms Adeyemi, what are Ava’s strengths?', '["She is the best shooter in the squad.","She is the tallest player.","She can play in goal.","She reads the game well and never stops chasing."]'::jsonb, 3, 'The email says her finishing needs work but she reads the game better than almost anyone and never stopped chasing.', 'AC9E7LY05', '4acb78b3-827f-4e3b-9a07-334be2770ce4', null, true, null, null, null, null),
+('696653b7-b6d1-4d2e-bf0e-1cf2eeccc20a', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'How has Ava changed by the end of the story?', '["She is working on the weakness the coach pointed out.","She has given up on soccer.","She has become a goalkeeper.","She is angry with the coach."]'::jsonb, 0, 'Instead of dribbling, she works on her shooting — her “finishing” — and stays out longer than she says.', 'AC9E7LE02', '4acb78b3-827f-4e3b-9a07-334be2770ce4', null, true, null, null, null, null),
+('358c5fad-fcc1-41af-b1c6-b3b503450439', 'reading_literary_analysis', 'year_7', 'foundation', 'short_answer', 'About how many grams of salt are in one litre of sea water? Write a number.', null, null, 'The first paragraph says every litre contains about 35 grams of salt.', 'AC9E7LY05', '6431a914-1b1a-45cd-ba55-60294c0a6ac4', null, true, '35', ARRAY['35 grams', '35 g']::text[], null, null),
+('351e3172-e860-4e69-b126-a112fba9cff0', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why can rain slowly break down rocks?', '["It is salty.","It is very slightly acidic.","It falls very fast.","It is warmed by the sun."]'::jsonb, 1, 'Rain picks up a little carbon dioxide, which makes it very slightly acidic.', 'AC9E7LY05', '6431a914-1b1a-45cd-ba55-60294c0a6ac4', null, true, null, null, null, null),
+('c9d13d55-dfd6-4321-a87b-6c7e1463efa6', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why does river water taste fresh, even though it carries salt?', '["Rivers lose their salt to the air.","The salt sinks to the riverbed.","The amount of salt in it is tiny.","Rivers only carry calcium, not salt."]'::jsonb, 2, 'The text says river water tastes fresh because the amount of salt in it is tiny.', 'AC9E7LY05', '6431a914-1b1a-45cd-ba55-60294c0a6ac4', null, true, null, null, null, null),
+('074a3574-ff71-4be9-8d88-1ef86951881f', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'What happens to the salt when sea water evaporates?', '["It rises into the clouds.","It falls as salty rain.","It turns into rock straight away.","It stays behind in the sea."]'::jsonb, 3, 'Water evaporates, but the salt does not; it stays behind in the sea.', 'AC9E7LY05', '6431a914-1b1a-45cd-ba55-60294c0a6ac4', null, true, null, null, null, null),
+('6bf79614-1575-4061-baef-3d407044cf78', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What are hydrothermal vents?', '["hot springs on the sea floor that release minerals","rivers that flow under the sea","holes where sea water drains away","clouds that form over the ocean"]'::jsonb, 0, 'The section Salt from below describes them as hot springs releasing minerals from deep inside the Earth.', 'AC9E7LY05', '6431a914-1b1a-45cd-ba55-60294c0a6ac4', null, true, null, null, null, null),
+('7f225135-ba63-46eb-984a-25e5526084ec', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Why have the oceans not kept getting saltier and saltier?', '["Rivers have stopped carrying salt.","Salt is also removed as it settles and becomes new rock.","Rain washes the salt out of the sea.","Fish absorb the extra salt."]'::jsonb, 1, 'The last paragraph says salt settles on the sea floor and slowly becomes part of new rock, balancing what arrives.', 'AC9E7LY05', '6431a914-1b1a-45cd-ba55-60294c0a6ac4', null, true, null, null, null, null),
+('50c4fc64-0ec9-40c8-aa5a-e7765210c859', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'What is Oliver’s main argument?', '["Zoos should all be closed.","Zoos are too expensive.","Modern zoos help save species.","Only gorillas should be kept in zoos."]'::jsonb, 2, 'His heading is Zoos save species, and he describes breeding programs and conservation funding.', 'AC9E7LY01', 'cb13bf15-c972-4dac-9f79-3807f3593782', null, true, null, null, null, null),
+('95e92706-ae5a-437a-8e6e-1a1dd7f53765', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why does Oliver mention the Tasmanian devil?', '["to show that devils are dangerous","to argue that devils should not be in zoos","to explain what devils eat","as an example of zoos protecting a species from disease"]'::jsonb, 3, 'When face cancer swept through wild devils, zoos kept healthy populations safe: evidence for his claim.', 'AC9E7LY03', 'cb13bf15-c972-4dac-9f79-3807f3593782', null, true, null, null, null, null),
+('4090e8de-34cc-4940-963f-74239eab3fae', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'According to Oliver, how can seeing an animal in a zoo help?', '["It can make people care about protecting the wild.","It keeps the animal from getting lonely.","It helps the animal learn tricks.","It stops people travelling overseas."]'::jsonb, 0, 'He says seeing a gorilla in person can make a child care about protecting forests for life.', 'AC9E7LY05', 'cb13bf15-c972-4dac-9f79-3807f3593782', null, true, null, null, null, null),
+('fe96ac0e-b821-4902-b802-5434e4ca28f0', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'How does Amira begin her speech?', '["by telling a story about an elephant","by answering Oliver’s point about “the best zoos”","by agreeing with everything Oliver said","by giving facts about poaching"]'::jsonb, 1, '“My opponent talks about the best zoos. But not every zoo is the best.” — a rebuttal.', 'AC9E7LY03', 'cb13bf15-c972-4dac-9f79-3807f3593782', null, true, null, null, null, null),
+('925fc778-87ac-4223-8673-9e2921f14f75', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Which example does Amira use to show that some animals do not cope with captivity?', '["Tasmanian devils","gorillas in rainforests","elephants, which walk far less in zoos than in the wild","fish in aquariums"]'::jsonb, 2, 'She says elephants walk many kilometres a day in the wild but a tiny fraction of that in a zoo.', 'AC9E7LY05', 'cb13bf15-c972-4dac-9f79-3807f3593782', null, true, null, null, null, null),
+('59744069-575e-454d-a195-35172634bec1', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What does Amira think is the best way to protect animals?', '["building bigger enclosures","breeding more animals in zoos","charging higher entry fees","protecting their habitats"]'::jsonb, 3, 'She says the answer is to protect their habitats, stopping land clearing and poaching.', 'AC9E7LY05', 'cb13bf15-c972-4dac-9f79-3807f3593782', null, true, null, null, null, null),
+('083a40bb-0c24-4bf4-b80a-a55ee3cfb8c4', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', '“A species that survives only behind glass has not really been saved.” Amira means that', '["real survival means living free in the wild","zoos should use stronger glass","animals should be kept in glass tanks","people should not look at zoo animals"]'::jsonb, 0, 'For her, surviving only in captivity is not true survival; the species must live in its habitat.', 'AC9E7LE05', 'cb13bf15-c972-4dac-9f79-3807f3593782', null, true, null, null, null, null),
+('fa711eff-d344-436b-87e2-d310b7c2aef3', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', '“The suburb is still yawning.” This line suggests that the suburb is', '["bored","just beginning to wake up","very large","empty"]'::jsonb, 1, 'The suburb is described as a sleepy person, yawning at the start of the day.', 'AC9E7LE05', 'e3413c91-ceed-4980-a731-3ebe2e4ddab7', null, true, null, null, null, null),
+('fd0a5c57-5c31-41e1-8a71-6d463e3c0445', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why are the sprinklers compared to “slow clocks”?', '["They tell people the time.","They are round.","They make a regular ticking sound.","They are old."]'::jsonb, 2, 'The sprinklers “tick” across the lawns, like the steady ticking of a clock.', 'AC9E7LE05', 'e3413c91-ceed-4980-a731-3ebe2e4ddab7', null, true, null, null, null, null),
+('6223ab93-f29e-4ebf-a5dd-872b1ae4172f', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'The magpie’s call is described “as if tuning up”. It is being compared to', '["a car starting","a bird building a nest","a person yawning","a musician getting ready to play"]'::jsonb, 3, 'Testing one note, then another, is how musicians tune their instruments before a performance.', 'AC9E7LE05', 'e3413c91-ceed-4980-a731-3ebe2e4ddab7', null, true, null, null, null, null),
+('710da6b1-386a-4aee-bfef-fad5b6ebc044', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'When the bus is “kneeling for a woman with a pram”, it is', '["lowering itself so she can get on easily","breaking down","waiting for traffic lights","driving slowly"]'::jsonb, 0, 'Many buses lower their front step at stops; the poet describes this as kneeling, like a polite person.', 'AC9E7LY05', 'e3413c91-ceed-4980-a731-3ebe2e4ddab7', null, true, null, null, null, null),
+('38ebb613-0835-4551-a83e-e0b59943d125', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'What do the colours in the third section show?', '["a storm approaching","the sky changing from sunrise to day","the lights of the city","the colours of the houses"]'::jsonb, 1, 'Pink, then gold, then ordinary blue: sunrise giving way to an everyday morning sky.', 'AC9E7LY05', 'e3413c91-ceed-4980-a731-3ebe2e4ddab7', null, true, null, null, null, null),
+('ba5fe510-6b79-4e91-ac84-5e0518672399', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', '“The day has started without asking anyone.” This suggests that', '["people have forgotten to wake up","nobody wants the day to start","the day begins whether people are ready or not","it is a public holiday"]'::jsonb, 2, 'The day arrives on its own schedule; no one is consulted.', 'AC9E7LE02', 'e3413c91-ceed-4980-a731-3ebe2e4ddab7', null, true, null, null, null, null),
+('dadd188a-6cea-4383-b2d1-fa0ce53d3afd', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'What does Isla’s sensor do when it detects smoke?', '["It sounds a loud siren.","It sprays water.","It calls the fire service.","It sends a text message with its location."]'::jsonb, 3, 'The article says it sends a text message with its location to a phone.', 'AC9E7LY05', '104c9ba8-5a03-4844-a879-386311301fc9', null, true, null, null, null, null),
+('2810357e-bb3e-4c61-9de1-cf73a7fbd2e5', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why did Isla want to build the sensor?', '["Her family did not know how close a fire was until they saw the orange sky.","Her teacher set it as homework.","She wanted to win a prize.","Her house burned down in 2019."]'::jsonb, 0, 'She says her family had to leave during the 2019 fires and only knew how close it was when they saw the orange sky.', 'AC9E7LY05', '104c9ba8-5a03-4844-a879-386311301fc9', null, true, null, null, null, null),
+('37a8c2cb-ee6d-4793-b8aa-71eb003afba7', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why is the solar panel useful?', '["It makes the sensor cheaper to post.","The battery never needs changing.","It detects the heat of a fire.","It lets the sensor work at night only."]'::jsonb, 1, 'The article says it runs on a solar panel, so its battery never needs changing.', 'AC9E7LY05', '104c9ba8-5a03-4844-a879-386311301fc9', null, true, null, null, null, null),
+('7e8d5dbe-2bf2-4507-ab0f-213c9866db50', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why did the judges think the low cost was important?', '["Isla could sell them for a profit.","Schools could afford to build them.","Hundreds of sensors could be placed across large areas of bush.","It meant the sensor was easy to carry."]'::jsonb, 2, 'They said low cost would make it possible to place hundreds of sensors across large areas.', 'AC9E7LY05', '104c9ba8-5a03-4844-a879-386311301fc9', null, true, null, null, null, null),
+('0d52aa8c-2e8e-413f-82f8-97f1c8b4d03d', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Which of these is a problem Isla still needs to solve?', '["It is too heavy to fix to a tree.","It costs too much to build.","It needs its battery changed every week.","Barbecue smoke can set it off."]'::jsonb, 3, 'She admits a neighbour’s barbecue has set it off, and it needs mobile coverage.', 'AC9E7LY05', '104c9ba8-5a03-4844-a879-386311301fc9', null, true, null, null, null, null),
+('2e0f5aae-9e3e-44f4-8500-355721d18645', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Why does the article end with the fire service spokesperson’s comments?', '["to balance the story with a note of caution","to show that the fire service disagrees with Isla","to announce that the sensor will be used everywhere","to explain how to make a bushfire plan"]'::jsonb, 0, 'She welcomes early warning tools but says they need testing and cannot replace a bushfire plan: a balanced ending.', 'AC9E7LY03', '104c9ba8-5a03-4844-a879-386311301fc9', null, true, null, null, null, null),
+('feda4fd5-5924-4ab2-be45-932f0959aa33', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why were Daedalus and Icarus locked in the tower?', '["Daedalus had stolen from the king.","The king did not want Daedalus to reveal the Labyrinth’s secrets.","They had tried to escape by boat.","Icarus had broken the king’s laws."]'::jsonb, 1, 'Minos would not let him leave, for fear he would reveal the maze’s secrets.', 'AC9E7LY05', 'e5e4265d-f864-42a9-8069-688e32d98770', null, true, null, null, null, null),
+('97e245b5-656a-4fcd-a035-0953f2eaf70e', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'What gave Daedalus the idea of escaping by air?', '["a dream about the sun","a book about flying","watching the gulls fly past","his son’s suggestion"]'::jsonb, 2, 'For months he watched the gulls wheeling past the window, and then he had his idea.', 'AC9E7LY05', 'e5e4265d-f864-42a9-8069-688e32d98770', null, true, null, null, null, null),
+('ceb739a2-509d-48df-ba03-0689b5eed240', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'What does Daedalus mean when he says Minos “does not rule the sky”?', '["The king is afraid of heights.","The weather is too bad to escape.","The gods are more powerful than the king.","They can escape through the air, beyond the king’s power."]'::jsonb, 3, 'Minos controls the land and sea routes off the island, but not the air above them.', 'AC9E7LY05', 'e5e4265d-f864-42a9-8069-688e32d98770', null, true, null, null, null, null),
+('41485096-acfc-4e1d-9b15-e40559439438', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why did Daedalus warn Icarus not to fly too high?', '["The sun would melt the wax.","The air would be too cold.","The king’s soldiers would see him.","The birds would attack him."]'::jsonb, 0, 'He says, “Do not fly too high, or the sun will melt the wax.”', 'AC9E7LY05', 'e5e4265d-f864-42a9-8069-688e32d98770', null, true, null, null, null, null),
+('7a3b1341-ca17-4289-9f9d-4494ec69ea87', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why did the fishermen think the two figures were gods?', '["The figures were glowing.","People flying seemed impossible.","They had seen gods before.","Daedalus called out to them."]'::jsonb, 1, 'No human could fly, so two people in the sky could only be gods.', 'AC9E7LY05', 'e5e4265d-f864-42a9-8069-688e32d98770', null, true, null, null, null, null),
+('470e5c8c-7859-498a-9e50-3bd70b158f94', 'reading_literary_analysis', 'year_7', 'advanced', 'multiple_choice', 'Which lesson does this myth most clearly teach?', '["Clever inventors always escape.","Kings should be obeyed.","Ignoring wise advice out of overconfidence can end in disaster.","Flying is too dangerous to try."]'::jsonb, 2, 'Icarus, full of wild joy, forgets his father’s warning and flies too high, and it costs him his life.', 'AC9E7LE02', 'e5e4265d-f864-42a9-8069-688e32d98770', null, true, null, null, null, null),
+('994609f1-3858-4e14-89c7-13e45d627d19', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'What makes Skyward Farm different from other farming games?', '["You can only grow carrots.","It is a racing game.","It has no animals.","The farm floats on a tiny island in the clouds."]'::jsonb, 3, 'The reviewer says its clever twist is a farm on a tiny island in the clouds.', 'AC9E7LY05', 'ff79a601-2a6f-4e47-b022-823cb906efcc', null, true, null, null, null, null),
+('461b8a89-bf4a-4c64-8a1e-47a7fd859edc', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Why does the reviewer say the lack of space is “the point”?', '["It makes every choice matter.","It makes the game shorter.","It is a mistake the makers left in.","It makes the art look better."]'::jsonb, 0, 'The next sentence says: “Every choice matters.”', 'AC9E7LY05', 'ff79a601-2a6f-4e47-b022-823cb906efcc', null, true, null, null, null, null),
+('9f785841-9799-4536-bd4e-204b176c2679', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What does the reviewer find “deeply satisfying”?', '["the fast action","watching the island slowly spread across the sky","the tutorial","the repeated deliveries"]'::jsonb, 1, 'Earning new pieces of land and watching the island spread is described as deeply satisfying.', 'AC9E7LY05', 'ff79a601-2a6f-4e47-b022-823cb906efcc', null, true, null, null, null, null),
+('07f07e97-c568-4bbe-aabd-7a661e0e508d', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Which of these is a problem the reviewer mentions?', '["The music is too loud.","The animals are too hard to look after.","The tutorial explains too little.","The game is too expensive."]'::jsonb, 2, 'It took an hour to work out watering because the tutorial explains too little; tasks also repeat.', 'AC9E7LY05', 'ff79a601-2a6f-4e47-b022-823cb906efcc', null, true, null, null, null, null),
+('750f8995-dc5c-4616-ba98-e40d77a8f893', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'According to the reviewer, who would probably not enjoy the game?', '["players who like planning","players who enjoy building","players who like relaxing games","players who want fast action"]'::jsonb, 3, 'The conclusion says it won’t suit players who want fast action.', 'AC9E7LY05', 'ff79a601-2a6f-4e47-b022-823cb906efcc', null, true, null, null, null, null),
+('09aeaac9-3c7c-43cf-8bff-f0008ca84692', 'reading_literary_analysis', 'year_7', 'foundation', 'multiple_choice', 'What is the latest time a visitor can enter the museum?', '["4 pm","4.30 pm","5 pm","9.30 am"]'::jsonb, 1, 'The page says last entry is at 4.30 pm; the museum closes at 5 pm.', 'AC9E7LY05', '04629c7e-4d29-429f-aeef-ee26620eec36', null, true, null, null, null, null),
+('a031dab2-ede5-47d3-9331-b5bb44f6b2b5', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Why is flash photography not allowed in the Shipwreck Gallery?', '["Bright light damages the old timber.","It disturbs other visitors.","The gallery is too dark for photos.","The ships are behind glass."]'::jsonb, 0, 'The page says bright light damages the old timber.', 'AC9E7LY05', '04629c7e-4d29-429f-aeef-ee26620eec36', null, true, null, null, null, null),
+('728b8eaa-ff0e-4fe3-a3c5-9d79765f86de', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'What must visitors do with large bags?', '["carry them at all times","leave them in the free lockers","leave them in the café","pay to store them"]'::jsonb, 1, 'Large bags must be left in the free lockers near the entrance.', 'AC9E7LY05', '04629c7e-4d29-429f-aeef-ee26620eec36', null, true, null, null, null, null),
+('dee2a812-b6c1-4fbe-94b7-b158c5a8fd31', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'Which gallery has an entry charge?', '["Ships Through Time","Shipwreck Gallery","Life Under the Sea","Rooftop Lookout and Café"]'::jsonb, 2, 'The table shows Life Under the Sea, a special exhibition, costs $12 for adults and $6 for children.', 'AC9E7LY05', '04629c7e-4d29-429f-aeef-ee26620eec36', null, true, null, null, null, null),
+('4a30e409-9ca0-44f6-ad9b-9a4b4ccf88b3', 'reading_literary_analysis', 'year_7', 'proficient', 'multiple_choice', 'Based on the page, what is the easiest way to get to the museum?', '["park at the museum","catch a ferry","drive to the car park on the roof","walk from Harbour Street station"]'::jsonb, 3, 'It is a five-minute walk from the station, and there is no parking at the museum.', 'AC9E7LY05', '04629c7e-4d29-429f-aeef-ee26620eec36', null, true, null, null, null, null),
+('e2396b4c-54ab-4976-a4d7-ba1e7e26651b', 'reading_literary_analysis', 'year_7', 'developing', 'multiple_choice', 'On which day of the year is the museum closed?', '["Christmas Day","New Year’s Day","every Monday","public holidays"]'::jsonb, 0, 'It is open every day except Christmas Day.', 'AC9E7LY05', '04629c7e-4d29-429f-aeef-ee26620eec36', null, true, null, null, null, null),
+('79432cb5-0ce2-4754-8285-997f9eea01e6', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'Why was Zara alone at the museum?', '["No one else wanted the Saturday shift.","Mrs Hendry was sick.","The museum was closed to visitors.","She had asked to work alone."]'::jsonb, 0, 'The first sentence says nobody else wanted the Saturday shift.', 'AC9E9LY05', '04b5cf01-cb94-467c-8aaa-3b4e8fe7724f', null, true, null, null, null, null),
+('63d6f894-9c52-4dc3-8fa8-59bf658649fb', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What is the effect of the one-sentence paragraph “Zara read them properly.”?', '["It shows Zara was a slow reader.","It stresses that Zara deliberately ignored the instruction.","It tells us the documents were easy to read.","It shows that Mrs Hendry was watching her."]'::jsonb, 1, 'Set apart straight after “Don’t read them properly”, the short sentence makes her choice stand out.', 'AC9E9LY03', '04b5cf01-cb94-467c-8aaa-3b4e8fe7724f', null, true, null, null, null, null),
+('3431a020-32b4-4eb6-8dc8-375121f78fe8', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What does the change in handwriting halfway through the logbook reveal?', '["The keeper had changed pens.","The logbook had been damaged.","Someone other than the keeper had begun writing the log.","The entries were written years later."]'::jsonb, 2, 'The hand becomes rounder and younger; the entries show the keeper’s daughter took over while he was ill.', 'AC9E9LY05', '04b5cf01-cb94-467c-8aaa-3b4e8fe7724f', null, true, null, null, null, null),
+('c1b75f7e-91aa-4927-977b-f787a7a9d3cb', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', '“I say if I keep the light, I keep the log.” This shows that the girl', '["wanted to disobey her mother for fun","thought the log was more important than the light","did not know how to keep the light","believed her work gave her the right to record it"]'::jsonb, 3, 'Her mother says writing in the log is not her place; she argues that doing the job earns her that place.', 'AC9E9LE04', '04b5cf01-cb94-467c-8aaa-3b4e8fe7724f', null, true, null, null, null, null),
+('ed9591b7-831b-4ec5-9f27-48f2350cb016', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does the girl write, “I do not think her captain will ever know my name”?', '["She knows her part in saving the ship will go unrecognised.","She is angry that the captain did not thank her.","She has forgotten the captain’s name.","She does not want the captain to find her."]'::jsonb, 0, 'Her work kept the schooner safe, but no one aboard would know who had kept the light turning.', 'AC9E9LY05', '04b5cf01-cb94-467c-8aaa-3b4e8fe7724f', null, true, null, null, null, null),
+('181c0b95-8d80-44bf-8243-0d84a8b08b74', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why are the words “He says I did well” important?', '["They show she did not believe she had done well.","They show how much her father’s recognition meant to her.","They show her father was still unwell.","They are the last words in the logbook."]'::jsonb, 1, 'After seven weeks alone, she records only this: the acknowledgement mattered enough to write down.', 'AC9E9LE04', '04b5cf01-cb94-467c-8aaa-3b4e8fe7724f', null, true, null, null, null, null),
+('fa829f93-cc4b-4ea9-9ece-3866f275d65d', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'The museum’s list of keepers includes only men. This detail suggests that', '["women were not allowed in lighthouses","the list was incomplete by accident","official history had left out Annie’s contribution","Annie never really kept the light"]'::jsonb, 2, 'Annie kept the light for seven weeks, yet neither the list nor her obituary mentions it.', 'AC9E9LY05', '04b5cf01-cb94-467c-8aaa-3b4e8fe7724f', null, true, null, null, null, null),
+('f985ecbd-a12d-4503-9257-c588b6eeed76', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What is the main purpose of the card Zara writes at the end?', '["to correct a spelling mistake in the display","to thank Mrs Hendry for her help","to advertise the museum","to give Annie the recognition she had never received"]'::jsonb, 3, 'Placed beside her father’s photograph, the card finally records what Annie did — the recognition her captain, the museum and her obituary never gave.', 'AC9E9LE02', '04b5cf01-cb94-467c-8aaa-3b4e8fe7724f', null, true, null, null, null, null),
+('0cfad9f4-093e-4cc4-a21e-c1f47c38f433', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Which view of forgetting does the writer challenge in the first paragraph?', '["that forgetting is a failure","that forgetting only happens to older people","that forgetting can be cured","that forgetting happens during sleep"]'::jsonb, 0, 'It opens with the common view — forgetting as failure — then argues forgetting is part of how memory works.', 'AC9E9LY03', '86662f93-4bc1-406f-8c74-d4ed0312e5bf', null, true, null, null, null, null),
+('f1a507cf-3509-489f-bd92-2b32a7df4bea', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why did Ebbinghaus most likely use meaningless syllables such as “dax” and “bup”?', '["because they were easier to pronounce","so that what he already knew could not help him remember","because real words were too short","so that he could make up a new language"]'::jsonb, 1, 'Nonsense syllables have no meaning to hook onto, so his results measured memory itself, not prior knowledge.', 'AC9E9LY05', '86662f93-4bc1-406f-8c74-d4ed0312e5bf', null, true, null, null, null, null),
+('f810a1b4-3e55-4801-b3c7-0a5cc6081708', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What does the forgetting curve show?', '["Memories fade at the same rate forever.","People remember more after a week than after a day.","Much is forgotten within a day, and forgetting then slows down.","Nothing is forgotten if it is learned well."]'::jsonb, 2, 'A steep drop followed by a long, gentle slope: rapid loss at first, then slower.', 'AC9E9LY05', '86662f93-4bc1-406f-8c74-d4ed0312e5bf', null, true, null, null, null, null),
+('a956f717-e92b-46eb-b2b6-016639a61b8b', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'According to the text, how does forgetting make the brain more efficient?', '["It frees up energy for exercise.","It stops the brain from growing too large.","It makes people learn faster.","Letting unimportant details fade keeps important things easy to find."]'::jsonb, 3, 'Remembering everything would bury the important under the trivial; fading keeps the important accessible.', 'AC9E9LY05', '86662f93-4bc1-406f-8c74-d4ed0312e5bf', null, true, null, null, null, null),
+('a693ffdf-d04a-4f1b-adc6-ab634bb96585', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does the writer use the example of recognising a dog?', '["to show that forgetting details helps us see general patterns","to explain how animals remember","to show that dogs are hard to recognise","to suggest owning a dog improves memory"]'::jsonb, 0, 'Remembering every detail of every dog would make a new dog hard to classify; forgetting details keeps the pattern.', 'AC9E9LY03', '86662f93-4bc1-406f-8c74-d4ed0312e5bf', null, true, null, null, null, null),
+('4b097d96-6717-4cb9-948c-b04cd6a5db2d', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What does the writer mean by an “illusion of knowing”?', '["remembering something that never happened","feeling you have learned something because the words look familiar","knowing the answer but being unable to say it","forgetting something you know well"]'::jsonb, 1, 'Rereading makes words familiar, so we assume we have learned them when we may not be able to recall them.', 'AC9E9LY05', '86662f93-4bc1-406f-8c74-d4ed0312e5bf', null, true, null, null, null, null),
+('4427040d-a7b4-474b-a429-72d7f842b290', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Which study habit does the text warn may be less effective than it feels?', '["testing yourself","spreading out study sessions","rereading notes","getting enough sleep"]'::jsonb, 2, 'Rereading feels productive but can create an illusion of knowing; the others are recommended.', 'AC9E9LY05', '86662f93-4bc1-406f-8c74-d4ed0312e5bf', null, true, null, null, null, null),
+('a70f7f4e-1bad-4bd4-a60a-ea0ecd40225f', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'What is the writer’s main argument?', '["Typing should be banned in schools.","Handwriting should replace typing.","Students should only take notes by hand.","Handwriting should still be taught alongside typing."]'::jsonb, 3, 'She wants every student to be able to do both, with handwriting kept alive in the middle years.', 'AC9E9LY01', 'e0582eaf-4b11-4462-ac30-e8b98b0db9bc', null, true, null, null, null, null),
+('9ce0571f-cc5f-4b9c-9a41-1a12133b85fb', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'How does the writer begin her argument?', '["by setting out the other side’s reasoning before disagreeing","by describing a student who failed an exam","by listing statistics about typing speed","by telling a joke"]'::jsonb, 0, 'She gives the school’s reasoning, says she understands it, then says she thinks it is wrong.', 'AC9E9LY03', 'e0582eaf-4b11-4462-ac30-e8b98b0db9bc', null, true, null, null, null, null),
+('5923b369-7881-495f-b8f6-23b4a9096898', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'According to the study, why did students who wrote by hand understand lectures better?', '["They recorded more words.","They had to decide what mattered and use their own words.","They could read their notes more easily.","They sat closer to the lecturer."]'::jsonb, 1, 'Unable to keep up, hand-writers had to choose what mattered and rephrase it — “that decision is where the learning happens”.', 'AC9E9LY05', 'e0582eaf-4b11-4462-ac30-e8b98b0db9bc', null, true, null, null, null, null),
+('3c1166a5-f18d-4ddf-a4cf-9b7146fa100a', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why does the writer call handwriting “a matter of fairness”?', '["Some students cannot afford laptops.","Handwriting is easier for everyone.","Many important exams are still sat on paper.","Teachers mark handwritten work more kindly."]'::jsonb, 2, 'A student who has barely handwritten since Year 4 is disadvantaged in a long paper exam.', 'AC9E9LY05', 'e0582eaf-4b11-4462-ac30-e8b98b0db9bc', null, true, null, null, null, null),
+('e69c8eb1-345d-423b-b197-084f6cf798e2', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why does the writer include the paragraph that begins “None of this means we should throw away our laptops”?', '["to change her mind about handwriting","to argue that laptops are harmful","to introduce a new study","to acknowledge the benefits of typing and show her position is balanced"]'::jsonb, 3, 'Conceding typing’s strengths makes her reasonable, and sets up “make sure every student can do both”.', 'AC9E9LY03', 'e0582eaf-4b11-4462-ac30-e8b98b0db9bc', null, true, null, null, null, null),
+('6f2b0977-3f97-4f81-b038-7dfd161846b6', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What does the writer propose?', '["twenty minutes of handwriting a week in the middle years","handwriting lessons every day until Year 12","no typing before Year 4","handwritten exams only"]'::jsonb, 0, 'She says twenty minutes a week in the middle years would keep the skill alive.', 'AC9E9LY05', 'e0582eaf-4b11-4462-ac30-e8b98b0db9bc', null, true, null, null, null, null),
+('ea1e8fa8-d601-4f05-8f55-8a07438cadd9', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'In the final paragraph, the writer challenges readers to', '["type a summary of the article","test her argument for themselves by writing from memory","write a letter to their school","read the study she mentioned"]'::jsonb, 1, 'She invites readers to handwrite the three key points from memory and see which version they remember.', 'AC9E9LY03', 'e0582eaf-4b11-4462-ac30-e8b98b0db9bc', null, true, null, null, null, null),
+('f51d6da0-a77f-475e-97dd-3594da2bcec6', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Which two journeys does the poem bring together?', '["a ship’s voyage and a plane flight","the tide coming in and going out","the godwits’ migration and the grandmother’s migration","the speaker’s journey to school and back"]'::jsonb, 2, 'Stanza 1 is the birds leaving; stanza 2 is the grandmother arriving; the last stanza joins them.', 'AC9E9LE04', '4e37c461-8d5e-4fd5-9c72-1ddd43c66389', null, true, null, null, null, null),
+('f515d161-0430-4a41-bc97-f58f6badf151', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', '“A word or two of English folded in her pocket like a map she could not read” suggests that', '["she had lost her map","she could not read at all","she spoke English well but was shy","her little English could not yet help her find her way"]'::jsonb, 3, 'Like an unreadable map, her few words of English were carried with her but gave little guidance.', 'AC9E9LE04', '4e37c461-8d5e-4fd5-9c72-1ddd43c66389', null, true, null, null, null, null),
+('42405209-7860-42eb-8917-ba5290f1984f', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'How did the grandmother feel during her first winter?', '["very lonely","excited","angry","relieved"]'::jsonb, 0, 'She says the first winter was the loneliest thing she ever knew.', 'AC9E9LY05', '4e37c461-8d5e-4fd5-9c72-1ddd43c66389', null, true, null, null, null, null),
+('42a754bd-c426-4af9-96be-eb7df3eab02b', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', '“The strange streets began to hold her the way the tide holds the flats, gently, and then completely.” This suggests that', '["she was trapped in the city","she slowly came to feel she belonged","she moved closer to the sea","she lost her way in the streets"]'::jsonb, 1, 'The tide covers the flats a little at a time until they are fully held: her sense of belonging grew the same way.', 'AC9E9LE04', '4e37c461-8d5e-4fd5-9c72-1ddd43c66389', null, true, null, null, null, null),
+('07186016-a8c3-4c19-9820-1aa975c35010', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why does the speaker think the grandmother is the only one who knows “exactly what they are leaving”?', '["She has studied godwits for years.","She has visited the place the birds fly to.","She has also left a home behind.","She is the oldest person on the shore."]'::jsonb, 2, 'Having left her own country, she understands departure from the inside.', 'AC9E9LE02', '4e37c461-8d5e-4fd5-9c72-1ddd43c66389', null, true, null, null, null, null),
+('458d724e-4967-48db-bb20-fe75aac3a7ba', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'How is the poem organised?', '["as a list of facts about godwits","as a conversation between two people","in the order the birds visit different countries","from the birds, to the grandmother’s past, to a moment joining both"]'::jsonb, 3, 'It moves from the birds, to 1968, to her first winter, then back to the shore where both journeys meet.', 'AC9E9LY03', '4e37c461-8d5e-4fd5-9c72-1ddd43c66389', null, true, null, null, null, null),
+('7804137f-c0ba-4810-8e2e-2feedaa068f8', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'Before 1872, about how long did news from Britain take to reach Australia?', '["about two months","about two days","about two weeks","about two years"]'::jsonb, 0, 'The first paragraph says around two months, by ship.', 'AC9E9LY05', 'a228e875-3426-4055-bbb5-2e30da6b2c00', null, true, null, null, null, null),
+('f40eb7d6-21fe-4898-ac4c-7440842915f1', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What happened to messages once they reached Darwin?', '["They were put on a ship to Britain.","An undersea cable carried them on to Java and London.","They were sent back to Adelaide.","They were printed in the local newspaper."]'::jsonb, 1, 'In Darwin, an undersea cable carried messages to Java and on to London.', 'AC9E9LY05', 'a228e875-3426-4055-bbb5-2e30da6b2c00', null, true, null, null, null, null),
+('5f4570ac-fd88-4c61-b7e6-ede60510e5df', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What problem did termites cause?', '["They damaged the wire.","They spoiled the food supplies.","They ate the wooden poles.","They attacked the workers."]'::jsonb, 2, 'In the north, termites ate the wooden poles, which were replaced with iron ones.', 'AC9E9LY05', 'a228e875-3426-4055-bbb5-2e30da6b2c00', null, true, null, null, null, null),
+('88c9e310-1feb-4425-acea-9baf62cd4527', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why were repeater stations built along the line?', '["to house the soldiers guarding the line","to store spare poles","to sell supplies to travellers","to boost the signal"]'::jsonb, 3, 'They were built every few hundred kilometres to boost the signal, and some became towns.', 'AC9E9LY05', 'a228e875-3426-4055-bbb5-2e30da6b2c00', null, true, null, null, null, null),
+('f3363b73-6bd6-4606-a3ec-1652302d9211', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why does the writer mention Aboriginal people in this account?', '["to show the land was already known and that the line disrupted their lives","to explain who built the telegraph","to show they used the telegraph first","to describe the route Stuart took"]'::jsonb, 0, 'The writer notes they had known the country for tens of thousands of years and that the line brought lasting, often painful, disruption.', 'AC9E9LY01', 'a228e875-3426-4055-bbb5-2e30da6b2c00', null, true, null, null, null, null),
+('7c2378be-89ee-4272-b774-055b09144771', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'The phrase “tyranny of distance” describes', '["the cruelty of the telegraph managers","Australia being cut off from the world by great distances","the long hours the workers laboured","the length of the telegraph line"]'::jsonb, 1, 'Before the telegraph, distance ruled Australian life: news, trade and families were weeks away.', 'AC9E9LY05', 'a228e875-3426-4055-bbb5-2e30da6b2c00', null, true, null, null, null, null),
+('3c6c31fd-5ef6-476c-8b17-aaff3b42784d', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why is the text called “The wire that shrank the world”?', '["The wire was shorter than expected.","The wire was so thin it was hard to see.","The telegraph made the world feel much closer by making communication fast.","The telegraph was built around the world."]'::jsonb, 2, 'Messages that took weeks now took hours; the world had not shrunk, but it felt far nearer.', 'AC9E9LY03', 'a228e875-3426-4055-bbb5-2e30da6b2c00', null, true, null, null, null, null),
+('adafdce2-26f9-4add-8d4d-1de7d1a145ae', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What is the main purpose of this text?', '["to report a real scientific discovery","to warn families about wild animals","to advertise a new video game","to make fun of how much time people spend on screens"]'::jsonb, 3, 'It is labelled satire and treats going outside as an astonishing discovery, mocking screen-bound habits.', 'AC9E9LY01', '379a1efb-cedb-4444-b84d-30aa30fe8f6c', null, true, null, null, null, null),
+('0eb34553-d30f-45c2-84a2-8f8549cacab7', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'Why did Daniel open the sliding door?', '["The Wi-Fi had gone down.","He heard the dog barking.","His parents told him to.","He wanted to find a park."]'::jsonb, 0, 'The Wi-Fi went down for almost forty minutes, and with no other options he opened the door.', 'AC9E9LY05', '379a1efb-cedb-4444-b84d-30aa30fe8f6c', null, true, null, null, null, null),
+('033f180e-352d-4378-8662-1425b91ca7c0', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Daniel says “the graphics were better than anything I’ve played”. This is funny because', '["he has never played a video game","he describes the real world as if it were a video game","the sky really looked like a video game","he is making fun of his sister"]'::jsonb, 1, 'Judging the sky and sunlight by the standards of a game shows how screen-centred his view of the world is.', 'AC9E9LE04', '379a1efb-cedb-4444-b84d-30aa30fe8f6c', null, true, null, null, null, null),
+('3822b3ca-2e04-47ba-b406-40f3e9b66007', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'The name “Institute of Obvious Studies” tells the reader that', '["the institute is a real research centre","the family is very clever","the “expert” is stating things everyone already knows","the study was kept secret"]'::jsonb, 2, 'The joke name signals that its findings — people go outside, birds make sounds — are obvious.', 'AC9E9LE04', '379a1efb-cedb-4444-b84d-30aa30fe8f6c', null, true, null, null, null, null),
+('01fd8397-685f-4f48-9507-fa622d7f300b', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What point does the last sentence make by saying that outside is “free to play”?', '["Parents should buy more games.","Parks charge an entry fee.","The family will stop playing games.","Going outside costs nothing, unlike many games."]'::jsonb, 3, 'Borrowing the language of games, it reminds readers that time outdoors is free.', 'AC9E9LE04', '379a1efb-cedb-4444-b84d-30aa30fe8f6c', null, true, null, null, null, null),
+('1bb76b9f-f671-4e74-8faf-bbdb01f95ffa', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', '“It deserves most of it.” The reviewer thinks the excitement about the novel is', '["mostly justified","completely unfair","too small","about the wrong book"]'::jsonb, 0, '“Most” signals praise with reservations, which the review goes on to explain.', 'AC9E9LY05', 'b2810061-b810-4e2d-bf1c-416277f5e8ec', null, true, null, null, null, null),
+('7d338329-5b37-466c-b9d5-78ad855b4d96', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'Why are the orchards sealed under glass domes in the novel?', '["to keep out thieves","to protect them from a blight","to grow fruit faster","to keep them warm in winter"]'::jsonb, 1, 'The domes protect them from a blight that has wiped out fruit trees across the world.', 'AC9E9LY05', 'b2810061-b810-4e2d-bf1c-416277f5e8ec', null, true, null, null, null, null),
+('9ea5fbcd-c226-4556-a79a-b8ebfe8e97f6', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What makes Wren suspect that she has not been told the whole truth?', '["Tomas tells her a secret.","The bees come back.","She finds a healthy wild apple tree outside the dome.","The company director gives a speech."]'::jsonb, 2, 'A single healthy tree growing outside, heavy with fruit, contradicts the story about the blight.', 'AC9E9LY05', 'b2810061-b810-4e2d-bf1c-416277f5e8ec', null, true, null, null, null, null),
+('4e815851-b83f-4ebd-93d3-1adbafcff95a', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Which part of the novel does the reviewer praise most?', '["the fast-moving ending","the villain","the romance between Wren and Tomas","the descriptions of the domes and the world of the story"]'::jsonb, 3, '“Mercer is at her best describing the domes”; the world feels thought-through and possible.', 'AC9E9LY05', 'b2810061-b810-4e2d-bf1c-416277f5e8ec', null, true, null, null, null, null),
+('a00e5149-dede-49e5-b58a-c1fe42945be8', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What is the reviewer’s main criticism?', '["The last third is rushed and settles for simple answers.","The narrator is dull.","The setting is unbelievable.","The book is too short."]'::jsonb, 0, 'Revelations are rushed, the villain is one-dimensional, and a book of complex questions “settles for simple answers”.', 'AC9E9LY05', 'b2810061-b810-4e2d-bf1c-416277f5e8ec', null, true, null, null, null, null),
+('2bada62e-f640-475c-9f64-be89abfe9f31', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'How did the council collect its information?', '["Council workers weighed rubbish trucks for a year.","500 households recorded the food they threw away for a week.","Shops reported what food they sold.","Residents answered an online poll about recycling."]'::jsonb, 1, 'The council asked 500 households to sort their rubbish for a week and record every piece of food.', 'AC9E9LY05', '644002de-7d7c-486d-b00b-9ac838c1cbc5', null, true, null, null, null, null),
+('5b18f8cf-b041-41fc-8724-f41279354d53', 'reading_literary_analysis', 'year_9', 'foundation', 'short_answer', 'How many kilograms of leftovers did an average household throw away each week? Write the number.', null, null, 'The table gives Leftovers as 1.1 kilograms.', 'AC9E9LY05', '644002de-7d7c-486d-b00b-9ac838c1cbc5', null, true, '1.1', ARRAY['1.1 kg', '1.1 kilograms']::text[], null, null),
+('85b66f27-92e3-4c6b-b17c-ed6043da2b68', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why were many fruits and vegetables thrown away?', '["They were too expensive to cook.","They were already rotten when bought.","They were bought and then forgotten at the back of the fridge.","People did not like the taste."]'::jsonb, 2, 'Many were thrown out whole and uncooked, often forgotten at the back of the fridge.', 'AC9E9LY05', '644002de-7d7c-486d-b00b-9ac838c1cbc5', null, true, null, null, null, null),
+('7a88cbfa-8f07-409f-a60d-0c19484c57a0', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What is the difference between a best-before date and a use-by date?', '["Best-before is about safety; use-by is about quality.","They mean the same thing.","Use-by dates are only for frozen food.","Best-before is about quality; use-by is about safety."]'::jsonb, 3, 'The report explains best-before is about quality and use-by about safety.', 'AC9E9LY05', '644002de-7d7c-486d-b00b-9ac838c1cbc5', null, true, null, null, null, null),
+('dbfe5efe-7f6e-4d4f-8395-fddb1ac23adf', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What is the purpose of the Buy It, Use It campaign?', '["to help households waste less food","to sell more fresh fruit","to collect food for charity","to fine households that waste food"]'::jsonb, 0, 'It offers tips on planning meals, storing food and understanding labels.', 'AC9E9LY01', '644002de-7d7c-486d-b00b-9ac838c1cbc5', null, true, null, null, null, null),
+('96c18e2f-9e4a-44b7-809e-77bd8fdc2818', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why had Leila stopped correcting her grandfather when he got her name wrong?', '["It only frightened him.","She liked being called Suzie.","Her mother told her not to.","He never heard her anyway."]'::jsonb, 0, 'The story says it only frightened him when she did.', 'AC9E9LY05', 'f5f0969a-bb7d-47b7-b850-095fcf3e8522', null, true, null, null, null, null),
+('bfd421b3-61e3-4a40-a059-4275a325f0f8', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Grandpa is sometimes polite and distant, “the way people are with strangers on trains”. This comparison shows that', '["he liked travelling by train","he treated Leila as if he did not know her","he was rude to Leila","he wanted to leave Greenhaven"]'::jsonb, 1, 'Strangers on trains are polite but keep their distance: he no longer recognises her.', 'AC9E9LE04', 'f5f0969a-bb7d-47b7-b850-095fcf3e8522', null, true, null, null, null, null),
+('53239942-9897-48e8-bdee-52220ca5cc2b', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'What does Leila learn about her grandfather from her mother?', '["He had fixed bicycles for a living.","He had once been a famous singer.","He had grown up in Riverview.","He had been a radio presenter for twenty years."]'::jsonb, 3, '“He was on the radio for twenty years,” her mother says. Leila had only known him fixing bikes.', 'AC9E9LY05', 'f5f0969a-bb7d-47b7-b850-095fcf3e8522', null, true, null, null, null, null),
+('d6792506-b149-4a05-b6f2-ddd22bb0e6a8', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What does the voice on the tape — “young, bright, impossibly quick” — show about Grandpa?', '["how lively and energetic he once was","that the tape was recorded too fast","that someone else presented the show","that he was nervous on air"]'::jsonb, 0, 'It contrasts sharply with the quiet man turning a teaspoon by the window.', 'AC9E9LY05', 'f5f0969a-bb7d-47b7-b850-095fcf3e8522', null, true, null, null, null, null),
+('870ff225-54f2-4c1c-8f30-bddaa81b9b19', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', '“He had stopped turning the spoon.” Why does the writer include this short sentence?', '["to show he has fallen asleep","to show the first sign that the tape is reaching him","to show he dislikes the noise","to show the staff have taken the spoon"]'::jsonb, 1, 'His restless habit stops as he listens: the first hint that something is getting through.', 'AC9E9LY03', 'f5f0969a-bb7d-47b7-b850-095fcf3e8522', null, true, null, null, null, null),
+('3efaae0f-5ebf-41eb-91a0-b9072d3d9585', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why does Leila answer “Every morning” instead of explaining she had not been born yet?', '["because she had listened to the tapes before","because she was confused","to give him a moment of happiness and connection","to trick him into remembering her"]'::jsonb, 2, 'Telling the truth would break the moment; her kind answer lets him feel his work mattered.', 'AC9E9LE02', 'f5f0969a-bb7d-47b7-b850-095fcf3e8522', null, true, null, null, null, null),
+('6f30a748-f6d1-4002-b69d-ae5ab96c9ded', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does Leila’s mother put her hand over her mouth?', '["She is trying not to laugh.","She is shocked by the old music.","She wants Leila to stop talking.","She is overcome with emotion when he recognises himself."]'::jsonb, 3, 'After months of him not knowing anyone, he says “That’s me”: a deeply moving moment.', 'AC9E9LY05', 'f5f0969a-bb7d-47b7-b850-095fcf3e8522', null, true, null, null, null, null),
+('8396c304-9848-45cc-8e74-99c10089592b', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What does the final sentence suggest about the tapes?', '["They give him brief moments of knowing himself again.","They cure his memory loss.","They make him remember Leila permanently.","They are the only thing he enjoys."]'::jsonb, 0, '“For the length of a song, he knew exactly who he was”: the effect is real but short-lived.', 'AC9E9LE02', 'f5f0969a-bb7d-47b7-b850-095fcf3e8522', null, true, null, null, null, null),
+('e018eb52-14a8-41f1-97a3-fbcd239f690a', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'How does the writer open the article?', '["with a definition of adrenaline","by putting the reader into a familiar, stressful moment","with a story about a famous singer","by listing statistics about fear"]'::jsonb, 1, 'Written as “your name is called… your heart is pounding”, it makes readers recognise the feeling.', 'AC9E9LY03', '43051448-acd7-443b-8760-c578fe52ba97', null, true, null, null, null, null),
+('55a01613-da8a-46c8-97f6-df7ff56d03ed', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'What makes the heart beat faster during stage fright?', '["the audience clapping","a lack of sleep","adrenaline released by the adrenal glands","breathing too slowly"]'::jsonb, 2, 'The brain signals the adrenal glands to release adrenaline, and within seconds the heart beats faster.', 'AC9E9LY05', '43051448-acd7-443b-8760-c578fe52ba97', null, true, null, null, null, null),
+('2d966041-84c8-4789-8559-7c62627dc472', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'According to the text, why does your mouth go dry?', '["You breathe through your mouth.","You have been talking too much.","The room is too warm.","Digestion slows down."]'::jsonb, 3, 'Digestion slows down, “which is why your mouth goes dry”.', 'AC9E9LY05', '43051448-acd7-443b-8760-c578fe52ba97', null, true, null, null, null, null),
+('e3a41a90-ddeb-4063-921f-034c76f9d362', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why might our brains be so sensitive to being judged by others?', '["For most of history, being rejected by your group was dangerous.","Speeches are harder than they used to be.","Classmates are more critical than strangers.","Adrenaline makes us care what others think."]'::jsonb, 0, 'The writer suggests rejection by the group was once genuinely dangerous.', 'AC9E9LY05', '43051448-acd7-443b-8760-c578fe52ba97', null, true, null, null, null, null),
+('83dbbd23-5b6f-42d7-99a0-89994f51a0f0', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'According to the text, what is the main difference between fear and excitement?', '["how fast the heart beats","how we interpret the same physical feelings","whether adrenaline is released","whether we are alone or in a crowd"]'::jsonb, 1, 'The feelings are almost identical; the difference lies largely in how we interpret them.', 'AC9E9LY05', '43051448-acd7-443b-8760-c578fe52ba97', null, true, null, null, null, null),
+('9fc8ea09-dd22-441b-8281-f8483bbb1644', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What did the experiment described in the text find?', '["People who said “I am calm” gave better speeches.","Saying anything aloud made speeches worse.","People who said “I am excited” gave better speeches.","Neither group improved."]'::jsonb, 2, 'Those who called their feelings excitement were rated more persuasive and confident.', 'AC9E9LY05', '43051448-acd7-443b-8760-c578fe52ba97', null, true, null, null, null, null),
+('4a3220b0-c3c8-4b3b-b6af-4d34d9870bff', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Stage fright is called “an old alarm doing its job a little too enthusiastically”. This means it is', '["a sign that something is wrong with the brain","an alarm that has stopped working","a feeling only older people have","a useful survival response set off when there is no real danger"]'::jsonb, 3, 'The alarm works as designed, but it goes off for a speech rather than a predator.', 'AC9E9LE04', '43051448-acd7-443b-8760-c578fe52ba97', null, true, null, null, null, null),
+('7cbd99b7-596a-4d7c-a2ad-9d419cafd70e', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'What is Harriet arguing for?', '["lowering the voting age to sixteen","raising the driving age","making voting optional","letting sixteen-year-olds leave school"]'::jsonb, 0, 'She says sixteen-year-olds cannot vote and argues this should change.', 'AC9E9LY01', '97d9404b-6d02-4372-9084-c9f11944203b', null, true, null, null, null, null),
+('130ce572-b1b6-4014-af6f-e793e19a6c12', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does Harriet begin by listing what sixteen-year-olds are allowed to do?', '["to explain the law to young people","to show they are already trusted with adult responsibilities","to complain that sixteen-year-olds work too hard","to show that driving is dangerous"]'::jsonb, 1, 'Leaving school, working, paying tax and learning to drive are adult responsibilities, which makes the missing vote look unfair.', 'AC9E9LY03', '97d9404b-6d02-4372-9084-c9f11944203b', null, true, null, null, null, null),
+('3abff77f-fda1-4bf2-bae6-f471aaeda7c3', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What is Harriet’s argument about fairness?', '["Everyone should pay the same tax.","Older people should not be allowed to vote.","Young people will live longest with the results of today’s decisions.","Voting should be free."]'::jsonb, 2, '“If we are old enough to live with the consequences, we are old enough to have a say.”', 'AC9E9LY05', '97d9404b-6d02-4372-9084-c9f11944203b', null, true, null, null, null, null),
+('73e2824e-3272-403b-b3de-d8ff4c318b24', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does Harriet mention Austria?', '["to show that Austria has a better government","because Austria has compulsory voting","to argue that the voting age should be eighteen","as evidence that voting early can build a lifelong habit"]'::jsonb, 3, 'Research from Austria suggests people who vote in their first election keep voting.', 'AC9E9LY05', '97d9404b-6d02-4372-9084-c9f11944203b', null, true, null, null, null, null),
+('a41ae95c-69a2-4d52-9beb-6e22a6d4e8a3', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why does Harriet think sixteen is a better age than eighteen to start voting?', '["Sixteen-year-olds are usually still at home and school, where they can be taught how to vote.","Sixteen-year-olds know more about politics.","Eighteen-year-olds are too busy to care.","Eighteen-year-olds cannot enrol."]'::jsonb, 0, 'At sixteen they can be taught at school; at eighteen life changes and the first election can slip past.', 'AC9E9LY05', '97d9404b-6d02-4372-9084-c9f11944203b', null, true, null, null, null, null),
+('0571f8a7-c37c-4cbd-8422-7c8938019ccc', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'How does Harriet respond to the claim that sixteen-year-olds are not mature enough?', '["She agrees and changes her motion.","Adults take no maturity test, and studies show little difference.","She says maturity does not matter at all.","She ignores the claim."]'::jsonb, 1, 'She points out adults are not tested and cites studies finding little evidence of less informed choices.', 'AC9E9LY03', '97d9404b-6d02-4372-9084-c9f11944203b', null, true, null, null, null, null),
+('c8807505-97ee-4dd8-8f3c-5a0945094d22', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', '“A vote is not a reward for turning eighteen.” Harriet means that', '["eighteen-year-olds should not vote","people should be paid to vote","voting is about having a voice, not a prize for reaching an age","birthdays are more important than elections"]'::jsonb, 2, 'The next sentence explains: “It is a voice in the decisions that shape our lives.”', 'AC9E9LE04', '97d9404b-6d02-4372-9084-c9f11944203b', null, true, null, null, null, null),
+('ac4ec9db-3f58-4543-9a11-9fad7e970abd', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What is the main idea of the poem?', '["The river is polluted by the town.","The bridge is about to collapse.","People should throw coins into rivers.","The river is ancient and patient, and outlasts human things."]'::jsonb, 3, 'It is older than the town and bridge, carves valleys slowly, and will outlast the bridge.', 'AC9E9LE02', '190a29d4-c990-4653-8e7e-547e81404fd4', null, true, null, null, null, null),
+('21ad8500-f5ab-42cc-a95d-3a605a5a132c', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', '“It remembers the floods the way skin remembers a scar.” This suggests that the floods', '["left lasting marks on the river and its banks","were forgotten quickly","hurt the people of the town","happened only once"]'::jsonb, 0, 'A scar is a permanent mark from an old wound; floods left their mark in the same way.', 'AC9E9LE04', '190a29d4-c990-4653-8e7e-547e81404fd4', null, true, null, null, null, null),
+('c8ec2f3c-a37c-45b5-a6df-acdc96ff9981', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What do “canoes of bark” and “the paddle-steamers’ smoke” show?', '["the river was once used for racing","the river has seen many different eras of people","the river is too shallow for boats now","the town is famous for its boats"]'::jsonb, 1, 'Bark canoes and later paddle-steamers mark very different periods in the river’s long history.', 'AC9E9LE04', '190a29d4-c990-4653-8e7e-547e81404fd4', null, true, null, null, null, null),
+('7f2cf3e1-aa21-4433-85a6-21f48e7caf2c', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', '“The drought that showed its bones” most likely describes', '["animal bones found in the river","the river flooding its banks","the riverbed and rocks exposed when the water was low","a very cold winter"]'::jsonb, 2, 'In drought the water drops and the river’s “skeleton” — rocks and bed — shows.', 'AC9E9LE04', '190a29d4-c990-4653-8e7e-547e81404fd4', null, true, null, null, null, null),
+('d9edc0e5-d220-4937-a8dd-1d46ac908337', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'The phrase “one grain at a time” emphasises', '["how small the river is","how much sand the river carries","how the river is measured","how slowly and patiently the river works"]'::jsonb, 3, 'Carving a valley grain by grain shows immense patience over immense time.', 'AC9E9LE04', '190a29d4-c990-4653-8e7e-547e81404fd4', null, true, null, null, null, null),
+('befafd77-e751-4f26-96bd-668fe7a4a0d8', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What do the final words, “go on, go on, go on”, suggest?', '["the endless flow of the river, and a message to keep going","that the river wants people to leave","that the river is about to dry up","the sound of the bridge in the wind"]'::jsonb, 0, 'The repeated words echo flowing water and express the river’s one truth: it continues.', 'AC9E9LE04', '190a29d4-c990-4653-8e7e-547e81404fd4', null, true, null, null, null, null),
+('91a1aad1-ce59-4300-8e8e-9f0a239833d2', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'In the early 1950s, what did most people imagine the ocean floor was like?', '["a range of underwater volcanoes","a flat, featureless plain of mud","a deep valley","solid rock with no sand"]'::jsonb, 1, 'The first sentence describes this common belief, which Tharp proved wrong.', 'AC9E9LY05', 'f3446884-d8c0-461c-9b10-876c9f62fe65', null, true, null, null, null, null),
+('d08874a0-c5e4-46d4-81f7-0ab3e8ed68fa', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why did Tharp stay in the laboratory while the men went to sea?', '["She was afraid of the sea.","She preferred drawing maps.","Women were not allowed on the research ships.","There was no room on the ships."]'::jsonb, 2, 'The text says women were not allowed on the laboratory’s research ships at the time.', 'AC9E9LY05', 'f3446884-d8c0-461c-9b10-876c9f62fe65', null, true, null, null, null, null),
+('63f86021-4838-4876-88c4-93cb50ee4371', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'How did the echo sounders measure the depth of the ocean?', '["by lowering a rope with a weight","by taking photographs of the sea floor","by measuring the temperature of the water","by timing how long sound took to echo back from the sea floor"]'::jsonb, 3, 'They sent pulses of sound to the sea floor and timed the echoes.', 'AC9E9LY05', 'f3446884-d8c0-461c-9b10-876c9f62fe65', null, true, null, null, null, null),
+('95e21b24-4d96-4320-a244-04d6db646e01', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What did Tharp believe the V-shaped valley was?', '["a rift where the Earth’s crust was being pulled apart","an old riverbed","the crater of a volcano","a mistake in the measurements"]'::jsonb, 0, 'She believed it was a rift, which would mean the continents were moving apart.', 'AC9E9LY05', 'f3446884-d8c0-461c-9b10-876c9f62fe65', null, true, null, null, null, null),
+('c37bc0bb-2a18-49b7-a2cc-7758dd44587f', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What eventually convinced Heezen that Tharp was right?', '["Another scientist agreed with her.","Earthquakes along the ridge matched her valley exactly.","He saw the valley from a ship.","She published a paper about it."]'::jsonb, 1, 'It took about a year, until the pattern of earthquakes matched her valley exactly.', 'AC9E9LY05', 'f3446884-d8c0-461c-9b10-876c9f62fe65', null, true, null, null, null, null),
+('26302bb6-098b-41b2-80e6-913516d3f211', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Which word best describes how Tharp was treated for much of her career?', '["celebrated","well paid","overlooked","feared"]'::jsonb, 2, 'Her idea was dismissed as “girl talk”, work appeared under Heezen’s name, and she was barred from voyages until 1968.', 'AC9E9LY05', 'f3446884-d8c0-461c-9b10-876c9f62fe65', null, true, null, null, null, null),
+('aae98919-d9f6-424d-b816-e99295789060', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does the writer compare rip drownings with sharks, bushfires and floods?', '["to argue that sharks are not dangerous","to explain how rips form","to list the dangers of the Australian bush","to show how dangerous rips are compared with better-known dangers"]'::jsonb, 3, 'Rips are involved in more drownings than those feared dangers combined — a striking way to show the risk.', 'AC9E9LY03', '6713fe99-73a3-4a12-8dc1-19b4b1f0f030', null, true, null, null, null, null),
+('fb8bd2aa-9082-4f2b-a30a-d75199e3f95c', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'How does a rip form?', '["Water pushed ashore by waves flows back out through a channel.","Wind blows water away from the beach.","The tide pulls the sand out to sea.","Boats create currents near the shore."]'::jsonb, 0, 'Water pushed towards shore finds the easiest path back, often a channel between sandbanks.', 'AC9E9LY05', '6713fe99-73a3-4a12-8dc1-19b4b1f0f030', null, true, null, null, null, null),
+('76f06ca0-79c8-4ed7-9d78-852aba136e9b', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Which of these is a sign of a rip?', '["more breaking waves than on either side","fewer breaking waves than on either side","very clear, shallow water","lots of swimmers"]'::jsonb, 1, 'The list includes fewer breaking waves, darker water, a choppy surface and debris carried out.', 'AC9E9LY05', '6713fe99-73a3-4a12-8dc1-19b4b1f0f030', null, true, null, null, null, null),
+('a98e55b5-5cc4-4298-89d9-631aff4da39e', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'Where is the safest place to swim?', '["wherever the water looks calm","near rocks","between the red and yellow flags","beyond the breaking waves"]'::jsonb, 2, 'The text says the safest choice is to swim between the red and yellow flags.', 'AC9E9LY05', '6713fe99-73a3-4a12-8dc1-19b4b1f0f030', null, true, null, null, null, null),
+('1e6d6137-ad14-4120-b53c-f1e826d5745a', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why should you not swim straight back to shore against a rip?', '["It is against the law.","The rip will pull you under.","It takes you further from the flags.","Even strong swimmers become exhausted."]'::jsonb, 3, 'The Don’t box says even strong swimmers become exhausted fighting the rip.', 'AC9E9LY05', '6713fe99-73a3-4a12-8dc1-19b4b1f0f030', null, true, null, null, null, null),
+('134dd666-ad24-41f7-b2ca-4920fbbdc301', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why does the first step say, “A rip will not pull you under; it pulls you out”?', '["to correct a common fear and help swimmers stay calm","to explain how deep rips are","to warn swimmers about waves","to describe how lifesavers rescue people"]'::jsonb, 0, 'Panic is dangerous; knowing a rip will not drag you under helps you float and signal instead.', 'AC9E9LY03', '6713fe99-73a3-4a12-8dc1-19b4b1f0f030', null, true, null, null, null, null),
+('820b5502-88e6-4ae2-a183-3a6c7d3597de', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'The outside of the library is compared to “a stack of enormous books that someone has knocked slightly askew”. This suggests the building is', '["old and falling down","unusual and playful in shape","small and plain","made of paper"]'::jsonb, 1, 'Floors jutting out at different angles look like a tilted pile of books: bold and playful.', 'AC9E9LE04', '3f5c3152-0d8b-4118-88aa-f9fe164ad028', null, true, null, null, null, null),
+('75f7e28d-b7e4-415e-80c0-f9f5f4deab9d', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does the reviewer say the bold design is “exactly the point”?', '["The architects ran out of money.","Libraries should look like books.","The library wants to be noticed, including by teenagers.","Bold buildings are cheaper to build."]'::jsonb, 2, 'A building that wants to attract teenagers as well as book clubs benefits from being impossible to ignore.', 'AC9E9LY05', '3f5c3152-0d8b-4118-88aa-f9fe164ad028', null, true, null, null, null, null),
+('9fbdee33-f448-4488-b1c6-772855638c91', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'The staircase “winds up through the middle of the building like a spine”. This suggests the staircase', '["is painful to climb","is hidden at the back","is very narrow","connects the whole building at its centre"]'::jsonb, 3, 'A spine runs through the centre of a body and holds it together, as the staircase does the building.', 'AC9E9LE04', '3f5c3152-0d8b-4118-88aa-f9fe164ad028', null, true, null, null, null, null),
+('d9505771-cbf8-4adb-9959-9051d27e6205', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Which of these is NOT a criticism made in the review?', '["The café is too expensive.","The children’s area has no windows.","The signs are hard to follow.","The timber will need careful maintenance."]'::jsonb, 0, 'The café is mentioned only as a feature; the other three are listed as problems.', 'AC9E9LY05', '3f5c3152-0d8b-4118-88aa-f9fe164ad028', null, true, null, null, null, null),
+('243152f0-44ad-48e1-b070-a167eb20edaa', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What is the reviewer’s overall judgement of the library?', '["It was a waste of money.","Despite some problems, it succeeds in making people want to be there.","It is perfect in every way.","It is only suitable for children."]'::jsonb, 1, 'The ending says it has done what the best public buildings do: made people want to be there.', 'AC9E9LY05', '3f5c3152-0d8b-4118-88aa-f9fe164ad028', null, true, null, null, null, null),
+('0187b010-ca1d-4ba0-b14a-f99a6c5f6e5d', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'How often is the dam’s level recorded for this chart?', '["every day","every month","once a year, at the end of summer","only in dry years"]'::jsonb, 2, 'The authority records how full it is at the end of every summer.', 'AC9E9LY05', 'a8284ceb-7f3f-4831-ad67-36855a25397f', null, true, null, null, null, null),
+('42d3e903-ae28-4953-8fc6-80b7aa02797d', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'In which year was the dam at its lowest?', '["2018","2019","2020","2025"]'::jsonb, 2, 'The chart and text show the low point in 2020, at 38 per cent.', 'AC9E9LY05', 'a8284ceb-7f3f-4831-ad67-36855a25397f', null, true, null, null, null, null),
+('ca787a32-af9f-4a70-a8a3-0f90165c0f5d', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What caused the dam to fall so low?', '["a leak in the dam wall","too many new houses","a very hot winter","three dry years in a row"]'::jsonb, 3, 'The low point came after three dry years in a row.', 'AC9E9LY05', 'a8284ceb-7f3f-4831-ad67-36855a25397f', null, true, null, null, null, null),
+('540971b2-8aee-44d7-994f-86a280fc1a85', 'reading_literary_analysis', 'year_9', 'developing', 'short_answer', 'In which year did the dam reach 95 per cent? Write the year.', null, null, 'The chart shows 95 per cent in 2023, which the text calls its highest level in the period.', 'AC9E9LY05', 'a8284ceb-7f3f-4831-ad67-36855a25397f', null, true, '2023', null, null, null),
+('bb4fb93b-001a-41c2-b0c5-7afd08ddefec', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What does the spokesperson mean by “Three dry summers took us from comfortable to critical”?', '["Levels fell quickly from safe to dangerously low.","The dam was always too low.","Summers are becoming more comfortable.","Residents used too much water in winter."]'::jsonb, 0, 'From 74 per cent in 2017 the dam fell to 38 per cent by 2020.', 'AC9E9LY05', 'a8284ceb-7f3f-4831-ad67-36855a25397f', null, true, null, null, null, null),
+('401ae139-58b9-4ef1-ab95-929e42884c85', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'If the dam is 45 per cent full at the end of next summer, what will happen?', '["The dam will be emptied.","Water restrictions will return automatically.","Nothing, because 45 per cent is safe.","Hoses will be allowed again."]'::jsonb, 1, 'Restrictions return automatically below 50 per cent at the end of summer.', 'AC9E9LY05', 'a8284ceb-7f3f-4831-ad67-36855a25397f', null, true, null, null, null, null),
+('609212d0-c03a-48be-be9c-944d4488c2ca', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Pop sniffs the wind “the way other people check a weather app”. This suggests that he', '["reads the weather from long experience","does not own a phone","is worried about his health","dislikes modern technology"]'::jsonb, 0, 'He judges the conditions by the feel and smell of the wind, as others would consult an app.', 'AC9E9LE04', '7179809e-7f2b-4ee8-a9b7-b6a66901f6f8', null, true, null, null, null, null),
+('06593cb5-10b3-46e0-a210-65ef2d218d84', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'What is the firebreak?', '["a wall built around the garden","a strip of bare earth around the house block","a dam for fighting fires","a road through the paddocks"]'::jsonb, 1, 'It is a ten-metre strip of bare earth between the garden and the dry grass, cleared of anything that could burn.', 'AC9E9LY05', '7179809e-7f2b-4ee8-a9b7-b6a66901f6f8', null, true, null, null, null, null),
+('dec517b8-806a-4141-a101-8499c95af244', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why doesn’t Josh complain about the firebreak this year?', '["Pop is paying him.","The job is easier this year.","Last summer a fire came frighteningly close.","His parents told him not to."]'::jsonb, 2, 'He remembers the bruised sky, the falling ash and the fire that missed them by eleven kilometres.', 'AC9E9LY05', '7179809e-7f2b-4ee8-a9b7-b6a66901f6f8', null, true, null, null, null, null),
+('df46e5c9-a858-4e7b-811e-73bf3dd7e357', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What is the effect of the sentence “Eleven kilometres was not very far”?', '["It shows the fire was a long way away.","It tells the reader how big the farm is.","It shows Josh is bad at judging distance.","It shows Josh now understands how close the danger was."]'::jsonb, 3, 'Standing alone after the figure, it turns a fact into a realisation: they were nearly caught.', 'AC9E9LY03', '7179809e-7f2b-4ee8-a9b7-b6a66901f6f8', null, true, null, null, null, null),
+('117bcd4f-bf6c-4347-9cf4-293c15a9e00e', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What do the details of the heat, the screaming cicadas and the willy-willies suggest about the day?', '["The conditions are hot, dry and windy — dangerous for fire.","A storm is about to break.","It is the middle of winter.","The work is nearly finished."]'::jsonb, 0, 'Shimmering heat, a hot northerly and whirlwinds of dust describe classic fire weather.', 'AC9E9LY05', '7179809e-7f2b-4ee8-a9b7-b6a66901f6f8', null, true, null, null, null, null),
+('edb2677a-1cd9-4795-907b-deefd6f3ef7f', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why does Pop rub the scar on his wrist when he talks about fires in the past?', '["His wrist is sore from the work.","It reminds him of the years when the fire won.","He is nervous about the question.","He wants Josh to see the scar."]'::jsonb, 1, 'He says, “And some years you didn’t” while touching the scar: a painful memory of losing to fire.', 'AC9E9LE04', '7179809e-7f2b-4ee8-a9b7-b6a66901f6f8', null, true, null, null, null, null),
+('30da296c-7114-4aa3-bf6e-373cf85f255a', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why has Pop changed his mind about staying to fight a fire?', '["He is too old to use a hose.","His house is insured.","Fires are hotter and faster now, and a life cannot be rebuilt.","The fire brigade will defend the house."]'::jsonb, 2, 'He says the fires are different now and repeats the brigade’s advice: a house can be rebuilt, you can’t.', 'AC9E9LY05', '7179809e-7f2b-4ee8-a9b7-b6a66901f6f8', null, true, null, null, null, null),
+('c12b4a85-bef2-4629-ae02-e88ea2690973', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What does Pop’s added line, DON’T FORGET THE DOG, suggest?', '["He thinks Josh will forget everything.","He does not take the plan seriously.","He wants to stay behind with the dog.","He has accepted the plan and added what matters to him."]'::jsonb, 3, 'Reading it twice and adding a line shows he has made the plan his own, and the old dog matters to him.', 'AC9E9LE02', '7179809e-7f2b-4ee8-a9b7-b6a66901f6f8', null, true, null, null, null, null),
+('b31a4f56-c708-4322-91e3-4de347e5a477', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'What is echolocation?', '["finding things by listening to echoes","seeing in the dark with large eyes","flying by following smells","calling to other bats"]'::jsonb, 0, 'The first paragraph defines it as finding things by listening to echoes.', 'AC9E9LY05', '9d56e80a-d8e7-4e47-9ead-c1779799eb48', null, true, null, null, null, null),
+('46887551-d269-47b3-ac6a-8aca970bb316', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why can people usually not hear bat calls?', '["Bats call very quietly.","The calls are too high-pitched.","Bats only call in caves.","The calls are drowned out by insects."]'::jsonb, 1, 'Most calls are far too high for human ears to hear.', 'AC9E9LY05', '9d56e80a-d8e7-4e47-9ead-c1779799eb48', null, true, null, null, null, null),
+('98ef0055-a10e-495c-a3b8-92ad7365c570', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'How does a bat tell how far away an object is?', '["by how loud its own call is","by the colour of the object","by how long the echo takes to return","by how fast it is flying"]'::jsonb, 2, 'The longer the delay before the echo returns, the further away the object.', 'AC9E9LY05', '9d56e80a-d8e7-4e47-9ead-c1779799eb48', null, true, null, null, null, null),
+('0222ce47-6fec-4714-acae-437a5e53c866', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'How does a bat work out the direction of an object?', '["by turning its head in a circle","by calling from two directions","by feeling the air move","from small differences between the echoes reaching each ear"]'::jsonb, 3, 'Tiny differences between the echoes reaching its left and right ears tell it the direction.', 'AC9E9LY05', '9d56e80a-d8e7-4e47-9ead-c1779799eb48', null, true, null, null, null, null),
+('ad08f8bf-0ea9-4a8b-a19d-704a7c8b20ff', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does a bat speed up its calls as it closes in on an insect?', '["to get constant updates on exactly where the prey is","to frighten the insect","to warn other bats away","because it is running out of breath"]'::jsonb, 0, 'The faster calls give constant updates on its prey’s position, right up to capture.', 'AC9E9LY05', '9d56e80a-d8e7-4e47-9ead-c1779799eb48', null, true, null, null, null, null),
+('9a2a8b19-2549-4304-b0dc-83d0a1668d9c', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What does the heading “An arms race” suggest about bats and insects?', '["Bats and insects fight with weapons.","Each side keeps developing new ways to beat the other.","Insects always win.","Bats and insects work together."]'::jsonb, 1, 'As bats hunt by sound, some moths have evolved to hear them or even jam their calls — a contest of adaptations.', 'AC9E9LY03', '9d56e80a-d8e7-4e47-9ead-c1779799eb48', null, true, null, null, null, null),
+('4cb88f7c-99f4-4373-8fe8-dd2f2b7c68ac', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Which bats rely mainly on sight and smell rather than echolocation?', '["bats that hunt moths","bats with large ears","large fruit bats such as flying-foxes","all Australian bats"]'::jsonb, 2, 'The text says many large fruit bats, including flying-foxes, rely mainly on eyesight and smell.', 'AC9E9LY05', '9d56e80a-d8e7-4e47-9ead-c1779799eb48', null, true, null, null, null, null),
+('e543c4b3-dba8-4378-af1e-3dcf4fca5ef9', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'What is Priya’s main point?', '["Social media should be banned for teenagers.","Adults use social media too much.","Teenagers should only use social media for school.","Social media connects teenagers and brings real benefits."]'::jsonb, 3, 'Her heading is It connects us; she describes friendship, community and learning.', 'AC9E9LY01', '61bf687f-3f40-4fbf-8c40-412e465fa537', null, true, null, null, null, null),
+('171e3af3-5af6-416e-9c39-0240fa5d6c98', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'How did social media help Priya when she changed schools?', '["A group chat with old friends kept her from feeling alone.","She found a new school online.","She made money from videos.","She learned about her new teachers."]'::jsonb, 0, 'She says the group chat with her old friends kept her from feeling completely alone.', 'AC9E9LY05', '61bf687f-3f40-4fbf-8c40-412e465fa537', null, true, null, null, null, null),
+('15da34f6-8cca-4be2-9a01-ca695be49fc2', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'According to Priya, what is the best response to the risks of social media?', '["switching it off completely","teaching young people to use it wisely","letting parents read every message","using it only on weekends"]'::jsonb, 1, 'She says the answer is to teach wise use, not to pretend we can switch it off.', 'AC9E9LY05', '61bf687f-3f40-4fbf-8c40-412e465fa537', null, true, null, null, null, null),
+('2861e869-e435-4f4f-8776-4c69d2f09014', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Which change does Tom say he has noticed since deleting his apps?', '["He has more friends.","He earns more money.","He sleeps better.","He watches more television."]'::jsonb, 2, 'He says he sleeps better, gets more homework done and no longer compares his life with others’.', 'AC9E9LY05', '61bf687f-3f40-4fbf-8c40-412e465fa537', null, true, null, null, null, null),
+('911a2a87-b87b-43d6-b8fa-a57566cd431a', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does Tom describe other people’s photos as “carefully edited”?', '["to praise their photography skills","to explain how to edit photos","to show that he misses social media","to show that comparing yourself with them is unfair"]'::jsonb, 3, 'Edited photos show an improved version of life, so comparing your real life with them is unfair.', 'AC9E9LE04', '61bf687f-3f40-4fbf-8c40-412e465fa537', null, true, null, null, null, null),
+('c4df7766-2977-4221-9d05-47e088b01c3d', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'According to Tom, why are the apps designed to keep people scrolling?', '["Their makers earn money from advertising.","Users ask for more content.","It helps people sleep.","Schools require it."]'::jsonb, 0, 'He says that is how their makers earn money from advertising.', 'AC9E9LY05', '61bf687f-3f40-4fbf-8c40-412e465fa537', null, true, null, null, null, null),
+('71f86b32-b430-49cd-a5f4-0574193b20c7', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'On which point do Priya and Tom agree?', '["Social media should be banned.","Neither thinks everyone should stop using social media.","Social media has no risks.","Teenagers should use social media more."]'::jsonb, 1, 'Priya says we cannot switch it off; Tom says he is not saying no one should use it.', 'AC9E9LY05', '61bf687f-3f40-4fbf-8c40-412e465fa537', null, true, null, null, null, null),
+('971344f9-0c57-455d-a05b-049e671ccd80', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'When did the watch stop?', '["when it was dropped","on the speaker’s birthday","in the winter the grandfather died","when it was put in the drawer"]'::jsonb, 2, '“It stopped the winter he did” — the same winter the grandfather died.', 'AC9E9LY05', '2d7140fd-283a-411a-a841-84b1f3af95e0', null, true, null, null, null, null),
+('dee5fd9d-bb98-4495-9575-bd185fe2f94d', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why has “no one had the heart” to wind the watch?', '["No one knows how to wind it.","The watch is broken beyond repair.","The family plans to sell it.","Letting it stay stopped keeps a link to his death and his memory."]'::jsonb, 3, 'Winding it would feel like moving on; the stopped hands mark the moment he was lost.', 'AC9E9LE04', '2d7140fd-283a-411a-a841-84b1f3af95e0', null, true, null, null, null, null),
+('663a9873-f594-41be-92de-8d9717759ff3', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What does “the keys to doors we no longer own” suggest about the drawer?', '["It holds things kept for memory, not for use.","It is locked.","The family has lost its house.","It is full of spare keys."]'::jsonb, 0, 'Keys to doors they no longer own are useless; like the watch, they are kept because of what they recall.', 'AC9E9LE04', '2d7140fd-283a-411a-a841-84b1f3af95e0', null, true, null, null, null, null),
+('52c32a87-993b-4ac5-b77b-1e0c2cff22d6', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', '“The gold gone soft and pale where his thumb wore it smooth” shows that', '["the watch was cheap","he handled the watch constantly for many years","the watch was damaged in a fire","he rarely wore the watch"]'::jsonb, 1, 'Fifty years of his thumb rubbing the gold has worn it smooth.', 'AC9E9LE04', '2d7140fd-283a-411a-a841-84b1f3af95e0', null, true, null, null, null, null),
+('6d09856a-1c69-4a5f-bf87-10aad6b244f7', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'The speaker hears the watch “anyway”, even though it has stopped. This suggests that', '["the watch has started working again","the speaker has very good hearing","the speaker’s memory of the grandfather brings the sound back","there is another clock nearby"]'::jsonb, 2, 'Expecting nothing, the speaker still “hears” it: memory supplies what the watch cannot.', 'AC9E9LE04', '2d7140fd-283a-411a-a841-84b1f3af95e0', null, true, null, null, null, null),
+('a155ba08-595f-4efe-bdb3-76b00f828f59', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What does the final line, “someone who was always on time”, tell us about the grandfather?', '["He was always in a hurry.","He was strict about being late.","He worked as a watchmaker.","He was reliable, and the speaker remembers him with affection."]'::jsonb, 3, 'It is a fond tribute: steady and dependable, like the ticking the speaker still hears.', 'AC9E9LE02', '2d7140fd-283a-411a-a841-84b1f3af95e0', null, true, null, null, null, null),
+('323a9850-14f3-4331-b229-a07064da6361', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'What was remarkable about the result of the 1967 referendum?', '["It had the highest Yes vote of any Australian referendum.","It was the first referendum ever held.","It was very close.","Most people voted No."]'::jsonb, 0, 'More than 90 per cent voted Yes — the highest Yes vote ever recorded in an Australian referendum.', 'AC9E9LY05', 'fd171f8b-8b6c-48a3-be89-bed73aebea67', null, true, null, null, null, null),
+('af700768-7ede-4a57-b8be-e61f834d6973', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'According to the text, what is the Constitution?', '["a list of laws passed each year","the set of rules that governs how the country is run","the building where Parliament meets","the document that lists every citizen"]'::jsonb, 1, 'The text defines it as the set of rules that governs how the country is run.', 'AC9E9LY05', 'fd171f8b-8b6c-48a3-be89-bed73aebea67', null, true, null, null, null, null),
+('c62baa71-76cf-4084-9bc1-fa7ce7200563', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What did a Yes vote do to the section about counting the population?', '["It changed who could vote.","It moved the section to state law.","It removed the section entirely.","It left it unchanged."]'::jsonb, 2, 'A Yes vote would remove the first section entirely and change the second.', 'AC9E9LY05', 'fd171f8b-8b6c-48a3-be89-bed73aebea67', null, true, null, null, null, null),
+('2e2d9e4e-4eda-4e56-9bec-7bd7ef11f5b2', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Who was Faith Bandler?', '["the Prime Minister in 1967","the author of the Constitution","a judge who counted the votes","a leading campaigner for the Yes case"]'::jsonb, 3, 'She was one of the best-known campaigners and a leading voice for the Yes case.', 'AC9E9LY05', 'fd171f8b-8b6c-48a3-be89-bed73aebea67', null, true, null, null, null, null),
+('ddcb9de7-d786-478e-aefd-b7263eae3e5a', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does the writer say the referendum is “often misremembered”?', '["Many people wrongly believe it gave Aboriginal people the vote.","Few people know when it happened.","The result is often reported as a No.","Many people think it was held in 1962."]'::jsonb, 0, 'The writer explains it did not give the vote, which had been granted by law in 1962.', 'AC9E9LY03', 'fd171f8b-8b6c-48a3-be89-bed73aebea67', null, true, null, null, null, null),
+('b3e0c984-2883-4616-b94e-13e9a67e7e20', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'According to the text, why was the vote important as a symbol?', '["It changed the national flag.","It removed wording many saw as exclusion, and showed the kind of country people wanted.","It created a new public holiday.","It ended all inequality immediately."]'::jsonb, 1, 'The writer says it removed wording seen as a symbol of exclusion, and the huge Yes vote was a statement about the country.', 'AC9E9LY05', 'fd171f8b-8b6c-48a3-be89-bed73aebea67', null, true, null, null, null, null),
+('5c10fde7-e5c0-40f3-994b-b36d6453d44c', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'Why is the last section headed “A beginning, not an end”?', '["The referendum was held again later.","The campaign had only just started in 1967.","Progress after the referendum was slow, and the struggle for rights continued.","The Constitution was rewritten afterwards."]'::jsonb, 2, 'Change was slower than hoped, and the struggle for land rights and equality went on for decades.', 'AC9E9LY03', 'fd171f8b-8b6c-48a3-be89-bed73aebea67', null, true, null, null, null, null),
+('b8bd99b5-0085-4206-b427-7983d8197e5a', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why does Daniel mention “blazers two sizes too big”?', '["to complain about the uniform","to show the school was poor","to thank the uniform shop","to recall, with humour, how young they were when they started"]'::jsonb, 3, 'It is a light, shared memory of arriving as small Year 7s — “Some of us are still waiting.”', 'AC9E9LE04', '0fbfff9d-d713-4f9a-bf8c-e9dfc301096e', null, true, null, null, null, null),
+('eb05b209-0429-477b-9134-92e576823a8a', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'Why does Daniel say thank you instead of giving advice?', '["He feels he learned most of what he knows from the people in the room.","He does not like giving speeches.","He was told not to give advice.","He thinks advice is useless."]'::jsonb, 0, 'He says he is eighteen and learned most of what he knows from the people in the room.', 'AC9E9LY05', '0fbfff9d-d713-4f9a-bf8c-e9dfc301096e', null, true, null, null, null, null),
+('5978af7e-8e35-48b3-a9b7-538cb1569720', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What does Daniel now understand about the hardest assignments?', '["They were set as punishment.","Teachers set them because they believed students could do them.","They were not marked.","They were too hard for most students."]'::jsonb, 1, 'He says the hardest assignments were the ones teachers believed they could do.', 'AC9E9LY05', '0fbfff9d-d713-4f9a-bf8c-e9dfc301096e', null, true, null, null, null, null),
+('a77c95d8-ae5e-4ffd-95c5-b83a3f91a94b', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why does Daniel thank his mum for asking about his chemistry homework?', '["She helped him with the answers.","She was a chemistry teacher.","Explaining it to her helped him learn it.","She made him do it early."]'::jsonb, 2, 'She did not understand it, but explaining it was how he learned it.', 'AC9E9LY05', '0fbfff9d-d713-4f9a-bf8c-e9dfc301096e', null, true, null, null, null, null),
+('3e5fb98d-d1ea-4920-9b87-26e63c8b3523', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why does Daniel say “Year 8 haircuts come to mind”?', '["to criticise his classmates","to explain a school rule","to change the subject","to add humour through a shared memory"]'::jsonb, 3, 'A gentle joke that the whole audience of graduates would recognise.', 'AC9E9LE04', '0fbfff9d-d713-4f9a-bf8c-e9dfc301096e', null, true, null, null, null, null),
+('b18c95e6-b79b-4803-b456-9d99c80fe18a', 'reading_literary_analysis', 'year_9', 'advanced', 'multiple_choice', 'What is the main message of Daniel’s speech?', '["People believed in them, and they should pass that belief on to others.","School is the most important part of life.","Everyone should go to university.","Friendships from school never last."]'::jsonb, 0, 'He hopes they take the knowledge that people believed in them, and one day do the same for someone else.', 'AC9E9LY01', '0fbfff9d-d713-4f9a-bf8c-e9dfc301096e', null, true, null, null, null, null),
+('28591723-2b4d-4139-ab4a-561c2c24436f', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'What does “just a red lantern and a queue” suggest about the restaurant?', '["It is closed most nights.","It is popular even without a sign or advertising.","It is hard to find and rarely busy.","It only sells lanterns."]'::jsonb, 1, 'There is no sign, yet there is a queue that stretches past the laundromat.', 'AC9E9LY05', '131bb1fc-9134-44bf-bb76-e50530e99d7f', null, true, null, null, null, null),
+('693b832f-5ff4-465a-9438-7a3810b1d997', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why does the reviewer say “Watching is half the fun”?', '["The food takes a long time to arrive.","There is a television in the restaurant.","Seeing the noodles being made is entertaining.","The other diners are interesting."]'::jsonb, 2, 'The cook stretches, folds and slaps the dough into strands in an open kitchen.', 'AC9E9LY05', '131bb1fc-9134-44bf-bb76-e50530e99d7f', null, true, null, null, null, null),
+('60f28198-dc0b-4900-9bca-4d2160b9ed6f', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'What criticism does the reviewer make of the dumplings?', '["They were too expensive.","They were burnt.","There were not enough of them.","They arrived lukewarm."]'::jsonb, 3, 'The dumplings were almost as good as the noodles, though they arrived lukewarm.', 'AC9E9LY05', '131bb1fc-9134-44bf-bb76-e50530e99d7f', null, true, null, null, null, null),
+('033396fd-3140-4321-819e-0991af8cdde0', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', '“Fast to the point of being brisk” means the service was', '["so quick that it felt a little rushed","slow and careless","friendly and relaxed","very expensive"]'::jsonb, 0, 'Brisk means quick and businesslike; plates were cleared the moment chopsticks went down.', 'AC9E9LE04', '131bb1fc-9134-44bf-bb76-e50530e99d7f', null, true, null, null, null, null),
+('d4fd1ab1-ce53-4c88-a9db-ff9a88f73d82', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What is the reviewer’s overall opinion of Lao Ma’s Kitchen?', '["It is too loud to enjoy.","The noodles are excellent and cheap, despite some drawbacks.","It is only worth visiting for the salad.","It is overpriced."]'::jsonb, 1, 'It does noodles brilliantly at prices that feel like a gift; the noise and cash-only rule do not matter.', 'AC9E9LY05', '131bb1fc-9134-44bf-bb76-e50530e99d7f', null, true, null, null, null, null),
+('0c85a4a9-9ba3-4a70-855d-a32b88aeb665', 'reading_literary_analysis', 'year_9', 'foundation', 'short_answer', 'How many students were surveyed? Write the number.', null, null, 'The Student Council surveyed all 850 students.', 'AC9E9LY05', 'da17867c-4d99-44dc-b1e2-ba38eb654b8c', null, true, '850', null, null, null),
+('326d7153-a81c-43ae-84cf-482de4b78203', 'reading_literary_analysis', 'year_9', 'foundation', 'multiple_choice', 'According to the pie chart, what is the most common way to get to school?', '["bus","walking","car","train"]'::jsonb, 2, 'Car is the largest sector at 38 per cent.', 'AC9E9LY05', 'da17867c-4d99-44dc-b1e2-ba38eb654b8c', null, true, null, null, null, null),
+('109d53e5-2fb6-43c2-bc6d-1778a0fc9545', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'Why do many families drive their children to school?', '["The school is very far away.","There is no bus service.","Students have too much to carry.","The road is busy and has no bike lane."]'::jsonb, 3, 'Families said the school is on a busy road with no bike lane, and riding feels unsafe.', 'AC9E9LY05', 'da17867c-4d99-44dc-b1e2-ba38eb654b8c', null, true, null, null, null, null),
+('24327820-eb7f-40f1-a6ca-2561132a68f8', 'reading_literary_analysis', 'year_9', 'developing', 'multiple_choice', 'What is the Student Council asking the local council for?', '["a separated bike lane along Station Road","more school buses","a bigger car park","a new train station"]'::jsonb, 0, 'It has asked for a separated bike lane along Station Road.', 'AC9E9LY05', 'da17867c-4d99-44dc-b1e2-ba38eb654b8c', null, true, null, null, null, null),
+('ffe14bdf-9594-4d8d-8c18-7bfdd3d93e32', 'reading_literary_analysis', 'year_9', 'proficient', 'multiple_choice', 'How did the Council arrive at its estimate of 170 fewer cars?', '["11 per cent of students already ride","20 per cent of 850 students would ride instead","more than a third of students come by car","the bus carries 27 per cent"]'::jsonb, 1, 'Another 20 per cent said they would ride with a safe lane: 20 per cent of 850 is 170.', 'AC9E9LY05', 'da17867c-4d99-44dc-b1e2-ba38eb654b8c', null, true, null, null, null, null)
 on conflict (id) do update set
   topic = excluded.topic,
   year_level = excluded.year_level,

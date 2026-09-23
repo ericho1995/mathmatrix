@@ -2,6 +2,7 @@ import { PRACTICE_EXAMS, type PracticeExam } from '@/lib/questions/exams'
 import { SUBJECTS, SELECTIVE_SUBJECTS, GRADES } from '@/lib/curriculum'
 import { QUESTION_TOTAL } from '@/lib/questions/coverage'
 import { isVceYear } from '@/lib/pricing'
+import { paperMinutes } from '@/lib/exams/paperTime'
 import type { SubjectSlug, YearLevel } from '@/types'
 
 /**
@@ -115,8 +116,11 @@ export function shortTitle(exam: PracticeExam): string {
 export interface PaperSummary {
   questions: number
   minutes: number
+  /** Per-section minutes are 0 for a Reading paper, which is one sitting. */
   sections: { title: string; questions: number; minutes: number; calculator?: boolean }[]
   readingMinutes?: number
+  /** Comes with a separate Reading Magazine. */
+  magazine?: boolean
 }
 
 /** A paper's shape, from metadata alone — never question content. */
@@ -129,8 +133,9 @@ export function summarisePaper(exam: PracticeExam): PaperSummary {
   }))
   return {
     questions: sections.reduce((n, s) => n + s.questions, 0),
-    minutes: sections.reduce((n, s) => n + s.minutes, 0),
+    minutes: paperMinutes(exam),
     sections,
     readingMinutes: exam.reading_minutes,
+    magazine: Boolean(exam.magazine_id),
   }
 }

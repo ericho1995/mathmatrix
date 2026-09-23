@@ -8,10 +8,10 @@ import { SUPPORT_EMAIL } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Help & FAQ — PrepNest',
   description:
-    'Answers about PrepNest exam papers, buying a year level, accounts and the parent dashboard — and how to get in touch.',
+    'Answers about PrepNest exam papers, purchasing, accounts and the parent dashboard — and how to get in touch.',
 }
 
-const ORDER: FaqCategory[] = ['papers', 'buying', 'accounts', 'parents']
+const ORDER: FaqCategory[] = ['papers', 'purchasing', 'accounts', 'parents']
 
 /**
  * The help centre. Every answer comes from lib/faqs.ts, the same source the
@@ -24,7 +24,7 @@ export default function HelpPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-12 flex-1 w-full">
       <h1 className="text-3xl font-medium tracking-tight mb-2">Help & FAQ</h1>
-      <p className="text-gray-500 mb-8">Quick answers about the papers, buying, and accounts.</p>
+      <p className="text-gray-500 mb-8">Quick answers about the papers, purchasing, and accounts.</p>
 
       <nav aria-label="FAQ sections" className="flex flex-wrap gap-2 mb-10">
         {ORDER.map(c => (

@@ -162,7 +162,7 @@ export default function VcePage() {
       <section className="bg-gray-50 border-y border-gray-100">
         <div className="max-w-3xl mx-auto px-4 py-14 text-center">
           <p className="text-gray-500 mb-5">
-            Every VCE paper is {VCE_PAPER_PRICE}, bought once and yours to keep — pay only for the subjects you sit.
+            Every VCE paper is {VCE_PAPER_PRICE}, purchased once and yours to keep — pay only for the subjects you sit.
             The first paper in every subject is free, and more papers are on the way.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

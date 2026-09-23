@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync, unlinkSync, existsSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import { loadMagazines } from './lib/content.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = join(__dirname, '..')
@@ -24,7 +25,7 @@ const err = (msg, id) => errors.push(id ? `${msg}  [${id}]` : msg)
 const warn = (msg, id) => warnings.push(id ? `${msg}  [${id}]` : msg)
 
 function loadModule(relPath, exportName, transform = (s) => s) {
-  const src = readFileSync(join(repoRoot, relPath), 'utf8')
+  const src = readFileSync(join(repoRoot, relPath), 'utf8').replace(/\r\n/g, '\n') // tolerate a Windows (CRLF) checkout
   const js = transform(
     src
       .replace(/^import type .+\n/m, '')
@@ -43,6 +44,9 @@ const QUESTION_BANK = await loadModule('src/lib/questions/bank.ts', 'QUESTION_BA
 const STIMULI = await loadModule('src/lib/questions/stimuli.ts', 'STIMULI', (s) =>
   s.replace(/export const STIMULI: Stimulus\[\] = \[/, 'export const STIMULI = [')
 )
+// Reading questions point at a magazine text rather than an authored passage.
+const MAGAZINES = await loadMagazines(repoRoot)
+const READING_TOPIC_SET = new Set(['reading_comprehension', 'reading_literary_analysis'])
 const ILLUSTRATIONS = existsSync(join(repoRoot, 'src/lib/questions/illustrations.ts'))
   ? await loadModule('src/lib/questions/illustrations.ts', 'ILLUSTRATIONS', (s) =>
       s.replace(/export const ILLUSTRATIONS: Record<string, Illustration> = \{/, 'export const ILLUSTRATIONS = {')
@@ -172,7 +176,10 @@ for (const q of QUESTION_BANK) {
 }
 
 // ─── 5. References resolve ───────────────────────────────────────────────────
-const stimulusIds = new Set(STIMULI.map((s) => s.id))
+const stimulusIds = new Set([
+  ...STIMULI.map((s) => s.id),
+  ...MAGAZINES.flatMap((m) => m.texts.map((t) => t.id)),
+])
 for (const q of QUESTION_BANK) {
   if (q.stimulus_id && !stimulusIds.has(q.stimulus_id)) err(`stimulus_id ${q.stimulus_id} does not exist`, q.id)
   if (q.diagram?.kind === 'illustration' && !ILLUSTRATIONS[q.diagram.id])
@@ -642,6 +649,87 @@ for (const [yearLevel, pool] of numeracyByYear) {
   }
   const distinct = Object.keys(counts).length
   if (distinct < 8) warn(`${yearLevel} numeracy uses only ${distinct} kinds of picture; real papers use far more`)
+}
+
+// ─── 14. Reading magazines ───────────────────────────────────────────────────
+// The question paper sends the student to "page 3 of the magazine", so page
+// numbers are part of the paper's correctness, not decoration. Whether a text
+// actually fits its pages once laid out is checked by /api/dev/magazines.
+const MAGAZINE_SHAPE = {
+  grade_3: { questions: [34, 42], words: [60, 280] },
+  grade_5: { questions: [34, 42], words: [100, 400] },
+  year_7: { questions: [44, 56], words: [150, 650] },
+  year_9: { questions: [44, 56], words: [180, 750] },
+}
+const passageIds = new Set(STIMULI.map((s) => s.id))
+const textIds = new Set()
+const magazineIds = new Set()
+for (const m of MAGAZINES) {
+  const where = `magazine ${m.id}`
+  if (m.id !== `reading-${m.yearLevel}-${m.set}`) err(`${where}: id should be reading-${m.yearLevel}-${m.set}`)
+  if (magazineIds.has(m.id)) err(`${where}: id used twice`)
+  magazineIds.add(m.id)
+
+  let expectedPage = 2 // the cover is page 1
+  const questions = QUESTION_BANK.filter((q) => m.texts.some((t) => t.id === q.stimulus_id))
+  for (const t of m.texts) {
+    if (textIds.has(t.id) || passageIds.has(t.id)) err(`${where}: text id ${t.id} is not unique`)
+    textIds.add(t.id)
+    if (t.page !== expectedPage) err(`${where}: "${t.title}" is on page ${t.page}, but the text before it ends on page ${expectedPage - 1}`)
+    expectedPage = t.page + (t.pages ?? 1)
+
+    const mine = questions.filter((q) => q.stimulus_id === t.id)
+    if (!mine.length) err(`${where}: "${t.title}" has no questions`)
+    else if (mine.length < 3) warn(`${where}: "${t.title}" has only ${mine.length} question(s)`)
+    for (const q of mine) {
+      if (q.year_level !== m.yearLevel) err(`${where}: question is ${q.year_level}, magazine is ${m.yearLevel}`, q.id)
+      if ((q.practice_set ?? 1) !== m.set) err(`${where}: question is in practice set ${q.practice_set ?? 1}, magazine is set ${m.set}`, q.id)
+      if (/\bpage \d/.test(q.question_text)) err(`${where}: question names a page; the paper supplies the page`, q.id)
+    }
+
+    const words = t.blocks
+      .flatMap((b) => b.text ?? b.items ?? b.lines ?? [])
+      .concat(t.blocks.filter((b) => b.kind === 'factbox').map((b) => b.title))
+      // A table is part of what the student reads.
+      .concat(t.figure?.kind === 'data_table' ? [t.figure.title ?? '', ...t.figure.columns, ...t.figure.rows.flat().map(String)] : [])
+      .join(' ')
+      .split(/\s+/)
+      .filter(Boolean).length
+    const shape = MAGAZINE_SHAPE[m.yearLevel]
+    // Poems are short at every year level; only their upper bound applies.
+    if (shape && ((words < shape.words[0] && t.type !== 'poem') || words > shape.words[1]))
+      warn(`${where}: "${t.title}" is ${words} words; ${m.yearLevel} texts run ${shape.words[0]}-${shape.words[1]}`)
+    if (t.figure?.kind === 'flow' && !(t.figure.steps?.length >= 2)) err(`${where}: "${t.title}" flow figure needs at least two steps`)
+    if (t.art && !ILLUSTRATIONS[t.art]) err(`${where}: "${t.title}" art "${t.art}" does not exist`)
+  }
+
+  const shape = MAGAZINE_SHAPE[m.yearLevel]
+  if (shape && (questions.length < shape.questions[0] || questions.length > shape.questions[1]))
+    warn(`${where}: ${questions.length} questions; real ${m.yearLevel} papers run ${shape.questions[0]}-${shape.questions[1]}`)
+  const types = new Set(m.texts.map((t) => t.type))
+  if (types.size < 5) warn(`${where}: only ${types.size} kinds of text; a real magazine mixes at least five`)
+  const mc = questions.filter((q) => typeof q.correct_index === 'number')
+  if (mc.length >= 12) {
+    const counts = [0, 0, 0, 0, 0]
+    for (const q of mc) counts[q.correct_index]++
+    const top = Math.max(...counts)
+    if (top / mc.length > 0.35) err(`${where}: one answer letter is correct ${top} times out of ${mc.length}`)
+  }
+}
+// House spelling: "practice" for the noun and the verb alike (the owner's
+// call, 2026-09-23). The British verb form keeps creeping back in.
+const PRACTISE = /practis/i
+for (const q of QUESTION_BANK) {
+  const printed = [q.question_text, q.explanation, ...(q.options ?? []), q.expected_answer ?? ''].join(' ')
+  if (PRACTISE.test(printed)) err('uses "practis-"; house spelling is "practice"', q.id)
+}
+for (const m of MAGAZINES) {
+  if (PRACTISE.test(JSON.stringify(m))) err(`magazine ${m.id} uses "practis-"; house spelling is "practice"`)
+}
+
+// Every question that points at a magazine text belongs to a magazine that exists.
+for (const q of QUESTION_BANK) {
+  if (q.practice_set && READING_TOPIC_SET.has(q.topic) && !q.stimulus_id) err('a reading question in a practice set must point at a magazine text', q.id)
 }
 
 // ─── Report ──────────────────────────────────────────────────────────────────

@@ -7,6 +7,8 @@ import { firstQuestionNumbers } from './resolveExam'
 import type { ResolvedExam, ResolvedQuestion } from './resolveExam'
 import type { PracticeExam, PracticeExamSection } from '@/lib/questions/exams'
 import { DiagramView, OptionDiagrams } from './diagrams'
+import { READING_TEXTS } from '@/lib/questions/magazines'
+import { paperMinutes } from '@/lib/exams/paperTime'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -137,10 +139,38 @@ function RunningHeader({ exam, section }: { exam: PracticeExam; section: Practic
   return <Text style={pdfStyles.runningHeader}>{yearLabel} {subjectLabel}{calcNote}</Text>
 }
 
+/**
+ * The line that opens each part of a Reading paper, in the words the real
+ * booklet uses: which text, where to find it, and which questions it covers.
+ * Returns null for every other kind of paper.
+ */
+function readingInstruction(exam: PracticeExam, s: ResolvedExam['sections'][number], first: number) {
+  if (exam.subject !== 'reading' || !s.questions.length) return null
+  const range = s.questions.length === 1 ? `question ${first}` : `questions ${first} to ${first + s.questions.length - 1}`
+  const text = s.questions[0].stimulus_id ? READING_TEXTS.get(s.questions[0].stimulus_id) : undefined
+  if (exam.magazine_id && text) {
+    return (
+      <Text style={pdfStyles.readingInstruction}>
+        Read <Text style={pdfStyles.readingInstructionTitle}>{text.title}</Text> on page {text.page} of the magazine and answer {range}.
+      </Text>
+    )
+  }
+  const passage = s.questions[0].stimulus
+  if (passage) {
+    return (
+      <Text style={pdfStyles.readingInstruction}>
+        Read <Text style={pdfStyles.readingInstructionTitle}>{passage.title}</Text> and answer {range}.
+      </Text>
+    )
+  }
+  return <Text style={pdfStyles.readingInstruction}>Read each short text and answer {range}.</Text>
+}
+
 export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
   const { exam, sections } = resolved
   const sectionStart = firstQuestionNumbers(sections)
-  const totalMinutes = sections.reduce((sum, s) => sum + s.section.time_minutes, 0)
+  const totalMinutes = paperMinutes({ total_minutes: exam.total_minutes, sections: sections.map(s => s.section) })
+  const usesMagazine = Boolean(exam.magazine_id)
 
   return (
     <Document>
@@ -151,8 +181,14 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
         </View>
         <Watermark />
         <View style={pdfStyles.coverBody}>
-          <Text style={pdfStyles.coverEyebrow}>Exam paper</Text>
+          <Text style={pdfStyles.coverEyebrow}>{usesMagazine ? 'Question paper' : 'Exam paper'}</Text>
           <Text style={pdfStyles.coverExamTitle}>{exam.title}</Text>
+          {usesMagazine ? (
+            <View style={pdfStyles.coverNeedBox}>
+              <Text style={pdfStyles.coverNeedTitle}>You will need</Text>
+              <Text style={pdfStyles.coverNeedText}>The Reading Magazine for this paper (a separate PDF). Print it too, or open it on a screen beside you.</Text>
+            </View>
+          ) : null}
           {exam.reading_minutes ? (
             <View style={pdfStyles.coverTimingBox}>
               <Text style={pdfStyles.coverTimingRow}>Reading time: {exam.reading_minutes} minutes (no writing)</Text>
@@ -168,7 +204,8 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
             <View key={i} style={pdfStyles.coverSectionRow}>
               <View style={pdfStyles.coverSectionDot} />
               <Text style={pdfStyles.coverSectionText}>
-                {s.section.title} — {s.section.time_minutes} min
+                {s.section.title}
+                {s.section.time_minutes > 0 ? ` — ${s.section.time_minutes} min` : ''}
                 {s.section.calculator_allowed !== undefined ? (s.section.calculator_allowed ? ' (calculator allowed)' : ' (no calculator)') : ''}
               </Text>
             </View>
@@ -177,6 +214,7 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
             <Text style={pdfStyles.coverInstructionsTitle}>Instructions</Text>
             <Text style={pdfStyles.coverInstructions}>
               {exam.reading_minutes ? 'You are not permitted to write during reading time — you may only read the paper and plan your approach. ' : ''}
+              {usesMagazine ? 'Each part of this paper tells you which text in the magazine to read and the page it is on. Read the text first, then answer its questions. You may look back at the magazine as often as you like. ' : ''}
               Answer every question you can. Write your working in the space provided for long-answer questions.
               Marking guidance and full explanations are provided in the separate answer key.
             </Text>
@@ -189,18 +227,23 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
         <Page key={si} size="A4" style={pdfStyles.page}>
           <Watermark />
           <RunningHeader exam={exam} section={s.section} />
-          <Text style={pdfStyles.sectionHeader}>{s.section.title}</Text>
-          <Text style={pdfStyles.sectionMeta}>
-            {s.section.time_minutes} minutes
-            {s.section.calculator_allowed !== undefined ? (s.section.calculator_allowed ? ' • Calculator allowed' : ' • No calculator') : ''}
-          </Text>
+          {readingInstruction(exam, s, sectionStart[si] + 1) ?? (
+            <>
+              <Text style={pdfStyles.sectionHeader}>{s.section.title}</Text>
+              <Text style={pdfStyles.sectionMeta}>
+                {s.section.time_minutes} minutes
+                {s.section.calculator_allowed !== undefined ? (s.section.calculator_allowed ? ' • Calculator allowed' : ' • No calculator') : ''}
+              </Text>
+            </>
+          )}
           {(() => {
             const rendered: JSX.Element[] = []
             let lastStimulusId: string | undefined
             let questionNumber = sectionStart[si]
             for (const q of s.questions) {
               questionNumber++
-              if (q.stimulus && q.stimulus.id !== lastStimulusId) {
+              // A magazine paper's texts are in the magazine, not the paper.
+              if (!usesMagazine && q.stimulus && q.stimulus.id !== lastStimulusId) {
                 // Short passages are kept whole on one page; long ones must be
                 // allowed to break, because wrap={false} on content taller than
                 // a page silently clips the overflow rather than continuing it.

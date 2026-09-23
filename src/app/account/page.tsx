@@ -168,7 +168,7 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
 
       {purchases.length > 0 && !purchasesFailed && (
       <section className="card mb-6">
-        <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">Year levels you bought</h2>
+        <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">Year levels you purchased</h2>
         {purchasesFailed ? (
           <p className="text-sm text-gray-600">
             We couldn&apos;t load your purchases just now. Nothing has been lost — please refresh in a moment.
@@ -183,7 +183,7 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
                     <p className="text-sm font-medium">{yearLabel(p.yearLevel)}</p>
                     <p className="text-xs text-gray-400 truncate">
                       {stats ? `${stats.papers} papers · ${stats.subjects.map(subjectLabel).join(', ')} · ` : ''}
-                      bought {formatDate(p.boughtOn)}
+                      purchased {formatDate(p.boughtOn)}
                     </p>
                   </div>
                   <Link
@@ -197,7 +197,7 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
             })}
           </ul>
         )}
-        <p className="text-xs text-gray-400 mt-4">Bought under the earlier year-level pricing — yours to keep.</p>
+        <p className="text-xs text-gray-400 mt-4">Purchased under the earlier year-level pricing — yours to keep.</p>
       </section>
       )}
 

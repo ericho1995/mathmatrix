@@ -57,6 +57,20 @@ export default function ExamDownload({
             Download answer key (PDF)
           </a>
         </>
+      ) : summary?.magazine ? (
+        // A Reading paper is two booklets, as the real test is: the magazine
+        // of texts and the question paper that points into it.
+        <>
+          <a href={`/api/exams/${examId}/magazine`} className="btn-primary w-full mb-3 block text-center">
+            Download reading magazine (PDF)
+          </a>
+          <a href={`/api/exams/${examId}/pdf`} className="btn-primary w-full mb-3 block text-center">
+            Download question paper (PDF)
+          </a>
+          <a href={`/api/exams/${examId}/answers`} className="btn-secondary w-full mb-3 block text-center">
+            Download answer key (PDF)
+          </a>
+        </>
       ) : (
         <>
           <a href={`/api/exams/${examId}/pdf`} className="btn-primary w-full mb-3 block text-center">
@@ -73,10 +87,14 @@ export default function ExamDownload({
       <div className="card text-left mt-6 mb-6">
         <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Getting the most from it</p>
         <ol className="text-sm text-gray-600 flex flex-col gap-2 list-decimal list-inside">
-          <li>Print the exam paper. Keep the answer key somewhere else.</li>
+          <li>
+            {summary?.magazine
+              ? 'Print the magazine and the question paper. Keep the answer key somewhere else.'
+              : 'Print the exam paper. Keep the answer key somewhere else.'}
+          </li>
           <li>Sit it in one go, timed, without notes — the way the real test runs.</li>
           <li>Mark it together afterwards using the answer key.</li>
-          <li>Enter the marks below to see which topics to practise next.</li>
+          <li>Enter the marks below to see which topics to practice next.</li>
         </ol>
       </div>
 

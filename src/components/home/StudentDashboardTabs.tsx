@@ -53,7 +53,7 @@ export default function StudentDashboardTabs({
   return (
     <div className="max-w-sm w-full mx-auto">
       <h1 className="text-2xl font-medium tracking-tight mb-1">Welcome back, {firstName}</h1>
-      <p className="text-gray-500 mb-6">{gradeLabel ?? 'Ready to practise?'}</p>
+      <p className="text-gray-500 mb-6">{gradeLabel ?? 'Ready to practice?'}</p>
 
       <div className="inline-flex rounded-xl border border-gray-100 p-1 mb-6">
         {(['overview', 'topics', 'history'] as const).map(t => (
@@ -81,7 +81,7 @@ export default function StudentDashboardTabs({
           </div>
 
           <Link href="/practice" className="btn-primary w-full text-center block mb-6">
-            Continue practising
+            Continue practicing
           </Link>
 
           {!hasParent && (

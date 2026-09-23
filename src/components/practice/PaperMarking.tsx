@@ -75,7 +75,7 @@ export default function PaperMarking({
   const correct = total - wrong.size
   const overallPct = total ? Math.round((correct / total) * 100) : 0
 
-  // Anything under 70% is worth practising. If everything is above that, offer
+  // Anything under 70% is worth practicing. If everything is above that, offer
   // the weakest two anyway rather than an empty call to action.
   const weakTopics = useMemo(() => {
     const under = byTopic.filter(t => t.pct < 70)
@@ -205,10 +205,10 @@ export default function PaperMarking({
         <p className="text-sm text-gray-700 mb-3">
           {wrong.size === 0
             ? 'A clean sweep. Keep the streak going with a short set on the same topics.'
-            : `Practise the ${weakTopics.length === 1 ? 'topic' : 'topics'} that cost the most marks.`}
+            : `Practice the ${weakTopics.length === 1 ? 'topic' : 'topics'} that cost the most marks.`}
         </p>
         <Link href={practiceHref} className="btn-primary w-full block text-center">
-          Practise these topics
+          Practice these topics
         </Link>
       </div>
 

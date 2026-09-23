@@ -165,7 +165,7 @@ function YearSection({
             <p className="text-sm text-teal-600 sm:text-right">✓ Every {stats.label} paper is unlocked</p>
           ) : locked === 0 ? null : vce ? (
             <p className="text-sm text-gray-500 sm:text-right">
-              {VCE_PAPER_PRICE} per paper — open a paper to buy it
+              {VCE_PAPER_PRICE} per paper — open a paper to purchase it
             </p>
           ) : plansOpen ? (
             <Link
