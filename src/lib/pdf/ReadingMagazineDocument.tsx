@@ -6,7 +6,8 @@ import { DiagramView } from './diagrams'
 import { IllustrationView } from './diagrams/illustration'
 import { ILLUSTRATIONS } from '@/lib/questions/illustrations'
 import { yearLabel } from '@/lib/catalogue'
-import type { FlowFigure, ReadingBlock, ReadingMagazine, ReadingText, ReadingTextType } from '@/types/reading'
+import type { FlowFigure, ReadingBlock, ReadingMagazine, ReadingText } from '@/types/reading'
+import { TEXT_ACCENT, tint } from '@/lib/reading/style'
 import type { DataTableDiagram } from '@/types'
 import type { YearLevel } from '@/types'
 
@@ -25,23 +26,7 @@ import type { YearLevel } from '@/types'
  * the paper asks, and a label on the page would answer it.
  */
 
-// Each text type gets its own accent, so pages feel distinct the way a real
-// magazine's do, without a label saying what the type is.
-const ACCENT: Record<ReadingTextType, string> = {
-  story: '#C2410C',
-  report: '#0F6E56',
-  explanation: '#185FA5',
-  persuasive: '#9D174D',
-  letter: '#6D28D9',
-  poem: '#B45309',
-  review: '#0E7490',
-  news: '#1D4ED8',
-  procedure: '#15803D',
-  web: '#475569',
-  notice: '#B91C1C',
-  interview: '#4338CA',
-  diary: '#A16207',
-}
+const ACCENT = TEXT_ACCENT
 
 /** Body sizes by year level: large and open for Year 3, denser by Year 9. */
 function typeScale(yearLevel: YearLevel) {
@@ -49,14 +34,6 @@ function typeScale(yearLevel: YearLevel) {
   if (yearLevel === 'grade_5' || yearLevel === 'grade_6') return { body: 12.5, title: 24, lead: 1.5 }
   if (yearLevel === 'year_7' || yearLevel === 'year_8') return { body: 11, title: 22, lead: 1.5 }
   return { body: 10.5, title: 21, lead: 1.5 }
-}
-
-/** Mixes a hex colour toward white; 0.9 is a pale tint for a panel background. */
-function tint(hex: string, amount: number): string {
-  const n = parseInt(hex.slice(1), 16)
-  const mix = (c: number) => Math.round(c + (255 - c) * amount)
-  const r = mix((n >> 16) & 255), g = mix((n >> 8) & 255), b = mix(n & 255)
-  return `#${((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1)}`
 }
 
 type Scale = ReturnType<typeof typeScale>

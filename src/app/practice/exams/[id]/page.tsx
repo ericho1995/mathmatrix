@@ -65,6 +65,7 @@ export default async function ExamPage({
           access={reason}
           summary={summarisePaper(exam)}
           yearLevel={exam.yearLevel}
+          onScreen={exam.subject === 'reading'}
         />
       </>
     )
