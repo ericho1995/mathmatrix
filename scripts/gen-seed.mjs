@@ -11,6 +11,7 @@ import { readFileSync, writeFileSync, unlinkSync } from 'fs'
 import { randomUUID } from 'crypto'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import { loadMagazines, magazineStimuli } from './lib/content.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = join(__dirname, '..')
@@ -18,7 +19,7 @@ const bankPath = join(repoRoot, 'src/lib/questions/bank.ts')
 const stimuliPath = join(repoRoot, 'src/lib/questions/stimuli.ts')
 const seedPath = join(repoRoot, 'supabase/seed.sql')
 
-let src = readFileSync(bankPath, 'utf8')
+let src = readFileSync(bankPath, 'utf8').replace(/\r\n/g, '\n') // tolerate a Windows (CRLF) checkout
 
 // Assign an id to any question object that doesn't already have one.
 let added = 0
@@ -60,9 +61,15 @@ const stimuliJsSrc = stimuliSrc
   .replace(/export const STIMULI:[^=]+=\s*\[/, 'export const STIMULI = [')
 const stimuliTmpPath = join(repoRoot, '.stimuli-tmp.mjs')
 writeFileSync(stimuliTmpPath, stimuliJsSrc)
-const { STIMULI } = await import('file://' + stimuliTmpPath)
+const { STIMULI: AUTHORED_STIMULI } = await import('file://' + stimuliTmpPath)
 unlinkSync(stimuliTmpPath)
-console.log(`Parsed ${STIMULI.length} stimuli.`)
+
+// Reading-magazine texts are stimuli too: the Reading questions point at them
+// through stimulus_id, so they need rows for the foreign key to hold and for
+// the on-screen quiz to have something to show beside the question.
+const MAGAZINES = await loadMagazines(repoRoot)
+const STIMULI = [...AUTHORED_STIMULI, ...magazineStimuli(MAGAZINES)]
+console.log(`Parsed ${STIMULI.length} stimuli (${AUTHORED_STIMULI.length} passages, ${STIMULI.length - AUTHORED_STIMULI.length} magazine texts).`)
 
 function sqlQuote(str) {
   return `'${String(str).replace(/'/g, "''")}'`

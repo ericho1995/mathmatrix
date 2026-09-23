@@ -7,11 +7,16 @@ import type { YearLevel, Topic, Subject } from '@/types'
 
 export const SUBJECTS: Subject[] = [
   { slug: 'math',    label: 'Maths',   tagline: 'Number, algebra, geometry, statistics', icon: '📐', color: '#185FA5' },
-  { slug: 'english', label: 'English', tagline: 'Reading, grammar, vocabulary',          icon: '📖', color: '#0F6E56' },
+  { slug: 'reading', label: 'Reading', tagline: 'A magazine of texts, then the questions', icon: '📖', color: '#0F6E56' },
+  // NAPLAN calls this test Language Conventions: spelling, grammar and
+  // punctuation. Reading is a separate test with its own magazine, so the two
+  // are separate subjects here as well. The slug stays 'english' because it is
+  // in every existing exam id, purchase record and question row.
+  { slug: 'english', label: 'Language Conventions', tagline: 'Spelling, grammar and punctuation', icon: '✍️', color: '#14795E' },
   { slug: 'science', label: 'Science', tagline: 'Life, physical & earth science',        icon: '🔬', color: '#BA7517' },
 ]
 
-// Selective subjects — VCE-style Year 11-12 electives, practised separately
+// Selective subjects — VCE-style Year 11-12 electives, practiced separately
 // from the general Grade 5-10 subjects above.
 export const SELECTIVE_SUBJECTS: Subject[] = [
   { slug: 'chemistry',        label: 'Chemistry',          tagline: 'Atomic structure, reactions',      icon: '⚗️', color: '#0F6E56', selective: true },
@@ -50,8 +55,8 @@ export const TOPICS: Topic[] = [
   { slug: 'statistics_probability', subject: 'math',    label: 'Statistics & Probability', description: 'Data, graphs, chance',             icon: '📊', color: '#185FA5' },
 
   // English
-  { slug: 'reading_comprehension',      subject: 'english', label: 'Reading Comprehension',     description: 'Short passages, main idea, inference (Gr 3-6)', icon: '📗', color: '#0F6E56' },
-  { slug: 'reading_literary_analysis',  subject: 'english', label: 'Reading & Literary Analysis', description: 'Themes, literary devices, textual analysis (Yr 7-10)', icon: '📘', color: '#0F6E56' },
+  { slug: 'reading_comprehension',      subject: 'reading', label: 'Reading Comprehension',     description: 'Short passages, main idea, inference (Gr 3-6)', icon: '📗', color: '#0F6E56' },
+  { slug: 'reading_literary_analysis',  subject: 'reading', label: 'Reading & Literary Analysis', description: 'Themes, literary devices, textual analysis (Yr 7-10)', icon: '📘', color: '#0F6E56' },
   { slug: 'grammar_punctuation',        subject: 'english', label: 'Grammar & Punctuation',     description: 'Sentence structure, punctuation rules', icon: '✍️', color: '#0F6E56' },
   { slug: 'vocabulary',                 subject: 'english', label: 'Vocabulary',                description: 'Synonyms, antonyms, word roots',        icon: '🔤', color: '#0F6E56' },
 

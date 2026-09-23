@@ -1,4 +1,4 @@
-import { FROM_PER_MONTH, MONTHLY_PRICE, PLANS, REFUND_DAYS, VCE_PAPER_PRICE } from '@/lib/pricing'
+import { FROM_PER_MONTH, MONTHLY_PRICE, PLANS, VCE_PAPER_PRICE } from '@/lib/pricing'
 import { CATALOGUE_TOTALS, PLAN_TOTALS } from '@/lib/catalogue'
 
 /**
@@ -10,14 +10,15 @@ import { CATALOGUE_TOTALS, PLAN_TOTALS } from '@/lib/catalogue'
  * product after the product had become printable papers.
  *
  * Rule for editing: every answer must be true of the code as it stands. Prices
- * and the refund window come from lib/pricing, the same values the pricing and
- * terms pages use. New papers joining the plan at no extra cost is a promise
+ * come from lib/pricing, the same values the pricing and terms pages use.
+ * Refunds are deliberately not mentioned anywhere on the site (owner’s
+ * decision, 2026-09-23) — they are handled case by case. New papers joining the plan at no extra cost is a promise
  * the owner made (2026-09-22). No other commercial promise
  * (a commercial commitment, not a UI line), no payment methods Stripe has not
  * been configured to offer.
  */
 
-export type FaqCategory = 'papers' | 'buying' | 'accounts' | 'parents'
+export type FaqCategory = 'papers' | 'purchasing' | 'accounts' | 'parents'
 
 export interface Faq {
   q: string
@@ -29,7 +30,7 @@ export interface Faq {
 
 export const FAQ_CATEGORY_LABEL: Record<FaqCategory, string> = {
   papers: 'The exam papers',
-  buying: 'Buying',
+  purchasing: 'Purchasing',
   accounts: 'Accounts',
   parents: 'For parents',
 }
@@ -46,7 +47,7 @@ export const FAQS: Faq[] = [
     category: 'papers',
     home: true,
     q: 'Which year levels and subjects are covered?',
-    a: `${CATALOGUE_TOTALS.lowest} to ${CATALOGUE_TOTALS.highest}. Maths, English and Science from Grade 3 to Year 10, in the NAPLAN format for Maths and English. For Year 11 and 12, VCE Chemistry, Physics, Mathematical Methods, General Mathematics and Specialist Mathematics.`,
+    a: `${CATALOGUE_TOTALS.lowest} to ${CATALOGUE_TOTALS.highest}. Maths, Reading and Language Conventions from Grade 3 to Year 10, all in the NAPLAN format, with Science in Grades 4 and 6 and Years 8 and 10 (NAPLAN does not test Science, so the NAPLAN years focus on the tests their students sit). For Year 11 and 12, VCE Chemistry, Physics, Mathematical Methods, General Mathematics and Specialist Mathematics.`,
   },
   {
     category: 'papers',
@@ -70,51 +71,45 @@ export const FAQS: Faq[] = [
     a: 'They are designed to be printed. VCE exams are sat on paper. NAPLAN is taken online for most year levels, but sitting a full paper in one go, timed and away from a screen, builds the same pacing and stamina. For on-screen practice, the free Practice section builds short quizzes on any topic with an instant explanation for every answer.',
   },
 
-  // ── Buying ────────────────────────────────────────────────────────────────
+  // ── Purchasing ────────────────────────────────────────────────────────────────
   {
-    category: 'buying',
+    category: 'purchasing',
     home: true,
     q: 'How much does it cost?',
-    a: `A plan unlocks every ${PLAN_TOTALS.range} paper — NAPLAN and school years, every subject, every year level: ${PLANS.map(p => `$${p.priceAud} for ${p.name}`).join(', ')}, from ${FROM_PER_MONTH} a month. VCE papers are ${VCE_PAPER_PRICE} each, bought once. ${CATALOGUE_TOTALS.free} papers — one per subject at every year level — are free, so you can see exactly what you are getting first.`,
+    a: `A plan unlocks every ${PLAN_TOTALS.range} paper — NAPLAN and school years, every subject, every year level: ${PLANS.map(p => `$${p.priceAud} for ${p.name}`).join(', ')}, from ${FROM_PER_MONTH} a month. VCE papers are ${VCE_PAPER_PRICE} each, purchased once. ${CATALOGUE_TOTALS.free} papers — one per subject at every year level — are free, so you can see exactly what you are getting first.`,
   },
   {
-    category: 'buying',
+    category: 'purchasing',
     q: 'Is it a subscription?',
     a: `Plans are. They renew automatically at the same price — ${MONTHLY_PRICE} a month, or every 3 or 12 months on the longer plans — until you cancel. VCE papers are one-off purchases with nothing to cancel.`,
   },
   {
-    category: 'buying',
+    category: 'purchasing',
     q: 'How do I cancel?',
     a: 'From your account page: choose "Manage or cancel plan" and cancel in one click. There is no phone call or form. You keep access until the end of the period you have already paid for, and you are not charged again.',
   },
   {
-    category: 'buying',
-    home: true,
-    q: 'Can I get a refund?',
-    a: `Yes. If you change your mind within ${REFUND_DAYS} days of your first payment for a plan, or of buying a VCE paper, email us from the address you signed up with and we will refund you in full — no questions asked. The free sample paper at every year level is there so you can check first.`,
-  },
-  {
-    category: 'buying',
-    q: 'Do I need an account to buy?',
+    category: 'purchasing',
+    q: 'Do I need an account to purchase?',
     a: 'Yes. The purchase is attached to the account that makes it, and you sign in with that account to download. Creating an account is free.',
   },
   {
-    category: 'buying',
+    category: 'purchasing',
     q: 'Is paying online safe?',
     a: 'Payments are handled by Stripe on its own secure checkout page. PrepNest never sees or stores your card details. Stripe emails you a receipt.',
   },
   {
-    category: 'buying',
+    category: 'purchasing',
     q: 'I paid but the papers are still locked.',
     a: 'Unlocking usually takes a few seconds after payment. Refresh the exam papers page while signed in to the account you paid with. If it is still locked after a minute, contact us and we will sort it out — you will not be charged twice.',
   },
   {
-    category: 'buying',
+    category: 'purchasing',
     q: 'My children are in different year levels.',
     a: `One plan covers them all: it unlocks every ${PLAN_TOTALS.range} paper, whatever year each child is in.`,
   },
   {
-    category: 'buying',
+    category: 'purchasing',
     home: true,
     q: 'Will there be more papers?',
     a: 'Yes. New papers are added throughout the year, and every new paper for Grade 3 to Year 10 is included in your plan at no extra cost as soon as it is published.',

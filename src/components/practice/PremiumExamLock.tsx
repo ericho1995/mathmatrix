@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Route } from 'next'
-import { FROM_PER_MONTH, REFUND_DAYS, VCE_PAPER_PRICE } from '@/lib/pricing'
+import { FROM_PER_MONTH, VCE_PAPER_PRICE } from '@/lib/pricing'
 import type { PaperSummary } from '@/lib/catalogue'
 import CheckoutButton from './CheckoutButton'
 import PaperFacts from './PaperFacts'
@@ -47,7 +47,7 @@ export default function PremiumExamLock({
       <h1 className="text-2xl font-medium tracking-tight mb-2">{title}</h1>
       <p className="text-gray-500 mb-6">
         {vce
-          ? `Buy this paper for ${VCE_PAPER_PRICE} — the printable exam and its full answer key, yours to keep.`
+          ? `Purchase this paper for ${VCE_PAPER_PRICE} — the printable exam and its full answer key, yours to keep.`
           : `Included with a PrepNest plan: every ${plan.range} paper (${plan.papers} today, more on the way), each with a printable answer key, from ${FROM_PER_MONTH} a month.`}
       </p>
 
@@ -56,7 +56,7 @@ export default function PremiumExamLock({
       {vce ? (
         <CheckoutButton
           purchase={{ examId }}
-          label={`Buy this paper — ${VCE_PAPER_PRICE}`}
+          label={`Purchase this paper — ${VCE_PAPER_PRICE}`}
           sellable={sellable}
           className="mb-3"
         />
@@ -78,7 +78,7 @@ export default function PremiumExamLock({
       )}
 
       <p className="text-xs text-gray-400 mb-6">
-        {vce ? 'One-off payment — no subscription.' : `Cancel anytime. Full refund within ${REFUND_DAYS} days.`}{' '}
+        {vce ? 'One-off payment — no subscription.' : 'Cancel anytime.'}{' '}
         <Link href={'/pricing' as Route} className="underline hover:text-gray-600">
           How pricing works
         </Link>

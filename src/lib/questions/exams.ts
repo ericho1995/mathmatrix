@@ -19,6 +19,10 @@ export interface PracticeExamSection {
 
 export interface PracticeExam {
   id: string
+  /** Reading papers only: the magazine the student reads alongside the paper. */
+  magazine_id?: string
+  /** Reading papers only: minutes for the whole paper, since its sections are texts. */
+  total_minutes?: number
   subject: SubjectSlug
   yearLevel: YearLevel
   title: string
@@ -363,47 +367,1299 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": true
   },
   {
+    "id": "reading-grade_3-1",
+    "subject": "reading",
+    "yearLevel": "grade_3",
+    "title": "Reading Grade 3 — Practice Paper 1",
+    "total_minutes": 45,
+    "magazine_id": "reading-grade_3-1",
+    "sections": [
+      {
+        "title": "The sandwich thief — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "655a7024-0e37-4279-b283-0d07375da639",
+          "510eaa0d-f5ca-4806-9498-7ff0168fdeea",
+          "fddf0804-d8e7-4367-9dbb-555dcc478a1c",
+          "6b3aa087-ce8a-45e1-ab2c-fff3a15d6daa",
+          "a69af340-a3fb-4329-a487-742e710638f7",
+          "eabb9708-ec2b-4a0f-bcd3-31a85b2d29f6"
+        ]
+      },
+      {
+        "title": "Wombats — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "202a30d1-bd35-47bc-bf95-45312d84569a",
+          "c7693734-fbab-4e27-a267-9942ba663a13",
+          "32fbbe27-5ad2-42b5-a8b2-a97acc7b5a60",
+          "3d8b0a0c-5b5e-4a5f-892e-141d58a5a960",
+          "69585761-ee36-48c8-b98a-e80680f9d8c2",
+          "4148bcd2-3023-4f11-a093-8abf3d602351"
+        ]
+      },
+      {
+        "title": "Where does rain come from? — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "7107abc1-7e0b-4a62-a51c-b4c34783424d",
+          "9c999195-3d46-48ef-9a44-a82e3bbeb123",
+          "a1c18e77-d853-4543-bb69-f0d08a32ddf0",
+          "71afafa7-e3a1-43ae-96b4-ae09f2b57f54",
+          "d4f68120-8d8c-44f4-969d-da28203d1303"
+        ]
+      },
+      {
+        "title": "A garden for our school — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e00240ef-76eb-4596-94a3-502ba0c4e642",
+          "7d7485d5-5814-4f96-96b1-945e38b3c160",
+          "a1cfc11c-bf50-41da-9a13-d2973f668071",
+          "f188774c-8902-4072-9f7f-96be5b95a27a",
+          "475214a7-d0fe-40b5-9df4-aa4ab9e28817",
+          "81d477ba-77e2-423f-86c2-5507558eefeb"
+        ]
+      },
+      {
+        "title": "Tiny visitor — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "8864fed6-65fe-48a5-8118-875955d39abc",
+          "47a188fb-54f8-496d-ac52-b5f90ba06679",
+          "ebed6714-76bc-429f-b10f-56cb57e886ec",
+          "77a46146-636f-4e95-9505-764c11492abf",
+          "4f88c696-39e0-40bb-ae32-27a637f810fe"
+        ]
+      },
+      {
+        "title": "Make a paper boat — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "c81f1269-4a4a-4c52-ac0e-66ee640bf9ed",
+          "508b4937-1042-424c-a4ae-2804107d3c23",
+          "30aff503-f862-4681-9558-c5709545577c",
+          "fb3e6504-b98b-4bfd-a724-cfb937d58ded",
+          "30c146e2-ebb9-47b2-bc04-418bb3849528"
+        ]
+      },
+      {
+        "title": "Junior Fun Run — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "932fd804-574e-4d69-89a1-93b983cfdba8",
+          "afdbb35d-781d-49ce-aadf-25cc5c8c3831",
+          "585e09e9-ab15-4357-b264-023b682a77e6",
+          "7c0514e9-c377-468d-a2e5-50e38d106eb7",
+          "bf75d7f3-4337-4551-909b-9cc17fe98c47"
+        ]
+      }
+    ],
+    "premium": false
+  },
+  {
+    "id": "reading-grade_3-2",
+    "subject": "reading",
+    "yearLevel": "grade_3",
+    "title": "Reading Grade 3 — Practice Paper 2",
+    "total_minutes": 45,
+    "magazine_id": "reading-grade_3-2",
+    "sections": [
+      {
+        "title": "The blue ribbon — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "58ad53ee-4c46-451d-ac7b-3fecfdb521eb",
+          "4d301b0a-72cf-449d-b883-fdb941b263e3",
+          "d83b96e1-36e4-48e7-b6a3-237db2598df5",
+          "4526b254-f45c-4fb6-a087-c50a4d602963",
+          "81b44fc0-bafb-435a-91be-6efd89f73ba5",
+          "1cefba2d-56c0-4939-bed3-2ebf636dab87"
+        ]
+      },
+      {
+        "title": "Pelican saved at Bellbird Lake — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "5fef0148-c33d-47b7-912e-09c0a8758025",
+          "853428e7-f767-4895-a74a-b2332f4589e4",
+          "c3512a96-b7e5-4a38-b864-d60961ecffcb",
+          "e275163e-8211-4d3b-b21c-ae18fa34a972",
+          "060766bc-5723-4e99-b37a-8cd5c1e2f6df",
+          "52ef477b-3c28-4594-ab16-f851dd94952d"
+        ]
+      },
+      {
+        "title": "Octopuses — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e4cc61ef-0e42-4b8e-9693-84925bbc7729",
+          "f4d240a9-aec3-4b29-b72e-6a89588cb0e8",
+          "e607eabb-183c-4ba9-af5e-a0173c28d811",
+          "77c24f40-b6fd-4bf9-a441-0673bbace155",
+          "93df0564-2979-46bd-b0cc-aaeb1f0663d6",
+          "1965f4b3-fb0f-4793-9a4a-b89073c0fb31"
+        ]
+      },
+      {
+        "title": "Rainbow fruit sticks — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "d8e24060-d69f-408e-a1e9-8b1f212663e2",
+          "3b2a7cd0-7774-486b-8afe-909375b7c4d1",
+          "1c14f301-a60c-4fd7-8d2f-e506c8ddb2a9",
+          "ab1c642e-1779-497f-b796-67502c444bf3",
+          "306551a8-87b8-4139-8fae-c773c6531b79"
+        ]
+      },
+      {
+        "title": "Wind — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e0cf0409-892b-45e9-8069-8300c6121ae4",
+          "329d5e45-c3d7-4c45-bbe0-c7309b071ab0",
+          "b94e7c70-9ca3-44c0-86cf-4576c244f167",
+          "57c5f324-f05e-494b-a03d-e4190ef63dc3",
+          "0610cf92-fdd2-489a-84f8-99b1ea33198c"
+        ]
+      },
+      {
+        "title": "Pip and the Quiet Roar — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "7817a684-4650-41d3-a3f7-ebdb2240e879",
+          "bc5470da-01cb-440d-886e-0e28d82d6fdc",
+          "54555282-cf3b-453d-b3b3-46573df3433e",
+          "5ab046fb-3a8e-4cf5-bb97-7d6c14b23d26",
+          "a1d78bc1-ad56-4ef7-b391-0040ffbdf387"
+        ]
+      },
+      {
+        "title": "Holiday fun at Greenfield Library — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "144de5ca-4b79-4236-a09d-b15525026181",
+          "22dc857e-ac38-42f1-8e59-01ce03af54dd",
+          "dcdf6596-9c97-4edf-b197-621d431876e7",
+          "a84b9b4b-65b4-4bfd-ae39-68096721cdfa",
+          "9241a34f-38c3-42ae-9a0b-42c43addcdbc"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-grade_3-3",
+    "subject": "reading",
+    "yearLevel": "grade_3",
+    "title": "Reading Grade 3 — Practice Paper 3",
+    "total_minutes": 45,
+    "magazine_id": "reading-grade_3-3",
+    "sections": [
+      {
+        "title": "Grandma’s new phone — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "4fc892b4-dcd2-427e-a2ca-d91ccdbe4131",
+          "02f16f73-25e9-4814-b79f-b0fe3db09ffb",
+          "fed5c012-8d30-4549-aa10-c4d35e12eabc",
+          "dd5a0e4e-9d69-43b9-909c-33d236a56539",
+          "4a922298-b7bb-461d-9546-6b463a7d965a",
+          "d5660da4-ba02-487d-8a80-4e1ba54b4c70"
+        ]
+      },
+      {
+        "title": "How do bees make honey? — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "662541a2-e6d1-4367-810f-2061793a5bb3",
+          "8dea1823-c042-4e1f-b33c-ae920cef4758",
+          "e61480b3-3df3-4f92-904e-d7d9184df160",
+          "0bf2ba49-fbaf-44e4-a045-5abe17b60c71",
+          "9b6630d7-0ce2-421f-ba32-ce39c38fd90d",
+          "1335fc54-1a79-4c5e-9541-386ab3f3dbcd"
+        ]
+      },
+      {
+        "title": "Every class needs a pet — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0e2d815e-8c0e-4394-b880-eb9a81d12ffc",
+          "4f9cd2bf-0584-432d-812e-87eacbaef6b4",
+          "8d536caf-c438-4b18-84a0-1a06759975d0",
+          "847812d6-076f-435a-ba47-6e6a76b46a80",
+          "2912fb1d-bf6a-433e-b386-eb5dd892a28b",
+          "855dcd35-7737-43b0-aaeb-37160b4fa926"
+        ]
+      },
+      {
+        "title": "Thank you, Ranger Kim — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a3624133-29cd-42ba-87e4-6655440f0715",
+          "ed6731d3-0a2b-4e39-9158-57b88832b820",
+          "f3f0d9a3-c55d-4658-b733-702880b436e9",
+          "2dbd915d-ea95-41b2-8a56-026161d5d30d",
+          "f42a73f0-0c92-4576-b873-fb814dbbe5b1"
+        ]
+      },
+      {
+        "title": "Night market — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "dab47891-9785-42d0-b50e-37e53e7da309",
+          "c4737dbd-0de6-45f2-ae9a-50379a208141",
+          "7e2b767f-666f-427e-8096-7292107962d9",
+          "4a2e93bf-33fd-460a-9c68-831a1b7abbd9",
+          "38c9ce66-9838-489f-b8fa-1f755838ebbf"
+        ]
+      },
+      {
+        "title": "Emus — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "4385b97d-e013-48e3-9823-e0dca03a019a",
+          "cd46f300-9f0c-4f08-9fdd-4512278bf5de",
+          "765b94ec-61c3-4994-a145-278941e6dfb4",
+          "5452ce48-e0be-434a-86ce-5ffff6b242ad",
+          "73597a18-b019-4e8a-a858-01cb673c79f9"
+        ]
+      },
+      {
+        "title": "Lost dog — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "f41f2425-c2d0-4afe-812a-c98014e467fe",
+          "4d121f9b-a628-488a-96ed-e58d245157bc",
+          "c1c2a411-ad38-4194-bae5-a6228b63e3f6",
+          "b9208ac2-ca58-4bed-923b-13d366e2cf1e",
+          "d951c889-b1ef-47a7-8978-9c7f6851ed15"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-grade_5-1",
+    "subject": "reading",
+    "yearLevel": "grade_5",
+    "title": "Reading Grade 5 — Practice Paper 1",
+    "total_minutes": 50,
+    "magazine_id": "reading-grade_5-1",
+    "sections": [
+      {
+        "title": "The violin — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "c7ab02c7-5dbc-4875-a564-730e0a7ead36",
+          "28cb3b53-7779-44ce-8eb5-b81a240988f4",
+          "2be48d5c-c3f5-4b2a-8d25-c6067a0b7493",
+          "20744e39-a281-4de1-9540-a8c13fb8018f",
+          "12edab64-85b6-4db3-bfe3-737a7b438725",
+          "e1ea33b8-f2cf-4695-a711-c1267d51e43f",
+          "8c6b78de-6d2f-40ad-b870-29f3b4d41fb7"
+        ]
+      },
+      {
+        "title": "Antarctica — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0adfb3cb-21c0-412f-b9e7-9ee4550887e3",
+          "8b3d48b4-e67c-4822-9252-849fd743096f",
+          "aa2b467f-da57-4dad-b058-6fcc83085c88",
+          "b3947104-4fab-4b47-8b21-60887d7713fd",
+          "711b83f1-71e0-47af-8a1d-f77ac2a847da",
+          "057a42f4-3461-4f63-b9f9-403cb9f0d1d7",
+          "dfc76838-9fe7-41d0-ab91-d218164cdc5d"
+        ]
+      },
+      {
+        "title": "Should homework be banned? — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a8b1a77b-4871-4c07-8cd0-5f2c5dca53d3",
+          "f1838fc1-97fd-418d-b878-8c6a44715df0",
+          "7cdf7dcd-abbf-4496-aa09-ae70b57d6721",
+          "e412fd77-c625-4c26-b6bc-92ee96e5d5db",
+          "aa11ce84-14d7-474f-9155-43c31ed5eb0b",
+          "8c63d3b5-b4b6-4fa1-825b-e28e1f04fa4f"
+        ]
+      },
+      {
+        "title": "Make a floating compass — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "62cbc14a-1e99-458f-8705-be6d70ae8067",
+          "444d7c6e-c3dd-44a1-9c41-28363f10ce04",
+          "07e3b7f4-b9f6-4cce-8612-c29cf4c38efb",
+          "608280fa-d1e7-4bc1-8677-a758924cd916",
+          "51a22011-a844-4189-857e-9ec73da60559"
+        ]
+      },
+      {
+        "title": "When the rain came — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "f347459c-65c6-4663-9e67-2d608875d646",
+          "5a414385-4343-467a-9115-c091d223cb77",
+          "fa1dce17-225a-47ea-98b9-fa519a402f7c",
+          "3fc4988f-b763-4e72-9836-fdfcbfd04e03",
+          "6043d065-14ce-4eba-89d8-627f22ca5449"
+        ]
+      },
+      {
+        "title": "Meet a volcano scientist — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "485162e4-a38a-4c27-baa0-c8e6bbe89e9c",
+          "067fd461-7a60-43d3-8ba6-376f575cba78",
+          "dda2e02c-2fd4-4176-8c29-82347e56b1b0",
+          "531c9f22-a36d-4212-9d46-620bdc3ec106",
+          "69e7c40d-60ed-461b-a830-a879c90d17d8"
+        ]
+      },
+      {
+        "title": "Ask Dr Paws — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "8ac151b7-70a8-4de1-bd2d-9d32ff2dd7e7",
+          "46f5e90f-a9d6-471f-bff2-b3f60be5997f",
+          "d8de9a79-5a69-4d8a-8f10-d06d68b9c2ae",
+          "a3aa90b6-36a7-4f9b-9c8e-645806ac577b"
+        ]
+      }
+    ],
+    "premium": false
+  },
+  {
+    "id": "reading-grade_5-2",
+    "subject": "reading",
+    "yearLevel": "grade_5",
+    "title": "Reading Grade 5 — Practice Paper 2",
+    "total_minutes": 50,
+    "magazine_id": "reading-grade_5-2",
+    "sections": [
+      {
+        "title": "The map behind the wallpaper — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "9b43ce74-8da8-458e-9391-52432508b39b",
+          "55168e95-0137-4b06-bb58-8c723ee35371",
+          "d6ce0bc4-d6d0-4216-a181-24810fc99305",
+          "1ffd5218-697a-4191-9766-b5fd40baa5a3",
+          "6308ba95-22f5-4d78-a36e-e1fd07625a29",
+          "20a9bde0-688b-4e35-b14c-ab39a9b26a2d",
+          "26686eb7-47fc-4c04-9b9d-f424435082da"
+        ]
+      },
+      {
+        "title": "How does a submarine dive? — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "d100316d-efa9-4105-9da6-af724035e122",
+          "88352ecc-3fa0-442c-8b31-a5ec8efba4f7",
+          "439ca3e2-c6a8-4027-92d9-49b1f2f0cfbb",
+          "79ca7560-ed53-4376-9e8d-6941c72578a9",
+          "6bb01935-acc8-48d6-8f0c-b2ce79981c81",
+          "ae8bc1e2-0254-45da-9061-f64aea3e1e6a"
+        ]
+      },
+      {
+        "title": "Students clear 212 kilograms of rubbish from creek — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "ecdafd45-d60d-4912-a13d-6c18e0836963",
+          "ee785dcb-ebb0-4cb6-aa23-a88544d20eb4",
+          "78a30302-e49b-450a-9a16-fa80eeb0f1a7",
+          "e8f00211-15e7-499f-8c02-7e72eef0dc1b",
+          "ecff38cd-95e2-4a58-9a14-b8d61be3dc36",
+          "cf0e549c-e7d8-49ec-980e-3bf0cccde184",
+          "e8f7f21a-3271-459d-b709-beb5235384f2"
+        ]
+      },
+      {
+        "title": "Wildwood Adventure Park — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a5a33a7f-2cd0-4635-b866-93a2210d5853",
+          "227b2dbd-479b-4a73-a96e-b2ec04eccacb",
+          "52f25cca-8ba8-4f59-8fce-2c7e0da7a842",
+          "541b947a-2a25-4930-8377-948b8aedfd10",
+          "00806750-49c8-426e-9830-4e2e3ea182a0",
+          "65fb7a55-1270-46e9-8075-4c0011bb23c5"
+        ]
+      },
+      {
+        "title": "What’s in my pocket? — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "d2f32049-42d5-4a67-b73c-6917a1aacb6b",
+          "8a9ec1c4-2620-44fb-b92e-d2570f88ff3a",
+          "5b7c0a9b-2b8f-4386-8573-fa4943708256",
+          "ac172301-3556-43ed-8aa5-f71d667274c7",
+          "44ecfef3-1d54-4004-92b3-03683cefec56"
+        ]
+      },
+      {
+        "title": "Mary Anning, fossil hunter — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "54208584-a895-47cc-b8b9-01da57142286",
+          "0488b930-29c5-4d98-a97c-431b23ece0ef",
+          "1cb11e8b-cf98-4990-aafb-c2b98a956a90",
+          "10d31e82-5a6c-4687-9983-2fc4bf5fbeba",
+          "137a879f-15bc-4fbd-b67f-268bec570713",
+          "d49b5a51-9898-4da5-812d-d3fee55d9ec5"
+        ]
+      },
+      {
+        "title": "How to play Four Square — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "4d63cd86-14ae-4876-a11c-7c0d27f37b76",
+          "9c368ac5-26a4-4f5c-bfa7-fe89684b8dc7",
+          "00eb69fc-08f7-452f-822e-6f019dd03e8c",
+          "150a184d-a7ed-476d-b2ea-97f362ab8175"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-grade_5-3",
+    "subject": "reading",
+    "yearLevel": "grade_5",
+    "title": "Reading Grade 5 — Practice Paper 3",
+    "total_minutes": 50,
+    "magazine_id": "reading-grade_5-3",
+    "sections": [
+      {
+        "title": "The new kid — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "090c4eed-8d93-4c7f-85ab-e3c737cf1968",
+          "f496b113-456d-4aec-bdd5-93a0fac4ae68",
+          "3223d5ce-4c4b-46fa-86f4-f771dd88b774",
+          "a3e5ec82-3dbb-4d7a-bfb0-7041f651c363",
+          "c8b7edf3-8aae-4be9-9b87-634acc5ba931",
+          "b33c757d-a3b5-43a3-81a0-a7cfa9c0db48",
+          "8afca967-af5e-471c-ab4f-09cee9dc6133"
+        ]
+      },
+      {
+        "title": "The platypus — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e8575d87-e64b-4173-bc72-348978962c30",
+          "de892779-7c9d-4afc-aef0-2731a9ffb04f",
+          "b89eb6d6-4528-4505-9a68-59b50d92c628",
+          "8d0d88d4-9fa0-4c00-9202-1b5b5ef47dc0",
+          "1a5939b0-f937-4cb1-bc96-8eef4f16f5c9",
+          "e1f2291b-2bf3-436e-8494-60c628128c68"
+        ]
+      },
+      {
+        "title": "Our playground needs fixing — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a60f505c-a1af-4541-a0e8-219103ddc4cb",
+          "9eb956f6-6d1e-4245-ae2b-290c42981dd6",
+          "afe58a2c-0470-418d-885c-44e4f17331e5",
+          "4fffb9ea-d81e-47e5-aab2-9e8e9f214ddc",
+          "0157093b-1b17-493a-aecf-926fa93aa962",
+          "8fb77bcd-9659-4649-b653-885f78f5e0d3"
+        ]
+      },
+      {
+        "title": "Grow a bean in a jar — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "8290a8df-4d55-4f32-8106-b6d7691dc446",
+          "c055285e-3bee-4b99-9874-307f0f2884eb",
+          "fa820379-9193-4675-8c09-8ff7f9d99689",
+          "bc2d9da3-737d-4442-a4ad-9e51b76e4192",
+          "5cb89669-262a-40bb-8557-2b5959b58e61",
+          "759384ff-04b1-4de3-bcbb-a3844f19d303"
+        ]
+      },
+      {
+        "title": "Fishing with Pop — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "fecaa1b2-8825-40ef-9736-bdbb5679bd4f",
+          "0f88834a-8576-4742-bccd-ff7444476110",
+          "60e96f0d-763b-4518-85fb-614974ca0853",
+          "dfd93990-d11a-46e8-87a0-a3118c88bfea",
+          "aed0391f-325f-439f-90f8-6d44b44cc751"
+        ]
+      },
+      {
+        "title": "How is a rainbow made? — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "9396c40e-6492-49e1-bf3e-658032350646",
+          "b54c8897-b023-4ee7-a5dd-4d92a6dacfb8",
+          "25a6f49f-63b2-4948-afd3-01240fc45f76",
+          "cab502e5-a702-4ab5-ad90-d02d9e77f644",
+          "d31e24ec-9283-4f81-8618-bbed706855af"
+        ]
+      },
+      {
+        "title": "Stay safe online — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e23ad0aa-1d0a-49de-b9b8-68f0545982f1",
+          "0839ff2b-5ae1-457b-bb77-fa2a3d19b524",
+          "a0c1fb87-2b16-424c-a1a1-50931bd04830",
+          "ceb17c14-ebf9-4f4e-82a7-a55882163302",
+          "b0511651-ba58-479a-9f95-bf97ca10dfdc"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-grade_6-1",
+    "subject": "reading",
+    "yearLevel": "grade_6",
+    "title": "Reading Grade 6 — Practice Paper 1",
+    "total_minutes": 50,
+    "sections": [
+      {
+        "title": "The Keeper of the Light",
+        "time_minutes": 0,
+        "question_ids": [
+          "efd54365-f0e5-4aa8-9c2a-36262f565e7a",
+          "68020ff6-48b7-4432-bb3e-a23c08b98ba5",
+          "a3fcfaff-9053-4b9e-a408-f8b8d734032a",
+          "acb3e29c-2deb-4c15-b839-a94ab4c8f6f8",
+          "91c278a0-7a07-499a-90ff-b6d9409d0326",
+          "58307537-779b-4cb9-96bf-5ce9870e1c9f",
+          "5d1d8e24-a8b1-49a3-b8e3-1b35809f8016",
+          "f260820a-0428-40e3-bf1b-9c3aba914eb5"
+        ]
+      },
+      {
+        "title": "The Truth About Sharks",
+        "time_minutes": 0,
+        "question_ids": [
+          "01e1c30d-8010-4f7d-b0b3-27bf39eb422b",
+          "5c168a21-34bf-42fb-9e76-c0eacc56a3ae",
+          "07fa7e13-a7db-4a76-bb00-f5bf68b5c761",
+          "a26bb29d-d55d-471f-a92d-fb1023e985ea",
+          "db4070e4-c330-4ea1-b571-c3469e3f0af4",
+          "c9d557b1-0b85-40f5-afd8-b2cb66880368",
+          "2288589e-43d7-492d-bd72-d30f9184a858",
+          "450a13f5-b9a3-493e-abe1-2b1ed5b31f94"
+        ]
+      },
+      {
+        "title": "Let Us Choose What We Read",
+        "time_minutes": 0,
+        "question_ids": [
+          "7730a8e3-27d0-440a-bf7a-b84546d99f9e",
+          "2f23a3aa-a6cd-4998-b481-f5907ef80c8a",
+          "f5c23b53-e59c-4d53-a711-c5e9d4b9f066",
+          "79183cd5-8703-4447-bc27-9caef985584e",
+          "c9616f20-fa8d-4975-a808-15684934dd78",
+          "aa3b128c-a889-4777-a8c6-aaf188087e39",
+          "6e600f74-cc35-44eb-ba22-c0825551f01e",
+          "4b5df43d-3724-4454-8f37-6d3eef48eac0"
+        ]
+      },
+      {
+        "title": "The Day the River Rose",
+        "time_minutes": 0,
+        "question_ids": [
+          "78dae00b-f9bd-4098-bbfa-69e4254455dd",
+          "0229c091-fce2-4dd5-a0e6-425e2253d68e",
+          "265111fd-8a91-4097-bcf8-ead6a0b36307",
+          "867673cc-07a3-4727-91e3-ae950265f7c0",
+          "d0f17427-06dd-45e7-a9ad-d9489c68aeb8",
+          "79463c2b-9c7e-4a42-9f11-5536d1d5c3c7",
+          "4ea37fa2-754a-45a8-92a1-4add6902bf98",
+          "041a1700-3a38-4083-840d-381b012a7030"
+        ]
+      },
+      {
+        "title": "Short texts",
+        "time_minutes": 0,
+        "question_ids": [
+          "f32db62e-cfd9-4ce9-a39e-0bf06cb95bc2",
+          "98be739d-2fde-47b4-9c42-69962c3c5031",
+          "328d774b-e27a-49d0-bc8b-be509b424240",
+          "6bb7f299-1ee6-49a3-b7a1-9be4915d8ffb",
+          "19bc9323-26f3-4e5f-b01c-0cb749c54a30",
+          "1226a84f-15ec-40fb-ba33-6078a44574a1",
+          "b01b8371-dad0-4b2b-838d-2286fff166fd",
+          "e29f9cf3-f0bd-4f6c-8ce6-151b2a6841e7"
+        ]
+      }
+    ],
+    "premium": false
+  },
+  {
+    "id": "reading-year_7-1",
+    "subject": "reading",
+    "yearLevel": "year_7",
+    "title": "Reading Year 7 — Practice Paper 1",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_7-1",
+    "sections": [
+      {
+        "title": "The night shift — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "f070a0ae-9cc9-41a7-8a50-ac83219e5d94",
+          "a44221b0-0dc2-4a26-b5e7-9e97963d3040",
+          "704f3c50-5310-4a9b-a173-b96716761538",
+          "3d6322df-ec2a-4729-b76a-fb728b74115f",
+          "94a92fb7-da20-4883-afed-27b6ed9512d3",
+          "d0754139-5f75-41a7-862d-3963da911cda",
+          "8a7a2801-5704-4278-843a-48dc81208eb1",
+          "e86a9601-6905-4bb6-9e11-b1f413981aee"
+        ]
+      },
+      {
+        "title": "Why do we yawn? — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "1fe03a79-cae1-45ed-b4f2-e72ed0935fb5",
+          "1bd8eddf-7e95-4bf9-aaf7-16e344ee2f12",
+          "ffd81ff6-27d6-47dd-af5a-997457d9e1f3",
+          "b6454234-d0e8-4109-8ec9-b794c633c28c",
+          "af49c540-52ef-46b5-9f08-88fc534b72da",
+          "2d878630-df61-4d4b-a784-1d906a1aa7b6",
+          "944584f9-522c-476d-9eae-9a162478c3c5"
+        ]
+      },
+      {
+        "title": "Balloons belong on the ground — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "71e36bae-5044-409e-9c61-791c519fb312",
+          "52a0b7e6-416f-4ceb-9573-c219b09a032a",
+          "3f76133f-6f9a-4b3c-ae59-d57bf9081eab",
+          "e5b67583-1b17-49c1-8bd7-846d57ce5381",
+          "248914bd-1c26-4a48-8428-30ec910dc7ef",
+          "30e036bd-3b53-4e13-b777-1a53dadfb5f0",
+          "ebc44109-d2a1-4d4c-aa42-5fe8882f2fcf"
+        ]
+      },
+      {
+        "title": "Nan’s garden, after — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0040ad11-4b73-48b6-9742-5253937d795b",
+          "f489ad2a-eff9-4d4c-9273-73a61e318ff1",
+          "23adc1cc-e050-4c5b-8846-cb886d9fde96",
+          "7abd4b95-7159-4df4-8af4-68d3772962f2",
+          "26fd317a-8c1e-4e90-802c-954ef600d14e",
+          "1c59d596-3ad3-4cd1-8961-fbb01d555ec6"
+        ]
+      },
+      {
+        "title": "How do noise-cancelling headphones work? — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "466f1519-72ba-4f5c-905a-043ed8f772bc",
+          "fcbbd37e-53e8-4ac0-bcfb-a05cde7d4652",
+          "e0d7f00d-2df5-482c-865b-4dbf87f7b74c",
+          "51ea1dd1-a1d4-414a-b9e2-1b806abb987e",
+          "97296a7f-7ebc-4708-8c96-a59622a53e10",
+          "65e7d791-ebba-46ef-aa58-422a294b3f10"
+        ]
+      },
+      {
+        "title": "Fred Hollows: the doctor who gave sight — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "cefd25a1-56ae-492e-9a61-9a3553e9674e",
+          "c19fd405-4f83-4145-ab0a-894b214ca423",
+          "14a23aa9-0931-465e-bade-b55675d21bfd",
+          "37aad8f6-15f6-428d-a09b-3b841bc8c504",
+          "1875ef07-a5fd-4507-929a-915849cf3fe1",
+          "79eab3eb-32da-402e-93a9-2068fd7d928a"
+        ]
+      },
+      {
+        "title": "Tidebreaker — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "daf6f6f1-cb77-4dd1-bb76-8ac91c93cffa",
+          "0d4f288e-c56e-438a-bcfb-565dc4400718",
+          "535ef172-1ecc-4f9b-b799-8169455c1b0b",
+          "963c056a-9f0a-4dad-86cf-32a3f6f5f145",
+          "f00b28be-17ec-47bc-b005-633996cd5e62"
+        ]
+      },
+      {
+        "title": "How Year 7 spends its afternoons — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "dc4ac0bc-ca52-48bb-b0ec-d83334a6bfa1",
+          "e17d2b7b-6bff-41be-8b7a-7ba7b4d75320",
+          "2102739a-5f96-4b14-a4b6-d89b1c2e366b",
+          "06a9e124-713c-46fc-9629-e341762e1f84",
+          "7ce9e08a-1f0e-463e-b950-f6c24e4927df"
+        ]
+      }
+    ],
+    "premium": false
+  },
+  {
+    "id": "reading-year_7-2",
+    "subject": "reading",
+    "yearLevel": "year_7",
+    "title": "Reading Year 7 — Practice Paper 2",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_7-2",
+    "sections": [
+      {
+        "title": "Low tide — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "ccdb3e91-b7a7-482c-9ffe-7e9a437620cc",
+          "3afbbcd8-c43e-426d-a3e5-687004ea91c0",
+          "dd7f7feb-7ed4-47e8-a3cc-4ef3d6bca157",
+          "930d8abf-7367-4ebc-894f-12281a2571a2",
+          "a138960a-1ddf-4099-ada6-8b24fa81977f",
+          "f717155b-12e3-4054-ab76-a419738fa77f",
+          "f0449eae-860a-4966-a794-8c240ffa911c",
+          "706df074-f36a-47d3-828d-890db3c69d3e"
+        ]
+      },
+      {
+        "title": "Lightning — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "4e869604-7c50-467a-8c54-c36c0c758764",
+          "e10724c5-98e8-4a0c-a82e-95ccb601a2e5",
+          "da4836d7-02ea-4eee-ae82-6faf20163c3c",
+          "2b9c11ac-6eda-4435-bf34-f63d9cdbc16c",
+          "9d13eac5-8f61-4b81-a967-77761ba36ce4",
+          "ccb662c7-5d33-466c-97cf-10753834dbf8",
+          "e62240c8-e422-49a2-ada7-7b52efad3494"
+        ]
+      },
+      {
+        "title": "Our streets need more trees — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a024e55a-2825-421c-9a68-0ee169495ddc",
+          "711be141-3fca-46c1-89aa-92431e5b57a8",
+          "01850614-f630-4058-803e-205218c4c8c9",
+          "2ca0eabb-80cd-462d-a495-27b0d3da27dd",
+          "9c1a2882-7f5f-472e-a671-c93d798ce0af",
+          "00d965ee-f08f-43c8-abd4-1969aea954db",
+          "5f1ca9c9-77b3-4ae1-981c-46a5c9ed34af"
+        ]
+      },
+      {
+        "title": "The sprinter — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "385d431b-3cab-4c8a-9968-86ca5e7e1926",
+          "6294a0ce-6ac2-4f65-8575-d3f6c954e27e",
+          "fed633af-c1f6-4a8f-9584-4a692d532164",
+          "37d32f68-62fd-43e7-ad89-1891498decdb",
+          "9e82eb1c-da04-4a60-9772-49bfe7bc7f6c",
+          "84940017-97e9-45fc-99f2-fb95cc314f0e"
+        ]
+      },
+      {
+        "title": "Make a stop-motion animation — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "c6ae099d-1f8e-4dca-b05d-cbc6aa40d4ed",
+          "d425cb54-84a1-493c-8533-e0bc393253ad",
+          "9aa6986a-672b-460e-b587-990cebaaba11",
+          "4e37f3b9-e04b-47e7-b3c6-51d126fd5574",
+          "1ae7daee-4e4e-4ef0-983b-94c4f901abf5"
+        ]
+      },
+      {
+        "title": "My first (and last?) camping trip — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "d4525507-5f8f-45cc-bb0b-d1e6740677b1",
+          "fc2e6b36-89bb-4370-a245-b7ccc2e043b1",
+          "1a0b0995-ef91-4a30-b93d-12b20e327a5f",
+          "74beeaa3-0331-4946-b0ae-70e68fe9f268",
+          "4c8b32b5-c917-4fbf-97b0-6ffd6589b6b0",
+          "0bff3052-327e-490b-a417-e568ae0af823"
+        ]
+      },
+      {
+        "title": "Meet Jordan Reyes, wheelchair basketballer — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "f420e060-875d-4257-ad78-d1251399d945",
+          "309f5003-4606-4f56-87b7-f83cd7aa81af",
+          "97cd881f-c69c-406d-a444-46ece9b65371",
+          "537ef80b-bc0e-4543-85d4-147d4573b2fd",
+          "161a7a53-ad99-4f25-a837-08f9d3a91d96"
+        ]
+      },
+      {
+        "title": "Two wheels: how the bicycle was invented — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0b459e97-4810-4a1a-8873-e81fb48df531",
+          "b19245b0-2861-4968-a23a-21b68443e932",
+          "fc9f5745-890d-4997-ab5b-0d827a4bfaea",
+          "f3cf65c3-eddd-45d7-a03d-27934848e6cb",
+          "21c61ba4-9bc6-4ab6-912b-c2ba71f529f5",
+          "27046f79-ebce-42a7-8081-120df44298c3"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-year_7-3",
+    "subject": "reading",
+    "yearLevel": "year_7",
+    "title": "Reading Year 7 — Practice Paper 3",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_7-3",
+    "sections": [
+      {
+        "title": "Tryouts — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "3d65b1f5-3383-4ef8-b21f-97495bf284b0",
+          "23a89909-84b0-4eef-a80d-a1b30020aac8",
+          "76af7656-152b-41e9-bebf-b2be2c6250a2",
+          "f93c6236-996c-4352-9f0a-ca190b8e9be7",
+          "df23668f-b889-468a-bb83-64478998e8b6",
+          "ee39d698-0705-4cff-8054-c8845b458b46",
+          "f39d4c45-05fb-4698-8fd5-c604f43c048c",
+          "696653b7-b6d1-4d2e-bf0e-1cf2eeccc20a"
+        ]
+      },
+      {
+        "title": "Why is the sea salty? — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "358c5fad-fcc1-41af-b1c6-b3b503450439",
+          "351e3172-e860-4e69-b126-a112fba9cff0",
+          "c9d13d55-dfd6-4321-a87b-6c7e1463efa6",
+          "074a3574-ff71-4be9-8d88-1ef86951881f",
+          "6bf79614-1575-4061-baef-3d407044cf78",
+          "7f225135-ba63-46eb-984a-25e5526084ec"
+        ]
+      },
+      {
+        "title": "Should zoos exist? — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "50c4fc64-0ec9-40c8-aa5a-e7765210c859",
+          "95e92706-ae5a-437a-8e6e-1a1dd7f53765",
+          "4090e8de-34cc-4940-963f-74239eab3fae",
+          "fe96ac0e-b821-4902-b802-5434e4ca28f0",
+          "925fc778-87ac-4223-8673-9e2921f14f75",
+          "59744069-575e-454d-a195-35172634bec1",
+          "083a40bb-0c24-4bf4-b80a-a55ee3cfb8c4"
+        ]
+      },
+      {
+        "title": "Six a.m. — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "fa711eff-d344-436b-87e2-d310b7c2aef3",
+          "fd0a5c57-5c31-41e1-8a71-6d463e3c0445",
+          "6223ab93-f29e-4ebf-a5dd-872b1ae4172f",
+          "710da6b1-386a-4aee-bfef-fad5b6ebc044",
+          "38ebb613-0835-4551-a83e-e0b59943d125",
+          "ba5fe510-6b79-4e91-ac84-5e0518672399"
+        ]
+      },
+      {
+        "title": "Teen’s smoke sensor could spot bushfires sooner — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "dadd188a-6cea-4383-b2d1-fa0ce53d3afd",
+          "2810357e-bb3e-4c61-9de1-cf73a7fbd2e5",
+          "37a8c2cb-ee6d-4793-b8aa-71eb003afba7",
+          "7e8d5dbe-2bf2-4507-ab0f-213c9866db50",
+          "0d52aa8c-2e8e-413f-82f8-97f1c8b4d03d",
+          "2e0f5aae-9e3e-44f4-8500-355721d18645"
+        ]
+      },
+      {
+        "title": "The boy who flew too high — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "feda4fd5-5924-4ab2-be45-932f0959aa33",
+          "97e245b5-656a-4fcd-a035-0953f2eaf70e",
+          "ceb739a2-509d-48df-ba03-0689b5eed240",
+          "41485096-acfc-4e1d-9b15-e40559439438",
+          "7a3b1341-ca17-4289-9f9d-4494ec69ea87",
+          "470e5c8c-7859-498a-9e50-3bd70b158f94"
+        ]
+      },
+      {
+        "title": "Skyward Farm — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "994609f1-3858-4e14-89c7-13e45d627d19",
+          "461b8a89-bf4a-4c64-8a1e-47a7fd859edc",
+          "9f785841-9799-4536-bd4e-204b176c2679",
+          "07f07e97-c568-4bbe-aabd-7a661e0e508d",
+          "750f8995-dc5c-4616-ba98-e40d77a8f893"
+        ]
+      },
+      {
+        "title": "Visiting the Harbour Museum — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "09aeaac9-3c7c-43cf-8bff-f0008ca84692",
+          "a031dab2-ede5-47d3-9331-b5bb44f6b2b5",
+          "728b8eaa-ff0e-4fe3-a3c5-9d79765f86de",
+          "dee2a812-b6c1-4fbe-94b7-b158c5a8fd31",
+          "4a30e409-9ca0-44f6-ad9b-9a4b4ccf88b3",
+          "e2396b4c-54ab-4976-a4d7-ba1e7e26651b"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-year_9-1",
+    "subject": "reading",
+    "yearLevel": "year_9",
+    "title": "Reading Year 9 — Practice Paper 1",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_9-1",
+    "sections": [
+      {
+        "title": "The keeper’s daughter — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "79432cb5-0ce2-4754-8285-997f9eea01e6",
+          "63d6f894-9c52-4dc3-8fa8-59bf658649fb",
+          "3431a020-32b4-4eb6-8dc8-375121f78fe8",
+          "c1b75f7e-91aa-4927-977b-f787a7a9d3cb",
+          "ed9591b7-831b-4ec5-9f27-48f2350cb016",
+          "181c0b95-8d80-44bf-8243-0d84a8b08b74",
+          "fa829f93-cc4b-4ea9-9ece-3866f275d65d",
+          "f985ecbd-a12d-4503-9257-c588b6eeed76"
+        ]
+      },
+      {
+        "title": "Why forgetting is good for you — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0cfad9f4-093e-4cc4-a21e-c1f47c38f433",
+          "f1a507cf-3509-489f-bd92-2b32a7df4bea",
+          "f810a1b4-3e55-4801-b3c7-0a5cc6081708",
+          "a956f717-e92b-46eb-b2b6-016639a61b8b",
+          "a693ffdf-d04a-4f1b-adc6-ab634bb96585",
+          "4b097d96-6717-4cb9-948c-b04cd6a5db2d",
+          "4427040d-a7b4-474b-a429-72d7f842b290"
+        ]
+      },
+      {
+        "title": "The case for handwriting — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a70f7f4e-1bad-4bd4-a60a-ea0ecd40225f",
+          "9ce0571f-cc5f-4b9c-9a41-1a12133b85fb",
+          "5923b369-7881-495f-b8f6-23b4a9096898",
+          "3c1166a5-f18d-4ddf-a4cf-9b7146fa100a",
+          "e69c8eb1-345d-423b-b197-084f6cf798e2",
+          "6f2b0977-3f97-4f81-b038-7dfd161846b6",
+          "ea1e8fa8-d601-4f05-8f55-8a07438cadd9"
+        ]
+      },
+      {
+        "title": "Migration — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "f51d6da0-a77f-475e-97dd-3594da2bcec6",
+          "f515d161-0430-4a41-bc97-f58f6badf151",
+          "42405209-7860-42eb-8917-ba5290f1984f",
+          "42a754bd-c426-4af9-96be-eb7df3eab02b",
+          "07186016-a8c3-4c19-9820-1aa975c35010",
+          "458d724e-4967-48db-bb20-fe75aac3a7ba"
+        ]
+      },
+      {
+        "title": "The wire that shrank the world — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "7804137f-c0ba-4810-8e2e-2feedaa068f8",
+          "f40eb7d6-21fe-4898-ac4c-7440842915f1",
+          "5f4570ac-fd88-4c61-b7e6-ede60510e5df",
+          "88c9e310-1feb-4425-acea-9baf62cd4527",
+          "f3363b73-6bd6-4606-a3ec-1652302d9211",
+          "7c2378be-89ee-4272-b774-055b09144771",
+          "3c6c31fd-5ef6-476c-8b17-aaff3b42784d"
+        ]
+      },
+      {
+        "title": "Local family discovers “outside” — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "adafdce2-26f9-4add-8d4d-1de7d1a145ae",
+          "0eb34553-d30f-45c2-84a2-8f8549cacab7",
+          "033f180e-352d-4378-8662-1425b91ca7c0",
+          "3822b3ca-2e04-47ba-b406-40f3e9b66007",
+          "01fd8397-685f-4f48-9507-fa622d7f300b"
+        ]
+      },
+      {
+        "title": "The Glass Orchard — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "1bb76b9f-f671-4e74-8faf-bbdb01f95ffa",
+          "7d338329-5b37-466c-b9d5-78ad855b4d96",
+          "9ea5fbcd-c226-4556-a79a-b8ebfe8e97f6",
+          "4e815851-b83f-4ebd-93d3-1adbafcff95a",
+          "a00e5149-dede-49e5-b58a-c1fe42945be8"
+        ]
+      },
+      {
+        "title": "Food waste in Westvale — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "2bada62e-f640-475c-9f64-be89abfe9f31",
+          "5b18f8cf-b041-41fc-8724-f41279354d53",
+          "85b66f27-92e3-4c6b-b17c-ed6043da2b68",
+          "7a88cbfa-8f07-409f-a60d-0c19484c57a0",
+          "dbfe5efe-7f6e-4d4f-8395-fddb1ac23adf"
+        ]
+      }
+    ],
+    "premium": false
+  },
+  {
+    "id": "reading-year_9-2",
+    "subject": "reading",
+    "yearLevel": "year_9",
+    "title": "Reading Year 9 — Practice Paper 2",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_9-2",
+    "sections": [
+      {
+        "title": "The tapes — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "96c18e2f-9e4a-44b7-809e-77bd8fdc2818",
+          "bfd421b3-61e3-4a40-a059-4275a325f0f8",
+          "53239942-9897-48e8-bdee-52220ca5cc2b",
+          "d6792506-b149-4a05-b6f2-ddd22bb0e6a8",
+          "870ff225-54f2-4c1c-8f30-bddaa81b9b19",
+          "3efaae0f-5ebf-41eb-91a0-b9072d3d9585",
+          "6f30a748-f6d1-4002-b69d-ae5ab96c9ded",
+          "8396c304-9848-45cc-8e74-99c10089592b"
+        ]
+      },
+      {
+        "title": "Stage fright: your body’s false alarm — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e018eb52-14a8-41f1-97a3-fbcd239f690a",
+          "55a01613-da8a-46c8-97f6-df7ff56d03ed",
+          "2d966041-84c8-4789-8559-7c62627dc472",
+          "e3a41a90-ddeb-4063-921f-034c76f9d362",
+          "83dbbd23-5b6f-42d7-99a0-89994f51a0f0",
+          "9fc8ea09-dd22-441b-8281-f8483bbb1644",
+          "4a3220b0-c3c8-4b3b-b6af-4d34d9870bff"
+        ]
+      },
+      {
+        "title": "Sixteen is old enough — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "7cbd99b7-596a-4d7c-a2ad-9d419cafd70e",
+          "130ce572-b1b6-4014-af6f-e793e19a6c12",
+          "3abff77f-fda1-4bf2-bae6-f471aaeda7c3",
+          "73e2824e-3272-403b-b3de-d8ff4c318b24",
+          "a41ae95c-69a2-4d52-9beb-6e22a6d4e8a3",
+          "0571f8a7-c37c-4cbd-8422-7c8938019ccc",
+          "c8807505-97ee-4dd8-8f3c-5a0945094d22"
+        ]
+      },
+      {
+        "title": "What the river knows — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "ac4ec9db-3f58-4543-9a11-9fad7e970abd",
+          "21ad8500-f5ab-42cc-a95d-3a605a5a132c",
+          "c8ec2f3c-a37c-45b5-a6df-acdc96ff9981",
+          "7f2cf3e1-aa21-4433-85a6-21f48e7caf2c",
+          "d9edc0e5-d220-4937-a8dd-1d46ac908337",
+          "befafd77-e751-4f26-96bd-668fe7a4a0d8"
+        ]
+      },
+      {
+        "title": "Marie Tharp: mapping the ocean floor — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "91a1aad1-ce59-4300-8e8e-9f0a239833d2",
+          "d08874a0-c5e4-46d4-81f7-0ab3e8ed68fa",
+          "63f86021-4838-4876-88c4-93cb50ee4371",
+          "95e21b24-4d96-4320-a244-04d6db646e01",
+          "c37bc0bb-2a18-49b7-a2cc-7758dd44587f",
+          "26302bb6-098b-41b2-80e6-913516d3f211"
+        ]
+      },
+      {
+        "title": "Caught in a rip — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "aae98919-d9f6-424d-b816-e99295789060",
+          "fb8bd2aa-9082-4f2b-a30a-d75199e3f95c",
+          "76f06ca0-79c8-4ed7-9d78-852aba136e9b",
+          "a98e55b5-5cc4-4298-89d9-631aff4da39e",
+          "1e6d6137-ad14-4120-b53c-f1e826d5745a",
+          "134dd666-ad24-41f7-b2ca-4920fbbdc301"
+        ]
+      },
+      {
+        "title": "The new Harbourside Library — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "820b5502-88e6-4ae2-a183-3a6c7d3597de",
+          "75f7e28d-b7e4-415e-80c0-f9f5f4deab9d",
+          "9fbdee33-f448-4488-b1c6-772855638c91",
+          "d9505771-cbf8-4adb-9959-9051d27e6205",
+          "243152f0-44ad-48e1-b070-a167eb20edaa"
+        ]
+      },
+      {
+        "title": "Riverton Dam over ten summers — page 10 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0187b010-ca1d-4ba0-b14a-f99a6c5f6e5d",
+          "42d3e903-ae28-4953-8fc6-80b7aa02797d",
+          "ca787a32-af9f-4a70-a8a3-0f90165c0f5d",
+          "540971b2-8aee-44d7-994f-86a280fc1a85",
+          "bb4fb93b-001a-41c2-b0c5-7afd08ddefec",
+          "401ae139-58b9-4ef1-ab95-929e42884c85"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-year_9-3",
+    "subject": "reading",
+    "yearLevel": "year_9",
+    "title": "Reading Year 9 — Practice Paper 3",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_9-3",
+    "sections": [
+      {
+        "title": "Firebreak — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "609212d0-c03a-48be-be9c-944d4488c2ca",
+          "06593cb5-10b3-46e0-a210-65ef2d218d84",
+          "dec517b8-806a-4141-a101-8499c95af244",
+          "df46e5c9-a858-4e7b-811e-73bf3dd7e357",
+          "117bcd4f-bf6c-4347-9cf4-293c15a9e00e",
+          "edb2677a-1cd9-4795-907b-deefd6f3ef7f",
+          "30da296c-7114-4aa3-bf6e-373cf85f255a",
+          "c12b4a85-bef2-4629-ae02-e88ea2690973"
+        ]
+      },
+      {
+        "title": "How bats see with sound — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "b31a4f56-c708-4322-91e3-4de347e5a477",
+          "46887551-d269-47b3-ac6a-8aca970bb316",
+          "98ef0055-a10e-495c-a3b8-92ad7365c570",
+          "0222ce47-6fec-4714-acae-437a5e53c866",
+          "ad08f8bf-0ea9-4a8b-a19d-704a7c8b20ff",
+          "9a2a8b19-2549-4304-b0dc-83d0a1668d9c",
+          "4cb88f7c-99f4-4373-8fe8-dd2f2b7c68ac"
+        ]
+      },
+      {
+        "title": "Is social media good for teenagers? — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e543c4b3-dba8-4378-af1e-3dcf4fca5ef9",
+          "171e3af3-5af6-416e-9c39-0240fa5d6c98",
+          "15da34f6-8cca-4be2-9a01-ca695be49fc2",
+          "2861e869-e435-4f4f-8776-4c69d2f09014",
+          "911a2a87-b87b-43d6-b8fa-a57566cd431a",
+          "c4df7766-2977-4221-9d05-47e088b01c3d",
+          "71f86b32-b430-49cd-a5f4-0574193b20c7"
+        ]
+      },
+      {
+        "title": "Heirloom — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "971344f9-0c57-455d-a05b-049e671ccd80",
+          "dee5fd9d-bb98-4495-9575-bd185fe2f94d",
+          "663a9873-f594-41be-92de-8d9717759ff3",
+          "52c32a87-993b-4ac5-b77b-1e0c2cff22d6",
+          "6d09856a-1c69-4a5f-bf87-10aad6b244f7",
+          "a155ba08-595f-4efe-bdb3-76b00f828f59"
+        ]
+      },
+      {
+        "title": "The 1967 referendum — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "323a9850-14f3-4331-b229-a07064da6361",
+          "af700768-7ede-4a57-b8be-e61f834d6973",
+          "c62baa71-76cf-4084-9bc1-fa7ce7200563",
+          "2e2d9e4e-4eda-4e56-9bec-7bd7ef11f5b2",
+          "ddcb9de7-d786-478e-aefd-b7263eae3e5a",
+          "b3e0c984-2883-4616-b94e-13e9a67e7e20",
+          "5c10fde7-e5c0-40f3-994b-b36d6453d44c"
+        ]
+      },
+      {
+        "title": "Farewell, class of 2026 — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "b8bd99b5-0085-4206-b427-7983d8197e5a",
+          "eb05b209-0429-477b-9134-92e576823a8a",
+          "5978af7e-8e35-48b3-a9b7-538cb1569720",
+          "a77c95d8-ae5e-4ffd-95c5-b83a3f91a94b",
+          "3e5fb98d-d1ea-4920-9b87-26e63c8b3523",
+          "b18c95e6-b79b-4803-b456-9d99c80fe18a"
+        ]
+      },
+      {
+        "title": "Lao Ma’s Kitchen — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "28591723-2b4d-4139-ab4a-561c2c24436f",
+          "693b832f-5ff4-465a-9438-7a3810b1d997",
+          "60f28198-dc0b-4900-9bca-4d2160b9ed6f",
+          "033396fd-3140-4321-819e-0991af8cdde0",
+          "d4fd1ab1-ce53-4c88-a9db-ff9a88f73d82"
+        ]
+      },
+      {
+        "title": "How Westbrook students get to school — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0c85a4a9-9ba3-4a70-855d-a32b88aeb665",
+          "326d7153-a81c-43ae-84cf-482de4b78203",
+          "109d53e5-2fb6-43c2-bc6d-1778a0fc9545",
+          "24327820-eb7f-40f1-a6ca-2561132a68f8",
+          "ffe14bdf-9594-4d8d-8c18-7bfdd3d93e32"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
     "id": "english-grade_3-1",
     "subject": "english",
     "yearLevel": "grade_3",
-    "title": "English Grade 3 — Practice Exam 1",
+    "title": "Language Conventions Grade 3 — Practice Exam 1",
     "sections": [
-      {
-        "title": "Reading",
-        "time_minutes": 45,
-        "question_ids": [
-          "f33b8891-1bee-469d-84da-6ae576e96dce",
-          "f59adb6a-e1dc-459b-a735-05978cae258c",
-          "76f7b276-ee95-4522-beb8-8090a0b38b59",
-          "7dcf287b-6261-4168-994a-d755895f31e9",
-          "37625e00-42dd-4eb6-a60a-2d1585958ef1",
-          "1b0afcc1-9797-4179-a4e3-12a690e1699a",
-          "80ce86ca-9a5b-41a6-86bb-bd5acafbf43d",
-          "b63f512b-6f22-49e7-bc98-cb3c2ba63423",
-          "43d4dbca-6434-4fa9-aec0-9dffaf158936",
-          "fe68fb32-0db0-479a-b8e9-19a0bffdc243",
-          "a18b37fe-56bf-4b23-a88b-d68d0d674957",
-          "a7925b4c-3870-4611-bdf0-6c7392fb398d",
-          "ed3d46f2-fdee-4da1-8fe3-e5abd1309d42",
-          "aa96c610-1b88-4ad2-8b1b-8596f122f9a2",
-          "ccbad129-6039-4bfe-beed-13ef003b9747",
-          "41e094e9-3df3-4e8c-834b-cba72fdb2e42",
-          "85cb8ba8-a911-465e-b6bd-d0d032523cd2",
-          "38354fd5-7c69-4ace-a141-7eae4a033170",
-          "c60a4945-6f5a-4558-80fa-e53083dde317",
-          "dfa4ae52-787f-4bb1-8f87-d5d1c1fc85ce",
-          "70b64824-2345-4529-b071-a2a47c86fd5f",
-          "cf823177-ef21-414d-9603-fcad6f3a9980",
-          "75e18f9f-31e9-4f3f-a18a-d713d94b8368",
-          "27f94887-36db-4484-8cf3-abe8908b1eb5",
-          "4c9c48fc-ba92-47c2-b8e7-d85eee10b828",
-          "623b4eb3-bc36-4ee6-ad22-f40f68a81bec",
-          "09b17030-e907-4497-a0ba-49ffcd93f568",
-          "18b155bb-548c-4040-9968-5522e31026cb",
-          "c683555a-68d5-4cdf-b18d-0f541af5c4e6",
-          "ed1d12e3-ab31-4731-837a-1a7a674dfb8a"
-        ]
-      },
       {
         "title": "Language Conventions",
         "time_minutes": 45,
@@ -444,81 +1700,45 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": false
   },
   {
-    "id": "english-grade_5-1",
+    "id": "english-grade_4-1",
     "subject": "english",
-    "yearLevel": "grade_5",
-    "title": "English Grade 5 — Practice Exam 1",
+    "yearLevel": "grade_4",
+    "title": "Language Conventions Grade 4 — Practice Exam 1",
     "sections": [
-      {
-        "title": "Reading",
-        "time_minutes": 45,
-        "question_ids": [
-          "6f486103-a407-4413-a523-50e9da016073",
-          "41bad1ed-f96e-402c-9f17-54aff99c530e",
-          "c020e715-25d0-4ab3-9c63-93fc4e93157c",
-          "4b0ea872-66c1-42a9-a3ae-17aaa6fdb288",
-          "bcad467e-d213-473f-93ad-744d4b5213c7",
-          "65901e9a-9968-4bae-bd05-c7608ffa567c",
-          "43e4cd8b-4095-4212-bc2b-ddc7104ffe86",
-          "a86a4c4b-13e5-4914-afaa-7687a90cab30",
-          "2177839f-7cae-4b92-92eb-4fc2e0ef559a",
-          "7ac797ea-8180-4ec9-a87e-471590cb2570",
-          "2ded4c58-8a59-4309-a4c6-21d1b43d1094",
-          "481526a4-6b5e-495f-acef-ce3b7ce387fd",
-          "a6532c92-a844-4658-91e2-a810504a629e",
-          "f51024ce-6683-4f2b-be0c-4718f620a769",
-          "5adb340a-85dc-491b-acd0-0b4e15aeef77",
-          "ddc267dd-838c-45f7-be55-f640e7b25b03",
-          "8f05a28b-5463-4164-8f19-e3c08485e5ba",
-          "0a776fd7-5de2-44fa-92bf-7be27654cee9",
-          "54512cfd-65e3-413d-a65d-1eca604f829e",
-          "869178ca-7dc0-41e8-850b-b095d8140745",
-          "3f2e99d2-2f8c-4a62-93e8-1312b732c11b",
-          "15206f82-aa4d-4953-8046-b89da9c2d46a",
-          "3949e2dd-1d39-4049-80f2-120136aab3e3",
-          "98020513-4cad-4dde-99c3-346854e34de8",
-          "88176768-82e6-40f6-a4b6-e2a8449adfe7",
-          "770bdf3e-1561-40a5-b3d1-53064b6b431c",
-          "6b2d3c0d-2330-4040-9a4e-273c6ffb690e",
-          "fbb0f1ed-8775-4083-9e1e-ef902c7fe830",
-          "e668e6a0-f901-4f30-8837-82f437e4b72b",
-          "b449663f-9eaa-478a-991f-1c77747e0702"
-        ]
-      },
       {
         "title": "Language Conventions",
         "time_minutes": 45,
         "question_ids": [
-          "8bca8af6-867b-4849-8e03-de2444fbf125",
-          "66189764-8903-4f92-a903-04501b9c83c0",
-          "f99fb06e-2586-45c7-8f71-af7293b03bef",
-          "12ea0228-f38a-43de-bc70-21ac32d1596d",
-          "25d9a592-09f4-4945-bddf-8007c4021461",
-          "e20bd643-b2cd-4ab1-a3dd-793c0404a78f",
-          "142f0883-2583-4a89-99a1-102d98eb2b67",
-          "8cb480bf-bd46-4e01-8fd2-f8ccdab0f458",
-          "4bd961ca-c77a-40b6-85dd-48a1e56447c0",
-          "0c018cdf-b520-47d3-8c49-34bc11062e41",
-          "ab8b2ecc-38b1-4095-ac73-3147016fc59c",
-          "2b36a27b-2657-4507-abcc-f22a89b93956",
-          "f44d5dd4-3cd7-491d-bfd6-35c785926dce",
-          "3b663df8-621e-4a92-bd70-4204a71bfedc",
-          "3dc0bc1b-dd35-4fa4-9cc1-6993ac836b37",
-          "d868f7ea-ce78-4452-bed4-4606f906ffef",
-          "f31043af-1709-4027-80a9-5aa2fc9f1da5",
-          "30178713-0806-42e5-9a34-b5fe15d23769",
-          "98cdc7be-9ab7-40ce-97ff-64ab822bd073",
-          "aec34c8c-73bf-411a-89d6-6ef0a00ca211",
-          "6c1a9c18-df74-41d7-b403-81292d5c89d7",
-          "ad11ffbc-da92-484c-be2d-848cd355f205",
-          "994b6be4-e9dd-463c-ab01-911049316286",
-          "eedc7e6a-60ba-41ec-961f-a1d03f41bf36",
-          "0ced3e92-0aa4-490a-8306-31f6fc13afb7",
-          "17b850da-718e-4f35-addc-4fd87e30c22a",
-          "96d0a0ec-5dc0-4f30-936f-c802c9beb2a4",
-          "ed36f379-4a04-4764-8fc2-da4c80ef7e33",
-          "e7725bd9-d358-4cae-902e-9b9e12105ed8",
-          "1db5f6ca-6d6a-4b91-b3ee-1245c8f89c56"
+          "83502520-39b2-4d5f-8508-a10b47070e8f",
+          "f8fe27ab-de50-4900-b1f5-e963de22f90b",
+          "26f90851-9201-49b9-a69c-e8a728a5d2a2",
+          "2565ffbe-0da6-4d19-b7e4-3153242a0d63",
+          "b4e8d10c-3038-4248-acbf-99c71fe7dd11",
+          "91355efd-2123-430b-85dc-12eeb9b1fabe",
+          "d0b7eaee-51f8-43c6-bd2c-4cf0c7ccfe44",
+          "3bf97402-b76f-4344-8774-e27e61b785d0",
+          "8d305fb5-75f6-4354-99df-5b2252eb4b8a",
+          "419eb390-35aa-407d-8fe4-2d61c771cd19",
+          "1bef93f7-1ec4-4a77-8298-21f9b6408301",
+          "0933be26-5e30-4d53-86f5-7c4e6a59f372",
+          "328c347c-0685-4924-89a4-5337fe268aec",
+          "e23c338f-0435-4e3e-83f2-1b8ef76f3fac",
+          "566fd545-2a6d-4319-979c-c51134b63d1b",
+          "9488ac0d-f011-4c66-92aa-da5707b8c887",
+          "464693ef-4455-4981-a4b3-b30419c440f3",
+          "40780085-34cf-4750-96ef-9b8e4acc0f58",
+          "37c278a6-c23c-4a4e-bff0-b5dcb0e081a6",
+          "1970cc96-232a-4888-9c33-95fe66f6cd1e",
+          "8028253d-7298-42b6-8a01-fcb28c216ec0",
+          "8d00ee09-54bb-4666-9da5-ab959449e200",
+          "82e123eb-29fc-4f08-a911-81dedb6de651",
+          "0fb6d6f7-751f-4e9b-b3b1-a7f332c60264",
+          "88c493cf-ac45-48cf-81ce-b2ce3233fe52",
+          "44d66441-9d40-4afd-bdb9-e9667f5d3335",
+          "a6483088-2428-4842-ab39-1ae9c512dbe3",
+          "6118d993-0c98-40c2-90ce-5790d9799095",
+          "67e396ee-a6f1-4a2b-9bff-d27e282d7183",
+          "50ea7c54-5992-4336-8ddd-3a2ecae3362c"
         ]
       }
     ],
@@ -528,46 +1748,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "english-grade_6-1",
     "subject": "english",
     "yearLevel": "grade_6",
-    "title": "English Grade 6 — Practice Exam 1",
+    "title": "Language Conventions Grade 6 — Practice Exam 1",
     "sections": [
-      {
-        "title": "Reading",
-        "time_minutes": 45,
-        "question_ids": [
-          "efd54365-f0e5-4aa8-9c2a-36262f565e7a",
-          "68020ff6-48b7-4432-bb3e-a23c08b98ba5",
-          "a3fcfaff-9053-4b9e-a408-f8b8d734032a",
-          "acb3e29c-2deb-4c15-b839-a94ab4c8f6f8",
-          "91c278a0-7a07-499a-90ff-b6d9409d0326",
-          "58307537-779b-4cb9-96bf-5ce9870e1c9f",
-          "5d1d8e24-a8b1-49a3-b8e3-1b35809f8016",
-          "f260820a-0428-40e3-bf1b-9c3aba914eb5",
-          "01e1c30d-8010-4f7d-b0b3-27bf39eb422b",
-          "5c168a21-34bf-42fb-9e76-c0eacc56a3ae",
-          "07fa7e13-a7db-4a76-bb00-f5bf68b5c761",
-          "a26bb29d-d55d-471f-a92d-fb1023e985ea",
-          "db4070e4-c330-4ea1-b571-c3469e3f0af4",
-          "c9d557b1-0b85-40f5-afd8-b2cb66880368",
-          "2288589e-43d7-492d-bd72-d30f9184a858",
-          "450a13f5-b9a3-493e-abe1-2b1ed5b31f94",
-          "7730a8e3-27d0-440a-bf7a-b84546d99f9e",
-          "2f23a3aa-a6cd-4998-b481-f5907ef80c8a",
-          "f5c23b53-e59c-4d53-a711-c5e9d4b9f066",
-          "79183cd5-8703-4447-bc27-9caef985584e",
-          "c9616f20-fa8d-4975-a808-15684934dd78",
-          "aa3b128c-a889-4777-a8c6-aaf188087e39",
-          "6e600f74-cc35-44eb-ba22-c0825551f01e",
-          "4b5df43d-3724-4454-8f37-6d3eef48eac0",
-          "78dae00b-f9bd-4098-bbfa-69e4254455dd",
-          "0229c091-fce2-4dd5-a0e6-425e2253d68e",
-          "265111fd-8a91-4097-bcf8-ead6a0b36307",
-          "867673cc-07a3-4727-91e3-ae950265f7c0",
-          "d0f17427-06dd-45e7-a9ad-d9489c68aeb8",
-          "79463c2b-9c7e-4a42-9f11-5536d1d5c3c7",
-          "4ea37fa2-754a-45a8-92a1-4add6902bf98",
-          "041a1700-3a38-4083-840d-381b012a7030"
-        ]
-      },
       {
         "title": "Language Conventions",
         "time_minutes": 45,
@@ -611,44 +1793,8 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "id": "english-year_7-1",
     "subject": "english",
     "yearLevel": "year_7",
-    "title": "English Year 7 — Practice Exam 1",
+    "title": "Language Conventions Year 7 — Practice Exam 1",
     "sections": [
-      {
-        "title": "Reading",
-        "time_minutes": 65,
-        "question_ids": [
-          "05c56abf-9394-407b-b4ef-f7a3b99880b0",
-          "04b5eb3c-2d90-4f53-bdd0-49a44763d658",
-          "341d07ac-7493-46d5-bff5-52041c39fe5b",
-          "68d4f97e-05f9-488d-a3b5-2f53c72c58dc",
-          "0e88efaa-a6d1-4915-9285-40e248d87d16",
-          "8d8fd2af-0d68-4754-835a-25ec00318092",
-          "39fda2da-cca1-4e6f-96a0-4e4d6f272c00",
-          "07a66ca9-64a5-4aaf-93ac-ff1b68e10105",
-          "59786388-a329-4c0a-8c83-b3c4d37c528d",
-          "57307057-c428-4ac2-80f7-5639f43e149c",
-          "748b6cb5-b177-4a87-a84b-210b48fd11da",
-          "f72e8384-e9b6-4737-b713-9485053ebfe1",
-          "437a8f6f-2538-4cba-b1fb-e6de1408722d",
-          "e1bd59e0-2eb4-4c41-8806-6a5768fc8bfe",
-          "d0ad5e98-fa05-47be-ada7-d572d9a4dada",
-          "60dc248f-cb5c-4769-bc59-bca8b4491f6c",
-          "364a0d18-1599-41f7-a291-21ca2bc3d45e",
-          "05830790-f1fb-4089-8d41-39b3909a48cb",
-          "90d962c5-a88b-44f4-9841-ebaf343948df",
-          "dc2d1a3a-8200-4c46-9d07-9111f2aa9540",
-          "2330f5f4-e86c-40f3-b196-c50c5dc2ea77",
-          "eb09770e-c95d-4278-98ac-006bd4d3885f",
-          "b3f09748-e0d3-48ff-83b8-a1d7c7328c32",
-          "3e40619c-b218-44a5-b3ff-ce1e90654e09",
-          "57e7176d-1784-41e5-b934-b008fe956f1a",
-          "84ebf2ed-7779-4e09-bcae-e390049ba658",
-          "33c43391-43cc-458f-ba46-227185b1a029",
-          "7e00dce8-0d74-4a87-a49e-2c0c5debd1ed",
-          "8d037705-7a7e-4c8a-83c6-fe6b97fb5bf6",
-          "e69ebc3a-5e10-4e1a-92df-9c6dc1c28217"
-        ]
-      },
       {
         "title": "Language Conventions",
         "time_minutes": 45,
@@ -689,213 +1835,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": false
   },
   {
-    "id": "english-year_9-1",
-    "subject": "english",
-    "yearLevel": "year_9",
-    "title": "English Year 9 — Practice Exam 1",
-    "sections": [
-      {
-        "title": "Reading",
-        "time_minutes": 65,
-        "question_ids": [
-          "a4972426-c954-44c5-854f-daa33ffd84c7",
-          "ce8e5578-ebfd-469a-ade0-1b6d86fba0f4",
-          "66cc3bdd-0325-4e84-bf3c-caaab8a72447",
-          "634c8f7f-6963-4a59-8a2a-ce0b9a270928",
-          "72652fc2-9fb4-42da-99c3-cc5813974675",
-          "4cf3ed6a-40f6-40ec-aa52-934454aa3633",
-          "cd5864c8-baa4-4118-a01e-757f7a3298d0",
-          "ebbb8c2a-b600-4f24-b318-d4df0125f936",
-          "6672d02a-b7d5-435d-94bd-1364e8f5c6a0",
-          "6f83dbc5-de31-4b33-94b1-ec00dd43fc18",
-          "9e4feb9f-ec72-4f6f-b931-49d99ffa9446",
-          "ef12913c-eb84-4c60-b17b-cb694519d641",
-          "00a0264e-ccf1-431e-9786-0f71f4db9ccc",
-          "5c1dde5f-47bc-49b2-9cdf-cf5e4a92eca6",
-          "0eb1bdba-385f-4f9a-a8fe-9210b4e87dca",
-          "517e9b0c-9b95-4ca1-b2d2-77e0c7c1f40d",
-          "dd52e21c-e64c-4eee-85cb-5f36b6a4453a",
-          "92dd4384-36ef-419a-9987-50919828886f",
-          "651173e8-28b0-4186-80cc-863133c94736",
-          "76076063-6220-4a4a-bd3e-48e1dd73d6a4",
-          "5680cb3b-69ba-4840-8c2d-c6e6484d13fc",
-          "7e2011bd-24f5-4380-9070-2cf909d56020",
-          "e5453a42-fe8b-4dc5-9d2a-0cb06a0d53ca",
-          "38e2ae16-12d1-4b82-92f1-4ab4b0d55dc4",
-          "f8f0d371-501c-4e1e-8a34-ba7636d6558d",
-          "27871b25-bb65-41f1-8e4b-7a279d3863a2",
-          "c711af90-db1d-490b-bd37-0bfaeec82ce2",
-          "c9b26a99-93a8-4f9e-a2ca-d3d179f86c82",
-          "c24ec5ba-c02c-490c-9280-bd43f2ab8fbc",
-          "86e231ab-152a-4667-b3c4-fa0eae66e68a"
-        ]
-      },
-      {
-        "title": "Language Conventions",
-        "time_minutes": 45,
-        "question_ids": [
-          "861ea96a-a294-42ac-b652-16ed8901b0e1",
-          "3dfcb95b-1175-4c9f-98f3-e1f195d62a97",
-          "d695ce4d-d076-45b6-99d3-cf2d4bd7873e",
-          "55097360-1c28-4e25-989c-d1f5ae32bb08",
-          "dbc46349-bdf1-4c9b-bf49-35c604f7dc6e",
-          "54990c54-5be4-43cc-a58a-0819703ca001",
-          "27095e91-2eea-4362-bef8-b7f2d3e893e0",
-          "b7c08fca-c858-4559-abfc-7be4508d3b99",
-          "5907e6f3-dae8-4353-b5e4-4d510193d262",
-          "7523c40a-730d-455f-a9d9-8044675a7cb6",
-          "640affa6-46e0-4c96-8537-eb8397ac154b",
-          "62eed4a6-db2e-4b1e-9187-81c470227a03",
-          "2eb29ebd-6a5a-4b1b-aefb-da04ca178d09",
-          "cbd5141d-b540-44eb-b118-e54d5f5b685d",
-          "10d5022f-e3d8-4f49-a8e9-8adde078335d",
-          "56ba73ba-c1e9-492b-9e73-2b2decd73b13",
-          "1868d797-8f40-486c-92f5-2b40bd1a241f",
-          "639fc994-3130-4430-9c93-85c3715104f4",
-          "eeaad202-185f-466d-9105-44350a102553",
-          "56169829-6487-4f57-aac9-8e0dc215f0d5",
-          "d441055b-36ae-46d3-bcf8-9f1339d19840",
-          "d115cea3-1f92-4195-b39d-01a1a142e3aa",
-          "59f7d9b3-d366-4667-b67b-9c0a60aa1e33",
-          "a458b976-437e-45d6-9fd2-8f4c5d510f63",
-          "04b86f71-cfed-40b6-9529-1116068da867",
-          "c9d4f1ed-0d0f-42bb-8056-22caa1adb003",
-          "66428f7d-2e6b-41a5-91d2-0fe39e8caee4",
-          "93b440d6-fd1d-4729-815a-a5e0d47901f5",
-          "1e1383a4-0114-46e9-94c6-9f4e55808ec9",
-          "22c7274f-4b8d-4c6d-bdb3-0b7d877c5fcb"
-        ]
-      }
-    ],
-    "premium": false
-  },
-  {
-    "id": "english-grade_4-1",
-    "subject": "english",
-    "yearLevel": "grade_4",
-    "title": "English Grade 4 — Practice Exam 1",
-    "sections": [
-      {
-        "title": "Reading",
-        "time_minutes": 45,
-        "question_ids": [
-          "fa71cae9-e8b7-410a-8504-2af88be26fe4",
-          "b9d9638a-e448-48b2-8d0d-273f1b02480c",
-          "5f357fa9-56b0-4dba-bf7c-4f42f1342eff",
-          "246e5478-8b9a-48bc-915f-741d2d85adce",
-          "065056f5-3626-4059-bced-d11df6583c1c",
-          "ae96b403-0c95-4fa6-a36d-d9658a8dc13a",
-          "4f76a405-4a56-4ff7-9d4b-8620932efdcf",
-          "e3641a9d-d7fa-46a1-9420-257e4bf34207",
-          "afd0029f-0724-41c9-abf3-258609c758e4",
-          "19263f1a-52a9-4693-9610-7742912ba868",
-          "03a5a774-7ada-4a9c-be30-cede27ac6885",
-          "a858f8f2-d600-423c-b46f-3d640853ac4f",
-          "e349cad3-f3ec-4dd9-86ca-f49b641e002b",
-          "cf0e3500-5b4f-438d-bc77-d1650358d276",
-          "0efafcb0-b175-4077-8313-93d1150b80cb",
-          "c36d4941-65e5-410e-8b69-b61e432f3c2d",
-          "ce0af821-8ac9-43f4-928d-caad87483491",
-          "3317ab9c-24d8-40a6-a4bc-12ceca849892",
-          "a0fcd278-7dad-4cf8-82c1-0438f01c9e19",
-          "76772e4a-72a8-4df2-96da-4fb7b9ed0fbd",
-          "1ffbbb01-8ef0-4d77-8acc-df5e217d3ed0",
-          "540f8ead-cde1-4ad8-a87c-a338336cafa8",
-          "03d9935e-7fd8-4d6a-a734-cdbc9f9ffa51",
-          "beaf9d73-8f52-4379-9aca-9218cdbc24bb",
-          "17124d95-593b-4c3b-913f-8668908ede4a",
-          "1bf43cad-5d71-4ec2-88a6-8c66cc9a4d36",
-          "a10b8536-1b1d-4207-9139-d369d3391282",
-          "941bb6d9-5fc1-492e-97fb-126295bf8d61",
-          "11018fdd-f7be-4a04-9703-f31719ea98b5",
-          "cedd708f-46ea-4d43-910c-bbcd4d90fc35",
-          "b65c662a-ce37-423d-9fe6-dbb9e230f373",
-          "6672ff9a-37ff-40df-a322-6a289722cd54"
-        ]
-      },
-      {
-        "title": "Language Conventions",
-        "time_minutes": 45,
-        "question_ids": [
-          "83502520-39b2-4d5f-8508-a10b47070e8f",
-          "f8fe27ab-de50-4900-b1f5-e963de22f90b",
-          "26f90851-9201-49b9-a69c-e8a728a5d2a2",
-          "2565ffbe-0da6-4d19-b7e4-3153242a0d63",
-          "b4e8d10c-3038-4248-acbf-99c71fe7dd11",
-          "91355efd-2123-430b-85dc-12eeb9b1fabe",
-          "d0b7eaee-51f8-43c6-bd2c-4cf0c7ccfe44",
-          "3bf97402-b76f-4344-8774-e27e61b785d0",
-          "8d305fb5-75f6-4354-99df-5b2252eb4b8a",
-          "419eb390-35aa-407d-8fe4-2d61c771cd19",
-          "1bef93f7-1ec4-4a77-8298-21f9b6408301",
-          "0933be26-5e30-4d53-86f5-7c4e6a59f372",
-          "328c347c-0685-4924-89a4-5337fe268aec",
-          "e23c338f-0435-4e3e-83f2-1b8ef76f3fac",
-          "566fd545-2a6d-4319-979c-c51134b63d1b",
-          "9488ac0d-f011-4c66-92aa-da5707b8c887",
-          "464693ef-4455-4981-a4b3-b30419c440f3",
-          "40780085-34cf-4750-96ef-9b8e4acc0f58",
-          "37c278a6-c23c-4a4e-bff0-b5dcb0e081a6",
-          "1970cc96-232a-4888-9c33-95fe66f6cd1e",
-          "8028253d-7298-42b6-8a01-fcb28c216ec0",
-          "8d00ee09-54bb-4666-9da5-ab959449e200",
-          "82e123eb-29fc-4f08-a911-81dedb6de651",
-          "0fb6d6f7-751f-4e9b-b3b1-a7f332c60264",
-          "88c493cf-ac45-48cf-81ce-b2ce3233fe52",
-          "44d66441-9d40-4afd-bdb9-e9667f5d3335",
-          "a6483088-2428-4842-ab39-1ae9c512dbe3",
-          "6118d993-0c98-40c2-90ce-5790d9799095",
-          "67e396ee-a6f1-4a2b-9bff-d27e282d7183",
-          "50ea7c54-5992-4336-8ddd-3a2ecae3362c"
-        ]
-      }
-    ],
-    "premium": false
-  },
-  {
     "id": "english-year_8-1",
     "subject": "english",
     "yearLevel": "year_8",
-    "title": "English Year 8 — Practice Exam 1",
+    "title": "Language Conventions Year 8 — Practice Exam 1",
     "sections": [
-      {
-        "title": "Reading",
-        "time_minutes": 65,
-        "question_ids": [
-          "ed5fd2ab-0f14-452b-b435-c280acb8a639",
-          "07d17709-79ce-497c-a2c1-f6cdc359513c",
-          "14ed5123-6a4a-4efe-94bc-083dbbf94404",
-          "6a5ddab5-42c4-4d48-b0c0-492e54bda07d",
-          "59772f7b-663d-4dba-8d05-eec9cc6d0762",
-          "0ba26389-90c3-4270-a4e8-9e03c83c6c8b",
-          "9917990e-5db6-4bce-bd49-399a6de67204",
-          "bd66ecf9-c762-43d6-bfa9-7f1ab6aae0d5",
-          "8c664546-67b8-4929-98c1-098f08cdeb6f",
-          "89ffdaac-7b6d-4d39-826c-e71fd2bf198d",
-          "d5e4faed-c0ae-43b4-a019-c19216fc1e67",
-          "de17067f-6761-4bb2-84bf-697e0240b391",
-          "122b3f2e-9231-4668-ae31-5d0103c2b2d9",
-          "7f9e4139-a7dd-495e-b4e2-f15655d4357e",
-          "c50b180b-115d-4848-bb03-0a5655651f34",
-          "d53655f3-2062-4a78-a735-12f5ddd288ac",
-          "f405f3a7-fb9a-4b77-a2ba-08c34e3a4570",
-          "37320080-5ce9-4202-b9cb-182864342961",
-          "c63221ab-12f0-4796-b3c8-8d171dbbeead",
-          "ee7388c9-2eee-4962-8feb-c3bc52bbc08e",
-          "438d9b7b-e912-435b-8a8c-0154fcd57197",
-          "f344008b-a969-4259-8eb6-481294d67f73",
-          "277773b0-fb00-4bed-8b66-9f33540c4ddf",
-          "f96ca34b-6e4a-48bf-a551-76f6606882d7",
-          "fc2649e6-d990-457c-a63c-4f1fa035b091",
-          "39c441fc-0214-4740-b57b-e9bc236200ac",
-          "741e41ed-a70c-4bac-babf-170056c71995",
-          "78f0ec10-2d83-4920-8c1f-9561c8dcca51",
-          "4f606cb3-392c-4cf0-9598-304798adcbf5",
-          "2c3b0e6e-5d2f-4076-98d3-18cba7fd5323",
-          "4aba3837-aaaf-46c4-b3de-7f6bcdc69951",
-          "f688e8d1-929f-45f9-ac6c-22b0eb284dff"
-        ]
-      },
       {
         "title": "Language Conventions",
         "time_minutes": 45,
@@ -936,78 +1880,90 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": false
   },
   {
-    "id": "science-grade_3-1",
-    "subject": "science",
-    "yearLevel": "grade_3",
-    "title": "Science Grade 3 — Practice Exam 1",
+    "id": "english-grade_5-1",
+    "subject": "english",
+    "yearLevel": "grade_5",
+    "title": "Language Conventions Grade 5 — Practice Exam 1",
     "sections": [
       {
-        "title": "Science",
-        "time_minutes": 35,
+        "title": "Language Conventions",
+        "time_minutes": 45,
         "question_ids": [
-          "5ca913e1-318e-47f6-b043-4719b7bb1540",
-          "5955cdef-1a18-49bc-867e-83772e0bb443",
-          "bd87032a-2119-4bd9-8312-d0c1bed22f8a",
-          "5a6507d3-3d3f-421f-b3c3-8626887b0506",
-          "6ba6575d-f63c-4c92-a584-cb7720e897c8",
-          "27876fbb-4ec2-4cfa-8a50-2c410ab85990",
-          "b4b3215c-864e-4ca0-80fa-960d40c14d9a",
-          "d2188057-80d6-4a36-b71d-c14a8cb34619",
-          "a3c33f6b-62a0-4c9a-b60a-142f65f87ad9",
-          "2a257334-197b-4b2f-9c94-dcc95344a84c",
-          "edb4d129-3d00-4472-a241-56443bf94ba2",
-          "8c40cd49-1fe5-48f0-a28d-b4e5b19ac88f",
-          "03431a77-0f9e-4291-9f77-fdeafb4055f9",
-          "93b93e73-e0ea-42a4-95df-d42b43c227d2",
-          "e4097d3e-fb18-42f1-9b01-eff03e271b19",
-          "b23ce590-1c67-4749-9823-4893c5324632",
-          "a60f11d0-264e-44af-ac0b-f6a633c1f38e",
-          "138bf44e-42db-4761-bd95-f6e1544684f5",
-          "684fce64-d6fc-4ccb-9bb0-c5d2e1ec46b0",
-          "32f78ac9-0d19-4632-8c3e-32d847a61e85",
-          "1e06d529-1455-480e-951f-af7735290e4e",
-          "d5bf65a8-e332-48fb-96f6-335b2c32293e",
-          "cae15de0-355d-4c41-a0d7-209d72721458",
-          "d77a959b-a9cc-49f4-99f5-95446e137891"
+          "8bca8af6-867b-4849-8e03-de2444fbf125",
+          "66189764-8903-4f92-a903-04501b9c83c0",
+          "f99fb06e-2586-45c7-8f71-af7293b03bef",
+          "12ea0228-f38a-43de-bc70-21ac32d1596d",
+          "25d9a592-09f4-4945-bddf-8007c4021461",
+          "e20bd643-b2cd-4ab1-a3dd-793c0404a78f",
+          "142f0883-2583-4a89-99a1-102d98eb2b67",
+          "8cb480bf-bd46-4e01-8fd2-f8ccdab0f458",
+          "4bd961ca-c77a-40b6-85dd-48a1e56447c0",
+          "0c018cdf-b520-47d3-8c49-34bc11062e41",
+          "ab8b2ecc-38b1-4095-ac73-3147016fc59c",
+          "2b36a27b-2657-4507-abcc-f22a89b93956",
+          "f44d5dd4-3cd7-491d-bfd6-35c785926dce",
+          "3b663df8-621e-4a92-bd70-4204a71bfedc",
+          "3dc0bc1b-dd35-4fa4-9cc1-6993ac836b37",
+          "d868f7ea-ce78-4452-bed4-4606f906ffef",
+          "f31043af-1709-4027-80a9-5aa2fc9f1da5",
+          "30178713-0806-42e5-9a34-b5fe15d23769",
+          "98cdc7be-9ab7-40ce-97ff-64ab822bd073",
+          "aec34c8c-73bf-411a-89d6-6ef0a00ca211",
+          "6c1a9c18-df74-41d7-b403-81292d5c89d7",
+          "ad11ffbc-da92-484c-be2d-848cd355f205",
+          "994b6be4-e9dd-463c-ab01-911049316286",
+          "eedc7e6a-60ba-41ec-961f-a1d03f41bf36",
+          "0ced3e92-0aa4-490a-8306-31f6fc13afb7",
+          "17b850da-718e-4f35-addc-4fd87e30c22a",
+          "96d0a0ec-5dc0-4f30-936f-c802c9beb2a4",
+          "ed36f379-4a04-4764-8fc2-da4c80ef7e33",
+          "e7725bd9-d358-4cae-902e-9b9e12105ed8",
+          "1db5f6ca-6d6a-4b91-b3ee-1245c8f89c56"
         ]
       }
     ],
     "premium": false
   },
   {
-    "id": "science-grade_5-1",
-    "subject": "science",
-    "yearLevel": "grade_5",
-    "title": "Science Grade 5 — Practice Exam 1",
+    "id": "english-year_9-1",
+    "subject": "english",
+    "yearLevel": "year_9",
+    "title": "Language Conventions Year 9 — Practice Exam 1",
     "sections": [
       {
-        "title": "Science",
-        "time_minutes": 35,
+        "title": "Language Conventions",
+        "time_minutes": 45,
         "question_ids": [
-          "9bf731e1-fa29-4479-92ed-ba7882e1b692",
-          "c6fb52e0-4bff-4659-bb3d-5374d17ab882",
-          "be4a6bdf-c30b-4c64-899f-1b932858ef2b",
-          "7de1f0b5-e8b1-4eaa-abc1-3caa76f5045a",
-          "64e3c69b-3f63-4b40-bebd-34488fe25a0d",
-          "a5343ce2-8552-4f7c-a18d-c23ae9b7ea37",
-          "a89f3d69-adcf-4940-b7b1-cc5740f22a28",
-          "f285d11d-fdea-4178-b623-162113760bc9",
-          "aafd55a4-fb09-4404-a213-541d1ce1d360",
-          "81b17d0e-ebba-49bb-86a9-59d06f8cb4aa",
-          "277455a3-4ac3-4b36-9818-1ebffbfaea19",
-          "d4d288c0-6575-470b-9e0b-16f7ea04dcbb",
-          "673a1ef3-1191-4d49-a14d-59533db7a825",
-          "4beff8bd-1407-45df-964c-3e21327980f2",
-          "40488c0d-1663-4350-a322-97d5c6bc197e",
-          "a31261e9-ddba-499c-aae4-9fcf63c5269c",
-          "e90ae909-6fca-4ea0-9a89-c0d1cb036462",
-          "0e94eac9-4278-41b5-8b8a-b988c92769df",
-          "78506a2f-ac00-445d-97e4-abe97b220dec",
-          "3c4c5603-5d8c-4167-8815-bfe7eb8b5544",
-          "f5ffb58f-6bcd-44e5-b905-14c14acdbbbe",
-          "98bf2829-24c3-4872-be41-8517d6735327",
-          "a582a86d-28e4-4c27-8926-6249d59ce2a9",
-          "8dd39944-e43e-4f5e-bbd1-15b15e8f51af"
+          "861ea96a-a294-42ac-b652-16ed8901b0e1",
+          "3dfcb95b-1175-4c9f-98f3-e1f195d62a97",
+          "d695ce4d-d076-45b6-99d3-cf2d4bd7873e",
+          "55097360-1c28-4e25-989c-d1f5ae32bb08",
+          "dbc46349-bdf1-4c9b-bf49-35c604f7dc6e",
+          "54990c54-5be4-43cc-a58a-0819703ca001",
+          "27095e91-2eea-4362-bef8-b7f2d3e893e0",
+          "b7c08fca-c858-4559-abfc-7be4508d3b99",
+          "5907e6f3-dae8-4353-b5e4-4d510193d262",
+          "7523c40a-730d-455f-a9d9-8044675a7cb6",
+          "640affa6-46e0-4c96-8537-eb8397ac154b",
+          "62eed4a6-db2e-4b1e-9187-81c470227a03",
+          "2eb29ebd-6a5a-4b1b-aefb-da04ca178d09",
+          "cbd5141d-b540-44eb-b118-e54d5f5b685d",
+          "10d5022f-e3d8-4f49-a8e9-8adde078335d",
+          "56ba73ba-c1e9-492b-9e73-2b2decd73b13",
+          "1868d797-8f40-486c-92f5-2b40bd1a241f",
+          "639fc994-3130-4430-9c93-85c3715104f4",
+          "eeaad202-185f-466d-9105-44350a102553",
+          "56169829-6487-4f57-aac9-8e0dc215f0d5",
+          "d441055b-36ae-46d3-bcf8-9f1339d19840",
+          "d115cea3-1f92-4195-b39d-01a1a142e3aa",
+          "59f7d9b3-d366-4667-b67b-9c0a60aa1e33",
+          "a458b976-437e-45d6-9fd2-8f4c5d510f63",
+          "04b86f71-cfed-40b6-9529-1116068da867",
+          "c9d4f1ed-0d0f-42bb-8056-22caa1adb003",
+          "66428f7d-2e6b-41a5-91d2-0fe39e8caee4",
+          "93b440d6-fd1d-4729-815a-a5e0d47901f5",
+          "1e1383a4-0114-46e9-94c6-9f4e55808ec9",
+          "22c7274f-4b8d-4c6d-bdb3-0b7d877c5fcb"
         ]
       }
     ],
@@ -1049,84 +2005,6 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "874bb01a-4792-46b2-b56e-d895ceeaff0a",
           "f248c7ca-8778-413b-a062-8bb9a2a0cb19",
           "1fa234be-6b87-44f3-afaf-506e9da9f3ea"
-        ]
-      }
-    ],
-    "premium": false
-  },
-  {
-    "id": "science-year_7-1",
-    "subject": "science",
-    "yearLevel": "year_7",
-    "title": "Science Year 7 — Practice Exam 1",
-    "sections": [
-      {
-        "title": "Science",
-        "time_minutes": 35,
-        "question_ids": [
-          "a7543b7a-a68d-4973-bed4-370427f0228d",
-          "b4135d64-f9bb-403b-8899-464791404fae",
-          "16eb5ce5-48a4-4390-86f8-bc10d75191e3",
-          "3ae05ecd-749d-41a9-9d1b-91ab3ccb7a98",
-          "660d6e9a-b0b7-4f13-8008-d45b4e2804ff",
-          "720f28c0-6494-4525-9af7-168e35ced411",
-          "5921421d-f0a2-43b9-8d4d-bc8642d1edff",
-          "43a9e33d-9bc6-4225-9f0a-e53f2d98f407",
-          "34548b0f-1ceb-46d0-af4a-d7be95b21631",
-          "37d5ba84-b1b0-49de-b88e-3c6483a406b2",
-          "3fcb0332-ed03-4968-a37c-15c313ebfda1",
-          "64403791-d6de-4978-bd47-6e5c4419b935",
-          "793f6542-4f26-4ed5-adc6-df887b2fbcd1",
-          "cdb4a7f2-76d9-4eae-a60f-05c1eeebcaf3",
-          "46ef8104-e8cb-4306-b347-3c7be356109d",
-          "f0e8780a-0cc1-4577-a369-d20fb1b5a676",
-          "dab28042-a340-4c87-8301-0dab7feb7641",
-          "d3a3dba9-a543-4ccf-9c82-fb3bd7728576",
-          "2ec61570-ca1b-4d43-b029-76c0dbba4bc9",
-          "5ea886f0-1c93-4f77-a19d-e9cbc446a443",
-          "31a917df-9f25-46c1-8c49-61b71ace957f",
-          "457cdc69-4fab-4d10-9de8-4b379478f894",
-          "0d8116f4-0042-42e2-aa49-ac6c4ca9ffd8",
-          "a47da750-3c09-4e2b-981a-2075795d6bd0"
-        ]
-      }
-    ],
-    "premium": false
-  },
-  {
-    "id": "science-year_9-1",
-    "subject": "science",
-    "yearLevel": "year_9",
-    "title": "Science Year 9 — Practice Exam 1",
-    "sections": [
-      {
-        "title": "Science",
-        "time_minutes": 35,
-        "question_ids": [
-          "75a77b8c-543b-4772-a94b-1f700d4c4f3f",
-          "2a50a3c3-40ff-4e56-947a-394adc7cab21",
-          "86b39d8e-f376-4bfa-b591-957f45768cc6",
-          "77def386-4f12-4f80-a33c-a06bf88d196c",
-          "b0f3fe36-1292-48a9-a45c-96d253ac6692",
-          "c2b4f143-93a0-4dcd-9001-3f5a2a3e8f9a",
-          "06148d85-95f5-46c1-8bcc-bf0a878a9346",
-          "a00cf390-03e0-4aac-b21d-710de91af173",
-          "8a7bb997-6650-4ac7-b1b4-22fe56eadaf7",
-          "bf7ae28f-322b-459e-a179-dcda96748857",
-          "5522aa73-cdbe-4be7-91c0-68ef6b63b563",
-          "8f9593bb-1192-4729-b332-2cde6ae433fb",
-          "2e29ec3d-4463-4367-a993-cefb6ebddc1d",
-          "aed732ac-94ce-4597-ae8f-3bf5969da433",
-          "14e20853-9c3f-48cc-90e3-cfedaa366d27",
-          "c825e063-9d3a-4308-918d-4e6a84e310d6",
-          "6b54e9a0-9a88-4e36-8448-748e6bb3522e",
-          "13242626-1991-4d90-90cf-6760fd4665a6",
-          "a41b9977-a11c-4146-831a-1bfcc9dd38d5",
-          "ef4c9ad3-f4e5-4080-bf2c-987ec409857f",
-          "a21d812b-3801-4278-94a8-bd87f0f80d9d",
-          "7514ca1c-e2c0-4560-bcc0-0142b67a499e",
-          "c530ab1c-8b38-43dc-83e2-2174a249280d",
-          "b20cec2b-9404-4769-ae83-72f5a8ad899c"
         ]
       }
     ],
@@ -1572,14 +2450,172 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "reading_minutes": 15
   },
   {
-    "id": "english-year_10-1",
-    "subject": "english",
-    "yearLevel": "year_10",
-    "title": "English Year 10 — Practice Exam 1",
+    "id": "reading-grade_4-1",
+    "subject": "reading",
+    "yearLevel": "grade_4",
+    "title": "Reading Grade 4 — Practice Paper 1",
+    "total_minutes": 45,
     "sections": [
       {
-        "title": "Reading",
-        "time_minutes": 65,
+        "title": "The Night of the Storm Birds",
+        "time_minutes": 0,
+        "question_ids": [
+          "fa71cae9-e8b7-410a-8504-2af88be26fe4",
+          "b9d9638a-e448-48b2-8d0d-273f1b02480c",
+          "5f357fa9-56b0-4dba-bf7c-4f42f1342eff",
+          "246e5478-8b9a-48bc-915f-741d2d85adce",
+          "065056f5-3626-4059-bced-d11df6583c1c",
+          "ae96b403-0c95-4fa6-a36d-d9658a8dc13a",
+          "4f76a405-4a56-4ff7-9d4b-8620932efdcf",
+          "e3641a9d-d7fa-46a1-9420-257e4bf34207"
+        ]
+      },
+      {
+        "title": "Why Ants Are Great Builders",
+        "time_minutes": 0,
+        "question_ids": [
+          "afd0029f-0724-41c9-abf3-258609c758e4",
+          "19263f1a-52a9-4693-9610-7742912ba868",
+          "03a5a774-7ada-4a9c-be30-cede27ac6885",
+          "a858f8f2-d600-423c-b46f-3d640853ac4f",
+          "e349cad3-f3ec-4dd9-86ca-f49b641e002b",
+          "cf0e3500-5b4f-438d-bc77-d1650358d276",
+          "0efafcb0-b175-4077-8313-93d1150b80cb",
+          "c36d4941-65e5-410e-8b69-b61e432f3c2d"
+        ]
+      },
+      {
+        "title": "How to Make a Rain Gauge",
+        "time_minutes": 0,
+        "question_ids": [
+          "ce0af821-8ac9-43f4-928d-caad87483491",
+          "3317ab9c-24d8-40a6-a4bc-12ceca849892",
+          "a0fcd278-7dad-4cf8-82c1-0438f01c9e19",
+          "76772e4a-72a8-4df2-96da-4fb7b9ed0fbd",
+          "1ffbbb01-8ef0-4d77-8acc-df5e217d3ed0",
+          "540f8ead-cde1-4ad8-a87c-a338336cafa8",
+          "03d9935e-7fd8-4d6a-a734-cdbc9f9ffa51",
+          "beaf9d73-8f52-4379-9aca-9218cdbc24bb"
+        ]
+      },
+      {
+        "title": "Our School Needs a Buddy Bench",
+        "time_minutes": 0,
+        "question_ids": [
+          "17124d95-593b-4c3b-913f-8668908ede4a",
+          "1bf43cad-5d71-4ec2-88a6-8c66cc9a4d36",
+          "a10b8536-1b1d-4207-9139-d369d3391282",
+          "941bb6d9-5fc1-492e-97fb-126295bf8d61",
+          "11018fdd-f7be-4a04-9703-f31719ea98b5",
+          "cedd708f-46ea-4d43-910c-bbcd4d90fc35",
+          "b65c662a-ce37-423d-9fe6-dbb9e230f373",
+          "6672ff9a-37ff-40df-a322-6a289722cd54"
+        ]
+      },
+      {
+        "title": "Short texts",
+        "time_minutes": 0,
+        "question_ids": [
+          "4b595291-84d1-4e63-be7e-5dee4e35c421",
+          "43ff48d0-9ead-4b89-848e-df4e9d20f7a2",
+          "ee79bbce-3912-4e91-bd70-d0589438a95d",
+          "8f68d6a2-e9a2-4f35-b494-f5a6f1712a1e",
+          "9866ca1e-d6f8-48b1-a9ee-5409400ab1a0",
+          "45edc9f0-b303-4da3-b32b-3a1565a0dc5b"
+        ]
+      }
+    ],
+    "premium": false
+  },
+  {
+    "id": "reading-year_8-1",
+    "subject": "reading",
+    "yearLevel": "year_8",
+    "title": "Reading Year 8 — Practice Paper 1",
+    "total_minutes": 65,
+    "sections": [
+      {
+        "title": "The Understudy",
+        "time_minutes": 0,
+        "question_ids": [
+          "ed5fd2ab-0f14-452b-b435-c280acb8a639",
+          "07d17709-79ce-497c-a2c1-f6cdc359513c",
+          "14ed5123-6a4a-4efe-94bc-083dbbf94404",
+          "6a5ddab5-42c4-4d48-b0c0-492e54bda07d",
+          "59772f7b-663d-4dba-8d05-eec9cc6d0762",
+          "0ba26389-90c3-4270-a4e8-9e03c83c6c8b",
+          "9917990e-5db6-4bce-bd49-399a6de67204",
+          "bd66ecf9-c762-43d6-bfa9-7f1ab6aae0d5"
+        ]
+      },
+      {
+        "title": "What the Algorithm Wants",
+        "time_minutes": 0,
+        "question_ids": [
+          "8c664546-67b8-4929-98c1-098f08cdeb6f",
+          "89ffdaac-7b6d-4d39-826c-e71fd2bf198d",
+          "d5e4faed-c0ae-43b4-a019-c19216fc1e67",
+          "de17067f-6761-4bb2-84bf-697e0240b391",
+          "122b3f2e-9231-4668-ae31-5d0103c2b2d9",
+          "7f9e4139-a7dd-495e-b4e2-f15655d4357e",
+          "c50b180b-115d-4848-bb03-0a5655651f34",
+          "d53655f3-2062-4a78-a735-12f5ddd288ac"
+        ]
+      },
+      {
+        "title": "In Defence of Boredom",
+        "time_minutes": 0,
+        "question_ids": [
+          "f405f3a7-fb9a-4b77-a2ba-08c34e3a4570",
+          "37320080-5ce9-4202-b9cb-182864342961",
+          "c63221ab-12f0-4796-b3c8-8d171dbbeead",
+          "ee7388c9-2eee-4962-8feb-c3bc52bbc08e",
+          "438d9b7b-e912-435b-8a8c-0154fcd57197",
+          "f344008b-a969-4259-8eb6-481294d67f73",
+          "277773b0-fb00-4bed-8b66-9f33540c4ddf",
+          "f96ca34b-6e4a-48bf-a551-76f6606882d7"
+        ]
+      },
+      {
+        "title": "The Last Broadcast",
+        "time_minutes": 0,
+        "question_ids": [
+          "fc2649e6-d990-457c-a63c-4f1fa035b091",
+          "39c441fc-0214-4740-b57b-e9bc236200ac",
+          "741e41ed-a70c-4bac-babf-170056c71995",
+          "78f0ec10-2d83-4920-8c1f-9561c8dcca51",
+          "4f606cb3-392c-4cf0-9598-304798adcbf5",
+          "2c3b0e6e-5d2f-4076-98d3-18cba7fd5323",
+          "4aba3837-aaaf-46c4-b3de-7f6bcdc69951",
+          "f688e8d1-929f-45f9-ac6c-22b0eb284dff"
+        ]
+      },
+      {
+        "title": "Short texts",
+        "time_minutes": 0,
+        "question_ids": [
+          "1933a286-11e0-4eaa-89c8-019c574bdb87",
+          "feca9da2-0898-43b8-8692-6b5b5522d2eb",
+          "f5f03776-8a15-41a2-9526-81c26f13d799",
+          "2ef97b04-cceb-4d7a-805a-79bf52939213",
+          "f6c47d6a-43a2-4814-86f9-9c62b389199e",
+          "3cdcc649-071d-4131-a1f5-4f63aa20498a",
+          "39be19da-3ed4-4141-aa3a-82bdda55193e"
+        ]
+      }
+    ],
+    "premium": false
+  },
+  {
+    "id": "reading-year_10-1",
+    "subject": "reading",
+    "yearLevel": "year_10",
+    "title": "Reading Year 10 — Practice Paper 1",
+    "total_minutes": 65,
+    "sections": [
+      {
+        "title": "What the River Kept",
+        "time_minutes": 0,
         "question_ids": [
           "71fdc765-bc3c-48e8-81d3-8c15448aa4ae",
           "dbc91c5d-32fc-4709-874b-c87f11f5c8de",
@@ -1588,7 +2624,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "33e3e29f-950a-499a-ae22-2d2f2eabe1d2",
           "0df36e85-ccc3-4d76-b1f2-9bb2f6c2cc88",
           "77e5cce6-6273-4173-a177-04c5dee71b0e",
-          "f8548fbf-434c-4520-ab57-cc903b9610cf",
+          "f8548fbf-434c-4520-ab57-cc903b9610cf"
+        ]
+      },
+      {
+        "title": "The Tyranny of the Reasonable Voice",
+        "time_minutes": 0,
+        "question_ids": [
           "8ab2126c-b4c6-4e7a-8822-19495c254daa",
           "bbc7d9c8-830b-48b3-a962-a0ea2ed38224",
           "8ee94c7f-fff9-4581-9ced-e61779e8e3a8",
@@ -1596,7 +2638,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "deefbc0c-34ec-4387-9097-6dc360836da3",
           "999a7ee4-fffe-4316-9228-c738824eeb01",
           "8137ac09-9f88-45cc-9bbc-0fcc73dadd40",
-          "2edbb113-79d9-4dae-b535-52d12c928ca8",
+          "2edbb113-79d9-4dae-b535-52d12c928ca8"
+        ]
+      },
+      {
+        "title": "Salvage",
+        "time_minutes": 0,
+        "question_ids": [
           "7b81e852-a395-48f5-b2a3-554616655697",
           "80e7e965-96d2-480b-9610-0454c8f724e9",
           "fe0ad41f-6276-4f28-a074-7e72e36d46b3",
@@ -1604,7 +2652,13 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "980af171-60c1-46ac-a741-7c46281378c5",
           "62763ec7-cf44-48ec-bb18-d28dc37bae6e",
           "02140076-1c6a-4681-ba70-ae8955ffb800",
-          "8058371f-02ba-4188-b138-a10a201fc739",
+          "8058371f-02ba-4188-b138-a10a201fc739"
+        ]
+      },
+      {
+        "title": "The Museum of Objects Nobody Wanted",
+        "time_minutes": 0,
+        "question_ids": [
           "c3f44bc8-36e1-46f5-8944-f86d673d9dd3",
           "a0e513de-bf35-41a1-93e1-43b6fcd17edf",
           "dbb8e3b1-0e34-494a-a685-804c1cb28cf7",
@@ -1615,6 +2669,28 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "64400571-5155-4b8c-aa98-30e4940cd3fd"
         ]
       },
+      {
+        "title": "Short texts",
+        "time_minutes": 0,
+        "question_ids": [
+          "436f667e-877d-420c-bbac-7fe10db6b9bd",
+          "a06f3979-5b58-46d5-a0e3-698f7430b297",
+          "ef3f93b1-2b8b-4db2-8299-e13112850520",
+          "bc89ca41-02c5-4bc4-9cd8-8ade6478635e",
+          "aeeb5416-732b-47d6-9f4b-e8b634a6e695",
+          "6bb71659-b303-4dcb-8ae1-d78053d3f7f5",
+          "cb0d08f2-3420-45c9-8e74-b3a439fd2fb3"
+        ]
+      }
+    ],
+    "premium": false
+  },
+  {
+    "id": "english-year_10-1",
+    "subject": "english",
+    "yearLevel": "year_10",
+    "title": "Language Conventions Year 10 — Practice Exam 1",
+    "sections": [
       {
         "title": "Language Conventions",
         "time_minutes": 45,

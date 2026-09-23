@@ -21,6 +21,7 @@
 import { readFileSync, writeFileSync, unlinkSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { loadMagazines, loadStimuli, magazineStimuli } from './lib/content.mjs'
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), '..')
 const write = process.argv.includes('--write')
@@ -44,7 +45,7 @@ const headers = { apikey: key, 'Content-Type': 'application/json' }
 if (key.startsWith('eyJ')) headers.Authorization = `Bearer ${key}`
 
 // Load bank.ts the way the generators do.
-const src = readFileSync(join(repo, 'src/lib/questions/bank.ts'), 'utf8')
+const src = readFileSync(join(repo, 'src/lib/questions/bank.ts'), 'utf8').replace(/\r\n/g, '\n') // tolerate a Windows (CRLF) checkout
   .replace(/^import type .+\n/m, '')
   .replace(/^type BankQuestion =[\s\S]*?\n\n/m, '')
   .replace(/const (\w+): BankQuestion\[\] = \[/g, 'const $1 = [')
@@ -88,6 +89,23 @@ const row = q => ({
   parts: q.parts ?? null,
   marks: q.marks ?? null,
 })
+
+// Passages and magazine texts first: questions.stimulus_id references
+// stimuli.id, so a question whose text is not in the table is refused and
+// takes its whole batch down with it.
+const stimuli = [...(await loadStimuli(repo)), ...magazineStimuli(await loadMagazines(repo))]
+const stimulusRes = await fetch(`${base}/rest/v1/stimuli?on_conflict=id`, {
+  method: 'POST',
+  headers: { ...headers, Prefer: 'resolution=merge-duplicates,return=minimal' },
+  body: JSON.stringify(stimuli.map(s => ({
+    id: s.id, type: s.type, title: s.title, body: s.body, subject: s.subject, year_level: s.year_level, word_count: s.word_count ?? null,
+  }))),
+})
+if (!stimulusRes.ok) {
+  console.error(`Stimuli failed (${stimulusRes.status}): ${await stimulusRes.text()}`)
+  process.exit(1)
+}
+console.log(`  upserted ${stimuli.length} stimuli`)
 
 let done = 0
 for (let i = 0; i < QUESTION_BANK.length; i += 200) {

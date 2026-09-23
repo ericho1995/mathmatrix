@@ -11,6 +11,9 @@ Font.register({
   fonts: [
     { src: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSans.ttf', fontWeight: 'normal' },
     { src: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSans-Bold.ttf', fontWeight: 'bold' },
+    // Italic faces, for the reading magazine: bylines, sign-offs, quotations.
+    { src: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSans-Oblique.ttf', fontWeight: 'normal', fontStyle: 'italic' },
+    { src: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSans-BoldOblique.ttf', fontWeight: 'bold', fontStyle: 'italic' },
   ],
 })
 
@@ -79,6 +82,13 @@ export const pdfStyles = StyleSheet.create({
   runningHeader: { fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1.2, color: '#555', marginTop: 10, marginBottom: 2 },
   sectionHeader: { fontSize: 14, fontWeight: 700, marginTop: 4, marginBottom: 4, borderBottom: '1pt solid #333', paddingBottom: 4 },
   sectionMeta: { fontSize: 9, color: '#666', marginBottom: 12 },
+  // Reading papers open each part with "Read <title> on page 3 of the
+  // magazine and answer questions 7 to 12", as the real booklet does.
+  readingInstruction: { fontSize: 12, marginTop: 6, marginBottom: 14, paddingVertical: 8, paddingHorizontal: 10, backgroundColor: '#eef6f3', borderLeft: `3pt solid ${BRAND_TEAL}`, lineHeight: 1.4 },
+  readingInstructionTitle: { fontWeight: 700, fontStyle: 'italic' },
+  coverNeedBox: { borderLeft: `2pt solid ${BRAND_TEAL}`, paddingLeft: 12, marginTop: 8, marginBottom: 20 },
+  coverNeedTitle: { fontSize: 9, textTransform: 'uppercase', letterSpacing: 1, color: BRAND_TEAL, fontWeight: 700, marginBottom: 3 },
+  coverNeedText: { fontSize: 11, color: '#333', lineHeight: 1.45 },
   stimulusBox: { backgroundColor: '#f5f5f5', padding: 10, marginBottom: 10, borderRadius: 2 },
   stimulusTitle: { fontSize: 9, textTransform: 'uppercase', color: '#888', marginBottom: 4 },
   stimulusBody: { fontSize: 10, lineHeight: 1.5 },

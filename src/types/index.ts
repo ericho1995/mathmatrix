@@ -32,7 +32,7 @@ export type YearLevel =
   | 'year_10' | 'year_11' | 'year_12'
 
 export type SubjectSlug =
-  | 'math' | 'english' | 'science'
+  | 'math' | 'english' | 'reading' | 'science'
   | 'chemistry' | 'physics' | 'maths_methods' | 'general_maths' | 'specialist_maths'
 
 export interface Subject {

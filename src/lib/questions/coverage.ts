@@ -19,14 +19,14 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   algebra_equations: { year_10: 43, year_7: 30, year_8: 31, year_9: 35 },
   chem_atomic_structure: { year_11: 22 },
   chem_reactions: { year_11: 21 },
-  earth_space: { grade_3: 7, grade_4: 7, grade_5: 7, grade_6: 8, year_10: 7, year_7: 6, year_8: 7, year_9: 7 },
+  earth_space: { grade_4: 7, grade_6: 8, year_10: 7, year_8: 7 },
   geometry_measurement: { grade_3: 6, grade_4: 6, grade_5: 9, grade_6: 8, year_10: 35, year_7: 25, year_8: 28, year_9: 27 },
   gm_data_analysis: { year_11: 27, year_12: 22 },
   gm_financial: { year_11: 26, year_12: 15 },
   gm_matrices: { year_12: 7 },
   gm_networks: { year_12: 3 },
   grammar_punctuation: { grade_3: 31, grade_4: 30, grade_5: 30, grade_6: 30, year_10: 30, year_7: 31, year_8: 30, year_9: 30 },
-  life_science: { grade_3: 9, grade_4: 9, grade_5: 9, grade_6: 9, year_10: 8, year_7: 9, year_8: 8, year_9: 9 },
+  life_science: { grade_4: 9, grade_6: 9, year_10: 8, year_8: 8 },
   mm_algebra: { year_12: 7 },
   mm_calculus: { year_11: 29, year_12: 16 },
   mm_functions: { year_12: 16 },
@@ -35,7 +35,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   number_patterns: { grade_3: 5, grade_4: 9, grade_5: 10, grade_6: 10 },
   phys_electricity: { year_11: 23 },
   phys_mechanics: { year_11: 26 },
-  physical_science: { grade_3: 8, grade_4: 8, grade_5: 8, grade_6: 9, year_10: 9, year_7: 9, year_8: 9, year_9: 8 },
+  physical_science: { grade_4: 8, grade_6: 9, year_10: 9, year_8: 9 },
   reading_comprehension: { grade_3: 7, grade_4: 6, grade_5: 7, grade_6: 8 },
   reading_literary_analysis: { year_10: 7, year_7: 8, year_8: 7, year_9: 8 },
   sm_complex_numbers: { year_11: 24 },
@@ -45,7 +45,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
 }
 
 /** Every question in the bank, including those only on the printable papers. */
-export const QUESTION_TOTAL = 2607
+export const QUESTION_TOTAL = 3143
 
 /** Total questions available for a topic, across every year level. */
 export function topicTotal(topic: TopicSlug): number {

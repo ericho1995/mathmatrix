@@ -23,7 +23,7 @@ export default function PrivacyPage() {
             <li>Account details: name, email address, and account role (student, parent, or admin).</li>
             <li>For students: year level, and practice activity — questions attempted, answers, accuracy, time taken, XP and streaks.</li>
             <li>For parents: the invite code used to link to a student&apos;s account, and read-only access to that student&apos;s progress.</li>
-            <li>For purchases: which year level you bought, when, and Stripe&apos;s reference for the payment. Card details go to Stripe, never to us.</li>
+            <li>For purchases: which plan or paper you purchased, when, and Stripe&apos;s reference for the payment. Card details go to Stripe, never to us.</li>
             <li>Standard technical data collected by our hosting provider (Vercel) and database provider (Supabase), such as IP address and request logs, for security and reliability.</li>
             <li>Anonymous usage statistics (Vercel Web Analytics): which pages are visited and roughly where from. It uses no cookies and does not identify you.</li>
           </ul>
