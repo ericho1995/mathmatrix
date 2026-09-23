@@ -645,70 +645,278 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "grade_5",
     "title": "Reading Grade 5 — Practice Paper 1",
     "total_minutes": 50,
+    "magazine_id": "reading-grade_5-1",
     "sections": [
       {
-        "title": "The Bottle on the Beach",
+        "title": "The violin — page 2 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "6f486103-a407-4413-a523-50e9da016073",
-          "41bad1ed-f96e-402c-9f17-54aff99c530e",
-          "c020e715-25d0-4ab3-9c63-93fc4e93157c",
-          "4b0ea872-66c1-42a9-a3ae-17aaa6fdb288",
-          "bcad467e-d213-473f-93ad-744d4b5213c7",
-          "65901e9a-9968-4bae-bd05-c7608ffa567c"
+          "c7ab02c7-5dbc-4875-a564-730e0a7ead36",
+          "28cb3b53-7779-44ce-8eb5-b81a240988f4",
+          "2be48d5c-c3f5-4b2a-8d25-c6067a0b7493",
+          "20744e39-a281-4de1-9540-a8c13fb8018f",
+          "12edab64-85b6-4db3-bfe3-737a7b438725",
+          "e1ea33b8-f2cf-4695-a711-c1267d51e43f",
+          "8c6b78de-6d2f-40ad-b870-29f3b4d41fb7"
         ]
       },
       {
-        "title": "Why We Should Keep the School Garden",
+        "title": "Antarctica — page 3 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "43e4cd8b-4095-4212-bc2b-ddc7104ffe86",
-          "a86a4c4b-13e5-4914-afaa-7687a90cab30",
-          "2177839f-7cae-4b92-92eb-4fc2e0ef559a",
-          "7ac797ea-8180-4ec9-a87e-471590cb2570",
-          "2ded4c58-8a59-4309-a4c6-21d1b43d1094",
-          "481526a4-6b5e-495f-acef-ce3b7ce387fd"
+          "0adfb3cb-21c0-412f-b9e7-9ee4550887e3",
+          "8b3d48b4-e67c-4822-9252-849fd743096f",
+          "aa2b467f-da57-4dad-b058-6fcc83085c88",
+          "b3947104-4fab-4b47-8b21-60887d7713fd",
+          "711b83f1-71e0-47af-8a1d-f77ac2a847da",
+          "057a42f4-3461-4f63-b9f9-403cb9f0d1d7",
+          "dfc76838-9fe7-41d0-ab91-d218164cdc5d"
         ]
       },
       {
-        "title": "The Longest Night",
+        "title": "Should homework be banned? — page 4 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "a6532c92-a844-4658-91e2-a810504a629e",
-          "f51024ce-6683-4f2b-be0c-4718f620a769",
-          "5adb340a-85dc-491b-acd0-0b4e15aeef77",
-          "ddc267dd-838c-45f7-be55-f640e7b25b03",
-          "8f05a28b-5463-4164-8f19-e3c08485e5ba",
-          "0a776fd7-5de2-44fa-92bf-7be27654cee9"
+          "a8b1a77b-4871-4c07-8cd0-5f2c5dca53d3",
+          "f1838fc1-97fd-418d-b878-8c6a44715df0",
+          "7cdf7dcd-abbf-4496-aa09-ae70b57d6721",
+          "e412fd77-c625-4c26-b6bc-92ee96e5d5db",
+          "aa11ce84-14d7-474f-9155-43c31ed5eb0b",
+          "8c63d3b5-b4b6-4fa1-825b-e28e1f04fa4f"
         ]
       },
       {
-        "title": "Why Bees Matter",
+        "title": "Make a floating compass — page 5 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "54512cfd-65e3-413d-a65d-1eca604f829e",
-          "869178ca-7dc0-41e8-850b-b095d8140745",
-          "3f2e99d2-2f8c-4a62-93e8-1312b732c11b",
-          "15206f82-aa4d-4953-8046-b89da9c2d46a",
-          "3949e2dd-1d39-4049-80f2-120136aab3e3",
-          "98020513-4cad-4dde-99c3-346854e34de8"
+          "62cbc14a-1e99-458f-8705-be6d70ae8067",
+          "444d7c6e-c3dd-44a1-9c41-28363f10ce04",
+          "07e3b7f4-b9f6-4cce-8612-c29cf4c38efb",
+          "608280fa-d1e7-4bc1-8677-a758924cd916",
+          "51a22011-a844-4189-857e-9ec73da60559"
         ]
       },
       {
-        "title": "Short texts",
+        "title": "When the rain came — page 6 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "88176768-82e6-40f6-a4b6-e2a8449adfe7",
-          "770bdf3e-1561-40a5-b3d1-53064b6b431c",
-          "6b2d3c0d-2330-4040-9a4e-273c6ffb690e",
-          "fbb0f1ed-8775-4083-9e1e-ef902c7fe830",
-          "e668e6a0-f901-4f30-8837-82f437e4b72b",
-          "b449663f-9eaa-478a-991f-1c77747e0702",
-          "065b0fbf-f94d-4032-b09a-719a0afa9e7c"
+          "f347459c-65c6-4663-9e67-2d608875d646",
+          "5a414385-4343-467a-9115-c091d223cb77",
+          "fa1dce17-225a-47ea-98b9-fa519a402f7c",
+          "3fc4988f-b763-4e72-9836-fdfcbfd04e03",
+          "6043d065-14ce-4eba-89d8-627f22ca5449"
+        ]
+      },
+      {
+        "title": "Meet a volcano scientist — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "485162e4-a38a-4c27-baa0-c8e6bbe89e9c",
+          "067fd461-7a60-43d3-8ba6-376f575cba78",
+          "dda2e02c-2fd4-4176-8c29-82347e56b1b0",
+          "531c9f22-a36d-4212-9d46-620bdc3ec106",
+          "69e7c40d-60ed-461b-a830-a879c90d17d8"
+        ]
+      },
+      {
+        "title": "Ask Dr Paws — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "8ac151b7-70a8-4de1-bd2d-9d32ff2dd7e7",
+          "46f5e90f-a9d6-471f-bff2-b3f60be5997f",
+          "d8de9a79-5a69-4d8a-8f10-d06d68b9c2ae",
+          "a3aa90b6-36a7-4f9b-9c8e-645806ac577b"
         ]
       }
     ],
     "premium": false
+  },
+  {
+    "id": "reading-grade_5-2",
+    "subject": "reading",
+    "yearLevel": "grade_5",
+    "title": "Reading Grade 5 — Practice Paper 2",
+    "total_minutes": 50,
+    "magazine_id": "reading-grade_5-2",
+    "sections": [
+      {
+        "title": "The map behind the wallpaper — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "9b43ce74-8da8-458e-9391-52432508b39b",
+          "55168e95-0137-4b06-bb58-8c723ee35371",
+          "d6ce0bc4-d6d0-4216-a181-24810fc99305",
+          "1ffd5218-697a-4191-9766-b5fd40baa5a3",
+          "6308ba95-22f5-4d78-a36e-e1fd07625a29",
+          "20a9bde0-688b-4e35-b14c-ab39a9b26a2d",
+          "26686eb7-47fc-4c04-9b9d-f424435082da"
+        ]
+      },
+      {
+        "title": "How does a submarine dive? — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "d100316d-efa9-4105-9da6-af724035e122",
+          "88352ecc-3fa0-442c-8b31-a5ec8efba4f7",
+          "439ca3e2-c6a8-4027-92d9-49b1f2f0cfbb",
+          "79ca7560-ed53-4376-9e8d-6941c72578a9",
+          "6bb01935-acc8-48d6-8f0c-b2ce79981c81",
+          "ae8bc1e2-0254-45da-9061-f64aea3e1e6a"
+        ]
+      },
+      {
+        "title": "Students clear 212 kilograms of rubbish from creek — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "ecdafd45-d60d-4912-a13d-6c18e0836963",
+          "ee785dcb-ebb0-4cb6-aa23-a88544d20eb4",
+          "78a30302-e49b-450a-9a16-fa80eeb0f1a7",
+          "e8f00211-15e7-499f-8c02-7e72eef0dc1b",
+          "ecff38cd-95e2-4a58-9a14-b8d61be3dc36",
+          "cf0e549c-e7d8-49ec-980e-3bf0cccde184",
+          "e8f7f21a-3271-459d-b709-beb5235384f2"
+        ]
+      },
+      {
+        "title": "Wildwood Adventure Park — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a5a33a7f-2cd0-4635-b866-93a2210d5853",
+          "227b2dbd-479b-4a73-a96e-b2ec04eccacb",
+          "52f25cca-8ba8-4f59-8fce-2c7e0da7a842",
+          "541b947a-2a25-4930-8377-948b8aedfd10",
+          "00806750-49c8-426e-9830-4e2e3ea182a0",
+          "65fb7a55-1270-46e9-8075-4c0011bb23c5"
+        ]
+      },
+      {
+        "title": "What’s in my pocket? — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "d2f32049-42d5-4a67-b73c-6917a1aacb6b",
+          "8a9ec1c4-2620-44fb-b92e-d2570f88ff3a",
+          "5b7c0a9b-2b8f-4386-8573-fa4943708256",
+          "ac172301-3556-43ed-8aa5-f71d667274c7",
+          "44ecfef3-1d54-4004-92b3-03683cefec56"
+        ]
+      },
+      {
+        "title": "Mary Anning, fossil hunter — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "54208584-a895-47cc-b8b9-01da57142286",
+          "0488b930-29c5-4d98-a97c-431b23ece0ef",
+          "1cb11e8b-cf98-4990-aafb-c2b98a956a90",
+          "10d31e82-5a6c-4687-9983-2fc4bf5fbeba",
+          "137a879f-15bc-4fbd-b67f-268bec570713",
+          "d49b5a51-9898-4da5-812d-d3fee55d9ec5"
+        ]
+      },
+      {
+        "title": "How to play Four Square — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "4d63cd86-14ae-4876-a11c-7c0d27f37b76",
+          "9c368ac5-26a4-4f5c-bfa7-fe89684b8dc7",
+          "00eb69fc-08f7-452f-822e-6f019dd03e8c",
+          "150a184d-a7ed-476d-b2ea-97f362ab8175"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-grade_5-3",
+    "subject": "reading",
+    "yearLevel": "grade_5",
+    "title": "Reading Grade 5 — Practice Paper 3",
+    "total_minutes": 50,
+    "magazine_id": "reading-grade_5-3",
+    "sections": [
+      {
+        "title": "The new kid — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "090c4eed-8d93-4c7f-85ab-e3c737cf1968",
+          "f496b113-456d-4aec-bdd5-93a0fac4ae68",
+          "3223d5ce-4c4b-46fa-86f4-f771dd88b774",
+          "a3e5ec82-3dbb-4d7a-bfb0-7041f651c363",
+          "c8b7edf3-8aae-4be9-9b87-634acc5ba931",
+          "b33c757d-a3b5-43a3-81a0-a7cfa9c0db48",
+          "8afca967-af5e-471c-ab4f-09cee9dc6133"
+        ]
+      },
+      {
+        "title": "The platypus — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e8575d87-e64b-4173-bc72-348978962c30",
+          "de892779-7c9d-4afc-aef0-2731a9ffb04f",
+          "b89eb6d6-4528-4505-9a68-59b50d92c628",
+          "8d0d88d4-9fa0-4c00-9202-1b5b5ef47dc0",
+          "1a5939b0-f937-4cb1-bc96-8eef4f16f5c9",
+          "e1f2291b-2bf3-436e-8494-60c628128c68"
+        ]
+      },
+      {
+        "title": "Our playground needs fixing — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a60f505c-a1af-4541-a0e8-219103ddc4cb",
+          "9eb956f6-6d1e-4245-ae2b-290c42981dd6",
+          "afe58a2c-0470-418d-885c-44e4f17331e5",
+          "4fffb9ea-d81e-47e5-aab2-9e8e9f214ddc",
+          "0157093b-1b17-493a-aecf-926fa93aa962",
+          "8fb77bcd-9659-4649-b653-885f78f5e0d3"
+        ]
+      },
+      {
+        "title": "Grow a bean in a jar — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "8290a8df-4d55-4f32-8106-b6d7691dc446",
+          "c055285e-3bee-4b99-9874-307f0f2884eb",
+          "fa820379-9193-4675-8c09-8ff7f9d99689",
+          "bc2d9da3-737d-4442-a4ad-9e51b76e4192",
+          "5cb89669-262a-40bb-8557-2b5959b58e61",
+          "759384ff-04b1-4de3-bcbb-a3844f19d303"
+        ]
+      },
+      {
+        "title": "Fishing with Pop — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "fecaa1b2-8825-40ef-9736-bdbb5679bd4f",
+          "0f88834a-8576-4742-bccd-ff7444476110",
+          "60e96f0d-763b-4518-85fb-614974ca0853",
+          "dfd93990-d11a-46e8-87a0-a3118c88bfea",
+          "aed0391f-325f-439f-90f8-6d44b44cc751"
+        ]
+      },
+      {
+        "title": "How is a rainbow made? — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "9396c40e-6492-49e1-bf3e-658032350646",
+          "b54c8897-b023-4ee7-a5dd-4d92a6dacfb8",
+          "25a6f49f-63b2-4948-afd3-01240fc45f76",
+          "cab502e5-a702-4ab5-ad90-d02d9e77f644",
+          "d31e24ec-9283-4f81-8618-bbed706855af"
+        ]
+      },
+      {
+        "title": "Stay safe online — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e23ad0aa-1d0a-49de-b9b8-68f0545982f1",
+          "0839ff2b-5ae1-457b-bb77-fa2a3d19b524",
+          "a0c1fb87-2b16-424c-a1a1-50931bd04830",
+          "ceb17c14-ebf9-4f4e-82a7-a55882163302",
+          "b0511651-ba58-479a-9f95-bf97ca10dfdc"
+        ]
+      }
+    ],
+    "premium": true
   },
   {
     "id": "reading-grade_6-1",

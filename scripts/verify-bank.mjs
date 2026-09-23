@@ -694,7 +694,8 @@ for (const m of MAGAZINES) {
       .split(/\s+/)
       .filter(Boolean).length
     const shape = MAGAZINE_SHAPE[m.yearLevel]
-    if (shape && (words < shape.words[0] || words > shape.words[1]))
+    // Poems are short at every year level; only their upper bound applies.
+    if (shape && ((words < shape.words[0] && t.type !== 'poem') || words > shape.words[1]))
       warn(`${where}: "${t.title}" is ${words} words; ${m.yearLevel} texts run ${shape.words[0]}-${shape.words[1]}`)
     if (t.figure?.kind === 'flow' && !(t.figure.steps?.length >= 2)) err(`${where}: "${t.title}" flow figure needs at least two steps`)
     if (t.art && !ILLUSTRATIONS[t.art]) err(`${where}: "${t.title}" art "${t.art}" does not exist`)
