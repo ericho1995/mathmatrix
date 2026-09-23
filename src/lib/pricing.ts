@@ -67,6 +67,15 @@ export function isVceYear(yearLevel: YearLevel): boolean {
   return yearLevel === 'year_11' || yearLevel === 'year_12'
 }
 
+/**
+ * "$1.98" — a plan's price spread across the papers it unlocks today. The
+ * caller passes the paper count from the catalogue, which is server-only, so
+ * this file stays safe to import from client components.
+ */
+export function perPaper(plan: Plan, papers: number): string {
+  return papers > 0 ? money(plan.priceAud / papers) : money(plan.priceAud)
+}
+
 function money(aud: number): string {
   return Number.isInteger(aud) ? `$${aud}` : `$${aud.toFixed(2)}`
 }

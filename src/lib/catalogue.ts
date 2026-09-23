@@ -20,9 +20,6 @@ export function subjectLabel(slug: SubjectSlug): string {
   return ALL_SUBJECTS.find(s => s.slug === slug)?.label ?? slug
 }
 
-export function subjectIcon(slug: SubjectSlug): string {
-  return ALL_SUBJECTS.find(s => s.slug === slug)?.icon ?? '📄'
-}
 
 export interface YearLevelStats {
   yearLevel: YearLevel

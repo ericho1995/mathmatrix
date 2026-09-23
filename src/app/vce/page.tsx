@@ -15,6 +15,9 @@ import {
   upcomingVceExams,
 } from '@/lib/examDates'
 import type { SubjectSlug } from '@/types'
+import LookInside from '@/components/marketing/LookInside'
+import SubjectIcon from '@/components/ui/SubjectIcon'
+import { FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'VCE practice exams — Methods, General, Specialist, Chemistry, Physics — PrepNest',
@@ -45,7 +48,7 @@ export default function VcePage() {
     <main className="flex-1 w-full">
       <section className="max-w-3xl mx-auto px-4 pt-12 pb-10">
         <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-3">VCE</p>
-        <h1 className="text-3xl sm:text-4xl font-medium tracking-tight mb-4">VCE practice exams</h1>
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">VCE practice exams</h1>
         <p className="text-gray-500 text-lg leading-relaxed mb-8">
           Printable practice exams laid out like VCAA papers — reading time, sections, and the technology-free and
           technology-active split — each with a separate answer key.
@@ -138,6 +141,15 @@ export default function VcePage() {
         </div>
       </section>
 
+      {/* A real Unit 3 & 4 paper and its marking guide, from the free sample. */}
+      <section className="max-w-3xl mx-auto px-4 pt-14">
+        <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Look inside</h2>
+        <p className="text-sm text-gray-500 mb-8">
+          Pages from the free Maths Methods Examination 1. Every VCE paper comes with a marking guide like this one.
+        </p>
+        <LookInside items={['vcePaper', 'vceKey']} />
+      </section>
+
       {/* What exists per subject, split by unit. */}
       <section className="max-w-3xl mx-auto px-4 py-14">
         <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-6">Papers by subject</h2>
@@ -148,8 +160,8 @@ export default function VcePage() {
             if (u12.length + u34.length === 0) return null
             return (
               <div key={subject.slug} className="card">
-                <p className="font-medium mb-3 flex items-center gap-2">
-                  <span aria-hidden>{subject.icon}</span> {subject.label}
+                <p className="font-medium mb-3 flex items-center gap-2.5">
+                  <SubjectIcon subject={subject.slug} size="sm" /> {subject.label}
                 </p>
                 <UnitList title="Unit 3 & 4 · Year 12" papers={u34} />
                 <UnitList title="Unit 1 & 2 · Year 11" papers={u12} />
@@ -195,11 +207,12 @@ function UnitList({ title, papers }: { title: string; papers: typeof PRACTICE_EX
             <li key={e.id}>
               <Link
                 href={`/practice/exams/${e.id}` as Route}
-                className="text-sm text-gray-700 hover:text-brand-600 hover:underline"
+                className="text-sm text-gray-700 hover:text-brand-600 hover:underline inline-flex items-center gap-1.5"
               >
                 {/* No padlock: this page does not read entitlements, and a lock
                     shown to someone who has already paid reads as a failed purchase. */}
-                📄 {shortTitle(e)}
+                <FileText className="w-4 h-4 text-gray-400 shrink-0" aria-hidden />
+                {shortTitle(e)}
                 {!e.premium && <span className="text-xs text-teal-600"> Free</span>}
               </Link>
             </li>

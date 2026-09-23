@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import type { TopicSlug, YearLevel, QuestionFormat } from '@/types'
 import { createClient } from '@/lib/supabase/client'
 import { matchShortAnswer } from '@/lib/questions/matchShortAnswer'
@@ -25,12 +25,17 @@ export default function QuizRunner({
   primaryYearLevel,
   onExit,
   onRetry,
+  exitLabel = 'Back',
+  nextStep,
 }: {
   questions: QuizQuestion[]
   primaryTopic: TopicSlug
   primaryYearLevel: YearLevel
   onExit: () => void
   onRetry?: () => void
+  exitLabel?: string
+  /** Shown under the results — where to go once this quiz is done. */
+  nextStep?: ReactNode
 }) {
   const [screen, setScreen] = useState<'quiz' | 'results'>('quiz')
   const [qIndex, setQIndex] = useState(0)
@@ -310,9 +315,10 @@ export default function QuizRunner({
         </div>
       )}
       <div className="grid grid-cols-2 gap-3">
-        <button onClick={onExit} className="btn-secondary">Back</button>
+        <button onClick={onExit} className="btn-secondary">{exitLabel}</button>
         {onRetry && <button onClick={onRetry} className="btn-primary">Try again</button>}
       </div>
+      {nextStep}
     </main>
   )
 }

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Route } from 'next'
 import { CATALOGUE_TOTALS } from '@/lib/catalogue'
 import { SUPPORT_EMAIL } from '@/lib/site'
+import Logo from '@/components/ui/Logo'
 
 const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
   {
@@ -42,9 +43,7 @@ export default function Footer() {
     <footer className="border-t border-gray-100 mt-20">
       <div className="max-w-5xl mx-auto px-4 py-12 grid grid-cols-2 sm:grid-cols-5 gap-8">
         <div className="col-span-2 sm:col-span-1">
-          <p className="text-sm font-medium tracking-tight">
-            Prep<span className="text-brand-400">Nest</span>
-          </p>
+          <Logo size="sm" />
           <p className="text-xs text-gray-400 mt-2 leading-relaxed">
             Printable practice exams for {CATALOGUE_TOTALS.lowest} to {CATALOGUE_TOTALS.highest}, aligned to the
             Australian Curriculum v9.0 and the VCE study designs.

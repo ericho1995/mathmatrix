@@ -6,6 +6,8 @@ import { FROM_PER_MONTH } from '@/lib/pricing'
 import { NAPLAN_YEARS, statsFor, yearLabel } from '@/lib/catalogue'
 import { NAPLAN_SOURCE, dayWord, daysUntil, formatWindow, nextNaplanWindow } from '@/lib/examDates'
 import type { YearLevel } from '@/types'
+import LookInside from '@/components/marketing/LookInside'
+import { Check, FileText, X } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'NAPLAN practice tests for Years 3, 5, 7 and 9 — PrepNest',
@@ -42,7 +44,7 @@ export default function NaplanPage() {
     <main className="flex-1 w-full">
       <section className="max-w-3xl mx-auto px-4 pt-12 pb-10">
         <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-3">NAPLAN</p>
-        <h1 className="text-3xl sm:text-4xl font-medium tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
           NAPLAN practice papers for Years 3, 5, 7 and 9
         </h1>
         <p className="text-gray-500 text-lg leading-relaxed mb-8">
@@ -110,6 +112,17 @@ export default function NaplanPage() {
             />
           </div>
         </div>
+      </section>
+
+      {/* The real booklets, so a parent can see the format before choosing a year. */}
+      <section className="max-w-5xl mx-auto px-4 pt-14">
+        <div className="max-w-3xl mx-auto mb-8">
+          <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Look inside</h2>
+          <p className="text-sm text-gray-500">
+            Real pages from the free Grade 5 papers. Every year level uses the same format, pitched at that year.
+          </p>
+        </div>
+        <LookInside items={['readingCover', 'readingPage', 'numeracy', 'conventions']} />
       </section>
 
       {/* One card per NAPLAN year, with its free papers one click away. */}
@@ -185,9 +198,11 @@ function Domain({ name, covered, body }: { name: string; covered: boolean; body:
   return (
     <div className="card">
       <p className="font-medium text-sm mb-1 flex items-center gap-2">
-        <span className={covered ? 'text-teal-600' : 'text-gray-300'} aria-hidden>
-          {covered ? '✓' : '○'}
-        </span>
+        {covered ? (
+          <Check className="w-4 h-4 text-teal-600" strokeWidth={2.5} aria-hidden />
+        ) : (
+          <X className="w-4 h-4 text-gray-300" strokeWidth={2.5} aria-hidden />
+        )}
         {name}
         {!covered && <span className="text-xs font-normal text-gray-400">coming later</span>}
       </p>
@@ -212,8 +227,12 @@ function YearCard({ yearLevel }: { yearLevel: YearLevel }) {
       <ul className="flex flex-col gap-1.5 mb-5 flex-1">
         {free.map(e => (
           <li key={e.id}>
-            <Link href={`/practice/exams/${e.id}` as Route} className="text-sm text-brand-600 hover:underline">
-              📄 {TEST_NAME[e.subject] ?? e.subject} — free paper
+            <Link
+              href={`/practice/exams/${e.id}` as Route}
+              className="text-sm text-brand-600 hover:underline inline-flex items-center gap-1.5"
+            >
+              <FileText className="w-4 h-4 shrink-0" aria-hidden />
+              {TEST_NAME[e.subject] ?? e.subject} — free paper
             </Link>
             {e.subject === 'reading' && (
               <>

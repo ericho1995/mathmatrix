@@ -14,6 +14,9 @@ const config: Config = {
           100: '#B5D4F4',
           200: '#85B7EB',
           400: '#378ADD',
+          // The featured plan card and homepage plan highlight use 500; without
+          // it Tailwind generated nothing and the ring fell back to its default blue.
+          500: '#2875C1',
           600: '#185FA5',
           800: '#0C447C',
           900: '#042C53',

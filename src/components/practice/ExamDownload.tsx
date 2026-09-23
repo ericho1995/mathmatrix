@@ -4,6 +4,7 @@ import type { PaperSummary } from '@/lib/catalogue'
 import type { AccessReason } from '@/lib/auth/access'
 import type { YearLevel } from '@/types'
 import PaperFacts from './PaperFacts'
+import { FileText, Wrench } from 'lucide-react'
 
 export default function ExamDownload({
   examId,
@@ -35,9 +36,12 @@ export default function ExamDownload({
 
   return (
     <main className="max-w-md mx-auto px-4 py-10 text-center flex-1 w-full">
-      <div className="text-3xl mb-3" aria-hidden>
-        {access === 'admin' ? '🛠️' : '📄'}
-      </div>
+      <span
+        aria-hidden
+        className="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 inline-flex items-center justify-center mb-4"
+      >
+        {access === 'admin' ? <Wrench className="w-7 h-7" /> : <FileText className="w-7 h-7" />}
+      </span>
       <h1 className="text-2xl font-medium tracking-tight mb-2">{title}</h1>
       <p className="text-sm text-gray-400 mb-6">{note}</p>
 
