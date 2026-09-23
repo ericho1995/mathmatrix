@@ -174,7 +174,7 @@ export default function NaplanPage() {
       <section className="max-w-3xl mx-auto px-4 py-14 text-center">
         <p className="text-gray-500 mb-5">
           One plan unlocks every NAPLAN and school-year paper — Numeracy, Reading and Language Conventions at every
-          year level, plus Science in the years between NAPLAN tests, each with an answer key — from {FROM_PER_MONTH} a
+          year level, plus Science in Grade 6 and Years 8 and 10, each with an answer key — from {FROM_PER_MONTH} a
           month. New papers are added throughout the year.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">

@@ -55,7 +55,10 @@ export type TopicSlug =
   // The four General Mathematics Unit 3 & 4 areas of study. gm_financial is
   // VCAA's "recursion and financial modelling"; the slug predates Unit 3 & 4.
   | 'gm_data_analysis' | 'gm_financial' | 'gm_matrices' | 'gm_networks'
+  // Specialist Mathematics: complex numbers and vectors run from Unit 1 & 2;
+  // the other four are the remaining Unit 3 & 4 areas of study (2023-2027).
   | 'sm_complex_numbers' | 'sm_vectors'
+  | 'sm_proof' | 'sm_functions' | 'sm_calculus' | 'sm_statistics'
 
 export interface Topic {
   slug: TopicSlug

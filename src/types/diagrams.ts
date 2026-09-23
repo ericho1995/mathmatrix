@@ -118,6 +118,8 @@ export interface FunctionGraphDiagram {
   curves: {
     points: [number, number][]
     dashed?: boolean
+    /** A third line style, so three curves on one graph stay distinguishable in print. */
+    dotted?: boolean
     label?: string
   }[]
   /** Marked points — intercepts, turning points, a stated coordinate. */

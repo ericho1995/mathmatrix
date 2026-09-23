@@ -126,6 +126,10 @@ const MIGRATIONS = [
     file: 'schema_subscriptions.sql',
     checks: [() => tableExists('subscriptions'), () => tableExists('paper_purchases')],
   },
+  {
+    file: 'schema_specialist_unit34.sql',
+    checks: [() => enumValueExists('questions', 'topic', 'sm_calculus')],
+  },
 ]
 
 const EXPECTED_QUESTIONS = 1800 // seed.sql currently carries 1,825
