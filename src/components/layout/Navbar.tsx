@@ -5,6 +5,7 @@ import Link from 'next/link'
 import type { Route } from 'next'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
+import Logo from '@/components/ui/Logo'
 
 export interface NavUser {
   email: string
@@ -58,8 +59,8 @@ export default function Navbar({ user }: { user: NavUser | null }) {
   return (
     <header className="border-b border-gray-100 bg-white/80 backdrop-blur sticky top-0 z-40">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
-        <Link href="/" className="text-lg font-medium tracking-tight flex-shrink-0">
-          Prep<span className="text-brand-400">Nest</span>
+        <Link href="/" className="flex-shrink-0" aria-label="PrepNest home">
+          <Logo />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6" aria-label="Main">

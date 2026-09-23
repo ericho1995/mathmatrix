@@ -4,6 +4,8 @@ import type { Route } from 'next'
 import type { PracticeExam } from '@/lib/questions/exams'
 import PurchaseBanner from '@/components/practice/PurchaseBanner'
 import ScrollActiveIntoView from '@/components/practice/ScrollActiveIntoView'
+import SubjectIcon from '@/components/ui/SubjectIcon'
+import { FileText, Lock } from 'lucide-react'
 import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, isVceYear } from '@/lib/pricing'
 import { canOpen, getAccess } from '@/lib/auth/access'
 import { isPlanSellable } from '@/lib/stripe'
@@ -13,7 +15,6 @@ import {
   YEAR_LEVEL_STATS,
   isYearLevel,
   shortTitle,
-  subjectIcon,
   subjectLabel,
   type YearLevelStats,
 } from '@/lib/catalogue'
@@ -183,8 +184,8 @@ function YearSection({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {bySubject.map(({ subject, exams }) => (
           <div key={subject} className="card">
-            <p className="font-medium text-sm mb-3 flex items-center gap-2">
-              <span aria-hidden>{subjectIcon(subject)}</span> {subjectLabel(subject)}
+            <p className="font-medium text-sm mb-3 flex items-center gap-2.5">
+              <SubjectIcon subject={subject} size="sm" /> {subjectLabel(subject)}
             </p>
             <ul className="flex flex-col gap-2">
               {exams.map(exam => {
@@ -195,7 +196,11 @@ function YearSection({
                       href={`/practice/exams/${exam.id}` as Route}
                       className="text-sm text-gray-700 hover:text-brand-600 hover:underline flex items-center gap-1.5"
                     >
-                      <span aria-hidden>{open ? '📄' : '🔒'}</span>
+                      {open ? (
+                        <FileText className="w-4 h-4 text-gray-400 shrink-0" aria-hidden />
+                      ) : (
+                        <Lock className="w-4 h-4 text-gray-400 shrink-0" aria-hidden />
+                      )}
                       {shortTitle(exam)}
                       {!exam.premium && <span className="text-xs text-teal-600">Free</span>}
                       {exam.premium && open && <span className="text-xs text-teal-600">Unlocked</span>}

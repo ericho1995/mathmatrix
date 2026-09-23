@@ -18,6 +18,7 @@ import {
   yearLabel,
 } from '@/lib/practice'
 import QuizRunner, { type QuizQuestion } from '@/components/practice/QuizRunner'
+import SubjectIcon from '@/components/ui/SubjectIcon'
 
 const LENGTHS = [
   { count: 5, label: 'Quick' },
@@ -269,13 +270,7 @@ export default function PracticeBuilder({ signedIn }: { signedIn: boolean }) {
                       on ? 'border-brand-600 ring-1 ring-brand-600 bg-brand-50' : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
-                    <span
-                      aria-hidden
-                      className="w-10 h-10 rounded-lg flex items-center justify-center text-xl flex-shrink-0"
-                      style={{ backgroundColor: `${s.color}14` }}
-                    >
-                      {s.icon}
-                    </span>
+                    <SubjectIcon subject={s.slug} />
                     <span className="min-w-0">
                       <span className="block font-medium text-sm">{s.label}</span>
                       <span className="block text-xs text-gray-500">{s.tagline}</span>
