@@ -690,6 +690,8 @@ for (const m of MAGAZINES) {
     const words = t.blocks
       .flatMap((b) => b.text ?? b.items ?? b.lines ?? [])
       .concat(t.blocks.filter((b) => b.kind === 'factbox').map((b) => b.title))
+      // A table is part of what the student reads.
+      .concat(t.figure?.kind === 'data_table' ? [t.figure.title ?? '', ...t.figure.columns, ...t.figure.rows.flat().map(String)] : [])
       .join(' ')
       .split(/\s+/)
       .filter(Boolean).length
@@ -714,6 +716,17 @@ for (const m of MAGAZINES) {
     if (top / mc.length > 0.35) err(`${where}: one answer letter is correct ${top} times out of ${mc.length}`)
   }
 }
+// House spelling: "practice" for the noun and the verb alike (the owner's
+// call, 2026-09-23). The British verb form keeps creeping back in.
+const PRACTISE = /practis/i
+for (const q of QUESTION_BANK) {
+  const printed = [q.question_text, q.explanation, ...(q.options ?? []), q.expected_answer ?? ''].join(' ')
+  if (PRACTISE.test(printed)) err('uses "practis-"; house spelling is "practice"', q.id)
+}
+for (const m of MAGAZINES) {
+  if (PRACTISE.test(JSON.stringify(m))) err(`magazine ${m.id} uses "practis-"; house spelling is "practice"`)
+}
+
 // Every question that points at a magazine text belongs to a magazine that exists.
 for (const q of QUESTION_BANK) {
   if (q.practice_set && READING_TOPIC_SET.has(q.topic) && !q.stimulus_id) err('a reading question in a practice set must point at a magazine text', q.id)

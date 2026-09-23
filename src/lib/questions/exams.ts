@@ -1004,71 +1004,326 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_7",
     "title": "Reading Year 7 — Practice Paper 1",
     "total_minutes": 65,
+    "magazine_id": "reading-year_7-1",
     "sections": [
       {
-        "title": "The Clockmaker’s Apprentice",
+        "title": "The night shift — page 2 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "05c56abf-9394-407b-b4ef-f7a3b99880b0",
-          "04b5eb3c-2d90-4f53-bdd0-49a44763d658",
-          "341d07ac-7493-46d5-bff5-52041c39fe5b",
-          "68d4f97e-05f9-488d-a3b5-2f53c72c58dc",
-          "0e88efaa-a6d1-4915-9285-40e248d87d16",
-          "8d8fd2af-0d68-4754-835a-25ec00318092"
+          "f070a0ae-9cc9-41a7-8a50-ac83219e5d94",
+          "a44221b0-0dc2-4a26-b5e7-9e97963d3040",
+          "704f3c50-5310-4a9b-a173-b96716761538",
+          "3d6322df-ec2a-4729-b76a-fb728b74115f",
+          "94a92fb7-da20-4883-afed-27b6ed9512d3",
+          "d0754139-5f75-41a7-862d-3963da911cda",
+          "8a7a2801-5704-4278-843a-48dc81208eb1",
+          "e86a9601-6905-4bb6-9e11-b1f413981aee"
         ]
       },
       {
-        "title": "The Problem with Food Labels",
+        "title": "Why do we yawn? — page 3 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "39fda2da-cca1-4e6f-96a0-4e4d6f272c00",
-          "07a66ca9-64a5-4aaf-93ac-ff1b68e10105",
-          "59786388-a329-4c0a-8c83-b3c4d37c528d",
-          "57307057-c428-4ac2-80f7-5639f43e149c",
-          "748b6cb5-b177-4a87-a84b-210b48fd11da",
-          "f72e8384-e9b6-4737-b713-9485053ebfe1"
+          "1fe03a79-cae1-45ed-b4f2-e72ed0935fb5",
+          "1bd8eddf-7e95-4bf9-aaf7-16e344ee2f12",
+          "ffd81ff6-27d6-47dd-af5a-997457d9e1f3",
+          "b6454234-d0e8-4109-8ec9-b794c633c28c",
+          "af49c540-52ef-46b5-9f08-88fc534b72da",
+          "2d878630-df61-4d4b-a784-1d906a1aa7b6",
+          "944584f9-522c-476d-9eae-9a162478c3c5"
         ]
       },
       {
-        "title": "The Swimmer",
+        "title": "Balloons belong on the ground — page 4 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "437a8f6f-2538-4cba-b1fb-e6de1408722d",
-          "e1bd59e0-2eb4-4c41-8806-6a5768fc8bfe",
-          "d0ad5e98-fa05-47be-ada7-d572d9a4dada",
-          "60dc248f-cb5c-4769-bc59-bca8b4491f6c",
-          "364a0d18-1599-41f7-a291-21ca2bc3d45e",
-          "05830790-f1fb-4089-8d41-39b3909a48cb"
+          "71e36bae-5044-409e-9c61-791c519fb312",
+          "52a0b7e6-416f-4ceb-9573-c219b09a032a",
+          "3f76133f-6f9a-4b3c-ae59-d57bf9081eab",
+          "e5b67583-1b17-49c1-8bd7-846d57ce5381",
+          "248914bd-1c26-4a48-8428-30ec910dc7ef",
+          "30e036bd-3b53-4e13-b777-1a53dadfb5f0",
+          "ebc44109-d2a1-4d4c-aa42-5fe8882f2fcf"
         ]
       },
       {
-        "title": "The Case for Later School Start Times",
+        "title": "Nan’s garden, after — page 5 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "90d962c5-a88b-44f4-9841-ebaf343948df",
-          "dc2d1a3a-8200-4c46-9d07-9111f2aa9540",
-          "2330f5f4-e86c-40f3-b196-c50c5dc2ea77",
-          "eb09770e-c95d-4278-98ac-006bd4d3885f",
-          "b3f09748-e0d3-48ff-83b8-a1d7c7328c32",
-          "3e40619c-b218-44a5-b3ff-ce1e90654e09"
+          "0040ad11-4b73-48b6-9742-5253937d795b",
+          "f489ad2a-eff9-4d4c-9273-73a61e318ff1",
+          "23adc1cc-e050-4c5b-8846-cb886d9fde96",
+          "7abd4b95-7159-4df4-8af4-68d3772962f2",
+          "26fd317a-8c1e-4e90-802c-954ef600d14e",
+          "1c59d596-3ad3-4cd1-8961-fbb01d555ec6"
         ]
       },
       {
-        "title": "Short texts",
+        "title": "How do noise-cancelling headphones work? — page 6 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "57e7176d-1784-41e5-b934-b008fe956f1a",
-          "84ebf2ed-7779-4e09-bcae-e390049ba658",
-          "33c43391-43cc-458f-ba46-227185b1a029",
-          "7e00dce8-0d74-4a87-a49e-2c0c5debd1ed",
-          "8d037705-7a7e-4c8a-83c6-fe6b97fb5bf6",
-          "e69ebc3a-5e10-4e1a-92df-9c6dc1c28217",
-          "fe9e588c-471b-4229-af47-8ba7a662c840",
-          "1c39aa9a-1ed8-402e-82c8-2330d83b2fe0"
+          "466f1519-72ba-4f5c-905a-043ed8f772bc",
+          "fcbbd37e-53e8-4ac0-bcfb-a05cde7d4652",
+          "e0d7f00d-2df5-482c-865b-4dbf87f7b74c",
+          "51ea1dd1-a1d4-414a-b9e2-1b806abb987e",
+          "97296a7f-7ebc-4708-8c96-a59622a53e10",
+          "65e7d791-ebba-46ef-aa58-422a294b3f10"
+        ]
+      },
+      {
+        "title": "Fred Hollows: the doctor who gave sight — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "cefd25a1-56ae-492e-9a61-9a3553e9674e",
+          "c19fd405-4f83-4145-ab0a-894b214ca423",
+          "14a23aa9-0931-465e-bade-b55675d21bfd",
+          "37aad8f6-15f6-428d-a09b-3b841bc8c504",
+          "1875ef07-a5fd-4507-929a-915849cf3fe1",
+          "79eab3eb-32da-402e-93a9-2068fd7d928a"
+        ]
+      },
+      {
+        "title": "Tidebreaker — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "daf6f6f1-cb77-4dd1-bb76-8ac91c93cffa",
+          "0d4f288e-c56e-438a-bcfb-565dc4400718",
+          "535ef172-1ecc-4f9b-b799-8169455c1b0b",
+          "963c056a-9f0a-4dad-86cf-32a3f6f5f145",
+          "f00b28be-17ec-47bc-b005-633996cd5e62"
+        ]
+      },
+      {
+        "title": "How Year 7 spends its afternoons — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "dc4ac0bc-ca52-48bb-b0ec-d83334a6bfa1",
+          "e17d2b7b-6bff-41be-8b7a-7ba7b4d75320",
+          "2102739a-5f96-4b14-a4b6-d89b1c2e366b",
+          "06a9e124-713c-46fc-9629-e341762e1f84",
+          "7ce9e08a-1f0e-463e-b950-f6c24e4927df"
         ]
       }
     ],
     "premium": false
+  },
+  {
+    "id": "reading-year_7-2",
+    "subject": "reading",
+    "yearLevel": "year_7",
+    "title": "Reading Year 7 — Practice Paper 2",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_7-2",
+    "sections": [
+      {
+        "title": "Low tide — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "ccdb3e91-b7a7-482c-9ffe-7e9a437620cc",
+          "3afbbcd8-c43e-426d-a3e5-687004ea91c0",
+          "dd7f7feb-7ed4-47e8-a3cc-4ef3d6bca157",
+          "930d8abf-7367-4ebc-894f-12281a2571a2",
+          "a138960a-1ddf-4099-ada6-8b24fa81977f",
+          "f717155b-12e3-4054-ab76-a419738fa77f",
+          "f0449eae-860a-4966-a794-8c240ffa911c",
+          "706df074-f36a-47d3-828d-890db3c69d3e"
+        ]
+      },
+      {
+        "title": "Lightning — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "4e869604-7c50-467a-8c54-c36c0c758764",
+          "e10724c5-98e8-4a0c-a82e-95ccb601a2e5",
+          "da4836d7-02ea-4eee-ae82-6faf20163c3c",
+          "2b9c11ac-6eda-4435-bf34-f63d9cdbc16c",
+          "9d13eac5-8f61-4b81-a967-77761ba36ce4",
+          "ccb662c7-5d33-466c-97cf-10753834dbf8",
+          "e62240c8-e422-49a2-ada7-7b52efad3494"
+        ]
+      },
+      {
+        "title": "Our streets need more trees — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "a024e55a-2825-421c-9a68-0ee169495ddc",
+          "711be141-3fca-46c1-89aa-92431e5b57a8",
+          "01850614-f630-4058-803e-205218c4c8c9",
+          "2ca0eabb-80cd-462d-a495-27b0d3da27dd",
+          "9c1a2882-7f5f-472e-a671-c93d798ce0af",
+          "00d965ee-f08f-43c8-abd4-1969aea954db",
+          "5f1ca9c9-77b3-4ae1-981c-46a5c9ed34af"
+        ]
+      },
+      {
+        "title": "The sprinter — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "385d431b-3cab-4c8a-9968-86ca5e7e1926",
+          "6294a0ce-6ac2-4f65-8575-d3f6c954e27e",
+          "fed633af-c1f6-4a8f-9584-4a692d532164",
+          "37d32f68-62fd-43e7-ad89-1891498decdb",
+          "9e82eb1c-da04-4a60-9772-49bfe7bc7f6c",
+          "84940017-97e9-45fc-99f2-fb95cc314f0e"
+        ]
+      },
+      {
+        "title": "Make a stop-motion animation — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "c6ae099d-1f8e-4dca-b05d-cbc6aa40d4ed",
+          "d425cb54-84a1-493c-8533-e0bc393253ad",
+          "9aa6986a-672b-460e-b587-990cebaaba11",
+          "4e37f3b9-e04b-47e7-b3c6-51d126fd5574",
+          "1ae7daee-4e4e-4ef0-983b-94c4f901abf5"
+        ]
+      },
+      {
+        "title": "My first (and last?) camping trip — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "d4525507-5f8f-45cc-bb0b-d1e6740677b1",
+          "fc2e6b36-89bb-4370-a245-b7ccc2e043b1",
+          "1a0b0995-ef91-4a30-b93d-12b20e327a5f",
+          "74beeaa3-0331-4946-b0ae-70e68fe9f268",
+          "4c8b32b5-c917-4fbf-97b0-6ffd6589b6b0",
+          "0bff3052-327e-490b-a417-e568ae0af823"
+        ]
+      },
+      {
+        "title": "Meet Jordan Reyes, wheelchair basketballer — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "f420e060-875d-4257-ad78-d1251399d945",
+          "309f5003-4606-4f56-87b7-f83cd7aa81af",
+          "97cd881f-c69c-406d-a444-46ece9b65371",
+          "537ef80b-bc0e-4543-85d4-147d4573b2fd",
+          "161a7a53-ad99-4f25-a837-08f9d3a91d96"
+        ]
+      },
+      {
+        "title": "Two wheels: how the bicycle was invented — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0b459e97-4810-4a1a-8873-e81fb48df531",
+          "b19245b0-2861-4968-a23a-21b68443e932",
+          "fc9f5745-890d-4997-ab5b-0d827a4bfaea",
+          "f3cf65c3-eddd-45d7-a03d-27934848e6cb",
+          "21c61ba4-9bc6-4ab6-912b-c2ba71f529f5",
+          "27046f79-ebce-42a7-8081-120df44298c3"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "reading-year_7-3",
+    "subject": "reading",
+    "yearLevel": "year_7",
+    "title": "Reading Year 7 — Practice Paper 3",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_7-3",
+    "sections": [
+      {
+        "title": "Tryouts — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "3d65b1f5-3383-4ef8-b21f-97495bf284b0",
+          "23a89909-84b0-4eef-a80d-a1b30020aac8",
+          "76af7656-152b-41e9-bebf-b2be2c6250a2",
+          "f93c6236-996c-4352-9f0a-ca190b8e9be7",
+          "df23668f-b889-468a-bb83-64478998e8b6",
+          "ee39d698-0705-4cff-8054-c8845b458b46",
+          "f39d4c45-05fb-4698-8fd5-c604f43c048c",
+          "696653b7-b6d1-4d2e-bf0e-1cf2eeccc20a"
+        ]
+      },
+      {
+        "title": "Why is the sea salty? — page 3 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "358c5fad-fcc1-41af-b1c6-b3b503450439",
+          "351e3172-e860-4e69-b126-a112fba9cff0",
+          "c9d13d55-dfd6-4321-a87b-6c7e1463efa6",
+          "074a3574-ff71-4be9-8d88-1ef86951881f",
+          "6bf79614-1575-4061-baef-3d407044cf78",
+          "7f225135-ba63-46eb-984a-25e5526084ec"
+        ]
+      },
+      {
+        "title": "Should zoos exist? — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "50c4fc64-0ec9-40c8-aa5a-e7765210c859",
+          "95e92706-ae5a-437a-8e6e-1a1dd7f53765",
+          "4090e8de-34cc-4940-963f-74239eab3fae",
+          "fe96ac0e-b821-4902-b802-5434e4ca28f0",
+          "925fc778-87ac-4223-8673-9e2921f14f75",
+          "59744069-575e-454d-a195-35172634bec1",
+          "083a40bb-0c24-4bf4-b80a-a55ee3cfb8c4"
+        ]
+      },
+      {
+        "title": "Six a.m. — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "fa711eff-d344-436b-87e2-d310b7c2aef3",
+          "fd0a5c57-5c31-41e1-8a71-6d463e3c0445",
+          "6223ab93-f29e-4ebf-a5dd-872b1ae4172f",
+          "710da6b1-386a-4aee-bfef-fad5b6ebc044",
+          "38ebb613-0835-4551-a83e-e0b59943d125",
+          "ba5fe510-6b79-4e91-ac84-5e0518672399"
+        ]
+      },
+      {
+        "title": "Teen’s smoke sensor could spot bushfires sooner — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "dadd188a-6cea-4383-b2d1-fa0ce53d3afd",
+          "2810357e-bb3e-4c61-9de1-cf73a7fbd2e5",
+          "37a8c2cb-ee6d-4793-b8aa-71eb003afba7",
+          "7e8d5dbe-2bf2-4507-ab0f-213c9866db50",
+          "0d52aa8c-2e8e-413f-82f8-97f1c8b4d03d",
+          "2e0f5aae-9e3e-44f4-8500-355721d18645"
+        ]
+      },
+      {
+        "title": "The boy who flew too high — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "feda4fd5-5924-4ab2-be45-932f0959aa33",
+          "97e245b5-656a-4fcd-a035-0953f2eaf70e",
+          "ceb739a2-509d-48df-ba03-0689b5eed240",
+          "41485096-acfc-4e1d-9b15-e40559439438",
+          "7a3b1341-ca17-4289-9f9d-4494ec69ea87",
+          "470e5c8c-7859-498a-9e50-3bd70b158f94"
+        ]
+      },
+      {
+        "title": "Skyward Farm — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "994609f1-3858-4e14-89c7-13e45d627d19",
+          "461b8a89-bf4a-4c64-8a1e-47a7fd859edc",
+          "9f785841-9799-4536-bd4e-204b176c2679",
+          "07f07e97-c568-4bbe-aabd-7a661e0e508d",
+          "750f8995-dc5c-4616-ba98-e40d77a8f893"
+        ]
+      },
+      {
+        "title": "Visiting the Harbour Museum — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "09aeaac9-3c7c-43cf-8bff-f0008ca84692",
+          "a031dab2-ede5-47d3-9331-b5bb44f6b2b5",
+          "728b8eaa-ff0e-4fe3-a3c5-9d79765f86de",
+          "dee2a812-b6c1-4fbe-94b7-b158c5a8fd31",
+          "4a30e409-9ca0-44f6-ad9b-9a4b4ccf88b3",
+          "e2396b4c-54ab-4976-a4d7-ba1e7e26651b"
+        ]
+      }
+    ],
+    "premium": true
   },
   {
     "id": "reading-year_9-1",

@@ -40,6 +40,7 @@ const ACCENT: Record<ReadingTextType, string> = {
   web: '#475569',
   notice: '#B91C1C',
   interview: '#4338CA',
+  diary: '#A16207',
 }
 
 /** Body sizes by year level: large and open for Year 3, denser by Year 9. */

@@ -16,7 +16,7 @@ import type { YearLevel } from './index'
 /** What kind of text this is — printed on the page and used to keep a magazine varied. */
 export type ReadingTextType =
   | 'story' | 'report' | 'explanation' | 'persuasive' | 'letter'
-  | 'poem' | 'review' | 'news' | 'procedure' | 'web' | 'notice' | 'interview'
+  | 'poem' | 'review' | 'news' | 'procedure' | 'web' | 'notice' | 'interview' | 'diary'
 
 export type ReadingBlock =
   /** A paragraph of prose. */
