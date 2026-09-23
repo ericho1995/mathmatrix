@@ -25,6 +25,30 @@ export interface Release {
 
 export const RELEASES: Release[] = [
   {
+    date: '2026-09-24',
+    title: 'Ten papers each for Methods, General and Specialist',
+    detail:
+      'Specialist Mathematics Unit 3 & 4 arrives with five full practice sets, and Maths Methods and General Mathematics gain their fifth sets, so each subject now has ten Year 12 papers in the VCAA format with full marking guides.',
+    examIds: [
+      'specialist_maths-year_12-1-exam1',
+      'specialist_maths-year_12-1-exam2',
+      'specialist_maths-year_12-2-exam1',
+      'specialist_maths-year_12-2-exam2',
+      'specialist_maths-year_12-3-exam1',
+      'specialist_maths-year_12-3-exam2',
+      'specialist_maths-year_12-4-exam1',
+      'specialist_maths-year_12-4-exam2',
+      'specialist_maths-year_12-5-exam1',
+      'specialist_maths-year_12-5-exam2',
+      'maths_methods-year_12-5-exam1',
+      'maths_methods-year_12-5-exam2',
+      'general_maths-year_12-4-exam1',
+      'general_maths-year_12-4-exam2',
+      'general_maths-year_12-5-exam1',
+      'general_maths-year_12-5-exam2',
+    ],
+  },
+  {
     date: '2026-09-23',
     title: 'Four new VCE Year 12 papers',
     detail:
@@ -112,13 +136,13 @@ export interface RoadmapItem {
 
 export const ROADMAP: RoadmapItem[] = [
   {
-    title: 'More VCE Maths Methods and General Mathematics sets',
+    title: 'More VCE Maths Methods, General and Specialist sets',
     detail: 'Further Examination 1 and 2 practice sets for Year 12, in the VCAA format.',
     audience: 'VCE',
   },
   {
-    title: 'VCE Unit 3 & 4 Chemistry, Physics and Specialist Maths',
-    detail: 'Year 12 papers for the three subjects that only have Unit 1 & 2 papers so far.',
+    title: 'VCE Unit 3 & 4 Chemistry and Physics',
+    detail: 'Year 12 papers for the two subjects that only have Unit 1 & 2 papers so far.',
     audience: 'VCE',
   },
   {
@@ -128,7 +152,7 @@ export const ROADMAP: RoadmapItem[] = [
   },
   {
     title: 'More Science papers',
-    detail: 'Further Science papers for Grades 4 and 6 and Years 8 and 10.',
+    detail: 'Further Science papers for Grade 6 and Years 8 and 10.',
     audience: 'Grade 3 – Year 10',
   },
   {

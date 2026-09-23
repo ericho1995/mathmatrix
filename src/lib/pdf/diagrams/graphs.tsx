@@ -35,7 +35,7 @@ export function FunctionGraph({ diagram, fit, bare }: { diagram: FunctionGraphDi
         {xTicks.filter(t => t !== 0).map((t, i) => <T key={`xt${i}`} x={sx(t)} y={axisY + 11} size={7} fill="#444">{minus(t)}</T>)}
         {yTicks.filter(t => t !== 0).map((t, i) => <T key={`yt${i}`} x={axisX - 4} y={sy(t) + 2.5} size={7} anchor="end" fill="#444">{minus(t)}</T>)}
         {diagram.curves.map((curve, ci) => (
-          <Polyline key={`c${ci}`} points={curve.points.map(([x, y]) => `${sx(x)},${sy(y)}`).join(' ')} stroke={ACCENT} strokeWidth={1.4} strokeDasharray={curve.dashed ? '4 3' : undefined} fill="none" />
+          <Polyline key={`c${ci}`} points={curve.points.map(([x, y]) => `${sx(x)},${sy(y)}`).join(' ')} stroke={ACCENT} strokeWidth={1.4} strokeDasharray={curve.dashed ? '4 3' : curve.dotted ? '1.2 2.2' : undefined} fill="none" />
         ))}
         {(diagram.points ?? []).map((p, pi) => <Circle key={`p${pi}`} cx={sx(p.x)} cy={sy(p.y)} r={2.6} fill="#0F766E" />)}
         {diagram.xLabel ? <T x={pad.left + plotW} y={axisY + 20} anchor="end" fill="#444">{diagram.xLabel}</T> : null}
@@ -44,8 +44,10 @@ export function FunctionGraph({ diagram, fit, bare }: { diagram: FunctionGraphDi
       {diagram.points?.some(p => p.label) || diagram.curves.some(c => c.label) ? (
         <Text style={pdfStyles.diagramCaption}>
           {[
-            ...diagram.curves.filter(c => c.label).map(c => `${c.dashed ? '– – ' : '—— '}${c.label}`),
-            ...(diagram.points ?? []).filter(p => p.label).map(p => `${p.label} (${p.x}, ${p.y})`),
+            ...diagram.curves.filter(c => c.label).map(c => `${c.dashed ? '– – ' : c.dotted ? '· · · ' : '—— '}${c.label}`),
+            // A label that is already a coordinate, often an exact one such as
+            // (1, e⁻¹), is printed as written rather than followed by decimals.
+            ...(diagram.points ?? []).filter(p => p.label).map(p => (p.label!.startsWith('(') ? p.label! : `${p.label} (${p.x}, ${p.y})`)),
           ].join('    ')}
         </Text>
       ) : null}

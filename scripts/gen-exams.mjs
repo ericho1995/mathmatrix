@@ -44,6 +44,7 @@ const TOPIC_TO_SUBJECT = {
   gm_data_analysis: 'general_maths', gm_financial: 'general_maths',
   gm_matrices: 'general_maths', gm_networks: 'general_maths',
   sm_complex_numbers: 'specialist_maths', sm_vectors: 'specialist_maths',
+  sm_proof: 'specialist_maths', sm_functions: 'specialist_maths', sm_calculus: 'specialist_maths', sm_statistics: 'specialist_maths',
 }
 const SELECTIVE_SUBJECTS = new Set(['chemistry', 'physics', 'maths_methods', 'general_maths', 'specialist_maths'])
 // VCAA exams give students 15 minutes of reading time (no writing allowed) before the writing time starts.

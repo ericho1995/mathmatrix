@@ -86,6 +86,10 @@ export const TOPICS: Topic[] = [
   { slug: 'gm_networks',            subject: 'general_maths', label: 'Networks',           description: 'Graphs, paths, trees, flow, scheduling', icon: '🕸️', color: '#BA7517' },
 
   // Specialist Maths
-  { slug: 'sm_complex_numbers',     subject: 'specialist_maths', label: 'Complex Numbers', description: 'Imaginary unit, modulus',               icon: '🔢', color: '#0C447C' },
-  { slug: 'sm_vectors',             subject: 'specialist_maths', label: 'Vectors',         description: 'Magnitude, dot product',                icon: '➡️', color: '#0C447C' },
+  { slug: 'sm_complex_numbers',     subject: 'specialist_maths', label: 'Complex Numbers', description: 'Polar form, roots, the complex plane',  icon: '🔢', color: '#0C447C' },
+  { slug: 'sm_vectors',             subject: 'specialist_maths', label: 'Vectors',         description: 'Dot and cross products, lines, planes', icon: '➡️', color: '#0C447C' },
+  { slug: 'sm_proof',               subject: 'specialist_maths', label: 'Logic & Proof',   description: 'Induction, contrapositive, counterexamples', icon: '∴', color: '#0C447C' },
+  { slug: 'sm_functions',           subject: 'specialist_maths', label: 'Functions & Graphs', description: 'Rational functions, asymptotes, partial fractions', icon: '📈', color: '#0C447C' },
+  { slug: 'sm_calculus',            subject: 'specialist_maths', label: 'Calculus',        description: 'Integration techniques, differential equations, kinematics', icon: '∫', color: '#0C447C' },
+  { slug: 'sm_statistics',          subject: 'specialist_maths', label: 'Probability & Statistics', description: 'Linear combinations, sample means, hypothesis tests', icon: '📊', color: '#0C447C' },
 ]

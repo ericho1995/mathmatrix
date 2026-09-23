@@ -159,7 +159,7 @@ export default function MarketingHome() {
             icon={GraduationCap}
             eyebrow="Grade 3 – Year 10"
             title="School years"
-            body="Maths, Reading and Language Conventions for every year, and Science in the years between NAPLAN tests."
+            body="Maths, Reading and Language Conventions for every year, and Science in Grade 6 and Years 8 and 10."
           />
           <ExamCard
             href="/vce"
