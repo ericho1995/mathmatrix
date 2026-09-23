@@ -36,9 +36,15 @@ unlinkSync(tmpPath)
 const playable = (q) =>
   !q.diagram && !(q.option_diagrams && q.option_diagrams.length) && !q.stimulus_id && q.format !== 'extended_response'
 
+// NAPLAN does not test Science, so the NAPLAN years do not offer it anywhere:
+// not as papers (gen-exams.mjs) and not in the practice builder (here).
+const SCIENCE_TOPICS = new Set(['life_science', 'physical_science', 'earth_space'])
+const NAPLAN_TEST_YEARS = new Set(['grade_3', 'grade_5', 'year_7', 'year_9'])
+const offered = (q) => !(SCIENCE_TOPICS.has(q.topic) && NAPLAN_TEST_YEARS.has(q.year_level))
+
 /** topic -> year level -> how many quiz-playable questions exist */
 const coverage = {}
-for (const q of QUESTION_BANK.filter(playable)) {
+for (const q of QUESTION_BANK.filter(playable).filter(offered)) {
   ;(coverage[q.topic] ??= {})[q.year_level] = (coverage[q.topic]?.[q.year_level] ?? 0) + 1
 }
 
@@ -91,5 +97,5 @@ export function topicCountAt(topic: TopicSlug, yearLevel: YearLevel): number {
 writeFileSync(outPath, ts)
 const topics = Object.keys(coverage).length
 const total = QUESTION_BANK.length
-const quiz = QUESTION_BANK.filter(playable).length
+const quiz = QUESTION_BANK.filter(playable).filter(offered).length
 console.log(`Wrote src/lib/questions/coverage.ts (${topics} topics; ${quiz} of ${total} questions playable in the free quiz).`)

@@ -1348,7 +1348,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       },
       {
-        "title": "Why forgetting is good for you — page 4 of the magazine",
+        "title": "Why forgetting is good for you — page 3 of the magazine",
         "time_minutes": 0,
         "question_ids": [
           "0cfad9f4-093e-4cc4-a21e-c1f47c38f433",
@@ -1361,7 +1361,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       },
       {
-        "title": "The case for handwriting — page 5 of the magazine",
+        "title": "The case for handwriting — page 4 of the magazine",
         "time_minutes": 0,
         "question_ids": [
           "a70f7f4e-1bad-4bd4-a60a-ea0ecd40225f",
@@ -1374,7 +1374,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       },
       {
-        "title": "Migration — page 6 of the magazine",
+        "title": "Migration — page 5 of the magazine",
         "time_minutes": 0,
         "question_ids": [
           "f51d6da0-a77f-475e-97dd-3594da2bcec6",
@@ -1386,7 +1386,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       },
       {
-        "title": "The wire that shrank the world — page 7 of the magazine",
+        "title": "The wire that shrank the world — page 6 of the magazine",
         "time_minutes": 0,
         "question_ids": [
           "7804137f-c0ba-4810-8e2e-2feedaa068f8",
@@ -1399,7 +1399,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       },
       {
-        "title": "Local family discovers “outside” — page 8 of the magazine",
+        "title": "Local family discovers “outside” — page 7 of the magazine",
         "time_minutes": 0,
         "question_ids": [
           "adafdce2-26f9-4add-8d4d-1de7d1a145ae",
@@ -1410,7 +1410,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       },
       {
-        "title": "The Glass Orchard — page 9 of the magazine",
+        "title": "The Glass Orchard — page 8 of the magazine",
         "time_minutes": 0,
         "question_ids": [
           "1bb76b9f-f671-4e74-8faf-bbdb01f95ffa",
@@ -1421,7 +1421,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       },
       {
-        "title": "Food waste in Westvale — page 10 of the magazine",
+        "title": "Food waste in Westvale — page 9 of the magazine",
         "time_minutes": 0,
         "question_ids": [
           "2bada62e-f640-475c-9f64-be89abfe9f31",

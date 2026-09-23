@@ -17,7 +17,14 @@ export const metadata: Metadata = {
 // number of days.
 export const revalidate = 3600
 
-const NAPLAN_SUBJECTS = new Set(['math', 'english'])
+const NAPLAN_SUBJECTS = new Set(['math', 'reading', 'english'])
+
+/** What each NAPLAN subject is called on the test itself. */
+const TEST_NAME: Record<string, string> = {
+  math: 'Numeracy',
+  reading: 'Reading, with its magazine',
+  english: 'Language Conventions',
+}
 
 /**
  * The NAPLAN hub — the page a parent lands on from "NAPLAN practice test".
@@ -84,7 +91,7 @@ export default function NaplanPage() {
             <Domain
               name="Reading"
               covered
-              body="Passages of literary and informational text, each followed by a cluster of questions on it."
+              body="A colour Reading Magazine of stories, poems, reports and persuasive texts, plus a question paper that sends students to each text by page — the same two booklets as the real test."
             />
             <Domain
               name="Conventions of Language"
@@ -153,8 +160,9 @@ export default function NaplanPage() {
 
       <section className="max-w-3xl mx-auto px-4 py-14 text-center">
         <p className="text-gray-500 mb-5">
-          One plan unlocks every NAPLAN and school-year paper — Maths, English and Science, every year level, each
-          with an answer key — from {FROM_PER_MONTH} a month. New papers are added throughout the year.
+          One plan unlocks every NAPLAN and school-year paper — Numeracy, Reading and Language Conventions at every
+          year level, plus Science in the years between NAPLAN tests, each with an answer key — from {FROM_PER_MONTH} a
+          month. New papers are added throughout the year.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/practice/exams" className="btn-primary">
@@ -198,14 +206,14 @@ function YearCard({ yearLevel }: { yearLevel: YearLevel }) {
     <div className="card flex flex-col">
       <p className="text-lg font-medium tracking-tight">{stats.label}</p>
       <p className="text-xs text-gray-400 mb-4">
-        {naplanPapers.length} NAPLAN-format papers · {stats.papers} papers in total including Science
+        {naplanPapers.length} NAPLAN-format papers: Numeracy, Reading and Language Conventions
       </p>
       <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-2">Free to download</p>
       <ul className="flex flex-col gap-1.5 mb-5 flex-1">
         {free.map(e => (
           <li key={e.id}>
             <Link href={`/practice/exams/${e.id}` as Route} className="text-sm text-brand-600 hover:underline">
-              📄 {e.subject === 'math' ? 'Numeracy' : 'Reading & Language Conventions'} — free paper
+              📄 {TEST_NAME[e.subject] ?? e.subject} — free paper
             </Link>
           </li>
         ))}

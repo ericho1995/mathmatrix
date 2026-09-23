@@ -71,6 +71,12 @@ function Block({ block, scale, accent }: { block: ReadingBlock; scale: Scale; ac
       return <Text style={{ fontSize: scale.body * 1.12, fontWeight: 700, color: accent, marginTop: gap * 0.4, marginBottom: gap * 0.5 }}>{block.text}</Text>
     case 'note':
       return <Text style={{ ...body, fontStyle: 'italic', marginBottom: gap }}>{block.text}</Text>
+    case 'excerpt':
+      return (
+        <View style={{ borderLeft: `2pt solid ${tint(accent, 0.5)}`, paddingLeft: scale.body, marginLeft: scale.body * 0.6, marginBottom: gap, marginTop: gap * 0.2 }} wrap={false}>
+          <Text style={{ ...body, fontStyle: 'italic', color: '#333' }}>{block.text}</Text>
+        </View>
+      )
     case 'caption':
       return <Text style={{ fontSize: scale.body * 0.8, fontStyle: 'italic', color: '#555', marginBottom: gap }}>{block.text}</Text>
     case 'quote':
@@ -305,10 +311,12 @@ function TextPage({ text, magazine, label, onPlaced }: { text: ReadingText; maga
   )
 
   return (
-    <Page size="A4" style={{ paddingTop: 0, paddingBottom: 56, paddingHorizontal: 0, fontFamily: 'DejaVuSans' }}>
-      <View style={{ height: 10, backgroundColor: accent }} fixed />
+    // The top padding is on the page, not the content, so a text that runs
+    // onto a second page starts below the colour band there too.
+    <Page size="A4" style={{ paddingTop: 40, paddingBottom: 56, paddingHorizontal: 44, fontFamily: 'DejaVuSans' }}>
+      <View style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 10, backgroundColor: accent }} fixed />
       <Watermark />
-      <View style={{ paddingHorizontal: 44, paddingTop: 30 }}>
+      <View>
         {text.type === 'web' ? (
           // A web page reads as a web page: a browser bar above the title.
           <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#eef1f5', borderRadius: 4, paddingVertical: 5, paddingHorizontal: 8, marginBottom: 14 }}>

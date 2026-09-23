@@ -37,6 +37,9 @@ export type ReadingBlock =
   | { kind: 'quote'; text: string }
   /** Byline, dateline, sign-off — small italic text on its own line. */
   | { kind: 'note'; text: string }
+  /** A document quoted inside a text — a diary entry, a letter, a sign —
+   * set off from the prose, indented and in italics. */
+  | { kind: 'excerpt'; text: string }
 
 /**
  * A process drawn as labelled boxes joined by arrows — the stages of a cycle,

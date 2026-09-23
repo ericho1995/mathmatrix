@@ -55,6 +55,7 @@ export function plainBody(text) {
       case 'caption':
       case 'quote':
       case 'note':
+      case 'excerpt':
         parts.push(b.text)
         break
       case 'heading':

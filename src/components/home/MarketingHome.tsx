@@ -124,13 +124,13 @@ export default function MarketingHome() {
             href="/naplan"
             eyebrow="Years 3, 5, 7 & 9"
             title="NAPLAN"
-            body="Numeracy, Reading and Language Conventions papers in the NAPLAN format, pitched at each year level."
+            body="Numeracy, Language Conventions and Reading papers in the NAPLAN format — Reading with its own colour magazine."
           />
           <ExamCard
             href="/practice/exams"
             eyebrow="Grade 3 – Year 10"
             title="School years"
-            body="Maths, English and Science papers for every year, so practice carries on between NAPLAN years."
+            body="Maths, Reading and Language Conventions for every year, and Science in the years between NAPLAN tests."
           />
           <ExamCard
             href="/vce"

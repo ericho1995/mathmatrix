@@ -47,7 +47,7 @@ export const FAQS: Faq[] = [
     category: 'papers',
     home: true,
     q: 'Which year levels and subjects are covered?',
-    a: `${CATALOGUE_TOTALS.lowest} to ${CATALOGUE_TOTALS.highest}. Maths, English and Science from Grade 3 to Year 10, in the NAPLAN format for Maths and English. For Year 11 and 12, VCE Chemistry, Physics, Mathematical Methods, General Mathematics and Specialist Mathematics.`,
+    a: `${CATALOGUE_TOTALS.lowest} to ${CATALOGUE_TOTALS.highest}. Maths, Reading and Language Conventions from Grade 3 to Year 10, all in the NAPLAN format, with Science in Grades 4 and 6 and Years 8 and 10 (NAPLAN does not test Science, so the NAPLAN years focus on the tests their students sit). For Year 11 and 12, VCE Chemistry, Physics, Mathematical Methods, General Mathematics and Specialist Mathematics.`,
   },
   {
     category: 'papers',

@@ -1361,7 +1361,6 @@ export const MAGAZINES: ReadingMagazine[] = [
       {
         id: '04b5cf01-cb94-467c-8aaa-3b4e8fe7724f',
         page: 2,
-        pages: 2,
         title: 'The keeper’s daughter',
         type: 'story',
         blocks: [
@@ -1369,9 +1368,9 @@ export const MAGAZINES: ReadingMagazine[] = [
           { kind: 'para', text: '“Catalogue them,” Mrs Hendry had said, handing her a pair of white cotton gloves. “Date, description, condition. Don’t read them properly, or you’ll never finish.”' },
           { kind: 'para', text: 'Zara read them properly.' },
           { kind: 'para', text: 'The box held a logbook bound in cracked green leather. The first pages were in a man’s cramped, slanting hand — wind directions, oil levels, ships sighted — the weekly ritual of a keeper in the 1890s. But halfway through, the handwriting changed. It became rounder, younger, pressed so hard into the paper that some letters had torn through.' },
-          { kind: 'quote', text: '14 June 1894. Father ill with fever. I have lit the lamp myself these three nights. The oil is heavy and my arms shake on the stairs, but the light has not failed. Mother says I must not write in the log, as it is not my place. I say if I keep the light, I keep the log.' },
+          { kind: 'excerpt', text: '14 June 1894. Father ill with fever. I have lit the lamp myself these three nights. The oil is heavy and my arms shake on the stairs, but the light has not failed. Mother says I must not write in the log, as it is not my place. I say if I keep the light, I keep the log.' },
           { kind: 'para', text: 'Zara sat back. Outside, the real lighthouse stood white against a sky the colour of pewter, its lamp long since replaced by an automatic beacon that no one needed to climb to. She turned the page.' },
-          { kind: 'quote', text: '21 June 1894. A storm from the south-west. The schooner Margaret Ellis passed close under the cape at two in the morning, too close. I kept the lamp turning though the glass rattled in its frame. At dawn she was safe in the bay. I do not think her captain will ever know my name.' },
+          { kind: 'excerpt', text: '21 June 1894. A storm from the south-west. The schooner Margaret Ellis passed close under the cape at two in the morning, too close. I kept the lamp turning though the glass rattled in its frame. At dawn she was safe in the bay. I do not think her captain will ever know my name.' },
           { kind: 'para', text: 'The entries went on for seven weeks. The girl — she never wrote her name — recorded every ship, every change of wind, every measure of oil. Her father’s handwriting returned in August, shaky at first, then firmer. Beneath the entry for 3 August, in the girl’s hand, were five words: He says I did well.' },
           { kind: 'para', text: 'Zara looked for the girl in the museum’s displays. There was a photograph of the keeper, stern and bearded, beside a list of every keeper who had served at Cape Farrow, all of them men. There was no mention of a daughter who had carried oil up ninety-two steps for seven weeks while the storms came in.' },
           { kind: 'para', text: 'When Mrs Hendry came back at four, Zara had catalogued three items out of forty. “I said not to read them,” Mrs Hendry sighed. Then she saw Zara’s face. “What is it?”' },
@@ -1382,7 +1381,7 @@ export const MAGAZINES: ReadingMagazine[] = [
       },
       {
         id: '86662f93-4bc1-406f-8c74-d4ed0312e5bf',
-        page: 4,
+        page: 3,
         title: 'Why forgetting is good for you',
         type: 'explanation',
         columns: 2,
@@ -1402,7 +1401,7 @@ export const MAGAZINES: ReadingMagazine[] = [
       },
       {
         id: 'e0582eaf-4b11-4462-ac30-e8b98b0db9bc',
-        page: 5,
+        page: 4,
         title: 'The case for handwriting',
         type: 'persuasive',
         blocks: [
@@ -1418,7 +1417,7 @@ export const MAGAZINES: ReadingMagazine[] = [
       },
       {
         id: '4e37c461-8d5e-4fd5-9c72-1ddd43c66389',
-        page: 6,
+        page: 5,
         title: 'Migration',
         type: 'poem',
         blocks: [
@@ -1455,7 +1454,7 @@ export const MAGAZINES: ReadingMagazine[] = [
       },
       {
         id: 'a228e875-3426-4055-bbb5-2e30da6b2c00',
-        page: 7,
+        page: 6,
         title: 'The wire that shrank the world',
         type: 'report',
         blocks: [
@@ -1470,7 +1469,7 @@ export const MAGAZINES: ReadingMagazine[] = [
       },
       {
         id: '379a1efb-cedb-4444-b84d-30aa30fe8f6c',
-        page: 8,
+        page: 7,
         title: 'Local family discovers “outside”',
         type: 'news',
         blocks: [
@@ -1487,7 +1486,7 @@ export const MAGAZINES: ReadingMagazine[] = [
       },
       {
         id: 'b2810061-b810-4e2d-bf1c-416277f5e8ec',
-        page: 9,
+        page: 8,
         title: 'The Glass Orchard',
         type: 'review',
         blocks: [
@@ -1503,7 +1502,7 @@ export const MAGAZINES: ReadingMagazine[] = [
       },
       {
         id: '644002de-7d7c-486d-b00b-9ac838c1cbc5',
-        page: 10,
+        page: 9,
         title: 'Food waste in Westvale',
         type: 'report',
         blocks: [

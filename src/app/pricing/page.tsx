@@ -63,8 +63,8 @@ export default async function PricingPage() {
         </h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
           {[
-            `Every ${PLAN_TOTALS.range} paper — ${PLAN_TOTALS.papers} today across Maths, English and Science`,
-            'NAPLAN-style Numeracy, Reading and Language Conventions papers',
+            `Every ${PLAN_TOTALS.range} paper — ${PLAN_TOTALS.papers} today across Maths, Reading, Language Conventions and Science`,
+            'NAPLAN-style Numeracy, Reading and Language Conventions papers, with a colour Reading Magazine for each Reading paper',
             'A separate printable answer key for every paper',
             'Every child and every year level in your family, on one plan',
             'New papers as they are added, at no extra cost',
