@@ -1331,71 +1331,218 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "yearLevel": "year_9",
     "title": "Reading Year 9 — Practice Paper 1",
     "total_minutes": 65,
+    "magazine_id": "reading-year_9-1",
     "sections": [
       {
-        "title": "The Cartographer",
+        "title": "The keeper’s daughter — page 2 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "a4972426-c954-44c5-854f-daa33ffd84c7",
-          "ce8e5578-ebfd-469a-ade0-1b6d86fba0f4",
-          "66cc3bdd-0325-4e84-bf3c-caaab8a72447",
-          "634c8f7f-6963-4a59-8a2a-ce0b9a270928",
-          "72652fc2-9fb4-42da-99c3-cc5813974675",
-          "4cf3ed6a-40f6-40ec-aa52-934454aa3633"
+          "79432cb5-0ce2-4754-8285-997f9eea01e6",
+          "63d6f894-9c52-4dc3-8fa8-59bf658649fb",
+          "3431a020-32b4-4eb6-8dc8-375121f78fe8",
+          "c1b75f7e-91aa-4927-977b-f787a7a9d3cb",
+          "ed9591b7-831b-4ec5-9f27-48f2350cb016",
+          "181c0b95-8d80-44bf-8243-0d84a8b08b74",
+          "fa829f93-cc4b-4ea9-9ece-3866f275d65d",
+          "f985ecbd-a12d-4503-9257-c588b6eeed76"
         ]
       },
       {
-        "title": "The Case Against the Smartphone Ban",
+        "title": "Why forgetting is good for you — page 4 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "cd5864c8-baa4-4118-a01e-757f7a3298d0",
-          "ebbb8c2a-b600-4f24-b318-d4df0125f936",
-          "6672d02a-b7d5-435d-94bd-1364e8f5c6a0",
-          "6f83dbc5-de31-4b33-94b1-ec00dd43fc18",
-          "9e4feb9f-ec72-4f6f-b931-49d99ffa9446",
-          "ef12913c-eb84-4c60-b17b-cb694519d641"
+          "0cfad9f4-093e-4cc4-a21e-c1f47c38f433",
+          "f1a507cf-3509-489f-bd92-2b32a7df4bea",
+          "f810a1b4-3e55-4801-b3c7-0a5cc6081708",
+          "a956f717-e92b-46eb-b2b6-016639a61b8b",
+          "a693ffdf-d04a-4f1b-adc6-ab634bb96585",
+          "4b097d96-6717-4cb9-948c-b04cd6a5db2d",
+          "4427040d-a7b4-474b-a429-72d7f842b290"
         ]
       },
       {
-        "title": "Inheritance",
+        "title": "The case for handwriting — page 5 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "00a0264e-ccf1-431e-9786-0f71f4db9ccc",
-          "5c1dde5f-47bc-49b2-9cdf-cf5e4a92eca6",
-          "0eb1bdba-385f-4f9a-a8fe-9210b4e87dca",
-          "517e9b0c-9b95-4ca1-b2d2-77e0c7c1f40d",
-          "dd52e21c-e64c-4eee-85cb-5f36b6a4453a",
-          "92dd4384-36ef-419a-9987-50919828886f"
+          "a70f7f4e-1bad-4bd4-a60a-ea0ecd40225f",
+          "9ce0571f-cc5f-4b9c-9a41-1a12133b85fb",
+          "5923b369-7881-495f-b8f6-23b4a9096898",
+          "3c1166a5-f18d-4ddf-a4cf-9b7146fa100a",
+          "e69c8eb1-345d-423b-b197-084f6cf798e2",
+          "6f2b0977-3f97-4f81-b038-7dfd161846b6",
+          "ea1e8fa8-d601-4f05-8f55-8a07438cadd9"
         ]
       },
       {
-        "title": "In Defence of Difficult Books",
+        "title": "Migration — page 6 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "651173e8-28b0-4186-80cc-863133c94736",
-          "76076063-6220-4a4a-bd3e-48e1dd73d6a4",
-          "5680cb3b-69ba-4840-8c2d-c6e6484d13fc",
-          "7e2011bd-24f5-4380-9070-2cf909d56020",
-          "e5453a42-fe8b-4dc5-9d2a-0cb06a0d53ca",
-          "38e2ae16-12d1-4b82-92f1-4ab4b0d55dc4"
+          "f51d6da0-a77f-475e-97dd-3594da2bcec6",
+          "f515d161-0430-4a41-bc97-f58f6badf151",
+          "42405209-7860-42eb-8917-ba5290f1984f",
+          "42a754bd-c426-4af9-96be-eb7df3eab02b",
+          "07186016-a8c3-4c19-9820-1aa975c35010",
+          "458d724e-4967-48db-bb20-fe75aac3a7ba"
         ]
       },
       {
-        "title": "Short texts",
+        "title": "The wire that shrank the world — page 7 of the magazine",
         "time_minutes": 0,
         "question_ids": [
-          "f8f0d371-501c-4e1e-8a34-ba7636d6558d",
-          "27871b25-bb65-41f1-8e4b-7a279d3863a2",
-          "c711af90-db1d-490b-bd37-0bfaeec82ce2",
-          "c9b26a99-93a8-4f9e-a2ca-d3d179f86c82",
-          "c24ec5ba-c02c-490c-9280-bd43f2ab8fbc",
-          "86e231ab-152a-4667-b3c4-fa0eae66e68a",
-          "b14e5dea-c2e6-481e-bedb-6e0a50e9ac6c",
-          "003fdb98-9abc-4c75-b284-254f15d65833"
+          "7804137f-c0ba-4810-8e2e-2feedaa068f8",
+          "f40eb7d6-21fe-4898-ac4c-7440842915f1",
+          "5f4570ac-fd88-4c61-b7e6-ede60510e5df",
+          "88c9e310-1feb-4425-acea-9baf62cd4527",
+          "f3363b73-6bd6-4606-a3ec-1652302d9211",
+          "7c2378be-89ee-4272-b774-055b09144771",
+          "3c6c31fd-5ef6-476c-8b17-aaff3b42784d"
+        ]
+      },
+      {
+        "title": "Local family discovers “outside” — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "adafdce2-26f9-4add-8d4d-1de7d1a145ae",
+          "0eb34553-d30f-45c2-84a2-8f8549cacab7",
+          "033f180e-352d-4378-8662-1425b91ca7c0",
+          "3822b3ca-2e04-47ba-b406-40f3e9b66007",
+          "01fd8397-685f-4f48-9507-fa622d7f300b"
+        ]
+      },
+      {
+        "title": "The Glass Orchard — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "1bb76b9f-f671-4e74-8faf-bbdb01f95ffa",
+          "7d338329-5b37-466c-b9d5-78ad855b4d96",
+          "9ea5fbcd-c226-4556-a79a-b8ebfe8e97f6",
+          "4e815851-b83f-4ebd-93d3-1adbafcff95a",
+          "a00e5149-dede-49e5-b58a-c1fe42945be8"
+        ]
+      },
+      {
+        "title": "Food waste in Westvale — page 10 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "2bada62e-f640-475c-9f64-be89abfe9f31",
+          "5b18f8cf-b041-41fc-8724-f41279354d53",
+          "85b66f27-92e3-4c6b-b17c-ed6043da2b68",
+          "7a88cbfa-8f07-409f-a60d-0c19484c57a0",
+          "dbfe5efe-7f6e-4d4f-8395-fddb1ac23adf"
         ]
       }
     ],
     "premium": false
+  },
+  {
+    "id": "reading-year_9-2",
+    "subject": "reading",
+    "yearLevel": "year_9",
+    "title": "Reading Year 9 — Practice Paper 2",
+    "total_minutes": 65,
+    "magazine_id": "reading-year_9-2",
+    "sections": [
+      {
+        "title": "The tapes — page 2 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "96c18e2f-9e4a-44b7-809e-77bd8fdc2818",
+          "bfd421b3-61e3-4a40-a059-4275a325f0f8",
+          "53239942-9897-48e8-bdee-52220ca5cc2b",
+          "d6792506-b149-4a05-b6f2-ddd22bb0e6a8",
+          "870ff225-54f2-4c1c-8f30-bddaa81b9b19",
+          "3efaae0f-5ebf-41eb-91a0-b9072d3d9585",
+          "6f30a748-f6d1-4002-b69d-ae5ab96c9ded",
+          "8396c304-9848-45cc-8e74-99c10089592b"
+        ]
+      },
+      {
+        "title": "Stage fright: your body’s false alarm — page 4 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "e018eb52-14a8-41f1-97a3-fbcd239f690a",
+          "55a01613-da8a-46c8-97f6-df7ff56d03ed",
+          "2d966041-84c8-4789-8559-7c62627dc472",
+          "e3a41a90-ddeb-4063-921f-034c76f9d362",
+          "83dbbd23-5b6f-42d7-99a0-89994f51a0f0",
+          "9fc8ea09-dd22-441b-8281-f8483bbb1644",
+          "4a3220b0-c3c8-4b3b-b6af-4d34d9870bff"
+        ]
+      },
+      {
+        "title": "Sixteen is old enough — page 5 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "7cbd99b7-596a-4d7c-a2ad-9d419cafd70e",
+          "130ce572-b1b6-4014-af6f-e793e19a6c12",
+          "3abff77f-fda1-4bf2-bae6-f471aaeda7c3",
+          "73e2824e-3272-403b-b3de-d8ff4c318b24",
+          "a41ae95c-69a2-4d52-9beb-6e22a6d4e8a3",
+          "0571f8a7-c37c-4cbd-8422-7c8938019ccc",
+          "c8807505-97ee-4dd8-8f3c-5a0945094d22"
+        ]
+      },
+      {
+        "title": "What the river knows — page 6 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "ac4ec9db-3f58-4543-9a11-9fad7e970abd",
+          "21ad8500-f5ab-42cc-a95d-3a605a5a132c",
+          "c8ec2f3c-a37c-45b5-a6df-acdc96ff9981",
+          "7f2cf3e1-aa21-4433-85a6-21f48e7caf2c",
+          "d9edc0e5-d220-4937-a8dd-1d46ac908337",
+          "befafd77-e751-4f26-96bd-668fe7a4a0d8"
+        ]
+      },
+      {
+        "title": "Marie Tharp: mapping the ocean floor — page 7 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "91a1aad1-ce59-4300-8e8e-9f0a239833d2",
+          "d08874a0-c5e4-46d4-81f7-0ab3e8ed68fa",
+          "63f86021-4838-4876-88c4-93cb50ee4371",
+          "95e21b24-4d96-4320-a244-04d6db646e01",
+          "c37bc0bb-2a18-49b7-a2cc-7758dd44587f",
+          "26302bb6-098b-41b2-80e6-913516d3f211"
+        ]
+      },
+      {
+        "title": "Caught in a rip — page 8 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "aae98919-d9f6-424d-b816-e99295789060",
+          "fb8bd2aa-9082-4f2b-a30a-d75199e3f95c",
+          "76f06ca0-79c8-4ed7-9d78-852aba136e9b",
+          "a98e55b5-5cc4-4298-89d9-631aff4da39e",
+          "1e6d6137-ad14-4120-b53c-f1e826d5745a",
+          "134dd666-ad24-41f7-b2ca-4920fbbdc301"
+        ]
+      },
+      {
+        "title": "The new Harbourside Library — page 9 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "820b5502-88e6-4ae2-a183-3a6c7d3597de",
+          "75f7e28d-b7e4-415e-80c0-f9f5f4deab9d",
+          "9fbdee33-f448-4488-b1c6-772855638c91",
+          "d9505771-cbf8-4adb-9959-9051d27e6205",
+          "243152f0-44ad-48e1-b070-a167eb20edaa"
+        ]
+      },
+      {
+        "title": "Riverton Dam over ten summers — page 10 of the magazine",
+        "time_minutes": 0,
+        "question_ids": [
+          "0187b010-ca1d-4ba0-b14a-f99a6c5f6e5d",
+          "42d3e903-ae28-4953-8fc6-80b7aa02797d",
+          "ca787a32-af9f-4a70-a8a3-0f90165c0f5d",
+          "540971b2-8aee-44d7-994f-86a280fc1a85",
+          "bb4fb93b-001a-41c2-b0c5-7afd08ddefec",
+          "401ae139-58b9-4ef1-ab95-929e42884c85"
+        ]
+      }
+    ],
+    "premium": true
   },
   {
     "id": "english-grade_3-1",

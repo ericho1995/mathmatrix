@@ -45,7 +45,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
 }
 
 /** Every question in the bank, including those only on the printable papers. */
-export const QUESTION_TOTAL = 2991
+export const QUESTION_TOTAL = 3092
 
 /** Total questions available for a topic, across every year level. */
 export function topicTotal(topic: TopicSlug): number {
