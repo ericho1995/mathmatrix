@@ -18,6 +18,55 @@ than an error, and a truncated SQL paste still parses as valid SQL.
 > are done. **Part P** at the end is the setup the new pricing needs, and it
 > supersedes B1 and the price variables in Part C.
 
+## Where things stand (2026-09-23)
+
+| | Status |
+|---|---|
+| Live database: schema, questions and passages | ✓ Done. All migrations applied; `load-questions --write` run after the Reading merge (0 missing). |
+| Stripe and Vercel setup (Part P1–P5) | ✓ Done and checked on 2026-09-22. |
+| Reading magazines, Language Conventions split, copy fixes | ✓ Live (PR #5). |
+| **One real test purchase (P6)** | **Still to do — only you can.** A payment can't be made on your behalf. It is the only proof the price ids and webhook are right. |
+
+**The one thing left for you:** follow P6 below — purchase a plan, check the
+paid papers open, cancel from the account page; then purchase one VCE paper.
+If anything fails, the webhook log in Stripe (Developers → Webhooks → the
+endpoint → recent deliveries) shows why.
+
+**After any content change**, run `node scripts/load-questions.mjs --write`
+(needs `SUPABASE_SERVICE_ROLE_KEY` in `.env.local`). It now loads passages and
+magazine texts first, then questions. Without it, a student marking a paper
+that uses new questions gets "Could not save this result".
+
+## Part R — Reading magazines (2026-09-23)
+
+What changed, so the next person knows where things live:
+
+- **Reading is its own subject.** Each NAPLAN year (Grade 3, 5, Years 7, 9)
+  has three Reading papers — one free, two paid — each with its own colour
+  magazine PDF (`/api/exams/<id>/magazine`) and question paper. Texts live in
+  `src/lib/questions/magazines.ts`; questions in `bank.ts`, pointing at a text
+  by `stimulus_id`. Grades 4, 6 and Years 8, 10 have one free passage-based
+  Reading paper.
+- **English is shown as Language Conventions.** The slug is still `english`,
+  so exam ids and purchases are unchanged.
+- **Science is not offered at Grades 3, 5, 7 or 9** (NAPLAN doesn't test it).
+- **Every Reading paper can be sat on screen** at `/practice/reading/<id>`.
+- **No migration was needed.** Magazine texts are stored in `stimuli` with
+  subject `english`, which the database already accepts.
+
+Adding a magazine: write the texts in `magazines.ts` with `id: 'new'`, then
+
+```bash
+node scripts/authoring/assign-text-ids.mjs
+node scripts/authoring/append-reading.mjs <items.mjs> <year_level> BANK_PART_<n>
+npm run gen
+npm run verify-bank
+```
+
+and open `/api/dev/magazines` on the dev server: it reports any text that does
+not print on the page the paper names. `set-text-pages.mjs` fixes the page
+numbers when a text runs onto a second page.
+
 ---
 
 ## Part A — Bring the live database up to date
@@ -211,7 +260,7 @@ curl -s -X POST https://prepnest.com.au/api/checkout \
 
 | Response | Meaning |
 |---|---|
-| `401 {"error":"Sign in to buy"}` | **Correct.** Stripe is wired up; checkout needs an account so the entitlement has somewhere to attach. |
+| `401 {"error":"Sign in to purchase"}` | **Correct.** Stripe is wired up; checkout needs an account so the entitlement has somewhere to attach. |
 | `503 "Payments are not configured"` | `STRIPE_SECRET_KEY` didn't land, or you didn't redeploy. |
 | `503 "No price configured for year_9"` | The price ids didn't land, or you pasted a `prod_` id. |
 
@@ -280,23 +329,14 @@ exercises all three.
 
 ## Two decisions — both now made (2026-09-22)
 
-Refund policy: **7 days, no questions asked**, set by `REFUND_DAYS` in
-`src/lib/pricing.ts` and shown on /terms and in the FAQ. Analytics: **Vercel Web
+Refunds: **not advertised** (decided 2026-09-23). They are given case by case
+when needed, the site no longer mentions them, and `REFUND_DAYS` was removed. Analytics: **Vercel Web
 Analytics** is in the root layout; enable it under Vercel → Analytics. Error
 monitoring (Sentry) is still not set up.
 
 The original notes follow.
 
-**1. Refund policy.** `terms/page.tsx` (447 words) and `privacy/page.tsx` (571
-words) don't mention payments, refunds, or Stripe at all. You need this for
-Stripe onboarding and under Australian Consumer Law, and it's a business call I
-shouldn't make for you.
-
-My suggestion: a **7-day no-questions refund**, with the free sample paper at
-every year level as the reason it's safe to offer — a customer can see the
-product before paying, so genuine refund requests will be rare, and the promise
-removes the main hesitation on a $29 purchase from an unknown brand. Tell me
-your answer and I'll write both pages.
+**1. Refund policy.** Superseded: refunds are handled case by case and not advertised.
 
 **2. Analytics and error monitoring.** There is none of either — no GA,
 Plausible, PostHog, Vercel Analytics, Sentry. Two consequences: you can't tell
@@ -380,7 +420,7 @@ Merge the pull request (Vercel deploys `main`). Then, signed in:
 3. `/account` → **Manage or cancel plan** opens Stripe's portal. Cancel there;
    the account page then says "cancelled — access ends <date>" and papers stay
    open until then.
-4. A paid VCE paper → **Buy this paper — $20** → pay → it downloads.
+4. A paid VCE paper → **Purchase this paper — $20** → pay → it downloads.
    `select * from paper_purchases;` — one row.
 
 Specials: checkout accepts Stripe **promotion codes**. Create a coupon and a

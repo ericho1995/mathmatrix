@@ -93,7 +93,7 @@ export default function NaplanPage() {
             <Domain
               name="Reading"
               covered
-              body="A colour Reading Magazine of stories, poems, reports and persuasive texts, plus a question paper that sends students to each text by page — the same two booklets as the real test."
+              body="A colour Reading Magazine of stories, poems, reports and persuasive texts, plus a question paper that sends students to each text by page — the same two booklets as the real test. Every Reading paper can also be sat on screen, the way NAPLAN Online runs."
             />
             <Domain
               name="Conventions of Language"
@@ -234,6 +234,14 @@ function YearCard({ yearLevel }: { yearLevel: YearLevel }) {
               <FileText className="w-4 h-4 shrink-0" aria-hidden />
               {TEST_NAME[e.subject] ?? e.subject} — free paper
             </Link>
+            {e.subject === 'reading' && (
+              <>
+                {' · '}
+                <Link href={`/practice/reading/${e.id}` as Route} className="text-sm text-brand-600 hover:underline">
+                  try it on screen
+                </Link>
+              </>
+            )}
           </li>
         ))}
       </ul>

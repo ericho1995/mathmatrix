@@ -13,10 +13,13 @@ export default function ExamDownload({
   access,
   summary,
   yearLevel,
+  onScreen,
 }: {
   examId: string
   title: string
   splitEligible?: boolean
+  /** Reading papers can also be sat on screen, NAPLAN Online style. */
+  onScreen?: boolean
   /** Why this visitor may download — changes only the note under the title. */
   access: AccessReason
   summary?: PaperSummary
@@ -43,6 +46,19 @@ export default function ExamDownload({
       <p className="text-sm text-gray-400 mb-6">{note}</p>
 
       {summary && <PaperFacts summary={summary} />}
+
+      {onScreen && (
+        <div className="card text-left mb-6 border-brand-100 bg-brand-50/40">
+          <p className="font-medium text-sm mb-1">Prefer a screen?</p>
+          <p className="text-sm text-gray-600 mb-3">
+            NAPLAN Reading is sat online. Read each text and answer its questions side by side, then see every answer
+            explained.
+          </p>
+          <Link href={`/practice/reading/${examId}` as Route} className="btn-primary w-full block text-center">
+            Read it on screen
+          </Link>
+        </div>
+      )}
 
       {splitEligible ? (
         <>
