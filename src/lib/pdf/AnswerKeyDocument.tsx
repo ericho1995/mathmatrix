@@ -3,10 +3,12 @@ import { pdfStyles, BRAND_BLUE } from './theme'
 import { Watermark, PageFooter } from './Brand'
 import { firstQuestionNumbers } from './resolveExam'
 import type { ResolvedExam } from './resolveExam'
+import { PreviewEndPage } from './PreviewPages'
+import type { PreviewInfo } from './preview'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
-export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
+export function AnswerKeyDocument({ resolved, preview }: { resolved: ResolvedExam; preview?: PreviewInfo }) {
   const { exam, sections } = resolved
   const sectionStart = firstQuestionNumbers(sections)
 
@@ -15,11 +17,15 @@ export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
       <Page size="A4" style={pdfStyles.page}>
         <Watermark />
         <Text style={{ fontSize: 10, fontWeight: 700, color: BRAND_BLUE, marginBottom: 10, textTransform: 'uppercase', letterSpacing: 1 }}>
-          PrepNest — Answer Key
+          {preview ? 'PrepNest — Answer Key (free preview)' : 'PrepNest — Answer Key'}
         </Text>
         <Text style={pdfStyles.coverTitle}>{exam.title} — Answers &amp; Explanations</Text>
-        <Text style={pdfStyles.coverSubtitle}>For a parent, tutor, or the student to mark the exam paper against.</Text>
-        {sections.map((s, si) => (
+        <Text style={pdfStyles.coverSubtitle}>
+          {preview
+            ? `Answers to the ${preview.shown} questions in the free preview.`
+            : 'For a parent, tutor, or the student to mark the exam paper against.'}
+        </Text>
+        {sections.map((s, si) => s.questions.length === 0 ? null : (
           <View key={si}>
             <Text style={pdfStyles.sectionHeader}>{s.section.title}</Text>
             {s.questions.map((q, qi) => {
@@ -62,8 +68,9 @@ export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
             })}
           </View>
         ))}
-        <PageFooter examTitle={`${exam.title} — Answers`} />
+        <PageFooter examTitle={preview ? `${exam.title} — Answers · Free preview` : `${exam.title} — Answers`} />
       </Page>
+      {preview ? <PreviewEndPage info={preview} examTitle={exam.title} kind="answers" /> : null}
     </Document>
   )
 }

@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import type { Metadata, Route } from 'next'
+import { notFound, redirect } from 'next/navigation'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { MAGAZINES } from '@/lib/questions/magazines'
 import { resolveExam, firstQuestionNumbers, type ResolvedQuestion } from '@/lib/pdf/resolveExam'
-import { canOpen, getAccess } from '@/lib/auth/access'
+import { getAccess } from '@/lib/auth/access'
+import { paperDownload } from '@/lib/pdf/paperDownload'
 import { lockPropsFor } from '@/lib/exams/lockProps'
 import { paperMinutes } from '@/lib/exams/paperTime'
 import PremiumExamLock from '@/components/practice/PremiumExamLock'
@@ -51,8 +52,12 @@ export default async function ReadingOnScreenPage({ params }: { params: { id: st
   const resolved = exam ? resolveExam(exam.id) : null
   if (!exam || !resolved) notFound()
 
+  // On screen, the whole paper is shown, so only a visitor who may download
+  // the whole paper gets it; a preview-only visitor goes to the paper page.
   const access = await getAccess()
-  if (!canOpen(exam, access)) return <PremiumExamLock {...lockPropsFor(exam)} />
+  const download = paperDownload(exam, access)
+  if (download?.mode === 'preview') redirect(`/practice/exams/${exam.id}` as Route)
+  if (!download) return <PremiumExamLock {...lockPropsFor(exam)} />
 
   const magazine = exam.magazine_id ? MAGAZINES.find(m => m.id === exam.magazine_id) : undefined
   const starts = firstQuestionNumbers(resolved.sections)

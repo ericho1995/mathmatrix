@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
-import { accessReason, getAccess } from '@/lib/auth/access'
+import { getAccess } from '@/lib/auth/access'
 import { resolveExam, isSplitEligible } from '@/lib/pdf/resolveExam'
+import { paperDownload } from '@/lib/pdf/paperDownload'
+import { previewOf } from '@/lib/pdf/preview'
 import { summarisePaper } from '@/lib/catalogue'
 import { lockPropsFor } from '@/lib/exams/lockProps'
 import { isVceYear, VCE_PAPER_PRICE } from '@/lib/pricing'
@@ -42,15 +44,20 @@ export default async function ExamPage({
     )
   }
 
-  // What this page renders. The PDF routes re-check access independently.
+  // What this page renders. The PDF routes re-check access independently,
+  // through the same paperDownload decision.
   const access = await getAccess()
-  const reason = accessReason(exam, access)
+  const download = paperDownload(exam, access)
   // Stripe's success_url for a VCE paper lands here. Only a signed-in visitor
   // can have paid, so anyone else who typed the parameter sees nothing.
   const justBought = access.signedIn && searchParams?.purchased === '1' && exam.premium
+  const resolved = resolveExam(exam.id)
+  const previewInfo = download?.mode === 'preview' && resolved ? previewOf(resolved).info : undefined
+  const preview = previewInfo
+    ? { shown: previewInfo.shown, total: previewInfo.total, magazine: Boolean(exam.magazine_id) }
+    : undefined
 
-  if (reason) {
-    const resolved = resolveExam(exam.id)
+  if (download?.mode === 'full' || (preview && !exam.premium)) {
     return (
       <>
         {justBought && (
@@ -61,11 +68,12 @@ export default async function ExamPage({
         <ExamDownload
           examId={exam.id}
           title={exam.title}
-          splitEligible={resolved ? isSplitEligible(resolved) : false}
-          access={reason}
+          splitEligible={resolved && !preview ? isSplitEligible(resolved) : false}
+          access={download?.mode === 'full' ? download.reason : 'free'}
+          preview={preview}
           summary={summarisePaper(exam)}
           yearLevel={exam.yearLevel}
-          onScreen={exam.subject === 'reading'}
+          onScreen={exam.subject === 'reading' && !preview}
         />
       </>
     )
@@ -78,7 +86,7 @@ export default async function ExamPage({
           <PurchaseBanner kind="paper" settled={false} />
         </div>
       )}
-      <PremiumExamLock {...lockPropsFor(exam)} />
+      <PremiumExamLock {...lockPropsFor(exam)} preview={preview} />
     </>
   )
 }

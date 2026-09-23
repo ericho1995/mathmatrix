@@ -27,6 +27,7 @@ export default function PremiumExamLock({
   plan,
   freeSample,
   backHref,
+  preview,
 }: {
   examId: string
   title: string
@@ -39,6 +40,12 @@ export default function PremiumExamLock({
   /** The free paper in the same subject and year, when there is one. */
   freeSample?: { id: string; title: string; subjectLabel: string }
   backHref?: Route
+  /**
+   * Set when paid papers offer a free preview (lib/pdf/previewPolicy.ts). The
+   * PDF routes serve the preview to this visitor on their own; this only
+   * shows the buttons.
+   */
+  preview?: { shown: number; total: number; magazine?: boolean }
 }) {
   return (
     <main className="max-w-md mx-auto px-4 py-10 text-center flex-1 w-full">
@@ -70,6 +77,26 @@ export default function PremiumExamLock({
         </Link>
       ) : (
         <p className="text-xs text-gray-400 mb-3">Plans open soon. The free sample papers are available now.</p>
+      )}
+
+      {preview && (
+        <div className="card text-left mb-3">
+          <p className="font-medium text-sm mb-1">Try part of it first</p>
+          <p className="text-sm text-gray-600 mb-3">
+            Download the first {preview.shown} of the {preview.total} questions and their answers, free.
+          </p>
+          {preview.magazine && (
+            <a href={`/api/exams/${examId}/magazine`} className="btn-secondary w-full mb-2 block text-center">
+              Download magazine preview (PDF)
+            </a>
+          )}
+          <a href={`/api/exams/${examId}/pdf`} className="btn-secondary w-full mb-2 block text-center">
+            Download free preview (PDF)
+          </a>
+          <a href={`/api/exams/${examId}/answers`} className="text-sm text-brand-600 underline">
+            Preview answers (PDF)
+          </a>
+        </div>
       )}
 
       {freeSample && (
