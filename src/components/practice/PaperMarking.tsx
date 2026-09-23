@@ -83,7 +83,7 @@ export default function PaperMarking({
   }, [byTopic])
 
   const practiceHref =
-    `/practice?subject=${subject}&grade=${yearLevel}&topics=${weakTopics.join(',')}` as Route
+    `/practice?subject=${subject}&grade=${yearLevel}&topics=${weakTopics.join(',')}&from=paper` as Route
 
   /** Sends the marked positions — never question ids, never answers. */
   async function saveResult() {

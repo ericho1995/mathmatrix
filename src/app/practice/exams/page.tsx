@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import type { Route } from 'next'
 import type { PracticeExam } from '@/lib/questions/exams'
-import PracticeModeTabs from '@/components/practice/PracticeModeTabs'
 import PurchaseBanner from '@/components/practice/PurchaseBanner'
 import ScrollActiveIntoView from '@/components/practice/ScrollActiveIntoView'
 import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, isVceYear } from '@/lib/pricing'
@@ -65,8 +64,6 @@ export default async function ExamsPage({
       </p>
 
       {subscribed && <PurchaseBanner kind="plan" settled={access.admin || Boolean(access.plan)} />}
-
-      <PracticeModeTabs />
 
       {/* The pricing sentence a visitor reads before anything else — it must
           match what checkout actually sells. */}

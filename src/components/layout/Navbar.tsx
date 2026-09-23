@@ -43,7 +43,7 @@ export default function Navbar({ user }: { user: NavUser | null }) {
     { href: '/naplan' as Route, label: 'NAPLAN', match: exact('/naplan') },
     { href: '/vce' as Route, label: 'VCE', match: exact('/vce') },
     // Exact, not "within": /practice/exams must not light this up too.
-    { href: '/practice', label: 'Practice', match: exact('/practice') },
+    { href: '/practice', label: 'Free practice', match: exact('/practice') },
     { href: '/pricing' as Route, label: 'Pricing', match: exact('/pricing') },
     ...(user?.role === 'student'
       ? [{ href: '/leaderboard' as Route, label: 'Leaderboard', match: exact('/leaderboard') }]
