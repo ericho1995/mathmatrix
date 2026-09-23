@@ -3,10 +3,12 @@ import Image from 'next/image'
 import type { Route } from 'next'
 import FAQAccordion from '@/components/home/FAQAccordion'
 import LookInside from '@/components/marketing/LookInside'
+import LibraryGrowth from '@/components/marketing/LibraryGrowth'
 import PaperStack from '@/components/marketing/PaperStack'
 import { ArrowRight, BarChartHorizontal, Check, Download, FileCheck, FileText, GraduationCap, Newspaper, PenLine, SquareFunction, Target, Timer, Users, type LucideIcon } from 'lucide-react'
 import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, perMonth, perPaper, savingPercent } from '@/lib/pricing'
-import { CATALOGUE_TOTALS, PLAN_TOTALS } from '@/lib/catalogue'
+import { CATALOGUE_TOTALS, PLAN_TOTALS, releasesIn } from '@/lib/catalogue'
+import { formatReleaseDate } from '@/lib/releases'
 import { HOME_FAQS } from '@/lib/faqs'
 import { TOPIC_REPORT } from '@/lib/samples'
 import {
@@ -40,6 +42,11 @@ export default function MarketingHome() {
   const vceDays = daysUntil(VCE_EXAM_PERIOD_2026.start)
   const vceOver = daysUntil(VCE_EXAM_PERIOD_2026.end) < 0
   const yearPlan = PLANS.find(p => p.id === 'year') ?? PLANS[PLANS.length - 1]
+  const releases = releasesIn('all')
+  const latest = releases[0]
+  const addedThisMonth = releases
+    .filter(r => -daysUntil(r.release.date) <= 30)
+    .reduce((n, r) => n + r.papers.length, 0)
 
   return (
     <main className="flex-1">
@@ -85,10 +92,17 @@ export default function MarketingHome() {
         </div>
       </section>
 
-      {/* What's coming up — the reason a parent is looking today. */}
-      {(naplan || !vceOver) && (
+      {/* What's coming up — the reason a parent is looking today — and the
+          latest release, so the first screen already shows the library moving. */}
+      {(naplan || !vceOver || latest) && (
         <section className="border-y border-gray-100 bg-brand-50/60">
           <div className="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-center gap-x-10 gap-y-2 text-sm text-center">
+            {latest && (
+              <Link href={'/whats-new' as Route} className="text-gray-700 hover:text-brand-600">
+                <span className="font-medium text-teal-600">New</span> {latest.papers.length}{' '}
+                {latest.papers.length === 1 ? 'paper' : 'papers'} added {formatReleaseDate(latest.release.date)} →
+              </Link>
+            )}
             {!vceOver && (
               <Link href={'/vce' as Route} className="text-gray-700 hover:text-brand-600">
                 <span className="font-medium text-brand-600">VCE exams</span>{' '}
@@ -112,9 +126,13 @@ export default function MarketingHome() {
       <section className="max-w-4xl mx-auto px-4 py-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
         {[
           { value: CATALOGUE_TOTALS.papers, label: 'practice papers' },
+          { value: questionsLabel(CATALOGUE_TOTALS.questions), label: 'exam-style questions' },
           { value: CATALOGUE_TOTALS.free, label: 'free to download' },
-          { value: CATALOGUE_TOTALS.questions.toLocaleString('en-AU'), label: 'questions' },
-          { value: CATALOGUE_TOTALS.subjects, label: 'subjects' },
+          // Growth is the better fourth number while it is large; the subject
+          // count stands in when nothing has landed for a while.
+          addedThisMonth >= 5
+            ? { value: addedThisMonth, label: 'papers added in the last month' }
+            : { value: CATALOGUE_TOTALS.subjects, label: 'subjects' },
         ].map(s => (
           <div key={s.label}>
             <p className="text-3xl font-semibold tracking-tight text-gray-900">{s.value}</p>
@@ -220,6 +238,11 @@ export default function MarketingHome() {
         </div>
       </section>
 
+      {/* Will there be more? Answered with dates, just before the price. */}
+      <section className="max-w-5xl mx-auto px-4 pt-20">
+        <LibraryGrowth />
+      </section>
+
       {/* Pricing, stated plainly on the homepage: the three plans at a glance,
           with the full cards and checkout on /pricing. */}
       <section className="max-w-3xl mx-auto px-4 py-20 text-center">
@@ -234,13 +257,13 @@ export default function MarketingHome() {
               key={plan.id}
               href={'/pricing' as Route}
               className={`card relative hover:border-brand-400 transition-colors ${
-                plan.id === 'quarter' ? 'border-brand-500 ring-1 ring-brand-500' : ''
+                plan.id === 'year' ? 'border-brand-500 ring-1 ring-brand-500' : ''
               }`}
             >
               {plan.badge && (
                 <span
                   className={`absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[11px] font-medium text-white ${
-                    plan.id === 'quarter' ? 'bg-brand-600' : 'bg-teal-600'
+                    plan.id === 'year' ? 'bg-brand-600' : 'bg-teal-600'
                   }`}
                 >
                   {plan.badge}
@@ -344,6 +367,11 @@ export default function MarketingHome() {
       </section>
     </main>
   )
+}
+
+/** '3,400+' — a round floor reads as confident and does not go stale with every batch. */
+function questionsLabel(n: number): string {
+  return n >= 1000 ? `${(Math.floor(n / 100) * 100).toLocaleString('en-AU')}+` : String(n)
 }
 
 const FEATURES: { icon: LucideIcon; title: string; body: string }[] = [

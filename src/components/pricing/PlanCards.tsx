@@ -17,7 +17,11 @@ export default function PlanCards({ current }: { current: ActivePlan | null }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
       {PLANS.map(plan => {
-        const featured = plan.id === 'quarter'
+        // The yearly plan is featured: it is the best price per month, and a
+        // family that has paid for the year is not deciding every month
+        // whether to cancel. (It said Most popular on the quarterly plan
+        // before there were any sales to back that up.)
+        const featured = plan.id === 'year'
         const saving = savingPercent(plan)
         const isCurrent = current?.plan?.id === plan.id
         return (

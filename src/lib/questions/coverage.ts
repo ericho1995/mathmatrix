@@ -21,16 +21,16 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   chem_reactions: { year_11: 29 },
   earth_space: { grade_4: 7, grade_6: 8, year_10: 7, year_8: 7 },
   geometry_measurement: { grade_3: 6, grade_4: 6, grade_5: 9, grade_6: 8, year_10: 35, year_7: 25, year_8: 28, year_9: 27 },
-  gm_data_analysis: { year_11: 27, year_12: 22 },
-  gm_financial: { year_11: 26, year_12: 15 },
-  gm_matrices: { year_12: 7 },
-  gm_networks: { year_12: 3 },
+  gm_data_analysis: { year_11: 27, year_12: 33 },
+  gm_financial: { year_11: 26, year_12: 23 },
+  gm_matrices: { year_12: 8 },
+  gm_networks: { year_12: 6 },
   grammar_punctuation: { grade_3: 31, grade_4: 90, grade_5: 30, grade_6: 90, year_10: 90, year_7: 31, year_8: 90, year_9: 30 },
   life_science: { grade_4: 9, grade_6: 9, year_10: 8, year_8: 8 },
-  mm_algebra: { year_12: 7 },
-  mm_calculus: { year_11: 29, year_12: 16 },
-  mm_functions: { year_12: 16 },
-  mm_probability: { year_11: 26, year_12: 18 },
+  mm_algebra: { year_12: 9 },
+  mm_calculus: { year_11: 29, year_12: 22 },
+  mm_functions: { year_12: 20 },
+  mm_probability: { year_11: 26, year_12: 26 },
   number_operations: { grade_3: 22, grade_4: 23, grade_5: 23, grade_6: 24, year_10: 41, year_7: 50, year_8: 46, year_9: 47 },
   number_patterns: { grade_3: 5, grade_4: 9, grade_5: 10, grade_6: 10 },
   phys_electricity: { year_11: 33 },
@@ -45,7 +45,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
 }
 
 /** Every question in the bank, including those only on the printable papers. */
-export const QUESTION_TOTAL = 3443
+export const QUESTION_TOTAL = 3529
 
 /** Total questions available for a topic, across every year level. */
 export function topicTotal(topic: TopicSlug): number {

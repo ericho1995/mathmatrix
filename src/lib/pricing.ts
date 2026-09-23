@@ -31,7 +31,7 @@ export interface Plan {
 
 export const PLANS: Plan[] = [
   { id: 'month', name: '1 month', priceAud: 29, months: 1, billing: 'billed monthly' },
-  { id: 'quarter', name: '3 months', priceAud: 59, months: 3, billing: 'billed every 3 months', badge: 'Most popular' },
+  { id: 'quarter', name: '3 months', priceAud: 59, months: 3, billing: 'billed every 3 months' },
   { id: 'year', name: '12 months', priceAud: 119, months: 12, billing: 'billed yearly', badge: 'Best value' },
 ]
 
