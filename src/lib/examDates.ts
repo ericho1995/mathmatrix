@@ -90,13 +90,22 @@ export function formatLongDate(isoDate: string): string {
   }).format(new Date(Date.UTC(y, m - 1, d)))
 }
 
-/** "10 – 22 March 2027" */
+/**
+ * "10 – 22 March 2027", "27 October – 18 November 2026", "29 December 2026 – 8 January 2027".
+ *
+ * The start date only drops what it shares with the end. It used to drop the
+ * month unconditionally, so the VCE exam period read "27 – 18 November 2026".
+ */
 export function formatWindow(start: string, end: string): string {
   const fmt = (iso: string, opts: Intl.DateTimeFormatOptions) => {
     const [y, m, d] = iso.split('-').map(Number)
     return new Intl.DateTimeFormat('en-AU', { ...opts, timeZone: 'UTC' }).format(new Date(Date.UTC(y, m - 1, d)))
   }
-  return `${fmt(start, { day: 'numeric' })} – ${fmt(end, { day: 'numeric', month: 'long', year: 'numeric' })}`
+  const [sy, sm] = start.split('-')
+  const [ey, em] = end.split('-')
+  const startOpts: Intl.DateTimeFormatOptions =
+    sy !== ey ? { day: 'numeric', month: 'long', year: 'numeric' } : sm !== em ? { day: 'numeric', month: 'long' } : { day: 'numeric' }
+  return `${fmt(start, startOpts)} – ${fmt(end, { day: 'numeric', month: 'long', year: 'numeric' })}`
 }
 
 export function dayWord(n: number): string {

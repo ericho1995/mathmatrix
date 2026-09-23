@@ -28,13 +28,13 @@ export default function PaperStack() {
       <Sheet sample={SAMPLES.answerKey} className="right-[2%] top-[14%] w-[44%] rotate-[8deg]" />
       <Sheet sample={SAMPLES.numeracy} className="left-[26%] top-[4%] w-[48%] -rotate-[1.5deg] z-10" priority />
 
-      <div className="absolute z-20 left-[2%] bottom-[9%] flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 text-xs sm:text-sm font-medium text-gray-800 shadow-lg ring-1 ring-black/5">
+      <div className="absolute z-20 left-[2%] bottom-[15%] sm:bottom-[9%] flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 text-xs sm:text-sm font-medium text-gray-800 shadow-lg ring-1 ring-black/5">
         <span className="w-6 h-6 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center">
           <FileCheck className="w-3.5 h-3.5" />
         </span>
         Every answer explained
       </div>
-      <div className="absolute z-20 right-[3%] bottom-[3%] flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 text-xs sm:text-sm font-medium text-gray-800 shadow-lg ring-1 ring-black/5">
+      <div className="absolute z-20 right-[3%] bottom-[1%] sm:bottom-[3%] flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 text-xs sm:text-sm font-medium text-gray-800 shadow-lg ring-1 ring-black/5">
         <span className="w-6 h-6 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center">
           <BarChartHorizontal className="w-3.5 h-3.5" />
         </span>

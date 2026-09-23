@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     siteName: 'PrepNest',
     locale: 'en_AU',
   },
+  // The share cards themselves are the opengraph-image files beside each page
+  // (home, /naplan, /vce). X reads og:image when it has no twitter:image, but
+  // only shows it large when asked to.
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
 export const viewport: Viewport = {
