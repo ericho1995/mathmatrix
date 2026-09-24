@@ -4,15 +4,27 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import type { Route } from 'next'
 import { useRouter } from 'next/navigation'
+import { GraduationCap, Presentation, Users } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { GRADES } from '@/lib/curriculum'
 import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
 import { safeNext } from '@/lib/auth/safeNext'
+import YearPicker from '@/components/catalogue/YearPicker'
 import type { UserRole, YearLevel } from '@/types'
+
+type SignupRole = Exclude<UserRole, 'admin'>
+
+// Who the account is for. Teachers and tutors share the parent dashboard
+// (src/lib/auth/roles.ts); the 'teacher' role needs supabase/schema_teacher_role.sql.
+const ACCOUNT_TYPES: { role: SignupRole; label: string; sub: string; icon: typeof Users }[] = [
+  { role: 'student', label: 'Student', sub: 'I’m studying', icon: GraduationCap },
+  { role: 'parent', label: 'Parent', sub: 'For my children', icon: Users },
+  { role: 'teacher', label: 'Teacher or tutor', sub: 'For my students', icon: Presentation },
+]
 
 export default function RegisterPage() {
   const router = useRouter()
-  const [role, setRole] = useState<Exclude<UserRole, 'admin'>>('student')
+  const [role, setRole] = useState<SignupRole>('student')
   const [fullName, setFullName] = useState('')
   const [yearLevel, setYearLevel] = useState<YearLevel | ''>('')
   const [email, setEmail] = useState('')
@@ -80,56 +92,71 @@ export default function RegisterPage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-sm">
-        <h1 className="text-2xl font-medium tracking-tight mb-1 text-center">
-          Prep<span className="text-brand-400">Nest</span>
-        </h1>
-        <p className="text-gray-500 text-center mb-8">Create your account</p>
+    <main className="flex-1 flex items-start sm:items-center justify-center px-4 py-10 sm:py-16 bg-gradient-to-b from-brand-50/70 to-white">
+      <div className="w-full max-w-xl rounded-3xl border border-gray-100 bg-white shadow-sm p-6 sm:p-8">
+        <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-2">PrepNest</p>
+        <h1 className="text-2xl font-semibold tracking-tight mb-1">Create your free account</h1>
+        <p className="text-gray-500 mb-6">Download the free sample papers straight away. No card needed.</p>
 
-        <div className="inline-flex rounded-xl border border-gray-100 p-1 mb-6 w-full">
-          <button
-            type="button"
-            onClick={() => setRole('student')}
-            className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-all ${role === 'student' ? 'bg-brand-600 text-white' : 'text-gray-500'}`}
-          >
-            I&apos;m a student
-          </button>
-          <button
-            type="button"
-            onClick={() => setRole('parent')}
-            className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-all ${role === 'parent' ? 'bg-brand-600 text-white' : 'text-gray-500'}`}
-          >
-            I&apos;m a parent
-          </button>
+        <p id="account-type" className="text-sm font-medium text-gray-900 mb-2">
+          Who is this account for?
+        </p>
+        <div className="grid grid-cols-3 gap-2 mb-6" role="radiogroup" aria-labelledby="account-type">
+          {ACCOUNT_TYPES.map(t => {
+            const active = role === t.role
+            const Icon = t.icon
+            return (
+              <button
+                key={t.role}
+                type="button"
+                role="radio"
+                aria-checked={active}
+                onClick={() => setRole(t.role)}
+                className={`text-left rounded-xl border px-3 py-3 transition-colors ${
+                  active
+                    ? 'border-brand-600 bg-brand-50 ring-1 ring-brand-600'
+                    : 'border-gray-200 hover:border-brand-200 hover:bg-brand-50/40'
+                }`}
+              >
+                <Icon className={`w-5 h-5 mb-1.5 ${active ? 'text-brand-600' : 'text-gray-400'}`} aria-hidden />
+                <span className={`block text-sm font-medium leading-tight ${active ? 'text-brand-800' : 'text-gray-900'}`}>
+                  {t.label}
+                </span>
+                <span className="block text-xs text-gray-500 mt-0.5">{t.sub}</span>
+              </button>
+            )
+          })}
         </div>
 
         <form onSubmit={handleRegister} className="flex flex-col gap-4">
+          {role === 'student' && (
+            <div>
+              <p className="text-sm font-medium text-gray-900 mb-2">Your year level</p>
+              {/* Scrolls sideways on a phone rather than stacking three rows. */}
+              <div className="-mx-6 px-6 sm:mx-0 sm:px-0 overflow-x-auto sm:overflow-visible pb-1">
+                <YearPicker
+                  items={GRADES.map(g => ({ yearLevel: g.value }))}
+                  selected={yearLevel || null}
+                  onSelect={setYearLevel}
+                  compact
+                />
+              </div>
+            </div>
+          )}
           <input
             className="input"
             type="text"
             placeholder="Full name"
+            autoComplete="name"
             value={fullName}
             onChange={e => setFullName(e.target.value)}
             required
           />
-          {role === 'student' && (
-            <select
-              className="input"
-              value={yearLevel}
-              onChange={e => setYearLevel(e.target.value as YearLevel)}
-              required
-            >
-              <option value="" disabled>Year level</option>
-              {GRADES.map(g => (
-                <option key={g.value} value={g.value}>{g.label}</option>
-              ))}
-            </select>
-          )}
           <input
             className="input"
             type="email"
             placeholder="Email address"
+            autoComplete="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
@@ -137,7 +164,8 @@ export default function RegisterPage() {
           <input
             className="input"
             type="password"
-            placeholder="Password"
+            placeholder="Password (at least 6 characters)"
+            autoComplete="new-password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             minLength={6}
