@@ -1,6 +1,6 @@
 // ─── User & Auth ─────────────────────────────────────────────────────────────
 
-export type UserRole = 'student' | 'parent' | 'admin'
+export type UserRole = 'student' | 'parent' | 'teacher' | 'admin'
 
 export interface UserProfile {
   id: string
