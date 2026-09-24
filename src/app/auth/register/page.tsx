@@ -11,6 +11,7 @@ import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
 import { safeNext } from '@/lib/auth/safeNext'
 import YearPicker from '@/components/catalogue/YearPicker'
 import type { UserRole, YearLevel } from '@/types'
+import PasswordInput from '@/components/ui/PasswordInput'
 
 type SignupRole = Exclude<UserRole, 'admin'>
 
@@ -161,9 +162,7 @@ export default function RegisterPage() {
             onChange={e => setEmail(e.target.value)}
             required
           />
-          <input
-            className="input"
-            type="password"
+          <PasswordInput
             placeholder="Password (at least 6 characters)"
             autoComplete="new-password"
             value={password}
