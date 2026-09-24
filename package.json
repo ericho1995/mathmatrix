@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit",
     "gen": "node scripts/gen-seed.mjs && node scripts/gen-exams.mjs && node scripts/gen-coverage.mjs && node scripts/gen-math.mjs",
     "verify-bank": "node scripts/verify-bank.mjs",
+    "test": "node --test scripts/tests/*.test.mjs",
     "format": "prettier --write .",
     "prepare": "husky install || echo \"Skipping husky (not a git checkout)\""
   },

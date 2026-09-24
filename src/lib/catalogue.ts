@@ -5,6 +5,7 @@ import { isVceYear } from '@/lib/pricing'
 import { paperMinutes } from '@/lib/exams/paperTime'
 import type { SubjectSlug, YearLevel } from '@/types'
 import { RELEASES, type Release } from '@/lib/releases'
+import { yearLabel } from '@/lib/yearLevels'
 
 /**
  * What the catalogue holds, counted once.
@@ -35,18 +36,14 @@ export interface YearLevelStats {
   exams: PracticeExam[]
 }
 
-const LONG_LABEL: Record<YearLevel, string> = {
-  grade_3: 'Grade 3', grade_4: 'Grade 4', grade_5: 'Grade 5', grade_6: 'Grade 6',
-  year_7: 'Year 7', year_8: 'Year 8', year_9: 'Year 9', year_10: 'Year 10',
-  year_11: 'Year 11', year_12: 'Year 12',
-}
+// The labels live in the client-safe yearLevels.ts (the sign-up form needs them
+// too); re-exported so existing server imports keep working.
+export { yearLabel }
 
-export function yearLabel(yearLevel: YearLevel): string {
-  return LONG_LABEL[yearLevel]
-}
+const YEAR_VALUES = new Set<string>(GRADES.map(g => g.value))
 
 export function isYearLevel(value: unknown): value is YearLevel {
-  return typeof value === 'string' && value in LONG_LABEL
+  return typeof value === 'string' && YEAR_VALUES.has(value)
 }
 
 /** One entry per year level that has at least one paper, in curriculum order. */
@@ -56,7 +53,7 @@ export const YEAR_LEVEL_STATS: YearLevelStats[] = GRADES.map(g => {
   const subjects = ALL_SUBJECTS.map(s => s.slug).filter(slug => exams.some(e => e.subject === slug))
   return {
     yearLevel: g.value,
-    label: LONG_LABEL[g.value],
+    label: yearLabel(g.value),
     shortLabel: g.label,
     papers: exams.length,
     free: exams.filter(e => !e.premium).length,

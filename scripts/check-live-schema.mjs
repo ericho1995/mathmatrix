@@ -134,6 +134,12 @@ const MIGRATIONS = [
     file: 'schema_physics_unit34.sql',
     checks: [() => enumValueExists('questions', 'topic', 'phys_fields')],
   },
+  {
+    // RLS hides profile rows from the anon key, but an unknown enum value is
+    // still rejected when the filter is parsed.
+    file: 'schema_teacher_role.sql',
+    checks: [() => enumValueExists('profiles', 'role', 'teacher')],
+  },
 ]
 
 const EXPECTED_QUESTIONS = 1800 // seed.sql currently carries 1,825

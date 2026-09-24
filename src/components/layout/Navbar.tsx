@@ -6,11 +6,13 @@ import type { Route } from 'next'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
+import { dashboardLabel, isGuardianRole } from '@/lib/auth/roles'
+import type { UserRole } from '@/types'
 
 export interface NavUser {
   email: string
   fullName: string
-  role: 'student' | 'parent' | 'admin'
+  role: UserRole
 }
 
 const linkClass = (active: boolean) =>
@@ -49,8 +51,8 @@ export default function Navbar({ user }: { user: NavUser | null }) {
     ...(user?.role === 'student'
       ? [{ href: '/leaderboard' as Route, label: 'Leaderboard', match: exact('/leaderboard') }]
       : []),
-    ...(user?.role === 'parent'
-      ? [{ href: '/parent' as Route, label: 'Parent dashboard', match: exact('/parent') }]
+    ...(isGuardianRole(user?.role)
+      ? [{ href: '/parent' as Route, label: dashboardLabel(user?.role), match: exact('/parent') }]
       : []),
   ]
 
