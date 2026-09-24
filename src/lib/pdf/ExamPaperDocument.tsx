@@ -9,6 +9,11 @@ import type { PracticeExam, PracticeExamSection } from '@/lib/questions/exams'
 import { DiagramView, OptionDiagrams } from './diagrams'
 import { READING_TEXTS } from '@/lib/questions/magazines'
 import { paperMinutes } from '@/lib/exams/paperTime'
+import { RichText } from './math/MathText'
+import { FormulaSheetPages } from './FormulaSheet'
+import { FORMULA_SHEETS } from './formulaSheets'
+import { hasMath } from '@/lib/text/mathPlain'
+import { questionMarks } from '@/types'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -47,6 +52,28 @@ function QuestionBlock({ question, number }: { question: ResolvedQuestion; numbe
   // space is taller than a page and must be allowed to break.
   if (question.format === 'extended_response') {
     const total = question.parts.reduce((sum, p) => sum + p.marks, 0)
+    const renderPart = (part: (typeof question.parts)[number]) => (
+      <>
+        {/* A question with no sub-parts is one unlabelled part: the stem is
+            the question, so only its working space is printed. */}
+        {part.label || part.prompt ? (
+          <View style={pdfStyles.partRow}>
+            <Text style={pdfStyles.partLabel}>{part.label}.</Text>
+            <RichText text={part.prompt} style={pdfStyles.partPrompt} />
+            <Text style={pdfStyles.partMarks}>{part.marks} {part.marks === 1 ? 'mark' : 'marks'}</Text>
+          </View>
+        ) : null}
+        {part.diagram ? <View style={{ marginLeft: 22 }}><DiagramView diagram={part.diagram} /></View> : null}
+        {Array.from({ length: part.lines ?? workingLinesFor(part.marks) }).map((_, l) => (
+          <View key={l} style={pdfStyles.partWorkingLine} />
+        ))}
+      </>
+    )
+    // Specialist papers, and any question with no sub-parts, keep the first
+    // part with the stem, so a question never ends a page with no room to
+    // answer it. (Older VCE papers keep their established page breaks.)
+    const keepFirst = question.topic.startsWith('sm_') || (question.parts.length === 1 && !question.parts[0].label)
+    const [first, ...rest] = question.parts
     return (
       <View style={pdfStyles.questionRow}>
         {/* The heading, stem and diagram stay together: a stem stranded at the
@@ -56,28 +83,47 @@ function QuestionBlock({ question, number }: { question: ResolvedQuestion; numbe
             <Text style={pdfStyles.questionText}>Question {number}</Text>
             <Text style={pdfStyles.questionMarks}>({total} {total === 1 ? 'mark' : 'marks'})</Text>
           </View>
-          <Text style={pdfStyles.questionText}>{question.question_text}</Text>
+          <RichText text={question.question_text} style={pdfStyles.questionText} />
           {question.diagram ? <DiagramView diagram={question.diagram} /> : null}
+          {keepFirst ? renderPart(first) : null}
         </View>
-        {question.parts.map((part, i) => (
+        {(keepFirst ? rest : question.parts).map((part, i) => (
           <View key={i} wrap={false}>
-            <View style={pdfStyles.partRow}>
-              <Text style={pdfStyles.partLabel}>{part.label}.</Text>
-              <Text style={pdfStyles.partPrompt}>{part.prompt}</Text>
-              <Text style={pdfStyles.partMarks}>{part.marks} {part.marks === 1 ? 'mark' : 'marks'}</Text>
-            </View>
-            {Array.from({ length: workingLinesFor(part.marks) }).map((_, l) => (
-              <View key={l} style={pdfStyles.partWorkingLine} />
-            ))}
+            {renderPart(part)}
           </View>
         ))}
       </View>
     )
   }
 
+  // VCAA multiple choice with typeset maths: "Question N", the stem, then the
+  // options listed down the page (A. … D.) — a formula option is too wide and
+  // too tall for the two-column boxes the plain-text papers use.
+  const options = 'options' in question ? question.options ?? [] : []
+  const vcaaList = question.topic.startsWith('sm_') || [question.question_text, ...options].some(hasMath)
+  if (options.length && !('option_diagrams' in question && question.option_diagrams?.length) && vcaaList) {
+    return (
+      <View style={pdfStyles.questionRow} wrap={false}>
+        <Text style={[pdfStyles.questionText, { marginBottom: 4 }]}>Question {number}</Text>
+        <RichText text={question.question_text} style={pdfStyles.questionText} />
+        {question.diagram ? <DiagramView diagram={question.diagram} /> : null}
+        <View style={{ marginLeft: 4, marginTop: 2 }}>
+          {options.map((opt, i) => (
+            // A formula option centres its letter on the formula; a sentence
+            // that wraps keeps its letter on the first line.
+            <View key={i} style={{ flexDirection: 'row', alignItems: hasMath(opt) ? 'center' : 'flex-start', marginBottom: 5 }}>
+              <Text style={{ fontSize: 11, width: 22 }}>{OPTION_LETTERS[i]}.</Text>
+              <RichText text={opt} style={{ fontSize: 11, flex: 1 }} />
+            </View>
+          ))}
+        </View>
+      </View>
+    )
+  }
+
   return (
     <View style={pdfStyles.questionRow} wrap={false}>
-      <Text style={pdfStyles.questionText}>{number}. {question.question_text}</Text>
+      <RichText text={`${number}. ${question.question_text}`} style={pdfStyles.questionText} />
       {question.diagram ? <DiagramView diagram={question.diagram} /> : null}
       {question.format === 'long_form' ? (
         <>
@@ -171,6 +217,7 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
   const sectionStart = firstQuestionNumbers(sections)
   const totalMinutes = paperMinutes({ total_minutes: exam.total_minutes, sections: sections.map(s => s.section) })
   const usesMagazine = Boolean(exam.magazine_id)
+  const sheet = exam.formula_sheet ? FORMULA_SHEETS[exam.formula_sheet] : undefined
 
   return (
     <Document>
@@ -207,9 +254,14 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
                 {s.section.title}
                 {s.section.time_minutes > 0 ? ` — ${s.section.time_minutes} min` : ''}
                 {s.section.calculator_allowed !== undefined ? (s.section.calculator_allowed ? ' (calculator allowed)' : ' (no calculator)') : ''}
+                {/* The real booklet's "structure of book": how many questions and marks each section holds. */}
+                {sheet ? ` — ${s.questions.length} ${s.questions.length === 1 ? 'question' : 'questions'}, ${s.questions.reduce((sum, q) => sum + questionMarks(q), 0)} marks` : ''}
               </Text>
             </View>
           ))}
+          {sheet ? (
+            <Text style={[pdfStyles.coverSectionText, { marginTop: 6 }]}>A formula sheet is printed at the end of this paper.</Text>
+          ) : null}
           <View style={pdfStyles.coverInstructionsBox}>
             <Text style={pdfStyles.coverInstructionsTitle}>Instructions</Text>
             <Text style={pdfStyles.coverInstructions}>
@@ -234,6 +286,17 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
                 {s.section.time_minutes} minutes
                 {s.section.calculator_allowed !== undefined ? (s.section.calculator_allowed ? ' • Calculator allowed' : ' • No calculator') : ''}
               </Text>
+              {s.section.instructions?.length ? (
+                <View style={pdfStyles.sectionInstructions}>
+                  <Text style={pdfStyles.sectionInstructionsTitle}>Instructions</Text>
+                  {s.section.instructions.map((line, li) => (
+                    <View key={li} style={{ flexDirection: 'row', marginBottom: 2 }}>
+                      <Text style={pdfStyles.sectionInstructionsText}>•  </Text>
+                      <Text style={[pdfStyles.sectionInstructionsText, { flex: 1 }]}>{line}</Text>
+                    </View>
+                  ))}
+                </View>
+              ) : null}
             </>
           )}
           {(() => {
@@ -263,6 +326,7 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
           <PageFooter examTitle={exam.title} />
         </Page>
       ))}
+      {sheet ? <FormulaSheetPages sheet={sheet} examTitle={exam.title} /> : null}
     </Document>
   )
 }

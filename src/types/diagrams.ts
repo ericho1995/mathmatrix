@@ -124,6 +124,39 @@ export interface FunctionGraphDiagram {
   }[]
   /** Marked points — intercepts, turning points, a stated coordinate. */
   points?: { x: number; y: number; label?: string }[]
+  // ── Specialist Mathematics additions ──
+  /** Straight segments in data coordinates: asymptotes (dashed), rays and
+   * vectors (arrow), and the short strokes of a slope field. */
+  segments?: { from: [number, number]; to: [number, number]; dashed?: boolean; arrow?: boolean; thin?: boolean }[]
+  /** Shaded regions (polygons in data coordinates) — a region of the complex
+   * plane, the area under a curve, a tail of a normal distribution. */
+  regions?: { points: [number, number][] }[]
+  /** Text placed at data coordinates, printed on the graph itself (point
+   * names, "Re(z)", curve names). `at` sets which side of the point it sits. */
+  labels?: { x: number; y: number; text: string; at?: 'n' | 's' | 'e' | 'w' | 'ne' | 'nw' | 'se' | 'sw' | 'c' }[]
+  /** Hollow circles: an excluded endpoint. */
+  openPoints?: { x: number; y: number }[]
+  /** Draw gridlines at xStep / yStep (default). false leaves bare axes with
+   * tick marks, the way VCAA prints most graphs. */
+  grid?: boolean
+  /** One unit on each axis the same length on paper, so circles look round
+   * (Argand diagrams, paths of particles). */
+  equalAspect?: boolean
+  /** Drawing width in points (default 300). */
+  width?: number
+  /** Custom x-axis ticks, replacing the numeric ones from xStep — for axes
+   * marked in multiples of π. */
+  xTickLabels?: { x: number; text: string }[]
+}
+
+/**
+ * An algorithm in the pseudocode VCAA uses in its mathematics papers:
+ * ← for assignment, indentation for blocks, keywords in bold.
+ */
+export interface PseudocodeDiagram {
+  kind: 'pseudocode'
+  lines: string[]
+  title?: string
 }
 
 /**
@@ -561,5 +594,6 @@ export type Diagram =
   | MeasureDiagram | ClockDiagram | BalanceDiagram | CalendarDiagram
   | FractionModelDiagram | BarModelDiagram | PlaceValueDiagram | ArrayDiagram | MoneyDiagram
   | TilePatternDiagram | PriceTagsDiagram
+  | PseudocodeDiagram
 
 export type DiagramKind = Diagram['kind']

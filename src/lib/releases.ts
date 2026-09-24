@@ -26,6 +26,24 @@ export interface Release {
 export const RELEASES: Release[] = [
   {
     date: '2026-09-24',
+    title: 'Specialist Mathematics papers rewritten',
+    detail:
+      'All ten Year 12 Specialist Mathematics papers have been rewritten against past VCAA and trial examinations: four-option multiple choice as VCAA has set it since 2024, typeset mathematics, the Specialist formula sheet at the back of every paper, and worked solutions with a marking guide for every part.',
+    examIds: [
+      'specialist_maths-year_12-1-exam1',
+      'specialist_maths-year_12-1-exam2',
+      'specialist_maths-year_12-2-exam1',
+      'specialist_maths-year_12-2-exam2',
+      'specialist_maths-year_12-3-exam1',
+      'specialist_maths-year_12-3-exam2',
+      'specialist_maths-year_12-4-exam1',
+      'specialist_maths-year_12-4-exam2',
+      'specialist_maths-year_12-5-exam1',
+      'specialist_maths-year_12-5-exam2',
+    ],
+  },
+  {
+    date: '2026-09-24',
     title: 'Ten papers each for Mathematical Methods, General and Specialist Mathematics',
     detail:
       'Specialist Mathematics Unit 3 & 4 arrives with five full practice sets, and Mathematical Methods and General Mathematics gain their fifth sets, so each subject now has ten Year 12 papers in the VCAA format with full marking guides.',
