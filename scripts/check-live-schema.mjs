@@ -130,6 +130,10 @@ const MIGRATIONS = [
     file: 'schema_specialist_unit34.sql',
     checks: [() => enumValueExists('questions', 'topic', 'sm_calculus')],
   },
+  {
+    file: 'schema_physics_unit34.sql',
+    checks: [() => enumValueExists('questions', 'topic', 'phys_fields')],
+  },
 ]
 
 const EXPECTED_QUESTIONS = 1800 // seed.sql currently carries 1,825

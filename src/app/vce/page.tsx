@@ -32,8 +32,8 @@ export const revalidate = 3600
  * The VCE hub.
  *
  * The timetable only lists subjects PrepNest has papers for, and says plainly
- * which of them have Unit 3 & 4 papers. Chemistry and Physics are examined at
- * Unit 3 & 4 but only have Unit 1 & 2 papers here so far — linking
+ * which of them have Unit 3 & 4 papers. Chemistry is examined at Unit 3 & 4
+ * but only has Unit 1 & 2 papers here so far — linking
  * a Year 12 chemistry student to a "Chemistry" button that opens Year 11
  * content would be misleading at exactly the moment they are most anxious.
  */

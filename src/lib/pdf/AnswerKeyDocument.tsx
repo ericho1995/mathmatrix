@@ -31,13 +31,7 @@ export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
               // show where each mark is earned rather than a single answer.
               if (q.format === 'extended_response') {
                 const total = q.parts.reduce((sum, p) => sum + p.marks, 0)
-                return (
-                  <View key={q.id} style={pdfStyles.answerKeyRow}>
-                    <Text>
-                      <Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>
-                      {`(${total} ${total === 1 ? 'mark' : 'marks'} in total)`}
-                    </Text>
-                    {q.parts.map((part, pi) =>
+                const renderPart = (part: (typeof q.parts)[number], pi: number) =>
                       hasMath(part.expected_answer) || hasMath(part.explanation) ? (
                         // Typeset answers get a hanging label so a displayed
                         // formula lines up under the answer, not the letter.
@@ -57,8 +51,19 @@ export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
                           </Text>
                           <Text style={pdfStyles.explanation}>{part.explanation}</Text>
                         </View>
-                      ),
-                    )}
+                      )
+                return (
+                  <View key={q.id} style={pdfStyles.answerKeyRow}>
+                    {/* The heading travels with the first part, so it is never
+                        left alone at the foot of a page. */}
+                    <View wrap={false}>
+                      <Text>
+                        <Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>
+                        {`(${total} ${total === 1 ? 'mark' : 'marks'} in total)`}
+                      </Text>
+                      {q.parts.slice(0, 1).map(renderPart)}
+                    </View>
+                    {q.parts.slice(1).map((part, pi) => renderPart(part, pi + 1))}
                   </View>
                 )
               }
@@ -76,7 +81,10 @@ export function AnswerKeyDocument({ resolved }: { resolved: ResolvedExam }) {
               }
 
               const letter = OPTION_LETTERS[q.correct_index ?? 0]
-              const option = (q.options ?? [])[q.correct_index ?? 0] ?? ''
+              const raw = (q.options ?? [])[q.correct_index ?? 0] ?? ''
+              // A table option prints as "header: cell; header: cell".
+              const headers = q.option_headers
+              const option = headers?.length ? raw.split(' | ').map((c, ci) => `${headers[ci] ?? ''}: ${c}`).join('; ') : raw
               return (
                 <View key={q.id} style={pdfStyles.answerKeyRow} wrap={false}>
                   {hasMath(option) ? (

@@ -95,6 +95,10 @@ export const pdfStyles = StyleSheet.create({
   sectionInstructions: { borderLeft: `2pt solid ${BRAND_BLUE}`, paddingLeft: 10, paddingVertical: 4, marginBottom: 16 },
   sectionInstructionsTitle: { fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, color: '#555', marginBottom: 4 },
   sectionInstructionsText: { fontSize: 9.5, color: '#333', lineHeight: 1.35 },
+  // Final-answer box with its unit (VCAA Physics calculations).
+  answerBoxRow: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', marginTop: 6, marginBottom: 2 },
+  finalAnswerBox: { width: 130, height: 22, border: '0.9pt solid #333' },
+  finalAnswerUnit: { fontSize: 10.5, marginLeft: 6, minWidth: 40 },
   // Formula sheet: a boxed grid, as VCAA prints it.
   formulaTitle: { fontSize: 14, fontWeight: 700, textAlign: 'center', marginBottom: 10 },
   formulaSectionTitle: { fontSize: 10.5, fontWeight: 700, backgroundColor: '#eef2f7', paddingVertical: 3, paddingHorizontal: 6, border: '0.75pt solid #333', borderBottom: 'none' },

@@ -6434,5 +6434,380 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
+  },
+  {
+    "id": "physics-year_12-1",
+    "subject": "physics",
+    "yearLevel": "year_12",
+    "title": "Physics Unit 3 & 4 — Practice Exam 1",
+    "sections": [
+      {
+        "title": "Section A — multiple choice",
+        "time_minutes": 25,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "6322e788-364c-5cca-825e-046ee73ec79a",
+          "bd4bff73-0c66-5b73-a047-02c5227366b2",
+          "792967e9-1bc4-5e07-8a21-7acb134dd711",
+          "0e756db1-2f40-54cf-aab2-b753881b334e",
+          "59fc7052-1123-5d2f-9cd0-bff1699ca278",
+          "69fa08e0-e2ad-50e5-9746-ca2b58037402",
+          "b1af85b2-245a-5c81-8b33-f1f26bc5a995",
+          "8699429e-d03f-5987-af4f-1e1382a34baa",
+          "6d862f49-15ea-55f4-855b-22364d957c35",
+          "a8d372b8-4ccf-597f-96f7-8aa2a27fb276",
+          "f824fd3e-8e43-5a1c-a256-174abc8c0148",
+          "70ce7861-dc70-5192-97d5-e63f595487cd",
+          "08259884-0fc7-59df-992f-fdfaa9e76465",
+          "9ac44148-0e97-5783-8f29-b18eb3915a7a",
+          "0d7c69f9-4244-597e-a0d7-3fb0a33bdcd3",
+          "e18a2e73-3414-52d2-bc8b-b9a804203d0f",
+          "ccdb1ac2-f6b2-577e-be4e-255e60ea151e",
+          "713a1e54-6573-5745-842d-924e296e946b",
+          "7ff99f49-9ccd-5065-b941-7d909762bf07",
+          "eed3f28a-bf6c-552e-861c-ab8a3c1e414e"
+        ]
+      },
+      {
+        "title": "Section B — short answer",
+        "time_minutes": 125,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Where an answer box is provided, write your final answer in the box.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "d8fe9f57-1be2-568e-98e1-e850526021ac",
+          "f69d4eab-a94e-5fd6-8bd6-9c52d680cd03",
+          "20245154-3fe5-5a40-bd5b-606bf79f499d",
+          "3bd34125-4d5f-5ae6-9d99-400debf02f71",
+          "b1461bc8-da0d-54b5-a873-ea5a0f2b166e",
+          "a0157f8a-71cf-5206-9f3d-ad61eb92f155",
+          "b121ce3a-7121-5cff-9c86-3ea30a906ca1",
+          "1bd2d7dc-1e05-5500-bda2-7ea49a0f5ffa",
+          "dc0b29b0-6fdd-57e7-b8fb-9723e851ce66",
+          "c7eb26c9-2ada-5acd-8343-38372c3b2bac",
+          "f0ea8a02-93eb-571f-b3ec-eb40f16520fc",
+          "48e31ce0-bba5-5dcc-baf3-5698a4c4a4d2",
+          "c7f9831b-32e9-5166-bc0b-9c98a34655f9",
+          "6dbce144-9f79-56f9-9ae4-a21bf52d055d",
+          "bcaf21c0-03d3-55ca-bc44-f060bdd18f5e"
+        ]
+      }
+    ],
+    "premium": false,
+    "reading_minutes": 15,
+    "formula_sheet": "physics"
+  },
+  {
+    "id": "physics-year_12-2",
+    "subject": "physics",
+    "yearLevel": "year_12",
+    "title": "Physics Unit 3 & 4 — Practice Exam 2",
+    "sections": [
+      {
+        "title": "Section A — multiple choice",
+        "time_minutes": 25,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "2c1ced97-2874-514e-94ec-1f4aa33c9400",
+          "eff9d488-4da2-5a8d-81fc-3ce26a5dc934",
+          "fe55c227-c941-5b28-bdef-7c9c14219acf",
+          "49a8902b-86b0-50bb-846e-66da647c2c61",
+          "5f14985a-225a-5e69-8949-cc435f7ae591",
+          "6cf93723-05b8-57a6-87ec-2db7ae4471e1",
+          "58307455-0271-58a4-8b58-1eb3f749e781",
+          "d20f6923-fe47-5e56-9e39-d6975d2305d4",
+          "491eb76f-b64d-510a-82c6-b59ad5543ed9",
+          "e5a190c2-0a43-5158-9b82-05efc0980aa7",
+          "9b33b17e-6e27-57a3-a46a-7b33fcf0f402",
+          "dbdcc28c-6de6-5971-abe3-88436c8b26b0",
+          "39837061-abde-5c1b-a5b4-e1c8329a209d",
+          "87aecfc1-4fc8-5678-8f71-8cd34a7728e0",
+          "f687734f-550f-52e3-99fd-c5ae00fd1857",
+          "bce9b4aa-ecc7-556e-8af3-cdd333ae651a",
+          "76de130c-14c5-5c89-be39-beb9bbb63865",
+          "07e27924-6109-5c0b-9409-0ced78539e5e",
+          "9fbfb127-c5cf-59c3-b005-804aba2c9374",
+          "099852d5-0d88-51be-b445-9d7e96c29759"
+        ]
+      },
+      {
+        "title": "Section B — short answer",
+        "time_minutes": 125,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Where an answer box is provided, write your final answer in the box.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "d5cd70aa-a8c1-5fe9-a530-2068f96ee74d",
+          "175bbf43-f330-55dd-8dff-f601e9beb9dc",
+          "fd785782-6c5a-5cd6-8446-597631b7a527",
+          "19313366-b3b0-5355-825d-52f24d05c088",
+          "e243a193-5ee1-5f07-b648-715ff5183243",
+          "3fefe0cc-fdfa-58e3-a8d8-891a9d9d5d6e",
+          "ee7ddce3-1b99-5fb6-9bfd-4ed9538e5f67",
+          "c3c1c6af-8f86-555e-a57a-59fa477249c5",
+          "8d07915e-ba86-56f3-a883-2e2508b43698",
+          "83c9189e-a2f3-525a-ba4a-cc67936a7697",
+          "cf34aa8b-3e77-5adf-b253-302ad70d6dd2",
+          "ac23d3e9-845f-5f84-9fbc-0ad19b6e5f90",
+          "bf15f386-b65c-5943-a5d7-468ddbb2ab39",
+          "6cdbafd8-6288-500e-8ab2-9ac7eb265318",
+          "8c7b7cea-ffaa-5ab8-95e8-6733f9354128"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15,
+    "formula_sheet": "physics"
+  },
+  {
+    "id": "physics-year_12-3",
+    "subject": "physics",
+    "yearLevel": "year_12",
+    "title": "Physics Unit 3 & 4 — Practice Exam 3",
+    "sections": [
+      {
+        "title": "Section A — multiple choice",
+        "time_minutes": 25,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "19fdd18d-cb3f-5535-bf65-9e53405be782",
+          "39b334e8-6c2c-5874-82bf-47d5f9ebdf76",
+          "9bb73b0c-33f6-5689-ba8e-53ea822bbefc",
+          "51d0294c-8b56-58c3-a706-56c8200239f4",
+          "b7cf33d5-c846-5935-8398-5f5c5823c7a1",
+          "81a0da70-31de-541a-898f-05e8f0fa95be",
+          "ea1bce80-c6f8-5d71-bf3c-596db0b3b0cb",
+          "41aec145-cf85-5cae-a47b-d115a9941d3a",
+          "d8bb6d46-0d1a-5d1b-b60a-bcf50b79330d",
+          "9723a61e-b297-5f8a-bb4d-cc31604df461",
+          "9ce54dcc-f41e-54f2-8edc-2a37a6a915ad",
+          "501e17e5-4c58-5ca1-bd01-584b68d86962",
+          "c3b917eb-fa62-5623-a41e-2c4149d3bbaa",
+          "4483f13e-5c66-5e70-b713-8f9e373d74c3",
+          "af81dcf1-b636-50ce-960f-5fb074993b75",
+          "2e810d3d-6c0c-59c2-834e-0b2a40e086ef",
+          "04a324a4-d18a-5875-947b-fec0672845e2",
+          "50e83d49-90b6-5b99-8b7c-827cbfed1bc2",
+          "8a6b72ee-fb37-5845-840a-c3aa56904532",
+          "440a9694-cd01-5e1c-a1a1-ee93a6521c34"
+        ]
+      },
+      {
+        "title": "Section B — short answer",
+        "time_minutes": 125,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Where an answer box is provided, write your final answer in the box.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "e207ea61-4478-50c9-8b1f-8235724d92de",
+          "a4ad474c-9a6c-5ef3-9d18-3321fa82ef6f",
+          "58de0ad4-2d50-5102-a7f4-5854a3fd05df",
+          "86891b83-9781-5b55-8671-b098a9ff27cc",
+          "ac068411-3ace-5a0e-8c59-927b4f631825",
+          "5c1335d1-bcfb-5587-be33-a0a8040cea7b",
+          "f091206d-f0a0-5bfa-9322-496610eaf826",
+          "a6932934-a572-571a-a533-48449c0c86f2",
+          "9eada1d1-3e5f-5541-b51f-cad59bbd7905",
+          "dc99da12-df07-5fe6-8c71-8e6d8d5e9cf6",
+          "47e6cdfe-bd4a-50f0-83d6-1b9052b4cb8d",
+          "ff168ff7-e18c-5b7a-8aa7-d09da1925bd2",
+          "25e648ae-0c05-5212-af3d-c53072b5d2a8",
+          "d9c3337b-8cbf-52b9-b30e-7fa86f65073b",
+          "51d7a248-9d64-5263-bd8c-5c9cbde1b127"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15,
+    "formula_sheet": "physics"
+  },
+  {
+    "id": "physics-year_12-4",
+    "subject": "physics",
+    "yearLevel": "year_12",
+    "title": "Physics Unit 3 & 4 — Practice Exam 4",
+    "sections": [
+      {
+        "title": "Section A — multiple choice",
+        "time_minutes": 25,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "3d57f759-942a-5983-863f-e406f2ed16b7",
+          "3a27f6d0-7304-5914-813d-fde3f198f004",
+          "814d2661-0ff0-51a4-a162-14c2c5122de4",
+          "a366b6dc-6233-5921-9449-497cf8d21ca2",
+          "3501953d-5bc1-5055-8a2a-920fc6429e0c",
+          "085afba9-4489-51d7-a736-1189010d7fb0",
+          "fcf50d91-28ce-5d56-99e6-ad555fb6372c",
+          "89aceb30-7bc2-5961-b197-6400f899154a",
+          "0b94df07-9ad0-5fe7-8e74-b80dfd052caa",
+          "f8f59f8b-b1c3-5cac-b2a6-43bbf69748fa",
+          "f759dc18-ead0-53dd-adf0-7035d6087b21",
+          "48e5ed49-0c15-5d02-9a25-fd2a2c7e9c51",
+          "125aeb56-7912-53b9-9d7e-8d86f15301ae",
+          "f90ccabe-12e8-569b-9589-934d05fbf46a",
+          "50443fee-5b5c-549e-a4d7-57e7d350c70c",
+          "ecea15f5-dc72-5e5c-a945-ca7cfb378d33",
+          "903b01ad-32b9-5083-ab79-dc553cb3bf36",
+          "fee6f352-01b0-52ca-99db-29f07cdb8f54",
+          "d003d48d-a72b-5d9d-8b5b-539b994f1fb8",
+          "34cc0753-b239-5459-a151-91295fa0214b"
+        ]
+      },
+      {
+        "title": "Section B — short answer",
+        "time_minutes": 125,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Where an answer box is provided, write your final answer in the box.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "469f89c1-6267-5bc4-992a-30ad0b6d0e72",
+          "b207e33d-e8a7-5979-8ab6-afa114aab0d7",
+          "b0493974-5b52-59b3-953a-1a4477fa1e68",
+          "9c3d5966-dc1e-57b5-b946-9e285f97260a",
+          "1c693841-e2ef-5433-8cdc-567ae239402b",
+          "4aa79606-0033-5825-b18a-2c3a84671991",
+          "0ee1aea0-1034-5cb7-8a7a-b33f4b0729a1",
+          "137a89be-8aec-5300-ac27-00c58873486a",
+          "6cae69d3-73b7-5a8a-9ead-8ac7292a769b",
+          "39aaa7e3-8dea-503a-9607-1300f1cf6477",
+          "13c40221-4f62-57c0-bee0-ffdb1912b843",
+          "000e7f8c-091b-53cb-ba98-1a678ffea968",
+          "dbd5e127-707d-594c-9f65-50ae8e2fd831",
+          "39e6bafe-ad13-5df5-b498-3e229e4957f2",
+          "00982dfa-9c0d-5111-822f-d4cefbf409bf"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15,
+    "formula_sheet": "physics"
+  },
+  {
+    "id": "physics-year_12-5",
+    "subject": "physics",
+    "yearLevel": "year_12",
+    "title": "Physics Unit 3 & 4 — Practice Exam 5",
+    "sections": [
+      {
+        "title": "Section A — multiple choice",
+        "time_minutes": 25,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "e14ec2b6-2b91-57a4-87fb-deb47ffbaa9e",
+          "0fbe3675-a621-5cc1-8222-282b84796041",
+          "a44505b9-dcdf-539b-8a82-6e7021953e85",
+          "766dd739-9ecf-5fba-b002-ec82892db5b3",
+          "b10999f9-e8b2-57ed-86b2-b04d5dcc9221",
+          "48cb9e4f-84bc-54eb-9b89-cade5e6dd9e0",
+          "ae6e4956-b9b8-51ad-827d-f5265a2e4539",
+          "52451128-2d0c-5e73-9dde-fab61c898fb5",
+          "1d268e3c-86c3-557b-a7ae-3445578cc557",
+          "1e8438c5-f8c0-56c2-9704-10dc30470ef2",
+          "e1e33285-d4ad-50cd-bb5a-d70e1d8d3efe",
+          "a8ec0462-3203-5fb9-a3b0-c707dcdb5471",
+          "a6e8211b-1ce7-5444-83b3-9e3bd14b07e4",
+          "2bb97057-ae0b-5146-ace5-abb173ada219",
+          "12cbd5eb-f43d-52ea-a4b9-c7976beb9cfa",
+          "c460b882-19fc-54a7-a350-5d866fa67209",
+          "043bf3bc-c737-554b-8d44-92de5ecb5df8",
+          "5e964b63-ce48-54a4-a4bf-2a42a1fe1f17",
+          "eb6d4d5b-0b30-597b-ad2d-cc3d9af9e68d",
+          "85d32f03-02fa-5751-ad79-41b87217ebdf"
+        ]
+      },
+      {
+        "title": "Section B — short answer",
+        "time_minutes": 125,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Where an answer box is provided, write your final answer in the box.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the value of g to be 9.81 m s⁻²."
+        ],
+        "question_ids": [
+          "19d9a9fc-3b8a-5fc4-a610-4d06ecfd10b9",
+          "14653950-5c79-59f8-9bf9-a950fff46ce5",
+          "8f573a75-ac47-53ea-99b7-66ef704e8978",
+          "799f1ba9-275f-5016-a8d1-d4282951fac3",
+          "cf11c7cb-1733-5246-bc86-c29c123a8ffe",
+          "23fb62c5-a600-50ad-bac8-c154258ab2ab",
+          "44691ceb-7412-5a14-b441-24cfb3962f84",
+          "8820ee40-7ac7-529f-b6eb-ec58474671d0",
+          "2b14ac44-71ef-5d17-86bb-94ba97885fb8",
+          "96db6bd3-383b-5edd-94c6-e281765718e8",
+          "1b0a0ef8-86c4-5a69-b9a2-3dc64ed366e4",
+          "6bdecf1b-2ad1-53ce-bf7b-cb8338f23b77",
+          "23727099-d04d-5074-bbc7-ade05f0f2c6d",
+          "032a2c79-4ee0-5228-bbc0-cb08bc827b51",
+          "76871463-5655-55b6-8bbe-3e7f0a77355a"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15,
+    "formula_sheet": "physics"
   }
 ]

@@ -72,6 +72,12 @@ export const TOPICS: Topic[] = [
   // Physics
   { slug: 'phys_mechanics',         subject: 'physics',   label: 'Mechanics',              description: 'Motion, forces, energy',                icon: '🎯', color: '#185FA5' },
   { slug: 'phys_electricity',       subject: 'physics',   label: 'Electricity',            description: 'Current, voltage, resistance',          icon: '🔌', color: '#185FA5' },
+  // Physics Unit 3 & 4 (2024–2027 study design)
+  { slug: 'phys_motion',            subject: 'physics',   label: 'Motion',                 description: 'Newton’s laws, projectiles, circular motion, momentum, energy', icon: '🎯', color: '#185FA5' },
+  { slug: 'phys_fields',            subject: 'physics',   label: 'Fields',                 description: 'Gravitational, electric and magnetic fields', icon: '🧲', color: '#185FA5' },
+  { slug: 'phys_electrical_power',  subject: 'physics',   label: 'Electricity generation', description: 'Motors, generators, transformers, transmission', icon: '🔌', color: '#185FA5' },
+  { slug: 'phys_light_matter',      subject: 'physics',   label: 'Light, matter & relativity', description: 'Interference, photoelectric effect, matter waves, special relativity', icon: '💡', color: '#185FA5' },
+  { slug: 'phys_investigation',     subject: 'physics',   label: 'Scientific investigation', description: 'Experimental design, uncertainty, graphs', icon: '🔬', color: '#185FA5' },
 
   // Mathematical Methods — the four VCAA Unit 3 & 4 areas of study
   { slug: 'mm_functions',           subject: 'maths_methods', label: 'Functions & graphs',  description: 'Transformations, inverses, composite functions', icon: '📉', color: '#185FA5' },

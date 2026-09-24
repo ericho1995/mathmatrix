@@ -40,6 +40,7 @@ const TOPIC_TO_SUBJECT = {
   life_science: 'science', physical_science: 'science', earth_space: 'science',
   chem_atomic_structure: 'chemistry', chem_reactions: 'chemistry',
   phys_mechanics: 'physics', phys_electricity: 'physics',
+  phys_motion: 'physics', phys_fields: 'physics', phys_electrical_power: 'physics', phys_light_matter: 'physics', phys_investigation: 'physics',
   mm_functions: 'maths_methods', mm_algebra: 'maths_methods', mm_calculus: 'maths_methods', mm_probability: 'maths_methods',
   gm_data_analysis: 'general_maths', gm_financial: 'general_maths',
   gm_matrices: 'general_maths', gm_networks: 'general_maths',
@@ -383,6 +384,52 @@ const SPECIALIST_INSTRUCTIONS = {
   ],
 }
 
+// ── Physics Unit 3 & 4 ──────────────────────────────────────────────────────
+// One examination (2024–2027 study design): 15 minutes reading, 2 hours 30
+// minutes writing, scientific calculator. Section A is 20 multiple-choice
+// questions (20 marks); Section B is short-answer and extended-response
+// questions totalling 100 marks. VCAA does not time the sections separately;
+// the split below is a suggested pace (a minute a mark) that sums correctly.
+const PHYSICS_INSTRUCTIONS = {
+  sectionA: [
+    'Answer all questions. Choose the response that is correct or that best answers the question.',
+    'A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.',
+    'Unless otherwise indicated, the diagrams in this book are not drawn to scale.',
+    'Take the value of g to be 9.81 m s⁻².',
+  ],
+  sectionB: [
+    'Answer all questions in the spaces provided. Write your responses in English.',
+    'Where an answer box is provided, write your final answer in the box.',
+    'In questions where more than one mark is available, appropriate working must be shown.',
+    'Unless otherwise indicated, the diagrams in this book are not drawn to scale.',
+    'Take the value of g to be 9.81 m s⁻².',
+  ],
+}
+
+function buildPhysicsUnit34Exams(subject, yearLevel, questions, examIndex) {
+  const mc = questions.filter(q => q.format !== 'extended_response')
+  const extended = questions.filter(q => q.format === 'extended_response')
+  const sections = []
+  if (mc.length) {
+    sections.push({ title: 'Section A — multiple choice', time_minutes: 25, calculator_allowed: true, restart_numbering: true, instructions: PHYSICS_INSTRUCTIONS.sectionA, question_ids: mc.map(q => q.id) })
+  }
+  if (extended.length) {
+    sections.push({ title: 'Section B — short answer', time_minutes: 125, calculator_allowed: true, restart_numbering: true, instructions: PHYSICS_INSTRUCTIONS.sectionB, question_ids: extended.map(q => q.id) })
+  }
+  if (!sections.length) return []
+  return [{
+    id: `${subject}-${yearLevel}-${examIndex + 1}`,
+    subject,
+    yearLevel,
+    title: `${SUBJECT_LABEL[subject]} Unit 3 & 4 — Practice Exam ${examIndex + 1}`,
+    sections,
+    // The first practice exam is the free sample.
+    premium: examIndex > 0,
+    reading_minutes: VCE_READING_MINUTES,
+    formula_sheet: 'physics',
+  }]
+}
+
 function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
   const exams = []
   const label = `${SUBJECT_LABEL[subject]} Unit 3 & 4`
@@ -622,7 +669,7 @@ for (const { subject, yearLevel, questions } of groups.values()) {
     // from the questions tagged with that set. Sets are never mixed: a VCAA-style
     // paper is balanced as a whole, and reusing a question across sets would sell
     // the same item twice.
-    const build = subject === 'general_maths' ? buildGeneralMathsUnit34Exams : buildVceUnit34Exams
+    const build = subject === 'general_maths' ? buildGeneralMathsUnit34Exams : subject === 'physics' ? buildPhysicsUnit34Exams : buildVceUnit34Exams
     const sets = [...new Set(questions.map(q => q.practice_set ?? 1))].sort((a, b) => a - b)
     for (const set of sets) {
       practiceExams.push(...build(subject, yearLevel, questions.filter(q => (q.practice_set ?? 1) === set), set - 1))
