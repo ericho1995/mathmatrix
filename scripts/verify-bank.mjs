@@ -67,11 +67,16 @@ for (const q of QUESTION_BANK) {
       err('extended_response needs at least one part', q.id)
     } else {
       const labels = new Set()
+      // A question with no sub-parts ("Prove by induction that …") is stored
+      // as a single part with an empty label and prompt: the stem says it all.
+      const whole = q.parts.length === 1 && q.parts[0].label === '' && q.parts[0].prompt === ''
       for (const p of q.parts) {
-        if (!p.label) err('part is missing a label', q.id)
+        if (whole) {
+          // nothing to label
+        } else if (!p.label) err('part is missing a label', q.id)
         else if (labels.has(p.label)) err(`part label "${p.label}" is used twice`, q.id)
         else labels.add(p.label)
-        if (!p.prompt) err(`part ${p.label}: missing prompt`, q.id)
+        if (!p.prompt && !whole) err(`part ${p.label}: missing prompt`, q.id)
         if (!p.expected_answer) err(`part ${p.label}: missing expected_answer`, q.id)
         if (!p.explanation) err(`part ${p.label}: missing marking guidance`, q.id)
         if (typeof p.marks !== 'number' || !Number.isInteger(p.marks) || p.marks < 1)
@@ -445,10 +450,36 @@ for (const q of QUESTION_BANK) {
 // instead of a line break. It has slipped in through scripted edits, and no
 // type check can see it.
 const LITERAL_NEWLINE = String.fromCharCode(92) + 'n'
+// Typeset maths is TeX, where \ne, \neq and \nabla are commands, not newlines.
+const MATH_FRAGMENT = /\\\(([\s\S]*?)\\\)|\\\[([\s\S]*?)\\\]/g
+const outsideMath = t => (typeof t === 'string' ? t.replace(MATH_FRAGMENT, '') : t)
 for (const q of QUESTION_BANK) {
   const texts = [q.question_text, q.explanation, ...(q.options ?? []), ...(q.parts ?? []).flatMap(p => [p.prompt, p.expected_answer, p.explanation])]
-  if (texts.some(t => typeof t === 'string' && t.includes(LITERAL_NEWLINE))) {
+  if (texts.some(t => typeof t === 'string' && outsideMath(t).includes(LITERAL_NEWLINE))) {
     err('text contains a literal backslash-n, which prints as "\\n" instead of a line break', q.id)
+  }
+}
+
+// ─── Typeset maths is in the cache ───────────────────────────────────────────
+// The PDFs draw every \( … \) and \[ … \] fragment from src/lib/pdf/math/
+// cache.json, which scripts/gen-math.mjs builds (and which fails on bad TeX).
+// A fragment missing from the cache prints as linear text instead of maths —
+// readable, but not the paper we sell — so a stale cache is an error.
+{
+  const cachePath = join(repoRoot, 'src/lib/pdf/math/cache.json')
+  const cached = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')).f : {}
+  for (const q of QUESTION_BANK) {
+    const texts = [q.question_text, q.explanation, ...(q.options ?? []), ...(q.parts ?? []).flatMap(p => [p.prompt, p.expected_answer, p.explanation])]
+    for (const t of texts) {
+      if (typeof t !== 'string') continue
+      for (const m of t.matchAll(MATH_FRAGMENT)) {
+        const key = (m[1] !== undefined ? 'I:' : 'D:') + (m[1] ?? m[2]).trim()
+        if (!cached[key]) err(`maths not in the typesetting cache (run npm run gen): ${key.slice(0, 60)}`, q.id)
+      }
+      // A stray delimiter means a fragment never closed, and the TeX prints raw.
+      const rest = t.replace(MATH_FRAGMENT, '')
+      if (/\\\(|\\\)|\\\[|\\\]/.test(rest)) err('unbalanced maths delimiter \\( \\) or \\[ \\]', q.id)
+    }
   }
 }
 
@@ -500,6 +531,45 @@ for (const [set, gmYear12] of bySet(QUESTION_BANK.filter(q => q.year_level === '
       const got = marksFor(topic)
       if (got !== want) warn(`${tag}: Exam 2 allocates ${got} marks to ${topic}; the specifications require ${want}`)
     }
+  }
+}
+
+// ─── 10b. Specialist Mathematics Unit 3 & 4 paper structure ──────────────────
+// From the VCAA papers of the 2023–2027 study design:
+//   Examination 1 — technology-free, one hour, 9–11 questions, 40 marks.
+//   Examination 2 — Section A: 20 multiple choice, 1 mark each, four options
+//                   (A–D) since 2024 (five before that);
+//                   Section B: 6 extended questions, 60 marks.
+// Every area of study appears in Examination 2, as it does on the real paper.
+// Checked per practice set, like Methods above.
+{
+  const SM_AOS = ['sm_proof', 'sm_functions', 'sm_complex_numbers', 'sm_calculus', 'sm_vectors', 'sm_statistics']
+  const marksOf = q => (q.parts ? q.parts.reduce((t, p) => t + p.marks, 0) : q.marks ?? 0)
+  for (const [set, sm] of bySet(QUESTION_BANK.filter(q => q.topic.startsWith('sm_') && q.year_level === 'year_12'))) {
+    const tag = `Specialist set ${set}`
+    const ex1 = sm.filter(q => q.format === 'extended_response' && q.calculator_allowed === false)
+    const a = sm.filter(q => q.calculator_allowed === true && q.format !== 'extended_response')
+    const b = sm.filter(q => q.format === 'extended_response' && q.calculator_allowed === true)
+    const ex1Marks = ex1.reduce((s, q) => s + marksOf(q), 0)
+    if (ex1Marks !== 40) err(`${tag}: Examination 1 totals ${ex1Marks} marks; VCAA's is 40`)
+    if (ex1.length < 9 || ex1.length > 11) warn(`${tag}: Examination 1 has ${ex1.length} questions; VCAA sets 9–11`)
+    const ex1Areas = new Set(ex1.map(q => q.topic)).size
+    if (ex1Areas < 5) warn(`${tag}: Examination 1 covers only ${ex1Areas} of the 6 areas of study`)
+    if (a.length !== 20) err(`${tag}: Section A has ${a.length} questions; VCAA sets 20`)
+    for (const q of a) {
+      if (!q.options || q.options.length !== 4) err(`Specialist Section A question has ${q.options?.length} options; since 2024 VCAA offers four (A–D)`, q.id)
+      if (q.marks !== 1) err('Specialist Section A question must be worth 1 mark', q.id)
+    }
+    const bMarks = b.reduce((s, q) => s + marksOf(q), 0)
+    if (bMarks !== 60) err(`${tag}: Section B totals ${bMarks} marks; VCAA's is 60`)
+    if (b.length !== 6) warn(`${tag}: Section B has ${b.length} questions; VCAA sets 6`)
+    const missing = SM_AOS.filter(t => ![...a, ...b].some(q => q.topic === t))
+    if (missing.length) err(`${tag}: Examination 2 has no questions from ${missing.join(', ')}`)
+    // Twenty questions over four letters: an even paper has about five each.
+    const letters = [0, 0, 0, 0]
+    for (const q of a) if (typeof q.correct_index === 'number') letters[q.correct_index]++
+    if (a.length === 20 && (Math.max(...letters) > 7 || Math.min(...letters) < 3)) err(`${tag}: Section A answer letters are unbalanced ${JSON.stringify(letters)} (aim for 4–6 each)`)
+    for (const q of [...ex1, ...b]) for (const p of q.parts) if (!p.explanation || p.explanation.length < 25) warn(`${tag}: part ${p.label} has no worked solution`, q.id)
   }
 }
 
@@ -605,11 +675,26 @@ function checkDiagram(d, id, where) {
     case 'illustration':
       if (!ILLUSTRATIONS[d.id]) bad(`illustration "${d.id}" does not exist`)
       break
+    case 'function_graph': {
+      if (!(d.xMax > d.xMin) || !(d.yMax > d.yMin)) bad('empty plotting window')
+      const finite = ([x, y]) => Number.isFinite(x) && Number.isFinite(y)
+      for (const c of d.curves) if (!c.points.every(finite)) bad('a curve has a non-finite point (sample around asymptotes)')
+      const inWindow = (x, y) => x >= d.xMin - 1e-9 && x <= d.xMax + 1e-9 && y >= d.yMin - 1e-9 && y <= d.yMax + 1e-9
+      for (const p of [...(d.points ?? []), ...(d.openPoints ?? []), ...(d.labels ?? [])]) if (!inWindow(p.x, p.y)) bad(`(${p.x}, ${p.y}) lies outside the plotting window`)
+      for (const s of d.segments ?? []) if (!inWindow(...s.from) || !inWindow(...s.to)) bad('a segment runs outside the plotting window')
+      for (const r of d.regions ?? []) if (r.points.length < 3) bad('a region needs at least 3 points')
+      break
+    }
+    case 'pseudocode':
+      if (!d.lines.length) bad('no lines')
+      if (d.lines.some(l => /\t/.test(l))) bad('indent with spaces, not tabs')
+      break
   }
 }
 
 for (const q of QUESTION_BANK) {
   if (q.diagram) checkDiagram(q.diagram, q.id, 'diagram')
+  for (const p of q.parts ?? []) if (p.diagram) checkDiagram(p.diagram, q.id, `part ${p.label} diagram`)
   if (q.option_diagrams) {
     if (!q.options || q.option_diagrams.length !== q.options.length) err('option_diagrams must pair one-to-one with options (captions may be empty)', q.id)
     if (q.option_diagrams.length < 2 || q.option_diagrams.length > 4) err(`${q.option_diagrams.length} picture options; the grid holds 2–4`, q.id)

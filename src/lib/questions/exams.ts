@@ -14,6 +14,8 @@ export interface PracticeExamSection {
   /** Start this section's question numbers again at 1. VCAA papers number
    * within each section, so Section B opens at Question 1, not Question 21. */
   restart_numbering?: boolean
+  /** Printed under the section heading, as the real paper's instructions are. */
+  instructions?: string[]
   question_ids: string[]
 }
 
@@ -31,6 +33,8 @@ export interface PracticeExam {
   premium: boolean
   /** VCE-style exams only: minutes of reading time (no writing allowed) before section timers start. */
   reading_minutes?: number
+  /** Key into FORMULA_SHEETS (src/lib/pdf/formulaSheets.ts), printed after the last question. */
+  formula_sheet?: string
 }
 
 export const PRACTICE_EXAMS: PracticeExam[] = [
@@ -5941,20 +5945,27 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "title": "Examination 1 — technology-free",
         "time_minutes": 60,
         "calculator_allowed": false,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "In all questions where a numerical answer is required, an exact value must be given, unless otherwise specified.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
+        ],
         "question_ids": [
-          "a29a0745-66fc-4bf4-8aef-0b94c9211081",
-          "795b57a5-62d9-47b8-9b46-7bc8f663ffa3",
-          "5b018a8f-c3b4-417c-a20f-8a72276a2077",
-          "eec2db2d-875f-4db6-a091-ecc9a3ed15b9",
-          "5e266e6b-425d-44a7-b3c5-b53e5264608a",
-          "b04f409b-c399-4ebe-b78f-37fdde438723",
-          "1d78310a-7556-4eb6-a1c3-b74b74aa69f5",
-          "472b2369-226c-4f45-9039-a0aa99415e13",
-          "7b231f32-0d9f-4f22-bb42-9b2438acac41",
-          "d7cf84d3-139c-44b7-ae83-0d537b0ec95c"
+          "65bfa8d8-6a85-5661-b2f9-da779e8f031d",
+          "581d0124-15f0-5d9d-96d7-d7694016105d",
+          "79c063d2-ff99-5dad-a629-74b4870a4ea5",
+          "28b2732f-2f61-5a57-aa70-018f43f105f1",
+          "56cd395b-f31f-54e4-8d35-434f9d31be65",
+          "72ce25e9-4e9b-52c5-90b1-a198006fa11e",
+          "31e55e22-60d7-5ae0-9537-6a2e991eb60b",
+          "8bbb41d8-4388-5c95-bcef-dbf2c3cfcd71",
+          "f728fbcb-c00d-5c27-9b52-fa83fa97e9ac",
+          "1f532ec9-676d-54fe-bedd-18147c351021"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": false,
     "reading_minutes": 15
   },
@@ -5969,27 +5980,33 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 45,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct for the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "5f0dc765-8a62-42a1-bb44-7f9b7c430ce5",
-          "a06bc552-72ea-4380-b56c-07de33c57b12",
-          "fa399d6c-fde5-49cb-8e35-33f69b12ebde",
-          "fec1e981-ff77-42a7-a354-cce2bca7ab80",
-          "068f5023-0f4b-4ce3-acc1-fa19c1d8416c",
-          "f0c6e597-8a86-4d11-8fc0-175c5de3328d",
-          "4ea27d87-08ba-439f-ae89-ce1f8fdac3cc",
-          "1026abb9-a875-41e2-ba50-57941d1c28f1",
-          "314db383-3fd9-4eea-88c7-68a9704d6e9e",
-          "e53d23fe-a486-4684-98a1-3b24573f2799",
-          "9a192897-327c-4bfd-b0fd-e22f051baa9f",
-          "7281e49f-7899-4131-8cce-8a24e2d87d58",
-          "9e9c09b5-5667-49bb-a53e-35e4f5953fc0",
-          "a3a94b87-93d4-4829-8ea1-60e240d39aad",
-          "611a39f7-0689-48c5-b264-6edfcb6662ee",
-          "38a71be4-08b6-4fa5-bdfb-c491d88589e9",
-          "72f1e62d-bbe3-4660-8172-ee4990955318",
-          "040978f7-1b65-40cc-b27c-171355dbebcf",
-          "2f6d1393-38c9-4538-bf04-280474342313",
-          "54c4beba-59bb-4edf-97d7-e3847587b848"
+          "34e999be-d32c-5879-9da0-d10ad4015e3c",
+          "240b50d5-e462-5232-88cc-f1e9c4d7a182",
+          "868357d2-4eac-5c1d-a0be-18820938e052",
+          "8cb449a4-6fa5-57a5-89cc-35bd80ebc22b",
+          "d310912d-a665-5e1d-8cb0-e0e72c52667f",
+          "947dac1f-8d02-5eae-8bc0-dc74b8b960a8",
+          "3351f5a7-90b0-57a5-bfd2-ad74bbb393f1",
+          "2baa09d9-c5b2-5361-a23d-dd6785ccdebd",
+          "c61b7215-30c0-5807-b434-b3411d3df395",
+          "bcd1ca76-55b0-5368-b4f5-316050f84138",
+          "f4ef0c16-1648-5d0c-8876-5ff5643b7f37",
+          "4c6b4682-eefc-5913-ae04-f8ea6091efad",
+          "513f0e6f-532d-5505-a88a-f608f7dd45bd",
+          "5a82c8da-d240-5cac-89ba-ee56522e77f3",
+          "8a4674cc-230d-56b0-b1fe-1a9e83fad064",
+          "1728a2f1-1ee1-5ad8-8d08-0729a8ba1920",
+          "915014f7-f1a7-5103-ab31-0f266b346d60",
+          "17d92a0d-37c9-5abd-a858-bea573f2b756",
+          "9adeac4f-6f2f-538e-83d6-1516eef1b9d9",
+          "38ea7bd9-8dd7-58c9-bde3-346bd534c518"
         ]
       },
       {
@@ -5997,16 +6014,24 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 75,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "Unless otherwise specified, an exact answer is required to a question.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "61c3e9ec-405a-4947-b6a0-d4e7240874da",
-          "29c40078-8361-4a76-b147-b4fa9ff091af",
-          "9d2008fb-57e8-44a1-8382-c9bf83647d80",
-          "1740d4c1-7094-433e-9eb1-1ec08af6cf1a",
-          "cc7ed212-979c-47a1-acb7-0ed2ca84d26f",
-          "eecbd033-c33f-45ff-ad44-9229a1ef261e"
+          "adcd18f6-4fdd-5d8e-a17b-f688a10a6666",
+          "266641dd-b95b-5f04-b62d-d9148afb5db0",
+          "787c0888-d1f7-5614-bf1c-3246e66cb5f2",
+          "f63a8fac-d42b-5d48-8568-43270c82a54c",
+          "de5185ab-8883-5bf3-b7e3-137ed988c13d",
+          "edea0e28-e57a-5528-b9cc-fcb608935603"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
   },
@@ -6020,20 +6045,27 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "title": "Examination 1 — technology-free",
         "time_minutes": 60,
         "calculator_allowed": false,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "In all questions where a numerical answer is required, an exact value must be given, unless otherwise specified.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
+        ],
         "question_ids": [
-          "a4798dc7-f631-4bd0-bb85-34a4af7add51",
-          "b85e7cc2-b796-4c5a-bb42-9120bf777954",
-          "02715056-9b7b-493a-a27c-7bb130779ebd",
-          "2ee6f131-20fd-4c28-8b45-c43c8c3784d7",
-          "cfb0131c-0332-4d0c-825a-82d7d5148fae",
-          "6ae60246-27e3-441f-9652-1415ec8e5518",
-          "4b84b1c3-ffaf-4d48-abd5-75cc521524a6",
-          "d527d9a9-92d1-4268-8b19-c3e4107beca2",
-          "7eeae18e-4e4a-488a-b2da-99aefe8e0867",
-          "4bdb1145-f51e-4160-83dc-4ef5a2f1e03e"
+          "d581063f-f957-5d80-9865-0cb35590fd45",
+          "105579aa-eab7-5b09-a70e-a74b928faa13",
+          "a5d9bb36-0e32-52a5-8c6e-1df403d4338b",
+          "bddd04f2-7d2d-5c5d-a70e-cc7624f56c1b",
+          "6a9408f3-f6ec-573b-9084-e13170147865",
+          "7f909882-d93d-544b-8470-e7fbb05cb13a",
+          "8b8fafef-c865-5450-8de5-e67bfe8f057f",
+          "dfa2c2c6-4c18-5004-a043-9e46b842da01",
+          "a1defe00-d918-5065-a719-1e1e8da91e3e",
+          "55b0106d-5374-59cd-b6eb-9a56e98caac7"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
   },
@@ -6048,27 +6080,33 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 45,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct for the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "953f6235-e990-4015-8332-467acf3ee18a",
-          "c3a18bc9-79ce-4253-853b-a13159416e6f",
-          "fc63c0fe-7bc7-45c0-a831-352400e2a284",
-          "a2547065-eaa1-4514-b065-bf9efee2d4cc",
-          "49725b13-9348-42e2-83f9-ee5db380f55e",
-          "29fecd23-9e4a-4436-beb7-3ee1675860ab",
-          "54bee8de-0c82-411b-bcdb-b84c091bf63e",
-          "4b89ed19-5b8c-46a6-bad4-e7a1bd95e140",
-          "60594a3d-1e6d-4533-80fe-4e70ae9a1dad",
-          "b8d56dba-4c23-44ff-bf9f-1cd2aefbf90a",
-          "01e945e4-d72c-450d-a954-c09019b57e25",
-          "1462af14-b56a-46d4-ab97-a05768d8648b",
-          "ed835717-bb70-4d63-9f65-37f4a8efeee3",
-          "e464a7b3-029d-49fb-aeb6-d7e997d43c96",
-          "e50c68a7-313d-49ac-9409-a7e076a0b0e4",
-          "c684f615-042b-4821-a6f8-ff44ff54e517",
-          "d4a87b5d-7a4a-4694-9aa7-afe4fecf7382",
-          "1c047b5d-45af-4d65-afe1-50334b908a8d",
-          "23f8a179-e3ad-41b0-91c8-bf13c526ce70",
-          "32c0c51d-088c-43bf-a028-d03eeccd3a53"
+          "15dab782-9bbd-508c-bacc-5b76c77bd2c8",
+          "4bbd62a6-36f4-59ba-bbff-0da4f2a36119",
+          "dbacccce-bf61-52e5-8e9f-eb1a18f0500a",
+          "32ad45dd-aa2b-5e68-b35a-b5ff42a6057a",
+          "afec64c0-4f66-52fe-93cd-0b49f5032488",
+          "fc1aa990-c62a-5833-949f-77e328b13cba",
+          "908a4801-d871-51c4-bbe2-ad2ce467ecd1",
+          "7f50a6e2-15d2-55ab-9428-8b2a24a75ef9",
+          "b7dde933-d044-55a9-ae54-e5d984356310",
+          "c733db1d-51d7-5108-ba89-c6afc8965e66",
+          "b1b5798d-b69e-51db-bef1-7d168fcb242f",
+          "82644848-183f-52e0-a184-06b76fde1981",
+          "ef4dcb3d-1e1b-5ca9-9279-b37f2f235d98",
+          "dc3d5a5a-92f1-5be4-854a-b7159936350d",
+          "1396939b-618f-5b17-9e82-b04c59e44b0e",
+          "03d0c139-b67a-5ed7-9685-c91cfeb9d60e",
+          "eeb699b9-7ac8-5b39-92e3-2a9db91c1ead",
+          "0ffcc6c2-524a-59b3-bbac-038354e6c6d6",
+          "60efc4bd-07ce-5464-bd28-f6a6f076551f",
+          "5a67264e-18a3-5b8c-865d-1fd6c37686c2"
         ]
       },
       {
@@ -6076,16 +6114,24 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 75,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "Unless otherwise specified, an exact answer is required to a question.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "fe81f1b4-8077-427d-b273-894493490c4b",
-          "1e98b76d-5771-4b77-91a1-7fecf4316440",
-          "07c9e221-146b-4e4d-bbd3-9fe8f8cd603c",
-          "59578cc9-64ea-437d-bd9c-f6c676e26511",
-          "56cbee1a-bacc-4425-94d5-854db18c5475",
-          "9de3c400-63b7-41e7-94b4-99fd12002225"
+          "1456d53a-ee59-5dca-b33c-e7ebd5d29bab",
+          "a7d48dcc-4c25-529c-b443-6ec2142b8354",
+          "b3e58aac-4cd8-5afa-9c82-c55f77bdf6a8",
+          "2bf428fb-b8c0-5834-aefa-0b33fd81f3fd",
+          "165c8b43-1825-5be1-88b4-6507bebf725b",
+          "c4196e3c-570d-5d86-9325-e8ef3f638b50"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
   },
@@ -6099,20 +6145,27 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "title": "Examination 1 — technology-free",
         "time_minutes": 60,
         "calculator_allowed": false,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "In all questions where a numerical answer is required, an exact value must be given, unless otherwise specified.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
+        ],
         "question_ids": [
-          "fee9fdf4-ce94-4de9-9730-c3528d9f6520",
-          "4ee7400a-11c9-4a17-9f38-20ae05bf8171",
-          "816c4e8d-470c-4a56-89a1-f89f56dd3744",
-          "f38e28ef-93ac-4096-bf1b-11afb2467585",
-          "dcb78b31-bb38-494a-964b-4f959b45b8d5",
-          "105b204e-ae2c-4c14-b384-894ac1c27dd5",
-          "26eb4d58-b442-4290-b30e-3087e35335f4",
-          "48701ff5-1aa6-4b2b-a9a7-c5fca4f3e67a",
-          "d1bdde78-af97-48ae-a9af-99fb94506a59",
-          "ea60b610-7a20-4933-b700-43be81e8e997"
+          "586479c7-b5fb-58ef-9e55-2336fbc01631",
+          "72055e19-a292-5c65-ad9b-eeef9ca0cb9a",
+          "530bf1b4-ce4a-540d-8381-b7cb778887e0",
+          "47060da9-2e8f-5c5f-ae7e-12897d81e33a",
+          "07d56ed9-acca-5e27-b192-8b59bfe904e8",
+          "709536b4-8719-558f-bf36-6c26f5018e17",
+          "6db93ac3-cf82-52ee-82f2-ef4cd6a7e6f1",
+          "e206d9a1-f2fd-51af-b9f2-36bddaf160b7",
+          "540d0ee1-9887-58bc-82b5-6f06d6cd7c99",
+          "70d3b9c4-b5f9-5f79-9f3f-677acee249a7"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
   },
@@ -6127,27 +6180,33 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 45,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct for the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "35d1cf8f-5a61-43dc-a84f-e94eb838cf27",
-          "46b6d397-5cf9-4ed4-bb7e-044706f42a94",
-          "3b506234-cbd4-48c8-a386-3a8c084d6b98",
-          "9077a2c0-47e6-407a-b849-9ddfd186a9e4",
-          "da91c564-21ba-4e4a-9393-da344ab14963",
-          "9fdd082d-3576-42be-bc92-1c6c0c882711",
-          "7e007569-5318-4aff-844d-441aefcb48c7",
-          "d99c266e-4d90-4c49-a41f-10d22487bde2",
-          "b8f3e5dc-92e1-4805-bd42-65a462356350",
-          "91ed6791-301e-461c-9e13-226fe01a83e6",
-          "ee9dd560-02f1-4093-b580-cd9c3bf0eaf5",
-          "35f24833-fff2-4ac0-9782-0efbc6ec6347",
-          "83310796-6540-4219-85ae-d6108d22b49d",
-          "7ada1d58-39b3-4c63-a8cd-18b47d7581af",
-          "f1ca987b-b45f-4d4a-a948-7012f82b324c",
-          "a89f0edb-0327-40a1-a272-e9ccea0dcbd0",
-          "7d722af6-5d11-4261-b744-48b0979a6d95",
-          "23f7e8aa-e643-47f4-8c48-d3efc8bdcabd",
-          "00b3588a-3393-451c-b13d-9659aafc26a6",
-          "b73973cc-0588-45eb-b4f0-d37fba27ca29"
+          "32e0e37f-6b2f-5322-9376-08df048a4970",
+          "0680158d-5000-5b81-9688-9e7fbe176de4",
+          "bb70f083-7223-526d-8e11-5715c194bba9",
+          "c0483396-b5a8-5afe-8e91-f57a7d095a15",
+          "817ca379-186f-5287-9af7-9e50382e1ba5",
+          "40fa8e7d-3d11-589e-9a0d-ba543c90a7e1",
+          "7bdb5fae-8dd7-5fc6-8a31-fd337786ea0d",
+          "b51b7062-31d6-58f0-a8aa-8d8f9566511f",
+          "eb436924-ae84-5db2-b50b-e7326ba5cefa",
+          "d9e87ab9-9d3d-5a1e-89e6-49cc6ac60d2b",
+          "f631dd6d-e3c1-53f1-9627-9d5f96e7ab7c",
+          "9cf9d8a3-2eaf-5c64-9f59-f1cc7cfaf360",
+          "ad639ff1-28ef-59e3-950f-b1057d3f6334",
+          "cef29dbe-2b16-5e86-90ec-2cbe764670d3",
+          "2427ae17-1ded-5602-b46c-32cce775fb7e",
+          "6d552d11-2e88-59bb-b018-5adf7cdf2b9d",
+          "f1535f18-c57b-5cca-8c15-6b93d55ae244",
+          "833eb202-b9e5-5e2d-bf27-ed66abe515d1",
+          "46eaa3f2-2c4c-5f6f-b57a-9edcc25e129a",
+          "7b14e0db-3643-5c3f-b9f3-1f11bfa81555"
         ]
       },
       {
@@ -6155,16 +6214,24 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 75,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "Unless otherwise specified, an exact answer is required to a question.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "940a7b34-fa9d-467e-8b44-7ebb51f7fe1d",
-          "07b41c12-6ce5-4502-ad6e-b9d34a77a090",
-          "fa1dc079-f294-47a9-b25f-ea500e627bf6",
-          "324eb813-8efe-49ed-8d86-fd4466325724",
-          "0e7c1c54-2153-45a1-9e0c-36113474d4f4",
-          "54ef2119-cc1e-4674-b0b0-ac01ba02e9f5"
+          "46be5dd4-d2ed-5e32-8895-837da5068b6e",
+          "2c7dfd95-9533-5fb8-bdcd-8fc7e134e2bb",
+          "c8d1b20e-94ef-55e3-86a1-c6de463bcdcc",
+          "71647694-1c22-524b-a832-cf6a0ff3ba14",
+          "7271749b-96e2-5c27-9220-331c6e4c80d9",
+          "c37bbb11-1b00-53ad-b7ee-b7e12bba5fa4"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
   },
@@ -6178,20 +6245,27 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "title": "Examination 1 — technology-free",
         "time_minutes": 60,
         "calculator_allowed": false,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "In all questions where a numerical answer is required, an exact value must be given, unless otherwise specified.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
+        ],
         "question_ids": [
-          "9f0f2fc7-9663-4495-bf59-53474b6a3a5c",
-          "a029eb9d-d81a-4580-beb6-d69758424662",
-          "52db7a3b-17f9-4609-907e-5db3a2a57784",
-          "b2efb0f2-471b-4896-b95a-48dc4693cfb7",
-          "888bce58-f7c6-4473-b766-1b0b0bf1f947",
-          "ceb2a3a3-4457-4b70-afe6-a20dd074088a",
-          "2981b09e-93dc-40de-aee6-a4d034fffa00",
-          "bb7d644c-b70f-4173-929c-a9b742818ad7",
-          "581124fa-e190-4713-8a3b-491559d34e72",
-          "20fce22f-97a9-4f2e-ae0a-cfd981d4d6f8"
+          "b5dbe38b-d10f-505f-a1ff-6b8c85bce205",
+          "c9ecef75-868a-582b-a7c8-68045db7803d",
+          "0754000d-256d-5c54-954b-645786b4e645",
+          "b9f71f33-b84a-5496-9068-251998b61492",
+          "c43b011e-8a36-5f41-ae1c-87b03b070502",
+          "4abc3a0f-cd86-5449-b0e8-ab17e373763e",
+          "29181153-4693-5b99-a37c-68044638a36b",
+          "649fade8-90b4-5a7b-a90c-7d06d77e099d",
+          "ffe35a6d-5b68-5b62-9406-2bbbf7dd1cb6",
+          "346303e1-b63f-59e0-a33a-b5a8825edc92"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
   },
@@ -6206,27 +6280,33 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 45,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct for the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "ac353745-8746-4520-afc3-99f9b747ac64",
-          "5b83b263-4ad9-4aa0-bbe0-9e7224e810eb",
-          "1c45fde2-268e-497c-b87a-6435fc1b2aa5",
-          "7f0bb6a4-9a73-4b55-a2ee-5a98e0699547",
-          "e69f9d4e-9a69-431a-b00d-052fb6fa23ae",
-          "48a7af8e-3516-4043-ab3f-2c366481ec4c",
-          "9dcb838d-1138-4deb-bb5f-fe007d50417f",
-          "5501a3e6-3232-415c-922b-f253b0eb5e49",
-          "52e23b76-5d08-4625-b7b6-914f63285aa5",
-          "b0a0a257-55c0-4e44-a0e0-1110067dd8b8",
-          "3a84b9d7-0ad1-451c-852c-3f3fce91855c",
-          "7102e9ef-f1b4-47d8-a83d-fa40332cbf0d",
-          "121cb3f7-3552-4933-95f3-c003430a0631",
-          "d641fda5-aaae-4100-bda5-b02ea790b88d",
-          "f45724dd-7f8a-4d65-a529-bfc9d6f41652",
-          "19eb8379-a6a4-4d50-a8f4-e8e8c3e709ce",
-          "b5eb0a8a-3f55-43f0-8092-0dba7717cebd",
-          "f454fc20-00fc-4641-b59a-49118785b890",
-          "a47a185d-089d-4e6f-9b3b-f6dc5356003d",
-          "23e8e1a6-d3cb-4be6-bcc1-439bdb607f20"
+          "4fd898b4-4c96-53e9-a192-6e543fee3444",
+          "cfc6e0c8-6d25-55c1-bfe2-22ced2497d53",
+          "d0d54e3a-225e-51f3-be02-dfa16999526a",
+          "6c00eefc-5075-55ed-99d1-da639df0236b",
+          "45b2d1fa-988c-5ffa-81e9-8c873cfa16d7",
+          "d2a51019-64d5-50b0-90c4-692f2062eace",
+          "60ead9fa-c52a-57ca-9e19-4dee6e7d4908",
+          "314522f9-6542-58fc-bcce-4fb74c139a48",
+          "aa857392-66d4-54e6-8eac-02b898ad686b",
+          "1b9bb182-9e81-5424-b256-784056f8e694",
+          "bec1bcf8-dcea-56fc-8ce1-97cb38a09bed",
+          "b70f0e31-d781-5005-b4c7-0f238b4f03b6",
+          "cb138ee6-039f-5f41-827e-066bef8f614b",
+          "adfe9e4f-c2c0-5aa2-8c59-1079f78cd813",
+          "751ad930-728c-5e7c-873b-3128ac8850bc",
+          "067a3412-c097-5fbd-8537-00b814f932a6",
+          "e2e79525-6930-58e8-aa97-880ccad1a26b",
+          "cfda444e-113c-5b32-b08c-53ad5664ab89",
+          "c67fd023-22f1-50c0-a9b1-d9e38d11d0a7",
+          "517d2b5f-8d64-516b-96f5-5d61cad7463a"
         ]
       },
       {
@@ -6234,16 +6314,24 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 75,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "Unless otherwise specified, an exact answer is required to a question.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "55645074-5318-4795-8953-f04b1421c021",
-          "b93c34af-c187-4c95-8ecb-a3734f6c8fc1",
-          "9e7de8e1-4298-4d9e-917d-d8331b4b17ab",
-          "a692d4eb-6966-460d-9595-7275b886e562",
-          "26a65467-2d0a-4240-8ebf-ccc8b7a0e3f2",
-          "4f0183bf-fe19-497c-a2f7-64e74c64b75d"
+          "1386d355-0285-5b03-b3e7-9421c97cd081",
+          "366541eb-922d-5886-a487-3353945c43fc",
+          "37392b9a-be34-5071-beb2-b798ea36ceaa",
+          "6e37f254-5ac8-5fdd-9ef4-dd85d53b2be9",
+          "a7415761-63cf-52ae-b406-5823708da7dc",
+          "41891f9c-0901-53d4-925f-c689d08258a8"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
   },
@@ -6257,20 +6345,27 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "title": "Examination 1 — technology-free",
         "time_minutes": 60,
         "calculator_allowed": false,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "In all questions where a numerical answer is required, an exact value must be given, unless otherwise specified.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
+        ],
         "question_ids": [
-          "7f884cd3-d6bd-4e65-a964-e7f0dbf065d5",
-          "843509c4-6b25-4d30-a6ac-0e3f18736546",
-          "3266c5d1-5bd2-419e-b783-aa0f54fae874",
-          "4b3bdb99-1178-4605-af07-e00530059ae0",
-          "1b040c9a-7656-4be4-a243-48d7203e5a48",
-          "54f34089-ed5d-4519-8974-34413144133a",
-          "bba2bfa9-5fe4-4f50-83fb-660649e4303c",
-          "fec120b2-dbe1-40d4-8975-32e290ab465e",
-          "87a90a31-65bd-4ed8-a09b-e32636e1c58b",
-          "1b8c24c1-474b-41ed-afc5-96e9ccb8ea30"
+          "bafc2159-d8c0-537a-9a5e-bd0f4c3645e5",
+          "f42ae6f4-61cf-5486-b5b7-91980754d30a",
+          "e34fa8df-ab6b-58fe-ad11-58636769558d",
+          "925fe20b-e34b-5c40-b47f-6e24c9ff5ff4",
+          "92e8552a-8430-54d3-807f-d930a8dde0b2",
+          "7f8a82b5-ea07-5a88-a358-8f65ab623abf",
+          "3d10e169-ed08-5b94-9d68-e46ed518c691",
+          "eeb0e122-de4b-5bd9-84a8-33eca538f3ce",
+          "7ab19fc1-bd3f-5cf7-a8ef-4dac5f01a9db",
+          "85f2be69-0041-5dc4-9b38-bbd70276f96d"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
   },
@@ -6285,27 +6380,33 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 45,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions. Choose the response that is correct for the question.",
+          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "55ea66c6-fbb6-4a6a-a891-d77907acdf4d",
-          "e5bb5479-b76a-4811-88ae-6f32fd87ab08",
-          "fbd08feb-63db-4421-aa2b-1a87838e61ee",
-          "b1517e05-9502-4796-ac28-63254d513a0d",
-          "35367dff-36b4-42a1-b8fc-d1f7c9a46e73",
-          "6b2f947d-dc29-4967-b945-812adbc07fb2",
-          "4c9c81dd-a70a-479d-b5ce-c8f8cbd4496b",
-          "5e5db2f8-ec56-4781-8fe5-458f7299af70",
-          "436a641d-bfba-4ec2-855d-d3fae946b92d",
-          "0cbf8fa7-6f15-4868-8bff-1248eb83387c",
-          "ee580aa3-3ad7-4c8f-9430-410313db1c96",
-          "1cc108ef-b998-444d-8916-577bfff86253",
-          "c9b905cd-bde1-4ced-b4f4-500e9063d646",
-          "ad1368e4-da97-42c9-b562-a2c0a6542840",
-          "7a260b70-4e24-48c0-8e97-407df8146e38",
-          "ddebe610-3e82-4e49-836e-d2f0d9e3f402",
-          "7b385c62-490d-453f-b621-df5292736a3f",
-          "f0f3143e-84dd-4a49-9b37-486d19f111f7",
-          "e37f712c-6408-44cd-a74b-233345d31da0",
-          "6fe7376e-53fd-4d57-a90c-aa4987616a0e"
+          "822e8873-6909-5ddc-9a81-01f3020133b2",
+          "6039cf1a-3aa8-5af6-8628-ab22dafc8bfa",
+          "96ccbb89-b039-56c9-9219-ad769959c5ab",
+          "fe4968d9-f273-5f45-b954-b73b962b3fe9",
+          "2e08d7f0-883a-5223-b2b5-63bdddf513b6",
+          "dfa3d544-feb3-55e8-b231-1f86393143d2",
+          "4e54b7dd-30f1-5061-89b4-a961cdc95803",
+          "77caf633-20e5-50fe-8f39-32d2c3787042",
+          "20a7539e-a297-5289-8be6-29aeee5035e5",
+          "19c073ad-56dd-5179-a375-b375ae1bfcb0",
+          "ceb949ff-6843-5e6e-a104-0d6a218ef940",
+          "1fb98d51-5446-5678-8aff-547c66d0af89",
+          "ff318279-d4c1-5bc2-9d53-ae555bb1496d",
+          "47913c7d-4ba7-5678-9fbf-b99bee44f091",
+          "97a1bafc-09d6-5c8b-81b5-e70560acb0dc",
+          "16b9c7a1-ba87-5ee8-8045-2015803c45bd",
+          "01dcf1a5-10ba-501e-960f-25e924e665cc",
+          "cbc9fef4-fe83-52e0-bf79-a63feb2c0ebc",
+          "750d9014-aea7-50b5-b6b2-ef6d139f9ba3",
+          "2ebed917-a0d2-519d-bfab-886debe9630a"
         ]
       },
       {
@@ -6313,16 +6414,24 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "time_minutes": 75,
         "calculator_allowed": true,
         "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "Unless otherwise specified, an exact answer is required to a question.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
+          "Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8."
+        ],
         "question_ids": [
-          "ac5637e3-50ee-4851-9b15-134906006dea",
-          "a563db59-46c6-40a7-9e61-dee1a6ad62ac",
-          "501f3166-fe82-4a97-829c-b47def0b6881",
-          "dcfecc84-2af6-4449-b1b0-632ccbbed94e",
-          "ed50fa22-3ca3-4f16-a8e7-00a8d65c768a",
-          "1ee7e968-1f5a-4a2a-b871-fefb1f35ca5c"
+          "6a30a20f-41a7-5d27-b470-6b456d1e2f28",
+          "263ca780-bd5e-53ff-8190-3ca3da0e4b01",
+          "56958bab-296a-523d-941b-458223ec4bcc",
+          "6dedb939-dbe9-5372-a710-824158ea69b3",
+          "576fb62c-b432-5370-b929-d4316b09629a",
+          "252c1607-8c5c-5cde-ba68-ad1965c0c481"
         ]
       }
     ],
+    "formula_sheet": "specialist_maths",
     "premium": true,
     "reading_minutes": 15
   }

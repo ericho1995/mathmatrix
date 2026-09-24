@@ -159,6 +159,13 @@ export interface QuestionPart {
   expected_answer: string
   /** Marking guidance: what earns each mark. */
   explanation: string
+  /** Ruled working lines under the part. VCAA sizes the space per part — a
+   * "show that" needs more room than "state" at the same marks — so authored
+   * papers set it; without it the space is derived from the marks. */
+  lines?: number
+  /** A graphic that belongs to this part rather than the whole question, such
+   * as blank axes for "sketch the graph on the axes below". */
+  diagram?: Diagram
 }
 
 export interface ExtendedResponseQuestion extends QuestionBase {
