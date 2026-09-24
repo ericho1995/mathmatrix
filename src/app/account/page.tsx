@@ -8,6 +8,7 @@ import { GRADES } from '@/lib/curriculum'
 import { statsFor, subjectLabel, yearLabel, isYearLevel } from '@/lib/catalogue'
 import { SUPPORT_EMAIL } from '@/lib/site'
 import { getAccess } from '@/lib/auth/access'
+import { ownsVcePaper } from '@/lib/auth/vceSets'
 import { FROM_PER_MONTH } from '@/lib/pricing'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { PLAN_TOTALS, releasesIn } from '@/lib/catalogue'
@@ -45,7 +46,8 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
   // that must never be wrong.
   const purchasesFailed = queryFailed('account.entitlements', entitlementsError, { userId: user.id }) || access.failed
   const plan = access.plan
-  const vcePapers = PRACTICE_EXAMS.filter(e => access.papers.has(e.id))
+  // One purchase covers both exams of a VCE set, so both are listed as owned.
+  const vcePapers = PRACTICE_EXAMS.filter(e => ownsVcePaper(e.id, access.papers))
   const billingNotice =
     searchParams?.billing === 'none'
       ? 'There is no subscription on this account to manage.'

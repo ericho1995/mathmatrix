@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import { getUserRole } from './getUserRole'
 import { isVceYear, planById, type Plan } from '@/lib/pricing'
 import type { YearLevel } from '@/types'
+import { ownsVcePaper } from './vceSets'
 
 /**
  * What the signed-in visitor has paid for, and the one rule for what that opens.
@@ -106,14 +107,14 @@ export type AccessReason = 'free' | 'admin' | 'plan' | 'paper' | 'purchased'
  *
  *  - free sample papers are open to everyone;
  *  - Grade 3 – Year 10 papers open with an active plan;
- *  - VCE papers open when that paper was bought;
+ *  - VCE papers open when that paper — or the other exam of its set — was bought;
  *  - a year level bought under the old bundle keeps every paper at that level.
  */
 export function accessReason(exam: GatedPaper, access: Access): AccessReason | null {
   if (!exam.premium) return 'free'
   if (access.admin) return 'admin'
   if (access.legacyYears.has(exam.yearLevel)) return 'purchased'
-  if (isVceYear(exam.yearLevel)) return access.papers.has(exam.id) ? 'paper' : null
+  if (isVceYear(exam.yearLevel)) return ownsVcePaper(exam.id, access.papers) ? 'paper' : null
   return access.plan ? 'plan' : null
 }
 

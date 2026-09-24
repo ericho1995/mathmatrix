@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import { getStripe, isStripeConfigured } from '@/lib/stripe'
 import { PLAN_IDS, isVceYear, stripePriceIdForPlan, stripePriceIdForVcePaper, type PlanId } from '@/lib/pricing'
 import { canOpen, getAccess } from '@/lib/auth/access'
+import { vcePartnerId } from '@/lib/auth/vceSets'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 
 export const runtime = 'nodejs'
@@ -92,12 +93,17 @@ export async function POST(req: NextRequest) {
       const priceId = stripePriceIdForVcePaper()
       if (!priceId) return NextResponse.json({ error: 'No price configured for VCE papers' }, { status: 503 })
 
+      // One purchase covers both exams of a two-paper VCE set (see vceSets.ts),
+      // so the receipt names both.
+      const partner = PRACTICE_EXAMS.find(e => e.id === vcePartnerId(exam.id))
+      const description = partner ? `${exam.title} and ${lastTitlePart(partner.title)}` : exam.title
+
       const session = await getStripe().checkout.sessions.create({
         mode: 'payment',
         // The one VCE price covers every paper; the paper's title goes on the
         // receipt through the description, and its id into the metadata.
         line_items: [{ price: priceId, quantity: 1 }],
-        payment_intent_data: { description: exam.title },
+        payment_intent_data: { description },
         customer_email: user.email ?? undefined,
         client_reference_id: user.id,
         metadata: { user_id: user.id, exam_id: exam.id },
@@ -114,4 +120,9 @@ export async function POST(req: NextRequest) {
     console.error('[checkout] session create failed', error)
     return NextResponse.json({ error: 'Could not start checkout' }, { status: 502 })
   }
+}
+
+/** "Mathematical Methods Unit 3 & 4 — Examination 2 (Practice 3)" → "Examination 2 (Practice 3)". */
+function lastTitlePart(title: string): string {
+  return title.split(' — ').pop() ?? title
 }
