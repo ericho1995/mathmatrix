@@ -390,19 +390,22 @@ const SPECIALIST_INSTRUCTIONS = {
 // questions (20 marks); Section B is short-answer and extended-response
 // questions totalling 100 marks. VCAA does not time the sections separately;
 // the split below is a suggested pace (a minute a mark) that sums correctly.
+// Worded as the 2025 VCAA paper (g = 9.81 m s⁻² is in the formula sheet's data).
 const PHYSICS_INSTRUCTIONS = {
   sectionA: [
-    'Answer all questions. Choose the response that is correct or that best answers the question.',
-    'A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.',
+    'Answer all questions.',
+    'Choose the response that is correct or that best answers the question.',
+    'A correct answer scores 1; an incorrect answer scores 0.',
+    'Marks will not be deducted for incorrect answers.',
     'Unless otherwise indicated, the diagrams in this book are not drawn to scale.',
-    'Take the value of g to be 9.81 m s⁻².',
   ],
   sectionB: [
-    'Answer all questions in the spaces provided. Write your responses in English.',
+    'Answer all questions in the spaces provided.',
+    'Write your responses in English.',
     'Where an answer box is provided, write your final answer in the box.',
+    'If an answer box has a unit printed in it, give your answer in that unit.',
     'In questions where more than one mark is available, appropriate working must be shown.',
     'Unless otherwise indicated, the diagrams in this book are not drawn to scale.',
-    'Take the value of g to be 9.81 m s⁻².',
   ],
 }
 

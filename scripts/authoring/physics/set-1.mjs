@@ -30,8 +30,8 @@ S.mc(MO, 'proficient', t`A spring with spring constant 200 N m⁻¹ is compresse
   t`The elastic potential energy becomes kinetic energy: \(\frac{1}{2}kx^2 = \frac{1}{2}mv^2\), so \(v = x\sqrt{\frac{k}{m}} = 0.10\sqrt{4000} = 6.32\) m s⁻¹. 4.47 m s⁻¹ and 8.94 m s⁻¹ drop the \(\frac{1}{2}\) from only one side; 20.0 m s⁻¹ uses \(x\) instead of \(x^2\).`)
 
 S.mc(FI, 'proficient', t`A satellite orbits at an altitude of \(6.37 \times 10^6\) m above Earth’s surface. The strength of Earth’s gravitational field at the satellite is closest to`,
-  ['2.46 N kg⁻¹', '4.91 N kg⁻¹', '9.83 N kg⁻¹', '19.7 N kg⁻¹'], 'A',
-  t`The altitude equals Earth’s radius, so the satellite is \(2R_E\) from Earth’s centre. \(g = \frac{GM_E}{(2R_E)^2}\), a quarter of the surface value: \(\frac{9.83}{4} = 2.46\) N kg⁻¹. 4.91 N kg⁻¹ uses the inverse (not inverse-square) law.`)
+  ['2.45 N kg⁻¹', '4.91 N kg⁻¹', '9.81 N kg⁻¹', '19.6 N kg⁻¹'], 'A',
+  t`The altitude equals Earth’s radius, so the satellite is \(2R_E\) from Earth’s centre. \(g = \frac{GM_E}{(2R_E)^2}\), a quarter of the surface value: \(\frac{9.81}{4} = 2.45\) N kg⁻¹. 4.91 N kg⁻¹ uses the inverse (not inverse-square) law.`)
 
 S.mc(FI, 'proficient', t`A charge \(+Q\) and a charge \(+4Q\) are fixed 3.0 m apart. At a point P on the line between them, the electric field is zero. The distance of P from the \(+4Q\) charge is`,
   ['0.75 m', '1.0 m', '1.5 m', '2.0 m'], 'D',
@@ -159,7 +159,7 @@ S.q(MO, 'proficient', t`In a crash test, a 1200 kg car travelling at 15 m s⁻¹
 S.q(FI, 'advanced', t`A navigation satellite moves in a circular orbit around Earth with a period of 12.0 hours.`, [
   part('a', t`Show that the radius of the satellite’s orbit is approximately \(2.66 \times 10^7\) m.`, 3,
     t`\(r = \sqrt[3]{\dfrac{GM_ET^2}{4\pi^2}} = 2.66 \times 10^7\) m`,
-    t`Gravity provides the centripetal force: \(\frac{GM_Em}{r^2} = \frac{4\pi^2 mr}{T^2}\), so \(r^3 = \frac{GM_ET^2}{4\pi^2} = \frac{6.67 \times 10^{-11} \times 5.98 \times 10^{24} \times (43\,200)^2}{4\pi^2}\), giving \(r = 2.66 \times 10^7\) m. Marks: 1 for equating gravitational and centripetal force; 1 for the period in seconds (43 200 s); 1 for the substitution. Common error: using the period in hours.`),
+    t`Gravity provides the centripetal force: \(\frac{GM_Em}{r^2} = \frac{4\pi^2 mr}{T^2}\), so \(r^3 = \frac{GM_ET^2}{4\pi^2} = \frac{6.67 \times 10^{-11} \times 5.97 \times 10^{24} \times (43\,200)^2}{4\pi^2}\), giving \(r = 2.66 \times 10^7\) m. Marks: 1 for equating gravitational and centripetal force; 1 for the period in seconds (43 200 s); 1 for the substitution. Common error: using the period in hours.`),
   part('b', t`Calculate the orbital speed of the satellite.`, 2,
     t`3.87 × 10³ m s⁻¹`,
     t`\(v = \frac{2\pi r}{T} = \frac{2\pi \times 2.66 \times 10^7}{43\,200} = 3.87 \times 10^3\) m s⁻¹ (equivalently \(\sqrt{\frac{GM_E}{r}}\)). 1 mark for the method, 1 mark for the value.`, { unit: 'm s⁻¹' }),

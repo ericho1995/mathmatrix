@@ -72,11 +72,12 @@ function QuestionBlock({ question, number }: { question: ResolvedQuestion; numbe
         {Array.from({ length: part.lines ?? workingLinesFor(part.marks) }).map((_, l) => (
           <View key={l} style={pdfStyles.partWorkingLine} />
         ))}
-        {/* VCAA Physics prints a box for the final answer, with its unit. */}
+        {/* VCAA Physics prints a box for the final answer, its unit inside. */}
         {part.unit !== undefined ? (
-          <View style={pdfStyles.answerBoxRow}>
-            <View style={pdfStyles.finalAnswerBox} />
-            <Text style={pdfStyles.finalAnswerUnit}>{part.unit}</Text>
+          <View style={pdfStyles.answerBoxRow} wrap={false}>
+            <View style={pdfStyles.finalAnswerBox}>
+              <Text style={pdfStyles.finalAnswerUnit}>{part.unit}</Text>
+            </View>
           </View>
         ) : null}
       </>

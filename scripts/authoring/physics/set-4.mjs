@@ -30,8 +30,8 @@ S.mc(MO, 'developing', t`A large truck collides head-on with a small car. During
   t`These forces are a Newton’s third-law pair, so they are equal in size and opposite in direction. The car suffers the larger acceleration because its mass is smaller.`)
 
 S.mc(FI, 'proficient', t`A satellite orbits at an altitude equal to twice Earth’s radius. The gravitational field strength at the satellite is closest to`,
-  ['1.09 N kg⁻¹', '2.46 N kg⁻¹', '3.28 N kg⁻¹', '4.91 N kg⁻¹'], 'A',
-  t`An altitude of \(2R_E\) puts the satellite \(3R_E\) from Earth’s centre, so \(g = \frac{9.83}{3^2} = 1.09\) N kg⁻¹. 2.46 N kg⁻¹ uses \(2R_E\) from the centre; 3.28 N kg⁻¹ uses an inverse (not inverse-square) law.`)
+  ['1.09 N kg⁻¹', '2.45 N kg⁻¹', '3.27 N kg⁻¹', '4.91 N kg⁻¹'], 'A',
+  t`An altitude of \(2R_E\) puts the satellite \(3R_E\) from Earth’s centre, so \(g = \frac{9.81}{3^2} = 1.09\) N kg⁻¹. 2.45 N kg⁻¹ uses \(2R_E\) from the centre; 3.27 N kg⁻¹ uses an inverse (not inverse-square) law.`)
 
 S.mc(FI, 'proficient', t`Satellite X orbits Earth at four times the orbital radius of satellite Y. The ratio of their periods, \(\frac{T_X}{T_Y}\), is`,
   ['2', '4', '8', '16'], 'C',
@@ -167,13 +167,13 @@ em.circle(40, 42, 26, { fill: 'light' }).text(40, 46, 'Earth', { size: 8.5 }).ci
 S.q(FI, 'advanced', t`The Moon (mass \(7.35 \times 10^{22}\) kg) orbits Earth at a distance of \(3.84 \times 10^8\) m between their centres, as shown in Figure 4. The figure is not to scale.`, [
   part('a', t`Calculate the strength of Earth’s gravitational field at the Moon’s distance.`, 2,
     t`2.70 × 10⁻³ N kg⁻¹`,
-    t`\(g = \frac{GM_E}{r^2} = \frac{6.67 \times 10^{-11} \times 5.98 \times 10^{24}}{(3.84 \times 10^8)^2} = 2.70 \times 10^{-3}\) N kg⁻¹. 1 mark for the substitution, 1 mark for the value.`, { unit: 'N kg⁻¹' }),
+    t`\(g = \frac{GM_E}{r^2} = \frac{6.67 \times 10^{-11} \times 5.97 \times 10^{24}}{(3.84 \times 10^8)^2} = 2.70 \times 10^{-3}\) N kg⁻¹. 1 mark for the substitution, 1 mark for the value.`, { unit: 'N kg⁻¹' }),
   part('b', t`Use your answer to part a to calculate the Moon’s orbital speed.`, 2,
     t`1.02 × 10³ m s⁻¹`,
     t`Gravity provides the centripetal acceleration: \(g = \frac{v^2}{r}\), so \(v = \sqrt{2.70 \times 10^{-3} \times 3.84 \times 10^8} = 1.02 \times 10^3\) m s⁻¹. (This gives a period of about 27 days.) 1 mark for \(g = \frac{v^2}{r}\), 1 mark for the value.`, { unit: 'm s⁻¹' }),
   part('c', t`At one point on the line between Earth and the Moon, the gravitational fields of Earth and the Moon cancel. Calculate the distance of this point from the centre of Earth.`, 3,
     t`3.46 × 10⁸ m`,
-    t`At distance \(x\) from Earth: \(\frac{GM_E}{x^2} = \frac{GM_M}{(d - x)^2}\), so \(\frac{d - x}{x} = \sqrt{\frac{M_M}{M_E}} = \sqrt{\frac{7.35 \times 10^{22}}{5.98 \times 10^{24}}} = 0.1109\). Then \(x = \frac{d}{1.1109} = \frac{3.84 \times 10^8}{1.1109} = 3.46 \times 10^8\) m (90% of the way to the Moon). Marks: 1 for equating the fields; 1 for the square-root ratio; 1 for the distance.`, { unit: 'm' }),
+    t`At distance \(x\) from Earth: \(\frac{GM_E}{x^2} = \frac{GM_M}{(d - x)^2}\), so \(\frac{d - x}{x} = \sqrt{\frac{M_M}{M_E}} = \sqrt{\frac{7.35 \times 10^{22}}{5.97 \times 10^{24}}} = 0.1110\). Then \(x = \frac{d}{1.1110} = \frac{3.84 \times 10^8}{1.1110} = 3.46 \times 10^8\) m (90% of the way to the Moon). Marks: 1 for equating the fields; 1 for the square-root ratio; 1 for the distance.`, { unit: 'm' }),
 ], { diagram: em.done('Figure 4') })
 
 const gun = drawing(300, 112)

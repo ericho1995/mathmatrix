@@ -1,6 +1,6 @@
 """Independent checks for Physics practice exam 5 (VCAA data values)."""
 import math
-g, G, ME, RE, kC, e, me, h, heV, c = 9.81, 6.67e-11, 5.98e24, 6.37e6, 8.99e9, 1.60e-19, 9.11e-31, 6.63e-34, 4.14e-15, 3.00e8
+g, G, ME, RE, kC, e, me, h, heV, c = 9.81, 6.67e-11, 5.97e24, 6.37e6, 8.99e9, 1.60e-19, 9.11e-31, 6.63e-34, 4.14e-15, 3.00e8
 hc = heV*c; mp = 1.67e-27
 
 print('== Section A ==')

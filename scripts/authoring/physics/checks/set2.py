@@ -9,7 +9,7 @@ t = math.sqrt(2*1.25/g); vy = g*t; print('A2 t', t, 'vy', vy, 'v', math.hypot(3,
 print('A3 hump', math.sqrt(g*20), 'sqrt r', math.sqrt(20), 'sqrt 2gr', math.sqrt(2*g*20), 'gr', g*20)
 print('A4 recoil', 0.020*400/4.0)
 print('A5 spring E', 0.5*30*0.15, 'k', 30/0.15)
-print('A6 g planet', g*2/4)
+print('A6 g planet (2M, 3R)', g*2/9, 'no mass', g/9, 'inverse', g*2/3)
 print('A10 flux', 0.40*0.050*math.sin(math.radians(30)), 'cos', 0.40*0.050*math.cos(math.radians(30)))
 print('A12 Ip', 2.0*12/240, 'P', 12*2)
 print('A13 peak', 15*math.sqrt(2), 'pp', 2*15*math.sqrt(2), 'rms/sqrt2', 15/math.sqrt(2))

@@ -1,15 +1,17 @@
 # Blueprint: VCE Physics Unit 3 & 4 examination (study design 2024–2027)
 
-## Format (from the 2024 VCAA specifications and every 2024 trial)
+## Format (from the VCAA specifications and the 2024–2025 VCAA papers)
 
 - One examination: 15 minutes reading, 150 minutes writing, 120 marks. Calculators are allowed, and the formula sheet is printed at the back.
 - **Section A:** 20 multiple-choice questions, A–D, 1 mark each (25 minutes in the paper's section header).
-- **Section B:** 100 marks over 14–19 short-answer questions (125 minutes). Questions are numbered from 1 in each section.
+- **Section B:** 100 marks over 14–19 short-answer questions (2025 had 19), taking 125 minutes. Questions are numbered from 1 in each section.
+- **Answer boxes.** Where VCAA gives an answer box, it sits at the left under the working lines, with the unit printed small inside its bottom-right corner. That is the `unit` option.
+- **Other part types.** VCAA also uses "(Circle your answer.)" choices followed by a justification, which is worth adopting in new sets.
 - `gen-exams.mjs` (`buildPhysicsUnit34Exams`) builds the paper:
   - id `physics-year_12-N`, title "Physics Unit 3 & 4 — Practice Exam N";
   - `formula_sheet: 'physics'`;
   - `premium: examIndex > 0`, so set 1 is the free sample.
-- The section instructions come from `PHYSICS_INSTRUCTIONS` in `gen-exams.mjs`. They include "Take the value of g to be 9.81 m s⁻²" (the 2024 trials do this) and "Where an answer box is provided, write your final answer in the box."
+- The section instructions come from `PHYSICS_INSTRUCTIONS` in `gen-exams.mjs`, worded as in the 2025 paper, including "If an answer box has a unit printed in it, give your answer in that unit". The value of g is in the formula sheet's data section, not in the instructions.
 
 ## Marks per set (what sets 1–5 use; `build.mjs` prints this line)
 
@@ -72,7 +74,7 @@
 - charge and discharge of capacitors, and semiconductors beyond the diode/LED threshold used in an investigation;
 - radioactive decay (half-life is fine only as a given ratio, as in the muon question).
 
-## Data values (the 2024 formula sheet; `checks/*.py` use exactly these)
+## Data values (the VCAA 2026 formula sheet, as printed with the 2025 exam; `checks/*.py` use exactly these)
 
 | Quantity | Value |
 |---|---|
@@ -82,7 +84,7 @@
 | h | 6.63 × 10⁻³⁴ J s and 4.14 × 10⁻¹⁵ eV s |
 | c | 3.00 × 10⁸ m s⁻¹ |
 | G | 6.67 × 10⁻¹¹ N m² kg⁻² |
-| M_E | 5.98 × 10²⁴ kg |
+| M_E | 5.97 × 10²⁴ kg (the 2024 trials used 5.98, and VCAA has used 5.97 since 2025) |
 | R_E | 6.37 × 10⁶ m |
 | k | 8.99 × 10⁹ N m² C⁻² |
 

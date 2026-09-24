@@ -6447,10 +6447,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions. Choose the response that is correct or that best answers the question.",
-          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Answer all questions.",
+          "Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0.",
+          "Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "6322e788-364c-5cca-825e-046ee73ec79a",
@@ -6481,11 +6482,12 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Answer all questions in the spaces provided.",
+          "Write your responses in English.",
           "Where an answer box is provided, write your final answer in the box.",
+          "If an answer box has a unit printed in it, give your answer in that unit.",
           "In questions where more than one mark is available, appropriate working must be shown.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "d8fe9f57-1be2-568e-98e1-e850526021ac",
@@ -6522,10 +6524,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions. Choose the response that is correct or that best answers the question.",
-          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Answer all questions.",
+          "Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0.",
+          "Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "2c1ced97-2874-514e-94ec-1f4aa33c9400",
@@ -6556,11 +6559,12 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Answer all questions in the spaces provided.",
+          "Write your responses in English.",
           "Where an answer box is provided, write your final answer in the box.",
+          "If an answer box has a unit printed in it, give your answer in that unit.",
           "In questions where more than one mark is available, appropriate working must be shown.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "d5cd70aa-a8c1-5fe9-a530-2068f96ee74d",
@@ -6597,10 +6601,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions. Choose the response that is correct or that best answers the question.",
-          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Answer all questions.",
+          "Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0.",
+          "Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "19fdd18d-cb3f-5535-bf65-9e53405be782",
@@ -6631,11 +6636,12 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Answer all questions in the spaces provided.",
+          "Write your responses in English.",
           "Where an answer box is provided, write your final answer in the box.",
+          "If an answer box has a unit printed in it, give your answer in that unit.",
           "In questions where more than one mark is available, appropriate working must be shown.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "e207ea61-4478-50c9-8b1f-8235724d92de",
@@ -6672,10 +6678,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions. Choose the response that is correct or that best answers the question.",
-          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Answer all questions.",
+          "Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0.",
+          "Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "3d57f759-942a-5983-863f-e406f2ed16b7",
@@ -6706,11 +6713,12 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Answer all questions in the spaces provided.",
+          "Write your responses in English.",
           "Where an answer box is provided, write your final answer in the box.",
+          "If an answer box has a unit printed in it, give your answer in that unit.",
           "In questions where more than one mark is available, appropriate working must be shown.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "469f89c1-6267-5bc4-992a-30ad0b6d0e72",
@@ -6747,10 +6755,11 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions. Choose the response that is correct or that best answers the question.",
-          "A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Answer all questions.",
+          "Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0.",
+          "Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "e14ec2b6-2b91-57a4-87fb-deb47ffbaa9e",
@@ -6781,11 +6790,12 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         "calculator_allowed": true,
         "restart_numbering": true,
         "instructions": [
-          "Answer all questions in the spaces provided. Write your responses in English.",
+          "Answer all questions in the spaces provided.",
+          "Write your responses in English.",
           "Where an answer box is provided, write your final answer in the box.",
+          "If an answer box has a unit printed in it, give your answer in that unit.",
           "In questions where more than one mark is available, appropriate working must be shown.",
-          "Unless otherwise indicated, the diagrams in this book are not drawn to scale.",
-          "Take the value of g to be 9.81 m s⁻²."
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
         ],
         "question_ids": [
           "19d9a9fc-3b8a-5fc4-a610-4d06ecfd10b9",

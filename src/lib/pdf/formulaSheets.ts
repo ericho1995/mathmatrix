@@ -132,8 +132,10 @@ export const SPECIALIST_FORMULA_SHEET: FormulaSheet = {
   ],
 }
 
-// The VCE Physics formula sheet for the 2024–2027 study design. Relativity sits
-// with motion, as VCAA lays it out; the data values are VCAA's (g = 9.81).
+// The VCE Physics formula sheet for the 2024–2027 study design, following the
+// VCAA 2026 sheet (the one printed with the 2025 examination): relativity under
+// its own heading after motion, and VCAA's data values (g = 9.81, and
+// M_E = 5.97 × 10²⁴ kg since 2025).
 export const PHYSICS_FORMULA_SHEET: FormulaSheet = {
   title: 'Physics formulas',
   sections: [
@@ -142,17 +144,22 @@ export const PHYSICS_FORMULA_SHEET: FormulaSheet = {
       rows: [
         { label: 'velocity; acceleration', cells: [t`\(v = \dfrac{\Delta s}{\Delta t};\quad a = \dfrac{\Delta v}{\Delta t}\)`] },
         { label: 'equations for constant acceleration', cells: [t`\(v = u + at \qquad s = ut + \tfrac{1}{2}at^2 \qquad s = vt - \tfrac{1}{2}at^2\)`] },
-        { cells: [t`\(v^2 = u^2 + 2as \qquad s = \tfrac{1}{2}(v + u)t\)`] },
-        { label: 'Newton’s second law', cells: [t`\(F_{\text{net}} = ma\)`] },
+        { cells: [t`\(v^2 = u^2 + 2as \qquad s = \tfrac{1}{2}(u + v)t\)`] },
+        { label: 'Newton’s second law', cells: [t`\(\Sigma F = ma\)`] },
         { label: 'uniform circular motion', cells: [t`\(F_{\text{net}} = \dfrac{mv^2}{r};\quad v = \dfrac{2\pi r}{T}\)`] },
         { label: 'Hooke’s law', cells: [t`\(F = -kx\)`] },
         { label: 'elastic potential energy', cells: [t`\(E_s = \tfrac{1}{2}kx^2\)`] },
         { label: 'gravitational potential energy', cells: [t`\(E_g = mg\Delta h\)`] },
         { label: 'kinetic energy', cells: [t`\(E_k = \tfrac{1}{2}mv^2\)`] },
-        { label: 'Newton’s law of universal gravitation', cells: [t`\(F = G\dfrac{m_1m_2}{r^2}\)`] },
+        { label: 'Newton’s law of universal gravitation', cells: [t`\(F_g = G\dfrac{m_1m_2}{r^2}\)`] },
         { label: 'gravitational field', cells: [t`\(g = G\dfrac{M}{r^2}\)`] },
         { label: 'impulse', cells: [t`\(F\Delta t = m\Delta v\)`] },
         { label: 'momentum', cells: [t`\(p = mv\)`] },
+      ],
+    },
+    {
+      title: 'Einstein’s special theory of relativity',
+      rows: [
         { label: 'Lorentz factor', cells: [t`\(\gamma = \dfrac{1}{\sqrt{1 - \dfrac{v^2}{c^2}}}\)`] },
         { label: 'time dilation', cells: [t`\(t = t_0\gamma\)`] },
         { label: 'length contraction', cells: [t`\(L = \dfrac{L_0}{\gamma}\)`] },
@@ -166,7 +173,7 @@ export const PHYSICS_FORMULA_SHEET: FormulaSheet = {
       rows: [
         { label: 'electric field between charged plates', cells: [t`\(E = \dfrac{V}{d}\)`] },
         { label: 'energy transformations of charges in an electric field', cells: [t`\(\tfrac{1}{2}mv^2 = qV\)`] },
-        { label: 'field of a point charge', cells: [t`\(E = \dfrac{kq}{r^2}\)`] },
+        { label: 'field of a point charge', cells: [t`\(E = \dfrac{kQ}{r^2}\)`] },
         { label: 'electric force on a charged particle', cells: [t`\(F = qE\)`] },
         { label: 'Coulomb’s law', cells: [t`\(F = \dfrac{kq_1q_2}{r^2}\)`] },
         { label: 'magnetic force on a moving charge', cells: [t`\(F = qvB\)`] },
@@ -177,7 +184,7 @@ export const PHYSICS_FORMULA_SHEET: FormulaSheet = {
     {
       title: 'Generation and transmission of electricity',
       rows: [
-        { label: 'voltage; current; power', cells: [t`\(V = IR;\quad I = \dfrac{q}{t};\quad P = VI\)`] },
+        { label: 'current; power', cells: [t`\(I = \dfrac{V}{R};\quad P = VI\)`] },
         { label: 'resistors in series', cells: [t`\(R_T = R_1 + R_2 + \cdots\)`] },
         { label: 'resistors in parallel', cells: [t`\(\dfrac{1}{R_T} = \dfrac{1}{R_1} + \dfrac{1}{R_2} + \cdots\)`] },
         { label: 'ideal transformer action', cells: [t`\(\dfrac{V_1}{V_2} = \dfrac{N_1}{N_2} = \dfrac{I_2}{I_1}\)`] },
@@ -209,21 +216,26 @@ export const PHYSICS_FORMULA_SHEET: FormulaSheet = {
       rows: [
         { label: 'acceleration due to gravity at Earth’s surface', cells: [t`\(g = 9.81\ \text{m s}^{-2}\)`] },
         { label: 'mass of the electron', cells: [t`\(m_e = 9.11 \times 10^{-31}\ \text{kg}\)`] },
-        { label: 'magnitude of the charge on the electron', cells: [t`\(e = 1.60 \times 10^{-19}\ \text{C}\)`] },
+        { label: 'magnitude of the charge of the electron', cells: [t`\(q_e = 1.60 \times 10^{-19}\ \text{C}\)`] },
         { label: 'Planck’s constant', cells: [t`\(h = 6.63 \times 10^{-34}\ \text{J s}\)`, t`\(h = 4.14 \times 10^{-15}\ \text{eV s}\)`] },
         { label: 'speed of light in a vacuum', cells: [t`\(c = 3.00 \times 10^{8}\ \text{m s}^{-1}\)`] },
         { label: 'universal gravitation constant', cells: [t`\(G = 6.67 \times 10^{-11}\ \text{N m}^2\,\text{kg}^{-2}\)`] },
-        { label: 'mass of Earth', cells: [t`\(M_E = 5.98 \times 10^{24}\ \text{kg}\)`] },
+        { label: 'mass of Earth', cells: [t`\(M_E = 5.97 \times 10^{24}\ \text{kg}\)`] },
         { label: 'radius of Earth', cells: [t`\(R_E = 6.37 \times 10^{6}\ \text{m}\)`] },
         { label: 'Coulomb constant', cells: [t`\(k = 8.99 \times 10^{9}\ \text{N m}^2\,\text{C}^{-2}\)`] },
       ],
     },
     {
-      title: 'Metric (SI) multipliers and unit conversions',
+      title: 'Metric (SI) multipliers',
       rows: [
         { cells: [t`p = pico = \(10^{-12}\)`, t`n = nano = \(10^{-9}\)`, t`μ = micro = \(10^{-6}\)`, t`m = milli = \(10^{-3}\)`] },
         { cells: [t`k = kilo = \(10^{3}\)`, t`M = mega = \(10^{6}\)`, t`G = giga = \(10^{9}\)`, t`T = tera = \(10^{12}\)`] },
-        { cells: [t`1 tonne (t) \(= 10^3\) kg`, t`1 kilowatt hour (kWh) \(= 3.6 \times 10^6\) J`] },
+      ],
+    },
+    {
+      title: 'Unit conversions',
+      rows: [
+        { cells: [t`1 tonne (t) \(= 10^3\) kg`, t`1 kilowatt hour (kW h) \(= 3.6 \times 10^6\) J`] },
       ],
     },
     {

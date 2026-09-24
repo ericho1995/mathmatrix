@@ -177,11 +177,11 @@ S.q(MO, 'proficient', t`A spring with a spring constant of 800 N m⁻¹ is compr
     t`All three forms, in order, are needed for the mark.`),
 ], { diagram: hill.done('Figure 4') })
 
-const GM = 6.67e-11 * 5.98e24
+const GM = 6.67e-11 * 5.97e24
 const gr = x => GM / (x * 1e6) ** 2
 S.q(FI, 'advanced', t`Figure 5 shows how the strength of Earth’s gravitational field varies with distance \(r\) from Earth’s centre, from Earth’s surface (\(r = 6.37 \times 10^6\) m) outwards. A 500 kg satellite is to be lifted from Earth’s surface to a height where \(r = 1.274 \times 10^7\) m (twice Earth’s radius).`, [
   part('a', t`Use Figure 5 to state the gravitational field strength at \(r = 1.274 \times 10^7\) m.`, 1,
-    t`About 2.5 N kg⁻¹ (exactly 2.46 N kg⁻¹)`,
+    t`About 2.5 N kg⁻¹ (exactly 2.45 N kg⁻¹)`,
     t`Read from the graph; it is a quarter of the surface value, since the distance from the centre has doubled.`, { unit: 'N kg⁻¹' }),
   part('b', t`Use Figure 5 to estimate the increase in gravitational potential energy of the satellite as it is lifted from the surface to \(r = 1.274 \times 10^7\) m.`, 3,
     t`About 1.6 × 10¹⁰ J (accept 1.4 × 10¹⁰ – 1.8 × 10¹⁰ J)`,
@@ -190,8 +190,8 @@ S.q(FI, 'advanced', t`Figure 5 shows how the strength of Earth’s gravitational
     t`\(g\) decreases as the satellite rises (inverse-square law), so using the surface value of 9.81 N kg⁻¹ throughout overestimates the force and the work done.`,
     t`The field is not uniform over such large distances.`),
   part('d', t`Calculate the speed the satellite would need to orbit at \(r = 1.274 \times 10^7\) m.`, 2,
-    t`5.60 × 10³ m s⁻¹`,
-    t`\(v = \sqrt{\frac{GM_E}{r}} = \sqrt{\frac{6.67 \times 10^{-11} \times 5.98 \times 10^{24}}{1.274 \times 10^7}} = 5.60 \times 10^3\) m s⁻¹. 1 mark for the relationship, 1 mark for the value.`, { unit: 'm s⁻¹' }),
+    t`5.59 × 10³ m s⁻¹`,
+    t`\(v = \sqrt{\frac{GM_E}{r}} = \sqrt{\frac{6.67 \times 10^{-11} \times 5.97 \times 10^{24}}{1.274 \times 10^7}} = 5.59 \times 10^3\) m s⁻¹. 1 mark for the relationship, 1 mark for the value.`, { unit: 'm s⁻¹' }),
 ], { diagram: { kind: 'function_graph', xMin: 6, xMax: 14, yMin: 0, yMax: 10, xStep: 0.5, yStep: 1, xLabel: 'r (× 10⁶ m)', yLabel: 'g (N kg⁻¹)', width: 380, grid: true, curves: [{ points: curve(gr, 6.37, 14, 60) }], regions: [{ points: [...curve(gr, 6.37, 12.74, 40), [12.74, 0], [6.37, 0]] }], caption: 'Figure 5' } })
 
 const pc = drawing(300, 86)

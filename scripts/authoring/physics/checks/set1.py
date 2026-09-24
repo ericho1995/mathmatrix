@@ -1,8 +1,8 @@
 """Independent checks for Physics practice exam 1. Values use the VCAA data:
-g = 9.81, G = 6.67e-11, ME = 5.98e24, RE = 6.37e6, k = 8.99e9, e = 1.60e-19,
+g = 9.81, G = 6.67e-11, ME = 5.97e24, RE = 6.37e6, k = 8.99e9, e = 1.60e-19,
 me = 9.11e-31, h = 6.63e-34 J s = 4.14e-15 eV s, c = 3.00e8."""
 import math
-g, G, ME, RE, kC, e, me, h, heV, c = 9.81, 6.67e-11, 5.98e24, 6.37e6, 8.99e9, 1.60e-19, 9.11e-31, 6.63e-34, 4.14e-15, 3.00e8
+g, G, ME, RE, kC, e, me, h, heV, c = 9.81, 6.67e-11, 5.97e24, 6.37e6, 8.99e9, 1.60e-19, 9.11e-31, 6.63e-34, 4.14e-15, 3.00e8
 f = lambda v, n=4: float(f'{v:.{n}g}')
 
 print('== Section A ==')

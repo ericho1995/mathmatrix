@@ -30,9 +30,9 @@ S.mc(MO, 'developing', t`A spring that obeys Hooke’s law stretches by 0.15 m w
   ['2.25 J', '4.50 J', '30.0 J', '200 J'], 'A',
   t`\(k = \frac{30}{0.15} = 200\) N m⁻¹ and \(E_s = \frac{1}{2}kx^2 = \frac{1}{2} \times 200 \times 0.15^2 = 2.25\) J — the area under the force–extension graph. 4.50 J forgets the \(\frac{1}{2}\); 200 is the spring constant.`)
 
-S.mc(FI, 'proficient', t`Planet X has twice the mass of Earth and twice the radius of Earth. The gravitational field strength at the surface of planet X is closest to`,
-  ['2.45 N kg⁻¹', '4.91 N kg⁻¹', '9.81 N kg⁻¹', '19.6 N kg⁻¹'], 'B',
-  t`\(g = \frac{GM}{r^2}\): doubling \(M\) doubles \(g\) and doubling \(r\) quarters it, so \(g = 9.81 \times \frac{2}{4} = 4.91\) N kg⁻¹.`)
+S.mc(FI, 'proficient', t`Planet X has twice the mass of Earth and three times the radius of Earth. The gravitational field strength at the surface of planet X is closest to`,
+  ['1.09 N kg⁻¹', '2.18 N kg⁻¹', '6.54 N kg⁻¹', '19.6 N kg⁻¹'], 'B',
+  t`\(g = \frac{GM}{r^2}\): doubling \(M\) doubles \(g\) and tripling \(r\) divides it by 9, so \(g = 9.81 \times \frac{2}{9} = 2.18\) N kg⁻¹. 6.54 N kg⁻¹ uses an inverse (not inverse-square) law; 1.09 N kg⁻¹ ignores the doubled mass.`)
 
 S.mc(FI, 'proficient', t`A graph shows the gravitational force on a spacecraft against its distance from the centre of Earth. The area under the graph between two distances is equal to the`,
   ['average gravitational field strength between the two distances', 'impulse on the spacecraft', 'power needed to move the spacecraft', 'change in gravitational potential energy of the spacecraft'], 'D',
