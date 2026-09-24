@@ -26,6 +26,13 @@ export interface Release {
 export const RELEASES: Release[] = [
   {
     date: '2026-09-24',
+    title: 'VCE Unit 3 & 4 Physics',
+    detail:
+      'Five Year 12 Physics practice exams in the 2024–2027 VCAA format: 20 multiple-choice questions and 100 marks of short-answer questions across all five areas of study, with diagrams and graphs to read and plot, answer boxes with units, the Physics formula sheet, and worked solutions with a marking guide for every part.',
+    examIds: ['physics-year_12-1', 'physics-year_12-2', 'physics-year_12-3', 'physics-year_12-4', 'physics-year_12-5'],
+  },
+  {
+    date: '2026-09-24',
     title: 'Specialist Mathematics papers rewritten',
     detail:
       'All ten Year 12 Specialist Mathematics papers have been rewritten against past VCAA and trial examinations: four-option multiple choice as VCAA has set it since 2024, typeset mathematics, the Specialist formula sheet at the back of every paper, and worked solutions with a marking guide for every part.',
@@ -159,8 +166,8 @@ export const ROADMAP: RoadmapItem[] = [
     audience: 'VCE',
   },
   {
-    title: 'VCE Unit 3 & 4 Chemistry and Physics',
-    detail: 'Year 12 papers for the two subjects that only have Unit 1 & 2 papers so far.',
+    title: 'VCE Unit 3 & 4 Chemistry',
+    detail: 'Year 12 Chemistry papers — the one VCE subject here that only has Unit 1 & 2 papers so far.',
     audience: 'VCE',
   },
   {

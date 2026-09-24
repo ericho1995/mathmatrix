@@ -109,9 +109,10 @@ export function RichText({ text, style, fontSize: fontSizeProp }: { text: string
     for (const seg of parseRich(para)) {
       if (seg.kind === 'display') { endInline(); blocks.push({ kind: 'display', tex: seg.tex }); continue }
       if (seg.kind === 'math') { current.push({ kind: 'math', tex: seg.tex }); continue }
-      for (const piece of seg.text.split(/(\s+)/)) {
+      // A no-break space (U+00A0) keeps "2.0 m" on one line, so it is not a break.
+      for (const piece of seg.text.split(/([^\S ]+)/)) {
         if (!piece) continue
-        if (/^\s+$/.test(piece)) flush()
+        if (/^[^\S ]+$/.test(piece)) flush()
         else current.push({ kind: 'text', text: piece })
       }
     }

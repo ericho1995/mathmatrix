@@ -115,6 +115,7 @@ export function FunctionGraph({ diagram, fit, bare }: { diagram: FunctionGraphDi
           ].join('    ')}
         </Text>
       ) : null}
+      {diagram.caption ? <Text style={[pdfStyles.diagramCaption, { textAlign: 'center' }]}>{diagram.caption}</Text> : null}
     </Frame>
   )
 }

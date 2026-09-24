@@ -431,10 +431,11 @@ for (const [yearLevel, pool] of numeracyByYear) {
 // no check catches at render time and no reader notices until they are holding
 // the paper. Wording this wrong has slipped through twice.
 // Only questions that actually carry a diagram: "scored above 86" is ordinary
-// English, and flagging it would train everyone to ignore this check.
+// English, and flagging it would train everyone to ignore this check. Nor is
+// "35° above the horizontal" or "2.0 m above the ground" (physics says it constantly).
 for (const q of QUESTION_BANK) {
   if (!q.diagram) continue
-  const refersUp = text => / above\b/.test(text)
+  const refersUp = text => / above\b(?! (the|a|an|its|their|ground|sea|water|\d))/i.test(text)
   if (refersUp(q.question_text)) {
     err('question_text says "above" but its diagram renders below the text — say "below"', q.id)
   }
@@ -573,6 +574,40 @@ for (const [set, gmYear12] of bySet(QUESTION_BANK.filter(q => q.year_level === '
   }
 }
 
+// ─── 10c. Physics Unit 3 & 4 paper structure ─────────────────────────────────
+// VCAA's examination for the 2024–2027 study design: one paper, 2 hours 30
+// minutes. Section A: 20 multiple choice, 1 mark each, four options (A–D).
+// Section B: short-answer and extended-response questions, 100 marks. Every
+// area of study appears, including the scientific investigation.
+{
+  const PHYS_AOS = ['phys_motion', 'phys_fields', 'phys_electrical_power', 'phys_light_matter', 'phys_investigation']
+  const marksOf = q => (q.parts ? q.parts.reduce((t, p) => t + p.marks, 0) : q.marks ?? 0)
+  for (const [set, ph] of bySet(QUESTION_BANK.filter(q => PHYS_AOS.includes(q.topic) && q.year_level === 'year_12'))) {
+    const tag = `Physics set ${set}`
+    const a = ph.filter(q => q.format !== 'extended_response')
+    const b = ph.filter(q => q.format === 'extended_response')
+    if (a.length !== 20) err(`${tag}: Section A has ${a.length} questions; VCAA sets 20`)
+    for (const q of a) {
+      if (!q.options || q.options.length !== 4) err(`Physics Section A question has ${q.options?.length} options; VCAA offers four (A–D)`, q.id)
+      if (q.marks !== 1) err('Physics Section A question must be worth 1 mark', q.id)
+    }
+    const bMarks = b.reduce((s, q) => s + marksOf(q), 0)
+    if (bMarks !== 100) err(`${tag}: Section B totals ${bMarks} marks; VCAA's is 100`)
+    if (b.length < 14 || b.length > 20) warn(`${tag}: Section B has ${b.length} questions; recent papers set 15–19`)
+    const missing = PHYS_AOS.filter(t => !ph.some(q => q.topic === t))
+    if (missing.length) err(`${tag}: no questions from ${missing.join(', ')}`)
+    const letters = [0, 0, 0, 0]
+    for (const q of a) if (typeof q.correct_index === 'number') letters[q.correct_index]++
+    if (a.length === 20 && (Math.max(...letters) > 7 || Math.min(...letters) < 3)) err(`${tag}: Section A answer letters are unbalanced ${JSON.stringify(letters)} (aim for 4–6 each)`)
+    for (const q of b) for (const p of q.parts) if (!p.explanation || p.explanation.length < 25) warn(`${tag}: part ${p.label} has no worked solution`, q.id)
+  }
+}
+// Table-style options need one cell per header.
+for (const q of QUESTION_BANK) {
+  if (!q.option_headers) continue
+  for (const o of q.options ?? []) if (o.split(' | ').length !== q.option_headers.length) err(`option "${o.slice(0, 40)}" has ${o.split(' | ').length} cells for ${q.option_headers.length} headers`, q.id)
+}
+
 // ─── 11. Diagrams are well-formed ────────────────────────────────────────────
 // A diagram that type-checks can still be wrong in ways only the renderer
 // notices — a figure segment naming a point that does not exist throws at render
@@ -580,7 +615,7 @@ for (const [set, gmYear12] of bySet(QUESTION_BANK.filter(q => q.year_level === '
 // mistakes that are cheap to catch here and expensive to catch from a customer.
 const VENN_TWO = new Set(['A', 'B', 'AB', 'none'])
 const VENN_THREE = new Set(['A', 'B', 'C', 'AB', 'AC', 'BC', 'ABC', 'none'])
-const NON_SCALING = new Set(['simple_shape'])
+const NON_SCALING = new Set(['simple_shape', 'pseudocode'])
 
 function checkDiagram(d, id, where) {
   const bad = msg => err(`${where} ${d.kind}: ${msg}`, id)
@@ -689,6 +724,21 @@ function checkDiagram(d, id, where) {
       if (!d.lines.length) bad('no lines')
       if (d.lines.some(l => /\t/.test(l))) bad('indent with spaces, not tabs')
       break
+    case 'drawing': {
+      if (!d.elements.length) bad('no elements')
+      // Everything drawn inside the box, allowing a little for stroke and text.
+      const inBox = (x, y) => x >= -2 && y >= -2 && x <= d.width + 2 && y <= d.height + 2
+      for (const e of d.elements) {
+        const coords = e.t === 'line' ? [[e.x1, e.y1], [e.x2, e.y2]]
+          : e.t === 'poly' ? e.points
+          : e.t === 'rect' ? [[e.x, e.y], [e.x + e.w, e.y + e.h]]
+          : e.t === 'circle' || e.t === 'arc' ? [[e.cx - e.r, e.cy - e.r], [e.cx + e.r, e.cy + e.r]]
+          : [[e.x, e.y]]
+        if (coords.some(([x, y]) => !Number.isFinite(x) || !Number.isFinite(y))) bad(`a ${e.t} has a non-finite coordinate`)
+        else if (e.t !== 'circle' && e.t !== 'arc' && coords.some(([x, y]) => !inBox(x, y))) bad(`a ${e.t} runs outside the ${d.width}×${d.height} box`)
+      }
+      break
+    }
   }
 }
 
