@@ -166,7 +166,7 @@ export default function MarketingHome() {
             icon={SquareFunction}
             eyebrow="Year 11 & 12"
             title="VCE"
-            body="Methods, General, Specialist, Chemistry and Physics, laid out like VCAA papers with reading time."
+            body="Mathematical Methods, General Mathematics, Specialist Mathematics, Chemistry and Physics, laid out like VCAA papers with reading time."
           />
         </div>
       </section>

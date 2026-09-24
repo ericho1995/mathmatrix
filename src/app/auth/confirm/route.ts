@@ -1,7 +1,6 @@
 import { completeAuthLink } from '@/lib/auth/completeAuthLink'
 
-// Kept for links in emails sent before /auth/confirm existed. Both routes run
-// the same handler; see completeAuthLink.
+// The target of every link in PrepNest's auth emails. See completeAuthLink.
 export async function GET(request: Request) {
   return completeAuthLink(request)
 }

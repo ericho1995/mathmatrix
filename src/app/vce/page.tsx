@@ -21,7 +21,7 @@ import SubjectIcon from '@/components/ui/SubjectIcon'
 import { FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'VCE practice exams — Methods, General, Specialist, Chemistry, Physics — PrepNest',
+  title: 'VCE practice exams — Mathematical Methods, Specialist, General, Chemistry, Physics — PrepNest',
   description:
     'Printable VCE practice exams in the VCAA format, with separate answer keys and the 2026 exam timetable. Free sample papers for every subject.',
 }
@@ -146,7 +146,7 @@ export default function VcePage() {
       <section className="max-w-3xl mx-auto px-4 pt-14">
         <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Look inside</h2>
         <p className="text-sm text-gray-500 mb-8">
-          Pages from the free Maths Methods Examination 1. Every VCE paper comes with a marking guide like this one.
+          Pages from the free Mathematical Methods Examination 1. Every VCE paper comes with a marking guide like this one.
         </p>
         <LookInside items={['vcePaper', 'vceKey']} />
       </section>

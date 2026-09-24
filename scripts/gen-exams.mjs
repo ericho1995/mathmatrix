@@ -51,7 +51,7 @@ const SELECTIVE_SUBJECTS = new Set(['chemistry', 'physics', 'maths_methods', 'ge
 const VCE_READING_MINUTES = 15
 const SUBJECT_LABEL = {
   math: 'Maths', english: 'Language Conventions', reading: 'Reading', science: 'Science',
-  chemistry: 'Chemistry', physics: 'Physics', maths_methods: 'Maths Methods',
+  chemistry: 'Chemistry', physics: 'Physics', maths_methods: 'Mathematical Methods',
   general_maths: 'General Mathematics', specialist_maths: 'Specialist Mathematics',
 }
 const GRADE_LABEL = {

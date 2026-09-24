@@ -56,13 +56,10 @@ export default function RegisterPage() {
           role,
           ...(role === 'student' ? { year_level: yearLevel } : {}),
         },
-        // Unchanged from before when there is nowhere special to return to, so
-        // the ordinary sign-up link stays exactly what Supabase's redirect
-        // allow-list has always seen.
-        emailRedirectTo:
-          next === '/'
-            ? `${window.location.origin}/auth/callback`
-            : `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+        // PrepNest's confirmation email links straight to /auth/confirm and
+        // reads only `next` from this URL, so the return path survives even
+        // if Supabase's allow-list does not match it. See completeAuthLink.
+        emailRedirectTo: `${window.location.origin}/auth/confirm?next=${encodeURIComponent(next === '/' ? '/practice' : next)}`,
       },
     })
 
