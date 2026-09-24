@@ -9,6 +9,7 @@ import { GRADES } from '@/lib/curriculum'
 import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
 import { safeNext } from '@/lib/auth/safeNext'
 import type { UserRole, YearLevel } from '@/types'
+import PasswordInput from '@/components/ui/PasswordInput'
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -134,10 +135,9 @@ export default function RegisterPage() {
             onChange={e => setEmail(e.target.value)}
             required
           />
-          <input
-            className="input"
-            type="password"
+          <PasswordInput
             placeholder="Password"
+            autoComplete="new-password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             minLength={6}

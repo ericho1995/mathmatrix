@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
 import { safeNext } from '@/lib/auth/safeNext'
+import PasswordInput from '@/components/ui/PasswordInput'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -78,10 +79,9 @@ export default function LoginPage() {
             onChange={e => setEmail(e.target.value)}
             required
           />
-          <input
-            className="input"
-            type="password"
+          <PasswordInput
             placeholder="Password"
+            autoComplete="current-password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
