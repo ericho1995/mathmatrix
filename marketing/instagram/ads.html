@@ -8,12 +8,17 @@
   this page once per artboard (?board=<id>&today=YYYY-MM-DD) in headless Edge
   and saves a PNG at the artboard's exact size.
 
-  The paper images are the real sample pages the site shows (src/assets/samples),
-  so if a sample paper is rewritten, re-render these too.
+  The paper images are real pages from the free sample papers: the ones the site
+  shows (src/assets/samples) and pages rendered 2200px wide from the free PDFs
+  on prepnest.com.au (assets/pages). If a sample paper is rewritten, re-render
+  its pages and these boards too.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..800;1,400..700&family=Caveat:wght@600&display=block" rel="stylesheet">
+<!-- KaTeX sets the Specialist maths, so it is real typeset maths at a readable size -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <style>
   /* Brand tokens, as tailwind.config.ts defines them */
   :root {
@@ -165,6 +170,101 @@
     padding: 18px 30px; font-size: 34px; font-weight: 700; letter-spacing: -.01em; line-height: 1;
   }
   .foot { font-size: 22px; color: var(--g500); line-height: 1.4; }
+
+  /* ── Second set: a different graphic for every post ── */
+
+  /* Crops of real pages. Every page in assets/pages is rendered 2200px wide;
+     data-box is "x y w h" in those pixels, and the script sizes the crop. */
+  .crop { position: relative; overflow: hidden; }
+  .crop img { position: absolute; max-width: none; display: block; }
+
+  /* A school exercise book: ruled lines and a red margin */
+  .bg-book {
+    background-color: #FDFCF8;
+    background-image:
+      linear-gradient(90deg, transparent 150px, rgba(220,60,70,.55) 150px, rgba(220,60,70,.55) 152px, transparent 152px),
+      linear-gradient(transparent 57px, rgba(59,130,246,.20) 57px, rgba(59,130,246,.20) 58px);
+    background-size: 100% 100%, 100% 58px;
+  }
+  /* Deep ink for the Specialist maths */
+  .bg-ink {
+    background-color: #0B1523;
+    background-image: radial-gradient(rgba(255,255,255,.07) 1.4px, transparent 1.6px);
+    background-size: 27px 27px;
+  }
+  /* Blueprint for the Physics diagrams */
+  .bg-blueprint {
+    background-color: #0E4A86;
+    background-image:
+      radial-gradient(800px 700px at 85% 0%, rgba(55,138,221,.45), transparent 70%),
+      linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: auto, 108px 108px, 108px 108px, 27px 27px, 27px 27px;
+  }
+  .bg-cream { background: #F5F2EA; }
+  .bg-sky { background: var(--b50); }
+
+  .pen { font-family: 'Caveat', cursive; font-weight: 600; color: #D7263D; }
+  .ink-red { color: #D7263D; }
+
+  /* Multiple-choice boxes drawn the way the papers draw them */
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 30px; }
+  .opt { position: relative; border: 3px solid var(--ink); border-radius: 16px; background: #fff; height: 118px;
+         display: flex; align-items: center; padding: 0 34px; font-size: 52px; font-weight: 500; letter-spacing: -.01em; }
+  .opt b { font-weight: 700; margin-right: 18px; }
+  .scribble { position: absolute; pointer-events: none; overflow: visible; }
+  .scribble path { fill: none; stroke: #D7263D; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+
+  .qcard { background: #fff; border-radius: 22px; padding: 44px 50px; box-shadow: 0 30px 70px -26px rgba(0,0,0,.55); }
+  .qlabel { font-size: 24px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--g500); display: flex; justify-content: space-between; }
+  .qtext { font-size: 46px; line-height: 1.34; letter-spacing: -.012em; margin-top: 18px; color: var(--ink); }
+  .katex { font-size: 1.08em; }
+
+  .marks { display: grid; gap: 22px; }
+  .mrow { display: grid; grid-template-columns: 150px 1fr; gap: 26px; align-items: center; background: rgba(255,255,255,.06);
+          border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 26px 30px; }
+  .mbadge { background: var(--yellow); color: #1A1300; border-radius: 14px; text-align: center; padding: 14px 0; font-size: 26px; font-weight: 700; line-height: 1.1; }
+  .mbadge big { display: block; font-size: 52px; letter-spacing: -.02em; }
+  .mtext { font-size: 34px; line-height: 1.35; color: #fff; }
+  .mtext small { display: block; font-size: 22px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--b200); margin-bottom: 6px; }
+  .warn { border-left: 6px solid #FF8A80; background: rgba(255,138,128,.10); border-radius: 0 16px 16px 0; padding: 22px 28px; font-size: 30px; line-height: 1.4; color: #FFE3E0; }
+
+  .tile { border: 1.5px solid rgba(255,255,255,.28); border-radius: 18px; background: rgba(255,255,255,.035);
+          display: flex; align-items: center; justify-content: center; }
+  /* Inverted to white line-work; the contrast pushes the page's faint
+     watermark to black, which the screen blend then drops. */
+  .tile .crop img { filter: invert(1) hue-rotate(180deg) contrast(1.7) brightness(1.08); mix-blend-mode: screen; }
+  .tile .crop { background: transparent; }
+  .tile-label { position: absolute; left: 16px; bottom: 14px; font-size: 20px; font-weight: 600; color: #fff; letter-spacing: .02em;
+                background: rgba(8,40,76,.85); border-radius: 999px; padding: 7px 14px; }
+
+  .toc { width: 912px; }
+  .toc-row { display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 18px; height: 92px; border-top: 1px solid #DDD8CB; }
+  .toc-row:last-child { border-bottom: 1px solid #DDD8CB; }
+  .toc-dot { width: 18px; height: 18px; border-radius: 50%; }
+  .toc-title { font-size: 34px; font-weight: 600; letter-spacing: -.015em; color: #1B1B18; }
+  .toc-title i { font-style: normal; font-weight: 500; color: #8A8577; font-size: 24px; margin-left: 12px; }
+  .toc-type { font-size: 20px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; border-radius: 999px; padding: 9px 16px; }
+
+  .cal { background: #fff; border-radius: 30px; box-shadow: 0 30px 70px -30px rgba(12,68,124,.45); padding: 40px 44px 44px; width: 912px; }
+  .cal-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 26px; }
+  .cal-month { font-size: 44px; font-weight: 700; letter-spacing: -.02em; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 12px; }
+  .cal-dow { text-align: center; font-size: 20px; font-weight: 700; letter-spacing: .12em; color: var(--g400); padding-bottom: 6px; }
+  .cal-day { position: relative; z-index: 0; height: 84px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 500;
+             color: var(--g700); font-variant-numeric: tabular-nums; }
+  .cal-day.wknd { color: var(--g400); }
+  .cal-day.in { color: #fff; font-weight: 700; }
+  .cal-day.in::before { content: ''; position: absolute; inset: 6px 0; background: var(--b600); z-index: -1; }
+  .cal-day.first::before { left: 6px; border-radius: 42px 0 0 42px; }
+  .cal-day.last::before { right: 6px; border-radius: 0 42px 42px 0; }
+  .cal-day.rowstart::before { border-top-left-radius: 42px; border-bottom-left-radius: 42px; left: 6px; }
+  .cal-day.rowend::before { border-top-right-radius: 42px; border-bottom-right-radius: 42px; right: 6px; }
+  .cal-day.in.wknd { color: #fff; }
+  .cal-day.in.wknd::before { background: var(--b400); }
+  .cal-day span { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
@@ -254,7 +354,7 @@
 <section class="board feed bg-blue dark" id="intro-5">
   <div class="abs" style="left:84px;top:84px"><span class="logo" style="--s:64px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
 
-  <h1 class="abs h1" style="left:84px;top:250px;font-size:120px">Start with a<br><em>free paper</em><br>tonight.</h1>
+  <h1 class="abs h1" style="left:84px;top:250px;font-size:120px">Try a<br><em>free paper</em><br>now.</h1>
   <p class="abs lede" style="left:84px;top:652px;width:760px">Every subject at every year level has one, with its answer key. No account needed to download or mark it.</p>
   <div class="abs" style="left:84px;top:880px"><span class="cta">prepnest.com.au <svg><use href="#i-arrow"/></svg></span></div>
   <p class="abs bio" style="left:130px;top:1016px">Link in bio</p>
@@ -287,7 +387,7 @@
   <p class="abs eyebrow" style="left:84px;top:252px">VCE Unit 3 &amp; 4 · 2026</p>
   <h1 class="abs h1" style="left:84px;top:300px;font-size:96px">VCE exams start</h1>
   <h1 class="abs h1" style="left:78px;top:394px;font-size:158px;letter-spacing:-.045em"><em>27 October.</em></h1>
-  <p class="abs lede" style="left:84px;top:600px;width:860px"><span data-countdown></span> Sit a full Methods, Specialist, General or Physics exam this weekend.</p>
+  <p class="abs lede" style="left:84px;top:600px;width:860px"><span data-countdown></span> Try a full Methods, Specialist, General or Physics exam now.</p>
 
   <div class="paper" style="left:40px;top:890px;width:560px;transform:rotate(-8deg)"><img src="../../src/assets/samples/vce-methods-answer-key.webp" alt=""></div>
   <div class="paper" style="left:400px;top:820px;width:640px;transform:rotate(4deg)"><img src="../../src/assets/samples/vce-methods-page.webp" alt=""></div>
@@ -328,7 +428,7 @@
   <div class="abs" style="left:84px;top:84px"><span class="logo" style="--s:64px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
 
   <h1 class="abs h1" style="left:84px;top:250px;font-size:120px">Start with a<br><em>free exam.</em></h1>
-  <p class="abs lede" style="left:84px;top:520px;width:880px">The first practice exam in every subject is free, with its marking guide. Sit it timed this weekend, then mark it.</p>
+  <p class="abs lede" style="left:84px;top:520px;width:880px">The first practice exam in every subject is free, with its marking guide. Try it now: sit it timed, then mark it.</p>
 
   <div class="abs subjects" style="left:84px;top:716px">
     <div><b>Mathematical Methods</b><span>10 exams</span></div>
@@ -361,6 +461,177 @@
 
   <div class="abs" style="left:0;right:0;top:1600px;display:flex;justify-content:center"><span class="cta" style="font-size:40px;padding:28px 40px">First exam free · prepnest.com.au/vce</span></div>
 </section>
+
+<!-- ─────────── Second set: a different graphic for every post ─────────── -->
+
+<!-- Post 3: a real Year 9 question, then the answer marked in red pen -->
+<section class="board feed bg-book" id="q9-1">
+  <div class="abs" style="right:84px;top:84px"><span class="logo" style="--s:44px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
+  <p class="abs eyebrow" style="left:200px;top:100px">Year 9 Numeracy · No calculator</p>
+  <h1 class="abs h1" style="left:200px;top:150px;font-size:80px">Up 10%. Down 10%.<br><em>Back to $600?</em></h1>
+  <p class="abs qtext" style="left:200px;top:372px;width:800px;margin:0">A $600 television rises in price by 10%. The new price then falls by 10%. <b style="font-weight:700">What is the final price?</b></p>
+  <div class="abs opts" style="left:200px;top:626px;width:800px">
+    <div class="opt"><b>A.</b>$540</div><div class="opt"><b>B.</b>$594</div>
+    <div class="opt"><b>C.</b>$600</div><div class="opt"><b>D.</b>$606</div>
+  </div>
+  <div class="abs" style="left:200px;top:958px;width:800px;background:#fff;padding:14px;box-shadow:0 14px 34px -14px rgba(15,23,42,.35);transform:rotate(-1.2deg)">
+    <div class="crop" data-src="assets/pages/math-year_9-1-pdf-p9.webp" data-box="110 1500 1990 450" style="width:772px"></div>
+  </div>
+  <p class="abs foot" style="left:200px;top:1176px">Question 28 from Maths Year 9, Practice Exam 1 (free)</p>
+  <p class="abs pen" style="right:84px;top:1228px;font-size:52px;transform:rotate(-3deg)">Answer on the next slide →</p>
+</section>
+
+<section class="board feed bg-book" id="q9-2">
+  <div class="abs" style="right:84px;top:84px"><span class="logo" style="--s:44px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
+  <p class="abs eyebrow" style="left:200px;top:100px">The answer</p>
+  <h1 class="abs h1" style="left:200px;top:150px;font-size:96px"><span class="ink-red">$594</span>, not $600.</h1>
+  <div class="abs opts" style="left:200px;top:330px;width:800px">
+    <div class="opt"><b>A.</b>$540</div><div class="opt"><b>B.</b>$594</div>
+    <div class="opt"><b>C.</b>$600</div><div class="opt"><b>D.</b>$606</div>
+  </div>
+  <svg class="scribble" style="left:590px;top:310px;width:440px;height:160px" viewBox="0 0 440 160"><path d="M 40 110 C 20 60 90 22 230 18 C 360 15 432 45 428 84 C 424 128 330 150 214 148 C 100 146 22 128 20 88 C 18 58 60 34 128 26"/></svg>
+  <svg class="scribble" style="left:915px;top:352px;width:72px;height:72px" viewBox="0 0 72 72"><path d="M 6 40 L 26 62 L 66 8" style="stroke-width:8"/></svg>
+  <svg class="scribble" style="left:226px;top:518px;width:240px;height:30px" viewBox="0 0 240 30"><path d="M 4 19 C 70 11 150 21 236 9"/></svg>
+  <p class="abs pen" style="left:392px;top:594px;font-size:48px;transform:rotate(-4deg)">the trap</p>
+
+  <div class="abs" style="left:200px;top:680px;width:800px">
+    <p style="font-size:40px;line-height:1.38;color:var(--g700);letter-spacing:-.01em">After the rise: $660. A 10% fall takes off $66, leaving $594.</p>
+    <p style="font-size:40px;line-height:1.38;font-weight:600;margin-top:18px;letter-spacing:-.012em">The two changes do not cancel because the second 10% is of a larger amount.</p>
+  </div>
+  <div class="abs" style="left:200px;top:1010px;width:800px">
+    <p class="eyebrow" style="font-size:20px;margin-bottom:10px">Straight from the answer key</p>
+    <div style="background:#fff;padding:12px;box-shadow:0 12px 30px -14px rgba(15,23,42,.35)"><div class="crop" data-src="assets/pages/math-year_9-1-answers-p2.webp" data-box="110 1285 1990 150" style="width:776px"></div></div>
+  </div>
+  <div class="abs" style="left:200px;top:1206px"><span class="cta" style="font-size:34px;padding:24px 34px;background:var(--b600);color:#fff;box-shadow:0 16px 36px -16px rgba(24,95,165,.7)">Try it free now · prepnest.com.au</span></div>
+</section>
+
+<!-- Post 4: VCE Specialist, where the marks go -->
+<section class="board feed bg-ink dark" id="spec-1">
+  <div class="abs" style="left:84px;top:84px"><span class="logo" style="--s:56px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
+  <div class="abs swipe" style="right:84px;top:98px">Swipe <svg><use href="#i-arrow"/></svg></div>
+  <p class="abs eyebrow" style="left:84px;top:212px">VCE Specialist Mathematics · Exam 1</p>
+  <h1 class="abs h1" style="left:84px;top:262px;font-size:96px">3 marks.<br><em>Where do they go?</em></h1>
+
+  <div class="paper" style="left:250px;top:890px;width:780px;transform:rotate(4deg)"><div class="crop" data-src="assets/pages/specialist_maths-year_12-1-exam1-pdf-p2.webp" data-box="0 120 2200 1500" style="width:780px;border-radius:6px"></div></div>
+  <div class="abs qcard" style="left:84px;top:532px;width:860px;transform:rotate(-1deg)">
+    <p class="qlabel"><span>Question 1</span><span>3 marks</span></p>
+    <p class="qtext">Prove by mathematical induction that <span class="tex">25^n - 1</span> is divisible by 24 for all <span class="tex">n \in \mathbb{N}</span>.</p>
+  </div>
+  <span class="abs tile-label" style="left:300px;top:1262px;bottom:auto;font-size:22px;background:rgba(11,21,35,.92)">The real paper · Exam 1, Practice 1, page 2</span>
+</section>
+
+<section class="board feed bg-ink dark" id="spec-2">
+  <div class="abs" style="left:84px;top:84px"><span class="logo" style="--s:56px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
+  <p class="abs eyebrow" style="left:84px;top:212px">From the marking guide</p>
+  <h1 class="abs h1" style="left:84px;top:262px;font-size:84px">One mark <em>for each step.</em></h1>
+
+  <div class="abs marks" style="left:84px;top:400px;width:912px">
+    <div class="mrow"><div class="mbadge"><big>1</big>mark</div><div class="mtext"><small>Base case</small><span class="tex">25^1 - 1 = 24</span>, so <span class="tex">P(1)</span> is true.</div></div>
+    <div class="mrow"><div class="mbadge"><big>1</big>mark</div><div class="mtext"><small>Use the assumption</small><span class="tex">25^{k+1} - 1 = 25(24m + 1) - 1</span><br><span class="tex">= 24(25m + 1)</span></div></div>
+    <div class="mrow"><div class="mbadge"><big>1</big>mark</div><div class="mtext"><small>A complete conclusion</small>True for all <span class="tex">n \in \mathbb{N}</span> by induction.</div></div>
+  </div>
+  <div class="abs warn" style="left:84px;top:1004px;width:912px"><b>Common error:</b> assuming what is to be proved, by starting from <span class="tex">25^{k+1} - 1 = 24p</span>.</div>
+  <div class="abs" style="left:84px;top:1196px"><span class="cta" style="font-size:36px;padding:24px 36px">Try Exam 1 free now · prepnest.com.au/vce</span></div>
+</section>
+
+<!-- Post 5: Physics diagrams on a blueprint -->
+<section class="board feed bg-blueprint dark" id="phys-1">
+  <div class="abs" style="left:84px;top:84px"><span class="logo" style="--s:56px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
+  <p class="abs eyebrow" style="left:84px;top:204px">VCE Physics · Unit 3 &amp; 4</p>
+  <h1 class="abs h1" style="left:84px;top:250px;font-size:88px">Drawn like<br><em>the real exam.</em></h1>
+  <p class="abs lede" style="left:84px;top:446px;width:912px;font-size:30px">Five practice exams set out like the VCAA paper, each with its marking guide.</p>
+
+  <div class="abs tile" style="left:84px;top:560px;width:912px;height:180px">
+    <div class="crop" data-fit="contain" data-pad="18" data-pad-bottom="18" data-src="assets/pages/physics-year_12-1-pdf-p8.webp" data-box="500 890 1240 420"></div>
+    <span class="tile-label">Projectile motion</span>
+  </div>
+  <div class="abs tile" style="left:84px;top:760px;width:446px;height:240px">
+    <div class="crop" data-fit="contain" data-pad="18" data-pad-bottom="58" data-src="assets/pages/physics-year_12-1-pdf-p9.webp" data-box="740 790 760 630"></div>
+    <span class="tile-label">Circular motion</span>
+  </div>
+  <div class="abs tile" style="left:550px;top:760px;width:446px;height:240px">
+    <div class="crop" data-fit="contain" data-pad="18" data-pad-bottom="58" data-src="assets/pages/physics-year_12-1-pdf-p12.webp" data-box="590 1510 1040 680"></div>
+    <span class="tile-label">Mass spectrometer</span>
+  </div>
+  <div class="abs tile" style="left:84px;top:1020px;width:446px;height:240px">
+    <div class="crop" data-fit="contain" data-pad="18" data-pad-bottom="58" data-src="assets/pages/physics-year_12-1-pdf-p13.webp" data-box="600 1770 1040 630"></div>
+    <span class="tile-label">DC motor</span>
+  </div>
+  <div class="abs tile" style="left:550px;top:1020px;width:446px;height:240px">
+    <div class="crop" data-fit="contain" data-pad="18" data-pad-bottom="58" data-src="assets/pages/physics-year_12-1-pdf-p18.webp" data-box="500 390 1200 870"></div>
+    <span class="tile-label">Photoelectric effect</span>
+  </div>
+  <p class="abs" style="left:84px;top:1286px;font-size:26px;font-weight:600;color:#fff">Practice Exam 1 is free <span style="color:var(--b200);font-weight:500">· Try it now at prepnest.com.au/vce</span></p>
+</section>
+
+<!-- Post 6: Reading, the range of texts in one magazine -->
+<section class="board feed bg-cream" id="read-2">
+  <div class="abs" style="right:84px;top:84px"><span class="logo" style="--s:44px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
+  <p class="abs eyebrow" style="left:84px;top:100px;color:#11705A">NAPLAN-style Reading · Year 9</p>
+  <h1 class="abs h1" style="left:84px;top:150px;font-size:72px;color:#1B1B18">Eight texts.<br><em style="color:#11705A">Eight kinds of writing.</em></h1>
+  <div class="abs toc" style="left:84px;top:350px">
+    <div class="toc-row"><span class="toc-dot" style="background:#C2410C"></span><span class="toc-title">The keeper’s daughter<i>p. 2</i></span><span class="toc-type" style="color:#C2410C;background:rgba(194,65,12,.1)">Story</span></div>
+    <div class="toc-row"><span class="toc-dot" style="background:#1D5FA8"></span><span class="toc-title">Why forgetting is good for you<i>p. 3</i></span><span class="toc-type" style="color:#1D5FA8;background:rgba(29,95,168,.1)">Explanation</span></div>
+    <div class="toc-row"><span class="toc-dot" style="background:#9D174D"></span><span class="toc-title">The case for handwriting<i>p. 4</i></span><span class="toc-type" style="color:#9D174D;background:rgba(157,23,77,.1)">Opinion</span></div>
+    <div class="toc-row"><span class="toc-dot" style="background:#C05A0B"></span><span class="toc-title">Migration<i>p. 5</i></span><span class="toc-type" style="color:#C05A0B;background:rgba(192,90,11,.1)">Poem</span></div>
+    <div class="toc-row"><span class="toc-dot" style="background:#10705A"></span><span class="toc-title">The wire that shrank the world<i>p. 6</i></span><span class="toc-type" style="color:#10705A;background:rgba(16,112,90,.1)">History</span></div>
+    <div class="toc-row"><span class="toc-dot" style="background:#2447D6"></span><span class="toc-title">Local family discovers “outside”<i>p. 7</i></span><span class="toc-type" style="color:#2447D6;background:rgba(36,71,214,.1)">Satire</span></div>
+    <div class="toc-row"><span class="toc-dot" style="background:#11799F"></span><span class="toc-title">The Glass Orchard<i>p. 8</i></span><span class="toc-type" style="color:#11799F;background:rgba(17,121,159,.1)">Book review</span></div>
+    <div class="toc-row"><span class="toc-dot" style="background:#10705A"></span><span class="toc-title">Food waste in Westvale<i>p. 9</i></span><span class="toc-type" style="color:#10705A;background:rgba(16,112,90,.1)">Report</span></div>
+  </div>
+  <p class="abs" style="left:84px;top:1120px;width:912px;font-size:30px;line-height:1.4;color:#4A463D">Every text is original, written for PrepNest, in a colour magazine like the real test.</p>
+  <div class="abs" style="left:84px;top:1236px"><span class="cta" style="font-size:32px;padding:22px 32px;background:#11705A;color:#fff;box-shadow:0 14px 30px -14px rgba(17,112,90,.7)">Try it free now · prepnest.com.au/naplan</span></div>
+</section>
+
+<section class="board feed bg-cream" id="read-1">
+  <div class="abs" style="right:84px;top:84px"><span class="logo" style="--s:44px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
+  <p class="abs eyebrow" style="left:84px;top:100px;color:#9D174D">From page 4 · Opinion</p>
+  <div class="abs" style="left:70px;top:130px;font-family:Georgia,serif;font-size:300px;line-height:1;color:#9D174D">“</div>
+  <p class="abs" style="left:84px;top:300px;width:880px;font-size:66px;line-height:1.14;font-weight:600;font-style:italic;letter-spacing:-.025em;color:#1B1B18">That decision is where the learning happens.</p>
+  <p class="abs" style="left:84px;top:470px;font-size:28px;color:#6B665A">“The case for handwriting”, Year 9 Reading Magazine</p>
+
+  <div class="paper" style="left:170px;top:580px;width:780px;transform:rotate(-2.5deg)">
+    <img src="assets/pages/reading-year_9-1-magazine-p4.webp" alt="" style="border-radius:6px">
+    <span style="position:absolute;left:54px;top:320px;width:326px;height:30px;background:rgba(255,209,103,.6);mix-blend-mode:multiply;border-radius:3px;transform:rotate(-.4deg)"></span>
+  </div>
+</section>
+
+<!-- Post 7: NAPLAN 2027 on a calendar -->
+<section class="board feed bg-sky" id="naplan-1">
+  <div class="abs" style="right:84px;top:84px"><span class="logo" style="--s:44px"><span class="mark">P</span><span class="word">Prep<span class="nest">Nest</span></span></span></div>
+  <p class="abs eyebrow" style="left:84px;top:100px">NAPLAN 2027 · Grades 3, 5, 7 and 9</p>
+  <h1 class="abs h1" style="left:84px;top:150px;font-size:88px">The test window<br>opens <em style="color:var(--b600)">10 March.</em></h1>
+  <div class="abs cal" style="left:84px;top:400px">
+    <div class="cal-head"><span class="cal-month">March 2027</span><span style="font-size:26px;font-weight:600;color:var(--b600)">Test window 10 – 22 March</span></div>
+    <div class="cal-grid" id="cal-2027-03"></div>
+  </div>
+  <p class="abs" style="left:84px;top:1112px;width:912px;font-size:26px;line-height:1.45;color:var(--g600)">Each school sets its own test days inside the window. Dates from nap.edu.au.</p>
+  <div class="abs" style="left:84px;top:1200px"><span class="cta" style="font-size:34px;padding:24px 34px;background:var(--b600);color:#fff;box-shadow:0 16px 36px -16px rgba(24,95,165,.7)">Try a free paper now · prepnest.com.au/naplan</span></div>
+</section>
+
+<script>
+  // Builds a month grid: Monday first, days in [from, to] shaded as one band.
+  function buildCalendar(el, year, month, from, to) {
+    const dows = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
+    el.innerHTML = dows.map(d => `<div class="cal-dow">${d}</div>`).join('')
+    const first = (new Date(Date.UTC(year, month - 1, 1)).getUTCDay() + 6) % 7
+    const days = new Date(Date.UTC(year, month, 0)).getUTCDate()
+    for (let i = 0; i < first; i++) el.insertAdjacentHTML('beforeend', '<div></div>')
+    for (let d = 1; d <= days; d++) {
+      const col = (first + d - 1) % 7
+      const cls = ['cal-day']
+      if (col >= 5) cls.push('wknd')
+      if (d >= from && d <= to) {
+        cls.push('in')
+        if (d === from) cls.push('first')
+        if (d === to) cls.push('last')
+        if (col === 0) cls.push('rowstart')
+        if (col === 6) cls.push('rowend')
+      }
+      el.insertAdjacentHTML('beforeend', `<div class="${cls.join(' ')}"><span>${d}</span></div>`)
+    }
+  }
+</script>
 
 <script>
   // The VCE exam period, from src/lib/examDates.ts (VCE_EXAM_PERIOD_2026)
@@ -403,12 +674,46 @@
         board.querySelectorAll('[data-countdown-short]').forEach(el => { el.textContent = phrase })
       }
 
+      // Typeset maths
+      const tex = board.querySelectorAll('.tex')
+      if (tex.length) {
+        if (!window.katex) throw new Error('KaTeX did not load')
+        tex.forEach(el => katex.render(el.textContent, el, { throwOnError: true }))
+      }
+
+      // Size the crops of real pages (every page image is 2200px wide)
+      board.querySelectorAll('.crop').forEach(el => {
+        const [x, y, w, h] = el.dataset.box.trim().split(/\s+/).map(Number)
+        let s
+        if (el.dataset.fit === 'contain') {
+          const p = el.parentElement
+          const pad = Number(el.dataset.pad ?? 24), padB = Number(el.dataset.padBottom ?? pad)
+          s = Math.min((p.clientWidth - 2 * pad) / w, (p.clientHeight - pad - padB) / h)
+          el.style.width = w * s + 'px'
+          el.style.marginBottom = padB - pad + 'px'
+        } else {
+          s = el.offsetWidth / w
+        }
+        el.style.height = h * s + 'px'
+        const img = document.createElement('img')
+        img.src = el.dataset.src
+        img.alt = ''
+        Object.assign(img.style, { width: 2200 * s + 'px', left: -x * s + 'px', top: -y * s + 'px' })
+        el.appendChild(img)
+      })
+
+      // NAPLAN 2027 window, from src/lib/examDates.ts
+      const cal = board.querySelector('#cal-2027-03')
+      if (cal) buildCalendar(cal, 2027, 3, 10, 22)
+
       // Refuse to render in a fallback face: document.fonts.check() reports
-      // true when no Inter face exists at all, so look for a loaded one.
+      // true when no face of that family exists at all, so look for a loaded one.
+      const loaded = fam => [...document.fonts].some(f => f.family.replace(/["']/g, '') === fam && f.status === 'loaded')
       await Promise.all(['400', '500', '600', '700'].map(w => document.fonts.load(`${w} 40px Inter`)))
+      if (board.querySelector('.pen')) await document.fonts.load('600 40px Caveat')
       await document.fonts.ready
-      const inter = [...document.fonts].filter(f => f.family.replace(/["']/g, '') === 'Inter' && f.status === 'loaded')
-      if (!inter.length) throw new Error('Inter did not load')
+      if (!loaded('Inter')) throw new Error('Inter did not load')
+      if (board.querySelector('.pen') && !loaded('Caveat')) throw new Error('Caveat did not load')
 
       await Promise.all([...board.querySelectorAll('img')].map(img => img.decode()))
       document.title = 'ready'

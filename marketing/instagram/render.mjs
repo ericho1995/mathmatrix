@@ -26,6 +26,7 @@ const BOARDS = [
   { id: 'profile', w: 1080, h: 1080, out: 'public/brand/prepnest-profile-1080.png' },
   feed('intro-1'), feed('intro-2'), feed('intro-3'), feed('intro-4'), feed('intro-5'), story('intro-story'),
   feed('vce-1'), feed('vce-2'), feed('vce-3'), feed('vce-4'), story('vce-story'),
+  feed('q9-1'), feed('q9-2'), feed('spec-1'), feed('spec-2'), feed('phys-1'), feed('read-1'), feed('read-2'), feed('naplan-1'),
 ]
 
 const args = process.argv.slice(2)
