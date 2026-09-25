@@ -5,6 +5,8 @@ import { firstQuestionNumbers } from './resolveExam'
 import type { ResolvedExam } from './resolveExam'
 import { PreviewEndPage } from './PreviewPages'
 import type { PreviewInfo } from './preview'
+import { RichText } from './math/MathText'
+import { hasMath } from '@/lib/text/mathPlain'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -35,34 +37,72 @@ export function AnswerKeyDocument({ resolved, preview }: { resolved: ResolvedExa
               // show where each mark is earned rather than a single answer.
               if (q.format === 'extended_response') {
                 const total = q.parts.reduce((sum, p) => sum + p.marks, 0)
+                const renderPart = (part: (typeof q.parts)[number], pi: number) =>
+                      hasMath(part.expected_answer) || hasMath(part.explanation) ? (
+                        // Typeset answers get a hanging label so a displayed
+                        // formula lines up under the answer, not the letter.
+                        <View key={pi} style={{ marginTop: 6, flexDirection: 'row' }} wrap={false}>
+                          <Text style={[pdfStyles.answerKeyNum, { width: 24 }]}>{part.label ? `${part.label}.` : ''}</Text>
+                          <View style={{ flex: 1 }}>
+                            <RichText text={part.expected_answer} style={{ fontSize: 10 }} />
+                            <Text style={{ fontSize: 8, color: '#777', marginTop: 1, marginBottom: 1 }}>[{part.marks} {part.marks === 1 ? 'mark' : 'marks'}]</Text>
+                            <RichText text={part.explanation} style={pdfStyles.explanation} />
+                          </View>
+                        </View>
+                      ) : (
+                        <View key={pi} style={{ marginTop: 4 }}>
+                          <Text>
+                            <Text style={pdfStyles.answerKeyNum}>{part.label}. </Text>
+                            {`${part.expected_answer}  [${part.marks} ${part.marks === 1 ? 'mark' : 'marks'}]`}
+                          </Text>
+                          <Text style={pdfStyles.explanation}>{part.explanation}</Text>
+                        </View>
+                      )
                 return (
                   <View key={q.id} style={pdfStyles.answerKeyRow}>
-                    <Text>
-                      <Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>
-                      {`(${total} ${total === 1 ? 'mark' : 'marks'} in total)`}
-                    </Text>
-                    {q.parts.map((part, pi) => (
-                      <View key={pi} style={{ marginTop: 4 }}>
-                        <Text>
-                          <Text style={pdfStyles.answerKeyNum}>{part.label}. </Text>
-                          {`${part.expected_answer}  [${part.marks} ${part.marks === 1 ? 'mark' : 'marks'}]`}
-                        </Text>
-                        <Text style={pdfStyles.explanation}>{part.explanation}</Text>
-                      </View>
-                    ))}
+                    {/* The heading travels with the first part, so it is never
+                        left alone at the foot of a page. */}
+                    <View wrap={false}>
+                      <Text>
+                        <Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>
+                        {`(${total} ${total === 1 ? 'mark' : 'marks'} in total)`}
+                      </Text>
+                      {q.parts.slice(0, 1).map(renderPart)}
+                    </View>
+                    {q.parts.slice(1).map((part, pi) => renderPart(part, pi + 1))}
                   </View>
                 )
               }
 
-              const answerLabel = q.format === 'long_form'
-                ? 'See explanation below — this question is not auto-marked.'
-                : q.format === 'short_answer'
-                  ? `Answer: ${q.expected_answer}`
-                  : `${OPTION_LETTERS[q.correct_index ?? 0]}. ${(q.options ?? [])[q.correct_index ?? 0] ?? ''}`
+              if (q.format === 'long_form' || q.format === 'short_answer') {
+                const answerLabel = q.format === 'long_form'
+                  ? 'See explanation below — this question is not auto-marked.'
+                  : `Answer: ${q.expected_answer}`
+                return (
+                  <View key={q.id} style={pdfStyles.answerKeyRow} wrap={false}>
+                    <Text><Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>{answerLabel}</Text>
+                    <RichText text={q.explanation} style={pdfStyles.explanation} />
+                  </View>
+                )
+              }
+
+              const letter = OPTION_LETTERS[q.correct_index ?? 0]
+              const raw = (q.options ?? [])[q.correct_index ?? 0] ?? ''
+              // A table option prints as "header: cell; header: cell".
+              const headers = q.option_headers
+              const option = headers?.length ? raw.split(' | ').map((c, ci) => `${headers[ci] ?? ''}: ${c}`).join('; ') : raw
               return (
                 <View key={q.id} style={pdfStyles.answerKeyRow} wrap={false}>
-                  <Text><Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>{answerLabel}</Text>
-                  <Text style={pdfStyles.explanation}>{q.explanation}</Text>
+                  {hasMath(option) ? (
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                      <Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>
+                      <Text style={{ fontSize: 10 }}>{letter}.  </Text>
+                      <RichText text={option} style={{ fontSize: 10, flex: 1 }} />
+                    </View>
+                  ) : (
+                    <Text><Text style={pdfStyles.answerKeyNum}>{questionNumber}. </Text>{letter}. {option}</Text>
+                  )}
+                  <RichText text={q.explanation} style={pdfStyles.explanation} />
                 </View>
               )
             })}

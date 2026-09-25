@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "gen": "node scripts/gen-seed.mjs && node scripts/gen-exams.mjs && node scripts/gen-coverage.mjs",
+    "gen": "node scripts/gen-seed.mjs && node scripts/gen-exams.mjs && node scripts/gen-coverage.mjs && node scripts/gen-math.mjs",
     "verify-bank": "node scripts/verify-bank.mjs",
+    "test": "node --test scripts/tests/*.test.mjs",
     "format": "prettier --write .",
     "prepare": "husky install || echo \"Skipping husky (not a git checkout)\""
   },
@@ -42,6 +43,7 @@
     "eslint-config-next": "14.2.5",
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
+    "mathjax-full": "^3.2.2",
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.6",

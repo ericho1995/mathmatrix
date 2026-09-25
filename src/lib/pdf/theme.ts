@@ -17,6 +17,15 @@ Font.register({
   ],
 })
 
+// Monospaced face for pseudocode listings (VCAA prints algorithms this way).
+Font.register({
+  family: 'DejaVuSansMono',
+  fonts: [
+    { src: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSansMono.ttf', fontWeight: 'normal' },
+    { src: 'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSansMono-Bold.ttf', fontWeight: 'bold' },
+  ],
+})
+
 // react-pdf hyphenates long words by default ("play-ing cards"). Test papers
 // never break words, so wrap only between them.
 Font.registerHyphenationCallback(word => [word])
@@ -82,6 +91,22 @@ export const pdfStyles = StyleSheet.create({
   runningHeader: { fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1.2, color: '#555', marginTop: 10, marginBottom: 2 },
   sectionHeader: { fontSize: 14, fontWeight: 700, marginTop: 4, marginBottom: 4, borderBottom: '1pt solid #333', paddingBottom: 4 },
   sectionMeta: { fontSize: 9, color: '#666', marginBottom: 12 },
+  // The instructions box at the head of a VCE section.
+  sectionInstructions: { borderLeft: `2pt solid ${BRAND_BLUE}`, paddingLeft: 10, paddingVertical: 4, marginBottom: 16 },
+  sectionInstructionsTitle: { fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, color: '#555', marginBottom: 4 },
+  sectionInstructionsText: { fontSize: 9.5, color: '#333', lineHeight: 1.35 },
+  // Final-answer box (VCAA Physics calculations), as the 2025 paper sets it:
+  // at the left under the working lines, the unit small in its bottom-right corner.
+  answerBoxRow: { flexDirection: 'row', marginLeft: 22, marginTop: 12, marginBottom: 4 },
+  finalAnswerBox: { width: 132, height: 34, border: '0.9pt solid #333', justifyContent: 'flex-end', alignItems: 'flex-end', paddingRight: 4, paddingBottom: 3 },
+  finalAnswerUnit: { fontSize: 9 },
+  // Formula sheet: a boxed grid, as VCAA prints it.
+  formulaTitle: { fontSize: 14, fontWeight: 700, textAlign: 'center', marginBottom: 10 },
+  formulaSectionTitle: { fontSize: 10.5, fontWeight: 700, backgroundColor: '#eef2f7', paddingVertical: 3, paddingHorizontal: 6, border: '0.75pt solid #333', borderBottom: 'none' },
+  formulaTable: { border: '0.75pt solid #333', marginBottom: 12 },
+  formulaRow: { flexDirection: 'row', borderTop: '0.5pt solid #999', minHeight: 20 },
+  formulaLabel: { width: 104, fontSize: 8.5, color: '#333', paddingVertical: 4, paddingHorizontal: 5, borderRight: '0.5pt solid #999' },
+  formulaCell: { flex: 1, paddingVertical: 4, paddingHorizontal: 6, justifyContent: 'center' },
   // Reading papers open each part with "Read <title> on page 3 of the
   // magazine and answer questions 7 to 12", as the real booklet does.
   readingInstruction: { fontSize: 12, marginTop: 6, marginBottom: 14, paddingVertical: 8, paddingHorizontal: 10, backgroundColor: '#eef6f3', borderLeft: `3pt solid ${BRAND_TEAL}`, lineHeight: 1.4 },

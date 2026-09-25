@@ -1,6 +1,6 @@
 // ─── User & Auth ─────────────────────────────────────────────────────────────
 
-export type UserRole = 'student' | 'parent' | 'admin'
+export type UserRole = 'student' | 'parent' | 'teacher' | 'admin'
 
 export interface UserProfile {
   id: string
@@ -51,6 +51,10 @@ export type TopicSlug =
   | 'life_science' | 'physical_science' | 'earth_space'
   | 'chem_atomic_structure' | 'chem_reactions'
   | 'phys_mechanics' | 'phys_electricity'
+  // Physics Unit 3 & 4 (2024-2027 study design): motion in two dimensions;
+  // gravitational, electric and magnetic fields; generating and transmitting
+  // electricity; light, matter and special relativity; scientific investigation.
+  | 'phys_motion' | 'phys_fields' | 'phys_electrical_power' | 'phys_light_matter' | 'phys_investigation'
   | 'mm_functions' | 'mm_algebra' | 'mm_calculus' | 'mm_probability'
   // The four General Mathematics Unit 3 & 4 areas of study. gm_financial is
   // VCAA's "recursion and financial modelling"; the slug predates Unit 3 & 4.
@@ -123,6 +127,12 @@ export interface MultipleChoiceQuestion extends QuestionBase {
    * may be empty) and is what the answer key prints.
    */
   option_diagrams?: Diagram[]
+  /**
+   * Options laid out as a table, as VCAA Physics sets them: "Which one of the
+   * following identifies the period, peak voltage and frequency?". Each option
+   * holds its cells separated by " | ", one per header.
+   */
+  option_headers?: string[]
 }
 
 // Free-response questions (used in premium selective-subject exams). Not
@@ -159,6 +169,17 @@ export interface QuestionPart {
   expected_answer: string
   /** Marking guidance: what earns each mark. */
   explanation: string
+  /** Ruled working lines under the part. VCAA sizes the space per part — a
+   * "show that" needs more room than "state" at the same marks — so authored
+   * papers set it; without it the space is derived from the marks. */
+  lines?: number
+  /** A graphic that belongs to this part rather than the whole question, such
+   * as blank axes for "sketch the graph on the axes below". */
+  diagram?: Diagram
+  /** Prints an answer box after the working lines with this unit beside it
+   * ("N", "m s⁻¹"), as VCAA Physics papers do for calculations. An empty
+   * string prints the box with no unit. */
+  unit?: string
 }
 
 export interface ExtendedResponseQuestion extends QuestionBase {

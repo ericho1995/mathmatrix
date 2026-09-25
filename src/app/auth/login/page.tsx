@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
 import { safeNext } from '@/lib/auth/safeNext'
+import PasswordInput from '@/components/ui/PasswordInput'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -20,8 +21,14 @@ export default function LoginPage() {
   // URL after mount rather than with useSearchParams, which would force a
   // Suspense boundary around the whole form.
   const [next, setNext] = useState('/')
+  // Set when an emailed link could not be used and /auth/confirm sent the
+  // visitor here. The usual cause is clicking a confirmation link twice, so
+  // the message leads with "you may already be confirmed".
+  const [linkExpired, setLinkExpired] = useState(false)
   useEffect(() => {
-    setNext(safeNext(new URLSearchParams(window.location.search).get('next')))
+    const params = new URLSearchParams(window.location.search)
+    setNext(safeNext(params.get('next')))
+    setLinkExpired(params.get('link') === 'expired')
   }, [])
 
   async function handleLogin(e: React.FormEvent) {
@@ -56,6 +63,13 @@ export default function LoginPage() {
         </h1>
         <p className="text-gray-500 text-center mb-8">Sign in to your account</p>
 
+        {linkExpired && (
+          <p className="text-sm text-gray-600 bg-brand-50 border border-brand-100 rounded-xl px-4 py-3 mb-4">
+            That link has expired or has already been used. If you&apos;ve already confirmed your email, sign in
+            below.
+          </p>
+        )}
+
         <form onSubmit={handleLogin} className="flex flex-col gap-4">
           <input
             className="input"
@@ -65,10 +79,9 @@ export default function LoginPage() {
             onChange={e => setEmail(e.target.value)}
             required
           />
-          <input
-            className="input"
-            type="password"
+          <PasswordInput
             placeholder="Password"
+            autoComplete="current-password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             required

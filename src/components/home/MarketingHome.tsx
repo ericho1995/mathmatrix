@@ -7,7 +7,8 @@ import LibraryGrowth from '@/components/marketing/LibraryGrowth'
 import PaperStack from '@/components/marketing/PaperStack'
 import { ArrowRight, BarChartHorizontal, Check, Download, FileCheck, FileText, GraduationCap, Newspaper, PenLine, SquareFunction, Target, Timer, Users, type LucideIcon } from 'lucide-react'
 import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, perMonth, perPaper, savingPercent } from '@/lib/pricing'
-import { CATALOGUE_TOTALS, PLAN_TOTALS, releasesIn } from '@/lib/catalogue'
+import { CATALOGUE_TOTALS, PLAN_TOTALS, YEAR_LEVEL_STATS, releasesIn } from '@/lib/catalogue'
+import YearPicker from '@/components/catalogue/YearPicker'
 import { formatReleaseDate } from '@/lib/releases'
 import { HOME_FAQS } from '@/lib/faqs'
 import { TOPIC_REPORT } from '@/lib/samples'
@@ -122,23 +123,44 @@ export default function MarketingHome() {
         </section>
       )}
 
-      {/* Stat banner */}
-      <section className="max-w-4xl mx-auto px-4 py-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-        {[
-          { value: CATALOGUE_TOTALS.papers, label: 'practice papers' },
-          { value: questionsLabel(CATALOGUE_TOTALS.questions), label: 'exam-style questions' },
-          { value: CATALOGUE_TOTALS.free, label: 'free to download' },
-          // Growth is the better fourth number while it is large; the subject
-          // count stands in when nothing has landed for a while.
-          addedThisMonth >= 5
-            ? { value: addedThisMonth, label: 'papers added in the last month' }
-            : { value: CATALOGUE_TOTALS.subjects, label: 'subjects' },
-        ].map(s => (
-          <div key={s.label}>
-            <p className="text-3xl font-semibold tracking-tight text-gray-900">{s.value}</p>
-            <p className="text-sm text-gray-500 mt-1">{s.label}</p>
+      {/* The library at a glance: the totals, then every year level with what
+          it holds — so the size of the library is something to explore, not
+          just four numbers. Each year opens its papers in the catalogue. */}
+      <section className="max-w-5xl mx-auto px-4 py-12">
+        <div className="rounded-3xl border border-gray-100 bg-white shadow-sm p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-1">The library</p>
+              <h2 className="text-2xl font-semibold tracking-tight text-gray-900">Papers for every year, Grade 3 to Year 12</h2>
+            </div>
+            <Link href="/practice/exams" className="text-sm text-brand-600 hover:underline shrink-0">
+              Browse all papers →
+            </Link>
           </div>
-        ))}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+            {[
+              { value: CATALOGUE_TOTALS.papers, label: 'practice papers' },
+              { value: questionsLabel(CATALOGUE_TOTALS.questions), label: 'exam-style questions' },
+              { value: CATALOGUE_TOTALS.free, label: 'free to download' },
+              // Growth is the better fourth number while it is large; the subject
+              // count stands in when nothing has landed for a while.
+              addedThisMonth >= 5
+                ? { value: addedThisMonth, label: 'papers added in the last month' }
+                : { value: CATALOGUE_TOTALS.subjects, label: 'subjects' },
+            ].map(s => (
+              <div key={s.label} className="rounded-2xl bg-gray-50 px-4 py-3.5">
+                <p className="text-2xl font-semibold tracking-tight text-gray-900">{s.value}</p>
+                <p className="text-sm text-gray-500 mt-0.5">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          <div className="-mx-6 px-6 sm:mx-0 sm:px-0 overflow-x-auto sm:overflow-visible pb-1">
+            <YearPicker
+              items={YEAR_LEVEL_STATS.map(s => ({ yearLevel: s.yearLevel, sub: `${s.papers} papers · ${s.free} free` }))}
+              hrefFor={y => `/practice/exams?year=${y}`}
+            />
+          </div>
+        </div>
       </section>
 
       {/* Choose your exam */}
@@ -166,7 +188,7 @@ export default function MarketingHome() {
             icon={SquareFunction}
             eyebrow="Year 11 & 12"
             title="VCE"
-            body="Methods, General, Specialist, Chemistry and Physics, laid out like VCAA papers with reading time."
+            body="Mathematical Methods, General Mathematics, Specialist Mathematics, Chemistry and Physics, laid out like VCAA papers with reading time."
           />
         </div>
       </section>

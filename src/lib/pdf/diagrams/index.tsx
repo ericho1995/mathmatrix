@@ -4,7 +4,8 @@ import type { Diagram } from '@/types'
 import { BarChart, LineGraph, PieChart, Pictograph, DotPlot, StemLeaf, BoxPlot, DataTable } from './charts'
 import { Spinner, Venn } from './chance'
 import { Figure, GridShape, CoordinatePlane, Solid, Net } from './geometry'
-import { FunctionGraph, NetworkGraph, MatrixView } from './graphs'
+import { FunctionGraph, NetworkGraph, MatrixView, PseudocodeView } from './graphs'
+import { DrawingView } from './drawing'
 import { Measure, Clock, Balance, Calendar } from './measurement'
 import { NumberLine, FractionModel, BarModel, PlaceValue, ArrayDots, Money, TilePattern, PriceTags } from './number'
 import { GridMap } from './maps'
@@ -55,6 +56,8 @@ export function DiagramView({ diagram, fit, bare }: Props) {
     case 'grid_map': return <GridMap diagram={diagram} {...p} />
     case 'illustration': return <IllustrationView diagram={diagram} {...p} />
     case 'simple_shape': return <SimpleShape diagram={diagram} />
+    case 'pseudocode': return <PseudocodeView diagram={diagram} />
+    case 'drawing': return <DrawingView diagram={diagram} {...p} />
     default: {
       const unreachable: never = diagram
       return unreachable
@@ -67,7 +70,7 @@ export function DiagramView({ diagram, fit, bare }: Props) {
  * rather than inside the SVG, so they would overflow a half-width cell. The
  * question-bank check refuses them as option_diagrams.
  */
-export const NON_SCALING_KINDS = new Set(['simple_shape'])
+export const NON_SCALING_KINDS = new Set(['simple_shape', 'pseudocode'])
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 

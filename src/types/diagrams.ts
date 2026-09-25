@@ -124,6 +124,68 @@ export interface FunctionGraphDiagram {
   }[]
   /** Marked points — intercepts, turning points, a stated coordinate. */
   points?: { x: number; y: number; label?: string }[]
+  // ── Specialist Mathematics additions ──
+  /** Straight segments in data coordinates: asymptotes (dashed), rays and
+   * vectors (arrow), and the short strokes of a slope field. */
+  segments?: { from: [number, number]; to: [number, number]; dashed?: boolean; arrow?: boolean; thin?: boolean }[]
+  /** Shaded regions (polygons in data coordinates) — a region of the complex
+   * plane, the area under a curve, a tail of a normal distribution. */
+  regions?: { points: [number, number][] }[]
+  /** Text placed at data coordinates, printed on the graph itself (point
+   * names, "Re(z)", curve names). `at` sets which side of the point it sits. */
+  labels?: { x: number; y: number; text: string; at?: 'n' | 's' | 'e' | 'w' | 'ne' | 'nw' | 'se' | 'sw' | 'c' }[]
+  /** Printed centred under the graph, e.g. "Figure 9" (Physics numbers its figures). */
+  caption?: string
+  /** Hollow circles: an excluded endpoint. */
+  openPoints?: { x: number; y: number }[]
+  /** Draw gridlines at xStep / yStep (default). false leaves bare axes with
+   * tick marks, the way VCAA prints most graphs. */
+  grid?: boolean
+  /** One unit on each axis the same length on paper, so circles look round
+   * (Argand diagrams, paths of particles). */
+  equalAspect?: boolean
+  /** Drawing width in points (default 300). */
+  width?: number
+  /** Custom x-axis ticks, replacing the numeric ones from xStep — for axes
+   * marked in multiples of π. */
+  xTickLabels?: { x: number; text: string }[]
+}
+
+/**
+ * A free drawing in a width × height box (y down), built from primitives —
+ * the apparatus, circuits, field regions and free-body sketches physics papers
+ * are full of. Authored through helpers (scripts/authoring/physics/draw.mjs)
+ * that expand a resistor, a pulley or a region of magnetic field into these
+ * primitives, so the renderer draws lines and shapes and knows no physics.
+ */
+export type DrawFill = 'none' | 'white' | 'black' | 'light' | 'mid' | 'dark'
+export type DrawElement =
+  | { t: 'line'; x1: number; y1: number; x2: number; y2: number; dash?: boolean; arrow?: 'end' | 'start' | 'both'; w?: number; grey?: boolean }
+  | { t: 'poly'; points: [number, number][]; closed?: boolean; fill?: DrawFill; dash?: boolean; w?: number; arrow?: 'end' }
+  | { t: 'rect'; x: number; y: number; w: number; h: number; fill?: DrawFill; rx?: number; dash?: boolean; noStroke?: boolean }
+  | { t: 'circle'; cx: number; cy: number; r: number; fill?: DrawFill; dash?: boolean; noStroke?: boolean; w?: number }
+  /** Angles in degrees, counter-clockwise from east as on paper (y up). */
+  | { t: 'arc'; cx: number; cy: number; r: number; a0: number; a1: number; dash?: boolean; arrow?: 'end' | 'start' }
+  | { t: 'text'; x: number; y: number; text: string; size?: number; anchor?: 'start' | 'middle' | 'end'; italic?: boolean; bold?: boolean }
+
+export interface DrawingDiagram {
+  kind: 'drawing'
+  width: number
+  height: number
+  elements: DrawElement[]
+  title?: string
+  /** Printed under the drawing, e.g. "Figure 3". */
+  caption?: string
+}
+
+/**
+ * An algorithm in the pseudocode VCAA uses in its mathematics papers:
+ * ← for assignment, indentation for blocks, keywords in bold.
+ */
+export interface PseudocodeDiagram {
+  kind: 'pseudocode'
+  lines: string[]
+  title?: string
 }
 
 /**
@@ -561,5 +623,6 @@ export type Diagram =
   | MeasureDiagram | ClockDiagram | BalanceDiagram | CalendarDiagram
   | FractionModelDiagram | BarModelDiagram | PlaceValueDiagram | ArrayDiagram | MoneyDiagram
   | TilePatternDiagram | PriceTagsDiagram
+  | PseudocodeDiagram | DrawingDiagram
 
 export type DiagramKind = Diagram['kind']

@@ -5,10 +5,12 @@ import { createClient } from '@/lib/supabase/server'
 import { queryFailed } from '@/lib/supabase/logError'
 import StudentDashboardTabs, { type SessionSummary } from '@/components/home/StudentDashboardTabs'
 import MarketingHome from '@/components/home/MarketingHome'
+import { dashboardLabel, isGuardianRole } from '@/lib/auth/roles'
+import type { UserRole } from '@/types'
 
 export default async function HomePage() {
   let user: { id: string; email: string | null } | null = null
-  let role: 'student' | 'parent' | 'admin' | null = null
+  let role: UserRole | null = null
   let fullName = ''
   let studentStats: { xp_total: number; streak_days: number; year_level: string; parent_id: string | null } | null = null
   let sessions: SessionSummary[] = []
@@ -79,18 +81,20 @@ export default async function HomePage() {
         <div className="max-w-sm w-full text-center">
           <h1 className="text-2xl font-medium tracking-tight mb-2">Welcome back, {firstName}</h1>
           <p className="text-gray-500 mb-8">
-            {role === 'parent'
-              ? 'Check in on your child’s progress.'
-              : 'Every exam paper in the catalogue, unlocked.'}
+            {role === 'teacher'
+              ? 'Check in on your students’ progress.'
+              : role === 'parent'
+                ? 'Check in on your child’s progress.'
+                : 'Every exam paper in the catalogue, unlocked.'}
           </p>
           {/* Admins keep their paywall bypass (see lib/auth/access.ts), so the
               catalogue is the useful landing place now the admin panel is gone —
               the question bank is edited in the repo, not through a UI. */}
           <Link
-            href={(role === 'parent' ? '/parent' : '/practice/exams') as Route}
+            href={(isGuardianRole(role) ? '/parent' : '/practice/exams') as Route}
             className="btn-primary w-full text-center block"
           >
-            {role === 'parent' ? 'Go to parent dashboard' : 'Browse exam papers'}
+            {isGuardianRole(role) ? `Go to ${dashboardLabel(role).toLowerCase()}` : 'Browse exam papers'}
           </Link>
         </div>
       </main>

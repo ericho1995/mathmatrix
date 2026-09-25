@@ -21,9 +21,9 @@ export const SUBJECTS: Subject[] = [
 export const SELECTIVE_SUBJECTS: Subject[] = [
   { slug: 'chemistry',        label: 'Chemistry',          tagline: 'Atomic structure, reactions',      icon: '⚗️', color: '#0F6E56', selective: true },
   { slug: 'physics',          label: 'Physics',             tagline: 'Mechanics, electricity',           icon: '🧲', color: '#185FA5', selective: true },
-  { slug: 'maths_methods',    label: 'Maths Methods',       tagline: 'Calculus, probability',            icon: '∫',  color: '#185FA5', selective: true },
+  { slug: 'maths_methods',    label: 'Mathematical Methods', tagline: 'Calculus, probability',            icon: '∫',  color: '#185FA5', selective: true },
   { slug: 'general_maths',    label: 'General Mathematics', tagline: 'Data analysis, financial maths',   icon: '📊', color: '#BA7517', selective: true },
-  { slug: 'specialist_maths', label: 'Specialist Maths',    tagline: 'Complex numbers, vectors',         icon: '🧮', color: '#0C447C', selective: true },
+  { slug: 'specialist_maths', label: 'Specialist Mathematics', tagline: 'Complex numbers, vectors',         icon: '🧮', color: '#0C447C', selective: true },
 ]
 
 export const GRADES: { value: YearLevel; label: string }[] = [
@@ -72,8 +72,14 @@ export const TOPICS: Topic[] = [
   // Physics
   { slug: 'phys_mechanics',         subject: 'physics',   label: 'Mechanics',              description: 'Motion, forces, energy',                icon: '🎯', color: '#185FA5' },
   { slug: 'phys_electricity',       subject: 'physics',   label: 'Electricity',            description: 'Current, voltage, resistance',          icon: '🔌', color: '#185FA5' },
+  // Physics Unit 3 & 4 (2024–2027 study design)
+  { slug: 'phys_motion',            subject: 'physics',   label: 'Motion',                 description: 'Newton’s laws, projectiles, circular motion, momentum, energy', icon: '🎯', color: '#185FA5' },
+  { slug: 'phys_fields',            subject: 'physics',   label: 'Fields',                 description: 'Gravitational, electric and magnetic fields', icon: '🧲', color: '#185FA5' },
+  { slug: 'phys_electrical_power',  subject: 'physics',   label: 'Electricity generation', description: 'Motors, generators, transformers, transmission', icon: '🔌', color: '#185FA5' },
+  { slug: 'phys_light_matter',      subject: 'physics',   label: 'Light, matter & relativity', description: 'Interference, photoelectric effect, matter waves, special relativity', icon: '💡', color: '#185FA5' },
+  { slug: 'phys_investigation',     subject: 'physics',   label: 'Scientific investigation', description: 'Experimental design, uncertainty, graphs', icon: '🔬', color: '#185FA5' },
 
-  // Maths Methods — the four VCAA Unit 3 & 4 areas of study
+  // Mathematical Methods — the four VCAA Unit 3 & 4 areas of study
   { slug: 'mm_functions',           subject: 'maths_methods', label: 'Functions & graphs',  description: 'Transformations, inverses, composite functions', icon: '📉', color: '#185FA5' },
   { slug: 'mm_algebra',             subject: 'maths_methods', label: 'Algebra',            description: 'Equations, identities, simultaneous systems',    icon: '🔤', color: '#185FA5' },
   { slug: 'mm_calculus',            subject: 'maths_methods', label: 'Calculus',           description: 'Differentiation, antidifferentiation, rates',                icon: '📈', color: '#185FA5' },
@@ -85,7 +91,7 @@ export const TOPICS: Topic[] = [
   { slug: 'gm_matrices',            subject: 'general_maths', label: 'Matrices',           description: 'Matrix operations, transition matrices', icon: '🔢', color: '#BA7517' },
   { slug: 'gm_networks',            subject: 'general_maths', label: 'Networks',           description: 'Graphs, paths, trees, flow, scheduling', icon: '🕸️', color: '#BA7517' },
 
-  // Specialist Maths
+  // Specialist Mathematics
   { slug: 'sm_complex_numbers',     subject: 'specialist_maths', label: 'Complex Numbers', description: 'Polar form, roots, the complex plane',  icon: '🔢', color: '#0C447C' },
   { slug: 'sm_vectors',             subject: 'specialist_maths', label: 'Vectors',         description: 'Dot and cross products, lines, planes', icon: '➡️', color: '#0C447C' },
   { slug: 'sm_proof',               subject: 'specialist_maths', label: 'Logic & Proof',   description: 'Induction, contrapositive, counterexamples', icon: '∴', color: '#0C447C' },

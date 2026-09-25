@@ -20,6 +20,7 @@ import { Lock } from 'lucide-react'
 export default function PremiumExamLock({
   examId,
   title,
+  pairedWith,
   yearLabel,
   summary,
   vce,
@@ -31,6 +32,8 @@ export default function PremiumExamLock({
 }: {
   examId: string
   title: string
+  /** The other exam of a two-paper VCE set, which this purchase also covers. */
+  pairedWith?: string
   yearLabel: string
   summary?: PaperSummary
   vce: boolean
@@ -57,7 +60,9 @@ export default function PremiumExamLock({
       </span>
       <h1 className="text-2xl font-medium tracking-tight mb-2">{title}</h1>
       <p className="text-gray-500 mb-6">
-        {vce
+        {vce && pairedWith
+          ? `Purchase this set for ${VCE_PAPER_PRICE} — this paper and ${pairedWith}, each printable with its full answer key, yours to keep.`
+          : vce
           ? `Purchase this paper for ${VCE_PAPER_PRICE} — the printable exam and its full answer key, yours to keep.`
           : `Included with a PrepNest plan: every ${plan.range} paper (${plan.papers} today, more on the way), each with a printable answer key, from ${FROM_PER_MONTH} a month.`}
       </p>
@@ -67,7 +72,7 @@ export default function PremiumExamLock({
       {vce ? (
         <CheckoutButton
           purchase={{ examId }}
-          label={`Purchase this paper — ${VCE_PAPER_PRICE}`}
+          label={pairedWith ? `Purchase both exams — ${VCE_PAPER_PRICE}` : `Purchase this paper — ${VCE_PAPER_PRICE}`}
           sellable={sellable}
           className="mb-3"
         />

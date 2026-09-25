@@ -40,6 +40,7 @@ const TOPIC_TO_SUBJECT = {
   life_science: 'science', physical_science: 'science', earth_space: 'science',
   chem_atomic_structure: 'chemistry', chem_reactions: 'chemistry',
   phys_mechanics: 'physics', phys_electricity: 'physics',
+  phys_motion: 'physics', phys_fields: 'physics', phys_electrical_power: 'physics', phys_light_matter: 'physics', phys_investigation: 'physics',
   mm_functions: 'maths_methods', mm_algebra: 'maths_methods', mm_calculus: 'maths_methods', mm_probability: 'maths_methods',
   gm_data_analysis: 'general_maths', gm_financial: 'general_maths',
   gm_matrices: 'general_maths', gm_networks: 'general_maths',
@@ -51,7 +52,7 @@ const SELECTIVE_SUBJECTS = new Set(['chemistry', 'physics', 'maths_methods', 'ge
 const VCE_READING_MINUTES = 15
 const SUBJECT_LABEL = {
   math: 'Maths', english: 'Language Conventions', reading: 'Reading', science: 'Science',
-  chemistry: 'Chemistry', physics: 'Physics', maths_methods: 'Maths Methods',
+  chemistry: 'Chemistry', physics: 'Physics', maths_methods: 'Mathematical Methods',
   general_maths: 'General Mathematics', specialist_maths: 'Specialist Mathematics',
 }
 const GRADE_LABEL = {
@@ -357,9 +358,89 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
 // marks in an hour; Exam 2 allows CAS and runs Section A (20 multiple choice,
 // 20 marks) then Section B (4 extended questions, 60 marks) over two hours.
 // Both get 15 minutes of reading time first.
+//
+// The instructions printed at the head of each Specialist section, in the
+// substance VCAA prints them. Section A's four-option format is the 2024
+// change (A–D; five options before that).
+const SPECIALIST_INSTRUCTIONS = {
+  exam1: [
+    'Answer all questions in the spaces provided.',
+    'In all questions where a numerical answer is required, an exact value must be given, unless otherwise specified.',
+    'In questions where more than one mark is available, appropriate working must be shown.',
+    'Unless otherwise indicated, the diagrams in this book are not drawn to scale.',
+  ],
+  sectionA: [
+    'Answer all questions. Choose the response that is correct for the question.',
+    'A correct answer scores 1; an incorrect answer scores 0. Marks will not be deducted for incorrect answers.',
+    'Unless otherwise indicated, the diagrams in this book are not drawn to scale.',
+    'Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8.',
+  ],
+  sectionB: [
+    'Answer all questions in the spaces provided.',
+    'Unless otherwise specified, an exact answer is required to a question.',
+    'In questions where more than one mark is available, appropriate working must be shown.',
+    'Unless otherwise indicated, the diagrams in this book are not drawn to scale.',
+    'Take the acceleration due to gravity to have magnitude g m s⁻², where g = 9.8.',
+  ],
+}
+
+// ── Physics Unit 3 & 4 ──────────────────────────────────────────────────────
+// One examination (2024–2027 study design): 15 minutes reading, 2 hours 30
+// minutes writing, scientific calculator. Section A is 20 multiple-choice
+// questions (20 marks); Section B is short-answer and extended-response
+// questions totalling 100 marks. VCAA does not time the sections separately;
+// the split below is a suggested pace (a minute a mark) that sums correctly.
+// Worded as the 2025 VCAA paper (g = 9.81 m s⁻² is in the formula sheet's data).
+const PHYSICS_INSTRUCTIONS = {
+  sectionA: [
+    'Answer all questions.',
+    'Choose the response that is correct or that best answers the question.',
+    'A correct answer scores 1; an incorrect answer scores 0.',
+    'Marks will not be deducted for incorrect answers.',
+    'Unless otherwise indicated, the diagrams in this book are not drawn to scale.',
+  ],
+  sectionB: [
+    'Answer all questions in the spaces provided.',
+    'Write your responses in English.',
+    'Where an answer box is provided, write your final answer in the box.',
+    'If an answer box has a unit printed in it, give your answer in that unit.',
+    'In questions where more than one mark is available, appropriate working must be shown.',
+    'Unless otherwise indicated, the diagrams in this book are not drawn to scale.',
+  ],
+}
+
+function buildPhysicsUnit34Exams(subject, yearLevel, questions, examIndex) {
+  const mc = questions.filter(q => q.format !== 'extended_response')
+  const extended = questions.filter(q => q.format === 'extended_response')
+  const sections = []
+  if (mc.length) {
+    sections.push({ title: 'Section A — multiple choice', time_minutes: 25, calculator_allowed: true, restart_numbering: true, instructions: PHYSICS_INSTRUCTIONS.sectionA, question_ids: mc.map(q => q.id) })
+  }
+  if (extended.length) {
+    sections.push({ title: 'Section B — short answer', time_minutes: 125, calculator_allowed: true, restart_numbering: true, instructions: PHYSICS_INSTRUCTIONS.sectionB, question_ids: extended.map(q => q.id) })
+  }
+  if (!sections.length) return []
+  return [{
+    id: `${subject}-${yearLevel}-${examIndex + 1}`,
+    subject,
+    yearLevel,
+    title: `${SUBJECT_LABEL[subject]} Unit 3 & 4 — Practice Exam ${examIndex + 1}`,
+    sections,
+    // The first practice exam is the free sample.
+    premium: examIndex > 0,
+    reading_minutes: VCE_READING_MINUTES,
+    formula_sheet: 'physics',
+  }]
+}
+
 function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
   const exams = []
   const label = `${SUBJECT_LABEL[subject]} Unit 3 & 4`
+
+  // Specialist papers carry VCAA's section instructions and formula sheet. The
+  // Methods papers predate this and keep their layout until they are rewritten.
+  const specialist = subject === 'specialist_maths'
+  const extras = specialist ? { formula_sheet: 'specialist_maths' } : {}
 
   const techFree = questions.filter(q => q.format === 'extended_response' && q.calculator_allowed === false)
   if (techFree.length) {
@@ -372,8 +453,10 @@ function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
         title: 'Examination 1 — technology-free',
         time_minutes: 60,
         calculator_allowed: false,
+        ...(specialist ? { instructions: SPECIALIST_INSTRUCTIONS.exam1 } : {}),
         question_ids: techFree.map(q => q.id),
       }],
+      ...extras,
       // The free sample is the FIRST PAPER of a subject and year level, not the
       // first practice set. These builders emit two papers per set, so keying
       // the rule on examIndex alone made both free — and since only set 1
@@ -387,10 +470,10 @@ function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
   const extended = questions.filter(q => q.format === 'extended_response' && q.calculator_allowed === true)
   const sections = []
   if (mc.length) {
-    sections.push({ title: 'Section A — multiple choice', time_minutes: 45, calculator_allowed: true, restart_numbering: true, question_ids: mc.map(q => q.id) })
+    sections.push({ title: 'Section A — multiple choice', time_minutes: 45, calculator_allowed: true, restart_numbering: true, ...(specialist ? { instructions: SPECIALIST_INSTRUCTIONS.sectionA } : {}), question_ids: mc.map(q => q.id) })
   }
   if (extended.length) {
-    sections.push({ title: 'Section B — extended response', time_minutes: 75, calculator_allowed: true, restart_numbering: true, question_ids: extended.map(q => q.id) })
+    sections.push({ title: 'Section B — extended response', time_minutes: 75, calculator_allowed: true, restart_numbering: true, ...(specialist ? { instructions: SPECIALIST_INSTRUCTIONS.sectionB } : {}), question_ids: extended.map(q => q.id) })
   }
   if (sections.length) {
     exams.push({
@@ -399,6 +482,7 @@ function buildVceUnit34Exams(subject, yearLevel, questions, examIndex) {
       yearLevel,
       title: `${label} — Examination 2 (Practice ${examIndex + 1})`,
       sections,
+      ...extras,
       premium: examIndex > 0 || exams.length > 0,
       reading_minutes: VCE_READING_MINUTES,
     })
@@ -588,7 +672,7 @@ for (const { subject, yearLevel, questions } of groups.values()) {
     // from the questions tagged with that set. Sets are never mixed: a VCAA-style
     // paper is balanced as a whole, and reusing a question across sets would sell
     // the same item twice.
-    const build = subject === 'general_maths' ? buildGeneralMathsUnit34Exams : buildVceUnit34Exams
+    const build = subject === 'general_maths' ? buildGeneralMathsUnit34Exams : subject === 'physics' ? buildPhysicsUnit34Exams : buildVceUnit34Exams
     const sets = [...new Set(questions.map(q => q.practice_set ?? 1))].sort((a, b) => a - b)
     for (const set of sets) {
       practiceExams.push(...build(subject, yearLevel, questions.filter(q => (q.practice_set ?? 1) === set), set - 1))
@@ -677,6 +761,8 @@ export interface PracticeExamSection {
   /** Start this section's question numbers again at 1. VCAA papers number
    * within each section, so Section B opens at Question 1, not Question 21. */
   restart_numbering?: boolean
+  /** Printed under the section heading, as the real paper's instructions are. */
+  instructions?: string[]
   question_ids: string[]
 }
 
@@ -694,6 +780,8 @@ export interface PracticeExam {
   premium: boolean
   /** VCE-style exams only: minutes of reading time (no writing allowed) before section timers start. */
   reading_minutes?: number
+  /** Key into FORMULA_SHEETS (src/lib/pdf/formulaSheets.ts), printed after the last question. */
+  formula_sheet?: string
 }
 
 export const PRACTICE_EXAMS: PracticeExam[] = ${JSON.stringify(practiceExams, null, 2)}

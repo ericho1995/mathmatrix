@@ -8,11 +8,13 @@ import { GRADES } from '@/lib/curriculum'
 import { statsFor, subjectLabel, yearLabel, isYearLevel } from '@/lib/catalogue'
 import { SUPPORT_EMAIL } from '@/lib/site'
 import { getAccess } from '@/lib/auth/access'
+import { ownsVcePaper } from '@/lib/auth/vceSets'
+import { dashboardLabel, isGuardianRole, roleLabel as labelForRole } from '@/lib/auth/roles'
 import { FROM_PER_MONTH } from '@/lib/pricing'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { PLAN_TOTALS, releasesIn } from '@/lib/catalogue'
 import { ROADMAP, formatReleaseDate } from '@/lib/releases'
-import type { YearLevel } from '@/types'
+import type { UserRole, YearLevel } from '@/types'
 
 export const metadata: Metadata = {
   title: 'Your account — PrepNest',
@@ -45,7 +47,8 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
   // that must never be wrong.
   const purchasesFailed = queryFailed('account.entitlements', entitlementsError, { userId: user.id }) || access.failed
   const plan = access.plan
-  const vcePapers = PRACTICE_EXAMS.filter(e => access.papers.has(e.id))
+  // One purchase covers both exams of a VCE set, so both are listed as owned.
+  const vcePapers = PRACTICE_EXAMS.filter(e => ownsVcePaper(e.id, access.papers))
   const billingNotice =
     searchParams?.billing === 'none'
       ? 'There is no subscription on this account to manage.'
@@ -53,7 +56,7 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
         ? 'Billing management is unavailable right now — please try again shortly, or email us.'
         : null
 
-  const role = (profile?.role as 'student' | 'parent' | 'admin' | undefined) ?? 'student'
+  const role = (profile?.role as UserRole | undefined) ?? 'student'
 
   let studentYear: YearLevel | null = null
   if (role === 'student') {
@@ -67,7 +70,7 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
     .filter(r => isYearLevel(r.year_level))
     .map(r => ({ yearLevel: r.year_level as YearLevel, boughtOn: r.created_at as string }))
 
-  const roleLabel = role === 'parent' ? 'Parent' : role === 'admin' ? 'Admin' : 'Student'
+  const roleLabel = labelForRole(role)
 
   return (
     <main className="max-w-2xl mx-auto px-4 py-10 flex-1 w-full">
@@ -236,10 +239,10 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
       <section className="card mb-6">
         <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-4">Shortcuts</h2>
         <ul className="flex flex-col gap-2.5 text-sm">
-          {role === 'parent' && (
+          {isGuardianRole(role) && (
             <li>
               <Link href="/parent" className="text-brand-600 hover:underline">
-                Parent dashboard — see your child&apos;s progress
+                {dashboardLabel(role)} — {role === 'teacher' ? 'see your students’ progress' : 'see your child’s progress'}
               </Link>
             </li>
           )}

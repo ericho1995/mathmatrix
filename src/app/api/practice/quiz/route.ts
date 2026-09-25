@@ -3,6 +3,7 @@ import { QUESTION_BANK } from '@/lib/questions/bank'
 import { isQuizPlayable } from '@/lib/questions/playable'
 import { TOPICS, GRADES } from '@/lib/curriculum'
 import type { TopicSlug, YearLevel } from '@/types'
+import { mathToPlain } from '@/lib/text/mathPlain'
 
 export const runtime = 'nodejs'
 
@@ -21,14 +22,16 @@ const VALID_TOPICS = new Set<string>(TOPICS.map(t => t.slug))
 const VALID_YEAR_LEVELS = new Set<string>(GRADES.map(g => g.value))
 
 /** Only the fields QuizRunner renders. Notably drops curriculum_code, difficulty
- * and diagram — the client has no use for them. */
+ * and diagram — the client has no use for them. Typeset maths (TeX between
+ * \( and \)) is flattened to readable text, since the quiz has no maths
+ * renderer; the PDFs typeset the same source properly. */
 function toQuizQuestion(q: (typeof QUESTION_BANK)[number]) {
   return {
     id: q.id,
-    question_text: q.question_text,
-    explanation: q.explanation,
+    question_text: mathToPlain(q.question_text),
+    explanation: mathToPlain(q.explanation),
     format: q.format,
-    options: 'options' in q ? q.options : undefined,
+    options: 'options' in q ? q.options?.map(mathToPlain) : undefined,
     correct_index: 'correct_index' in q ? q.correct_index : undefined,
     expected_answer: 'expected_answer' in q ? q.expected_answer : undefined,
     accepted_answers: 'accepted_answers' in q ? q.accepted_answers : undefined,
