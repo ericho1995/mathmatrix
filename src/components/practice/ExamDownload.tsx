@@ -14,6 +14,7 @@ export default function ExamDownload({
   summary,
   yearLevel,
   onScreen,
+  preview,
 }: {
   examId: string
   title: string
@@ -24,6 +25,12 @@ export default function ExamDownload({
   access: AccessReason
   summary?: PaperSummary
   yearLevel?: YearLevel
+  /**
+   * Set when this visitor gets the free preview of the paper rather than all
+   * of it (see lib/pdf/previewPolicy.ts). The routes serve the preview on
+   * their own; this only changes what the buttons say.
+   */
+  preview?: { shown: number; total: number }
 }) {
   const note = {
     admin: 'Admin access — no payment required. Regular visitors see the paywall here.',
@@ -32,6 +39,12 @@ export default function ExamDownload({
     paper: 'You own this paper.',
     purchased: 'You have full access to this year level.',
   }[access]
+  const noteText = preview
+    ? `Free preview: the first ${preview.shown} of the ${preview.total} questions, with their answers.`
+    : note
+  const label = preview
+    ? { paper: 'Download free preview (PDF)', question: 'Download question paper preview (PDF)', magazine: 'Download magazine preview (PDF)', answers: 'Preview answers (PDF)' }
+    : { paper: 'Download exam paper (PDF)', question: 'Download question paper (PDF)', magazine: 'Download reading magazine (PDF)', answers: 'Download answer key (PDF)' }
   const yearHref = (yearLevel ? `/practice/exams?year=${yearLevel}` : '/practice/exams') as Route
 
   return (
@@ -43,7 +56,7 @@ export default function ExamDownload({
         {access === 'admin' ? <Wrench className="w-7 h-7" /> : <FileText className="w-7 h-7" />}
       </span>
       <h1 className="text-2xl font-medium tracking-tight mb-2">{title}</h1>
-      <p className="text-sm text-gray-400 mb-6">{note}</p>
+      <p className="text-sm text-gray-400 mb-6">{noteText}</p>
 
       {summary && <PaperFacts summary={summary} />}
 
@@ -82,24 +95,37 @@ export default function ExamDownload({
         // of texts and the question paper that points into it.
         <>
           <a href={`/api/exams/${examId}/magazine`} className="btn-primary w-full mb-3 block text-center">
-            Download reading magazine (PDF)
+            {label.magazine}
           </a>
           <a href={`/api/exams/${examId}/pdf`} className="btn-primary w-full mb-3 block text-center">
-            Download question paper (PDF)
+            {label.question}
           </a>
           <a href={`/api/exams/${examId}/answers`} className="btn-secondary w-full mb-3 block text-center">
-            Download answer key (PDF)
+            {label.answers}
           </a>
         </>
       ) : (
         <>
           <a href={`/api/exams/${examId}/pdf`} className="btn-primary w-full mb-3 block text-center">
-            Download exam paper (PDF)
+            {label.paper}
           </a>
           <a href={`/api/exams/${examId}/answers`} className="btn-secondary w-full mb-3 block text-center">
-            Download answer key (PDF)
+            {label.answers}
           </a>
         </>
+      )}
+
+      {preview && (
+        <div className="card text-left mt-6 border-brand-100 bg-brand-50/40">
+          <p className="font-medium text-sm mb-1">Want the whole paper?</p>
+          <p className="text-sm text-gray-600 mb-3">
+            The full paper and its complete answer key come with a PrepNest plan, or as a one-off purchase for VCE
+            papers. Customers get every free sample in full.
+          </p>
+          <Link href={'/pricing' as Route} className="btn-primary w-full block text-center">
+            See plans and prices
+          </Link>
+        </div>
       )}
 
       {/* How the product is meant to be used, said once, where the paper is.
@@ -119,13 +145,16 @@ export default function ExamDownload({
       </div>
 
       {/* The step that used to be missing: a sat paper had nowhere to go once it
-          was marked. This turns the answer key into a diagnosis and a next step. */}
+          was marked. This turns the answer key into a diagnosis and a next step.
+          A preview is not a whole paper, so there is nothing to mark yet. */}
+      {!preview && (
       <div className="border-t border-gray-100 pt-6">
         <p className="text-sm text-gray-500 mb-3">Already sat this paper?</p>
         <Link href={`/practice/exams/${examId}/mark` as Route} className="btn-secondary w-full mb-6 block text-center">
           Enter results
         </Link>
       </div>
+      )}
 
       {access === 'free' && (
         <p className="text-sm text-gray-500 mb-6">

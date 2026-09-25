@@ -1,5 +1,8 @@
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
-import { canOpen, getAccess } from '@/lib/auth/access'
+import { redirect } from 'next/navigation'
+import type { Route } from 'next'
+import { getAccess } from '@/lib/auth/access'
+import { paperDownload } from '@/lib/pdf/paperDownload'
 import { paperQuestionMap } from '@/lib/exams/paperQuestions'
 import PremiumExamLock from '@/components/practice/PremiumExamLock'
 import { lockPropsFor } from '@/lib/exams/lockProps'
@@ -25,9 +28,11 @@ export default async function MarkPaperPage({ params }: { params: { id: string }
     )
   }
 
-  const allowed = canOpen(exam, await getAccess())
-
-  if (!allowed) {
+  // A visitor who only gets the preview has not sat the whole paper, so they
+  // are sent back to the paper page, which offers the preview and the upgrade.
+  const download = paperDownload(exam, await getAccess())
+  if (download?.mode === 'preview') redirect(`/practice/exams/${exam.id}` as Route)
+  if (!download) {
     return <PremiumExamLock {...lockPropsFor(exam)} />
   }
 

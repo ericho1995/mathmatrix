@@ -9,6 +9,8 @@ import type { PracticeExam, PracticeExamSection } from '@/lib/questions/exams'
 import { DiagramView, OptionDiagrams } from './diagrams'
 import { READING_TEXTS } from '@/lib/questions/magazines'
 import { paperMinutes } from '@/lib/exams/paperTime'
+import { PreviewCoverBanner, PreviewEndPage } from './PreviewPages'
+import type { PreviewInfo } from './preview'
 import { RichText } from './math/MathText'
 import { FormulaSheetPages } from './FormulaSheet'
 import { FORMULA_SHEETS } from './formulaSheets'
@@ -252,11 +254,12 @@ function readingInstruction(exam: PracticeExam, s: ResolvedExam['sections'][numb
   return <Text style={pdfStyles.readingInstruction}>Read each short text and answer {range}.</Text>
 }
 
-export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
+export function ExamPaperDocument({ resolved, preview }: { resolved: ResolvedExam; preview?: PreviewInfo }) {
   const { exam, sections } = resolved
   const sectionStart = firstQuestionNumbers(sections)
   const totalMinutes = paperMinutes({ total_minutes: exam.total_minutes, sections: sections.map(s => s.section) })
   const usesMagazine = Boolean(exam.magazine_id)
+  const footerTitle = preview ? `${exam.title} · Free preview` : exam.title
   const sheet = exam.formula_sheet ? FORMULA_SHEETS[exam.formula_sheet] : undefined
 
   return (
@@ -270,6 +273,7 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
         <View style={pdfStyles.coverBody}>
           <Text style={pdfStyles.coverEyebrow}>{usesMagazine ? 'Question paper' : 'Exam paper'}</Text>
           <Text style={pdfStyles.coverExamTitle}>{exam.title}</Text>
+          {preview ? <PreviewCoverBanner info={preview} /> : null}
           {usesMagazine ? (
             <View style={pdfStyles.coverNeedBox}>
               <Text style={pdfStyles.coverNeedTitle}>You will need</Text>
@@ -312,10 +316,12 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
             </Text>
           </View>
         </View>
-        <PageFooter examTitle={exam.title} />
+        <PageFooter examTitle={footerTitle} />
       </Page>
 
-      {sections.map((s, si) => (
+      {/* A preview keeps every section so the cover describes the whole paper,
+          but only lays out the sections it has questions from. */}
+      {sections.map((s, si) => s.questions.length === 0 ? null : (
         <Page key={si} size="A4" style={pdfStyles.page}>
           <Watermark />
           <RunningHeader exam={exam} section={s.section} />
@@ -363,10 +369,11 @@ export function ExamPaperDocument({ resolved }: { resolved: ResolvedExam }) {
             }
             return rendered
           })()}
-          <PageFooter examTitle={exam.title} />
+          <PageFooter examTitle={footerTitle} />
         </Page>
       ))}
       {sheet ? <FormulaSheetPages sheet={sheet} examTitle={exam.title} /> : null}
+      {preview ? <PreviewEndPage info={preview} examTitle={exam.title} kind="paper" /> : null}
     </Document>
   )
 }
