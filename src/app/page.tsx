@@ -96,6 +96,11 @@ export default async function HomePage() {
           >
             {isGuardianRole(role) ? `Go to ${dashboardLabel(role).toLowerCase()}` : 'Browse exam papers'}
           </Link>
+          {isGuardianRole(role) && (
+            <Link href="/diagnostic" className="btn-secondary w-full text-center block mt-3">
+              Start a free diagnostic test
+            </Link>
+          )}
         </div>
       </main>
     )

@@ -80,8 +80,11 @@ export default function StudentDashboardTabs({
             </div>
           </div>
 
-          <Link href="/practice" className="btn-primary w-full text-center block mb-6">
+          <Link href="/practice" className="btn-primary w-full text-center block mb-3">
             Continue practicing
+          </Link>
+          <Link href="/diagnostic" className="btn-secondary w-full text-center block mb-6">
+            Take a diagnostic test
           </Link>
 
           {!hasParent && (
