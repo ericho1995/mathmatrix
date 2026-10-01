@@ -16,6 +16,7 @@ import {
 } from '@/lib/examDates'
 import type { SubjectSlug } from '@/types'
 import LookInside from '@/components/marketing/LookInside'
+import DiagnosticCta from '@/components/diagnostic/DiagnosticCta'
 import LibraryGrowth from '@/components/marketing/LibraryGrowth'
 import SubjectIcon from '@/components/ui/SubjectIcon'
 import { FileText } from 'lucide-react'
@@ -179,6 +180,14 @@ export default function VcePage() {
             )
           })}
         </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto px-4 pb-14">
+        <DiagnosticCta
+          title="Find the weak areas of study before the exam"
+          body={`A free diagnostic in Methods, Specialist, General, Physics or Chemistry reports each area of study, then builds a practice exam on the weakest — ${VCE_PAPER_PRICE}, like any VCE paper.`}
+          year="year_12"
+        />
       </section>
 
       <section className="bg-gray-50 border-y border-gray-100">

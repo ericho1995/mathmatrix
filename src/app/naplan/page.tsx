@@ -8,6 +8,7 @@ import { NAPLAN_SOURCE, dayWord, daysUntil, formatWindow, nextNaplanWindow } fro
 import type { YearLevel } from '@/types'
 import LookInside from '@/components/marketing/LookInside'
 import { Check, FileText, X } from 'lucide-react'
+import DiagnosticCta from '@/components/diagnostic/DiagnosticCta'
 
 export const metadata: Metadata = {
   title: 'NAPLAN practice tests for Years 3, 5, 7 and 9 — PrepNest',
@@ -80,6 +81,13 @@ export default function NaplanPage() {
             </div>
           </div>
         )}
+      </section>
+
+      <section className="max-w-3xl mx-auto px-4 pb-10">
+        <DiagnosticCta
+          title="Find out what to practice first"
+          body="Before NAPLAN, a free 30-minute diagnostic in Numeracy, Reading or Language Conventions shows exactly which skills need work — then builds a practice exam around them."
+        />
       </section>
 
       {/* The four domains, and which ones PrepNest covers. */}

@@ -4,9 +4,9 @@ import type { Route } from 'next'
 import FAQAccordion from '@/components/home/FAQAccordion'
 import LookInside from '@/components/marketing/LookInside'
 import LibraryGrowth from '@/components/marketing/LibraryGrowth'
-import PaperStack from '@/components/marketing/PaperStack'
-import { ArrowRight, BarChartHorizontal, Check, Download, FileCheck, FileText, GraduationCap, Newspaper, PenLine, SquareFunction, Target, Timer, Users, type LucideIcon } from 'lucide-react'
-import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, perMonth, perPaper, savingPercent } from '@/lib/pricing'
+import SampleReport from '@/components/diagnostic/SampleReport'
+import { ArrowRight, BarChartHorizontal, Check, ClipboardList, RefreshCw, Download, FileCheck, FileText, GraduationCap, Newspaper, PenLine, SquareFunction, Target, Timer, Users, type LucideIcon } from 'lucide-react'
+import { PLANS, VCE_PAPER_PRICE, perMonth, perPaper, savingPercent } from '@/lib/pricing'
 import { CATALOGUE_TOTALS, PLAN_TOTALS, YEAR_LEVEL_STATS, releasesIn } from '@/lib/catalogue'
 import YearPicker from '@/components/catalogue/YearPicker'
 import { formatReleaseDate } from '@/lib/releases'
@@ -36,6 +36,10 @@ import {
  *
  * No testimonials or usage claims: there are none yet, and inventing them is
  * both dishonest and a consumer-law problem.
+ *
+ * Since 2026-10 it leads with the parent's question — where does my child need
+ * help? — and the free diagnostic test that answers it; the papers library,
+ * which the diagnostic's practice exam comes from, follows.
  */
 export default function MarketingHome() {
   const naplan = nextNaplanWindow()
@@ -56,31 +60,28 @@ export default function MarketingHome() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-6 items-center">
           <div className="text-center lg:text-left">
             <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-4">
-              NAPLAN &amp; VCE · {CATALOGUE_TOTALS.lowest} to {CATALOGUE_TOTALS.highest}
+              For parents · NAPLAN, school years &amp; VCE
             </p>
             <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-5 leading-[1.08]">
-              Practice exams that <span className="text-brand-400">feel like the real thing.</span>
+              Find out exactly where your child <span className="text-brand-400">needs help.</span>
             </h1>
             <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-              Printable practice papers, each with a separate answer key that explains every answer. Sit one at home,
-              mark it in minutes, and see exactly which topics to work on next.
+              A free on-screen test, at your child&apos;s year level, that pinpoints what they are confident with and the
+              exact skills to work on. You get a clear report with ways to help at home, and a practice exam built around
+              the result.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-7">
-              <Link href="/practice/exams" className="btn-primary text-center px-6 py-3 shadow-md shadow-brand-600/20">
-                Download a free paper
+              <Link href={'/diagnostic' as Route} className="btn-primary text-center px-6 py-3 shadow-md shadow-brand-600/20">
+                Start the free diagnostic test
               </Link>
-              <Link href={'/pricing' as Route} className="btn-secondary text-center px-6 py-3">
-                See pricing
+              <Link href="/practice/exams" className="btn-secondary text-center px-6 py-3">
+                Browse practice papers
               </Link>
             </div>
 
             <ul className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-gray-500">
-              {[
-                `${CATALOGUE_TOTALS.free} papers free`,
-                'No credit card to start',
-                `Plans from ${FROM_PER_MONTH} a month`,
-              ].map(t => (
+              {['Free test and report', 'About 20–35 minutes', 'No card needed'].map(t => (
                 <li key={t} className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-teal-600" strokeWidth={2.5} />
                   {t}
@@ -89,7 +90,7 @@ export default function MarketingHome() {
             </ul>
           </div>
 
-          <PaperStack />
+          <SampleReport />
         </div>
       </section>
 
@@ -122,6 +123,35 @@ export default function MarketingHome() {
           </div>
         </section>
       )}
+
+      {/* The diagnostic journey, step by step. */}
+      <section className="max-w-5xl mx-auto px-4 pt-16 pb-4">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-3">How the diagnostic works</p>
+          <h2 className="text-3xl font-semibold tracking-tight">From a 30-minute test to a plan for home</h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {DIAGNOSTIC_STEPS.map((s, i) => (
+            <div key={s.title} className="card text-left">
+              <div className="flex items-center justify-between mb-4">
+                <span className="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center shadow-sm shadow-brand-600/30">
+                  <s.icon className="w-5 h-5" />
+                </span>
+                <span className="text-xs font-medium text-gray-300">Step {i + 1}</span>
+              </div>
+              <p className="font-medium mb-1">{s.title}</p>
+              <p className="text-sm text-gray-500 leading-relaxed">{s.body}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-sm text-gray-500 text-center mt-8 max-w-2xl mx-auto">
+          A short test can be misread, so it is built not to be: unsettled results get follow-up questions, guesses are
+          left out, and every area says how firm its result is.{' '}
+          <Link href={'/diagnostic' as Route} className="text-brand-600 underline">
+            How it works
+          </Link>
+        </p>
+      </section>
 
       {/* The library at a glance: the totals, then every year level with what
           it holds — so the size of the library is something to explore, not
@@ -233,7 +263,7 @@ export default function MarketingHome() {
       <section className="bg-gray-50 border-y border-gray-100">
         <div className="max-w-5xl mx-auto px-4 py-20">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-3">How it works</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-3">Prefer to start with a paper?</p>
             <h2 className="text-3xl font-semibold tracking-tight">From paper to progress in four steps</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -318,13 +348,14 @@ export default function MarketingHome() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-3">For parents</p>
-              <h2 className="text-3xl font-semibold tracking-tight mb-4">See exactly where they need help</h2>
+              <h2 className="text-3xl font-semibold tracking-tight mb-4">Watch the gaps close</h2>
               <p className="text-gray-500 leading-relaxed mb-6">
-                Mark a paper against the answer key, tap the questions that were wrong, and every topic is ranked
-                weakest first — with a link straight to practice on those topics. Link your account to your
-                child&apos;s with a one-time invite code, and every paper and quiz builds up their accuracy by topic.
+                Every diagnostic, practice exam and paper you mark is kept on your free parent account. Re-test every
+                few weeks — the diagnostic never repeats a question — and the report shows each area improving, slipping
+                or holding steady. Mark a paper against its answer key and every topic is ranked weakest first, with a link
+                straight to practice.
               </p>
-              <Link href="/auth/register" className="btn-secondary">
+              <Link href={'/auth/register?role=parent' as Route} className="btn-secondary">
                 Create a parent account
               </Link>
             </div>
@@ -376,14 +407,14 @@ export default function MarketingHome() {
       >
         <div className="max-w-3xl mx-auto px-4 py-20 text-center">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-3">
-            Start with a free paper tonight.
+            Find out where to start, tonight.
           </h2>
-          <p className="text-brand-100 mb-8">No account needed to download or mark it.</p>
+          <p className="text-brand-100 mb-8">The diagnostic test is free and needs no account to start.</p>
           <Link
-            href="/practice/exams"
+            href={'/diagnostic' as Route}
             className="inline-block bg-white text-brand-600 font-medium px-7 py-3.5 rounded-xl shadow-lg shadow-brand-900/20 hover:bg-brand-50 transition-all"
           >
-            Browse free papers
+            Start the free diagnostic test
           </Link>
         </div>
       </section>
@@ -426,6 +457,29 @@ const FEATURES: { icon: LucideIcon; title: string; body: string }[] = [
     icon: Users,
     title: 'The whole family, one plan',
     body: `One plan covers every child in the family, at every year level from ${PLAN_TOTALS.range.replace(' – ', ' to ')}.`,
+  },
+]
+
+const DIAGNOSTIC_STEPS: { icon: LucideIcon; title: string; body: string }[] = [
+  {
+    icon: ClipboardList,
+    title: 'Your child sits the test',
+    body: 'On screen, one question at a time, at their year level — or in one VCE subject. Then a few follow-up questions to double-check anything unclear.',
+  },
+  {
+    icon: Target,
+    title: 'You get the report',
+    body: 'Every area weakest first: the specific skills to work on, how firm each result is, every answer explained, and three ways to help at home.',
+  },
+  {
+    icon: FileText,
+    title: 'A practice exam built for them',
+    body: `A printable paper and answer key, most of it on their focus areas. Included in the plan; ${VCE_PAPER_PRICE} for VCE.`,
+  },
+  {
+    icon: RefreshCw,
+    title: 'Re-test and watch it move',
+    body: 'Sit it again in a few weeks. New questions every time, and each area shows whether it has improved.',
   },
 ]
 

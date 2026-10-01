@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import type { Route } from 'next'
 import FAQAccordion from '@/components/home/FAQAccordion'
+import DiagnosticCta from '@/components/diagnostic/DiagnosticCta'
 import { FAQ_CATEGORY_LABEL, faqsIn, type FaqCategory } from '@/lib/faqs'
 import { SUPPORT_EMAIL } from '@/lib/site'
 
@@ -25,6 +26,10 @@ export default function HelpPage() {
     <main className="max-w-3xl mx-auto px-4 py-12 flex-1 w-full">
       <h1 className="text-3xl font-medium tracking-tight mb-2">Help & FAQ</h1>
       <p className="text-gray-500 mb-8">Quick answers about the diagnostic test, the papers, purchasing, and accounts.</p>
+
+      <div className="mb-8">
+        <DiagnosticCta />
+      </div>
 
       <nav aria-label="FAQ sections" className="flex flex-wrap gap-2 mb-10">
         {ORDER.map(c => (

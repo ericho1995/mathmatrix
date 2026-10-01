@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     page('', 1, 'daily'),
+    page('/diagnostic', 0.95),
     page('/practice/exams', 0.9),
     page('/naplan', 0.9),
     page('/vce', 0.9),

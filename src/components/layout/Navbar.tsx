@@ -42,6 +42,7 @@ export default function Navbar({ user }: { user: NavUser | null }) {
   const pathname = usePathname() ?? '/'
 
   const links: NavLink[] = [
+    { href: '/diagnostic' as Route, label: 'Diagnostic test', match: within('/diagnostic') },
     { href: '/practice/exams', label: 'Exam papers', match: within('/practice/exams') },
     { href: '/naplan' as Route, label: 'NAPLAN', match: exact('/naplan') },
     { href: '/vce' as Route, label: 'VCE', match: exact('/vce') },
@@ -95,8 +96,8 @@ export default function Navbar({ user }: { user: NavUser | null }) {
               <Link href="/auth/login" className={linkClass(pathname === '/auth/login')}>
                 Sign in
               </Link>
-              <Link href="/auth/register" className="btn-primary text-sm py-2 px-4">
-                Get started free
+              <Link href={'/diagnostic' as Route} className="btn-primary text-sm py-2 px-4">
+                Free diagnostic test
               </Link>
             </>
           )}
@@ -139,8 +140,8 @@ export default function Navbar({ user }: { user: NavUser | null }) {
                 <Link href="/auth/login" className={linkClass(pathname === '/auth/login')} onClick={close}>
                   Sign in
                 </Link>
-                <Link href="/auth/register" className="btn-primary text-sm text-center" onClick={close}>
-                  Get started free
+                <Link href={'/diagnostic' as Route} className="btn-primary text-sm text-center" onClick={close}>
+                  Free diagnostic test
                 </Link>
               </>
             )}
