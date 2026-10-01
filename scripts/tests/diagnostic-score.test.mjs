@@ -67,6 +67,7 @@ const fakeReport = levels => ({
   total: 24,
   pct: 71,
   items: [],
+  quality: { skipped: 0, guessed: 0, rapid: 0, minutes: null, flags: [] },
   areas: levels.map(([label, level, confidence = 'clear']) => ({ id: label, label, level, confidence, correct: 1, total: 1, pct: 0, skills: [] })),
 })
 
@@ -149,4 +150,5 @@ test('the headline carries no skill detail', () => {
   assert.equal(h.name, 'Mia')
   assert.equal('skills' in h.areas[0], false)
   assert.match(h.summary, /^Mia answered/)
+  assert.deepEqual(h.notes, [])
 })
