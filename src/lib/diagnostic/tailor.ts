@@ -358,16 +358,26 @@ function schoolSections(groups: readonly Group[], year: YearLevel, subject: Subj
   return sections
 }
 
+const READING_TEXTS_PER_PAPER = 3
+
+/**
+ * Three unread texts, those whose questions lean towards the weak question
+ * types first. The test itself reads three texts, and some years have few, so
+ * when the child's own year runs short the paper borrows from the next year:
+ * the year below for a child who found the test hard, the year above for one
+ * who did not.
+ */
 function composeReading(bank: readonly BankQuestion[], report: DiagnosticReport, rand: () => number): { sections: TailoredSection[]; focus: FocusLine[] } {
   const seen = new Set(report.items.map(i => i.id))
   const seenTexts = new Set(bank.filter(q => seen.has(q.id)).map(q => q.stimulus_id))
   const need = new Map(report.areas.map(a => [a.id, weightOf(a)]))
-  const candidates = readingTexts(bank, report.year).filter(t => !seenTexts.has(t.id))
-  // Texts whose questions lean towards the weak skills come first.
-  const scored = shuffle(candidates, rand)
-    .map(t => ({ t, score: t.questions.reduce((n, q) => n + (need.get(classify(q).area.id) ?? 0.6), 0) / t.questions.length }))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3)
+  const rank = (texts: ReturnType<typeof readingTexts>) =>
+    shuffle(texts.filter(t => !seenTexts.has(t.id)), rand)
+      .map(t => ({ t, score: t.questions.reduce((n, q) => n + (need.get(classify(q).area.id) ?? 0.6), 0) / t.questions.length }))
+      .sort((a, b) => b.score - a.score)
+  const i = SCHOOL_YEARS.indexOf(report.year)
+  const neighbour = SCHOOL_YEARS[report.pct < 60 ? i - 1 : i + 1] ?? SCHOOL_YEARS[report.pct < 60 ? i + 1 : i - 1]
+  const scored = [...rank(readingTexts(bank, report.year)), ...(neighbour ? rank(readingTexts(bank, neighbour)) : [])].slice(0, READING_TEXTS_PER_PAPER)
 
   const sections = scored.map(({ t }, i) => ({
     title: `Text ${i + 1}`,

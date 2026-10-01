@@ -11,6 +11,8 @@ export interface PreviewInfo {
   totalMarks: number
   /** Per section, what is still to come. Sections the preview finished are omitted. */
   rest: { title: string; questions: number; marks: number }[]
+  /** Where the full paper is; defaults to the paper's catalogue page. */
+  url?: string
 }
 
 export function questionMarks(q: ResolvedQuestion): number {

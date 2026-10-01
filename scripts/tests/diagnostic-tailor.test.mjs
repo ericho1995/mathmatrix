@@ -63,8 +63,8 @@ for (const o of offeredTests(QUESTION_BANK)) {
     for (const id of all) {
       const q = byId.get(id)
       assert.ok(q, `unknown id ${id}`)
-      // School subjects may borrow from the next year down or up; VCE and Reading may not.
-      if (SCHOOL.includes(o.year) && o.subject !== 'reading') {
+      // School subjects may borrow from the next year down or up; VCE may not.
+      if (SCHOOL.includes(o.year)) {
         assert.ok(Math.abs(SCHOOL.indexOf(q.year_level) - SCHOOL.indexOf(o.year)) <= 1, `${q.year_level} in a ${o.year} paper`)
       } else {
         assert.equal(q.year_level, o.year)
@@ -91,6 +91,15 @@ for (const o of offeredTests(QUESTION_BANK)) {
     if (o.subject !== 'reading') {
       const top = exam.focus[0]
       assert.equal(top.area, weakArea, `${o.year} ${o.subject}: most questions went to ${top.area}, not ${weakArea}`)
+    }
+
+    // Reading prints three texts, borrowing from a neighbouring year when its own runs short.
+    if (o.subject === 'reading') {
+      assert.equal(exam.sections.length, 3, `${o.year}: ${exam.sections.length} texts`)
+      const texts = exam.sections.map(s => new Set(s.question_ids.map(id => byId.get(id).stimulus_id)))
+      for (const t of texts) assert.equal(t.size, 1, 'a section mixes texts')
+      const read = new Set(ids.map(id => byId.get(id).stimulus_id))
+      for (const t of texts) assert.ok(!read.has([...t][0]), 'a text the diagnostic used')
     }
 
     // Same result, same paper.

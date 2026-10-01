@@ -17,11 +17,17 @@ export interface ResolvedExam {
 
 export function resolveExam(examId: string): ResolvedExam | null {
   const exam = PRACTICE_EXAMS.find(e => e.id === examId)
-  if (!exam) return null
+  return exam ? hydrateExam(exam) : null
+}
 
-  const questionById = new Map(QUESTION_BANK.map(q => [q.id, q]))
-  const stimulusById = new Map(STIMULI.map(s => [s.id, s]))
+const questionById = new Map(QUESTION_BANK.map(q => [q.id, q]))
+const stimulusById = new Map(STIMULI.map(s => [s.id, s]))
 
+/**
+ * Any exam — a catalogue paper or one composed on the fly, such as a tailored
+ * exam from a diagnostic — with its questions and passages filled in.
+ */
+export function hydrateExam(exam: PracticeExam): ResolvedExam {
   const sections: ResolvedSection[] = exam.sections.map(section => ({
     section,
     questions: section.question_ids

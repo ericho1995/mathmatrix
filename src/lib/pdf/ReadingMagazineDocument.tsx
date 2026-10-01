@@ -269,7 +269,8 @@ function Footer({ label, accent }: { label: string; accent: string }) {
 /** Called with every page a text lands on, so a check can compare it with `page`. */
 export type OnPlaced = (textId: string, pageNumber: number) => void
 
-function TextPage({ text, magazine, label, onPlaced }: { text: ReadingText; magazine: ReadingMagazine; label: string; onPlaced?: OnPlaced }) {
+/** One text as it prints in a magazine. Also printed inside a tailored Reading paper, whose texts come from several magazines. */
+export function TextPage({ text, magazine, label, onPlaced }: { text: ReadingText; magazine: ReadingMagazine; label: string; onPlaced?: OnPlaced }) {
   const accent = ACCENT[text.type]
   const scale = typeScale(magazine.yearLevel)
   const columns = text.columns === 2 && text.blocks.length > 1 ? splitColumns(text.blocks) : null
