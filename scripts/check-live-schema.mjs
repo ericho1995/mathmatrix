@@ -140,6 +140,10 @@ const MIGRATIONS = [
     file: 'schema_teacher_role.sql',
     checks: [() => enumValueExists('profiles', 'role', 'teacher')],
   },
+  {
+    file: 'schema_diagnostics.sql',
+    checks: [() => tableExists('diagnostic_results'), () => columnExists('diagnostic_results', 'exam_marks')],
+  },
 ]
 
 const EXPECTED_QUESTIONS = 1800 // seed.sql currently carries 1,825
