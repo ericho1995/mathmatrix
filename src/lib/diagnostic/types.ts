@@ -52,10 +52,31 @@ export interface TestSpec {
 /** A chosen option's index, a typed answer, or null for "I'm not sure". */
 export type Answer = number | string | null
 
+/**
+ * One answer, with what the screen saw while it was given. The extra signals
+ * are optional: a result saved before they existed, or a paper marked by hand,
+ * has none, and is scored on the answers alone.
+ */
 export interface Response {
   id: string
   a: Answer
+  /** Time spent on the question, in milliseconds. */
+  ms?: number
+  /** How many times the answer was changed after it was first given. */
+  ch?: number
+  /** The child said this one was a guess. */
+  g?: boolean
+  /** Asked in the second part of the test, to double-check the first. */
+  f?: boolean
 }
+
+/**
+ * How much the evidence supports a call.
+ * - `clear`  — enough questions, and they point the same way
+ * - `likely` — probably right; a few more questions would settle it
+ * - `early`  — too few questions, or too close to a boundary, to rely on
+ */
+export type Confidence = 'clear' | 'likely' | 'early'
 
 export interface GradedItem {
   id: string
@@ -65,23 +86,79 @@ export interface GradedItem {
   difficulty: Difficulty
   answer: Answer
   correct: boolean
+  /** The child said this one was a guess. */
+  guessed: boolean
+  /** Answered too fast to have read the question. */
+  rapid: boolean
+  /**
+   * Whether the answer is used as evidence. A lucky guess says nothing about
+   * what the child knows, and neither does an answer given in two seconds, so
+   * both count towards the score but not towards a level.
+   */
+  counted: boolean
+  ms: number | null
+  changes: number
+  followUp: boolean
 }
+
+/**
+ * What the answers say about one skill.
+ * - `secure`    — asked at least twice, right nearly every time
+ * - `gap`       — asked at least twice, wrong nearly every time
+ * - `mixed`     — asked at least twice, some right and some wrong
+ * - `one_right` — asked once, answered correctly
+ * - `one_miss`  — asked once, answered incorrectly: could be a slip
+ */
+export type SkillState = 'secure' | 'gap' | 'mixed' | 'one_right' | 'one_miss'
 
 export interface SkillResult {
   label: string
   correct: number
   total: number
+  state: SkillState
 }
 
 export interface AreaResult {
   id: string
   label: string
+  /** Every question asked and every one answered correctly. */
   correct: number
   total: number
-  /** Whole-number percentage. */
+  /** The answers used as evidence: `total` less lucky guesses and rapid answers. */
+  evidence: number
+  /** Correct answers among the evidence. */
+  secure: number
+  /** Whole-number percentage of the evidence answered correctly. */
   pct: number
   level: Level
+  confidence: Confidence
+  /** The chance, 0–100, that the area really sits in this level given the evidence. */
+  certainty: number
+  skipped: number
+  /** Median seconds per question, when the screen timed them. */
+  seconds: number | null
   skills: SkillResult[]
+}
+
+/**
+ * Something about the sitting that weakens its result.
+ * - `rushed`       — many answers given too fast to have read the question
+ * - `ran_out`      — the last questions were left unanswered
+ * - `many_skips`   — a large share skipped throughout
+ * - `many_guesses` — a large share marked as guesses
+ */
+export type QualityFlag = 'rushed' | 'ran_out' | 'many_skips' | 'many_guesses'
+
+/** How the sitting itself went, which says how far to trust it. */
+export interface SittingQuality {
+  skipped: number
+  /** Answers the child marked as a guess, right or wrong. */
+  guessed: number
+  rapid: number
+  /** Minutes on the questions, when the screen timed them. */
+  minutes: number | null
+  /** Empty when the sitting looks sound. */
+  flags: QualityFlag[]
 }
 
 export interface DiagnosticReport {
@@ -94,4 +171,5 @@ export interface DiagnosticReport {
   areas: AreaResult[]
   /** In the order the questions were asked. */
   items: GradedItem[]
+  quality: SittingQuality
 }

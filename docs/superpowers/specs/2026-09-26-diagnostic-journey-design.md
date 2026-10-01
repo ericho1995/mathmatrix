@@ -107,6 +107,51 @@ answered 17 of 24 correctly. Number and statistics are strengths; measurement
 is the area to focus on." The report says plainly that a short diagnostic is a
 snapshot, not a formal assessment.
 
+## Evidence and accuracy (added 2026-10-02)
+
+The owner asked for the test to "gather as much information as we can" and
+to keep testing "so that we don't mistakenly over-predict". Four things do
+that.
+
+**More signals per answer.** Besides the answer, the screen records the
+time spent on each question, how often the answer was changed, and an
+optional *I guessed* flag next to *I'm not sure*. A right answer the child
+called a guess, and any answer given in under 2.5 seconds, count in the score
+but not as evidence for a level. The report flags a sitting that was rushed,
+tailed off at the end, or was mostly skips or guesses, and suggests a re-test.
+
+**Every level carries its confidence** (`src/lib/diagnostic/evidence.ts`).
+Starting from a typical child (Beta(4, 2): two thirds right, worth four
+questions), the answers give a distribution over the true score; the chance
+that the area really sits in its level is reported as *Clear result* (≥ 90%,
+at least 6 answers), *Likely* (≥ 75%, at least 3) or *Early sign*. The summary
+names only clear or likely areas as ones to focus on; an early-sign weakness
+is "may need work". Skills are *Secure*, *Needs work*, *Inconsistent* (asked
+twice or more), or *Right so far* / *One miss* (asked once, unconfirmed).
+
+**A second, adaptive part** (`followup.ts`). After the first part the server
+grades privately and adds follow-up questions where the result could still go
+either way, and a second question on every skill missed once (slip or gap).
+Budget: Maths 8, English 6, Science 4, VCE 6, Reading one more text; a
+clear-cut first part gets few or none. Follow-ups use at most half of what an
+area has left, so the tailored exam still has new questions.
+
+**Evidence accumulates** (`profile.ts`). Signed-in re-tests never repeat a
+question and are pooled with earlier sittings, the newest counting in full and
+each older one half as much, so the report shows a firmer call and whether
+each area went up, down or stayed the same. The tailored exam is weighted by
+the expected need (the distribution's mean), so a thin result cannot take
+over the paper.
+
+**The build checks it.** `scripts/tests/diagnostic-simulation.test.mjs` sits
+simulated children with known strengths through every offered test and fails
+if more than 4% of areas they are fine at come out as a confident focus area,
+or more than 10% of clear results are wrong. At tuning the worst test was
+2.2% and 6.3%; follow-ups cut missed weaknesses in every test.
+`node scripts/diagnostic-audit.mjs --simulate` prints the table. Once real
+results exist, `scripts/diagnostic-calibration.mjs` compares each question's
+real success rate with its difficulty tag and lists questions that mislead.
+
 ## The tailored exam
 
 Composed on the server from the result, deterministically (seeded by the

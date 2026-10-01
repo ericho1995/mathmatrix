@@ -11,9 +11,27 @@
  *   node scripts/diagnostic-audit.mjs                 every subject
  *   node scripts/diagnostic-audit.mjs english 4       one subject, 4 samples each
  *   node scripts/diagnostic-audit.mjs math 3 "Time"   one skill only
+ *   node scripts/diagnostic-audit.mjs --simulate      how often each test gets
+ *                                                     simulated children wrong
  */
 import { QUESTION_BANK } from '../src/lib/questions/bank.ts'
 import { classify, subjectOfTopic } from '../src/lib/diagnostic/areas.ts'
+import { offeredTests } from '../src/lib/diagnostic/blueprint.ts'
+import { errorRates } from './lib/diagnosticSim.mjs'
+
+if (process.argv.includes('--simulate')) {
+  const byId = new Map(QUESTION_BANK.map(q => [q.id, q]))
+  const pct = x => `${(100 * x).toFixed(1)}%`.padStart(6)
+  console.log('test                       questions  false focus  strong→focus  missed weak  wrong clear   (first part only: missed weak)')
+  for (const o of offeredTests(QUESTION_BANK)) {
+    const r = errorRates(QUESTION_BANK, byId, { year: o.year, subject: o.subject, children: 200 })
+    const core = errorRates(QUESTION_BANK, byId, { year: o.year, subject: o.subject, children: 200, followUps: false })
+    console.log(
+      `${`${o.year} ${o.subject}`.padEnd(27)}${r.questions.toFixed(1).padStart(9)}  ${pct(r.falseFocus)}       ${pct(r.strongFocus)}        ${pct(r.missedWeak)}      ${pct(r.clearWrong)}     ${pct(core.missedWeak)}`
+    )
+  }
+  process.exit(0)
+}
 
 const [onlySubject, perArg, onlySkill] = process.argv.slice(2)
 const per = Number(perArg ?? 3)

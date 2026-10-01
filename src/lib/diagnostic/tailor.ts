@@ -1,7 +1,8 @@
 import type { SubjectSlug, YearLevel } from '../../types'
-import type { BankQuestion, DiagnosticReport, Level } from './types.ts'
+import type { AreaResult, BankQuestion, DiagnosticReport, Level } from './types.ts'
 import { classify, subjectOfTopic } from './areas.ts'
 import { readingTexts } from './blueprint.ts'
+import { expectedNeed } from './evidence.ts'
 import { DIFFICULTY_RANK } from './select.ts'
 import { hashSeed, mulberry32, shuffle } from './rng.ts'
 import { SELECTIVE_SUBJECTS, SUBJECTS } from '../curriculum.ts'
@@ -15,6 +16,10 @@ import { yearLabel } from '../yearLevels.ts'
 // sharp. Nothing from the diagnostic is repeated except a closing "Second
 // chance" section of questions the child got wrong, which is worth doing
 // again once the answers have been talked through.
+//
+// An area's share follows what the evidence supports, not the raw percentage:
+// none right out of two pulls the paper towards that area less than none
+// right out of eight does, so one thin result cannot take over the paper.
 //
 // Composed from a seed derived from the result id, so the paper, its answer
 // key and the marking screen — three separate requests — always agree.
@@ -180,6 +185,18 @@ function pickTargeted(pool: readonly BankQuestion[], n: number, level: Level, wr
   return chosen
 }
 
+/** How much of the paper an area should take: most where the evidence says most is missing. */
+const weightOf = (a: Pick<AreaResult, 'secure' | 'evidence'>) => 0.2 + expectedNeed(a.secure, a.evidence)
+
+/** Skills to come round first: confirmed gaps, then inconsistent ones, then single misses. */
+function skillsToWork(area: AreaResult): string[] {
+  const order = { gap: 0, mixed: 1, one_miss: 2 } as const
+  return area.skills
+    .filter((s): s is typeof s & { state: keyof typeof order } => s.state in order)
+    .sort((x, y) => order[x.state] - order[y.state] || y.total - y.correct - (x.total - x.correct))
+    .map(s => s.label)
+}
+
 const byDifficulty = (a: BankQuestion, b: BankQuestion) => DIFFICULTY_RANK[a.difficulty] - DIFFICULTY_RANK[b.difficulty]
 
 /** "Questions 1–12: Fractions (the main area to work on)." */
@@ -250,15 +267,12 @@ function areaGroups(
 
   const areas = report.areas.filter(a => available(a.id, a.level) > 0)
   const counts = allocate(
-    areas.map(a => ({ id: a.id, weight: 0.2 + (1 - a.pct / 100), available: available(a.id, a.level) })),
+    areas.map(a => ({ id: a.id, weight: weightOf(a), available: available(a.id, a.level) })),
     total
   )
   return areas
     .map(a => {
-      const wrongSkills = a.skills
-        .filter(s => s.correct < s.total)
-        .sort((x, y) => y.total - y.correct - (x.total - x.correct))
-        .map(s => s.label)
+      const wrongSkills = skillsToWork(a)
       const n = counts.get(a.id) ?? 0
       const mine = pickTargeted(own.get(a.id) ?? [], n, a.level, wrongSkills, rand)
       const more = mine.length < n ? pickTargeted(extraFor(a.level).get(a.id) ?? [], n - mine.length, a.level, wrongSkills, rand) : []
@@ -347,7 +361,7 @@ function schoolSections(groups: readonly Group[], year: YearLevel, subject: Subj
 function composeReading(bank: readonly BankQuestion[], report: DiagnosticReport, rand: () => number): { sections: TailoredSection[]; focus: FocusLine[] } {
   const seen = new Set(report.items.map(i => i.id))
   const seenTexts = new Set(bank.filter(q => seen.has(q.id)).map(q => q.stimulus_id))
-  const need = new Map(report.areas.map(a => [a.id, 0.2 + (1 - a.pct / 100)]))
+  const need = new Map(report.areas.map(a => [a.id, weightOf(a)]))
   const candidates = readingTexts(bank, report.year).filter(t => !seenTexts.has(t.id))
   // Texts whose questions lean towards the weak skills come first.
   const scored = shuffle(candidates, rand)
