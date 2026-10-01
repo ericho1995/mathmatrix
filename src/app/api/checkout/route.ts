@@ -5,6 +5,9 @@ import { PLAN_IDS, isVceYear, stripePriceIdForPlan, stripePriceIdForVcePaper, ty
 import { canOpen, getAccess } from '@/lib/auth/access'
 import { vcePartnerId } from '@/lib/auth/vceSets'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
+import { loadResult } from '@/lib/diagnostic/load'
+import { tailoredAccess } from '@/lib/diagnostic/access'
+import { tailoredExamId } from '@/lib/diagnostic/tailor'
 
 export const runtime = 'nodejs'
 
@@ -13,6 +16,7 @@ export const runtime = 'nodejs'
  *
  *   { plan: 'month' | 'quarter' | 'year' }  a subscription to the Grade 3 – Year 10 plan
  *   { examId }                              one VCE paper, bought once
+ *   { tailoredId }                          the VCE exam built from a diagnostic result
  *
  * The client names what it wants; the price is looked up server-side. The
  * amount is never taken from the request — that is how checkout flows get
@@ -36,7 +40,7 @@ export async function POST(req: NextRequest) {
   } catch {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
   }
-  const { plan, examId } = (body ?? {}) as { plan?: unknown; examId?: unknown }
+  const { plan, examId, tailoredId } = (body ?? {}) as { plan?: unknown; examId?: unknown; tailoredId?: unknown }
   const origin = req.nextUrl.origin
   const access = await getAccess()
 
@@ -110,6 +114,36 @@ export async function POST(req: NextRequest) {
         allow_promotion_codes: true,
         success_url: `${origin}/practice/exams/${exam.id}?purchased=1`,
         cancel_url: `${origin}/practice/exams/${exam.id}`,
+      })
+      if (!session.url) throw new Error('Stripe returned no checkout URL')
+      return NextResponse.json({ url: session.url })
+    }
+
+    if (typeof tailoredId === 'string') {
+      // The result must be one this visitor can see: their own, or a linked child's.
+      const loaded = await loadResult(tailoredId)
+      if (!loaded.ok) return NextResponse.json({ error: 'Result not found' }, { status: loaded.status === 401 ? 401 : 404 })
+      const { result } = loaded
+      if (!isVceYear(result.year)) {
+        return NextResponse.json({ error: 'This exam is part of the plan, not sold on its own' }, { status: 400 })
+      }
+      if (tailoredAccess({ id: result.id, year: result.year }, access).mode === 'full') {
+        return NextResponse.json({ error: 'You already have this exam' }, { status: 409 })
+      }
+      const priceId = stripePriceIdForVcePaper()
+      if (!priceId) return NextResponse.json({ error: 'No price configured for VCE papers' }, { status: 503 })
+
+      const session = await getStripe().checkout.sessions.create({
+        mode: 'payment',
+        line_items: [{ price: priceId, quantity: 1 }],
+        payment_intent_data: { description: result.exam.title },
+        customer_email: user.email ?? undefined,
+        client_reference_id: user.id,
+        // The webhook records exam_id in paper_purchases, as for any VCE paper.
+        metadata: { user_id: user.id, exam_id: tailoredExamId(result.id) },
+        allow_promotion_codes: true,
+        success_url: `${origin}/diagnostic/report/${result.id}?purchased=1`,
+        cancel_url: `${origin}/diagnostic/report/${result.id}`,
       })
       if (!session.url) throw new Error('Stripe returned no checkout URL')
       return NextResponse.json({ url: session.url })

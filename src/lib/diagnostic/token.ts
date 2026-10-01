@@ -1,6 +1,6 @@
 import { createHmac, timingSafeEqual } from 'node:crypto'
 import type { SubjectSlug, YearLevel } from '../../types'
-import type { Answer } from './types.ts'
+import type { Answer, Response } from './types.ts'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Signed test tokens and result receipts.
@@ -28,14 +28,26 @@ export interface TestClaims {
   t: number
   /** Random nonce: identifies this sitting, so a receipt is saved once. */
   r: string
+  /** Which part of the test this token is for: 1, or 2 once follow-ups are added. */
+  p?: 1 | 2
+  /** How many of `q` were in the first part; the rest are follow-ups. */
+  c?: number
+  /** Seed the questions were chosen with, so follow-ups are chosen the same way. */
+  e?: number
 }
+
+/** An answer as the browser sends it: the answer and what the screen saw. */
+export type AnswerIn = Omit<Response, 'id' | 'f'>
 
 export interface ReceiptClaims extends TestClaims {
   /** Answers, aligned with `q`. */
-  a: Answer[]
+  a: AnswerIn[]
   /** Submitted at (ms). */
   d: number
 }
+
+/** The type of a bare answer, for code that has not been given telemetry. */
+export type { Answer }
 
 /** How long a test may stay open. */
 export const TEST_TTL_MS = 7 * 86_400_000
