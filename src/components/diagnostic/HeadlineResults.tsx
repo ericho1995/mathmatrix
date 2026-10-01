@@ -16,7 +16,7 @@ export default function HeadlineResults({ headline, sample = false }: { headline
   const h = headline
   return (
     <div className="card p-6 sm:p-8">
-      <div className="flex items-start gap-5 mb-6">
+      <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5 mb-6">
         <ScoreRing correct={h.correct} total={h.total} />
         <div>
           <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-1">

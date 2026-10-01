@@ -28,6 +28,10 @@ export default function PaperMarking({
   yearLevel,
   examTitle,
   backHref,
+  saveUrl,
+  backLabel = 'Back to the paper',
+  groupLabel = 'By topic',
+  practiceLink,
 }: {
   sections: PaperSection[]
   examId: string
@@ -35,6 +39,13 @@ export default function PaperMarking({
   yearLevel: YearLevel
   examTitle: string
   backHref: string
+  /** Where the marks are saved; defaults to the catalogue paper's result route. */
+  saveUrl?: string
+  backLabel?: string
+  /** "By topic" for a catalogue paper; a diagnostic's exam groups by report area. */
+  groupLabel?: string
+  /** Replaces the practice link, e.g. with the way back to a diagnostic report. */
+  practiceLink?: { href: string; label: string; text: string }
 }) {
   const [wrong, setWrong] = useState<Set<number>>(new Set())
   const [screen, setScreen] = useState<'mark' | 'result'>('mark')
@@ -92,7 +103,7 @@ export default function PaperMarking({
       section.questions.filter(q => wrong.has(keyOf(s, q.n))).map(q => ({ s, n: q.n }))
     )
     try {
-      const res = await fetch(`/api/exams/${examId}/result`, {
+      const res = await fetch(saveUrl ?? `/api/exams/${examId}/result`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wrong: marks }),
@@ -163,7 +174,7 @@ export default function PaperMarking({
 
         <p className="text-center mt-6">
           <Link href={backHref as Route} className="text-sm text-gray-400 hover:text-gray-600 underline">
-            Back to the paper
+            {backLabel}
           </Link>
         </p>
       </main>
@@ -180,7 +191,7 @@ export default function PaperMarking({
       </p>
 
       <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">
-        By topic, weakest first
+        {groupLabel}, weakest first
       </p>
       <div className="flex flex-col gap-3 mb-8">
         {byTopic.map(t => (
@@ -203,12 +214,14 @@ export default function PaperMarking({
 
       <div className="card mb-4">
         <p className="text-sm text-gray-700 mb-3">
-          {wrong.size === 0
-            ? 'A clean sweep. Keep the streak going with a short set on the same topics.'
-            : `Practice the ${weakTopics.length === 1 ? 'topic' : 'topics'} that cost the most marks.`}
+          {practiceLink
+            ? practiceLink.text
+            : wrong.size === 0
+              ? 'A clean sweep. Keep the streak going with a short set on the same topics.'
+              : `Practice the ${weakTopics.length === 1 ? 'topic' : 'topics'} that cost the most marks.`}
         </p>
-        <Link href={practiceHref} className="btn-primary w-full block text-center">
-          Practice these topics
+        <Link href={(practiceLink?.href ?? practiceHref) as Route} className="btn-primary w-full block text-center">
+          {practiceLink?.label ?? 'Practice these topics'}
         </Link>
       </div>
 
@@ -238,7 +251,7 @@ export default function PaperMarking({
           Change marks
         </button>
         <Link href={backHref as Route} className="btn-secondary flex-1 text-center">
-          Back to the paper
+          {backLabel}
         </Link>
       </div>
     </main>
