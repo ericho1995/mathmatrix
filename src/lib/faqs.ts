@@ -18,7 +18,7 @@ import { CATALOGUE_TOTALS, PLAN_TOTALS } from '@/lib/catalogue'
  * been configured to offer.
  */
 
-export type FaqCategory = 'papers' | 'purchasing' | 'accounts' | 'parents'
+export type FaqCategory = 'diagnostic' | 'papers' | 'purchasing' | 'accounts' | 'parents'
 
 export interface Faq {
   q: string
@@ -29,6 +29,7 @@ export interface Faq {
 }
 
 export const FAQ_CATEGORY_LABEL: Record<FaqCategory, string> = {
+  diagnostic: 'The diagnostic test',
   papers: 'The exam papers',
   purchasing: 'Purchasing',
   accounts: 'Accounts',
@@ -36,6 +37,40 @@ export const FAQ_CATEGORY_LABEL: Record<FaqCategory, string> = {
 }
 
 export const FAQS: Faq[] = [
+  // ── Diagnostic ────────────────────────────────────────────────────────────
+  {
+    category: 'diagnostic',
+    home: true,
+    q: 'What is the diagnostic test?',
+    a: 'A short test your child sits on screen, in one subject at their year level, that finds what they are confident with and where they need help. You get a report of each area — with the specific skills, every answer explained and three ways to help at home — and a practice exam built around what it found.',
+  },
+  {
+    category: 'diagnostic',
+    q: 'How long does it take?',
+    a: 'Most tests take 20 to 35 minutes. There is a first part of 20 to 28 questions, then a few follow-up questions chosen from the answers to the first part. Progress is saved as they go, so a break or a refresh loses nothing.',
+  },
+  {
+    category: 'diagnostic',
+    home: true,
+    q: 'How accurate is it?',
+    a: 'As accurate as the answers allow, and honest about the rest. A wrong answer to one question can be a slip, so a skill missed once is asked again, and areas where the result could go either way get extra questions. Guesses your child marks, and answers given in a couple of seconds, are not counted as evidence. Every area in the report says how firm its result is, and anything not yet firm is called an early sign rather than a weakness.',
+  },
+  {
+    category: 'diagnostic',
+    q: 'Is it free?',
+    a: 'Yes. The test and the full report are free; a free account is needed to see the full report and save it. The practice exam built from the result is included in the Grade 3 to Year 10 plan, and for Year 11 and 12 it is purchased like a VCE paper. Without either, you can download a preview of it.',
+  },
+  {
+    category: 'diagnostic',
+    q: 'Can my child sit it again?',
+    a: 'Yes, and it is worth doing every few weeks. With an account, a re-test never repeats a question, and the report combines it with the earlier sittings — the newest counting most — so each area shows whether it has gone up, gone down or held steady.',
+  },
+  {
+    category: 'diagnostic',
+    q: 'What do you store?',
+    a: 'Until you create an account, the result stays in this browser only. Once saved, your account keeps the answers, how long each question took, whether it was marked as a guess, and the first name you gave, if any. You can delete a result at any time.',
+  },
+
   // ── Papers ────────────────────────────────────────────────────────────────
   {
     category: 'papers',

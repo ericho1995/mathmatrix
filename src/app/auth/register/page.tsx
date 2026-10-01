@@ -38,7 +38,11 @@ export default function RegisterPage() {
   // here and again in the auth callback.
   const [next, setNext] = useState('/')
   useEffect(() => {
-    setNext(safeNext(new URLSearchParams(window.location.search).get('next')))
+    const params = new URLSearchParams(window.location.search)
+    setNext(safeNext(params.get('next')))
+    // ?role=parent preselects the account type, e.g. from a diagnostic result.
+    const preset = ACCOUNT_TYPES.find(t => t.role === params.get('role'))
+    if (preset) setRole(preset.role)
   }, [])
 
   async function handleRegister(e: React.FormEvent) {

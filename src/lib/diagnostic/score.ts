@@ -268,6 +268,8 @@ export interface Headline {
   pct: number
   areas: HeadlineArea[]
   summary: string
+  /** Cautions about the sitting itself (rushed, tailed off…); usually empty. */
+  notes: string[]
 }
 
 export function headlineOf(report: DiagnosticReport, name: string | null): Headline {
@@ -280,5 +282,6 @@ export function headlineOf(report: DiagnosticReport, name: string | null): Headl
     pct: report.pct,
     areas: report.areas.map(({ skills: _skills, ...rest }) => rest),
     summary: summarySentence(report, name),
+    notes: qualityNotes(report.quality, name),
   }
 }
