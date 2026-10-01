@@ -16,29 +16,9 @@ import { FormulaSheetPages } from './FormulaSheet'
 import { FORMULA_SHEETS } from './formulaSheets'
 import { hasMath } from '@/lib/text/mathPlain'
 import { questionMarks } from '@/types'
+import { answerUnit } from '@/lib/questions/answerUnit'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
-
-/**
- * Render-time-only, best-effort extraction of a unit/currency symbol to print
- * alongside a short_answer question's blank line (e.g. `$______` or
- * `______ m`), matching real NAPLAN's unit-aware blanks. Never invents a unit
- * that isn't actually present in `expectedAnswer` — an unrecognized shape
- * falls back to a plain blank (the pre-existing behavior). Purely a display
- * helper: `expected_answer` itself and grading (`matchShortAnswer`) are
- * untouched.
- */
-function extractAnswerUnit(expectedAnswer: string): { prefix?: string; suffix?: string } {
-  const trimmed = expectedAnswer.trim()
-  const currencyMatch = trimmed.match(/^([$€£])\s?[\d,.]/)
-  if (currencyMatch) return { prefix: currencyMatch[1] }
-  // A number followed by a unit: words ("beads", "degrees"), metric units with
-  // powers ("cm²", "m³"), compound units ("km/h", "L/100 km"), or a bare symbol
-  // ("°", "%"). Real papers print these on the answer line.
-  const unitMatch = trimmed.match(/^[−-]?[\d,.]+\s*((?:[a-zA-Z]{1,15}(?:[²³]|\/[a-zA-Z0-9 ]{1,8})?)|°C?|%)$/)
-  if (unitMatch) return { suffix: unitMatch[1] }
-  return {}
-}
 
 /** How many ruled lines of working a part earns. VCAA scales the writing space
  * to the marks, so a 1-mark "state the value" gets a line and a 4-mark
@@ -178,7 +158,7 @@ function QuestionBlock({ question, number }: { question: ResolvedQuestion; numbe
         </>
       ) : question.format === 'short_answer' ? (
         (() => {
-          const { prefix, suffix } = extractAnswerUnit(question.expected_answer)
+          const { prefix, suffix } = answerUnit(question.expected_answer)
           // Box width tracks how much the student actually needs to write —
           // a one-digit answer and "$793.50" shouldn't get the same box —
           // generously sized so it reads as a real writing space, not a slot.
