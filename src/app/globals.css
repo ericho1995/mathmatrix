@@ -34,6 +34,21 @@
            transition-colors duration-150;
   }
 
+  /* Buttons for coloured bands: white with blue text, and a white outline. */
+  .btn-white {
+    @apply bg-white text-brand-700 font-bold px-5 py-2.5 rounded-2xl
+           border-b-4 border-brand-200 hover:bg-brand-50
+           active:border-b-0 active:translate-y-[4px] active:mb-[4px]
+           transition-colors duration-150;
+  }
+
+  .btn-outline-white {
+    @apply bg-transparent text-white font-bold px-5 py-2 rounded-2xl
+           border-2 border-white/70 border-b-4 hover:bg-white/10
+           active:border-b-2 active:translate-y-[2px] active:mb-[2px]
+           transition-colors duration-150;
+  }
+
   /* Cards sit on the page with the same lip as the buttons. */
   .card {
     @apply bg-white border-2 border-line border-b-4 rounded-2xl p-5;

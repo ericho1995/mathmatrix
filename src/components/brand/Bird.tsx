@@ -3,12 +3,13 @@
 //
 // One set of shapes, four poses, so the bird is always recognisably the same
 // bird: `nest` for the logo and the homepage, `cheer` for results, `think` for
-// the test, `read` for help and empty states. Hand-built vector art (see
+// the test, `read` for help and empty states, `search` for finding weak spots,
+// `trophy` for progress. Hand-built vector art (see
 // docs/superpowers/specs/2026-10-02-premium-ui-design.md); no hooks, so it
 // renders on the server or in a client component alike.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export type BirdPose = 'nest' | 'cheer' | 'think' | 'read'
+export type BirdPose = 'nest' | 'cheer' | 'think' | 'read' | 'search' | 'trophy'
 
 const C = {
   body: '#2F8FEA',
@@ -131,6 +132,34 @@ function Pose({ pose }: { pose: BirdPose }) {
           <circle cx="158" cy="44" r="5" fill={C.belly} />
           <circle cx="170" cy="30" r="7" fill={C.belly} />
           <circle cx="184" cy="12" r="9" fill={C.belly} />
+        </>
+      )
+    case 'search':
+      return (
+        <>
+          <Feet y={8} />
+          <Body y={8} look={[-5, 2]} />
+          <ellipse cx="150" cy="140" rx="11" ry="16" transform="rotate(30 150 140)" fill={C.shade} />
+          <path d="M40 150 l-18 22" stroke="#8A5A2B" strokeWidth="9" strokeLinecap="round" />
+          <circle cx="52" cy="130" r="26" fill="#D7EFFF" opacity=".75" stroke={C.ink} strokeWidth="7" />
+          <path d="M40 120 q6 -8 16 -8" stroke="#fff" strokeWidth="5" strokeLinecap="round" fill="none" />
+          <ellipse cx="64" cy="150" rx="11" ry="15" transform="rotate(-20 64 150)" fill={C.shade} />
+        </>
+      )
+    case 'trophy':
+      return (
+        <>
+          <Feet y={8} />
+          <Body y={2} happy />
+          <path d="M76 132 h48 v10 q0 24 -24 26 q-24 -2 -24 -26z" fill={C.sun} stroke="#E0A400" strokeWidth="4" strokeLinejoin="round" />
+          <path d="M76 140 q-14 0 -14 10 q0 10 14 10 M124 140 q14 0 14 10 q0 10 -14 10" stroke="#E0A400" strokeWidth="4" fill="none" />
+          <rect x="92" y="166" width="16" height="10" fill="#E0A400" />
+          <rect x="82" y="174" width="36" height="10" rx="3" fill="#8A5A2B" />
+          <path d="M100 140 l3 6 6.5 1 -4.7 4.6 1.1 6.4 -5.9 -3.1 -5.9 3.1 1.1 -6.4 -4.7 -4.6 6.5 -1z" fill="#fff" />
+          <ellipse cx="62" cy="134" rx="11" ry="16" transform="rotate(-50 62 134)" fill={C.shade} />
+          <ellipse cx="138" cy="134" rx="11" ry="16" transform="rotate(50 138 134)" fill={C.shade} />
+          <Spark x={34} y={40} />
+          <Spark x={168} y={50} s={0.8} />
         </>
       )
     case 'read':

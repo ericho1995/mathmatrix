@@ -28,17 +28,26 @@ const config: Config = {
         // Strengths and "correct": a leafy green.
         teal: {
           50:  '#EAF8DD',
+          100: '#DDF8C8',
+          200: '#B9EE8F',
           400: '#58CC02',
+          // Large headings only (3:1 on the pale bands); body text uses 600.
+          500: '#378A00',
           600: '#2E7D00',
         },
         // Focus areas: a warm orange.
         amber: {
           50:  '#FFF2DE',
+          100: '#FFE5C2',
+          200: '#FFC98A',
           400: '#FF9600',
+          500: '#C76400',
           600: '#A35200',
         },
-        sun: { 50: '#FFF8E1', 400: '#FFC530', 600: '#8A6100' },
-        grape: { 50: '#F7EEFF', 400: '#CE82FF', 600: '#8549BA' },
+        sun: { 50: '#FFF8E1', 100: '#FFF1B8', 200: '#FFE07A', 400: '#FFC530', 600: '#8A6100' },
+        grape: { 50: '#F7EEFF', 100: '#F1DCFF', 200: '#E2B8FF', 400: '#CE82FF', 500: '#9B5BD4', 600: '#8549BA' },
+        // Duolingo-style section bands.
+        sky: '#DDF4FF',
         ink: '#3C3C3C',
         line: '#E5E5E5',
       },
@@ -48,6 +57,17 @@ const config: Config = {
       borderRadius: {
         xl: '1rem',
         '2xl': '1.25rem',
+        '3xl': '2rem',
+      },
+      // Stickers and the bird bob gently, as Duolingo's illustrations do.
+      keyframes: {
+        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+        wiggle: { '0%, 100%': { transform: 'rotate(-6deg)' }, '50%': { transform: 'rotate(6deg)' } },
+      },
+      animation: {
+        float: 'float 5s ease-in-out infinite',
+        'float-slow': 'float 7s ease-in-out infinite',
+        wiggle: 'wiggle 4s ease-in-out infinite',
       },
     },
     // Nunito is light at 400, so every weight steps up one notch: markup written

@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import type { Route } from 'next'
 import { HelpCircle, LineChart, PencilLine, SlidersHorizontal, Target } from 'lucide-react'
-import Bird from '@/components/brand/Bird'
+import Bird, { type BirdPose } from '@/components/brand/Bird'
+import { BlockSticker, BookSticker, CheckSticker, MedalSticker, PencilSticker, Sparkle, Star } from '@/components/brand/Decor'
 import SampleReport from '@/components/diagnostic/SampleReport'
 import ProgressPanel from '@/components/diagnostic/report/ProgressPanel'
 import LevelChip from '@/components/diagnostic/LevelChip'
@@ -12,57 +13,76 @@ import { VCE_PAPER_PRICE } from '@/lib/pricing'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // The parent's story, told the way Duolingo's homepage tells its own: four
-// steps at a glance, then one section per step with the product beside it.
+// bright step cards, then one band of colour per step, each with the bird
+// doing that step and the real product beside it.
 //
 //   Your child takes a test → We find the weak spots → We keep fine-tuning →
 //   You watch them improve
 //
-// Every picture here is the real product — the test screen, the report, the
-// progress panel — drawn with sample data, never a stock image.
+// Every picture is the real product — the test screen, the report, the
+// progress panel — drawn with sample data; the decorations are hand-built SVG.
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Full class strings, so Tailwind sees them.
 const STEPS = [
-  { icon: PencilLine, colour: 'text-brand-600 bg-brand-50', title: 'Your child takes a test', body: 'A short, free test on screen, at their year level.' },
-  { icon: Target, colour: 'text-amber-600 bg-amber-50', title: 'We find the weak spots', body: 'The exact skills to work on, area by area.' },
-  { icon: SlidersHorizontal, colour: 'text-grape-600 bg-grape-50', title: 'We keep fine-tuning', body: 'Follow-up questions and re-tests firm it up.' },
-  { icon: LineChart, colour: 'text-teal-600 bg-teal-50', title: 'You watch them improve', body: 'Practice made for them, and progress you can see.' },
+  { icon: PencilLine, card: 'bg-brand-50 border-brand-200', badge: 'bg-brand-500', title: 'Your child takes a test', body: 'A short, free test on screen, at their year level.' },
+  { icon: Target, card: 'bg-amber-50 border-amber-200', badge: 'bg-amber-400', title: 'We find the weak spots', body: 'The exact skills to work on, area by area.' },
+  { icon: SlidersHorizontal, card: 'bg-grape-50 border-grape-200', badge: 'bg-grape-400', title: 'We keep fine-tuning', body: 'Follow-up questions and re-tests firm it up.' },
+  { icon: LineChart, card: 'bg-teal-50 border-teal-200', badge: 'bg-teal-400', title: 'You watch them improve', body: 'Practice made for them, and progress you can see.' },
 ]
 
 export function StepCards() {
   return (
     <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {STEPS.map((s, i) => (
-        <li key={s.title} className="card text-center">
-          <span className={`inline-flex w-12 h-12 rounded-2xl items-center justify-center mb-3 ${s.colour}`}>
-            <s.icon className="w-6 h-6" aria-hidden />
+        <li key={s.title} className={`rounded-3xl border-2 border-b-[6px] p-6 text-center transition-transform hover:-translate-y-1 ${s.card}`}>
+          <span className={`inline-flex w-16 h-16 rounded-2xl items-center justify-center mb-4 text-white border-b-4 border-black/15 ${s.badge}`}>
+            <s.icon className="w-8 h-8" strokeWidth={2.5} aria-hidden />
           </span>
-          <p className="text-xs font-bold text-gray-400 mb-1">Step {i + 1}</p>
-          <p className="font-bold text-lg text-ink leading-snug mb-1">{s.title}</p>
-          <p className="text-sm text-gray-500 leading-relaxed">{s.body}</p>
+          <p className="text-sm font-bold text-gray-500 mb-1">Step {i + 1}</p>
+          <p className="font-bold text-xl text-ink leading-snug mb-2">{s.title}</p>
+          <p className="text-gray-600 leading-relaxed">{s.body}</p>
         </li>
       ))}
     </ol>
   )
 }
 
-/** One step: a short bold headline and a few lines, the product beside it, sides alternating. */
-function StorySection({ eyebrow, title, children, art, flip = false, tint = false }: {
-  eyebrow: string
+interface Band {
+  bg: string
+  heading: string
+  chip: string
+}
+
+const BANDS: Band[] = [
+  { bg: 'bg-sky', heading: 'text-brand-600', chip: 'bg-brand-500' },
+  { bg: 'bg-sun-50', heading: 'text-amber-500', chip: 'bg-amber-400' },
+  { bg: 'bg-grape-50', heading: 'text-grape-500', chip: 'bg-grape-400' },
+  { bg: 'bg-teal-50', heading: 'text-teal-500', chip: 'bg-teal-400' },
+]
+
+/** One step: a band of colour, the bird doing the step, the headline, and the product. */
+function StorySection({ step, title, children, art, bird, flip = false }: {
+  step: number
   title: string
   children: React.ReactNode
   art: React.ReactNode
+  bird: BirdPose
   flip?: boolean
-  tint?: boolean
 }) {
+  const band = BANDS[step - 1]
   return (
-    <section className={tint ? 'bg-brand-50/70' : undefined}>
-      <div className="max-w-5xl mx-auto px-4 py-16 sm:py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <section className={`relative overflow-hidden ${band.bg}`}>
+      <div className="max-w-6xl mx-auto px-4 py-16 sm:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div className={flip ? 'lg:order-2' : undefined}>
-          <p className="text-sm font-bold text-brand-600 mb-2">{eyebrow}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink mb-4 leading-tight">{title}</h2>
-          <div className="text-lg text-gray-600 leading-relaxed space-y-3">{children}</div>
+          <div className="flex items-center gap-3 mb-4">
+            <Bird pose={bird} className="w-28 h-28 shrink-0 -ml-3 animate-float-slow motion-reduce:animate-none" />
+            <span className={`inline-block rounded-full px-4 py-1.5 text-sm font-bold text-white ${band.chip}`}>Step {step}</span>
+          </div>
+          <h2 className={`text-4xl sm:text-5xl font-bold tracking-tight mb-5 leading-[1.08] ${band.heading}`}>{title}</h2>
+          <div className="text-lg text-gray-700 leading-relaxed space-y-3">{children}</div>
         </div>
-        <div className={flip ? 'lg:order-1' : undefined}>{art}</div>
+        <div className={`relative ${flip ? 'lg:order-1' : ''}`}>{art}</div>
       </div>
     </section>
   )
@@ -71,9 +91,10 @@ function StorySection({ eyebrow, title, children, art, flip = false, tint = fals
 /** What the child sees: one question, big answers, and "I'm not sure". */
 function TestScreen() {
   return (
-    <div className="relative">
-      <Bird pose="think" className="absolute -top-16 -right-2 w-28 h-28 hidden sm:block" />
-      <div className="card p-6">
+    <div className="relative px-2">
+      <PencilSticker className="absolute -top-10 -left-4 w-20 h-20 animate-wiggle motion-reduce:animate-none" />
+      <Star className="absolute -bottom-6 -right-2 w-14 h-14 animate-float motion-reduce:animate-none" />
+      <div className="card p-6 rotate-1">
         <div className="flex items-center gap-3 mb-5">
           <span className="text-sm font-bold text-gray-500 whitespace-nowrap">Question 5 of 24</span>
           <div className="flex-1 h-4 rounded-full bg-gray-100 overflow-hidden">
@@ -83,13 +104,13 @@ function TestScreen() {
           </div>
         </div>
         <p className="text-xl font-bold text-ink mb-4">What number makes this number sentence true?</p>
-        <p className="text-2xl font-bold text-ink mb-5">☐ + 8 = 15</p>
+        <p className="text-3xl font-bold text-ink mb-5">☐ + 8 = 15</p>
         <div className="grid grid-cols-2 gap-3 mb-4">
           {['6', '7', '8', '9'].map((o, i) => (
             <div
               key={o}
               className={`flex items-center gap-3 rounded-2xl border-2 border-b-4 px-4 py-3 text-lg font-bold ${
-                i === 1 ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line text-ink'
+                i === 1 ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line bg-white text-ink'
               }`}
             >
               <span className={`w-7 h-7 rounded-lg text-sm inline-flex items-center justify-center ${i === 1 ? 'bg-brand-500 text-white' : 'border-2 border-line text-gray-400'}`}>
@@ -119,9 +140,11 @@ function FineTuning() {
     { what: 'Statistics', why: 'Seven of seven — no more questions needed', chip: <LevelChip level="strength" confidence="clear" /> },
   ]
   return (
-    <div className="relative">
-      <div className="card p-6">
-        <p className="font-bold text-ink text-lg mb-1">A few more questions</p>
+    <div className="relative px-2">
+      <BlockSticker className="absolute -top-8 -right-2 w-16 h-16 rotate-12 animate-float motion-reduce:animate-none" letter="?" fill="#CE82FF" />
+      <Sparkle className="absolute -bottom-4 -left-2 w-10 h-10" fill="#CE82FF" />
+      <div className="card p-6 -rotate-1">
+        <p className="font-bold text-ink text-xl mb-1">A few more questions</p>
         <p className="text-sm text-gray-500 mb-4">Chosen from the first part&apos;s answers, before anything is reported.</p>
         <ul className="space-y-3">
           {rows.map(r => (
@@ -157,11 +180,7 @@ const PROGRESS = sampleProgress()
 export default function ParentStory() {
   return (
     <>
-      <StorySection
-        eyebrow="Step 1 · Your child takes a test"
-        title="A short test that feels like a game, not an exam."
-        art={<TestScreen />}
-      >
+      <StorySection step={1} bird="think" title="A short test that feels like a game." art={<TestScreen />}>
         <p>
           Your child answers one question at a time on screen, at their year level, or in one VCE subject. Diagrams and
           maths look exactly as they do on a real paper.
@@ -173,11 +192,17 @@ export default function ParentStory() {
       </StorySection>
 
       <StorySection
-        eyebrow="Step 2 · We find the weak spots"
+        step={2}
+        bird="search"
         title="See exactly what they know, and what they don't yet."
-        art={<SampleReport />}
+        art={
+          <div className="relative px-2">
+            <CheckSticker className="absolute -top-6 -right-1 w-14 h-14 z-10 animate-float motion-reduce:animate-none" />
+            <BookSticker className="absolute -bottom-8 -left-4 w-20 h-16 z-10 -rotate-12" />
+            <SampleReport />
+          </div>
+        }
         flip
-        tint
       >
         <p>
           You get a clear report, weakest area first: the specific skills to work on, the ones that are already secure,
@@ -186,11 +211,7 @@ export default function ParentStory() {
         <p>Each area comes with three practical ways to help at home, written for parents, not teachers.</p>
       </StorySection>
 
-      <StorySection
-        eyebrow="Step 3 · We keep fine-tuning"
-        title="Built not to over-read a short test."
-        art={<FineTuning />}
-      >
+      <StorySection step={3} bird="think" title="Built not to over-read a short test." art={<FineTuning />}>
         <p>
           One wrong answer is never called a weakness. Where a result could go either way, the test asks a few more
           questions, and every area says how firm its result is.
@@ -199,11 +220,18 @@ export default function ParentStory() {
       </StorySection>
 
       <StorySection
-        eyebrow="Step 4 · You watch them improve"
+        step={4}
+        bird="trophy"
         title="Practice made for them, and progress you can see."
-        art={PROGRESS ? <ProgressPanel profile={PROGRESS} name="Mia" /> : null}
+        art={
+          PROGRESS ? (
+            <div className="relative px-2">
+              <MedalSticker className="absolute -top-10 -right-2 w-16 h-20 z-10 rotate-12 animate-float motion-reduce:animate-none" />
+              <ProgressPanel profile={PROGRESS} name="Mia" />
+            </div>
+          ) : null
+        }
         flip
-        tint
       >
         <p>
           The test builds a printable practice exam around your child&apos;s weak spots, with an answer key. It&apos;s
@@ -214,7 +242,7 @@ export default function ParentStory() {
           holding steady.
         </p>
         <p>
-          <Link href={'/diagnostic' as Route} className="btn-primary inline-block mt-2">
+          <Link href={'/diagnostic' as Route} className="btn-primary inline-block mt-2 text-lg px-8 py-3">
             Start the free test
           </Link>
         </p>
