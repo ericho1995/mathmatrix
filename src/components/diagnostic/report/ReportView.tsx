@@ -7,6 +7,8 @@ import AreaCard from './AreaCard'
 import WeakPapersCard, { type WeakPapersProps } from '@/components/papers/WeakPapersCard'
 import QuestionReview from './QuestionReview'
 import ProgressPanel from './ProgressPanel'
+import CohortCard from './CohortCard'
+import type { Cohort } from '@/lib/diagnostic/cohort'
 import ReportActions from './ReportActions'
 import { headlineOf } from '@/lib/diagnostic/score'
 import { SELECTIVE_SUBJECTS, SUBJECTS } from '@/lib/curriculum'
@@ -27,6 +29,8 @@ export interface ReportViewProps {
   marked: { areas: MarkedArea[]; at: string } | null
   canDelete: boolean
   purchased?: boolean
+  /** Other students who sat the same test; null when it could not be read (the card is left out). */
+  cohort?: Cohort | null
 }
 
 /**
@@ -59,6 +63,8 @@ export default function ReportView(p: ReportViewProps) {
       )}
 
       <HeadlineResults headline={headline} />
+
+      {p.cohort && <CohortCard cohort={p.cohort} pct={report.pct} name={name} year={report.year} subject={report.subject} />}
 
       <WeakPapersCard {...p.papers} />
 
@@ -122,8 +128,9 @@ export default function ReportView(p: ReportViewProps) {
       </section>
 
       <p className="text-xs text-gray-400 leading-relaxed">
-        This report comes from a short test and is a snapshot, not a formal assessment or a comparison with other children. Each
-        area says how firm its result is; an early sign needs another look before anything is read into it.
+        This report comes from a short test and is a snapshot, not a formal assessment. It is compared with other students only once
+        enough have sat the same test. Each area says how firm its result is; an early sign needs another look before anything is read
+        into it.
       </p>
     </main>
   )
