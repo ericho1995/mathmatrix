@@ -234,8 +234,9 @@ export default function ParentStory() {
         flip
       >
         <p>
-          The test builds a printable practice exam around your child&apos;s weak spots, with an answer key. It&apos;s
-          included in the plan for Grade 3 to Year 10, and {VCE_PAPER_PRICE} for VCE.
+          Then you generate practice papers on your child&apos;s weak spots — on screen, with a pad for working out, or
+          printed with an answer key. Three a month are included in the plan for Grade 3 to Year 10, and each is
+          {VCE_PAPER_PRICE} for VCE.
         </p>
         <p>
           Re-test every few weeks. It never repeats a question, and your dashboard shows each area improving, slipping or

@@ -2,10 +2,10 @@ import { firstQuestionNumbers, hydrateExam } from '@/lib/pdf/resolveExam'
 import type { PaperSection } from '@/lib/exams/paperQuestions'
 import type { TopicSlug } from '@/types'
 import type { BankQuestion } from './types'
-import type { LoadedResult } from './load'
 import type { Mark } from './save'
 import { classify } from './areas'
 import { tailoredAsPractice } from './paper'
+import type { TailoredExam } from './tailor'
 import { BY_ID } from './server'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -22,8 +22,8 @@ interface Numbered {
   questions: { id: string; n: number; area: string; label: string }[]
 }
 
-function numbered(result: LoadedResult): Numbered[] {
-  const resolved = hydrateExam(tailoredAsPractice(result.exam))
+function numbered(exam: TailoredExam): Numbered[] {
+  const resolved = hydrateExam(tailoredAsPractice(exam))
   const starts = firstQuestionNumbers(resolved.sections)
   return resolved.sections.map((s, i) => ({
     title: s.section.title,
@@ -35,8 +35,8 @@ function numbered(result: LoadedResult): Numbered[] {
 }
 
 /** The grid for the marking screen: numbers and area labels, no ids. */
-export function markingSections(result: LoadedResult): PaperSection[] {
-  return numbered(result).map(s => ({
+export function markingSections(exam: TailoredExam): PaperSection[] {
+  return numbered(exam).map(s => ({
     title: s.title,
     // PaperMarking groups by `topic`; for a diagnostic the group is the report area.
     questions: s.questions.map(q => ({ n: q.n, topic: q.area as TopicSlug, label: q.label })),
@@ -44,8 +44,8 @@ export function markingSections(result: LoadedResult): PaperSection[] {
 }
 
 /** Wrong positions ({ s: section index, n: printed number }) as marks on every question. */
-export function marksFromWrong(result: LoadedResult, wrong: readonly { s: number; n: number }[]): Mark[] | null {
-  const sections = numbered(result)
+export function marksFromWrong(exam: TailoredExam, wrong: readonly { s: number; n: number }[]): Mark[] | null {
+  const sections = numbered(exam)
   const wrongKeys = new Set(wrong.map(w => `${w.s}:${w.n}`))
   for (const w of wrong) {
     if (!sections[w.s]?.questions.some(q => q.n === w.n)) return null

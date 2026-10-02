@@ -14,6 +14,7 @@ import { FROM_PER_MONTH } from '@/lib/pricing'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { PLAN_TOTALS, releasesIn } from '@/lib/catalogue'
 import { ROADMAP, formatReleaseDate } from '@/lib/releases'
+import { openBankAlertCount } from '@/lib/diagnostic/papers'
 import type { UserRole, YearLevel } from '@/types'
 
 export const metadata: Metadata = {
@@ -57,6 +58,7 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
         : null
 
   const role = (profile?.role as UserRole | undefined) ?? 'student'
+  const bankAlerts = role === 'admin' ? await openBankAlertCount() : 0
 
   let studentYear: YearLevel | null = null
   if (role === 'student') {
@@ -106,7 +108,12 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
             We couldn&apos;t load your plan just now. Nothing has been lost — please refresh in a moment.
           </p>
         ) : role === 'admin' ? (
-          <p className="text-sm text-gray-600">Admin accounts can open every paper without a plan.</p>
+          <>
+            <p className="text-sm text-gray-600 mb-3">Admin accounts can open every paper without a plan.</p>
+            <Link href={'/admin/question-bank' as Route} className="btn-secondary text-sm">
+              Question bank alerts{bankAlerts ? ` (${bankAlerts} open)` : ''}
+            </Link>
+          </>
         ) : plan ? (
           <>
             <p className="text-sm font-medium">

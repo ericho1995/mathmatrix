@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, BookOpen, HelpCircle, ListChecks } from 'lucide-
 import ReadingTextView from '@/components/reading/ReadingTextView'
 import Bird from '@/components/brand/Bird'
 import QuestionView from './QuestionView'
+import WorkingPad, { PAD_BAR, PAD_ROOM, WorkingPadButton, type WorkingPages } from '@/components/working/WorkingPad'
 import { SELECTIVE_SUBJECTS, SUBJECTS } from '@/lib/curriculum'
 import { yearLabel } from '@/lib/yearLevels'
 import {
@@ -44,6 +45,8 @@ export default function DiagnosticRunner() {
   const [error, setError] = useState<string | null>(null)
   const [view, setView] = useState<'text' | 'questions'>('text')
   const shownAt = useRef<number | null>(null)
+  const [padOpen, setPadOpen] = useState(false)
+  const pages = useRef<WorkingPages>(new Map())
 
   useEffect(() => {
     const t = loadTest()
@@ -348,7 +351,7 @@ export default function DiagnosticRunner() {
         />
         I guessed this one
       </label>
-      <div className="sticky bottom-0 z-10 -mx-4 px-4 py-3 bg-white border-t-2 border-line flex items-center gap-2 mt-8 sm:static sm:mx-0 sm:px-0 sm:py-0 sm:border-0 sm:gap-3 sm:flex-wrap">
+      <div className={`sticky bottom-0 ${padOpen ? PAD_BAR : ''} z-10 -mx-4 px-4 py-3 bg-white border-t-2 border-line flex items-center gap-2 mt-8 sm:static sm:mx-0 sm:px-0 sm:py-0 sm:border-0 sm:gap-3 sm:flex-wrap`}>
         <button
           type="button"
           className="btn-secondary inline-flex items-center gap-2 px-4 sm:px-5 disabled:opacity-40 disabled:cursor-not-allowed"
@@ -372,7 +375,7 @@ export default function DiagnosticRunner() {
   )
 
   return (
-    <main className="flex-1 w-full">
+    <main className={`flex-1 w-full ${padOpen ? PAD_ROOM : ''}`}>
       <div className="sticky top-0 z-10 bg-white/95 backdrop-blur border-b-2 border-line">
         <div className={`${text ? 'max-w-6xl' : 'max-w-3xl'} mx-auto px-4 py-3 flex items-center gap-4`}>
           <p className="text-sm font-bold text-gray-600 whitespace-nowrap">
@@ -383,6 +386,7 @@ export default function DiagnosticRunner() {
               <span className="absolute left-2 right-2 top-1 h-1 rounded-full bg-white/40" aria-hidden />
             </div>
           </div>
+          <WorkingPadButton open={padOpen} onToggle={() => setPadOpen(o => !o)} />
           <button type="button" className="text-sm font-bold text-gray-500 hover:text-brand-600 inline-flex items-center gap-1" onClick={() => goTo(total)}>
             <ListChecks className="w-4 h-4" aria-hidden />
             <span className="hidden sm:inline">Review</span>
@@ -411,6 +415,7 @@ export default function DiagnosticRunner() {
       ) : (
         <div className="max-w-3xl mx-auto px-4 py-8">{body}</div>
       )}
+      <WorkingPad open={padOpen} onClose={() => setPadOpen(false)} pageKey={q.id} pages={pages.current} label={`Question ${test.index + 1}`} />
     </main>
   )
 }

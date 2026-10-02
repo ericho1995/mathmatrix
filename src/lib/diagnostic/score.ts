@@ -222,7 +222,7 @@ export function summarySentence(report: { correct: number; total: number; areas:
   const maybe = labels('focus', false)
 
   if (!focus.length && !maybe.length && !developing.length) {
-    parts.push('Every area was a strength, so the tailored exam will stretch them with harder questions.')
+    parts.push('Every area was a strength, so practice papers work on the two lowest areas.')
     return parts.join(' ')
   }
   if (strengths.length) {

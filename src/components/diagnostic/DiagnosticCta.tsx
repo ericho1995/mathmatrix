@@ -8,7 +8,7 @@ import { ArrowRight, ClipboardList } from 'lucide-react'
  */
 export default function DiagnosticCta({
   title = 'Not sure where to start?',
-  body = 'The free diagnostic test finds what your child is confident with and the exact skills to work on, then builds a practice exam around the result.',
+  body = 'The free diagnostic test finds what your child is confident with and the exact skills to work on, then builds practice papers on the areas to work on.',
   year,
 }: {
   title?: string

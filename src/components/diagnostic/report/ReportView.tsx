@@ -4,7 +4,7 @@ import { CalendarClock, CheckSquare, FileText, RefreshCw } from 'lucide-react'
 import HeadlineResults from '../HeadlineResults'
 import Bird from '@/components/brand/Bird'
 import AreaCard from './AreaCard'
-import TailoredExamCard from './TailoredExamCard'
+import WeakPapersCard, { type WeakPapersProps } from '@/components/papers/WeakPapersCard'
 import QuestionReview from './QuestionReview'
 import ProgressPanel from './ProgressPanel'
 import ReportActions from './ReportActions'
@@ -12,8 +12,6 @@ import { headlineOf } from '@/lib/diagnostic/score'
 import { SELECTIVE_SUBJECTS, SUBJECTS } from '@/lib/curriculum'
 import { yearLabel } from '@/lib/yearLevels'
 import type { DiagnosticReport } from '@/lib/diagnostic/types'
-import type { TailoredExam } from '@/lib/diagnostic/tailor'
-import type { TailoredAccess } from '@/lib/diagnostic/access'
 import type { Profile } from '@/lib/diagnostic/profile'
 import type { MarkedArea } from '@/lib/diagnostic/marking'
 
@@ -22,10 +20,9 @@ const SUBJECT = new Map([...SUBJECTS, ...SELECTIVE_SUBJECTS].map(s => [s.slug, s
 export interface ReportViewProps {
   resultId: string
   report: DiagnosticReport
-  exam: TailoredExam
   childName: string | null
   createdAt: string
-  access: TailoredAccess
+  papers: WeakPapersProps
   profile: Profile | null
   marked: { areas: MarkedArea[]; at: string } | null
   canDelete: boolean
@@ -57,13 +54,13 @@ export default function ReportView(p: ReportViewProps) {
 
       {p.purchased && (
         <p className="rounded-xl bg-teal-50 border border-teal-400/30 px-4 py-3 text-sm text-teal-600" role="status">
-          Thank you — your purchase is being confirmed. If the full exam still shows as a preview, refresh in a minute.
+          Thank you — your purchase is being confirmed. If the paper still shows as a preview, refresh in a minute.
         </p>
       )}
 
       <HeadlineResults headline={headline} />
 
-      <TailoredExamCard resultId={p.resultId} exam={p.exam} access={p.access} name={name} />
+      <WeakPapersCard {...p.papers} />
 
       {p.profile && p.profile.sittings > 1 && <ProgressPanel profile={p.profile} name={name} />}
 
@@ -104,12 +101,13 @@ export default function ReportView(p: ReportViewProps) {
           <h2 className="text-xl font-bold tracking-tight">What to do next</h2>
         </div>
         <ol className="space-y-4">
-          <Next icon={FileText} title="Sit the practice exam">
-            Print it and have {name ?? 'your child'} sit it in one go, timed if you like. Most of it is on the areas to work on.
+          <Next icon={FileText} title="Generate a practice paper">
+            Every question is on the areas to work on. {name ?? 'Your child'} can sit it on screen, with a working-out pad beside each
+            question, or on paper — print it and sit it in one go, timed if you like.
           </Next>
           <Next icon={CheckSquare} title="Mark it together">
-            Use the answer key and go through every wrong answer — the explanations show the working. You can enter the marks on
-            screen to see how each area went.
+            On screen it marks itself as soon as it is handed in; for a printed paper, use the answer key and enter the marks. Either
+            way, go through every wrong answer — the explanations show the working.
           </Next>
           <Next icon={CalendarClock} title="Practice the gaps a little at a time">
             Ten to fifteen minutes a few times a week does more than a long session once. The tips on each area are a good start.

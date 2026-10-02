@@ -130,7 +130,7 @@ export default function DiagnosticResults() {
               'The specific skills to work on in each area, and which are already secure',
               `Three practical ways to help ${who} at home, area by area`,
               'Every question with the answer given, the right answer and an explanation',
-              `A practice exam built around ${result.headline.name ? `${result.headline.name}’s` : 'the'} result, with an answer key`,
+              `Practice papers on ${result.headline.name ? `${result.headline.name}’s` : 'the'} weak areas, to sit on screen or print with an answer key`,
               'Progress over time when they sit it again',
             ].map(t => (
               <li key={t} className="flex gap-2">

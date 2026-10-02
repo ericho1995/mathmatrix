@@ -30,7 +30,7 @@ export default async function MarkTailoredPage({ params }: { params: { id: strin
 
   return (
     <PaperMarking
-      sections={markingSections(result)}
+      sections={markingSections(result.exam)}
       examId={result.exam.id}
       subject={result.subject}
       yearLevel={result.year}

@@ -7,6 +7,7 @@ import { AnswerKeyDocument } from '@/lib/pdf/AnswerKeyDocument'
 import { previewOf } from '@/lib/pdf/preview'
 import { sampleResult } from '@/lib/diagnostic/sample'
 import { composeTailoredExam } from '@/lib/diagnostic/tailor'
+import { devPaper } from '@/lib/diagnostic/devPaper'
 import { tailoredAsPractice, tailoredCoverNote } from '@/lib/diagnostic/paper'
 import { headlineOf } from '@/lib/diagnostic/score'
 import { YEAR_STAGES } from '@/lib/yearLevels'
@@ -21,6 +22,7 @@ export const dynamic = 'force-dynamic'
  *
  *   /api/dev/diagnostic?year=grade_5&subject=math&doc=report
  *   /api/dev/diagnostic?year=year_12&subject=specialist_maths&doc=paper|answers|preview&seed=3
+ *   …&seq=2  weak-areas paper 2 instead of the original tailored exam
  *
  * Refuses to run in a production build or off localhost: it prints paid content.
  */
@@ -40,7 +42,9 @@ export async function GET(req: NextRequest) {
   if (!sample) return NextResponse.json({ error: 'That test is not offered' }, { status: 404 })
   const resultId = `sample-${year}-${subject}-${seed}`
   const name = 'Mia'
-  const exam = composeTailoredExam(QUESTION_BANK, { resultId, report: sample.report, childName: name })
+  const exam = params.get('seq')
+    ? devPaper(Object.fromEntries(params))!
+    : composeTailoredExam(QUESTION_BANK, { resultId, report: sample.report, childName: name })
 
   if (doc === 'report') {
     return NextResponse.json({ headline: headlineOf(sample.report, name), report: sample.report, exam })

@@ -1,9 +1,13 @@
 import { notFound } from 'next/navigation'
 import ReportView from '@/components/diagnostic/report/ReportView'
+import type { PaperSummary } from '@/components/papers/WeakPapersCard'
 import { QUESTION_BANK } from '@/lib/questions/bank'
 import { sampleResult } from '@/lib/diagnostic/sample'
-import { composeTailoredExam } from '@/lib/diagnostic/tailor'
+import { composeTailoredExam, weakAreas } from '@/lib/diagnostic/tailor'
 import { buildProfile } from '@/lib/diagnostic/profile'
+import { paperRights } from '@/lib/diagnostic/access'
+import { CATALOGUE_IDS } from '@/lib/diagnostic/server'
+import { monthWindow, PAPERS_PER_MONTH } from '@/lib/diagnostic/weakPapers'
 import type { SubjectSlug, YearLevel } from '@/types'
 
 export const dynamic = 'force-dynamic'
@@ -11,7 +15,8 @@ export const dynamic = 'force-dynamic'
 /**
  * Development only: the full report for a sample result, with no account, so
  * the page can be checked without signing in to the live project.
- *   /dev/diagnostic-report?year=grade_5&subject=math&seed=2&access=full|plan|vce&retest=1
+ *   /dev/diagnostic-report?year=grade_5&subject=math&seed=2&access=plan|locked|vce|admin&papers=2&used=1&retest=1
+ * `papers` sample papers are listed (the first one marked); `used` is this month's count.
  */
 export default function DevReportPage({ searchParams }: { searchParams: Record<string, string | undefined> }) {
   if (process.env.NODE_ENV === 'production') notFound()
@@ -24,16 +29,53 @@ export default function DevReportPage({ searchParams }: { searchParams: Record<s
   const earlier = searchParams.retest ? sampleResult(QUESTION_BANK, year, subject, seed + 7) : null
   const toSitting = (id: string, at: string, r: typeof sample.report) => ({ id, at, areas: r.areas.map(a => ({ id: a.id, label: a.label, secure: a.secure, evidence: a.evidence })) })
   const profile = earlier ? buildProfile([toSitting('a', '2026-08-20', earlier.report), toSitting('b', '2026-10-01', sample.report)]) : null
-  const access = searchParams.access === 'full' ? ({ mode: 'full', reason: 'plan' } as const) : ({ mode: 'preview', purchase: searchParams.access === 'vce' ? 'vce' : 'plan' } as const)
+
+  const mode = searchParams.access ?? 'plan'
+  const rights = paperRights(year, {
+    admin: mode === 'admin',
+    plan: mode === 'plan' ? { plan: undefined, status: 'active', periodEnd: '2099-01-01', cancelAtPeriodEnd: false } : null,
+    legacyYears: new Set(),
+  })
+  const used = new Set<string>()
+  const papers: PaperSummary[] = []
+  for (let seq = 1; seq <= (Number(searchParams.papers ?? 0) || 0); seq++) {
+    const exam = composeTailoredExam(QUESTION_BANK, { resultId, report: sample.report, childName: 'Mia' }, { weakOnly: true, seq, used, allowed: CATALOGUE_IDS, id: `dev-${seq}` })
+    for (const s of exam.sections) for (const id of s.question_ids) used.add(id)
+    const questions = exam.sections.reduce((n, s) => n + s.question_ids.length, 0)
+    papers.push({
+      id: `00000000-0000-4000-8000-00000000000${seq}`,
+      seq,
+      createdAt: `2026-10-0${seq}T09:30:00+10:00`,
+      questions,
+      focus: exam.focus,
+      // A VCE paper waits to be purchased; the others are open.
+      open: rights.kind !== 'per_paper' || seq === 1,
+      marked: seq === 1 ? { got: Math.round(questions * 0.6), of: questions, at: '2026-10-02T10:00:00+10:00' } : null,
+    })
+  }
+  const weak = weakAreas(sample.report)
 
   return (
     <ReportView
       resultId={resultId}
       report={sample.report}
-      exam={composeTailoredExam(QUESTION_BANK, { resultId, report: sample.report, childName: 'Mia' })}
       childName="Mia"
       createdAt="2026-10-01T09:30:00+10:00"
-      access={access}
+      papers={{
+        resultId,
+        name: 'Mia',
+        weak: weak.areas.map(a => ({ label: a.label, level: a.level })),
+        fallback: weak.fallback,
+        rights,
+        allowance:
+          rights.kind === 'allowance' && rights.limit !== null
+            ? { used: Number(searchParams.used ?? papers.length) || 0, limit: PAPERS_PER_MONTH, resets: monthWindow().resets.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', timeZone: 'Australia/Melbourne' }) }
+            : null,
+        papers,
+        ready: true,
+        sellable: true,
+        fresh: searchParams.fresh,
+      }}
       profile={profile}
       marked={null}
       canDelete

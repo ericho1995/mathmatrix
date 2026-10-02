@@ -4,8 +4,8 @@ import DataLoadError from '@/components/DataLoadError'
 import ReportView from '@/components/diagnostic/report/ReportView'
 import { getAccess } from '@/lib/auth/access'
 import { loadProfile, loadResult } from '@/lib/diagnostic/load'
-import { tailoredAccess } from '@/lib/diagnostic/access'
 import { markedAreas } from '@/lib/diagnostic/marking'
+import { papersPanel } from '@/lib/diagnostic/papersPanel'
 
 export const metadata: Metadata = {
   title: 'Diagnostic report — PrepNest',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic'
 
 /** A saved diagnostic result, for its owner or a linked parent. */
-export default async function ReportPage({ params, searchParams }: { params: { id: string }; searchParams: { purchased?: string } }) {
+export default async function ReportPage({ params, searchParams }: { params: { id: string }; searchParams: { purchased?: string; paper?: string } }) {
   const loaded = await loadResult(params.id)
   if (!loaded.ok) {
     if (loaded.status === 401) redirect(`/auth/login?next=${encodeURIComponent(`/diagnostic/report/${params.id}`)}` as Route)
@@ -23,15 +23,15 @@ export default async function ReportPage({ params, searchParams }: { params: { i
   }
   const { result, viewerId } = loaded
   const [access, profile] = await Promise.all([getAccess(), loadProfile(result)])
+  const papers = await papersPanel(result, access, viewerId, searchParams.paper)
 
   return (
     <ReportView
       resultId={result.id}
       report={result.report}
-      exam={result.exam}
       childName={result.childName}
       createdAt={result.createdAt}
-      access={tailoredAccess({ id: result.id, year: result.year }, access)}
+      papers={papers}
       profile={profile?.profile ?? null}
       marked={result.marks && result.markedAt ? { areas: markedAreas(result.marks), at: result.markedAt } : null}
       canDelete={result.userId === viewerId}

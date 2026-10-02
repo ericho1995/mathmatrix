@@ -547,7 +547,7 @@ const GENERIC: Guidance = {
   covers: 'The questions in this part of the test.',
   tips: [
     'Ask them to explain how they answered one of these questions; where the explanation stops is the gap.',
-    'Work through the tailored exam’s questions on this area a few at a time, marking as you go.',
+    'Work through a practice paper’s questions on this area a few at a time, marking as you go.',
     'Re-test in a few weeks to see how it has moved.',
   ],
 }

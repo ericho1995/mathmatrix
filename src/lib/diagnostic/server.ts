@@ -20,6 +20,14 @@ export const BANK: readonly BankQuestion[] = QUESTION_BANK
 export const BY_ID: ReadonlyMap<string, BankQuestion> = new Map(QUESTION_BANK.map(q => [q.id, q]))
 export const OFFERED = offeredTests(QUESTION_BANK)
 
+/**
+ * Every question on a catalogue paper. Weak-areas papers draw their new
+ * questions only from these, so a generated paper is made of the same vetted
+ * questions as the published ones.
+ */
+export const CATALOGUE_IDS: ReadonlySet<string> = new Set(PRACTICE_EXAMS.flatMap(e => e.sections.flatMap(s => s.question_ids)))
+export const CATALOGUE_BANK: readonly BankQuestion[] = QUESTION_BANK.filter(q => CATALOGUE_IDS.has(q.id))
+
 export const isOffered = (year: unknown, subject: unknown): year is YearLevel =>
   OFFERED.some(o => o.year === year && o.subject === subject)
 

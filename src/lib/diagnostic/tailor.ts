@@ -53,6 +53,40 @@ export interface TailoredExam {
   focus: FocusLine[]
   /** Questions repeated from the diagnostic, in the last section. */
   secondChance: number
+  /** A paper of weak areas only (see ComposeOptions). */
+  weakOnly?: boolean
+  /** Weak-areas paper: the test found no weak area, so the lowest areas stand in. */
+  fallback?: boolean
+}
+
+/**
+ * How to compose. With no options this is the original tailored exam, one per
+ * result. A weak-areas paper (`weakOnly`) is one of many generated on request:
+ * only the areas still to work on, seeded by its number so each is different,
+ * avoiding every question already `used` by the child's earlier papers, and
+ * drawing new questions only from `allowed` — the catalogue papers' questions,
+ * so a generated paper is held to the same standard as a published one.
+ */
+export interface ComposeOptions {
+  weakOnly?: boolean
+  /** Which paper this is for the result, from 1: picks the seed. */
+  seq?: number
+  /** Question ids on the child's earlier papers. */
+  used?: ReadonlySet<string>
+  /** Question ids new questions may come from. */
+  allowed?: ReadonlySet<string>
+  /** The paper's id, when it is not the result's own tailored exam. */
+  id?: string
+}
+
+/**
+ * The areas a weak-areas paper works on: those to work on or still developing,
+ * unless the evidence is only an early sign — the report never calls those a
+ * weakness, so neither does the paper. With none, the two lowest areas.
+ */
+export function weakAreas(report: Pick<DiagnosticReport, 'areas'>): { areas: AreaResult[]; fallback: boolean } {
+  const weak = report.areas.filter(a => a.level !== 'strength' && a.confidence !== 'early')
+  return weak.length ? { areas: weak, fallback: false } : { areas: report.areas.slice(0, 2), fallback: true }
 }
 
 const PREFIX = 'tailored-'
@@ -83,8 +117,9 @@ function subjectLabel(subject: SubjectSlug): string {
   return [...SUBJECTS, ...SELECTIVE_SUBJECTS].find(s => s.slug === subject)?.label ?? subject
 }
 
-function titleFor(year: YearLevel, subject: SubjectSlug, name: string | null): string {
+function titleFor(year: YearLevel, subject: SubjectSlug, name: string | null, seq?: number): string {
   const course = VCE.has(year) ? `${subjectLabel(subject)} ${year === 'year_12' ? 'Unit 3 & 4' : 'Unit 1 & 2'}` : `${yearLabel(year)} ${subjectLabel(subject)}`
+  if (seq) return `${course} — ${name ? `${name}’s weak areas` : 'Weak areas'}, paper ${seq}`
   return `${course} — ${name ? `${name}’s practice exam` : 'Tailored practice exam'}`
 }
 
@@ -146,11 +181,17 @@ function spread(areas: readonly { id: string; weight: number; available: number 
   return out
 }
 
+/** The correct option's position, for multiple choice. */
+const letterOf = (q: BankQuestion) => ('correct_index' in q && typeof q.correct_index === 'number' ? q.correct_index : null)
+
 /**
  * `n` questions from an area: skills that went wrong come round twice as often
  * as the rest, and each pick is the question nearest the next difficulty target.
+ * With `letters` (the paper's count of correct answers by option so far), a tie
+ * on difficulty goes to the least-used letter, so a paper built from a few
+ * areas does not lean on one answer letter the way a subset of them can.
  */
-function pickTargeted(pool: readonly BankQuestion[], n: number, level: Level, wrongSkills: readonly string[], rand: () => number): BankQuestion[] {
+function pickTargeted(pool: readonly BankQuestion[], n: number, level: Level, wrongSkills: readonly string[], rand: () => number, letters?: number[]): BankQuestion[] {
   if (n <= 0) return []
   const bySkill = new Map<string, BankQuestion[]>()
   for (const q of shuffle(pool, rand)) {
@@ -172,11 +213,18 @@ function pickTargeted(pool: readonly BankQuestion[], n: number, level: Level, wr
     for (let tries = 0; tries < cycle.length && !picked; tries++) {
       const list = bySkill.get(cycle[(next + tries) % cycle.length])
       if (!list?.length) continue
+      const cost = (q: BankQuestion) => {
+        const letter = letters ? letterOf(q) : null
+        return Math.abs(DIFFICULTY_RANK[q.difficulty] - target) * 3 + (letter === null ? 0 : letters![letter] ?? 0)
+      }
       let best = 0
       for (let k = 1; k < list.length; k++) {
-        if (Math.abs(DIFFICULTY_RANK[list[k].difficulty] - target) < Math.abs(DIFFICULTY_RANK[list[best].difficulty] - target)) best = k
+        if (cost(list[k]) < cost(list[best])) best = k
       }
-      chosen.push(list.splice(best, 1)[0])
+      const pick = list.splice(best, 1)[0]
+      const letter = letters ? letterOf(pick) : null
+      if (letter !== null) letters![letter] = (letters![letter] ?? 0) + 1
+      chosen.push(pick)
       next = (next + tries + 1) % cycle.length
       picked = true
     }
@@ -212,13 +260,17 @@ interface Group {
   questions: BankQuestion[]
 }
 
-/** The second-chance section: wrong answers from the weakest areas first, easiest first. */
-function secondChance(byId: ReadonlyMap<string, BankQuestion>, report: DiagnosticReport, calculator?: boolean): TailoredSection | null {
+/**
+ * The second-chance section: wrong answers from the weakest areas first,
+ * easiest first. Only from the report's areas — on a weak-areas paper, a slip
+ * in a strength is not a weakness — and none already repeated on an earlier paper.
+ */
+function secondChance(byId: ReadonlyMap<string, BankQuestion>, report: DiagnosticReport, calculator?: boolean, used?: ReadonlySet<string>): TailoredSection | null {
   const areaRank = new Map(report.areas.map((a, i) => [a.id, i]))
   const wrong = report.items
-    .filter(i => !i.correct)
+    .filter(i => !i.correct && !used?.has(i.id))
     .map(i => byId.get(i.id))
-    .filter((q): q is BankQuestion => Boolean(q) && !q!.stimulus_id)
+    .filter((q): q is BankQuestion => Boolean(q) && !q!.stimulus_id && areaRank.has(classify(q!).area.id))
     .sort((a, b) => (areaRank.get(classify(a).area.id) ?? 0) - (areaRank.get(classify(b).area.id) ?? 0) || byDifficulty(a, b))
     .slice(0, SECOND_CHANCE_MAX)
   if (!wrong.length) return null
@@ -254,7 +306,8 @@ function areaGroups(
   report: DiagnosticReport,
   total: number,
   rand: () => number,
-  extra?: (level: Level) => readonly BankQuestion[]
+  extra?: (level: Level) => readonly BankQuestion[],
+  letters?: number[]
 ): Group[] {
   const own = groupByArea(pool)
   const extras = new Map<Level, Map<string, BankQuestion[]>>()
@@ -270,16 +323,64 @@ function areaGroups(
     areas.map(a => ({ id: a.id, weight: weightOf(a), available: available(a.id, a.level) })),
     total
   )
-  return areas
-    .map(a => {
-      const wrongSkills = skillsToWork(a)
-      const n = counts.get(a.id) ?? 0
-      const mine = pickTargeted(own.get(a.id) ?? [], n, a.level, wrongSkills, rand)
-      const more = mine.length < n ? pickTargeted(extraFor(a.level).get(a.id) ?? [], n - mine.length, a.level, wrongSkills, rand) : []
-      return { area: a.id, label: a.label, level: a.level, questions: [...mine, ...more].sort(byDifficulty) }
-    })
+  const groups = areas.map(a => {
+    const wrongSkills = skillsToWork(a)
+    const n = counts.get(a.id) ?? 0
+    const mine = pickTargeted(own.get(a.id) ?? [], n, a.level, wrongSkills, rand, letters)
+    const more = mine.length < n ? pickTargeted(extraFor(a.level).get(a.id) ?? [], n - mine.length, a.level, wrongSkills, rand, letters) : []
+    return { area: a.id, label: a.label, level: a.level, questions: [...mine, ...more] }
+  })
+  if (letters) balanceLetters(groups, g => [...(own.get(g.area) ?? []), ...(extraFor(g.level).get(g.area) ?? [])])
+  return groups
+    .map(g => ({ ...g, questions: g.questions.sort(byDifficulty) }))
     .filter(g => g.questions.length > 0)
     .sort((x, y) => y.questions.length - x.questions.length)
+}
+
+/** Most of a paper's multiple-choice answers one letter may hold — the bank's own rule (verify-bank.mjs). */
+const LETTER_SHARE_LIMIT = 0.4
+
+/**
+ * Evens out the answer letters of a generated paper. The catalogue papers are
+ * balanced as wholes, but a paper built from two or three areas of them can
+ * lean on one letter — 12 of 23 answers C, in testing. While one letter holds
+ * more than LETTER_SHARE_LIMIT, one of its questions is swapped for an unused
+ * question of the same area, no more than a step apart in difficulty, whose
+ * answer is a less-used letter; the same skill is preferred.
+ */
+function balanceLetters(groups: Group[], candidates: (g: Group) => readonly BankQuestion[]) {
+  for (let round = 0; round < 40; round++) {
+    const counts = [0, 0, 0, 0, 0, 0]
+    let mc = 0
+    for (const g of groups) for (const q of g.questions) {
+      const l = letterOf(q)
+      if (l !== null) {
+        counts[l]++
+        mc++
+      }
+    }
+    if (mc < 8) return
+    const over = counts.indexOf(Math.max(...counts))
+    if (counts[over] <= LETTER_SHARE_LIMIT * mc) return
+    const chosen = new Set(groups.flatMap(g => g.questions.map(q => q.id)))
+    let best: { g: Group; i: number; q: BankQuestion; score: number } | null = null
+    for (const g of groups) {
+      const pool = candidates(g).filter(c => !chosen.has(c.id))
+      for (let i = 0; i < g.questions.length; i++) {
+        const q = g.questions[i]
+        if (letterOf(q) !== over) continue
+        for (const c of pool) {
+          const l = letterOf(c)
+          const step = Math.abs(DIFFICULTY_RANK[c.difficulty] - DIFFICULTY_RANK[q.difficulty])
+          if (l === null || l === over || step > 1 || counts[l] + 1 >= counts[over]) continue
+          const score = counts[l] * 10 + step * 3 + (classify(c).skill === classify(q).skill ? 0 : 2)
+          if (!best || score < best.score) best = { g, i, q: c, score }
+        }
+      }
+    }
+    if (!best) return
+    best.g.questions[best.i] = best.q
+  }
 }
 
 const focusOf = (groups: readonly Group[]): FocusLine[] =>
@@ -367,25 +468,45 @@ const READING_TEXTS_PER_PAPER = 3
  * the year below for a child who found the test hard, the year above for one
  * who did not.
  */
-function composeReading(bank: readonly BankQuestion[], report: DiagnosticReport, rand: () => number): { sections: TailoredSection[]; focus: FocusLine[] } {
-  const seen = new Set(report.items.map(i => i.id))
-  const seenTexts = new Set(bank.filter(q => seen.has(q.id)).map(q => q.stimulus_id))
+function composeReading(
+  bank: readonly BankQuestion[],
+  report: DiagnosticReport,
+  rand: () => number,
+  opts: { used?: ReadonlySet<string>; weakOnly?: boolean; seenBank?: readonly BankQuestion[] } = {}
+): { sections: TailoredSection[]; focus: FocusLine[] } {
+  const seen = new Set([...report.items.map(i => i.id), ...Array.from(opts.used ?? [])])
+  const seenTexts = new Set((opts.seenBank ?? bank).filter(q => seen.has(q.id)).map(q => q.stimulus_id))
   const need = new Map(report.areas.map(a => [a.id, weightOf(a)]))
+  // A weak-areas paper keeps only the questions on the weak question types,
+  // so a text earns its place by how many of those it carries.
+  const keep = (t: { questions: BankQuestion[] }) =>
+    (opts.weakOnly ? t.questions.filter(q => need.has(classify(q).area.id)) : t.questions).slice(0, 8)
   const rank = (texts: ReturnType<typeof readingTexts>) =>
     shuffle(texts.filter(t => !seenTexts.has(t.id)), rand)
-      .map(t => ({ t, score: t.questions.reduce((n, q) => n + (need.get(classify(q).area.id) ?? 0.6), 0) / t.questions.length }))
+      .map(t => ({ t, qs: keep(t), score: t.questions.reduce((n, q) => n + (need.get(classify(q).area.id) ?? (opts.weakOnly ? 0 : 0.6)), 0) / t.questions.length }))
+      .filter(x => x.qs.length >= (opts.weakOnly ? 2 : 1))
       .sort((a, b) => b.score - a.score)
   const i = SCHOOL_YEARS.indexOf(report.year)
   const neighbour = SCHOOL_YEARS[report.pct < 60 ? i - 1 : i + 1] ?? SCHOOL_YEARS[report.pct < 60 ? i + 1 : i - 1]
-  const scored = [...rank(readingTexts(bank, report.year)), ...(neighbour ? rank(readingTexts(bank, neighbour)) : [])].slice(0, READING_TEXTS_PER_PAPER)
+  const ranked = [...rank(readingTexts(bank, report.year)), ...(neighbour ? rank(readingTexts(bank, neighbour)) : [])]
+  let scored = ranked.slice(0, READING_TEXTS_PER_PAPER)
+  if (opts.weakOnly) {
+    // Fewer questions per text, so more texts — up to five — until there are a dozen.
+    scored = []
+    for (const r of ranked) {
+      if (scored.length >= READING_TEXTS_PER_PAPER && scored.reduce((n, s) => n + s.qs.length, 0) >= 12) break
+      if (scored.length >= 5) break
+      scored.push(r)
+    }
+  }
 
-  const sections = scored.map(({ t }, i) => ({
+  const sections = scored.map(({ qs }, i) => ({
     title: `Text ${i + 1}`,
-    time_minutes: 15,
-    question_ids: t.questions.slice(0, 8).map(q => q.id),
+    time_minutes: opts.weakOnly ? Math.max(8, qs.length * 2) : 15,
+    question_ids: qs.map(q => q.id),
   }))
   const counts = new Map<string, number>()
-  for (const s of scored) for (const q of s.t.questions.slice(0, 8)) counts.set(classify(q).area.id, (counts.get(classify(q).area.id) ?? 0) + 1)
+  for (const s of scored) for (const q of s.qs) counts.set(classify(q).area.id, (counts.get(classify(q).area.id) ?? 0) + 1)
   const focus = report.areas
     .filter(a => counts.has(a.id))
     .map(a => ({ area: a.id, label: a.label, level: a.level, questions: counts.get(a.id)! }))
@@ -393,11 +514,17 @@ function composeReading(bank: readonly BankQuestion[], report: DiagnosticReport,
   return { sections, focus }
 }
 
-function composeVce(bank: readonly BankQuestion[], report: DiagnosticReport, exclude: ReadonlySet<string>, rand: () => number): { sections: TailoredSection[]; focus: FocusLine[] } {
+function composeVce(
+  bank: readonly BankQuestion[],
+  report: DiagnosticReport,
+  exclude: ReadonlySet<string>,
+  rand: () => number,
+  letters?: number[]
+): { sections: TailoredSection[]; focus: FocusLine[] } {
   const { year, subject } = report
   const own = bank.filter(q => q.year_level === year && subjectOfTopic(q.topic) === subject && !exclude.has(q.id))
   const mcPool = own.filter(isChoice)
-  const groups = areaGroups(mcPool, report, year === 'year_12' ? 15 : 16, rand)
+  const groups = areaGroups(mcPool, report, year === 'year_12' ? 15 : 16, rand, undefined, letters)
 
   const sections: TailoredSection[] = []
   const lines: string[] = []
@@ -484,28 +611,65 @@ function composeVce(bank: readonly BankQuestion[], report: DiagnosticReport, exc
   return { sections, focus }
 }
 
+/**
+ * Every question of the child's own year a paper could use — the same rules
+ * the composers apply, before anything is excluded. Says how much is left.
+ */
+export function paperPool(bank: readonly BankQuestion[], year: YearLevel, subject: SubjectSlug): BankQuestion[] {
+  if (subject === 'reading') return readingTexts(bank, year).flatMap(t => t.questions)
+  const own = bank.filter(q => q.year_level === year && subjectOfTopic(q.topic) === subject)
+  if (VCE.has(year)) return own.filter(q => isChoice(q) || q.format === (year === 'year_12' ? 'extended_response' : 'long_form'))
+  return own.filter(isPrintable)
+}
+
 const SCHOOL_SIZE = (year: YearLevel, subject: SubjectSlug) =>
   subject === 'math' ? (PRIMARY.has(year) ? 30 : 32) : subject === 'science' ? 18 : 30
 
 export function composeTailoredExam(
-  bank: readonly BankQuestion[],
-  input: { resultId: string; report: DiagnosticReport; childName: string | null }
+  fullBank: readonly BankQuestion[],
+  input: { resultId: string; report: DiagnosticReport; childName: string | null },
+  opts: ComposeOptions = {}
 ): TailoredExam {
-  const { resultId, report, childName } = input
-  const { year, subject } = report
-  const rand = mulberry32(hashSeed(resultId))
-  const byId = new Map(bank.map(q => [q.id, q]))
-  const exclude = new Set(report.items.map(i => i.id))
-  const base = { id: tailoredExamId(resultId), subject, yearLevel: year, title: titleFor(year, subject, childName) }
+  const exam = compose(fullBank, input, opts)
+  if (!exam.fallback) return exam
+  // With no weak area found, the areas a paper practices are only the lowest,
+  // whatever level the report gave them, so the notes say so (as the cover does).
+  const note = new RegExp(` \\((${Object.values(LEVEL_NOTE).join('|')})\\)\\.$`)
+  return { ...exam, sections: exam.sections.map(s => (s.instructions ? { ...s, instructions: s.instructions.map(l => l.replace(note, ' (one of the lowest areas).')) } : s)) }
+}
+
+function compose(
+  fullBank: readonly BankQuestion[],
+  input: { resultId: string; report: DiagnosticReport; childName: string | null },
+  opts: ComposeOptions
+): TailoredExam {
+  const { resultId, childName } = input
+  const { year, subject } = input.report
+  const rand = mulberry32(hashSeed(opts.seq ? `${resultId}:${opts.seq}` : resultId))
+  // Second-chance questions come from the diagnostic itself; new ones only from `allowed`.
+  const byId = new Map(fullBank.map(q => [q.id, q]))
+  const bank = opts.allowed ? fullBank.filter(q => opts.allowed!.has(q.id)) : fullBank
+  const exclude = new Set([...input.report.items.map(i => i.id), ...Array.from(opts.used ?? [])])
+  const weak = opts.weakOnly ? weakAreas(input.report) : null
+  // Only generated papers balance answer letters: the original exam must stay as it was printed.
+  const letters = opts.weakOnly ? [0, 0, 0, 0, 0, 0] : undefined
+  const report: DiagnosticReport = weak ? { ...input.report, areas: weak.areas } : input.report
+  const base = {
+    id: opts.id ?? tailoredExamId(resultId),
+    subject,
+    yearLevel: year,
+    title: titleFor(year, subject, childName, opts.seq),
+    ...(weak ? { weakOnly: true, ...(weak.fallback ? { fallback: true } : {}) } : {}),
+  }
 
   if (subject === 'reading') {
-    const { sections, focus } = composeReading(bank, report, rand)
+    const { sections, focus } = composeReading(bank, report, rand, { used: opts.used, weakOnly: opts.weakOnly, seenBank: fullBank })
     return { ...base, sections, focus, secondChance: 0 }
   }
 
   if (VCE.has(year)) {
-    const { sections, focus } = composeVce(bank, report, exclude, rand)
-    const again = secondChance(byId, report, true)
+    const { sections, focus } = composeVce(bank, report, exclude, rand, letters)
+    const again = secondChance(byId, report, true, opts.used)
     if (again) {
       again.title = `Section ${String.fromCharCode(65 + sections.length)} — second chance`
       sections.push(again)
@@ -521,9 +685,9 @@ export function composeTailoredExam(
   }
 
   const pool = bank.filter(q => q.year_level === year && subjectOfTopic(q.topic) === subject && !exclude.has(q.id) && isPrintable(q))
-  const again = secondChance(byId, report)
+  const again = secondChance(byId, report, undefined, opts.used)
   const total = SCHOOL_SIZE(year, subject) - (again?.question_ids.length ?? 0)
-  const groups = areaGroups(pool, report, total, rand, neighbours(bank, year, subject, exclude))
+  const groups = areaGroups(pool, report, total, rand, neighbours(bank, year, subject, exclude), letters)
   const sections = schoolSections(groups, year, subject)
   if (again) sections.push(again)
   return { ...base, sections, focus: withSecondChance(focusOf(groups), again, byId, report), secondChance: again?.question_ids.length ?? 0 }

@@ -86,7 +86,7 @@ export default function NaplanPage() {
       <section className="max-w-3xl mx-auto px-4 pb-10">
         <DiagnosticCta
           title="Find out what to practice first"
-          body="Before NAPLAN, a free 30-minute diagnostic in Numeracy, Reading or Language Conventions shows exactly which skills need work — then builds a practice exam around them."
+          body="Before NAPLAN, a free 30-minute diagnostic in Numeracy, Reading or Language Conventions shows exactly which skills need work — then builds practice papers on them."
         />
       </section>
 

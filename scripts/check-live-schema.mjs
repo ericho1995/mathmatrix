@@ -144,6 +144,10 @@ const MIGRATIONS = [
     file: 'schema_diagnostics.sql',
     checks: [() => tableExists('diagnostic_results'), () => columnExists('diagnostic_results', 'exam_marks')],
   },
+  {
+    file: 'schema_diagnostic_papers.sql',
+    checks: [() => tableExists('diagnostic_papers'), () => tableExists('question_bank_alerts')],
+  },
 ]
 
 const EXPECTED_QUESTIONS = 1800 // seed.sql currently carries 1,825
