@@ -4,10 +4,11 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Route } from 'next'
-import { ArrowRight, BookOpen, Check, Download, Eye, FileText, Sparkles, X } from 'lucide-react'
+import { ArrowRight, BookOpen, Check, Download, Eye, FileText, MonitorPlay, Sparkles, X } from 'lucide-react'
 import Bird from '@/components/brand/Bird'
 import QuestionView from '@/components/diagnostic/QuestionView'
 import ReadingTextView from '@/components/reading/ReadingTextView'
+import PdfPages from './PdfPages'
 import { matchShortAnswer } from '@/lib/questions/matchShortAnswer'
 import type { Answer } from '@/lib/diagnostic/types'
 import type { SamplePreview, Tone, TryQuestion } from '@/lib/samplePreview'
@@ -25,7 +26,8 @@ const TONE: Record<Tone, { tile: string; band: string; head: string }> = {
 /**
  * "Look inside" as something to try: each free sample is a bright tile, and
  * opening it gives a mini sample test — three real questions from that paper,
- * marked on the spot with the explanation — beside the real printed page.
+ * marked on the spot with the explanation — beside the whole printed paper,
+ * every page of it, with the way to sit it on screen or download it.
  */
 export default function LookInsideGallery({ previews }: { previews: SamplePreview[] }) {
   const [open, setOpen] = useState<{ index: number; tab: 'try' | 'page' } | null>(null)
@@ -73,7 +75,7 @@ export default function LookInsideGallery({ previews }: { previews: SamplePrevie
                   )}
                   <button type="button" onClick={() => setOpen({ index: i, tab: 'page' })} className="btn-secondary text-sm px-4 py-1.5 inline-flex items-center gap-1.5">
                     <Eye className="w-4 h-4" aria-hidden />
-                    See the page
+                    See the whole paper
                   </button>
                 </div>
               </div>
@@ -87,7 +89,7 @@ export default function LookInsideGallery({ previews }: { previews: SamplePrevie
         onClose={() => setOpen(null)}
         // A click on the backdrop lands on the dialog element itself.
         onClick={e => e.target === dialog.current && setOpen(null)}
-        className={`m-auto w-full ${current?.text && open?.tab === 'try' ? 'max-w-5xl' : 'max-w-2xl'} bg-transparent p-3 sm:p-4 backdrop:bg-gray-950/70`}
+        className={`m-auto w-full ${current?.text && open?.tab === 'try' ? 'max-w-5xl' : open?.tab === 'page' ? 'max-w-3xl' : 'max-w-2xl'} bg-transparent p-3 sm:p-4 backdrop:bg-gray-950/70`}
         aria-label={current?.title}
       >
         {current && open && (
@@ -113,7 +115,7 @@ export default function LookInsideGallery({ previews }: { previews: SamplePrevie
                   Try it
                 </Tab>
                 <Tab active={open.tab === 'page'} onClick={() => setOpen({ ...open, tab: 'page' })} icon={FileText}>
-                  The real page
+                  The whole paper
                 </Tab>
               </div>
             )}
@@ -151,11 +153,28 @@ function Tab({ active, onClick, icon: Icon, children }: { active: boolean; onCli
   )
 }
 
+/** The whole free paper, every page, with a switch between its booklets (magazine, paper, answer key). */
 function PageView({ preview }: { preview: SamplePreview }) {
+  const [doc, setDoc] = useState(preview.doc)
+  const current = preview.docs[doc] ?? preview.docs[0]
   return (
     <div>
-      <div className="rounded-2xl ring-1 ring-gray-200 overflow-hidden">
-        <Image src={preview.image} alt={preview.alt} sizes="(min-width: 800px) 640px, 100vw" placeholder="blur" className="w-full h-auto" />
+      <div className="flex flex-wrap gap-2 mb-4" role="tablist" aria-label="Booklets">
+        {preview.docs.map((d, i) => (
+          <button
+            key={d.url}
+            type="button"
+            role="tab"
+            aria-selected={i === doc}
+            onClick={() => setDoc(i)}
+            className={`rounded-full border-2 px-3 py-1 text-sm font-bold ${i === doc ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line bg-white text-gray-500 hover:bg-gray-50'}`}
+          >
+            {d.label}
+          </button>
+        ))}
+      </div>
+      <div className="rounded-2xl bg-gray-100 p-3 sm:p-4">
+        <PdfPages key={current.url} url={current.url} title={`${preview.paperTitle} — ${current.label}`} />
       </div>
       <DownloadRow preview={preview} />
     </div>
@@ -164,10 +183,14 @@ function PageView({ preview }: { preview: SamplePreview }) {
 
 function DownloadRow({ preview }: { preview: SamplePreview }) {
   return (
-    <div className="flex flex-col sm:flex-row gap-3 mt-5">
-      <Link href={`/practice/exams/${preview.paperId}` as Route} className="btn-primary inline-flex items-center justify-center gap-2">
+    <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-5">
+      <Link href={preview.onScreenHref as Route} className="btn-primary inline-flex items-center justify-center gap-2">
+        <MonitorPlay className="w-4 h-4" aria-hidden />
+        Sit the whole paper on screen
+      </Link>
+      <Link href={`/practice/exams/${preview.paperId}` as Route} className="btn-secondary inline-flex items-center justify-center gap-2">
         <Download className="w-4 h-4" aria-hidden />
-        Download the whole paper free
+        Download it free
       </Link>
       <Link href={'/diagnostic' as Route} className="btn-secondary inline-flex items-center justify-center gap-2">
         Find your child&apos;s weak spots

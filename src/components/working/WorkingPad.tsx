@@ -1,13 +1,14 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Eraser, Grid3x3, PenLine, Trash2, Undo2, X } from 'lucide-react'
+import { Eraser, Grid3x3, NotebookPen, PenLine, Trash2, Undo2, X } from 'lucide-react'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // A page of working out beside a question, for the sums, sketches and
-// crossings-out a child would otherwise do on scrap paper.
+// crossings-out a child would otherwise do on scrap paper — drawn (Draw) or
+// typed (Notes).
 //
-// One page per question, kept while the test or paper is open. Strokes are
+// One page of each per question, kept while the test or paper is open. Strokes are
 // stored as points scaled to the page width, so a page drawn on a wide screen
 // redraws in proportion on a narrow one. Drawing works with a mouse, a finger
 // or a stylus; once a stylus has touched the page, finger touches are ignored
@@ -31,8 +32,13 @@ export const PAD_ROOM = 'pb-[55vh] lg:pb-0 lg:pr-[460px]'
 /** For a runner's sticky bottom bar: rides above the sheet on a phone. */
 export const PAD_BAR = 'max-lg:bottom-[55vh]'
 
-/** The pages of one sitting, by question id. Hold it in a ref so it outlives the pad closing. */
-export type WorkingPages = Map<string, Stroke[]>
+/** The pages of one sitting, by question id: drawings and typed notes. Hold it in a ref so it outlives the pad closing. */
+export interface WorkingPages {
+  strokes: Map<string, Stroke[]>
+  notes: Map<string, string>
+}
+
+export const newWorkingPages = (): WorkingPages => ({ strokes: new Map(), notes: new Map() })
 
 const INK: Record<Exclude<Tool, 'eraser'>, string> = { pen: '#1a1a1a', blue: '#1d4ed8' }
 
@@ -51,6 +57,8 @@ export default function WorkingPad({
   label: string
 }) {
   const canvas = useRef<HTMLCanvasElement>(null)
+  const [mode, setMode] = useState<'draw' | 'notes'>('draw')
+  const [note, setNote] = useState('')
   const [tool, setTool] = useState<Tool>('pen')
   const [grid, setGrid] = useState(true)
   const [version, setVersion] = useState(0)
@@ -58,33 +66,30 @@ export default function WorkingPad({
   const sawPen = useRef(false)
 
   const strokes = useCallback(() => {
-    let list = pages.get(pageKey)
+    let list = pages.strokes.get(pageKey)
     if (!list) {
       list = []
-      pages.set(pageKey, list)
+      pages.strokes.set(pageKey, list)
     }
     return list
   }, [pages, pageKey])
 
-  const paint = useCallback(
-    (ctx: CanvasRenderingContext2D, s: Stroke, width: number) => {
-      if (!s.points.length) return
-      ctx.save()
-      ctx.globalCompositeOperation = s.tool === 'eraser' ? 'destination-out' : 'source-over'
-      ctx.strokeStyle = s.tool === 'eraser' ? '#000' : INK[s.tool]
-      ctx.lineWidth = s.tool === 'eraser' ? 22 : 2.4
-      ctx.lineCap = 'round'
-      ctx.lineJoin = 'round'
-      ctx.beginPath()
-      const [x0, y0] = s.points[0]
-      ctx.moveTo(x0 * width, y0 * width)
-      if (s.points.length === 1) ctx.lineTo(x0 * width + 0.1, y0 * width)
-      for (const [x, y] of s.points.slice(1)) ctx.lineTo(x * width, y * width)
-      ctx.stroke()
-      ctx.restore()
-    },
-    []
-  )
+  const paint = useCallback((ctx: CanvasRenderingContext2D, s: Stroke, width: number) => {
+    if (!s.points.length) return
+    ctx.save()
+    ctx.globalCompositeOperation = s.tool === 'eraser' ? 'destination-out' : 'source-over'
+    ctx.strokeStyle = s.tool === 'eraser' ? '#000' : INK[s.tool]
+    ctx.lineWidth = s.tool === 'eraser' ? 22 : 2.4
+    ctx.lineCap = 'round'
+    ctx.lineJoin = 'round'
+    ctx.beginPath()
+    const [x0, y0] = s.points[0]
+    ctx.moveTo(x0 * width, y0 * width)
+    if (s.points.length === 1) ctx.lineTo(x0 * width + 0.1, y0 * width)
+    for (const [x, y] of s.points.slice(1)) ctx.lineTo(x * width, y * width)
+    ctx.stroke()
+    ctx.restore()
+  }, [])
 
   /** Sizes the canvas to its box at the screen's pixel density and redraws the page. */
   const redraw = useCallback(() => {
@@ -104,15 +109,18 @@ export default function WorkingPad({
     for (const s of strokes()) paint(ctx, s, width)
   }, [paint, strokes])
 
+  // Each question's notes come back when it does.
+  useEffect(() => setNote(pages.notes.get(pageKey) ?? ''), [pages, pageKey])
+
   useEffect(() => {
-    if (!open) return
+    if (!open || mode !== 'draw') return
     redraw()
     const c = canvas.current
     if (!c) return
     const ro = new ResizeObserver(() => redraw())
     ro.observe(c)
     return () => ro.disconnect()
-  }, [open, redraw, version])
+  }, [open, mode, redraw, version])
 
   // Escape closes the pad.
   useEffect(() => {
@@ -169,7 +177,7 @@ export default function WorkingPad({
   }
 
   function clear() {
-    pages.set(pageKey, [])
+    pages.strokes.set(pageKey, [])
     setVersion(v => v + 1)
   }
 
@@ -202,51 +210,102 @@ export default function WorkingPad({
           Close
         </button>
       </div>
-      <div className="flex items-center gap-2 px-3 py-2 border-b border-line" role="toolbar" aria-label="Pad tools">
-        {toolButton('pen', 'Pencil', <PenLine className="w-5 h-5" aria-hidden />)}
-        {toolButton('blue', 'Blue pen', <PenLine className="w-5 h-5 text-blue-700" aria-hidden />)}
-        {toolButton('eraser', 'Eraser', <Eraser className="w-5 h-5" aria-hidden />)}
-        <span className="w-px h-6 bg-line mx-1" aria-hidden />
-        <button type="button" onClick={undo} title="Undo" className="inline-flex items-center justify-center w-10 h-10 rounded-xl border-2 border-line bg-white text-gray-600 hover:bg-gray-50">
-          <Undo2 className="w-5 h-5" aria-hidden />
-          <span className="sr-only">Undo</span>
+      <div className="flex items-center gap-2 px-3 pt-2" role="tablist" aria-label="Draw or type">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={mode === 'draw'}
+          onClick={() => setMode('draw')}
+          className={`inline-flex items-center gap-1.5 rounded-xl border-2 px-3 py-1.5 text-sm font-bold ${mode === 'draw' ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line bg-white text-gray-500 hover:bg-gray-50'}`}
+        >
+          <PenLine className="w-4 h-4" aria-hidden />
+          Draw
         </button>
         <button
           type="button"
-          onClick={() => setGrid(g => !g)}
-          aria-pressed={grid}
-          title="Squared paper"
-          className={`inline-flex items-center justify-center w-10 h-10 rounded-xl border-2 ${grid ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line bg-white text-gray-600 hover:bg-gray-50'}`}
+          role="tab"
+          aria-selected={mode === 'notes'}
+          onClick={() => setMode('notes')}
+          className={`inline-flex items-center gap-1.5 rounded-xl border-2 px-3 py-1.5 text-sm font-bold ${mode === 'notes' ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line bg-white text-gray-500 hover:bg-gray-50'}`}
         >
-          <Grid3x3 className="w-5 h-5" aria-hidden />
-          <span className="sr-only">Squared paper</span>
-        </button>
-        <button type="button" onClick={clear} className="ml-auto inline-flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-red-600 px-2 py-1">
-          <Trash2 className="w-4 h-4" aria-hidden />
-          <span className="hidden sm:inline">Clear page</span>
-          <span className="sm:hidden">Clear</span>
+          <NotebookPen className="w-4 h-4" aria-hidden />
+          Notes
         </button>
       </div>
-      <div className="relative flex-1 min-h-0 bg-white">
-        <canvas
-          ref={canvas}
-          className="absolute inset-0 w-full h-full cursor-crosshair"
-          style={{
-            touchAction: 'none',
-            backgroundImage: grid
-              ? 'linear-gradient(to right, rgba(29,78,216,0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(29,78,216,0.10) 1px, transparent 1px)'
-              : undefined,
-            backgroundSize: grid ? '24px 24px' : undefined,
-          }}
-          onPointerDown={down}
-          onPointerMove={move}
-          onPointerUp={up}
-          onPointerCancel={up}
-          aria-label={`Drawing area for ${label}`}
-          role="img"
-        />
-      </div>
-      <p className="hidden lg:block text-xs text-gray-400 px-3 py-2 border-t border-line">Each question has its own page. The pad is for working only — it is not marked or saved.</p>
+      {mode === 'notes' ? (
+        <div className="flex-1 min-h-0 p-3 flex flex-col">
+          <textarea
+            className="input flex-1 w-full resize-none text-base leading-relaxed"
+            value={note}
+            onChange={e => {
+              setNote(e.target.value)
+              pages.notes.set(pageKey, e.target.value)
+            }}
+            maxLength={5000}
+            placeholder="Type notes or working for this question…"
+            aria-label={`Notes for ${label}`}
+          />
+        </div>
+      ) : (
+        <>
+          <div className="flex items-center gap-2 px-3 py-2 border-b border-line" role="toolbar" aria-label="Pad tools">
+            {toolButton('pen', 'Pencil', <PenLine className="w-5 h-5" aria-hidden />)}
+            {toolButton('blue', 'Blue pen', <PenLine className="w-5 h-5 text-blue-700" aria-hidden />)}
+            {toolButton('eraser', 'Eraser', <Eraser className="w-5 h-5" aria-hidden />)}
+            <span className="w-px h-6 bg-line mx-1" aria-hidden />
+            <button
+              type="button"
+              onClick={undo}
+              title="Undo"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-xl border-2 border-line bg-white text-gray-600 hover:bg-gray-50"
+            >
+              <Undo2 className="w-5 h-5" aria-hidden />
+              <span className="sr-only">Undo</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setGrid(g => !g)}
+              aria-pressed={grid}
+              title="Squared paper"
+              className={`inline-flex items-center justify-center w-10 h-10 rounded-xl border-2 ${grid ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line bg-white text-gray-600 hover:bg-gray-50'}`}
+            >
+              <Grid3x3 className="w-5 h-5" aria-hidden />
+              <span className="sr-only">Squared paper</span>
+            </button>
+            <button
+              type="button"
+              onClick={clear}
+              className="ml-auto inline-flex items-center gap-1.5 text-sm font-bold text-gray-500 hover:text-red-600 px-2 py-1"
+            >
+              <Trash2 className="w-4 h-4" aria-hidden />
+              <span className="hidden sm:inline">Clear page</span>
+              <span className="sm:hidden">Clear</span>
+            </button>
+          </div>
+          <div className="relative flex-1 min-h-0 bg-white">
+            <canvas
+              ref={canvas}
+              className="absolute inset-0 w-full h-full cursor-crosshair"
+              style={{
+                touchAction: 'none',
+                backgroundImage: grid
+                  ? 'linear-gradient(to right, rgba(29,78,216,0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(29,78,216,0.10) 1px, transparent 1px)'
+                  : undefined,
+                backgroundSize: grid ? '24px 24px' : undefined,
+              }}
+              onPointerDown={down}
+              onPointerMove={move}
+              onPointerUp={up}
+              onPointerCancel={up}
+              aria-label={`Drawing area for ${label}`}
+              role="img"
+            />
+          </div>
+        </>
+      )}
+      <p className="hidden lg:block text-xs text-gray-400 px-3 py-2 border-t border-line">
+        Each question has its own page to draw and type on. It is for working only — not marked, and cleared when you leave.
+      </p>
     </aside>
   )
 }

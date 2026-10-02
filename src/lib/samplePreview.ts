@@ -52,6 +52,12 @@ export interface WrittenQuestion {
 
 export type Tone = 'brand' | 'teal' | 'amber' | 'grape'
 
+/** One booklet of the paper, as its PDF route serves it. */
+export interface PaperDoc {
+  label: string
+  url: string
+}
+
 export interface SamplePreview {
   key: SampleKey
   title: string
@@ -69,6 +75,11 @@ export interface SamplePreview {
   written?: WrittenQuestion
   /** Reading: the text the questions are about. */
   text?: ReadingText
+  /** The whole paper's booklets, for the full-paper view; `doc` is the one this tile's picture comes from. */
+  docs: PaperDoc[]
+  doc: number
+  /** The paper can be sat on screen: Reading side by side with its texts, anything else one question at a time. */
+  onScreenHref: string
 }
 
 const TONE: Record<SampleKey, Tone> = {
@@ -180,8 +191,20 @@ export function samplePreview(key: SampleKey): SamplePreview {
       break
   }
 
+  const exam = PRACTICE_EXAMS.find(e => e.id === s.paperId)
+  const base = `/api/exams/${s.paperId}`
+  const docs: PaperDoc[] = [
+    ...(exam?.magazine_id ? [{ label: 'Reading magazine', url: `${base}/magazine` }] : []),
+    { label: exam?.magazine_id ? 'Question paper' : 'Exam paper', url: `${base}/pdf` },
+    { label: 'Answer key', url: `${base}/answers` },
+  ]
+  const shows = key === 'answerKey' || key === 'vceKey' ? 'Answer key' : key === 'readingQuestions' ? 'Question paper' : docs[0].label
+
   return {
     key,
+    docs,
+    doc: Math.max(0, docs.findIndex(d => d.label === shows)),
+    onScreenHref: exam?.subject === 'reading' ? `/practice/reading/${s.paperId}` : `/practice/exams/${s.paperId}/online`,
     title: s.title,
     caption: s.caption,
     image: s.image,

@@ -3,17 +3,17 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import type { Route } from 'next'
-import { ArrowLeft, ArrowRight, BookOpen, Check, ListChecks, Minus, Plus, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, Check, ListChecks, Minus, Plus, Timer, X } from 'lucide-react'
 import Bird from '@/components/brand/Bird'
 import QuestionView from '@/components/diagnostic/QuestionView'
 import ReadingTextView from '@/components/reading/ReadingTextView'
-import WorkingPad, { PAD_BAR, PAD_ROOM, WorkingPadButton, type WorkingPages } from '@/components/working/WorkingPad'
+import WorkingPad, { PAD_BAR, PAD_ROOM, WorkingPadButton, newWorkingPages, type WorkingPages } from '@/components/working/WorkingPad'
 import type { ScreenQuestion } from '@/lib/web/questionHtml'
 import type { Answer } from '@/lib/diagnostic/types'
-import type { KeyItem, OnlinePaper } from '@/lib/diagnostic/online'
+import type { KeyItem, OnlinePaper } from '@/lib/exams/onScreen'
 
 type Screen = 'intro' | 'question' | 'review' | 'checking' | 'results'
-type SaveState = { state: 'idle' | 'saving' | 'saved' } | { state: 'error'; message: string }
+type SaveState = { state: 'idle' | 'saving' | 'saved' | 'signin' } | { state: 'error'; message: string }
 
 interface Stored {
   answers: Record<string, Answer>
@@ -53,13 +53,18 @@ function joinWritten(q: ScreenQuestion, parts: string[] | undefined): string | n
 }
 
 /**
- * A weak-areas paper sat on screen.
+ * Any paper sat on screen — a catalogue practice exam or a weak-areas paper.
  *
- * One question per screen, numbered as the printed paper is, with a working-
- * out pad beside it. Nothing is marked until the paper is handed in; then the
- * server returns the answer key. Multiple choice and short answers are marked
- * automatically; written questions show their marking guide and the parent or
- * child gives the marks, exactly as with the printed answer key.
+ * One question per screen, numbered as the printed paper is, with a timer and
+ * a working-out pad (draw or type) beside it. Nothing is marked until the
+ * paper is handed in; then the server returns the answer key. Multiple choice
+ * and short answers are marked automatically; written questions show their
+ * marking guide and the parent or child gives the marks, exactly as with the
+ * printed answer key.
+ *
+ * Saving: a weak-areas paper saves its marks to the paper (`marks`); a
+ * catalogue paper records which questions were wrong through the same route
+ * as marking a printed paper (`result`), so it reaches the dashboard either way.
  */
 export default function PaperRunner({
   paperId,
@@ -68,14 +73,27 @@ export default function PaperRunner({
   backHref,
   checkUrl,
   marksUrl,
+  saveMode = 'marks',
+  blurb = 'Every question practices an area still to work on.',
+  backLabel = 'Back to the report',
+  signInHref,
+  signedIn = true,
 }: {
   paperId: string
   paper: OnlinePaper
   name: string | null
   backHref: string
   checkUrl: string
-  /** Where written marks are saved; null where nothing is saved (the dev preview). */
+  /** Where the result is saved; null where nothing is saved (the dev preview). */
   marksUrl: string | null
+  saveMode?: 'marks' | 'result'
+  /** A line about the paper on the opening screen. */
+  blurb?: string
+  backLabel?: string
+  /** Where to sign in to keep a result, when saving needs an account. */
+  signInHref?: string
+  /** False for a visitor with no account: the result is marked but cannot be kept. */
+  signedIn?: boolean
 }) {
   const items = useMemo(() => paper.sections.flatMap((s, si) => s.questions.map(q => ({ q, si }))), [paper])
   const [screen, setScreen] = useState<Screen>('intro')
@@ -88,7 +106,8 @@ export default function PaperRunner({
   const [error, setError] = useState<string | null>(null)
   const [view, setView] = useState<'text' | 'questions'>('text')
   const [padOpen, setPadOpen] = useState(false)
-  const pages = useRef<WorkingPages>(new Map())
+  const pages = useRef<WorkingPages>(newWorkingPages())
+  const [secondsLeft, setSecondsLeft] = useState(paper.minutes * 60)
   const restored = useRef(false)
 
   useEffect(() => {
@@ -104,6 +123,13 @@ export default function PaperRunner({
   useEffect(() => {
     if (restored.current && screen !== 'results') writeStored(paperId, { answers, written, index })
   }, [paperId, answers, written, index, screen])
+
+  // The clock runs while the paper is being sat, and only counts down: running out says so but stops nothing.
+  useEffect(() => {
+    if (screen !== 'question' && screen !== 'review') return
+    const t = setInterval(() => setSecondsLeft(s => Math.max(0, s - 1)), 1000)
+    return () => clearInterval(t)
+  }, [screen])
 
   const answered = (q: ScreenQuestion) => (q.kind === 'written' ? Boolean(joinWritten(q, written[q.id])) : answers[q.id] !== undefined && answers[q.id] !== null && answers[q.id] !== '')
 
@@ -131,6 +157,7 @@ export default function PaperRunner({
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error ?? `Something went wrong (${res.status}).`)
       setKey(data.key as KeyItem[])
+      if (saveMode === 'result' && !(data.key as KeyItem[]).some(k => k.written)) void saveResult(data.key as KeyItem[], {})
       if (data.saved) {
         setSave({ state: 'saved' })
         writeStored(paperId, null)
@@ -145,8 +172,26 @@ export default function PaperRunner({
     }
   }
 
+  /** A catalogue paper's result: which questions were wrong, as the printed paper's marking screen sends it. */
+  async function saveResult(k: KeyItem[], marks: Record<string, number>) {
+    if (!marksUrl) return
+    setSave({ state: 'saving' })
+    const wrong = k.filter(x => (x.written ? (marks[x.id] ?? 0) < x.marks : !x.correct)).map(x => ({ s: x.s, n: x.n }))
+    try {
+      const res = await fetch(marksUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ wrong }) })
+      if (res.status === 401) return setSave({ state: 'signin' })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) throw new Error(data.error ?? `Something went wrong (${res.status}).`)
+      setSave({ state: 'saved' })
+      writeStored(paperId, null)
+    } catch (e) {
+      setSave({ state: 'error', message: e instanceof Error ? e.message : 'The result could not be saved.' })
+    }
+  }
+
   async function saveMarks() {
     if (!marksUrl || !key) return
+    if (saveMode === 'result') return saveResult(key, given)
     setSave({ state: 'saving' })
     try {
       const res = await fetch(marksUrl, {
@@ -175,13 +220,21 @@ export default function PaperRunner({
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">{paper.title}</h1>
         <div className="text-gray-600 text-lg leading-relaxed space-y-3 mb-8">
           <p>
-            {total} questions in {paper.sections.length} {paper.sections.length === 1 ? 'part' : 'parts'}, about {paper.minutes} minutes. Every question
-            practices an area still to work on.
+            {total} questions in {paper.sections.length} {paper.sections.length === 1 ? 'part' : 'parts'}, about {paper.minutes} minutes. {blurb}
           </p>
           <p>
-            Use <strong>Working out</strong> at the top to draw and do sums beside any question. Nothing is marked until you hand the paper in —
+            Use <strong>Working out</strong> at the top to draw or type notes beside any question. Nothing is marked until you hand the paper in —
             then every answer is explained.
           </p>
+          {!signedIn && signInHref && (
+            <p className="text-base rounded-2xl bg-sun-50 border-2 border-sun-200 px-4 py-3">
+              You can sit it without an account, but the result won’t be kept.{' '}
+              <Link href={signInHref as Route} className="font-bold underline">
+                Sign in first
+              </Link>{' '}
+              to save it to your dashboard.
+            </p>
+          )}
         </div>
         <button type="button" className="btn-primary inline-flex items-center justify-center gap-2 text-lg px-10 py-3.5 w-full sm:w-auto" onClick={() => goTo(started ? index : 0)}>
           {started ? 'Carry on' : 'Start'}
@@ -190,7 +243,7 @@ export default function PaperRunner({
         <p className="text-sm text-gray-400 mt-6">
           Progress saves on this device as {who} goes.{' '}
           <Link href={backHref as Route} className="underline">
-            Back to the report
+            {backLabel}
           </Link>
         </p>
       </Shell>
@@ -273,7 +326,7 @@ export default function PaperRunner({
             <p className="text-gray-600 mt-1">
               {writtenKeys.length ? (
                 <>
-                  {autoRight} of {auto.length} marked automatically. Give the marks for the written {writtenKeys.length === 1 ? 'question' : 'questions'} below,
+                  {auto.length ? `${autoRight} of ${auto.length} right in the multiple choice. ` : ''}Give the marks for the written {writtenKeys.length === 1 ? 'question' : 'questions'} below,
                   using the marking guide, then save.
                 </>
               ) : (
@@ -330,15 +383,28 @@ export default function PaperRunner({
         <div className="flex flex-wrap items-center gap-3">
           {writtenKeys.length > 0 && marksUrl && save.state !== 'saved' && (
             <button type="button" className="btn-primary" onClick={saveMarks} disabled={save.state === 'saving'}>
-              {save.state === 'saving' ? 'Saving…' : 'Save the marks'}
+              {save.state === 'saving' ? 'Saving…' : saveMode === 'result' ? 'Save the result' : 'Save the marks'}
             </button>
           )}
           <Link href={backHref as Route} className={save.state === 'saved' || !writtenKeys.length ? 'btn-primary' : 'btn-secondary'}>
-            Back to the report
+            {backLabel}
           </Link>
           {save.state === 'saved' && (
             <p className="text-sm text-teal-600" role="status">
-              Saved with the report.
+              {saveMode === 'result' ? 'Saved to your progress — it counts towards your topic scores.' : 'Saved with the report.'}
+            </p>
+          )}
+          {save.state === 'signin' && (
+            <p className="text-sm text-gray-600" role="status">
+              The marking above is complete.{' '}
+              {signInHref ? (
+                <Link href={signInHref as Route} className="underline font-bold">
+                  Sign in
+                </Link>
+              ) : (
+                'Sign in'
+              )}{' '}
+              before your next paper to keep results on your dashboard.
             </p>
           )}
           {save.state === 'error' && (
@@ -403,6 +469,10 @@ export default function PaperRunner({
           <div className="flex-1 h-4 rounded-full bg-gray-100 overflow-hidden" role="progressbar" aria-valuenow={index + 1} aria-valuemin={1} aria-valuemax={total}>
             <div className="h-full rounded-full bg-teal-400 transition-all duration-300" style={{ width: `${progress}%` }} />
           </div>
+          <span className={`hidden sm:inline-flex items-center gap-1 text-sm font-bold tabular-nums ${secondsLeft === 0 ? 'text-amber-600' : 'text-gray-500'}`} aria-live="off" title="Time left">
+            <Timer className="w-4 h-4" aria-hidden />
+            {secondsLeft === 0 ? 'Time’s up' : `${Math.floor(secondsLeft / 60)}:${String(secondsLeft % 60).padStart(2, '0')}`}
+          </span>
           <WorkingPadButton open={padOpen} onToggle={() => setPadOpen(o => !o)} />
           <button type="button" className="text-sm font-bold text-gray-500 hover:text-brand-600 inline-flex items-center gap-1" onClick={() => goTo(total)}>
             <ListChecks className="w-4 h-4" aria-hidden />
