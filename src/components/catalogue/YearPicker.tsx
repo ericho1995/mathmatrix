@@ -50,10 +50,10 @@ export default function YearPicker({
               {years.map(y => {
                 const item = byYear.get(y)!
                 const active = selected === y
-                const cls = `block text-left rounded-xl border px-3.5 py-2.5 min-w-[7.5rem] transition-colors ${
+                const cls = `block text-left rounded-2xl border-2 border-b-4 px-3.5 py-2.5 min-w-[7.5rem] transition-colors ${
                   active
-                    ? 'border-brand-600 bg-brand-50 ring-1 ring-brand-600'
-                    : 'border-gray-200 bg-white hover:border-brand-200 hover:bg-brand-50/50'
+                    ? 'border-brand-500 bg-brand-50'
+                    : 'border-line bg-white hover:border-brand-200 hover:bg-brand-50/50'
                 }`
                 const body = (
                   <>

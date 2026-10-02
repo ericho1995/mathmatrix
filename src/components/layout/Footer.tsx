@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Route } from 'next'
 import { CATALOGUE_TOTALS } from '@/lib/catalogue'
 import { SUPPORT_EMAIL } from '@/lib/site'
-import Logo from '@/components/ui/Logo'
+import Bird from '@/components/brand/Bird'
 
 const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
   {
@@ -41,16 +41,17 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-100 mt-20">
+    <footer className="mt-20 bg-brand-700 text-white">
       <div className="max-w-5xl mx-auto px-4 py-12 grid grid-cols-2 sm:grid-cols-5 gap-8">
         <div className="col-span-2 sm:col-span-1">
-          <Logo size="sm" />
-          <p className="text-xs text-gray-400 mt-2 leading-relaxed">
-            Printable practice exams for {CATALOGUE_TOTALS.lowest} to {CATALOGUE_TOTALS.highest}, aligned to the
-            Australian Curriculum v9.0 and the VCE study designs.
+          <Bird pose="read" className="w-20 h-20 -ml-2 mb-1" />
+          <p className="text-xl font-bold tracking-tight">PrepNest</p>
+          <p className="text-sm text-brand-100 mt-2 leading-relaxed">
+            Find where your child needs help, then practice exactly that. {CATALOGUE_TOTALS.lowest} to{' '}
+            {CATALOGUE_TOTALS.highest}, aligned to the Australian Curriculum and the VCE study designs.
           </p>
           {SUPPORT_EMAIL && (
-            <a href={`mailto:${SUPPORT_EMAIL}`} className="text-xs text-gray-500 hover:text-gray-700 mt-3 block">
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="text-sm text-white underline underline-offset-2 mt-3 block">
               {SUPPORT_EMAIL}
             </a>
           )}
@@ -58,11 +59,11 @@ export default function Footer() {
 
         {COLUMNS.map(col => (
           <nav key={col.title} aria-label={col.title}>
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">{col.title}</p>
+            <p className="text-sm font-bold text-white mb-3">{col.title}</p>
             <ul className="flex flex-col gap-2">
               {col.links.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href as Route} className="text-sm text-gray-500 hover:text-gray-900">
+                  <Link href={l.href as Route} className="text-sm text-brand-50 hover:text-white hover:underline underline-offset-2">
                     {l.label}
                   </Link>
                 </li>
@@ -71,10 +72,10 @@ export default function Footer() {
           </nav>
         ))}
       </div>
-      <div className="border-t border-gray-100">
+      <div className="border-t border-white/20">
         <div className="max-w-5xl mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-gray-400">© {new Date().getFullYear()} PrepNest</p>
-          <p className="text-xs text-gray-400 text-center sm:text-right">
+          <p className="text-xs text-brand-100">© {new Date().getFullYear()} PrepNest</p>
+          <p className="text-xs text-brand-100 text-center sm:text-right">
             Independent practice material. Not affiliated with ACARA or the VCAA.
           </p>
         </div>

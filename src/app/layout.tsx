@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 import './globals.css'
 import Navbar, { type NavUser } from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -9,7 +9,8 @@ import { CATALOGUE_TOTALS } from '@/lib/catalogue'
 import { SITE_URL } from '@/lib/site'
 import { Analytics } from '@vercel/analytics/next'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
+// Rounded and friendly, after Duolingo's type; see tailwind.config.ts for the weights.
+const nunito = Nunito({ subsets: ['latin'], weight: ['500', '600', '700', '800', '900'], variable: '--font-sans' })
 
 // Built from the catalogue so the search snippet can't drift from the site —
 // it said "Grade 5 to Year 12" while the catalogue started at Grade 3.
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#185FA5',
+  themeColor: '#1D74CC',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -75,7 +76,7 @@ export default async function RootLayout({
   const navUser = await getNavUser()
 
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={nunito.variable}>
       <body className="flex flex-col min-h-screen">
         <Navbar user={navUser} />
         <div className="flex-1 flex flex-col">{children}</div>

@@ -4,6 +4,20 @@ import { QUESTION_BANK } from '@/lib/questions/bank'
 import InviteCodeCard from '@/components/parent/InviteCodeCard'
 import DataLoadError from '@/components/DataLoadError'
 import DiagnosticsList from '@/components/diagnostic/DiagnosticsList'
+import Bird from '@/components/brand/Bird'
+
+/** The dashboard's greeting: the bird, and what this page is for. */
+function Greeting({ sub }: { sub: string }) {
+  return (
+    <div className="flex items-center gap-4 mb-8">
+      <Bird pose="nest" className="w-20 h-20 shrink-0" />
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight text-ink">Parent dashboard</h1>
+        <p className="text-gray-600">{sub}</p>
+      </div>
+    </div>
+  )
+}
 import { queryFailed } from '@/lib/supabase/logError'
 
 const TOPIC_BY_QUESTION_ID = new Map(QUESTION_BANK.map(q => [q.id, q.topic]))
@@ -47,7 +61,7 @@ export default async function ParentDashboardPage() {
   if (!linkedStudents || linkedStudents.length === 0) {
     return (
       <main className="max-w-2xl mx-auto px-4 py-10 flex-1 w-full">
-        <h1 className="text-2xl font-medium tracking-tight mb-8">Parent dashboard</h1>
+        <Greeting sub="Every test your child sits, what it found, and where to go next." />
         {/* A parent's own diagnostics need no linked child: the test is sat on the parent's account. */}
         <DiagnosticsList />
         <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Practice progress</h2>
@@ -132,7 +146,7 @@ export default async function ParentDashboardPage() {
 
   return (
     <main className="max-w-2xl mx-auto px-4 py-10 flex-1 w-full">
-      <h1 className="text-2xl font-medium tracking-tight mb-8">Parent dashboard</h1>
+      <Greeting sub="Every test, every practice session, and how each area is moving." />
 
       <DiagnosticsList />
 
@@ -144,14 +158,14 @@ export default async function ParentDashboardPage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             {[
-              { val: student.xpTotal, lbl: 'Total XP' },
-              { val: student.weeklyXp, lbl: 'XP this week' },
-              { val: student.sessionsCount, lbl: 'Sessions completed' },
-              { val: student.streakDays, lbl: 'Day streak' },
+              { val: student.xpTotal, lbl: 'Total XP', cls: 'text-sun-600' },
+              { val: student.weeklyXp, lbl: 'XP this week', cls: 'text-brand-600' },
+              { val: student.sessionsCount, lbl: 'Sessions completed', cls: 'text-grape-600' },
+              { val: student.streakDays, lbl: 'Day streak', cls: 'text-amber-600' },
             ].map(s => (
-              <div key={s.lbl} className="bg-gray-50 rounded-xl p-4">
-                <p className="text-xl font-medium">{s.val}</p>
-                <p className="text-xs text-gray-500 mt-0.5">{s.lbl}</p>
+              <div key={s.lbl} className="card p-4">
+                <p className={`text-2xl font-bold ${s.cls}`}>{s.val}</p>
+                <p className="text-sm text-gray-500 mt-0.5">{s.lbl}</p>
               </div>
             ))}
           </div>
@@ -164,10 +178,10 @@ export default async function ParentDashboardPage() {
               student.topicAccuracy.map(t => (
                 <div key={t.topic} className="flex items-center gap-3 mb-3 last:mb-0">
                   <span className="text-sm min-w-[200px]">{t.label}</span>
-                  <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="flex-1 h-3 bg-gray-100 rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all"
-                      style={{ width: `${t.pct}%`, background: t.pct < 60 ? '#BA7517' : '#1D9E75' }}
+                      style={{ width: `${t.pct}%`, background: t.pct < 50 ? '#FF9600' : t.pct < 75 ? '#2F8FEA' : '#58CC02' }}
                     />
                   </div>
                   <span className="text-sm font-medium text-gray-500 min-w-[36px] text-right">{t.pct}%</span>

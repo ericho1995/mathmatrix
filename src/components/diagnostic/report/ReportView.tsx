@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Route } from 'next'
 import { CalendarClock, CheckSquare, FileText, RefreshCw } from 'lucide-react'
 import HeadlineResults from '../HeadlineResults'
+import Bird from '@/components/brand/Bird'
 import AreaCard from './AreaCard'
 import TailoredExamCard from './TailoredExamCard'
 import QuestionReview from './QuestionReview'
@@ -98,7 +99,10 @@ export default function ReportView(p: ReportViewProps) {
       </section>
 
       <section className="card p-6 sm:p-8">
-        <h2 className="text-lg font-semibold tracking-tight mb-4">What to do next</h2>
+        <div className="flex items-center gap-3 mb-4">
+          <Bird pose="read" className="w-16 h-16 shrink-0" />
+          <h2 className="text-xl font-bold tracking-tight">What to do next</h2>
+        </div>
         <ol className="space-y-4">
           <Next icon={FileText} title="Sit the practice exam">
             Print it and have {name ?? 'your child'} sit it in one go, timed if you like. Most of it is on the areas to work on.

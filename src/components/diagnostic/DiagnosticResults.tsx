@@ -8,6 +8,8 @@ import { CheckCircle2, Lock } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { clearResult, loadResult, saveResultLocal, type StoredResult } from '@/lib/diagnostic/storage'
 import HeadlineResults from './HeadlineResults'
+import Bird from '@/components/brand/Bird'
+import { Sparkle, Star } from '@/components/brand/Decor'
 
 type State = 'loading' | 'none' | 'signed-out' | 'saving' | 'error'
 
@@ -79,7 +81,25 @@ export default function DiagnosticResults() {
 
   const who = result.headline.name ?? 'your child'
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12 flex-1 w-full">
+    <main className="flex-1 w-full">
+      <section className="relative overflow-hidden bg-teal-400">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <Star className="absolute top-6 left-[10%] w-10 h-10 animate-float motion-reduce:animate-none" />
+          <Sparkle className="absolute top-16 right-[18%] w-8 h-8" fill="#FFFFFF" />
+          <Star className="absolute bottom-10 right-[8%] w-8 h-8" />
+          <Sparkle className="absolute bottom-8 left-[30%] w-6 h-6" />
+        </div>
+        <div className="relative max-w-3xl mx-auto px-4 py-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left">
+          <span className="inline-flex w-32 h-32 rounded-full bg-white items-center justify-center shrink-0">
+            <Bird pose="cheer" className="w-28 h-28 animate-float motion-reduce:animate-none" />
+          </span>
+          <div>
+            <p className="text-3xl sm:text-4xl font-bold tracking-tight text-ink">{result.headline.name ? `Well done, ${result.headline.name}!` : 'Test complete!'}</p>
+            <p className="text-lg font-semibold text-ink">Here&apos;s what the test found.</p>
+          </div>
+        </div>
+      </section>
+      <div className="max-w-3xl mx-auto px-4 py-10">
       <HeadlineResults headline={result.headline} />
 
       {state === 'saving' && (
@@ -132,6 +152,7 @@ export default function DiagnosticResults() {
           </p>
         </div>
       )}
+      </div>
     </main>
   )
 }

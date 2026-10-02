@@ -85,9 +85,9 @@ export default function DiagnosticSetup({ tests, initialYear }: { tests: SetupTe
   }
 
   return (
-    <div className="card p-6 sm:p-8">
+    <div className="card p-6 sm:p-8 rounded-3xl border-brand-200">
       {resume && (
-        <div className="mb-8 rounded-xl border border-brand-100 bg-brand-50 p-4 flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="mb-8 rounded-2xl border-2 border-brand-200 bg-brand-50 p-4 flex flex-col sm:flex-row sm:items-center gap-3">
           <RotateCcw className="w-5 h-5 text-brand-600 shrink-0" aria-hidden />
           <p className="text-sm text-brand-900 flex-1">
             {resume.name ? `${resume.name}’s` : 'A'} {yearLabel(resume.year)} {SUBJECT.get(resume.subject)?.label} test is
@@ -129,8 +129,8 @@ export default function DiagnosticSetup({ tests, initialYear }: { tests: SetupTe
                   type="button"
                   onClick={() => setSubject(t.subject)}
                   aria-pressed={active}
-                  className={`flex items-start gap-3 text-left rounded-xl border px-4 py-3 transition-colors ${
-                    active ? 'border-brand-600 bg-brand-50 ring-1 ring-brand-600' : 'border-gray-200 bg-white hover:border-brand-200 hover:bg-brand-50/50'
+                  className={`flex items-start gap-3 text-left rounded-2xl border-2 border-b-4 px-4 py-3 transition-colors ${
+                    active ? 'border-brand-500 bg-brand-50' : 'border-line bg-white hover:border-brand-200 hover:bg-brand-50/50'
                   }`}
                 >
                   <SubjectIcon subject={t.subject} />
@@ -178,7 +178,7 @@ export default function DiagnosticSetup({ tests, initialYear }: { tests: SetupTe
               saved as they go.
             </li>
           </ul>
-          <button type="button" className="btn-primary inline-flex items-center gap-2" onClick={start} disabled={busy}>
+          <button type="button" className="btn-primary inline-flex items-center justify-center gap-2 text-lg px-10 py-3.5 w-full sm:w-auto" onClick={start} disabled={busy}>
             {busy ? 'Starting…' : 'Start the test'}
             <ArrowRight className="w-4 h-4" aria-hidden />
           </button>
@@ -196,8 +196,8 @@ export default function DiagnosticSetup({ tests, initialYear }: { tests: SetupTe
 function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
   return (
     <section className="mb-7 last:mb-0">
-      <h2 className="flex items-center gap-2 text-sm font-medium text-gray-900 mb-3">
-        <span className="inline-flex w-6 h-6 rounded-full bg-brand-600 text-white text-xs items-center justify-center">{n}</span>
+      <h2 className="flex items-center gap-2 text-base font-bold text-ink mb-3">
+        <span className="inline-flex w-7 h-7 rounded-lg bg-brand-500 text-white text-sm font-bold items-center justify-center">{n}</span>
         {title}
       </h2>
       {children}

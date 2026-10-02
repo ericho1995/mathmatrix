@@ -75,7 +75,7 @@ export default function StudentDashboardTabs({
               <p className="text-xs text-gray-400 mt-0.5">Total XP</p>
             </div>
             <div className="card text-center py-4">
-              <p className="text-2xl font-medium text-amber-400">{streakDays}</p>
+              <p className="text-2xl font-medium text-amber-600">{streakDays}</p>
               <p className="text-xs text-gray-400 mt-0.5">Day streak</p>
             </div>
           </div>

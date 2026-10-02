@@ -51,7 +51,7 @@ function Item({ item, n }: { item: GradedItem; n: number }) {
         {item.correct ? (
           <span className="inline-flex items-center gap-1 text-teal-600"><Check className="w-3.5 h-3.5" aria-hidden />Correct</span>
         ) : answered ? (
-          <span className="inline-flex items-center gap-1 text-amber-400"><X className="w-3.5 h-3.5" aria-hidden />Not correct</span>
+          <span className="inline-flex items-center gap-1 text-amber-600"><X className="w-3.5 h-3.5" aria-hidden />Not correct</span>
         ) : (
           <span className="inline-flex items-center gap-1 text-gray-500"><HelpCircle className="w-3.5 h-3.5" aria-hidden />Not sure</span>
         )}
@@ -59,7 +59,7 @@ function Item({ item, n }: { item: GradedItem; n: number }) {
         {item.followUp && <span className="text-gray-400">· follow-up</span>}
         {item.guessed && <span className="text-gray-400">· marked as a guess</span>}
         {item.ms !== null && (
-          <span className={`inline-flex items-center gap-1 ${item.rapid ? 'text-amber-400' : 'text-gray-400'}`}>
+          <span className={`inline-flex items-center gap-1 ${item.rapid ? 'text-amber-600' : 'text-gray-400'}`}>
             · <Clock className="w-3 h-3" aria-hidden />
             {Math.max(1, Math.round(item.ms / 1000))} s{item.rapid ? ' (too quick to count)' : ''}
           </span>
@@ -84,7 +84,7 @@ function Item({ item, n }: { item: GradedItem; n: number }) {
                 <span className="font-semibold w-4 shrink-0">{LETTERS[i]}</span>
                 <span className="flex-1" dangerouslySetInnerHTML={{ __html: o ? richHtml(o) : `Picture ${LETTERS[i]}` }} />
                 {isRight && <span className="text-xs text-teal-600 whitespace-nowrap">right answer</span>}
-                {isGiven && !isRight && <span className="text-xs text-amber-400 whitespace-nowrap">answer given</span>}
+                {isGiven && !isRight && <span className="text-xs text-amber-600 whitespace-nowrap">answer given</span>}
               </li>
             )
           })}

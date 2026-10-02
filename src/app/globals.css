@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-sans: 'Nunito', system-ui, sans-serif;
   }
 
   html {
@@ -12,29 +12,51 @@
   }
 
   body {
-    @apply bg-white text-gray-900 antialiased;
+    @apply bg-white text-ink antialiased;
   }
 }
 
 @layer components {
+  /* Chunky, pressable buttons: a solid darker lip along the bottom that
+     collapses when pressed, as Duolingo's do. */
   .btn-primary {
-    @apply bg-brand-600 text-white font-medium px-5 py-2.5 rounded-xl
-           hover:bg-brand-400 active:scale-95 transition-all duration-150
-           disabled:opacity-40 disabled:cursor-not-allowed;
+    @apply bg-brand-600 text-white font-bold px-5 py-2.5 rounded-2xl
+           border-b-4 border-brand-700 hover:bg-brand-500
+           active:border-b-0 active:translate-y-[4px] active:mb-[4px]
+           transition-colors duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:translate-y-0;
   }
 
   .btn-secondary {
-    @apply border border-gray-200 text-gray-700 font-medium px-5 py-2.5 rounded-xl
-           hover:bg-gray-50 active:scale-95 transition-all duration-150;
+    @apply bg-white text-brand-600 font-bold px-5 py-2 rounded-2xl
+           border-2 border-line border-b-4 hover:bg-brand-50
+           active:border-b-2 active:translate-y-[2px] active:mb-[2px]
+           transition-colors duration-150;
   }
 
+  /* Buttons for coloured bands: white with blue text, and a white outline. */
+  .btn-white {
+    @apply bg-white text-brand-700 font-bold px-5 py-2.5 rounded-2xl
+           border-b-4 border-brand-200 hover:bg-brand-50
+           active:border-b-0 active:translate-y-[4px] active:mb-[4px]
+           transition-colors duration-150;
+  }
+
+  .btn-outline-white {
+    @apply bg-transparent text-white font-bold px-5 py-2 rounded-2xl
+           border-2 border-white/70 border-b-4 hover:bg-white/10
+           active:border-b-2 active:translate-y-[2px] active:mb-[2px]
+           transition-colors duration-150;
+  }
+
+  /* Cards sit on the page with the same lip as the buttons. */
   .card {
-    @apply bg-white border border-gray-100 rounded-2xl p-5 shadow-sm;
+    @apply bg-white border-2 border-line border-b-4 rounded-2xl p-5;
   }
 
   .input {
-    @apply w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm
-           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent
+    @apply w-full bg-gray-50 border-2 border-line rounded-2xl px-4 py-2.5 text-sm text-ink
+           focus:outline-none focus:border-brand-500 focus:bg-white
            transition-all duration-150;
   }
 }

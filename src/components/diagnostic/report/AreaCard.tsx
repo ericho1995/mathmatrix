@@ -22,8 +22,8 @@ const STATE_STYLE: Record<SkillState, { icon: typeof Check; cls: string }> = {
   secure: { icon: Check, cls: 'text-teal-600' },
   one_right: { icon: Check, cls: 'text-teal-600/70' },
   mixed: { icon: Minus, cls: 'text-brand-600' },
-  one_miss: { icon: Minus, cls: 'text-amber-400' },
-  gap: { icon: X, cls: 'text-amber-400' },
+  one_miss: { icon: Minus, cls: 'text-amber-600' },
+  gap: { icon: X, cls: 'text-amber-600' },
 }
 
 const CONFIDENCE_NOTE = {

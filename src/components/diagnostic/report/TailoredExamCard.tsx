@@ -19,7 +19,7 @@ export default function TailoredExamCard({ resultId, exam, access, name }: { res
   const full = access.mode === 'full'
   const base = `/api/diagnostic/${resultId}/exam`
   return (
-    <section className="card p-6 sm:p-8 border-brand-100 bg-gradient-to-b from-brand-50/60 to-white">
+    <section className="card p-6 sm:p-8 border-brand-200 bg-brand-50/60">
       <div className="flex items-start gap-3 mb-4">
         <FileText className="w-6 h-6 text-brand-600 shrink-0 mt-0.5" aria-hidden />
         <div>
