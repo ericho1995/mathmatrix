@@ -227,8 +227,8 @@ export default function MarketingHome() {
             <p className="text-sm font-bold text-brand-600 mb-3">Look inside</p>
             <h2 className="text-4xl font-bold tracking-tight text-brand-700 mb-3">See exactly what you&apos;re getting</h2>
             <p className="text-gray-500 leading-relaxed">
-              Real pages from the free sample papers. Open any page full size, then download the whole paper — no
-              account needed.
+              Try a few real questions from each free paper, marked on the spot, or see the printed page. Then download
+              the whole paper free — no account needed.
             </p>
           </div>
           <LookInside items={['readingCover', 'numeracy', 'answerKey', 'vcePaper']} />
