@@ -5,6 +5,9 @@ import InviteCodeCard from '@/components/parent/InviteCodeCard'
 import DataLoadError from '@/components/DataLoadError'
 import DiagnosticsList from '@/components/diagnostic/DiagnosticsList'
 import Bird from '@/components/brand/Bird'
+import Link from 'next/link'
+import type { Route } from 'next'
+import PracticeProgress from '@/components/parent/PracticeProgress'
 
 /** The dashboard's greeting: the bird, and what this page is for. */
 function Greeting({ sub }: { sub: string }) {
@@ -14,6 +17,9 @@ function Greeting({ sub }: { sub: string }) {
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-ink">Parent dashboard</h1>
         <p className="text-gray-600">{sub}</p>
+        <Link href={'/for-parents' as Route} className="text-sm font-bold text-brand-600 hover:underline">
+          What everything here means, and more ways to help
+        </Link>
       </div>
     </div>
   )
@@ -156,39 +162,7 @@ export default async function ParentDashboardPage() {
             Viewing: <strong className="text-gray-900">{student.fullName}</strong> · {student.yearLevel}
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-            {[
-              { val: student.xpTotal, lbl: 'Total XP', cls: 'text-sun-600' },
-              { val: student.weeklyXp, lbl: 'XP this week', cls: 'text-brand-600' },
-              { val: student.sessionsCount, lbl: 'Sessions completed', cls: 'text-grape-600' },
-              { val: student.streakDays, lbl: 'Day streak', cls: 'text-amber-600' },
-            ].map(s => (
-              <div key={s.lbl} className="card p-4">
-                <p className={`text-2xl font-bold ${s.cls}`}>{s.val}</p>
-                <p className="text-sm text-gray-500 mt-0.5">{s.lbl}</p>
-              </div>
-            ))}
-          </div>
-
-          <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Topic performance</h2>
-          <div className="card">
-            {student.topicAccuracy.length === 0 ? (
-              <p className="text-sm text-gray-400">No practice sessions yet.</p>
-            ) : (
-              student.topicAccuracy.map(t => (
-                <div key={t.topic} className="flex items-center gap-3 mb-3 last:mb-0">
-                  <span className="text-sm min-w-[200px]">{t.label}</span>
-                  <div className="flex-1 h-3 bg-gray-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all"
-                      style={{ width: `${t.pct}%`, background: t.pct < 50 ? '#FF9600' : t.pct < 75 ? '#2F8FEA' : '#58CC02' }}
-                    />
-                  </div>
-                  <span className="text-sm font-medium text-gray-500 min-w-[36px] text-right">{t.pct}%</span>
-                </div>
-              ))
-            )}
-          </div>
+          <PracticeProgress student={student} />
         </div>
       ))}
     </main>
