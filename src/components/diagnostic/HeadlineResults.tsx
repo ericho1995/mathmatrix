@@ -63,8 +63,8 @@ function ScoreRing({ correct, total }: { correct: number; total: number }) {
   return (
     <div className="relative w-20 h-20 shrink-0" role="img" aria-label={`${correct} of ${total} correct`}>
       <svg viewBox="0 0 72 72" className="w-20 h-20 -rotate-90">
-        <circle cx="36" cy="36" r={r} fill="none" stroke="#E6F1FB" strokeWidth="8" />
-        <circle cx="36" cy="36" r={r} fill="none" stroke="#185FA5" strokeWidth="8" strokeLinecap="round" strokeDasharray={`${c * share} ${c}`} />
+        <circle cx="36" cy="36" r={r} fill="none" stroke="#EEF6FE" strokeWidth="9" />
+        <circle cx="36" cy="36" r={r} fill="none" stroke="#2F8FEA" strokeWidth="9" strokeLinecap="round" strokeDasharray={`${c * share} ${c}`} />
       </svg>
       <span className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-lg font-semibold leading-none">{correct}</span>

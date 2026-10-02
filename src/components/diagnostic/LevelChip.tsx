@@ -25,4 +25,4 @@ export default function LevelChip({ level, confidence }: { level: Level; confide
   )
 }
 
-export const LEVEL_COLOUR: Record<Level, string> = { strength: '#1D9E75', developing: '#2875C1', focus: '#BA7517' }
+export const LEVEL_COLOUR: Record<Level, string> = { strength: '#58CC02', developing: '#2F8FEA', focus: '#FF9600' }
