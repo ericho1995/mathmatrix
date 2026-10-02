@@ -52,6 +52,12 @@ export interface WrittenQuestion {
 
 export type Tone = 'brand' | 'teal' | 'amber' | 'grape'
 
+/** One booklet of a free paper, as it downloads. */
+export interface PaperDoc {
+  label: string
+  url: string
+}
+
 export interface SamplePreview {
   key: SampleKey
   title: string
@@ -69,6 +75,32 @@ export interface SamplePreview {
   written?: WrittenQuestion
   /** Reading: the text the questions are about. */
   text?: ReadingText
+  /** Every booklet of the free paper, to flip through page by page. */
+  docs: PaperDoc[]
+  /** Which booklet the sample's picture comes from, opened first. */
+  doc: number
+}
+
+/** The paper's booklets: the magazine first for a Reading paper, then the questions, then the answers. */
+function docsOf(paperId: string): PaperDoc[] {
+  const exam = PRACTICE_EXAMS.find(e => e.id === paperId)
+  return [
+    ...(exam?.magazine_id ? [{ label: 'Reading magazine', url: `/api/exams/${paperId}/magazine` }] : []),
+    { label: 'Question paper', url: `/api/exams/${paperId}/pdf` },
+    { label: 'Answer key', url: `/api/exams/${paperId}/answers` },
+  ]
+}
+
+/** Opens on the booklet the tile's picture shows. */
+const OPENS_ON: Record<SampleKey, string> = {
+  readingCover: 'Reading magazine',
+  readingPage: 'Reading magazine',
+  readingQuestions: 'Question paper',
+  numeracy: 'Question paper',
+  answerKey: 'Answer key',
+  conventions: 'Question paper',
+  vcePaper: 'Question paper',
+  vceKey: 'Answer key',
 }
 
 const TONE: Record<SampleKey, Tone> = {
@@ -153,6 +185,7 @@ export function samplePreview(key: SampleKey): SamplePreview {
   let written: WrittenQuestion | undefined
 
   const all = questionsOf(s.paperId).filter(isScreenable)
+  const docs = docsOf(s.paperId)
   switch (key) {
     case 'readingCover':
     case 'readingQuestions':
@@ -191,6 +224,8 @@ export function samplePreview(key: SampleKey): SamplePreview {
     paperQuestions: paperQuestionIds(s.paperId).length,
     tone: TONE[key],
     questions: picks.map((q, i) => toTry(q, i + 1)),
+    docs,
+    doc: Math.max(0, docs.findIndex(d => d.label === OPENS_ON[key])),
     ...(written ? { written } : {}),
     ...(text ? { text } : {}),
   }
