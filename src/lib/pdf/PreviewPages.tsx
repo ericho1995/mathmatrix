@@ -47,7 +47,7 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
  * rather than in adjectives.
  */
 export function PreviewEndPage({ info, examTitle, kind }: { info: PreviewInfo; examTitle: string; kind: 'paper' | 'answers' }) {
-  const url = `${SITE}/practice/exams/${info.examId}`
+  const url = info.url ?? `${SITE}/practice/exams/${info.examId}`
   return (
     <Page size="A4" style={pdfStyles.page}>
       <Watermark />

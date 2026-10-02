@@ -10,6 +10,7 @@ const nextConfig = {
     outputFileTracingIncludes: {
       '/api/exams/[id]/pdf': ['./node_modules/pdfkit/js/standard-fonts/**/*'],
       '/api/exams/[id]/answers': ['./node_modules/pdfkit/js/standard-fonts/**/*'],
+      '/api/diagnostic/[id]/exam': ['./node_modules/pdfkit/js/standard-fonts/**/*'],
     },
   },
   images: {

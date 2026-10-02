@@ -16,29 +16,10 @@ import { FormulaSheetPages } from './FormulaSheet'
 import { FORMULA_SHEETS } from './formulaSheets'
 import { hasMath } from '@/lib/text/mathPlain'
 import { questionMarks } from '@/types'
+import { TextPage } from './ReadingMagazineDocument'
+import { answerUnit } from '@/lib/questions/answerUnit'
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
-
-/**
- * Render-time-only, best-effort extraction of a unit/currency symbol to print
- * alongside a short_answer question's blank line (e.g. `$______` or
- * `______ m`), matching real NAPLAN's unit-aware blanks. Never invents a unit
- * that isn't actually present in `expectedAnswer` — an unrecognized shape
- * falls back to a plain blank (the pre-existing behavior). Purely a display
- * helper: `expected_answer` itself and grading (`matchShortAnswer`) are
- * untouched.
- */
-function extractAnswerUnit(expectedAnswer: string): { prefix?: string; suffix?: string } {
-  const trimmed = expectedAnswer.trim()
-  const currencyMatch = trimmed.match(/^([$€£])\s?[\d,.]/)
-  if (currencyMatch) return { prefix: currencyMatch[1] }
-  // A number followed by a unit: words ("beads", "degrees"), metric units with
-  // powers ("cm²", "m³"), compound units ("km/h", "L/100 km"), or a bare symbol
-  // ("°", "%"). Real papers print these on the answer line.
-  const unitMatch = trimmed.match(/^[−-]?[\d,.]+\s*((?:[a-zA-Z]{1,15}(?:[²³]|\/[a-zA-Z0-9 ]{1,8})?)|°C?|%)$/)
-  if (unitMatch) return { suffix: unitMatch[1] }
-  return {}
-}
 
 /** How many ruled lines of working a part earns. VCAA scales the writing space
  * to the marks, so a 1-mark "state the value" gets a line and a 4-mark
@@ -178,7 +159,7 @@ function QuestionBlock({ question, number }: { question: ResolvedQuestion; numbe
         </>
       ) : question.format === 'short_answer' ? (
         (() => {
-          const { prefix, suffix } = extractAnswerUnit(question.expected_answer)
+          const { prefix, suffix } = answerUnit(question.expected_answer)
           // Box width tracks how much the student actually needs to write —
           // a one-digit answer and "$793.50" shouldn't get the same box —
           // generously sized so it reads as a real writing space, not a slot.
@@ -243,6 +224,13 @@ function readingInstruction(exam: PracticeExam, s: ResolvedExam['sections'][numb
       </Text>
     )
   }
+  if (text) {
+    return (
+      <Text style={pdfStyles.readingInstruction}>
+        Read <Text style={pdfStyles.readingInstructionTitle}>{text.title}</Text> on the page before and answer {range}.
+      </Text>
+    )
+  }
   const passage = s.questions[0].stimulus
   if (passage) {
     return (
@@ -254,7 +242,20 @@ function readingInstruction(exam: PracticeExam, s: ResolvedExam['sections'][numb
   return <Text style={pdfStyles.readingInstruction}>Read each short text and answer {range}.</Text>
 }
 
-export function ExamPaperDocument({ resolved, preview }: { resolved: ResolvedExam; preview?: PreviewInfo }) {
+/**
+ * A magazine text a paper prints itself, rather than pointing to a magazine:
+ * a tailored Reading paper draws its texts from several magazines.
+ */
+function inlineText(exam: PracticeExam, s: ResolvedExam['sections'][number]) {
+  if (exam.subject !== 'reading' || exam.magazine_id || !s.questions[0]?.stimulus_id) return undefined
+  return READING_TEXTS.get(s.questions[0].stimulus_id)
+}
+
+/**
+ * `coverNote` prints in a panel under the title: a tailored exam says who it
+ * was built for and what it concentrates on.
+ */
+export function ExamPaperDocument({ resolved, preview, coverNote }: { resolved: ResolvedExam; preview?: PreviewInfo; coverNote?: string[] }) {
   const { exam, sections } = resolved
   const sectionStart = firstQuestionNumbers(sections)
   const totalMinutes = paperMinutes({ total_minutes: exam.total_minutes, sections: sections.map(s => s.section) })
@@ -274,6 +275,14 @@ export function ExamPaperDocument({ resolved, preview }: { resolved: ResolvedExa
           <Text style={pdfStyles.coverEyebrow}>{usesMagazine ? 'Question paper' : 'Exam paper'}</Text>
           <Text style={pdfStyles.coverExamTitle}>{exam.title}</Text>
           {preview ? <PreviewCoverBanner info={preview} /> : null}
+          {coverNote?.length ? (
+            <View style={pdfStyles.coverNeedBox}>
+              <Text style={pdfStyles.coverNeedTitle}>{coverNote[0]}</Text>
+              {coverNote.slice(1).map((line, i) => (
+                <Text key={i} style={pdfStyles.coverNeedText}>{line}</Text>
+              ))}
+            </View>
+          ) : null}
           {usesMagazine ? (
             <View style={pdfStyles.coverNeedBox}>
               <Text style={pdfStyles.coverNeedTitle}>You will need</Text>
@@ -322,7 +331,12 @@ export function ExamPaperDocument({ resolved, preview }: { resolved: ResolvedExa
       {/* A preview keeps every section so the cover describes the whole paper,
           but only lays out the sections it has questions from. */}
       {sections.map((s, si) => s.questions.length === 0 ? null : (
-        <Page key={si} size="A4" style={pdfStyles.page}>
+        <React.Fragment key={si}>
+        {(() => {
+          const text = inlineText(exam, s)
+          return text ? <TextPage text={text} magazine={text.magazine} label={footerTitle} /> : null
+        })()}
+        <Page size="A4" style={pdfStyles.page}>
           <Watermark />
           <RunningHeader exam={exam} section={s.section} />
           {readingInstruction(exam, s, sectionStart[si] + 1) ?? (
@@ -371,6 +385,7 @@ export function ExamPaperDocument({ resolved, preview }: { resolved: ResolvedExa
           })()}
           <PageFooter examTitle={footerTitle} />
         </Page>
+        </React.Fragment>
       ))}
       {sheet ? <FormulaSheetPages sheet={sheet} examTitle={exam.title} /> : null}
       {preview ? <PreviewEndPage info={preview} examTitle={exam.title} kind="paper" /> : null}

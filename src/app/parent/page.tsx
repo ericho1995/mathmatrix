@@ -3,6 +3,7 @@ import { GRADES, TOPICS } from '@/lib/curriculum'
 import { QUESTION_BANK } from '@/lib/questions/bank'
 import InviteCodeCard from '@/components/parent/InviteCodeCard'
 import DataLoadError from '@/components/DataLoadError'
+import DiagnosticsList from '@/components/diagnostic/DiagnosticsList'
 import { queryFailed } from '@/lib/supabase/logError'
 
 const TOPIC_BY_QUESTION_ID = new Map(QUESTION_BANK.map(q => [q.id, q.topic]))
@@ -45,10 +46,15 @@ export default async function ParentDashboardPage() {
 
   if (!linkedStudents || linkedStudents.length === 0) {
     return (
-      <main className="max-w-md mx-auto px-4 py-10 flex-1 w-full">
-        <h1 className="text-2xl font-medium tracking-tight mb-1">Parent dashboard</h1>
-        <p className="text-gray-500 mb-8">Link your account to see your child&apos;s progress.</p>
-        <InviteCodeCard parentId={user.id} />
+      <main className="max-w-2xl mx-auto px-4 py-10 flex-1 w-full">
+        <h1 className="text-2xl font-medium tracking-tight mb-8">Parent dashboard</h1>
+        {/* A parent's own diagnostics need no linked child: the test is sat on the parent's account. */}
+        <DiagnosticsList />
+        <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Practice progress</h2>
+        <p className="text-gray-500 mb-4">Link your child&apos;s student account to see their practice by topic.</p>
+        <div className="max-w-md">
+          <InviteCodeCard parentId={user.id} />
+        </div>
       </main>
     )
   }
@@ -127,6 +133,8 @@ export default async function ParentDashboardPage() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-10 flex-1 w-full">
       <h1 className="text-2xl font-medium tracking-tight mb-8">Parent dashboard</h1>
+
+      <DiagnosticsList />
 
       {students.map(student => (
         <div key={student.id} className="mb-10 last:mb-0">
