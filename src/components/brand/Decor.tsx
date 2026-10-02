@@ -109,7 +109,7 @@ export function CheckSticker({ className }: Deco) {
  */
 export function Wave({ fill = '#FFFFFF', className }: Deco & { fill?: string }) {
   return (
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className={`block w-full h-10 sm:h-16 ${className ?? ''}`} aria-hidden>
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className={`block w-full h-10 sm:h-16 -mb-px ${className ?? ''}`} aria-hidden>
       <path d="M0 48 C 240 8 480 8 720 40 S 1200 80 1440 32 V80 H0z" fill={fill} />
     </svg>
   )

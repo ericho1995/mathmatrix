@@ -58,8 +58,8 @@ export default function MarketingHome() {
       {/* Hero, after Duolingo's: a band of colour, the bird, one sentence, two big buttons. */}
       <section className="relative overflow-hidden bg-brand-600 text-white">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <span className="absolute -top-28 -left-28 w-96 h-96 rounded-full bg-brand-500" />
-          <span className="absolute -bottom-40 -right-24 w-[30rem] h-[30rem] rounded-full bg-brand-500" />
+          <span className="absolute -top-28 -left-28 w-96 h-96 rounded-full bg-brand-500 hidden md:block" />
+          <span className="absolute -bottom-40 -right-24 w-[30rem] h-[30rem] rounded-full bg-brand-500 hidden md:block" />
           <Cloud className="absolute top-8 left-[6%] w-36 opacity-25" />
           <Cloud className="absolute top-24 right-[44%] w-24 opacity-20 hidden md:block" />
           <Cloud className="absolute bottom-20 left-[30%] w-28 opacity-15 hidden md:block" />
@@ -359,8 +359,8 @@ export default function MarketingHome() {
       {/* Pulled down over the footer's top margin, so the banner flows into the footer. */}
       <section className="relative overflow-hidden bg-brand-600 -mb-20">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <span className="absolute -bottom-32 -left-24 w-96 h-96 rounded-full bg-brand-500" />
-          <span className="absolute top-20 -right-20 w-72 h-72 rounded-full bg-brand-500" />
+          <span className="absolute -bottom-32 -left-24 w-96 h-96 rounded-full bg-brand-500 hidden md:block" />
+          <span className="absolute top-20 -right-20 w-72 h-72 rounded-full bg-brand-500 hidden md:block" />
           <Star className="absolute top-24 left-[12%] w-12 h-12 animate-float motion-reduce:animate-none" />
           <Sparkle className="absolute bottom-24 right-[14%] w-8 h-8" />
           <PencilSticker className="absolute bottom-16 left-[10%] w-20 h-20 hidden sm:block animate-wiggle motion-reduce:animate-none" />

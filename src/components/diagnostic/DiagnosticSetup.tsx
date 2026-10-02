@@ -85,7 +85,7 @@ export default function DiagnosticSetup({ tests, initialYear }: { tests: SetupTe
   }
 
   return (
-    <div className="card p-6 sm:p-8">
+    <div className="card p-6 sm:p-8 rounded-3xl border-brand-200">
       {resume && (
         <div className="mb-8 rounded-2xl border-2 border-brand-200 bg-brand-50 p-4 flex flex-col sm:flex-row sm:items-center gap-3">
           <RotateCcw className="w-5 h-5 text-brand-600 shrink-0" aria-hidden />
