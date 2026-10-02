@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { BarChart3, CheckCircle2, ClipboardList, FileText, RefreshCw, ShieldCheck } from 'lucide-react'
 import DiagnosticSetup, { type SetupTest } from '@/components/diagnostic/DiagnosticSetup'
+import Bird from '@/components/brand/Bird'
 import FAQAccordion from '@/components/home/FAQAccordion'
 import { faqsIn } from '@/lib/faqs'
 import { OFFERED } from '@/lib/diagnostic/server'
@@ -36,15 +37,16 @@ export default function DiagnosticPage({ searchParams }: { searchParams: { year?
 
   return (
     <main className="flex-1 w-full">
-      <section className="max-w-3xl mx-auto px-4 pt-12 pb-8">
-        <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-3">Free diagnostic test</p>
-        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">Find out exactly where your child needs help.</h1>
-        <p className="text-gray-500 text-lg leading-relaxed mb-6">
+      <section className="max-w-3xl mx-auto px-4 pt-10 pb-8 grid sm:grid-cols-[1fr_auto] gap-6 items-center">
+        <div>
+        <p className="text-sm font-bold text-brand-600 mb-3">Free diagnostic test</p>
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-ink mb-4 leading-tight">Find out exactly where your child needs help.</h1>
+        <p className="text-gray-600 text-lg leading-relaxed mb-6">
           Your child sits a short test on screen in one subject at their year level. You get a clear report of what they are
           confident with, the specific skills to work on and how to help at home — and a practice exam built around the
           result.
         </p>
-        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600">
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-gray-600">
           {['Free test and full report', 'About 20–35 minutes', 'No account needed to start'].map(f => (
             <li key={f} className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-teal-600" aria-hidden />
@@ -52,6 +54,8 @@ export default function DiagnosticPage({ searchParams }: { searchParams: { year?
             </li>
           ))}
         </ul>
+        </div>
+        <Bird pose="nest" className="hidden sm:block w-44 h-44" />
       </section>
 
       <section className="max-w-3xl mx-auto px-4 pb-14">

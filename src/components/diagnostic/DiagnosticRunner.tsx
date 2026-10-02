@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { ArrowLeft, ArrowRight, BookOpen, HelpCircle, ListChecks } from 'lucide-react'
 import ReadingTextView from '@/components/reading/ReadingTextView'
+import Bird from '@/components/brand/Bird'
 import QuestionView from './QuestionView'
 import { SELECTIVE_SUBJECTS, SUBJECTS } from '@/lib/curriculum'
 import { yearLabel } from '@/lib/yearLevels'
@@ -221,10 +222,11 @@ export default function DiagnosticRunner() {
   if (screen === 'intro') {
     return (
       <Shell>
-        <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-3">
+        <Bird pose="think" className="w-36 h-36 mb-4 -ml-3" />
+        <p className="text-sm font-bold text-brand-600 mb-2">
           {yearLabel(test.year)} {subject}
         </p>
-        <h1 className="text-3xl font-semibold tracking-tight mb-4">{test.name ? `Over to you, ${test.name}.` : 'Ready when you are.'}</h1>
+        <h1 className="text-4xl font-bold tracking-tight mb-4">{test.name ? `Over to you, ${test.name}!` : 'Ready when you are!'}</h1>
         <div className="text-gray-600 text-lg leading-relaxed space-y-3 mb-8">
           <p>
             There are {test.partOne} questions{test.followUps ? ', then a few more' : ''}. Take your time — this is not a race,
@@ -236,7 +238,7 @@ export default function DiagnosticRunner() {
           </p>
           {test.subject === 'reading' && <p>Read each text first. You can look back at it as often as you like.</p>}
         </div>
-        <button type="button" className="btn-primary inline-flex items-center gap-2 text-lg px-6 py-3" onClick={() => goTo(0)}>
+        <button type="button" className="btn-primary inline-flex items-center justify-center gap-2 text-lg px-10 py-3.5 w-full sm:w-auto" onClick={() => goTo(0)}>
           Start
           <ArrowRight className="w-5 h-5" aria-hidden />
         </button>
@@ -248,7 +250,8 @@ export default function DiagnosticRunner() {
   if (screen === 'sending') {
     return (
       <Shell>
-        <p className="text-lg text-gray-600" role="status">
+        <Bird pose="read" className="w-28 h-28 mb-4 animate-pulse" />
+        <p className="text-lg font-semibold text-gray-600" role="status">
           {test.part === 1 ? 'Saving your answers…' : 'Finishing up…'}
         </p>
       </Shell>
@@ -258,12 +261,13 @@ export default function DiagnosticRunner() {
   if (screen === 'more') {
     return (
       <Shell>
-        <h1 className="text-3xl font-semibold tracking-tight mb-4">Nice work. A few more to go.</h1>
+        <Bird pose="cheer" className="w-36 h-36 mb-4 -ml-3" />
+        <h1 className="text-4xl font-bold tracking-tight mb-4">Nice work! A few more to go.</h1>
         <p className="text-gray-600 text-lg leading-relaxed mb-8">
           {total - test.partOne === 1 ? 'One more question' : `${total - test.partOne} more questions`}
           {test.subject === 'reading' ? ', about one more text' : ''}. Same as before: I&apos;m not sure is fine.
         </p>
-        <button type="button" className="btn-primary inline-flex items-center gap-2 text-lg px-6 py-3" onClick={() => goTo(test.partOne)}>
+        <button type="button" className="btn-primary inline-flex items-center justify-center gap-2 text-lg px-10 py-3.5 w-full sm:w-auto" onClick={() => goTo(test.partOne)}>
           Keep going
           <ArrowRight className="w-5 h-5" aria-hidden />
         </button>
@@ -287,8 +291,8 @@ export default function DiagnosticRunner() {
               key={i}
               type="button"
               onClick={() => goTo(i)}
-              className={`aspect-square rounded-lg border text-sm font-medium ${
-                !a.done ? 'border-amber-400 bg-amber-50 text-amber-600' : a.a === null ? 'border-gray-200 bg-gray-50 text-gray-500' : 'border-brand-200 bg-brand-50 text-brand-800'
+              className={`aspect-square rounded-xl border-2 border-b-4 text-sm font-bold ${
+                !a.done ? 'border-amber-400 bg-amber-50 text-amber-600' : a.a === null ? 'border-line bg-gray-50 text-gray-500' : 'border-brand-200 bg-brand-50 text-brand-700'
               }`}
               aria-label={`Question ${i + 1}: ${!a.done ? 'no answer' : a.a === null ? 'not sure' : 'answered'}`}
             >
@@ -344,21 +348,22 @@ export default function DiagnosticRunner() {
         />
         I guessed this one
       </label>
-      <div className="flex flex-wrap items-center gap-3 mt-8">
+      <div className="sticky bottom-0 z-10 -mx-4 px-4 py-3 bg-white border-t-2 border-line flex items-center gap-2 mt-8 sm:static sm:mx-0 sm:px-0 sm:py-0 sm:border-0 sm:gap-3 sm:flex-wrap">
         <button
           type="button"
-          className="btn-secondary inline-flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="btn-secondary inline-flex items-center gap-2 px-4 sm:px-5 disabled:opacity-40 disabled:cursor-not-allowed"
           onClick={() => goTo(test.index - 1)}
           disabled={test.index <= lower}
+          aria-label="Back"
         >
           <ArrowLeft className="w-4 h-4" aria-hidden />
-          Back
+          <span className="hidden sm:inline">Back</span>
         </button>
-        <button type="button" className="btn-secondary inline-flex items-center gap-2" onClick={notSure}>
+        <button type="button" className="btn-secondary inline-flex items-center gap-2 whitespace-nowrap px-4 sm:px-5" onClick={notSure}>
           <HelpCircle className="w-4 h-4" aria-hidden />
           I&apos;m not sure
         </button>
-        <button type="button" className="btn-primary inline-flex items-center gap-2 ml-auto disabled:opacity-40 disabled:cursor-not-allowed" onClick={() => goTo(test.index + 1)} disabled={!canNext}>
+        <button type="button" className="btn-primary inline-flex items-center justify-center gap-2 ml-auto px-6 sm:px-8 flex-1 sm:flex-none disabled:opacity-40 disabled:cursor-not-allowed" onClick={() => goTo(test.index + 1)} disabled={!canNext}>
           {test.index + 1 >= total ? 'Review' : 'Next'}
           <ArrowRight className="w-4 h-4" aria-hidden />
         </button>
@@ -368,15 +373,17 @@ export default function DiagnosticRunner() {
 
   return (
     <main className="flex-1 w-full">
-      <div className="sticky top-0 z-10 bg-white/95 backdrop-blur border-b border-gray-100">
+      <div className="sticky top-0 z-10 bg-white/95 backdrop-blur border-b-2 border-line">
         <div className={`${text ? 'max-w-6xl' : 'max-w-3xl'} mx-auto px-4 py-3 flex items-center gap-4`}>
-          <p className="text-sm text-gray-600 whitespace-nowrap">
+          <p className="text-sm font-bold text-gray-600 whitespace-nowrap">
             Question {test.index + 1} <span className="text-gray-400">of {total}</span>
           </p>
-          <div className="flex-1 h-2 rounded-full bg-gray-100 overflow-hidden" role="progressbar" aria-valuenow={test.index + 1} aria-valuemin={1} aria-valuemax={total}>
-            <div className="h-full bg-brand-600 transition-all" style={{ width: `${progress}%` }} />
+          <div className="flex-1 h-4 rounded-full bg-gray-100 overflow-hidden" role="progressbar" aria-valuenow={test.index + 1} aria-valuemin={1} aria-valuemax={total}>
+            <div className="h-full rounded-full bg-teal-400 transition-all duration-300 relative" style={{ width: `${progress}%` }}>
+              <span className="absolute left-2 right-2 top-1 h-1 rounded-full bg-white/40" aria-hidden />
+            </div>
           </div>
-          <button type="button" className="text-sm text-gray-500 hover:text-gray-800 inline-flex items-center gap-1" onClick={() => goTo(total)}>
+          <button type="button" className="text-sm font-bold text-gray-500 hover:text-brand-600 inline-flex items-center gap-1" onClick={() => goTo(total)}>
             <ListChecks className="w-4 h-4" aria-hidden />
             <span className="hidden sm:inline">Review</span>
           </button>
@@ -395,7 +402,7 @@ export default function DiagnosticRunner() {
             </button>
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-10">
-            <div className={`${view === 'text' ? 'block' : 'hidden'} lg:block lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-4 rounded-xl border border-gray-100 p-5 bg-white`}>
+            <div className={`${view === 'text' ? 'block' : 'hidden'} lg:block lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-4 rounded-2xl border-2 border-line p-5 bg-white`}>
               <ReadingTextView text={text} />
             </div>
             <div className={`${view === 'questions' ? 'block' : 'hidden'} lg:block`}>{body}</div>

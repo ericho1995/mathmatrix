@@ -8,6 +8,7 @@ import { CheckCircle2, Lock } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { clearResult, loadResult, saveResultLocal, type StoredResult } from '@/lib/diagnostic/storage'
 import HeadlineResults from './HeadlineResults'
+import Bird from '@/components/brand/Bird'
 
 type State = 'loading' | 'none' | 'signed-out' | 'saving' | 'error'
 
@@ -79,7 +80,14 @@ export default function DiagnosticResults() {
 
   const who = result.headline.name ?? 'your child'
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12 flex-1 w-full">
+    <main className="max-w-3xl mx-auto px-4 py-10 flex-1 w-full">
+      <div className="flex items-center gap-4 mb-6">
+        <Bird pose="cheer" className="w-24 h-24 shrink-0" />
+        <div>
+          <p className="text-2xl sm:text-3xl font-bold tracking-tight text-ink">{result.headline.name ? `Well done, ${result.headline.name}!` : 'Test complete!'}</p>
+          <p className="text-gray-600">Here&apos;s what the test found.</p>
+        </div>
+      </div>
       <HeadlineResults headline={result.headline} />
 
       {state === 'saving' && (

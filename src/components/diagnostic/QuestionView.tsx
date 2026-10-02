@@ -33,11 +33,11 @@ export default function QuestionView({
           {q.calculator ? 'Calculator allowed' : 'No calculator'}
         </p>
       )}
-      <div className="text-lg sm:text-xl leading-relaxed text-gray-900 mb-5" dangerouslySetInnerHTML={{ __html: q.stem }} />
+      <div className="text-xl sm:text-2xl font-bold leading-snug text-ink mb-5" dangerouslySetInnerHTML={{ __html: q.stem }} />
 
       {q.diagram && (
         // Diagrams are ink on paper, so they sit on white whatever the page around them.
-        <div className="rounded-xl border border-gray-200 bg-white text-[#1a1a1a] p-3 mb-6 overflow-x-auto flex justify-center" dangerouslySetInnerHTML={{ __html: q.diagram }} />
+        <div className="rounded-2xl border-2 border-line bg-white text-[#1a1a1a] p-3 mb-6 overflow-x-auto flex justify-center" dangerouslySetInnerHTML={{ __html: q.diagram }} />
       )}
 
       {q.kind === 'text' ? (
@@ -116,14 +116,14 @@ function Choice({
       role="radio"
       aria-checked={selected}
       onClick={onSelect}
-      className={`w-full text-left rounded-xl border-2 px-4 py-3 text-base sm:text-lg transition-colors ${
-        selected ? 'border-brand-600 bg-brand-50' : 'border-gray-200 bg-white hover:border-brand-200'
+      className={`w-full text-left rounded-2xl border-2 border-b-4 px-4 py-3 text-base sm:text-lg font-semibold transition-colors active:border-b-2 active:translate-y-[2px] ${
+        selected ? 'border-brand-500 bg-brand-50 text-brand-800' : 'border-line bg-white text-ink hover:bg-gray-50'
       } ${table ? 'grid items-center' : 'flex items-start gap-3'}`}
       style={table ? { gridTemplateColumns: `2.5rem repeat(${table}, minmax(5rem, 1fr))` } : undefined}
     >
       <span
-        className={`inline-flex shrink-0 w-7 h-7 rounded-full items-center justify-center text-sm font-semibold ${
-          selected ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-600'
+        className={`inline-flex shrink-0 w-7 h-7 rounded-lg items-center justify-center text-sm font-bold ${
+          selected ? 'bg-brand-500 text-white' : 'border-2 border-line text-gray-400'
         }`}
       >
         {LETTERS[index]}
