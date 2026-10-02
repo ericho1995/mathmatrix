@@ -31,7 +31,7 @@ export default function HeadlineResults({ headline, sample = false }: { headline
         <div className="rounded-xl bg-amber-50 border border-amber-400/30 p-4 mb-6 space-y-2">
           {h.notes.map(n => (
             <p key={n} className="flex gap-2 text-sm text-gray-700">
-              <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" aria-hidden />
+              <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" aria-hidden />
               {n}
             </p>
           ))}

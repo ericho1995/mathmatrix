@@ -288,7 +288,7 @@ export default function DiagnosticRunner() {
               type="button"
               onClick={() => goTo(i)}
               className={`aspect-square rounded-lg border text-sm font-medium ${
-                !a.done ? 'border-amber-400 bg-amber-50 text-amber-400' : a.a === null ? 'border-gray-200 bg-gray-50 text-gray-500' : 'border-brand-200 bg-brand-50 text-brand-800'
+                !a.done ? 'border-amber-400 bg-amber-50 text-amber-600' : a.a === null ? 'border-gray-200 bg-gray-50 text-gray-500' : 'border-brand-200 bg-brand-50 text-brand-800'
               }`}
               aria-label={`Question ${i + 1}: ${!a.done ? 'no answer' : a.a === null ? 'not sure' : 'answered'}`}
             >

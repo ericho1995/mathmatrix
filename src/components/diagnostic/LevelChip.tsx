@@ -3,11 +3,11 @@ import type { Confidence, Level } from '@/lib/diagnostic/types'
 const LEVEL: Record<Level, { label: string; cls: string }> = {
   strength: { label: 'Strength', cls: 'bg-teal-50 text-teal-600 border-teal-400/40' },
   developing: { label: 'Developing', cls: 'bg-brand-50 text-brand-800 border-brand-200' },
-  focus: { label: 'Focus area', cls: 'bg-amber-50 text-amber-400 border-amber-400/40' },
+  focus: { label: 'Focus area', cls: 'bg-amber-50 text-amber-600 border-amber-400/40' },
 }
 
 /** An early-sign weakness is never shown as a weakness: it reads "May need work". */
-const EARLY_FOCUS = { label: 'May need work', cls: 'bg-amber-50/60 text-amber-400 border-dashed border-amber-400/40' }
+const EARLY_FOCUS = { label: 'May need work', cls: 'bg-amber-50/60 text-amber-600 border-dashed border-amber-400/40' }
 
 const CONFIDENCE: Record<Confidence, string> = {
   clear: 'Clear result',

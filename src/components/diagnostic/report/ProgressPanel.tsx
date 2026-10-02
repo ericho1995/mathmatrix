@@ -5,7 +5,7 @@ import AreaBar from '../AreaBar'
 
 const CHANGE = {
   up: { icon: ArrowUpRight, text: 'Improved', cls: 'text-teal-600' },
-  down: { icon: ArrowDownRight, text: 'Slipped', cls: 'text-amber-400' },
+  down: { icon: ArrowDownRight, text: 'Slipped', cls: 'text-amber-600' },
   same: { icon: ArrowRight, text: 'Holding steady', cls: 'text-gray-500' },
 } as const
 
