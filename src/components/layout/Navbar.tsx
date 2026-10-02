@@ -16,7 +16,7 @@ export interface NavUser {
 }
 
 const linkClass = (active: boolean) =>
-  `text-sm font-medium transition-colors ${active ? 'text-brand-600' : 'text-gray-500 hover:text-gray-900'}`
+  `text-[15px] font-semibold transition-colors ${active ? 'text-brand-600' : 'text-gray-500 hover:text-brand-600'}`
 
 interface NavLink {
   href: Route
@@ -60,7 +60,7 @@ export default function Navbar({ user }: { user: NavUser | null }) {
   const close = () => setOpen(false)
 
   return (
-    <header className="border-b border-gray-100 bg-white/80 backdrop-blur sticky top-0 z-40">
+    <header className="border-b-2 border-line bg-white/95 backdrop-blur sticky top-0 z-40">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
         <Link href="/" className="flex-shrink-0" aria-label="PrepNest home">
           <Logo />
@@ -114,7 +114,7 @@ export default function Navbar({ user }: { user: NavUser | null }) {
       </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-gray-100 px-4 py-3 flex flex-col gap-3 bg-white" aria-label="Main">
+        <nav className="lg:hidden border-t-2 border-line px-4 py-4 flex flex-col gap-4 bg-white" aria-label="Main">
           {links.map(l => (
             <Link key={l.href} href={l.href} className={linkClass(l.match(pathname))} onClick={close}>
               {l.label}
@@ -123,7 +123,7 @@ export default function Navbar({ user }: { user: NavUser | null }) {
           <Link href={'/help' as Route} className={linkClass(pathname === '/help')} onClick={close}>
             Help
           </Link>
-          <div className="border-t border-gray-100 pt-3 flex flex-col gap-3">
+          <div className="border-t-2 border-line pt-4 flex flex-col gap-3">
             {user ? (
               <>
                 <Link href={'/account' as Route} className={linkClass(pathname === '/account')} onClick={close}>
