@@ -37,7 +37,7 @@ export default function ExamDownload({
 }) {
   const note = {
     admin: 'Admin access — no payment required. Regular visitors see the paywall here.',
-    free: 'This is the free sample paper for this year level.',
+    free: 'This paper is open to you.',
     plan: 'Included in your plan.',
     paper: 'You own this paper.',
     purchased: 'You have full access to this year level.',
@@ -134,7 +134,7 @@ export default function ExamDownload({
           <p className="font-medium text-sm mb-1">Want the whole paper?</p>
           <p className="text-sm text-gray-600 mb-3">
             The full paper and its complete answer key come with a PrepNest plan, or as a one-off purchase for VCE
-            papers. Customers get every free sample in full.
+            papers.
           </p>
           <Link href={'/pricing' as Route} className="btn-primary w-full block text-center">
             See plans and prices

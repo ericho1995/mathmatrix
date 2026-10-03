@@ -101,7 +101,7 @@ export default function RegisterPage() {
       <div className="w-full max-w-xl rounded-3xl border border-gray-100 bg-white shadow-sm p-6 sm:p-8">
         <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-2">PrepNest</p>
         <h1 className="text-2xl font-semibold tracking-tight mb-1">Create your free account</h1>
-        <p className="text-gray-500 mb-6">Download the free sample papers straight away. No card needed.</p>
+        <p className="text-gray-500 mb-6">Flip through the first half of any paper straight away. No card needed.</p>
 
         <p id="account-type" className="text-sm font-medium text-gray-900 mb-2">
           Who is this account for?

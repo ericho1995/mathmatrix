@@ -29,7 +29,7 @@ export interface PracticeExam {
   yearLevel: YearLevel
   title: string
   sections: PracticeExamSection[]
-  /** Selective/VCE-subject exams are premium — paid content (UI-only paywall for now). */
+  /** Paid content. Every paper is paid; without a plan or purchase only the first half shows. */
   premium: boolean
   /** VCE-style exams only: minutes of reading time (no writing allowed) before section timers start. */
   reading_minutes?: number
@@ -119,7 +119,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "math-year_10-2",
@@ -459,7 +459,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "reading-grade_3-2",
@@ -733,7 +733,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "reading-grade_5-2",
@@ -1000,7 +1000,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "reading-year_7-1",
@@ -1109,7 +1109,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "reading-year_7-2",
@@ -1436,7 +1436,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "reading-year_9-2",
@@ -1701,7 +1701,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "english-grade_4-1",
@@ -1746,7 +1746,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "english-grade_4-2",
@@ -1881,7 +1881,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "english-grade_6-2",
@@ -2016,7 +2016,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "english-year_8-1",
@@ -2061,7 +2061,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "english-year_8-2",
@@ -2196,7 +2196,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "english-year_9-1",
@@ -2241,7 +2241,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "science-grade_6-1",
@@ -2282,7 +2282,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "science-year_8-1",
@@ -2321,7 +2321,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "science-year_10-1",
@@ -2360,7 +2360,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "chemistry-year_11-1",
@@ -2405,7 +2405,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   },
   {
@@ -2497,7 +2497,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   },
   {
@@ -2589,7 +2589,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   },
   {
@@ -2681,7 +2681,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   },
   {
@@ -2773,7 +2773,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   },
   {
@@ -2898,7 +2898,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "reading-year_8-1",
@@ -2977,7 +2977,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "reading-year_10-1",
@@ -3056,7 +3056,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "english-year_10-1",
@@ -3101,7 +3101,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "english-year_10-2",
@@ -3216,7 +3216,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   },
   {
@@ -3648,7 +3648,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   },
   {
@@ -4300,7 +4300,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "math-year_8-2",
@@ -4594,7 +4594,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "math-grade_4-2",
@@ -4774,7 +4774,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "math-grade_6-2",
@@ -4954,7 +4954,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "math-grade_3-2",
@@ -5134,7 +5134,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "math-grade_5-2",
@@ -5352,7 +5352,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "math-year_7-2",
@@ -5684,7 +5684,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false
+    "premium": true
   },
   {
     "id": "math-year_9-2",
@@ -5966,7 +5966,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
       }
     ],
     "formula_sheet": "specialist_maths",
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15
   },
   {
@@ -6508,7 +6508,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
         ]
       }
     ],
-    "premium": false,
+    "premium": true,
     "reading_minutes": 15,
     "formula_sheet": "physics"
   },

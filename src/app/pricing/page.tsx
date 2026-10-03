@@ -8,13 +8,13 @@ import LibraryGrowth from '@/components/marketing/LibraryGrowth'
 import { CalendarX, Check, LockKeyhole, ShieldCheck, X, type LucideIcon } from 'lucide-react'
 import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, perPaper } from '@/lib/pricing'
 import { PAPERS_PER_MONTH } from '@/lib/diagnostic/weakPapers'
-import { CATALOGUE_TOTALS, PLAN_STATS, PLAN_TOTALS, VCE_STATS, VCE_TOTALS, subjectLabel } from '@/lib/catalogue'
+import { PLAN_STATS, PLAN_TOTALS, VCE_STATS, VCE_TOTALS, subjectLabel } from '@/lib/catalogue'
 import { getAccess } from '@/lib/auth/access'
 import { faqsIn } from '@/lib/faqs'
 
 export const metadata: Metadata = {
   title: `Pricing — unlimited practice papers from ${FROM_PER_MONTH} a month — PrepNest`,
-  description: `One plan unlocks every ${PLAN_TOTALS.range} practice paper, NAPLAN and school years, with answer keys. From ${FROM_PER_MONTH} a month; cancel anytime. VCE papers ${VCE_PAPER_PRICE} each. ${CATALOGUE_TOTALS.free} papers are free.`,
+  description: `One plan unlocks every ${PLAN_TOTALS.range} practice paper, NAPLAN and school years, with answer keys. From ${FROM_PER_MONTH} a month; cancel anytime. VCE papers ${VCE_PAPER_PRICE} each. Flip through the first half of any paper free.`,
 }
 
 /**
@@ -125,7 +125,7 @@ export default async function PricingPage() {
             <p className="text-xs font-medium uppercase tracking-widest text-brand-600 mb-3">Look inside</p>
             <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-3">See what every paper looks like</h2>
             <p className="text-gray-500 leading-relaxed">
-              Real pages from the free sample papers. Every paper in the plan is laid out the same way.
+              Real pages from the papers. Every paper in the plan is laid out the same way.
             </p>
           </div>
           <LookInside items={['readingCover', 'readingPage', 'numeracy', 'answerKey']} />
@@ -136,7 +136,7 @@ export default async function PricingPage() {
       <section className="max-w-3xl mx-auto px-4 py-16">
         <h2 className="text-2xl font-semibold tracking-tight mb-2 text-center">Start free, upgrade when it&apos;s working</h2>
         <p className="text-gray-500 text-center mb-8">
-          The free papers are complete papers, not cut-down previews. The plan unlocks the rest.
+          Without a plan you can flip through the first half of every paper. The plan unlocks all of it.
         </p>
         <div className="card p-0 overflow-hidden">
           <table className="w-full text-sm">
@@ -151,7 +151,7 @@ export default async function PricingPage() {
               {[
                 { feature: 'Diagnostic test and full report', free: true, plan: true },
                 { feature: 'Practice papers on the diagnostic’s weak areas', free: 'Preview', plan: `${PAPERS_PER_MONTH} a month` },
-                { feature: 'Practice papers', free: `${PLAN_TOTALS.free} samples`, plan: `All ${PLAN_TOTALS.papers}` },
+                { feature: 'Practice papers', free: 'First half of each', plan: `All ${PLAN_TOTALS.papers}` },
                 { feature: 'New papers as they are published', free: false, plan: true },
                 { feature: 'Answer key with an explanation for every answer', free: true, plan: true },
                 { feature: 'Topic report after marking a paper', free: true, plan: true },
@@ -175,11 +175,11 @@ export default async function PricingPage() {
         </div>
         <div className="card mt-8 text-center">
           <p className="text-sm text-gray-700">
-            <span className="font-medium">Not sure yet?</span> {CATALOGUE_TOTALS.free} papers are free — one per
-            subject at every year level, answer key included. No card needed.
+            <span className="font-medium">Not sure yet?</span> Flip through the first half of any paper, with the answers
+            to those questions. No card needed.
           </p>
           <Link href="/practice/exams" className="btn-secondary inline-block mt-4 text-sm">
-            Download a free paper
+            Browse the papers
           </Link>
         </div>
       </section>
@@ -193,8 +193,8 @@ export default async function PricingPage() {
               <h2 className="text-2xl font-medium tracking-tight mb-2">{VCE_PAPER_PRICE} per paper, yours to keep</h2>
               <p className="text-sm text-gray-500 leading-relaxed">
                 VCE papers are purchased one at a time, so a senior student pays only for the subjects they sit. Each is
-                laid out like a VCAA exam, with reading time and a full answer key. {VCE_TOTALS.papers} papers today,{' '}
-                {VCE_TOTALS.free} of them free samples, and more on the way. The free VCE diagnostic is the same: the test
+                laid out like a VCAA exam, with reading time and a full answer key. {VCE_TOTALS.papers} papers today, each with its
+                first half free to flip through, and more on the way. The free VCE diagnostic is the same: the test
                 and report are free, and each practice paper built from it is {VCE_PAPER_PRICE}.
               </p>
             </div>
@@ -236,7 +236,7 @@ export default async function PricingPage() {
             >
               <p className="font-medium text-sm">{s.label}</p>
               <p className="text-xs text-gray-400 mt-1">
-                {s.papers} papers · {s.free} free
+                {s.papers} papers
               </p>
             </Link>
           ))}

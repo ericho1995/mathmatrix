@@ -16,7 +16,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
   if (!exam) return { title: 'Exam not found — PrepNest' }
   const summary = summarisePaper(exam)
   const offer = !exam.premium
-    ? 'Free to download.'
+    ? 'Flip through the first half free.'
     : isVceYear(exam.yearLevel)
       ? `${VCE_PAPER_PRICE}, yours to keep.`
       : 'Included with a PrepNest plan.'

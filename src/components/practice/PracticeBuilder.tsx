@@ -389,7 +389,7 @@ export default function PracticeBuilder({ signedIn }: { signedIn: boolean }) {
             <Link href={papersHref} className="btn-secondary w-full block text-center text-sm">
               {year ? `See ${yearLabel(year)} papers` : 'Browse the papers'}
             </Link>
-            <p className="text-xs text-gray-400 mt-2 text-center">The first paper in every subject is free.</p>
+            <p className="text-xs text-gray-400 mt-2 text-center">The first half of every paper is free to flip through.</p>
           </div>
 
           {!signedIn && (

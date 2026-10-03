@@ -173,7 +173,7 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
           <>
             <p className="text-sm text-gray-600 mb-4">
               You don&apos;t have a plan. A plan unlocks every {PLAN_TOTALS.range} paper, from {FROM_PER_MONTH} a
-              month. The free sample papers are open to everyone.
+              month. Without one, you can flip through the first half of any paper.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href={'/pricing' as Route} className="btn-primary text-sm text-center">
