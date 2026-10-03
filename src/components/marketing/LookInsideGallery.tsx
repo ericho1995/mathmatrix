@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Route } from 'next'
-import { ArrowRight, BookOpen, Check, Download, Eye, FileText, Sparkles, X } from 'lucide-react'
+import { ArrowRight, BookOpen, Check, Download, Eye, FileText, MonitorPlay, Sparkles, X } from 'lucide-react'
 import Bird from '@/components/brand/Bird'
 import QuestionView from '@/components/diagnostic/QuestionView'
 import ReadingTextView from '@/components/reading/ReadingTextView'
@@ -27,7 +27,7 @@ const TONE: Record<Tone, { tile: string; band: string; head: string }> = {
  * "Look inside" as something to try: each free sample is a bright tile, and
  * opening it gives a mini sample test — three real questions from that paper,
  * marked on the spot with the explanation — and the whole printed paper to
- * flip through, every page of every booklet.
+ * flip through, with the way to sit it on screen or download it.
  */
 export default function LookInsideGallery({ previews }: { previews: SamplePreview[] }) {
   const [open, setOpen] = useState<{ index: number; tab: 'try' | 'page' } | null>(null)
@@ -183,10 +183,14 @@ function PageView({ preview }: { preview: SamplePreview }) {
 
 function DownloadRow({ preview }: { preview: SamplePreview }) {
   return (
-    <div className="flex flex-col sm:flex-row gap-3 mt-5">
-      <Link href={`/practice/exams/${preview.paperId}` as Route} className="btn-primary inline-flex items-center justify-center gap-2">
+    <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-5">
+      <Link href={preview.onScreenHref as Route} className="btn-primary inline-flex items-center justify-center gap-2">
+        <MonitorPlay className="w-4 h-4" aria-hidden />
+        Sit the whole paper on screen
+      </Link>
+      <Link href={`/practice/exams/${preview.paperId}` as Route} className="btn-secondary inline-flex items-center justify-center gap-2">
         <Download className="w-4 h-4" aria-hidden />
-        Download the whole paper free
+        Download it free
       </Link>
       <Link href={'/diagnostic' as Route} className="btn-secondary inline-flex items-center justify-center gap-2">
         Find your child&apos;s weak spots

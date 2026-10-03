@@ -52,7 +52,7 @@ export interface WrittenQuestion {
 
 export type Tone = 'brand' | 'teal' | 'amber' | 'grape'
 
-/** One booklet of a free paper, as it downloads. */
+/** One booklet of a paper, as it downloads. */
 export interface PaperDoc {
   label: string
   url: string
@@ -75,10 +75,12 @@ export interface SamplePreview {
   written?: WrittenQuestion
   /** Reading: the text the questions are about. */
   text?: ReadingText
-  /** Every booklet of the free paper, to flip through page by page. */
+  /** Every booklet of the paper, to flip through page by page. */
   docs: PaperDoc[]
   /** Which booklet the sample's picture comes from, opened first. */
   doc: number
+  /** The paper can be sat on screen: Reading side by side with its texts, anything else one question at a time. */
+  onScreenHref: string
 }
 
 /** The paper's booklets: the magazine first for a Reading paper, then the questions, then the answers. */
@@ -213,8 +215,11 @@ export function samplePreview(key: SampleKey): SamplePreview {
       break
   }
 
+  const exam = PRACTICE_EXAMS.find(e => e.id === s.paperId)
+
   return {
     key,
+    onScreenHref: exam?.subject === 'reading' ? `/practice/reading/${s.paperId}` : `/practice/exams/${s.paperId}/online`,
     title: s.title,
     caption: s.caption,
     image: s.image,

@@ -73,7 +73,8 @@ export default async function ExamPage({
           preview={preview}
           summary={summarisePaper(exam)}
           yearLevel={exam.yearLevel}
-          onScreen={exam.subject === 'reading' && !preview}
+          onScreen={!preview}
+          reading={exam.subject === 'reading'}
         />
       </>
     )
