@@ -3,6 +3,7 @@ import type { Route } from 'next'
 import { FROM_PER_MONTH, VCE_PAPER_PRICE } from '@/lib/pricing'
 import type { PaperSummary } from '@/lib/catalogue'
 import CheckoutButton from './CheckoutButton'
+import PdfPages from '@/components/marketing/PdfPages'
 import PaperFacts from './PaperFacts'
 import { Lock } from 'lucide-react'
 
@@ -10,9 +11,10 @@ import { Lock } from 'lucide-react'
  * The screen between a visitor and a paid paper.
  *
  * It answers the three questions in the order a parent asks them: what is in
- * this paper, what does paying actually get me, and can I try one first. The
- * free sample link matters most — it is the difference between "pay to find
- * out" and "you have already seen what you are buying".
+ * this paper, what does paying actually get me, and can I see it first. Every
+ * paper is paid, so the answer to the last is the first half, open to flip
+ * through right here, with the rest locked and blurred: "you have already
+ * seen what you are buying".
  *
  * Grade 3 – Year 10 papers come with a plan, so this points at the plan
  * choice. VCE papers are sold one at a time, so this is the checkout.
@@ -51,7 +53,7 @@ export default function PremiumExamLock({
   preview?: { shown: number; total: number; magazine?: boolean }
 }) {
   return (
-    <main className="max-w-md mx-auto px-4 py-10 text-center flex-1 w-full">
+    <main className={`${preview ? 'max-w-3xl' : 'max-w-md'} mx-auto px-4 py-10 text-center flex-1 w-full`}>
       <span
         aria-hidden
         className="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 inline-flex items-center justify-center mb-4"
@@ -67,26 +69,43 @@ export default function PremiumExamLock({
           : `Included with a PrepNest plan: every ${plan.range} paper (${plan.papers} today, more on the way), each with a printable answer key, from ${FROM_PER_MONTH} a month.`}
       </p>
 
+      <div className="max-w-md mx-auto">
       {summary && <PaperFacts summary={summary} />}
 
       {vce ? (
+        <div id="unlock" className="scroll-mt-24">
         <CheckoutButton
           purchase={{ examId }}
           label={pairedWith ? `Purchase both exams — ${VCE_PAPER_PRICE}` : `Purchase this paper — ${VCE_PAPER_PRICE}`}
           sellable={sellable}
           className="mb-3"
         />
+        </div>
       ) : sellable ? (
         <Link href={'/pricing' as Route} className="btn-primary w-full block text-center mb-3">
           See plans — from {FROM_PER_MONTH} a month
         </Link>
       ) : (
-        <p className="text-xs text-gray-400 mb-3">Plans open soon. The free sample papers are available now.</p>
+        <p className="text-xs text-gray-400 mb-3">Plans open soon. Flip through the first half of the paper below now.</p>
+      )}
+      </div>
+
+      {preview && (
+        <section className="text-left my-8">
+          <h2 className="text-lg font-bold text-ink mb-1">Flip through the first half</h2>
+          <p className="text-sm text-gray-600 mb-4">
+            The first {preview.shown} of the {preview.total} questions are open. The rest of the paper is locked until you{' '}
+            {vce ? 'purchase it' : 'have a plan'}.
+          </p>
+          <div className="rounded-2xl bg-gray-100 p-3 sm:p-4 max-h-[80vh] overflow-y-auto">
+            <PdfPages url={`/api/exams/${examId}/pdf`} title={title} unlock={vce ? { href: '#unlock', label: 'Purchase this paper' } : { href: '/pricing', label: 'See the plans' }} />
+          </div>
+        </section>
       )}
 
       {preview && (
-        <div className="card text-left mb-3">
-          <p className="font-medium text-sm mb-1">Try part of it first</p>
+        <div className="card text-left mb-3 max-w-md mx-auto">
+          <p className="font-medium text-sm mb-1">Print the first half</p>
           <p className="text-sm text-gray-600 mb-3">
             Download the first {preview.shown} of the {preview.total} questions and their answers, free.
           </p>
@@ -107,7 +126,7 @@ export default function PremiumExamLock({
       {freeSample && (
         <Link
           href={`/practice/exams/${freeSample.id}` as Route}
-          className="btn-secondary w-full block text-center mb-3"
+          className="btn-secondary w-full block text-center mb-3 max-w-md mx-auto"
         >
           Try the free {yearLabel} {freeSample.subjectLabel} paper first
         </Link>

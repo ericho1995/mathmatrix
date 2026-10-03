@@ -1,7 +1,7 @@
 import { Page, View, Text, Link, StyleSheet } from '@react-pdf/renderer'
 import { pdfStyles, BRAND_BLUE, BRAND_BLUE_DARK } from './theme'
 import { Watermark, PageFooter } from './Brand'
-import type { PreviewInfo } from './preview'
+import type { LockedQuestion, PreviewInfo } from './preview'
 
 const SITE = 'https://prepnest.com.au'
 
@@ -23,16 +23,28 @@ const s = StyleSheet.create({
   cta: { backgroundColor: BRAND_BLUE_DARK, borderRadius: 8, padding: 18, marginTop: 22 },
   ctaText: { fontSize: 11, color: '#DBEAFE', marginBottom: 6 },
   ctaLink: { fontSize: 13, color: '#FFFFFF', fontWeight: 700, textDecoration: 'none' },
+  lockBanner: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: BRAND_BLUE_DARK, borderRadius: 6, paddingVertical: 8, paddingHorizontal: 12, marginBottom: 16 },
+  lockTitle: { fontSize: 10, fontWeight: 700, color: '#FFFFFF', letterSpacing: 1.2, textTransform: 'uppercase' },
+  lockText: { fontSize: 9.5, color: '#DBEAFE' },
+  lockedQ: { flexDirection: 'row', marginBottom: 20 },
+  lockedNum: { width: 26, fontSize: 11, fontWeight: 700, color: '#9CA3AF' },
+  lockedBody: { flex: 1 },
+  bar: { height: 8, borderRadius: 4, backgroundColor: '#E5E7EB', marginBottom: 7 },
+  box: { height: 70, borderRadius: 6, backgroundColor: '#F1F3F6', marginTop: 2, marginBottom: 10 },
+  optionRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 6 },
+  optionDot: { width: 12, height: 12, borderRadius: 6, borderWidth: 1, borderColor: '#D1D5DB', marginRight: 8 },
+  answerBox: { width: 140, height: 22, borderRadius: 4, borderWidth: 1, borderColor: '#E5E7EB', marginTop: 4 },
+  line: { height: 1, backgroundColor: '#E5E7EB', marginTop: 16 },
 })
 
 /** The box on a preview's cover that says it is a preview, before anyone prints it. */
 export function PreviewCoverBanner({ info }: { info: PreviewInfo }) {
   return (
     <View style={s.coverBanner}>
-      <Text style={s.coverBannerTitle}>Free preview</Text>
+      <Text style={s.coverBannerTitle}>Preview</Text>
       <Text style={s.coverBannerText}>
-        This file has the first {info.shown} of the {info.total} questions in this paper. The last page lists what the rest
-        of the paper contains and where to get it.
+        This file has the first {info.shown} of the {info.total} questions in this paper. The rest is locked: it comes
+        with a PrepNest plan, or with the paper itself for VCE.
       </Text>
     </View>
   )
@@ -51,7 +63,7 @@ export function PreviewEndPage({ info, examTitle, kind }: { info: PreviewInfo; e
   return (
     <Page size="A4" style={pdfStyles.page}>
       <Watermark />
-      <Text style={s.eyebrow}>Free preview</Text>
+      <Text style={s.eyebrow}>Preview</Text>
       <Text style={s.title}>{kind === 'paper' ? 'That’s the end of the preview' : 'That’s the end of the preview answers'}</Text>
       <Text style={s.lead}>
         {kind === 'paper'
@@ -85,7 +97,63 @@ export function PreviewEndPage({ info, examTitle, kind }: { info: PreviewInfo; e
           {url.replace('https://', '')}
         </Link>
       </View>
-      <PageFooter examTitle={`${examTitle} · Free preview`} />
+      <PageFooter examTitle={`${examTitle} · Preview`} />
+    </Page>
+  )
+}
+
+/** Bar widths for a locked question's outline, the same every time for the same number. */
+const widths = (n: number, count: number) => Array.from({ length: count }, (_, i) => [100, 94, 86, 97, 72, 90][(n * 7 + i * 3) % 6])
+
+function LockedBlock({ q }: { q: LockedQuestion }) {
+  return (
+    <View style={s.lockedQ} wrap={false}>
+      <Text style={s.lockedNum}>{q.n}.</Text>
+      <View style={s.lockedBody}>
+        {widths(q.n, q.kind === 'written' ? 3 : 2).map((w, i) => (
+          <View key={i} style={[s.bar, { width: `${w}%` }]} />
+        ))}
+        {q.diagram ? <View style={s.box} /> : null}
+        {q.kind === 'choice'
+          ? Array.from({ length: q.size }, (_, i) => (
+              <View key={i} style={s.optionRow}>
+                <View style={s.optionDot} />
+                <View style={[s.bar, { width: `${widths(q.n + i, 1)[0] / 2}%`, marginBottom: 0 }]} />
+              </View>
+            ))
+          : q.kind === 'text'
+            ? <View style={s.answerBox} />
+            : Array.from({ length: q.size }, (_, i) => <View key={i} style={s.line} />)}
+      </View>
+    </View>
+  )
+}
+
+/**
+ * The locked half of a preview: every remaining question as an outline (its
+ * number, grey bars where its words would be, its options or answer lines),
+ * under a banner on every page saying how to unlock it. None of the paper's
+ * words are in it. The on-site viewer blurs these pages and lays the way to
+ * unlock them over the top; it finds them by the banner's "Locked" heading.
+ */
+export function LockedPages({ info, examTitle }: { info: PreviewInfo; examTitle: string }) {
+  if (!info.locked.length) return null
+  const first = info.locked[0].n
+  const last = info.locked[info.locked.length - 1].n
+  return (
+    <Page size="A4" style={pdfStyles.page} wrap>
+      <Watermark />
+      <View style={s.lockBanner} fixed>
+        <Text style={s.lockTitle}>Locked</Text>
+        <Text style={s.lockText}>
+          {first === last ? `Question ${first}` : `The rest of the paper`} comes with a PrepNest plan · prepnest.com.au/pricing
+        </Text>
+      </View>
+      {info.locked.map(q => (
+        <LockedBlock key={`${q.n}-${q.kind}-${q.size}`} q={q} />
+      ))}
+      <Text style={s.lead}>{`${plural(info.locked.length, 'question', 'questions')} locked, up to question ${last}.`}</Text>
+      <PageFooter examTitle={`${examTitle} · Preview`} />
     </Page>
   )
 }

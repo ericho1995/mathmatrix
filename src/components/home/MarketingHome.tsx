@@ -167,7 +167,7 @@ export default function MarketingHome() {
             {[
               { value: CATALOGUE_TOTALS.papers, label: 'practice papers' },
               { value: questionsLabel(CATALOGUE_TOTALS.questions), label: 'exam-style questions' },
-              { value: CATALOGUE_TOTALS.free, label: 'free to download' },
+              { value: YEAR_LEVEL_STATS.length, label: 'year levels' },
               // Growth is the better fourth number while it is large; the subject
               // count stands in when nothing has landed for a while.
               addedThisMonth >= 5
@@ -182,7 +182,7 @@ export default function MarketingHome() {
           </div>
           <div className="-mx-6 px-6 sm:mx-0 sm:px-0 overflow-x-auto sm:overflow-visible pb-1">
             <YearPicker
-              items={YEAR_LEVEL_STATS.map(s => ({ yearLevel: s.yearLevel, sub: `${s.papers} papers · ${s.free} free` }))}
+              items={YEAR_LEVEL_STATS.map(s => ({ yearLevel: s.yearLevel, sub: `${s.papers} papers` }))}
               hrefFor={y => `/practice/exams?year=${y}`}
             />
           </div>
@@ -227,8 +227,8 @@ export default function MarketingHome() {
             <p className="text-sm font-bold text-brand-600 mb-3">Look inside</p>
             <h2 className="text-4xl font-bold tracking-tight text-brand-700 mb-3">See exactly what you&apos;re getting</h2>
             <p className="text-gray-500 leading-relaxed">
-              Try a few real questions from each free paper, marked on the spot, or see the printed page. Then download
-              the whole paper free — no account needed.
+              Try a few real questions from each paper, marked on the spot, or flip through the first half of the
+              printed paper free, no account needed.
             </p>
           </div>
           <LookInside items={['readingCover', 'numeracy', 'answerKey', 'vcePaper']} />
@@ -429,7 +429,7 @@ const STEPS: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Download,
     title: 'Download',
-    body: 'Start with the free paper for your year level. Each comes with a separate answer key.',
+    body: 'Flip through the first half of any paper free, then unlock the whole paper and its answer key with a plan.',
   },
   {
     icon: Timer,

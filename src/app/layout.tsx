@@ -14,7 +14,7 @@ const nunito = Nunito({ subsets: ['latin'], weight: ['500', '600', '700', '800',
 
 // Built from the catalogue so the search snippet can't drift from the site —
 // it said "Grade 5 to Year 12" while the catalogue started at Grade 3.
-const DESCRIPTION = `Printable NAPLAN and VCE practice exams for ${CATALOGUE_TOTALS.lowest} to ${CATALOGUE_TOTALS.highest}, each with a separate answer key. ${CATALOGUE_TOTALS.free} papers free to download.`
+const DESCRIPTION = `Printable NAPLAN and VCE practice exams for ${CATALOGUE_TOTALS.lowest} to ${CATALOGUE_TOTALS.highest}, each with a separate answer key. The first half of every paper is free to flip through.`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

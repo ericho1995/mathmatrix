@@ -9,7 +9,7 @@ import type { PracticeExam, PracticeExamSection } from '@/lib/questions/exams'
 import { DiagramView, OptionDiagrams } from './diagrams'
 import { READING_TEXTS } from '@/lib/questions/magazines'
 import { paperMinutes } from '@/lib/exams/paperTime'
-import { PreviewCoverBanner, PreviewEndPage } from './PreviewPages'
+import { LockedPages, PreviewCoverBanner, PreviewEndPage } from './PreviewPages'
 import type { PreviewInfo } from './preview'
 import { RichText } from './math/MathText'
 import { FormulaSheetPages } from './FormulaSheet'
@@ -260,7 +260,7 @@ export function ExamPaperDocument({ resolved, preview, coverNote }: { resolved: 
   const sectionStart = firstQuestionNumbers(sections)
   const totalMinutes = paperMinutes({ total_minutes: exam.total_minutes, sections: sections.map(s => s.section) })
   const usesMagazine = Boolean(exam.magazine_id)
-  const footerTitle = preview ? `${exam.title} · Free preview` : exam.title
+  const footerTitle = preview ? `${exam.title} · Preview` : exam.title
   const sheet = exam.formula_sheet ? FORMULA_SHEETS[exam.formula_sheet] : undefined
 
   return (
@@ -388,6 +388,7 @@ export function ExamPaperDocument({ resolved, preview, coverNote }: { resolved: 
         </React.Fragment>
       ))}
       {sheet ? <FormulaSheetPages sheet={sheet} examTitle={exam.title} /> : null}
+      {preview ? <LockedPages info={preview} examTitle={exam.title} /> : null}
       {preview ? <PreviewEndPage info={preview} examTitle={exam.title} kind="paper" /> : null}
     </Document>
   )

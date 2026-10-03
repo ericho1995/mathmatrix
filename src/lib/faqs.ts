@@ -111,7 +111,7 @@ export const FAQS: Faq[] = [
     category: 'purchasing',
     home: true,
     q: 'How much does it cost?',
-    a: `A plan unlocks every ${PLAN_TOTALS.range} paper — NAPLAN and school years, every subject, every year level: ${PLANS.map(p => `$${p.priceAud} for ${p.name}`).join(', ')}, from ${FROM_PER_MONTH} a month. VCE papers are ${VCE_PAPER_PRICE} each, purchased once. ${CATALOGUE_TOTALS.free} papers — one per subject at every year level — are free, so you can see exactly what you are getting first.`,
+    a: `A plan unlocks every ${PLAN_TOTALS.range} paper — NAPLAN and school years, every subject, every year level: ${PLANS.map(p => `$${p.priceAud} for ${p.name}`).join(', ')}, from ${FROM_PER_MONTH} a month. VCE papers are ${VCE_PAPER_PRICE} each, purchased once. The first half of every paper is free to flip through, so you can see exactly what you are getting first.`,
   },
   {
     category: 'purchasing',
@@ -155,7 +155,7 @@ export const FAQS: Faq[] = [
     category: 'accounts',
     home: true,
     q: 'Do I need a credit card to start?',
-    a: 'No. The free papers and the free practice questions need no payment details at all, and marking a free paper does not even need an account.',
+    a: 'No. The diagnostic test, the first half of every paper and the free practice questions need no payment details at all.',
   },
   {
     category: 'accounts',

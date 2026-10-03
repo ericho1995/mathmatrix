@@ -32,7 +32,7 @@ export default function CheckoutButton({
   if (!sellable) {
     return (
       <p className={`text-xs text-gray-400 ${className}`}>
-        Purchases open soon. The free sample papers are available now.
+        Purchases open soon. You can flip through the first half of any paper now.
       </p>
     )
   }

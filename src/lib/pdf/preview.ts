@@ -1,4 +1,4 @@
-import type { ResolvedExam, ResolvedQuestion } from './resolveExam'
+import { firstQuestionNumbers, type ResolvedExam, type ResolvedQuestion } from './resolveExam'
 import { PREVIEW_SHARE } from './previewPolicy'
 
 /** What a preview left out, for the page that closes it. */
@@ -13,6 +13,27 @@ export interface PreviewInfo {
   rest: { title: string; questions: number; marks: number }[]
   /** Where the full paper is; defaults to the paper's catalogue page. */
   url?: string
+  /**
+   * The questions left out, as outlines only: their printed number and the
+   * shape of the question, never its words, so the locked half of a preview
+   * can be drawn without sending any of it.
+   */
+  locked: LockedQuestion[]
+}
+
+export interface LockedQuestion {
+  n: number
+  kind: 'choice' | 'text' | 'written'
+  /** Choice: how many options. Written: how many answer lines. */
+  size: number
+  diagram: boolean
+}
+
+function outline(q: ResolvedQuestion, n: number): LockedQuestion {
+  const diagram = Boolean(q.diagram)
+  if (q.format === 'short_answer') return { n, kind: 'text', size: 1, diagram }
+  if (q.format === 'extended_response' || q.format === 'long_form') return { n, kind: 'written', size: Math.min(10, Math.max(3, questionMarks(q) * 2)), diagram }
+  return { n, kind: 'choice', size: q.options?.length ?? 4, diagram: diagram || Boolean(q.option_diagrams?.length) }
 }
 
 export function questionMarks(q: ResolvedQuestion): number {
@@ -65,6 +86,11 @@ export function previewOf(resolved: ResolvedExam): { resolved: ResolvedExam; inf
     })
     .filter(r => r.questions > 0)
 
+  const starts = firstQuestionNumbers(resolved.sections)
+  const locked = resolved.sections.flatMap((s, i) =>
+    s.questions.slice(sections[i].questions.length).map((q, k) => outline(q, starts[i] + sections[i].questions.length + k + 1))
+  )
+
   return {
     resolved: { exam: resolved.exam, sections },
     info: {
@@ -73,6 +99,7 @@ export function previewOf(resolved: ResolvedExam): { resolved: ResolvedExam; inf
       total: all.length,
       totalMarks: all.reduce((sum, q) => sum + questionMarks(q), 0),
       rest,
+      locked,
     },
   }
 }
