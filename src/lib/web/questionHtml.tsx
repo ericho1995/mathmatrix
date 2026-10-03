@@ -18,7 +18,8 @@ export interface ScreenQuestion {
   id: string
   /** Position in the test, from 1. */
   n: number
-  kind: 'choice' | 'text'
+  /** `written`: a VCE question answered in words and working, self-marked against the guide. */
+  kind: 'choice' | 'text' | 'written'
   stem: string
   diagram?: string
   options?: string[]
@@ -31,7 +32,13 @@ export interface ScreenQuestion {
   calculator?: boolean
   /** Reading: the text this question is about. */
   textId?: string
+  /** Written questions: the marks, and the lettered parts of an extended response (one unlabelled part otherwise). */
+  marks?: number
+  parts?: { label: string; prompt: string; marks: number; diagram?: string; unit?: string }[]
 }
+
+/** What a long-form question is worth when it does not say: the tailored exam times it at this. */
+export const LONG_FORM_MARKS = 5
 
 const diagramHtml = (diagram: Parameters<typeof DiagramView>[0]['diagram'], fit: number, bare?: boolean) =>
   pdfToHtml(React.createElement(DiagramView, { diagram, fit, bare }))
@@ -49,6 +56,24 @@ export function toScreenQuestion(q: BankQuestion, n: number): ScreenQuestion {
   if (q.format === 'short_answer') {
     const unit = answerUnit(q.expected_answer)
     return unit.prefix || unit.suffix ? { ...base, unit } : base
+  }
+  if (q.format === 'extended_response') {
+    return {
+      ...base,
+      kind: 'written',
+      marks: q.parts.reduce((n, p) => n + p.marks, 0),
+      parts: q.parts.map(p => ({
+        label: p.label,
+        prompt: richHtml(p.prompt),
+        marks: p.marks,
+        ...(p.diagram ? { diagram: diagramHtml(p.diagram, 480) } : {}),
+        ...(p.unit !== undefined ? { unit: p.unit } : {}),
+      })),
+    }
+  }
+  if (q.format === 'long_form') {
+    const marks = q.marks ?? LONG_FORM_MARKS
+    return { ...base, kind: 'written', marks, parts: [{ label: '', prompt: '', marks }] }
   }
   if (q.format !== undefined && q.format !== 'multiple_choice') {
     throw new Error(`toScreenQuestion: ${q.id} cannot be shown on screen`)

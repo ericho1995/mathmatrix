@@ -13,7 +13,7 @@ import type { YearLevel } from '@/types'
 export const metadata: Metadata = {
   title: 'Free diagnostic test — find out where your child needs help | PrepNest',
   description:
-    'A free on-screen test for Grade 3 to Year 12 that pinpoints your child’s strengths and the exact skills to work on, with a report for parents and a practice exam built around the result.',
+    'A free on-screen test for Grade 3 to Year 12 that pinpoints your child’s strengths and the exact skills to work on, with a report for parents and practice papers built on the weak areas.',
 }
 
 const YEARS = new Set(['grade_3', 'grade_4', 'grade_5', 'grade_6', 'year_7', 'year_8', 'year_9', 'year_10', 'year_11', 'year_12'])
@@ -51,8 +51,8 @@ export default function DiagnosticPage({ searchParams }: { searchParams: { year?
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4 leading-tight">Find out exactly where your child needs help.</h1>
         <p className="text-white text-lg font-semibold leading-relaxed mb-6">
           Your child sits a short test on screen in one subject at their year level. You get a clear report of what they are
-          confident with, the specific skills to work on and how to help at home — and a practice exam built around the
-          result.
+          confident with, the specific skills to work on and how to help at home — and practice papers on the areas to work
+          on, to sit on screen or print.
         </p>
         <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold">
           {['Free test and full report', 'About 20–35 minutes', 'No account needed to start'].map(f => (

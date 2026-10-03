@@ -30,7 +30,7 @@ export default async function DiagnosticsList() {
           <ClipboardList className="w-8 h-8 text-brand-600 shrink-0" aria-hidden />
           <div className="flex-1">
             <p className="font-medium text-gray-900">Find out where your child needs help</p>
-            <p className="text-sm text-gray-500">A free on-screen test with a report for you and a practice exam built from the result.</p>
+            <p className="text-sm text-gray-500">A free on-screen test with a report for you and practice papers on the weak areas.</p>
           </div>
           <Link href="/diagnostic" className="btn-primary whitespace-nowrap">
             Start a test

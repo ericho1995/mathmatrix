@@ -82,7 +82,7 @@ test('summary sentences', () => {
   )
   assert.equal(
     summarySentence(fakeReport([['A', 'strength'], ['B', 'strength']]), 'Leo'),
-    'Leo answered 17 of 24 questions correctly. Every area was a strength, so the tailored exam will stretch them with harder questions.'
+    'Leo answered 17 of 24 questions correctly. Every area was a strength, so practice papers work on the two lowest areas.'
   )
   assert.equal(listJoin(['A', 'B', 'C']), 'A, B and C')
 })

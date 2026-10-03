@@ -20,7 +20,7 @@ export default function CheckoutButton({
   variant = 'primary',
   className = '',
 }: {
-  purchase: { plan: 'month' | 'quarter' | 'year' } | { examId: string } | { tailoredId: string }
+  purchase: { plan: 'month' | 'quarter' | 'year' } | { examId: string } | { tailoredId: string } | { diagnosticPaperId: string }
   label: string
   sellable: boolean
   variant?: 'primary' | 'secondary'

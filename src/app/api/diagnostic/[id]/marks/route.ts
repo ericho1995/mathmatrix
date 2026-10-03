@@ -24,7 +24,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   if (!raw || raw.length > 200 || raw.some(w => typeof w?.s !== 'number' || typeof w?.n !== 'number')) {
     return NextResponse.json({ error: 'Expected a list of marks' }, { status: 400 })
   }
-  const marks = marksFromWrong(loaded.result, raw as { s: number; n: number }[])
+  const marks = marksFromWrong(loaded.result.exam, raw as { s: number; n: number }[])
   if (!marks) return NextResponse.json({ error: 'A mark does not match a question on this paper' }, { status: 400 })
 
   const saved = await saveExamMarks(loaded.result.id, marks)

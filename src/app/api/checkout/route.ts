@@ -8,6 +8,9 @@ import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { loadResult } from '@/lib/diagnostic/load'
 import { tailoredAccess } from '@/lib/diagnostic/access'
 import { tailoredExamId } from '@/lib/diagnostic/tailor'
+import { loadPaper } from '@/lib/diagnostic/papers'
+import { paperOpen } from '@/lib/diagnostic/access'
+import { paperExamId } from '@/lib/diagnostic/weakPapers'
 
 export const runtime = 'nodejs'
 
@@ -17,6 +20,7 @@ export const runtime = 'nodejs'
  *   { plan: 'month' | 'quarter' | 'year' }  a subscription to the Grade 3 – Year 10 plan
  *   { examId }                              one VCE paper, bought once
  *   { tailoredId }                          the VCE exam built from a diagnostic result
+ *   { diagnosticPaperId }                   one VCE weak-areas paper generated from a result
  *
  * The client names what it wants; the price is looked up server-side. The
  * amount is never taken from the request — that is how checkout flows get
@@ -40,7 +44,7 @@ export async function POST(req: NextRequest) {
   } catch {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
   }
-  const { plan, examId, tailoredId } = (body ?? {}) as { plan?: unknown; examId?: unknown; tailoredId?: unknown }
+  const { plan, examId, tailoredId, diagnosticPaperId } = (body ?? {}) as { plan?: unknown; examId?: unknown; tailoredId?: unknown; diagnosticPaperId?: unknown }
   const origin = req.nextUrl.origin
   const access = await getAccess()
 
@@ -141,6 +145,36 @@ export async function POST(req: NextRequest) {
         client_reference_id: user.id,
         // The webhook records exam_id in paper_purchases, as for any VCE paper.
         metadata: { user_id: user.id, exam_id: tailoredExamId(result.id) },
+        allow_promotion_codes: true,
+        success_url: `${origin}/diagnostic/report/${result.id}?purchased=1`,
+        cancel_url: `${origin}/diagnostic/report/${result.id}`,
+      })
+      if (!session.url) throw new Error('Stripe returned no checkout URL')
+      return NextResponse.json({ url: session.url })
+    }
+
+    if (typeof diagnosticPaperId === 'string') {
+      // The paper must belong to a result this visitor can see.
+      const loaded = await loadPaper(diagnosticPaperId)
+      if (!loaded.ok) return NextResponse.json({ error: 'Paper not found' }, { status: loaded.status === 401 ? 401 : 404 })
+      const { paper, result } = loaded
+      if (!isVceYear(paper.year)) {
+        return NextResponse.json({ error: 'This paper is part of the plan, not sold on its own' }, { status: 400 })
+      }
+      if (paperOpen({ id: paper.id, year: paper.year }, access)) {
+        return NextResponse.json({ error: 'You already have this paper' }, { status: 409 })
+      }
+      const priceId = stripePriceIdForVcePaper()
+      if (!priceId) return NextResponse.json({ error: 'No price configured for VCE papers' }, { status: 503 })
+
+      const session = await getStripe().checkout.sessions.create({
+        mode: 'payment',
+        line_items: [{ price: priceId, quantity: 1 }],
+        payment_intent_data: { description: paper.exam.title },
+        customer_email: user.email ?? undefined,
+        client_reference_id: user.id,
+        // The webhook records exam_id in paper_purchases, as for any VCE paper.
+        metadata: { user_id: user.id, exam_id: paperExamId(paper.id) },
         allow_promotion_codes: true,
         success_url: `${origin}/diagnostic/report/${result.id}?purchased=1`,
         cancel_url: `${origin}/diagnostic/report/${result.id}`,

@@ -7,6 +7,7 @@ import LookInside from '@/components/marketing/LookInside'
 import LibraryGrowth from '@/components/marketing/LibraryGrowth'
 import { CalendarX, Check, LockKeyhole, ShieldCheck, X, type LucideIcon } from 'lucide-react'
 import { FROM_PER_MONTH, PLANS, VCE_PAPER_PRICE, perPaper } from '@/lib/pricing'
+import { PAPERS_PER_MONTH } from '@/lib/diagnostic/weakPapers'
 import { CATALOGUE_TOTALS, PLAN_STATS, PLAN_TOTALS, VCE_STATS, VCE_TOTALS, subjectLabel } from '@/lib/catalogue'
 import { getAccess } from '@/lib/auth/access'
 import { faqsIn } from '@/lib/faqs'
@@ -149,7 +150,7 @@ export default async function PricingPage() {
             <tbody className="divide-y divide-gray-100">
               {[
                 { feature: 'Diagnostic test and full report', free: true, plan: true },
-                { feature: 'Practice exam built from the diagnostic', free: 'Preview', plan: true },
+                { feature: 'Practice papers on the diagnostic’s weak areas', free: 'Preview', plan: `${PAPERS_PER_MONTH} a month` },
                 { feature: 'Practice papers', free: `${PLAN_TOTALS.free} samples`, plan: `All ${PLAN_TOTALS.papers}` },
                 { feature: 'New papers as they are published', free: false, plan: true },
                 { feature: 'Answer key with an explanation for every answer', free: true, plan: true },
@@ -194,7 +195,7 @@ export default async function PricingPage() {
                 VCE papers are purchased one at a time, so a senior student pays only for the subjects they sit. Each is
                 laid out like a VCAA exam, with reading time and a full answer key. {VCE_TOTALS.papers} papers today,{' '}
                 {VCE_TOTALS.free} of them free samples, and more on the way. The free VCE diagnostic is the same: the test
-                and report are free, and the practice exam built from it is {VCE_PAPER_PRICE}.
+                and report are free, and each practice paper built from it is {VCE_PAPER_PRICE}.
               </p>
             </div>
             <div className="sm:w-48 shrink-0 flex flex-col gap-2">

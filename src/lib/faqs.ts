@@ -42,7 +42,7 @@ export const FAQS: Faq[] = [
     category: 'diagnostic',
     home: true,
     q: 'What is the diagnostic test?',
-    a: 'A short test your child sits on screen, in one subject at their year level, that finds what they are confident with and where they need help. You get a report of each area — with the specific skills, every answer explained and three ways to help at home — and a practice exam built around what it found.',
+    a: 'A short test your child sits on screen, in one subject at their year level, that finds what they are confident with and where they need help. You get a report of each area — with the specific skills, every answer explained and three ways to help at home — and practice papers on the areas it found, to sit on screen or print.',
   },
   {
     category: 'diagnostic',
@@ -58,7 +58,7 @@ export const FAQS: Faq[] = [
   {
     category: 'diagnostic',
     q: 'Is it free?',
-    a: 'Yes. The test and the full report are free; a free account is needed to see the full report and save it. The practice exam built from the result is included in the Grade 3 to Year 10 plan, and for Year 11 and 12 it is purchased like a VCE paper. Without either, you can download a preview of it.',
+    a: 'Yes. The test and the full report are free; a free account is needed to see the full report and save it. Practice papers on the weak areas are included in the Grade 3 to Year 10 plan, three new papers a month; for Year 11 and 12 each paper is purchased like a VCE paper. Without either, you can download a preview.',
   },
   {
     category: 'diagnostic',

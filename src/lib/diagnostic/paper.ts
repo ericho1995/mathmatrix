@@ -27,11 +27,21 @@ const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one :
 export function tailoredCoverNote(exam: TailoredExam, childName: string | null): string[] {
   const work = exam.focus.filter(f => f.level !== 'strength')
   const lines = [childName ? `Built for ${childName}` : 'Built from a diagnostic test']
-  lines.push(
-    work.length
-      ? `Made from ${childName ? `${childName}’s` : 'the'} diagnostic result: most of the questions practice ${listJoin(work.map(f => f.label))}.`
-      : `Made from ${childName ? `${childName}’s` : 'the'} diagnostic result, which found no weak area: the questions stretch every area.`
-  )
+  const whose = childName ? `${childName}’s` : 'the'
+  const areas = listJoin(exam.focus.map(f => f.label))
+  if (exam.weakOnly) {
+    lines.push(
+      exam.fallback
+        ? `Made from ${whose} diagnostic result, which found no weak area: the questions practice the two lowest areas, ${areas}.`
+        : `Made from ${whose} diagnostic result: every question practices an area still to work on — ${areas}.`
+    )
+  } else {
+    lines.push(
+      work.length
+        ? `Made from ${whose} diagnostic result: most of the questions practice ${listJoin(work.map(f => f.label))}.`
+        : `Made from ${whose} diagnostic result, which found no weak area: the questions stretch every area.`
+    )
+  }
   for (const f of exam.focus) lines.push(`${f.label}: ${plural(f.questions, 'question', 'questions')}`)
   if (exam.secondChance) lines.push(`The last section repeats ${plural(exam.secondChance, 'question', 'questions')} from the diagnostic that went wrong, to try again.`)
   return lines
