@@ -23,7 +23,7 @@ export default function PrivacyPage() {
             <li>Account details: name, email address, and account role (student, parent, or admin).</li>
             <li>For students: year level, and practice activity — questions attempted, answers, accuracy, time taken, XP and streaks.</li>
             <li>For parents: the invite code used to link to a student&apos;s account, and read-only access to that student&apos;s progress.</li>
-            <li>For diagnostic tests saved to an account: the answers given, how long each question took, whether an answer was changed or marked as a guess, the child&apos;s first name if you chose to give one, and any marks entered for the practice exam. Before a result is saved, it is kept only in your browser.</li>
+            <li>For diagnostic tests saved to an account: the answers given, how long each question took, whether an answer was changed or marked as a guess, the child&apos;s first name if you chose to give one, and, for practice papers built from a result, the answers given on screen and any marks entered. Before a result is saved, it is kept only in your browser.</li>
             <li>For purchases: which plan or paper you purchased, when, and Stripe&apos;s reference for the payment. Card details go to Stripe, never to us.</li>
             <li>Standard technical data collected by our hosting provider (Vercel) and database provider (Supabase), such as IP address and request logs, for security and reliability.</li>
             <li>Anonymous usage statistics (Vercel Web Analytics): which pages are visited and roughly where from. It uses no cookies and does not identify you.</li>

@@ -86,7 +86,7 @@ export default function DiagnosticPage({ searchParams }: { searchParams: { year?
           <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <HowStep tone={TONES[0]} icon={ClipboardList} n={1} title="The test" body="One question at a time, on screen. Then a few follow-up questions chosen from the answers, to check anything that could go either way." />
             <HowStep tone={TONES[1]} icon={BarChart3} n={2} title="The report" body="Every area of the subject, weakest first: the skills answered right and wrong, how firm each result is, and three ways to help at home." />
-            <HowStep tone={TONES[2]} icon={FileText} n={3} title="The practice exam" body={`A printable paper and answer key built from the result, most of it on the areas to work on. Included in the plan; ${VCE_PAPER_PRICE} for VCE.`} />
+            <HowStep tone={TONES[2]} icon={FileText} n={3} title="Practice papers" body={`Papers built only on the areas to work on, new every time — sat on screen or printed with an answer key. Three a month in the plan; ${VCE_PAPER_PRICE} each for VCE.`} />
             <HowStep tone={TONES[3]} icon={RefreshCw} n={4} title="Re-test" body="A few weeks later, sit it again. It never repeats a question, and the report shows each area going up, down or holding steady." />
           </ol>
         </div>

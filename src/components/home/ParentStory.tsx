@@ -6,9 +6,7 @@ import { BlockSticker, BookSticker, CheckSticker, MedalSticker, PencilSticker, S
 import SampleReport from '@/components/diagnostic/SampleReport'
 import ProgressPanel from '@/components/diagnostic/report/ProgressPanel'
 import LevelChip from '@/components/diagnostic/LevelChip'
-import { QUESTION_BANK } from '@/lib/questions/bank'
-import { sampleResult } from '@/lib/diagnostic/sample'
-import { buildProfile } from '@/lib/diagnostic/profile'
+import { SHOWCASE } from '@/lib/diagnostic/showcase'
 import { VCE_PAPER_PRICE } from '@/lib/pricing'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -163,19 +161,7 @@ function FineTuning() {
   )
 }
 
-function sampleProgress() {
-  const before = sampleResult(QUESTION_BANK, 'grade_5', 'math', 9)
-  const after = sampleResult(QUESTION_BANK, 'grade_5', 'math', 3)
-  if (!before || !after) return null
-  const sitting = (id: string, at: string, r: typeof after.report) => ({
-    id,
-    at,
-    areas: r.areas.map(a => ({ id: a.id, label: a.label, secure: a.secure, evidence: a.evidence })),
-  })
-  return buildProfile([sitting('a', '2026-08-20', before.report), sitting('b', '2026-10-01', after.report)])
-}
-
-const PROGRESS = sampleProgress()
+const PROGRESS = SHOWCASE?.progress ?? null
 
 export default function ParentStory() {
   return (
@@ -235,7 +221,7 @@ export default function ParentStory() {
       >
         <p>
           Then you generate practice papers on your child&apos;s weak spots — on screen, with a pad for working out, or
-          printed with an answer key. Three a month are included in the plan for Grade 3 to Year 10, and each is
+          printed with an answer key. Three a month are included in the plan for Grade 3 to Year 10, and each is{' '}
           {VCE_PAPER_PRICE} for VCE.
         </p>
         <p>
