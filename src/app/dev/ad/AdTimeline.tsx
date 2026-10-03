@@ -16,16 +16,27 @@ import type { ScreenQuestion } from '@/lib/web/questionHtml'
 // with ?play to watch it run in real time.
 //
 // The voice lines and their timings come from the soundtrack (audio.py).
+// The scenes are laid out on a fixed "design" clock and stretched to wherever
+// the voice puts each line, so a re-voiced soundtrack only changes LINES.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const AD_LENGTH = 15
 
 export const LINES = [
-  { start: 0.4, end: 2.333, text: 'Not sure where your child needs help?' },
-  { start: 3.033, end: 5.875, text: 'Our free test finds the exact skills to work on.' },
-  { start: 6.575, end: 8.994, text: 'Then practice papers target just those.' },
-  { start: 9.694, end: 13.114, text: 'Try the free test now at prepnest.com.au' },
+  { start: 0.4, end: 3.542, text: "Some kids quietly decide they're not smart." },
+  { start: 3.992, end: 7.082, text: "Often, it's one small gap no one saw." },
+  { start: 7.532, end: 10.415, text: 'PrepNest finds it, and helps them close it.' },
+  { start: 11.015, end: 13.26, text: 'Help them believe in themselves again.' },
 ]
+
+/** Where each line starts on the design clock the scenes below are drawn on. */
+const DESIGN = [0, 3.033, 6.575, 9.694, AD_LENGTH]
+const REAL = [0, LINES[1].start, LINES[2].start, LINES[3].start, AD_LENGTH]
+/** Real time to design time, piecewise linear between the line starts. */
+const warp = (rt: number) => {
+  const i = Math.max(0, Math.min(REAL.length - 2, REAL.findIndex((r, j) => rt < REAL[j + 1])))
+  return DESIGN[i] + ((rt - REAL[i]) * (DESIGN[i + 1] - DESIGN[i])) / (REAL[i + 1] - REAL[i])
+}
 
 const clamp = (x: number) => Math.max(0, Math.min(1, x))
 const prog = (t: number, a: number, b: number) => clamp((t - a) / (b - a))
@@ -68,7 +79,8 @@ export interface AdData {
 }
 
 export default function AdTimeline(d: AdData) {
-  const [t, setT] = useState(0)
+  const [rt, setT] = useState(0)
+  const t = warp(rt)
 
   useEffect(() => {
     ;(window as unknown as { __setAdTime: (x: number) => void }).__setAdTime = (x: number) => flushSync(() => setT(x))
@@ -106,7 +118,7 @@ export default function AdTimeline(d: AdData) {
       {/* ── Scene 1: the hook ─────────────────────────────────────────── */}
       {scene === 1 && (
         <div className="absolute inset-0" style={exitStyle(t, 2.75)}>
-          <Caption t={t} line={LINES[0]} className="absolute left-14 right-14 top-[330px] text-[104px] leading-[1.02] font-bold tracking-tight text-brand-700" accent="text-brand-500" />
+          <Caption t={rt} line={LINES[0]} className="absolute left-14 right-14 top-[330px] text-[104px] leading-[1.02] font-bold tracking-tight text-brand-700" accent="text-brand-500" />
           {[0, 1, 2].map(i => {
             const p = prog(t, 0.5 + i * 0.35, 3)
             return (
@@ -136,7 +148,7 @@ export default function AdTimeline(d: AdData) {
       {/* ── Scene 2: the test, then the report ───────────────────────────── */}
       {scene === 2 && (
         <div className="absolute inset-0" style={exitStyle(t, 6.2)}>
-          <Caption t={t} line={LINES[1]} className="absolute left-14 right-14 top-[300px] text-[80px] leading-[1.05] font-bold tracking-tight text-ink" accent="text-brand-500" />
+          <Caption t={rt} line={LINES[1]} className="absolute left-14 right-14 top-[300px] text-[80px] leading-[1.05] font-bold tracking-tight text-ink" accent="text-brand-500" />
 
           {/* The question screen slides up, an answer is chosen, then it moves off to the left. */}
           <div
@@ -178,7 +190,7 @@ export default function AdTimeline(d: AdData) {
       {/* ── Scene 3: practice papers on just those ─────────────────────────── */}
       {scene === 3 && (
         <div className="absolute inset-0" style={exitStyle(t, 9.4)}>
-          <Caption t={t} line={LINES[2]} className="absolute left-14 right-14 top-[300px] text-[84px] leading-[1.05] font-bold tracking-tight text-ink" accent="text-brand-500" />
+          <Caption t={rt} line={LINES[2]} className="absolute left-14 right-14 top-[300px] text-[84px] leading-[1.05] font-bold tracking-tight text-ink" accent="text-brand-500" />
 
           <div className="absolute left-[50px] top-[620px] w-[600px]" style={{ transform: `translateY(${900 * (1 - easeOut(prog(t, 6.5, 6.95)))}px)` }}>
             <div className="rounded-[2.5rem] bg-white border-4 border-b-[12px] border-line p-8">
@@ -243,6 +255,7 @@ export default function AdTimeline(d: AdData) {
       {/* ── Scene 4: the bird, the logo and the call to action ───────────── */}
       {t >= 9.55 && (
         <div className="absolute inset-0 bg-brand-500" style={{ clipPath: `circle(${wipe}px at 540px 900px)` }}>
+          <Caption t={rt} line={LINES[3]} className="absolute left-14 right-14 top-[150px] text-center text-[72px] leading-[1.08] font-bold tracking-tight text-white" accent="text-sun-400" />
           <div className="absolute w-16 h-16" style={{ left: 170, top: 420 + bob(2, 14), opacity: prog(t, 10.2, 10.5) }}>
             <Sparkle className="w-full h-full" />
           </div>
