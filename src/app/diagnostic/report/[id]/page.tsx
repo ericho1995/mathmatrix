@@ -3,7 +3,7 @@ import { notFound, redirect } from 'next/navigation'
 import DataLoadError from '@/components/DataLoadError'
 import ReportView from '@/components/diagnostic/report/ReportView'
 import { getAccess } from '@/lib/auth/access'
-import { loadProfile, loadResult } from '@/lib/diagnostic/load'
+import { loadCohort, loadProfile, loadResult } from '@/lib/diagnostic/load'
 import { markedAreas } from '@/lib/diagnostic/marking'
 import { papersPanel } from '@/lib/diagnostic/papersPanel'
 
@@ -22,7 +22,7 @@ export default async function ReportPage({ params, searchParams }: { params: { i
     return <DataLoadError title="Diagnostic report" what="this report" />
   }
   const { result, viewerId } = loaded
-  const [access, profile] = await Promise.all([getAccess(), loadProfile(result)])
+  const [access, profile, cohort] = await Promise.all([getAccess(), loadProfile(result), loadCohort(result.year, result.subject)])
   const papers = await papersPanel(result, access, viewerId, searchParams.paper)
 
   return (
@@ -36,6 +36,7 @@ export default async function ReportPage({ params, searchParams }: { params: { i
       marked={result.marks && result.markedAt ? { areas: markedAreas(result.marks), at: result.markedAt } : null}
       canDelete={result.userId === viewerId}
       purchased={searchParams.purchased === '1'}
+      cohort={cohort}
     />
   )
 }

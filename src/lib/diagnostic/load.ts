@@ -6,6 +6,7 @@ import { buildReport } from './score'
 import { composeTailoredExam, type TailoredExam } from './tailor'
 import { buildProfile, type Profile } from './profile'
 import { BANK, BY_ID } from './server'
+import { parseCohort, type Cohort } from './cohort'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Reading saved results, with the visitor's own session: row-level security
@@ -147,4 +148,18 @@ export async function listResults(): Promise<{ ok: true; results: ResultSummary[
       markedAt: r.exam_marked_at,
     })),
   }
+}
+
+/**
+ * How other children who sat the same test scored, for the report's
+ * comparison. Null when it cannot be read (or the function is not set up yet),
+ * in which case the report leaves the comparison out.
+ */
+export async function loadCohort(year: YearLevel, subject: SubjectSlug): Promise<Cohort | null> {
+  const { data, error } = await createClient().rpc('diagnostic_cohort', { p_year: year, p_subject: subject })
+  if (error) {
+    console.error('[diagnostic.load] cohort read failed', { year, subject, code: error.code, error: error.message })
+    return null
+  }
+  return parseCohort(data)
 }
