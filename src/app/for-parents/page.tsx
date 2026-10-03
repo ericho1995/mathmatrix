@@ -582,7 +582,7 @@ function Closing({ guardian }: { guardian: boolean }) {
         <p className="text-lg font-semibold mb-8">
           {guardian
             ? 'Your dashboard has every test, every paper and what to do next.'
-            : 'Twenty to thirty-five minutes, no account needed to start, and a report you can act on tonight.'}
+            : 'Twenty to thirty-five minutes, no account needed to start, and a report you can act on straight away.'}
         </p>
         <Link href={(guardian ? '/parent' : '/diagnostic') as Route} className="btn-secondary text-lg px-10 py-3.5">
           {guardian ? 'Open your dashboard' : 'Start the free test'}
