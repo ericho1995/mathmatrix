@@ -81,3 +81,25 @@ Answers your child marks as a guess, or taps in a couple of seconds, are not cou
 #GrowthMindset #ParentingAustralia #NAPLAN #LearningAtHome
 
 Alt text: The PrepNest bird thinking, with a speech bubble: Take your time. Nobody expects you to know everything.
+
+## Reel / TikTok ad (15 s, 1080×1920)
+
+Files: `export-bird/reel-ad.mp4` (voice and music), `export-bird/reel-ad-music-only.mp4`
+(for your own voiceover or the app's text-to-speech).
+
+Script (voice: Microsoft Catherine, Australian, built into Windows):
+1. Not sure where your child needs help?
+2. Our free test finds the exact skills to work on.
+3. Then practice papers target just those.
+4. Try the free test now at prepnest.com.au.
+
+Caption:
+Not sure where your child needs help? PrepNest's free diagnostic test finds the exact skills to work on, then practice papers target just those, on screen or printed. Grade 3 to Year 12, no account to start. Try the free test now, link in bio.
+
+#NAPLAN #ParentingAustralia #MathsAtHome #LearningAtHome #PrimarySchool #HighSchool
+
+Rebuild: in `ad/`, run `tts.ps1` for each line (or replace `vo-1..4.wav` with your own
+recordings), then `python audio.py` (music is composed in the script, so it is owned
+outright). Start the dev server and run
+`FFMPEG=<path> BASE=http://localhost:3000 node marketing/instagram/render-ad.mjs --audio=marketing/instagram/ad/ad-audio.wav`.
+If the voice timings change, copy them from `timings.json` into `LINES` in `src/app/dev/ad/AdTimeline.tsx`.
