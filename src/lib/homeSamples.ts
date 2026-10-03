@@ -29,6 +29,8 @@ const PICKS: { year: YearLevel; subject: SubjectSlug }[] = [
   { year: 'grade_5', subject: 'math' },
   { year: 'grade_5', subject: 'english' },
   { year: 'year_7', subject: 'math' },
+  // Year 8: a step up in reasoning (what one very different value does to the average).
+  { year: 'year_8', subject: 'math' },
   { year: 'year_9', subject: 'math' },
   { year: 'year_12', subject: 'maths_methods' },
 ]
