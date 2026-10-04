@@ -156,23 +156,23 @@ export default function PaperFlipbook({ url, title, unlock = { href: '/pricing',
           {(total ? pages : [null]).map((src, i) => (
             <div
               key={i}
-              className="w-full shrink-0 snap-center flex items-center justify-center p-3 sm:p-5 h-[50vh] sm:h-[54vh]"
+              className="relative w-full shrink-0 snap-center flex items-center justify-center p-3 sm:p-5 h-[50vh] sm:h-[54vh] min-h-[22rem]"
               role="group"
               aria-roledescription="page"
               aria-label={total ? `Page ${i + 1} of ${total}` : 'Loading'}
             >
               {src ? (
-                <div className="relative max-h-full max-w-full flex items-center justify-center">
+                <>
                   {/* eslint-disable-next-line @next/next/no-img-element -- drawn in the browser from the PDF */}
                   <img
                     src={src}
                     alt={`${title}, page ${i + 1} of ${total}${locked[i] ? ': locked' : ''}`}
-                    className={`max-h-[46vh] sm:max-h-[50vh] max-w-full w-auto h-auto rounded-lg shadow-md ring-1 ring-black/5 bg-white ${locked[i] ? 'blur-[5px]' : ''}`}
+                    className={`max-h-full max-w-full w-auto h-auto rounded-lg shadow-md ring-1 ring-black/5 bg-white ${locked[i] ? 'blur-[5px]' : ''}`}
                     draggable={false}
                   />
                   {locked[i] && (
                     <div className="absolute inset-0 flex items-center justify-center p-4">
-                      <div className="max-w-[18rem] rounded-2xl bg-white/95 border-2 border-line border-b-4 px-5 py-4 text-center shadow-lg">
+                      <div className="w-full max-w-[19rem] rounded-2xl bg-white/95 border-2 border-line border-b-4 px-5 py-4 text-center shadow-lg">
                         <Lock className="w-6 h-6 mx-auto text-brand-600" aria-hidden />
                         <p className="font-bold text-ink mt-1">This half is locked</p>
                         <p className="text-sm text-gray-600 mt-1">The rest of the paper, and its answers, come with a PrepNest plan.</p>
@@ -182,7 +182,7 @@ export default function PaperFlipbook({ url, title, unlock = { href: '/pricing',
                       </div>
                     </div>
                   )}
-                </div>
+                </>
               ) : (
                 <div className="h-full aspect-[1/1.414] max-w-full rounded-lg bg-white ring-1 ring-black/5 flex items-center justify-center">
                   <span className="text-sm font-bold text-gray-400 animate-pulse">{total ? `Page ${i + 1}…` : 'Opening the paper…'}</span>
