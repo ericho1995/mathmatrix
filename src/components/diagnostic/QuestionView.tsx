@@ -15,10 +15,13 @@ export default function QuestionView({
   question,
   answer,
   onAnswer,
+  compact = false,
 }: {
   question: ScreenQuestion
   answer: Answer
   onAnswer: (a: Answer) => void
+  /** A preview (the homepage): keep the diagram short so one tall drawing does not stretch the page. */
+  compact?: boolean
 }) {
   const q = question
   return (
@@ -37,7 +40,12 @@ export default function QuestionView({
 
       {q.diagram && (
         // Diagrams are ink on paper, so they sit on white whatever the page around them.
-        <div className="rounded-2xl border-2 border-line bg-white text-[#1a1a1a] p-3 mb-6 overflow-x-auto flex justify-center" dangerouslySetInnerHTML={{ __html: q.diagram }} />
+        <div
+          className={`rounded-2xl border-2 border-line bg-white text-[#1a1a1a] p-3 mb-6 overflow-x-auto flex justify-center ${
+            compact ? '[&_svg]:max-h-56 [&_svg]:w-auto' : ''
+          }`}
+          dangerouslySetInnerHTML={{ __html: q.diagram }}
+        />
       )}
 
       {q.kind === 'text' ? (
