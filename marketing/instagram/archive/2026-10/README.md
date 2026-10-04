@@ -1,7 +1,7 @@
 # Archived reels (October 2026)
 
-Earlier versions, kept for reference. Neither was posted. The owner judged
-both below the standard wanted for ads (5 October 2026), and they were
+Earlier versions, kept for reference. None was posted. The owner judged
+them below the standard wanted (5 October 2026), and they were
 replaced by the short film (`src/app/dev/ad-film`,
 `export-bird/film-gold-star.mp4`).
 
