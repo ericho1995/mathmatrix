@@ -6,10 +6,9 @@ import type { Route } from 'next'
 import { useRouter } from 'next/navigation'
 import { GraduationCap, Presentation, Users } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
-import { GRADES } from '@/lib/curriculum'
 import { friendlyAuthError } from '@/lib/auth/friendlyAuthError'
 import { safeNext } from '@/lib/auth/safeNext'
-import YearPicker from '@/components/catalogue/YearPicker'
+import { YEAR_STAGES, yearLabel } from '@/lib/yearLevels'
 import type { UserRole, YearLevel } from '@/types'
 import PasswordInput from '@/components/ui/PasswordInput'
 import { track } from '@/lib/analytics/track'
@@ -24,11 +23,16 @@ const ACCOUNT_TYPES: { role: SignupRole; label: string; sub: string; icon: typeo
   { role: 'teacher', label: 'Teacher or tutor', sub: 'For my students', icon: Presentation },
 ]
 
+// Any age can sign up: a younger child, an adult learner or anyone not at
+// school picks this, and the account is made without a year level
+// (supabase/schema_student_any_year.sql). Every year's papers stay open to them.
+const OTHER_YEAR = 'other'
+
 export default function RegisterPage() {
   const router = useRouter()
   const [role, setRole] = useState<SignupRole>('student')
   const [fullName, setFullName] = useState('')
-  const [yearLevel, setYearLevel] = useState<YearLevel | ''>('')
+  const [yearLevel, setYearLevel] = useState<YearLevel | typeof OTHER_YEAR | ''>('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -72,7 +76,7 @@ export default function RegisterPage() {
         data: {
           full_name: fullName,
           role,
-          ...(role === 'student' ? { year_level: yearLevel } : {}),
+          ...(role === 'student' && yearLevel !== OTHER_YEAR ? { year_level: yearLevel } : {}),
         },
         // PrepNest's confirmation email links straight to /auth/confirm and
         // reads only `next` from this URL, so the return path survives even
@@ -138,18 +142,31 @@ export default function RegisterPage() {
 
         <form onSubmit={handleRegister} className="flex flex-col gap-4">
           {role === 'student' && (
-            <div>
-              <p className="text-sm font-medium text-gray-900 mb-2">Your year level</p>
-              {/* Scrolls sideways on a phone rather than stacking three rows. */}
-              <div className="-mx-6 px-6 sm:mx-0 sm:px-0 overflow-x-auto sm:overflow-visible pb-1">
-                <YearPicker
-                  items={GRADES.map(g => ({ yearLevel: g.value }))}
-                  selected={yearLevel || null}
-                  onSelect={setYearLevel}
-                  compact
-                />
-              </div>
-            </div>
+            <label className="block">
+              <span className="block text-sm font-medium text-gray-900 mb-2">Your year level</span>
+              <select
+                className={`input ${yearLevel ? 'text-gray-900' : 'text-gray-400'}`}
+                value={yearLevel}
+                onChange={e => setYearLevel(e.target.value as YearLevel | typeof OTHER_YEAR)}
+                required
+              >
+                <option value="" disabled>
+                  Choose your year level
+                </option>
+                {YEAR_STAGES.map(stage => (
+                  <optgroup key={stage.id} label={stage.label}>
+                    {stage.years.map(y => (
+                      <option key={y} value={y} className="text-gray-900">
+                        {yearLabel(y)}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+                <option value={OTHER_YEAR} className="text-gray-900">
+                  Another year, or not at school
+                </option>
+              </select>
+            </label>
           )}
           <input
             className="input"
