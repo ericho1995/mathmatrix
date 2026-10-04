@@ -24,7 +24,7 @@ import { FileText } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'VCE practice exams — Mathematical Methods, Specialist, General, Chemistry, Physics — PrepNest',
   description:
-    'Printable VCE practice exams in the VCAA format, with separate answer keys and the 2026 exam timetable. Free sample papers for every subject.',
+    'Printable VCE practice exams in the VCAA format, with separate answer keys and the 2026 exam timetable. Flip through the first half of any paper free.',
 }
 
 export const revalidate = 3600
@@ -143,11 +143,11 @@ export default function VcePage() {
         </div>
       </section>
 
-      {/* A real Unit 3 & 4 paper and its marking guide, from the free sample. */}
+      {/* A real Unit 3 & 4 paper and its marking guide. */}
       <section className="max-w-3xl mx-auto px-4 pt-14">
         <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Look inside</h2>
         <p className="text-sm text-gray-500 mb-8">
-          Pages from the free Mathematical Methods Examination 1. Every VCE paper comes with a marking guide like this one.
+          Pages from Mathematical Methods Examination 1. Every VCE paper comes with a marking guide like this one.
         </p>
         <LookInside items={['vcePaper', 'vceKey']} />
       </section>
@@ -194,7 +194,7 @@ export default function VcePage() {
         <div className="max-w-3xl mx-auto px-4 py-14 text-center">
           <p className="text-gray-500 mb-5">
             Every VCE paper is {VCE_PAPER_PRICE}, purchased once and yours to keep — pay only for the subjects you sit.
-            The first paper in every subject is free, and more papers are on the way.
+            Flip through the first half of any paper free before you purchase, and more papers are on the way.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href={'/practice/exams?year=year_12' as Route} className="btn-primary">

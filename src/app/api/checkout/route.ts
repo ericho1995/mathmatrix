@@ -11,6 +11,7 @@ import { tailoredExamId } from '@/lib/diagnostic/tailor'
 import { loadPaper } from '@/lib/diagnostic/papers'
 import { paperOpen } from '@/lib/diagnostic/access'
 import { paperExamId } from '@/lib/diagnostic/weakPapers'
+import { trackingMetadata } from '@/lib/analytics/metaCapi'
 
 export const runtime = 'nodejs'
 
@@ -47,6 +48,9 @@ export async function POST(req: NextRequest) {
   const { plan, examId, tailoredId, diagnosticPaperId } = (body ?? {}) as { plan?: unknown; examId?: unknown; tailoredId?: unknown; diagnosticPaperId?: unknown }
   const origin = req.nextUrl.origin
   const access = await getAccess()
+  // The campaign the visitor came from, and (with their consent) Meta's ids,
+  // so the Stripe dashboard shows which ads pay and the webhook can tell Meta.
+  const tracking = trackingMetadata(req)
 
   try {
     if (typeof plan === 'string') {
@@ -76,14 +80,14 @@ export async function POST(req: NextRequest) {
           ? { customer: previous.stripe_customer_id }
           : { customer_email: user.email ?? undefined }),
         client_reference_id: user.id,
-        metadata: { user_id: user.id, plan },
+        metadata: { user_id: user.id, plan, ...tracking },
         // Copied onto the subscription, so later customer.subscription.* events
         // can be mapped back to the account without a lookup.
         subscription_data: { metadata: { user_id: user.id, plan } },
         // Lets specials run as promotion codes (e.g. on a school flyer) without
         // a code change.
         allow_promotion_codes: true,
-        success_url: `${origin}/practice/exams?subscribed=1`,
+        success_url: `${origin}/practice/exams?subscribed=1&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${origin}/pricing`,
       })
       if (!session.url) throw new Error('Stripe returned no checkout URL')
@@ -114,9 +118,9 @@ export async function POST(req: NextRequest) {
         payment_intent_data: { description },
         customer_email: user.email ?? undefined,
         client_reference_id: user.id,
-        metadata: { user_id: user.id, exam_id: exam.id },
+        metadata: { user_id: user.id, exam_id: exam.id, ...tracking },
         allow_promotion_codes: true,
-        success_url: `${origin}/practice/exams/${exam.id}?purchased=1`,
+        success_url: `${origin}/practice/exams/${exam.id}?purchased=1&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${origin}/practice/exams/${exam.id}`,
       })
       if (!session.url) throw new Error('Stripe returned no checkout URL')
@@ -144,9 +148,9 @@ export async function POST(req: NextRequest) {
         customer_email: user.email ?? undefined,
         client_reference_id: user.id,
         // The webhook records exam_id in paper_purchases, as for any VCE paper.
-        metadata: { user_id: user.id, exam_id: tailoredExamId(result.id) },
+        metadata: { user_id: user.id, exam_id: tailoredExamId(result.id), ...tracking },
         allow_promotion_codes: true,
-        success_url: `${origin}/diagnostic/report/${result.id}?purchased=1`,
+        success_url: `${origin}/diagnostic/report/${result.id}?purchased=1&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${origin}/diagnostic/report/${result.id}`,
       })
       if (!session.url) throw new Error('Stripe returned no checkout URL')
@@ -174,9 +178,9 @@ export async function POST(req: NextRequest) {
         customer_email: user.email ?? undefined,
         client_reference_id: user.id,
         // The webhook records exam_id in paper_purchases, as for any VCE paper.
-        metadata: { user_id: user.id, exam_id: paperExamId(paper.id) },
+        metadata: { user_id: user.id, exam_id: paperExamId(paper.id), ...tracking },
         allow_promotion_codes: true,
-        success_url: `${origin}/diagnostic/report/${result.id}?purchased=1`,
+        success_url: `${origin}/diagnostic/report/${result.id}?purchased=1&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${origin}/diagnostic/report/${result.id}`,
       })
       if (!session.url) throw new Error('Stripe returned no checkout URL')

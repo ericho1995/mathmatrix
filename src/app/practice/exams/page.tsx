@@ -14,7 +14,7 @@ import type { YearLevel } from '@/types'
 
 export const metadata: Metadata = {
   title: 'Printable practice exam papers — PrepNest',
-  description: `${CATALOGUE_TOTALS.papers} printable practice exams with separate answer keys, ${CATALOGUE_TOTALS.lowest} to ${CATALOGUE_TOTALS.highest}. ${CATALOGUE_TOTALS.free} are free to download.`,
+  description: `${CATALOGUE_TOTALS.papers} printable practice exams with separate answer keys, ${CATALOGUE_TOTALS.lowest} to ${CATALOGUE_TOTALS.highest}. The first half of every paper is free to flip through.`,
 }
 
 /**
@@ -66,8 +66,8 @@ export default async function ExamsPage({
       <p className="text-sm text-gray-500 mb-8">
         Every {PLAN_TOTALS.range} paper is included in a PrepNest plan, from{' '}
         <span className="font-medium text-gray-700">{FROM_PER_MONTH} a month</span>. VCE papers are{' '}
-        {VCE_PAPER_PRICE} each, and a two-exam set counts as one. {CATALOGUE_TOTALS.free} sample papers are free, so
-        you can see exactly what you are getting first.{' '}
+        {VCE_PAPER_PRICE} each, and a two-exam set counts as one. The first half of every paper is free to flip
+        through, so you can see exactly what you are getting first.{' '}
         <Link href={'/pricing' as Route} className="underline hover:text-gray-700">
           How pricing works
         </Link>

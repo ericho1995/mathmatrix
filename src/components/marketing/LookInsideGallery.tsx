@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Route } from 'next'
-import { ArrowRight, BookOpen, Check, Download, Eye, FileText, MonitorPlay, Sparkles, X } from 'lucide-react'
+import { ArrowRight, BookOpen, Check, Download, Eye, FileText, Sparkles, Unlock, X } from 'lucide-react'
 import Bird from '@/components/brand/Bird'
 import QuestionView from '@/components/diagnostic/QuestionView'
 import ReadingTextView from '@/components/reading/ReadingTextView'
-import PdfPages from './PdfPages'
+import PaperFlipbook from './PaperFlipbook'
 import { matchShortAnswer } from '@/lib/questions/matchShortAnswer'
 import type { Answer } from '@/lib/diagnostic/types'
 import type { SamplePreview, Tone, TryQuestion } from '@/lib/samplePreview'
@@ -24,10 +24,10 @@ const TONE: Record<Tone, { tile: string; band: string; head: string }> = {
 }
 
 /**
- * "Look inside" as something to try: each free sample is a bright tile, and
+ * "Look inside" as something to try: each sample paper is a bright tile, and
  * opening it gives a mini sample test — three real questions from that paper,
- * marked on the spot with the explanation — beside the whole printed paper,
- * every page of it, with the way to sit it on screen or download it.
+ * marked on the spot with the explanation — and the whole printed paper to
+ * flip through, with the way to sit it on screen or download it.
  */
 export default function LookInsideGallery({ previews }: { previews: SamplePreview[] }) {
   const [open, setOpen] = useState<{ index: number; tab: 'try' | 'page' } | null>(null)
@@ -75,7 +75,7 @@ export default function LookInsideGallery({ previews }: { previews: SamplePrevie
                   )}
                   <button type="button" onClick={() => setOpen({ index: i, tab: 'page' })} className="btn-secondary text-sm px-4 py-1.5 inline-flex items-center gap-1.5">
                     <Eye className="w-4 h-4" aria-hidden />
-                    See the whole paper
+                    Flip through the paper
                   </button>
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function LookInsideGallery({ previews }: { previews: SamplePrevie
                 </span>
                 <div className="min-w-0">
                   <p className="font-bold text-lg text-white leading-tight">{current.title}</p>
-                  <p className="text-sm font-semibold text-white truncate">From {current.paperTitle}, a free paper</p>
+                  <p className="text-sm font-semibold text-white truncate">From {current.paperTitle}</p>
                 </div>
               </div>
               <button type="button" onClick={() => setOpen(null)} className="absolute top-3 right-3 rounded-full p-2 text-white hover:bg-white/20" aria-label="Close">
@@ -115,12 +115,12 @@ export default function LookInsideGallery({ previews }: { previews: SamplePrevie
                   Try it
                 </Tab>
                 <Tab active={open.tab === 'page'} onClick={() => setOpen({ ...open, tab: 'page' })} icon={FileText}>
-                  The whole paper
+                  Flip through
                 </Tab>
               </div>
             )}
 
-            <div className="p-5 max-h-[72vh] overflow-y-auto">
+            <div className={`p-5 ${open.tab === 'page' ? '' : 'max-h-[72vh] overflow-y-auto'}`}>
               {open.tab === 'page' ? (
                 <PageView preview={current} />
               ) : current.written ? (
@@ -153,29 +153,33 @@ function Tab({ active, onClick, icon: Icon, children }: { active: boolean; onCli
   )
 }
 
-/** The whole free paper, every page, with a switch between its booklets (magazine, paper, answer key). */
+/**
+ * Flip through the paper, every page, with a switch between its booklets
+ * (magazine, paper, answer key). Without a plan the first half is open and the
+ * rest locked and blurred.
+ */
 function PageView({ preview }: { preview: SamplePreview }) {
   const [doc, setDoc] = useState(preview.doc)
   const current = preview.docs[doc] ?? preview.docs[0]
   return (
     <div>
-      <div className="flex flex-wrap gap-2 mb-4" role="tablist" aria-label="Booklets">
-        {preview.docs.map((d, i) => (
-          <button
-            key={d.url}
-            type="button"
-            role="tab"
-            aria-selected={i === doc}
-            onClick={() => setDoc(i)}
-            className={`rounded-full border-2 px-3 py-1 text-sm font-bold ${i === doc ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line bg-white text-gray-500 hover:bg-gray-50'}`}
-          >
-            {d.label}
-          </button>
-        ))}
-      </div>
-      <div className="rounded-2xl bg-gray-100 p-3 sm:p-4">
-        <PdfPages key={current.url} url={current.url} title={`${preview.paperTitle} — ${current.label}`} />
-      </div>
+      {preview.docs.length > 1 && (
+        <div className="flex flex-wrap gap-2 mb-3" role="tablist" aria-label="Booklets">
+          {preview.docs.map((d, i) => (
+            <button
+              key={d.url}
+              type="button"
+              role="tab"
+              aria-selected={i === doc}
+              onClick={() => setDoc(i)}
+              className={`rounded-full border-2 px-3.5 py-1 text-sm font-bold transition-colors ${i === doc ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line bg-white text-gray-500 hover:bg-gray-50'}`}
+            >
+              {d.label}
+            </button>
+          ))}
+        </div>
+      )}
+      <PaperFlipbook key={current.url} url={current.url} title={`${preview.paperTitle}, ${current.label.toLowerCase()}`} unlock={preview.unlock} />
       <DownloadRow preview={preview} />
     </div>
   )
@@ -184,13 +188,13 @@ function PageView({ preview }: { preview: SamplePreview }) {
 function DownloadRow({ preview }: { preview: SamplePreview }) {
   return (
     <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-5">
-      <Link href={preview.onScreenHref as Route} className="btn-primary inline-flex items-center justify-center gap-2">
-        <MonitorPlay className="w-4 h-4" aria-hidden />
-        Sit the whole paper on screen
+      <Link href={preview.unlock.href as Route} className="btn-primary inline-flex items-center justify-center gap-2">
+        <Unlock className="w-4 h-4" aria-hidden />
+        {preview.unlock.label === 'See the plans' ? 'Unlock the whole paper' : preview.unlock.label}
       </Link>
       <Link href={`/practice/exams/${preview.paperId}` as Route} className="btn-secondary inline-flex items-center justify-center gap-2">
         <Download className="w-4 h-4" aria-hidden />
-        Download it free
+        Download the first half free
       </Link>
       <Link href={'/diagnostic' as Route} className="btn-secondary inline-flex items-center justify-center gap-2">
         Find your child&apos;s weak spots
@@ -223,8 +227,8 @@ function QuizTry({ preview }: { preview: SamplePreview }) {
           {score} of {qs.length} right!
         </p>
         <p className="text-gray-600 mt-2 max-w-md mx-auto">
-          That was {qs.length} of the {preview.paperQuestions} questions in {preview.paperTitle}. The whole paper is free,
-          with every answer explained.
+          That was {qs.length} of the {preview.paperQuestions} questions in {preview.paperTitle}. The first half is free to flip
+          through; the whole paper, with every answer explained, comes with a plan.
         </p>
         <div className="flex justify-center">
           <DownloadRow preview={preview} />

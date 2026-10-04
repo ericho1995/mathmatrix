@@ -3,6 +3,8 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import { getStripe, isStripeConfigured, periodEnd } from '@/lib/stripe'
 import { PLANS, stripePriceIdForPlan } from '@/lib/pricing'
 import type Stripe from 'stripe'
+import { reportPurchase } from '@/lib/analytics/metaCapi'
+import { sendAlert } from '@/lib/alerts'
 
 export const runtime = 'nodejs'
 // The signature is computed over the exact bytes Stripe sent, so the body must
@@ -79,11 +81,18 @@ export async function POST(req: NextRequest) {
 
   try {
     if (event.type === 'checkout.session.completed') {
-      return await onCheckoutCompleted(event.data.object as Stripe.Checkout.Session, admin)
+      const session = event.data.object as Stripe.Checkout.Session
+      const res = await onCheckoutCompleted(session, admin)
+      // Granted: tell Meta about the purchase (only with the buyer's ad consent; never fails the webhook).
+      const granted = res.status === 200 && !((await res.clone().json()) as { skipped?: string }).skipped
+      if (granted) await reportPurchase(session, req.nextUrl.origin)
+      return res
     }
     return await recordSubscription(event.data.object as Stripe.Subscription, admin)
   } catch (error) {
     console.error('[stripe-webhook] failed to record', { type: event.type, error })
+    // The worst failure there is: money taken, access not given. Stripe retries, but the owner should know now.
+    await sendAlert('payment-not-recorded', 'A Stripe payment could not be recorded', { type: event.type, event: event.id, error: String(error) })
     return NextResponse.json({ error: 'Could not record purchase' }, { status: 500 })
   }
 }

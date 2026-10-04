@@ -9,13 +9,15 @@ import { paperRights } from '@/lib/diagnostic/access'
 import { CATALOGUE_IDS } from '@/lib/diagnostic/server'
 import { monthWindow, PAPERS_PER_MONTH } from '@/lib/diagnostic/weakPapers'
 import type { SubjectSlug, YearLevel } from '@/types'
+import { mulberry32 } from '@/lib/diagnostic/rng'
+import type { Cohort } from '@/lib/diagnostic/cohort'
 
 export const dynamic = 'force-dynamic'
 
 /**
  * Development only: the full report for a sample result, with no account, so
  * the page can be checked without signing in to the live project.
- *   /dev/diagnostic-report?year=grade_5&subject=math&seed=2&access=plan|locked|vce|admin&papers=2&used=1&retest=1
+ *   /dev/diagnostic-report?year=grade_5&subject=math&seed=2&access=plan|locked|vce|admin&papers=2&used=1&retest=1&cohort=open|closed
  * `papers` sample papers are listed (the first one marked); `used` is this month's count.
  */
 export default function DevReportPage({ searchParams }: { searchParams: Record<string, string | undefined> }) {
@@ -54,6 +56,14 @@ export default function DevReportPage({ searchParams }: { searchParams: Record<s
     })
   }
   const weak = weakAreas(sample.report)
+  // Development only: a made-up spread of 120 scores, to see the comparison card open.
+  const rand = mulberry32(seed)
+  const cohort: Cohort | null =
+    searchParams.cohort === 'open'
+      ? { open: true, students: 120, pcts: Array.from({ length: 120 }, () => Math.round(Math.min(100, Math.max(5, 62 + (rand() + rand() + rand() - 1.5) * 40)))).sort((a, b) => a - b) }
+      : searchParams.cohort === 'closed'
+        ? { open: false }
+        : null
 
   return (
     <ReportView
@@ -79,6 +89,7 @@ export default function DevReportPage({ searchParams }: { searchParams: Record<s
       profile={profile}
       marked={null}
       canDelete
+      cohort={cohort}
     />
   )
 }

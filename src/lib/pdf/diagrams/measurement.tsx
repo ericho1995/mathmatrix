@@ -1,5 +1,5 @@
 import React from 'react'
-import { Line, Rect, Circle, Polygon, Polyline } from '@react-pdf/renderer'
+import { Line, Rect, Circle, Path, Polygon, Polyline } from '@react-pdf/renderer'
 import type { MeasureDiagram, ClockDiagram, BalanceDiagram, CalendarDiagram } from '@/types'
 import { Canvas, Frame, T, INK, MUTED, SHADES, pts, arcPoints, range, minus, clean } from './shared'
 
@@ -63,31 +63,52 @@ function Ruler({ d, fit, bare }: { d: Extract<MeasureDiagram, { instrument: 'rul
 }
 
 function Jug({ d, fit, bare }: { d: Extract<MeasureDiagram, { instrument: 'jug' }> } & Fit) {
-  const W = 150, H = 190
-  const x0 = 34, x1 = 116, yTop = 22, yBot = 176
-  const scaleTop = 36
-  const sy = (v: number) => yBot - (v / d.max) * (yBot - scaleTop)
+  // A measuring jug in proportion: a body a little taller than wide that
+  // flares slightly to the rim, a pouring lip, and a curved handle.
+  const W = 172, H = 180
+  const yTop = 38, yBot = 166
+  const topL = 30, topR = 132 // rim
+  const botL = 38, botR = 124 // base
+  const r = 7 // base corners
+  const xl = (y: number) => topL + ((y - yTop) / (yBot - yTop)) * (botL - topL)
+  const xr = (y: number) => topR + ((y - yTop) / (yBot - yTop)) * (botR - topR)
+  const scaleTop = 52
+  const sy = (v: number) => yBot - 2 - (v / d.max) * (yBot - 2 - scaleTop)
   const every = d.labelEvery ?? d.step * 2
   const level = sy(d.level)
+  const outline = `M 14 28 Q 24 30 ${topL} ${yTop} L ${botL} ${yBot - r} Q ${botL + 1} ${yBot} ${botL + r} ${yBot} L ${botR - r} ${yBot} Q ${botR - 1} ${yBot} ${botR} ${yBot - r} L ${topR} ${yTop}`
+  const handleOuter = `M ${xr(56)} 56 C 168 54, 170 132, ${xr(134)} 134`
+  const handleInner = `M ${xr(70)} 70 C 152 70, 153 120, ${xr(120)} 120`
   return (
     <Frame bare={bare}>
       <Canvas w={W} h={H} fit={fit}>
-        {/* Liquid, then the jug outline over it. */}
-        <Rect x={x0} y={level} width={x1 - x0} height={yBot - level} fill={SHADES[1]} />
-        <Line x1={x0} y1={level} x2={x1} y2={level} stroke={MUTED} strokeWidth={0.8} />
-        <Polyline points={pts([[x0 - 8, yTop - 6], [x0, yTop], [x0, yBot], [x1, yBot], [x1, yTop]])} fill="none" stroke={INK} strokeWidth={1.4} />
-        {/* Handle */}
-        <Polyline points={pts([[x1, yTop + 20], [x1 + 22, yTop + 28], [x1 + 22, yTop + 88], [x1, yTop + 98]])} fill="none" stroke={INK} strokeWidth={1.4} />
-        {range(0, d.max, d.step).map(v => {
+        {/* Water, following the sides, then the jug over it. */}
+        <Polygon
+          points={pts([
+            [xl(level), level],
+            [xr(level), level],
+            [botR, yBot - r],
+            [botR - r, yBot],
+            [botL + r, yBot],
+            [botL, yBot - r],
+          ])}
+          fill={SHADES[1]}
+        />
+        <Line x1={xl(level)} y1={level} x2={xr(level)} y2={level} stroke={MUTED} strokeWidth={0.8} />
+        <Path d={outline} fill="none" stroke={INK} strokeWidth={1.4} />
+        <Path d={handleOuter} fill="none" stroke={INK} strokeWidth={1.4} />
+        <Path d={handleInner} fill="none" stroke={INK} strokeWidth={1.2} />
+        {range(d.step, d.max, d.step).map(v => {
           const labelled = Math.abs(v / every - Math.round(v / every)) < 1e-6
+          const y = sy(v)
           return (
             <React.Fragment key={v}>
-              <Line x1={x0} y1={sy(v)} x2={x0 + (labelled ? 14 : 8)} y2={sy(v)} stroke={INK} strokeWidth={0.7} />
-              {labelled && v > 0 ? <T x={x0 + 17} y={sy(v) + 2.5} size={7} anchor="start">{String(v)}</T> : null}
+              <Line x1={xl(y)} y1={y} x2={xl(y) + (labelled ? 14 : 8)} y2={y} stroke={INK} strokeWidth={0.7} />
+              {labelled && v > 0 ? <T x={xl(y) + 17} y={y + 2.5} size={7} anchor="start">{String(v)}</T> : null}
             </React.Fragment>
           )
         })}
-        <T x={(x0 + x1) / 2 + 12} y={yBot - 6} size={7.5} fill={MUTED}>{d.unit}</T>
+        <T x={(botL + botR) / 2 + 14} y={yBot - 8} size={7.5} fill={MUTED}>{d.unit}</T>
       </Canvas>
     </Frame>
   )

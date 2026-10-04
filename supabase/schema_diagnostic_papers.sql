@@ -136,6 +136,19 @@ create unique index if not exists question_bank_alerts_open_unique
   on public.question_bank_alerts (year_level, subject, area_id)
   where resolved_at is null;
 
+-- The admin check from schema.sql. The live database was set up before
+-- schema.sql had it, so it is created here as well (same definition):
+-- security definer, so a policy can read profiles without recursing.
+create or replace function public.is_admin()
+returns boolean
+language sql
+security definer
+stable
+set search_path = public
+as $$
+  select exists (select 1 from profiles where id = auth.uid() and role = 'admin');
+$$;
+
 alter table public.question_bank_alerts enable row level security;
 
 drop policy if exists "question_bank_alerts_admin_select" on public.question_bank_alerts;

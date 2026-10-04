@@ -71,6 +71,16 @@ async function enumValueExists(table, column, value) {
   return !body.includes('invalid input value')
 }
 
+/** A function exists if calling it does not come back as "not found" (a permission refusal still means yes). */
+async function rpcExists(name, args) {
+  const res = await fetch(`${URL_BASE}/rest/v1/rpc/${name}`, {
+    method: 'POST',
+    headers: { ...headers, 'Content-Type': 'application/json' },
+    body: JSON.stringify(args),
+  })
+  return !(await res.text()).includes('PGRST202')
+}
+
 async function rowCount(table) {
   const { headers: h } = await get(`${table}?select=id&limit=1`, { Prefer: 'count=exact' })
   const range = h.get('content-range')
@@ -147,6 +157,10 @@ const MIGRATIONS = [
   {
     file: 'schema_diagnostic_papers.sql',
     checks: [() => tableExists('diagnostic_papers'), () => tableExists('question_bank_alerts')],
+  },
+  {
+    file: 'schema_diagnostic_cohort.sql',
+    checks: [() => rpcExists('diagnostic_cohort', { p_year: 'grade_5', p_subject: 'math' })],
   },
 ]
 

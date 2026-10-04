@@ -25,6 +25,13 @@ export interface Release {
 
 export const RELEASES: Release[] = [
   {
+    date: '2026-10-04',
+    title: 'Year 8 Science: a second full paper',
+    detail:
+      'Thirty-six new Year 8 Science questions built around experiments, graphs and data tables: cells and body systems, plate tectonics and the rock cycle, energy, and physical and chemical change. Year 8 Science now has two full 30-question papers, with an explanation for every answer.',
+    examIds: ['science-year_8-2'],
+  },
+  {
     date: '2026-09-24',
     title: 'VCE Unit 3 & 4 Physics',
     detail:
