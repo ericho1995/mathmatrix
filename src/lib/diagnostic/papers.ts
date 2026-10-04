@@ -229,7 +229,7 @@ export async function generatePaper(input: {
         ok: false,
         status: 409,
         code: 'exhausted',
-        error: `${result.childName ?? 'Your child'} has now seen every question we have for these areas. We’ve been told and are writing more — in the meantime, a re-test will show what has improved.`,
+        error: `${result.childName ?? 'Your child'} has now seen every question we have for these areas. We’ve been told and are writing more, and you can ask us for more papers just below. In the meantime, a re-test will show what has improved.`,
       }
     }
 

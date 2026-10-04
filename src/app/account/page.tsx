@@ -15,6 +15,7 @@ import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { PLAN_TOTALS, releasesIn } from '@/lib/catalogue'
 import { ROADMAP, formatReleaseDate } from '@/lib/releases'
 import { openBankAlertCount } from '@/lib/diagnostic/papers'
+import { openPaperRequestCount } from '@/lib/paperRequests'
 import type { UserRole, YearLevel } from '@/types'
 
 export const metadata: Metadata = {
@@ -58,7 +59,7 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
         : null
 
   const role = (profile?.role as UserRole | undefined) ?? 'student'
-  const bankAlerts = role === 'admin' ? await openBankAlertCount() : 0
+  const [bankAlerts, paperRequests] = role === 'admin' ? await Promise.all([openBankAlertCount(), openPaperRequestCount()]) : [0, 0]
 
   let studentYear: YearLevel | null = null
   if (role === 'student') {
@@ -111,7 +112,7 @@ export default async function AccountPage({ searchParams }: { searchParams?: { b
           <>
             <p className="text-sm text-gray-600 mb-3">Admin accounts can open every paper without a plan.</p>
             <Link href={'/admin/question-bank' as Route} className="btn-secondary text-sm">
-              Question bank alerts{bankAlerts ? ` (${bankAlerts} open)` : ''}
+              Requests and question bank{paperRequests || bankAlerts ? ` (${[paperRequests ? `${paperRequests} request${paperRequests === 1 ? '' : 's'}` : '', bankAlerts ? `${bankAlerts} alert${bankAlerts === 1 ? '' : 's'}` : ''].filter(Boolean).join(', ')})` : ''}
             </Link>
           </>
         ) : plan ? (
