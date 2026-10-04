@@ -60,3 +60,10 @@
            transition-all duration-150;
   }
 }
+
+/* Science lab: electron shells and moving charge (src/components/lab). */
+@keyframes lab-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
