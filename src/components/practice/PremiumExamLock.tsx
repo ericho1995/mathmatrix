@@ -3,7 +3,7 @@ import type { Route } from 'next'
 import { FROM_PER_MONTH, VCE_PAPER_PRICE } from '@/lib/pricing'
 import type { PaperSummary } from '@/lib/catalogue'
 import CheckoutButton from './CheckoutButton'
-import PdfPages from '@/components/marketing/PdfPages'
+import PaperFlipbook from '@/components/marketing/PaperFlipbook'
 import PaperFacts from './PaperFacts'
 import { Lock } from 'lucide-react'
 
@@ -97,9 +97,7 @@ export default function PremiumExamLock({
             The first {preview.shown} of the {preview.total} questions are open. The rest of the paper is locked until you{' '}
             {vce ? 'purchase it' : 'have a plan'}.
           </p>
-          <div className="rounded-2xl bg-gray-100 p-3 sm:p-4 max-h-[80vh] overflow-y-auto">
-            <PdfPages url={`/api/exams/${examId}/pdf`} title={title} unlock={vce ? { href: '#unlock', label: 'Purchase this paper' } : { href: '/pricing', label: 'See the plans' }} />
-          </div>
+          <PaperFlipbook url={`/api/exams/${examId}/pdf`} title={title} unlock={vce ? { href: '#unlock', label: 'Purchase this paper' } : { href: '/pricing', label: 'See the plans' }} />
         </section>
       )}
 

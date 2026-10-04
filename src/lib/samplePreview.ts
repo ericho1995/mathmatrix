@@ -55,7 +55,7 @@ export interface WrittenQuestion {
 
 export type Tone = 'brand' | 'teal' | 'amber' | 'grape'
 
-/** One booklet of the paper, as its PDF route serves it. */
+/** One booklet of a paper, as it downloads. */
 export interface PaperDoc {
   label: string
   url: string
@@ -78,11 +78,34 @@ export interface SamplePreview {
   written?: WrittenQuestion
   /** Reading: the text the questions are about. */
   text?: ReadingText
-  /** The whole paper's booklets, for the full-paper view; `doc` is the one this tile's picture comes from. */
+  /** Every booklet of the paper, to flip through page by page. */
   docs: PaperDoc[]
+  /** Which booklet the sample's picture comes from, opened first. */
   doc: number
   /** How to unlock the whole paper: the plans, or the paper itself for VCE (purchased one at a time). */
   unlock: { href: string; label: string }
+}
+
+/** The paper's booklets: the magazine first for a Reading paper, then the questions, then the answers. */
+function docsOf(paperId: string): PaperDoc[] {
+  const exam = PRACTICE_EXAMS.find(e => e.id === paperId)
+  return [
+    ...(exam?.magazine_id ? [{ label: 'Reading magazine', url: `/api/exams/${paperId}/magazine` }] : []),
+    { label: 'Question paper', url: `/api/exams/${paperId}/pdf` },
+    { label: 'Answer key', url: `/api/exams/${paperId}/answers` },
+  ]
+}
+
+/** Opens on the booklet the tile's picture shows. */
+const OPENS_ON: Record<SampleKey, string> = {
+  readingCover: 'Reading magazine',
+  readingPage: 'Reading magazine',
+  readingQuestions: 'Question paper',
+  numeracy: 'Question paper',
+  answerKey: 'Answer key',
+  conventions: 'Question paper',
+  vcePaper: 'Question paper',
+  vceKey: 'Answer key',
 }
 
 const TONE: Record<SampleKey, Tone> = {
@@ -172,6 +195,7 @@ export function samplePreview(key: SampleKey): SamplePreview {
   let written: WrittenQuestion | undefined
 
   const all = questionsOf(s.paperId).filter(isScreenable)
+  const docs = docsOf(s.paperId)
   switch (key) {
     case 'readingCover':
     case 'readingQuestions':
@@ -200,18 +224,9 @@ export function samplePreview(key: SampleKey): SamplePreview {
   }
 
   const exam = PRACTICE_EXAMS.find(e => e.id === s.paperId)
-  const base = `/api/exams/${s.paperId}`
-  const docs: PaperDoc[] = [
-    ...(exam?.magazine_id ? [{ label: 'Reading magazine', url: `${base}/magazine` }] : []),
-    { label: exam?.magazine_id ? 'Question paper' : 'Exam paper', url: `${base}/pdf` },
-    { label: 'Answer key', url: `${base}/answers` },
-  ]
-  const shows = key === 'answerKey' || key === 'vceKey' ? 'Answer key' : key === 'readingQuestions' ? 'Question paper' : docs[0].label
 
   return {
     key,
-    docs,
-    doc: Math.max(0, docs.findIndex(d => d.label === shows)),
     unlock:
       exam && (exam.yearLevel === 'year_11' || exam.yearLevel === 'year_12')
         ? { href: `/practice/exams/${s.paperId}`, label: 'Purchase this paper' }
@@ -225,6 +240,8 @@ export function samplePreview(key: SampleKey): SamplePreview {
     paperQuestions: paperQuestionIds(s.paperId).length,
     tone: TONE[key],
     questions: picks.map((q, i) => toTry(q, i + 1)),
+    docs,
+    doc: Math.max(0, docs.findIndex(d => d.label === OPENS_ON[key])),
     ...(written ? { written } : {}),
     ...(text ? { text } : {}),
   }
