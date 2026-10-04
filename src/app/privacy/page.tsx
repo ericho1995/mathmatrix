@@ -8,7 +8,7 @@ export default function PrivacyPage() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-10 flex-1 w-full prose-sm">
       <h1 className="text-2xl font-medium tracking-tight mb-1">Privacy Policy</h1>
-      <p className="text-gray-400 text-sm mb-8">Last updated: 22 September 2026</p>
+      <p className="text-gray-400 text-sm mb-8">Last updated: 4 October 2026</p>
 
       <div className="flex flex-col gap-6 text-sm text-gray-600 leading-relaxed">
         <p>
@@ -27,6 +27,8 @@ export default function PrivacyPage() {
             <li>For purchases: which plan or paper you purchased, when, and Stripe&apos;s reference for the payment. Card details go to Stripe, never to us.</li>
             <li>Standard technical data collected by our hosting provider (Vercel) and database provider (Supabase), such as IP address and request logs, for security and reliability.</li>
             <li>Anonymous usage statistics (Vercel Web Analytics): which pages are visited and roughly where from. It uses no cookies and does not identify you.</li>
+            <li>The advertising campaign you first arrived from, if any (for example a link from one of our Instagram ads), kept in a first-party cookie for 90 days and recorded with a purchase.</li>
+            <li>Errors that happen in your browser while using the site (the error message, the page and the browser type), so we can fix them.</li>
           </ul>
         </section>
 
@@ -36,7 +38,22 @@ export default function PrivacyPage() {
             Solely to run the product: authenticate accounts, personalise practice content to
             year level, track progress and streaks, power the leaderboard, and let a linked
             parent see their child&apos;s accuracy by topic. We do not sell personal data, and we
-            do not use it for advertising.
+            never use a child&apos;s information, answers or results for advertising.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-base font-medium text-gray-900 mb-2">Advertising cookies</h2>
+          <p>
+            We advertise on Meta (Facebook and Instagram) and TikTok. If you choose <strong>Allow</strong> on our
+            cookie notice, their tracking pixels load on this site so we can see which ads bring parents to
+            PrepNest. They record that something happened (a page was visited, the free test was started or
+            finished, a parent or teacher account was created, a checkout started or a purchase was made),
+            never what a child answered or scored, and a student&apos;s sign-up is never reported. For a purchase,
+            we also send Meta the purchase amount with the account&apos;s email address in hashed (scrambled) form
+            so it can match the purchase to the ad. Meta and TikTok handle this under their own privacy
+            policies. If you choose <strong>No thanks</strong>, none of this loads or is sent. To change your mind,
+            clear this site&apos;s cookies in your browser and the notice will appear again.
           </p>
         </section>
 

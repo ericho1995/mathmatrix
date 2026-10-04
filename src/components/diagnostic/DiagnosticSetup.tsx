@@ -9,6 +9,7 @@ import { SELECTIVE_SUBJECTS, SUBJECTS } from '@/lib/curriculum'
 import { yearLabel } from '@/lib/yearLevels'
 import { clearTest, emptyAnswer, loadTest, saveTest, type StoredTest } from '@/lib/diagnostic/storage'
 import type { SubjectSlug, YearLevel } from '@/types'
+import { track } from '@/lib/analytics/track'
 
 export interface SetupTest {
   year: YearLevel
@@ -58,6 +59,7 @@ export default function DiagnosticSetup({ tests, initialYear }: { tests: SetupTe
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error ?? `The test could not start (${res.status}).`)
+      track('StartFreeTest')
       const test: StoredTest = {
         token: data.token,
         year: chosen.year,

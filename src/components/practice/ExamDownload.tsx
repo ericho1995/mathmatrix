@@ -4,7 +4,7 @@ import type { PaperSummary } from '@/lib/catalogue'
 import type { AccessReason } from '@/lib/auth/access'
 import type { YearLevel } from '@/types'
 import PaperFacts from './PaperFacts'
-import { FileText, Wrench } from 'lucide-react'
+import { Download, FileText, MonitorPlay, Wrench } from 'lucide-react'
 
 export default function ExamDownload({
   examId,
@@ -14,13 +14,16 @@ export default function ExamDownload({
   summary,
   yearLevel,
   onScreen,
+  reading,
   preview,
 }: {
   examId: string
   title: string
   splitEligible?: boolean
-  /** Reading papers can also be sat on screen, NAPLAN Online style. */
+  /** The whole paper can be sat on screen (not for a preview). */
   onScreen?: boolean
+  /** A Reading paper: sat on screen side by side with its texts, NAPLAN Online style. */
+  reading?: boolean
   /** Why this visitor may download — changes only the note under the title. */
   access: AccessReason
   summary?: PaperSummary
@@ -34,7 +37,7 @@ export default function ExamDownload({
 }) {
   const note = {
     admin: 'Admin access — no payment required. Regular visitors see the paywall here.',
-    free: 'This is the free sample paper for this year level.',
+    free: 'This paper is open to you.',
     plan: 'Included in your plan.',
     paper: 'You own this paper.',
     purchased: 'You have full access to this year level.',
@@ -60,17 +63,28 @@ export default function ExamDownload({
 
       {summary && <PaperFacts summary={summary} />}
 
+      {/* Two ways to sit it: on screen now, or printed in your own time. */}
       {onScreen && (
-        <div className="card text-left mb-6 border-brand-100 bg-brand-50/40">
-          <p className="font-medium text-sm mb-1">Prefer a screen?</p>
-          <p className="text-sm text-gray-600 mb-3">
-            NAPLAN Reading is sat online. Read each text and answer its questions side by side, then see every answer
-            explained.
+        <div className="card text-left mb-4 border-brand-200 bg-brand-50/60">
+          <p className="font-bold text-ink mb-1 flex items-center gap-2">
+            <MonitorPlay className="w-5 h-5 text-brand-600" aria-hidden />
+            Sit it on screen
           </p>
-          <Link href={`/practice/reading/${examId}` as Route} className="btn-primary w-full block text-center">
-            Read it on screen
+          <p className="text-sm text-gray-600 mb-3">
+            {reading
+              ? 'NAPLAN Reading is sat online. Read each text and answer its questions side by side, with a notes pad, then see every answer explained.'
+              : 'One question at a time, with a timer and a working-out pad to draw or type on. Hand it in to see every answer explained and how each topic went.'}
+          </p>
+          <Link href={(reading ? `/practice/reading/${examId}` : `/practice/exams/${examId}/online`) as Route} className="btn-primary w-full block text-center">
+            Start on screen
           </Link>
         </div>
+      )}
+      {onScreen && (
+        <p className="font-bold text-ink mb-3 mt-6 flex items-center justify-center gap-2">
+          <Download className="w-5 h-5 text-brand-600" aria-hidden />
+          Or print it to do in your own time
+        </p>
       )}
 
       {splitEligible ? (
@@ -120,7 +134,7 @@ export default function ExamDownload({
           <p className="font-medium text-sm mb-1">Want the whole paper?</p>
           <p className="text-sm text-gray-600 mb-3">
             The full paper and its complete answer key come with a PrepNest plan, or as a one-off purchase for VCE
-            papers. Customers get every free sample in full.
+            papers.
           </p>
           <Link href={'/pricing' as Route} className="btn-primary w-full block text-center">
             See plans and prices

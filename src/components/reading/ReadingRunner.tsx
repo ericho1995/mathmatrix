@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import type { Route } from 'next'
 import ReadingTextView from './ReadingTextView'
+import WorkingPad, { PAD_ROOM, WorkingPadButton, newWorkingPages, type WorkingPages } from '@/components/working/WorkingPad'
 import { matchShortAnswer } from '@/lib/questions/matchShortAnswer'
 import type { ReadingText } from '@/types/reading'
 
@@ -14,6 +15,8 @@ import type { ReadingText } from '@/types/reading'
  * The page only renders this for someone who may open the paper — a free
  * sample, or a paper their plan or purchase covers — so the answers it carries
  * are ones that visitor could already read in the answer key PDF.
+ *
+ * The working-out pad keeps one page per text, for notes on what was read.
  */
 
 export interface RunnerQuestion {
@@ -60,6 +63,8 @@ export default function ReadingRunner({
   const [confirming, setConfirming] = useState(false)
   const [secondsLeft, setSecondsLeft] = useState(minutes * 60)
   const [save, setSave] = useState<Save>('idle')
+  const [padOpen, setPadOpen] = useState(false)
+  const pages = useRef<WorkingPages>(newWorkingPages())
   const textPanel = useRef<HTMLElement>(null)
   const questionPanel = useRef<HTMLElement>(null)
 
@@ -119,7 +124,7 @@ export default function ReadingRunner({
   const ss = String(secondsLeft % 60).padStart(2, '0')
 
   return (
-    <main className="max-w-6xl mx-auto px-4 py-6 flex-1 w-full">
+    <main className={`max-w-6xl mx-auto px-4 py-6 flex-1 w-full ${padOpen ? PAD_ROOM : ''}`}>
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div>
           <p className="text-xs font-medium uppercase tracking-widest text-brand-600">Reading on screen</p>
@@ -134,6 +139,7 @@ export default function ReadingRunner({
           <span className="text-gray-500">
             <strong className="text-gray-900">{answered}</strong> of {all.length} answered
           </span>
+          <WorkingPadButton open={padOpen} onToggle={() => setPadOpen(o => !o)} />
         </div>
       </div>
 
@@ -250,6 +256,7 @@ export default function ReadingRunner({
           </div>
         </section>
       </div>
+      <WorkingPad open={padOpen} onClose={() => setPadOpen(false)} pageKey={`text-${part.section}`} pages={pages.current} label={part.title} />
     </main>
   )
 }

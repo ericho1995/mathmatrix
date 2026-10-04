@@ -13,7 +13,7 @@ import DiagnosticCta from '@/components/diagnostic/DiagnosticCta'
 export const metadata: Metadata = {
   title: 'NAPLAN practice tests for Years 3, 5, 7 and 9 — PrepNest',
   description:
-    'Printable NAPLAN-style practice papers for Numeracy, Reading and Language Conventions, with separate answer keys. Free sample papers for every year level.',
+    'Printable NAPLAN-style practice papers for Numeracy, Reading and Language Conventions, with separate answer keys. Flip through the first half of any paper free.',
 }
 
 // The countdown is computed at request time; an hour's staleness is fine for a
@@ -127,13 +127,13 @@ export default function NaplanPage() {
         <div className="max-w-3xl mx-auto mb-8">
           <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-3">Look inside</h2>
           <p className="text-sm text-gray-500">
-            Real pages from the free Grade 5 papers. Every year level uses the same format, pitched at that year.
+            Real pages from the Grade 5 papers. Every year level uses the same format, pitched at that year.
           </p>
         </div>
         <LookInside items={['readingCover', 'readingPage', 'numeracy', 'conventions']} />
       </section>
 
-      {/* One card per NAPLAN year, with its free papers one click away. */}
+      {/* One card per NAPLAN year, with the first paper of each test one click away. */}
       <section className="max-w-3xl mx-auto px-4 py-14">
         <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-6">Choose a year level</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -160,8 +160,8 @@ export default function NaplanPage() {
           <h2 className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-6">Using practice papers well</h2>
           <ol className="flex flex-col gap-4 text-sm text-gray-600 list-decimal list-inside">
             <li>
-              <span className="font-medium text-gray-900">Start with the free paper.</span> Sit it early to find out
-              where your child is, rather than guessing.
+              <span className="font-medium text-gray-900">Start with the free diagnostic test.</span> Sit it early to find
+              out where your child is, rather than guessing.
             </li>
             <li>
               <span className="font-medium text-gray-900">Practice the gaps, not the whole test.</span> Marking a
@@ -222,7 +222,8 @@ function Domain({ name, covered, body }: { name: string; covered: boolean; body:
 function YearCard({ yearLevel }: { yearLevel: YearLevel }) {
   const stats = statsFor(yearLevel)
   const naplanPapers = PRACTICE_EXAMS.filter(e => e.yearLevel === yearLevel && NAPLAN_SUBJECTS.has(e.subject))
-  const free = naplanPapers.filter(e => !e.premium)
+  // The first paper of each test, to flip through: its first half is free.
+  const firsts = naplanPapers.filter((e, i) => naplanPapers.findIndex(x => x.subject === e.subject) === i)
   if (!stats) return null
 
   return (
@@ -231,25 +232,17 @@ function YearCard({ yearLevel }: { yearLevel: YearLevel }) {
       <p className="text-xs text-gray-400 mb-4">
         {naplanPapers.length} NAPLAN-format papers: Numeracy, Reading and Language Conventions
       </p>
-      <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-2">Free to download</p>
+      <p className="text-xs font-medium uppercase tracking-widest text-gray-400 mb-2">Flip through the first half free</p>
       <ul className="flex flex-col gap-1.5 mb-5 flex-1">
-        {free.map(e => (
+        {firsts.map(e => (
           <li key={e.id}>
             <Link
               href={`/practice/exams/${e.id}` as Route}
               className="text-sm text-brand-600 hover:underline inline-flex items-center gap-1.5"
             >
               <FileText className="w-4 h-4 shrink-0" aria-hidden />
-              {TEST_NAME[e.subject] ?? e.subject} — free paper
+              {TEST_NAME[e.subject] ?? e.subject}: practice paper 1
             </Link>
-            {e.subject === 'reading' && (
-              <>
-                {' · '}
-                <Link href={`/practice/reading/${e.id}` as Route} className="text-sm text-brand-600 hover:underline">
-                  try it on screen
-                </Link>
-              </>
-            )}
           </li>
         ))}
       </ul>

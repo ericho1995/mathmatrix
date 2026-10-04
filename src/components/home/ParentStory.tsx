@@ -1,12 +1,14 @@
 import Link from 'next/link'
 import type { Route } from 'next'
-import { HelpCircle, LineChart, PencilLine, SlidersHorizontal, Target } from 'lucide-react'
+import { LineChart, PencilLine, SlidersHorizontal, Target } from 'lucide-react'
 import Bird, { type BirdPose } from '@/components/brand/Bird'
 import { BlockSticker, BookSticker, CheckSticker, MedalSticker, PencilSticker, Sparkle, Star } from '@/components/brand/Decor'
 import SampleReport from '@/components/diagnostic/SampleReport'
 import ProgressPanel from '@/components/diagnostic/report/ProgressPanel'
 import LevelChip from '@/components/diagnostic/LevelChip'
 import { SHOWCASE } from '@/lib/diagnostic/showcase'
+import { HOME_SAMPLES } from '@/lib/homeSamples'
+import TestScreenCarousel from './TestScreenCarousel'
 import { VCE_PAPER_PRICE } from '@/lib/pricing'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -86,46 +88,13 @@ function StorySection({ step, title, children, art, bird, flip = false }: {
   )
 }
 
-/** What the child sees: one question, big answers, and "I'm not sure". */
+/** What the child sees: real questions from Grade 3 to VCE, one per card, to swipe through. */
 function TestScreen() {
   return (
     <div className="relative px-2">
-      <PencilSticker className="absolute -top-10 -left-4 w-20 h-20 animate-wiggle motion-reduce:animate-none" />
-      <Star className="absolute -bottom-6 -right-2 w-14 h-14 animate-float motion-reduce:animate-none" />
-      <div className="card p-6 rotate-1">
-        <div className="flex items-center gap-3 mb-5">
-          <span className="text-sm font-bold text-gray-500 whitespace-nowrap">Question 5 of 24</span>
-          <div className="flex-1 h-4 rounded-full bg-gray-100 overflow-hidden">
-            <div className="h-full w-1/5 rounded-full bg-teal-400 relative">
-              <span className="absolute left-2 right-2 top-1 h-1 rounded-full bg-white/40" />
-            </div>
-          </div>
-        </div>
-        <p className="text-xl font-bold text-ink mb-4">What number makes this number sentence true?</p>
-        <p className="text-3xl font-bold text-ink mb-5">☐ + 8 = 15</p>
-        <div className="grid grid-cols-2 gap-3 mb-4">
-          {['6', '7', '8', '9'].map((o, i) => (
-            <div
-              key={o}
-              className={`flex items-center gap-3 rounded-2xl border-2 border-b-4 px-4 py-3 text-lg font-bold ${
-                i === 1 ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-line bg-white text-ink'
-              }`}
-            >
-              <span className={`w-7 h-7 rounded-lg text-sm inline-flex items-center justify-center ${i === 1 ? 'bg-brand-500 text-white' : 'border-2 border-line text-gray-400'}`}>
-                {'ABCD'[i]}
-              </span>
-              {o}
-            </div>
-          ))}
-        </div>
-        <div className="flex items-center justify-between">
-          <span className="inline-flex items-center gap-1.5 text-sm font-bold text-gray-500">
-            <HelpCircle className="w-4 h-4" aria-hidden />
-            I&apos;m not sure
-          </span>
-          <span className="btn-primary pointer-events-none">Next</span>
-        </div>
-      </div>
+      <PencilSticker className="absolute -top-10 -left-4 w-20 h-20 z-10 animate-wiggle motion-reduce:animate-none" />
+      <Star className="absolute -top-4 -right-2 w-12 h-12 z-10 animate-float motion-reduce:animate-none" />
+      <TestScreenCarousel samples={HOME_SAMPLES} />
     </div>
   )
 }

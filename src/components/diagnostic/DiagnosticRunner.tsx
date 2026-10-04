@@ -7,7 +7,7 @@ import { ArrowLeft, ArrowRight, BookOpen, HelpCircle, ListChecks } from 'lucide-
 import ReadingTextView from '@/components/reading/ReadingTextView'
 import Bird from '@/components/brand/Bird'
 import QuestionView from './QuestionView'
-import WorkingPad, { PAD_BAR, PAD_ROOM, WorkingPadButton, type WorkingPages } from '@/components/working/WorkingPad'
+import WorkingPad, { PAD_BAR, PAD_ROOM, WorkingPadButton, newWorkingPages, type WorkingPages } from '@/components/working/WorkingPad'
 import { SELECTIVE_SUBJECTS, SUBJECTS } from '@/lib/curriculum'
 import { yearLabel } from '@/lib/yearLevels'
 import {
@@ -21,6 +21,7 @@ import {
   type StoredTest,
 } from '@/lib/diagnostic/storage'
 import type { Answer } from '@/lib/diagnostic/types'
+import { track } from '@/lib/analytics/track'
 
 type Screen = 'loading' | 'none' | 'intro' | 'question' | 'review' | 'more' | 'sending'
 
@@ -46,7 +47,7 @@ export default function DiagnosticRunner() {
   const [view, setView] = useState<'text' | 'questions'>('text')
   const shownAt = useRef<number | null>(null)
   const [padOpen, setPadOpen] = useState(false)
-  const pages = useRef<WorkingPages>(new Map())
+  const pages = useRef<WorkingPages>(newWorkingPages())
 
   useEffect(() => {
     const t = loadTest()
@@ -173,6 +174,7 @@ export default function DiagnosticRunner() {
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error ?? `Something went wrong (${res.status}).`)
+      track('CompleteFreeTest')
       if (data.saved) {
         clearTest()
         router.push(`/diagnostic/report/${data.id}`)

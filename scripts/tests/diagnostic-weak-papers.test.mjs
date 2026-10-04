@@ -174,3 +174,22 @@ test('generated papers do not lean on one answer letter', () => {
   }
   assert.ok(over.length <= 2, over.join('\n'))
 })
+
+test('peer comparison: percent below, bands, and closed below the threshold', async () => {
+  const { percentBelow, bands, bandOf, parseCohort, COHORT_MIN } = await import('../../src/lib/diagnostic/cohort.ts')
+  const pcts = Array.from({ length: 40 }, (_, i) => i * 2.5)
+  assert.equal(percentBelow(50, pcts), 50)
+  assert.equal(percentBelow(0, pcts), 0)
+  assert.equal(percentBelow(100, pcts), 100)
+  const b = bands(pcts)
+  assert.equal(b.length, 10)
+  assert.ok(Math.abs(b.reduce((n, x) => n + x, 0) - 100) <= 5)
+  assert.equal(bandOf(100), 9)
+  assert.equal(bandOf(0), 0)
+  // Anything short of the threshold, or malformed, reads as closed.
+  assert.deepEqual(parseCohort({ open: true, students: 5, pcts: [1, 2, 3, 4, 5] }), { open: false })
+  assert.deepEqual(parseCohort(null), { open: false })
+  assert.deepEqual(parseCohort({ open: false }), { open: false })
+  const many = Array.from({ length: COHORT_MIN }, (_, i) => i)
+  assert.equal(parseCohort({ open: true, students: COHORT_MIN, pcts: many }).open, true)
+})

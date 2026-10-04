@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { track } from '@/lib/analytics/track'
 
 /**
  * Starts Stripe Checkout for a plan or a VCE paper.
@@ -32,7 +33,7 @@ export default function CheckoutButton({
   if (!sellable) {
     return (
       <p className={`text-xs text-gray-400 ${className}`}>
-        Purchases open soon. The free sample papers are available now.
+        Purchases open soon. You can flip through the first half of any paper now.
       </p>
     )
   }
@@ -55,6 +56,7 @@ export default function CheckoutButton({
         return
       }
       if (!res.ok) throw new Error(data.error ?? `Checkout failed (${res.status})`)
+      track('InitiateCheckout')
       window.location.href = data.url
     } catch (err) {
       // Shown rather than swallowed — a dead button with no explanation is the

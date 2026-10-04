@@ -35,7 +35,7 @@ import { getUserRole } from '@/lib/auth/getUserRole'
 import { isGuardianRole } from '@/lib/auth/roles'
 import { SHOWCASE } from '@/lib/diagnostic/showcase'
 import { PAPERS_PER_MONTH } from '@/lib/diagnostic/weakPapers'
-import { CATALOGUE_TOTALS, PLAN_TOTALS } from '@/lib/catalogue'
+import { PLAN_TOTALS } from '@/lib/catalogue'
 import { FROM_PER_MONTH, VCE_PAPER_PRICE } from '@/lib/pricing'
 
 export const metadata: Metadata = {
@@ -399,7 +399,7 @@ const FREE: Tool[] = [
   {
     icon: CheckSquare,
     title: 'Mark a paper on screen',
-    body: 'Tap the questions your child got wrong on any printed paper and see how each topic went.',
+    body: 'Tap the questions your child got wrong on a printed paper and see how each topic went.',
     price: 'Free',
     href: '/practice/exams',
     cta: 'Find a paper',
@@ -443,7 +443,7 @@ function paidTools(): Tool[] {
     {
       icon: Library,
       title: 'Exam paper library',
-      body: `${PLAN_TOTALS.papers} NAPLAN-style and school papers for ${PLAN_TOTALS.range}, each with a separate answer key. ${CATALOGUE_TOTALS.free} free samples to start.`,
+      body: `${PLAN_TOTALS.papers} NAPLAN-style and school papers for ${PLAN_TOTALS.range}, each with a separate answer key. The first half of every paper is free to flip through.`,
       price: `Plan from ${FROM_PER_MONTH} a month`,
       href: '/practice/exams',
       cta: 'Browse the papers',
@@ -452,7 +452,7 @@ function paidTools(): Tool[] {
       icon: MonitorPlay,
       title: 'Reading papers on screen',
       body: 'Read each text and answer its questions on screen, the way NAPLAN Online works, with every answer explained at the end.',
-      price: 'In the plan · free samples',
+      price: 'In the plan · first half free',
       href: '/naplan',
       cta: 'See NAPLAN practice',
     },
@@ -460,7 +460,7 @@ function paidTools(): Tool[] {
       icon: BookOpen,
       title: 'VCE exams',
       body: 'Year 11 and 12 papers laid out like VCAA exams, with reading time, formula sheets where VCAA gives one, and full marking guides.',
-      price: `${VCE_PAPER_PRICE} per paper · free samples`,
+      price: `${VCE_PAPER_PRICE} per paper · first half free`,
       href: '/vce',
       cta: 'See VCE papers',
     },
@@ -582,7 +582,7 @@ function Closing({ guardian }: { guardian: boolean }) {
         <p className="text-lg font-semibold mb-8">
           {guardian
             ? 'Your dashboard has every test, every paper and what to do next.'
-            : 'Twenty to thirty-five minutes, no account needed to start, and a report you can act on tonight.'}
+            : 'Twenty to thirty-five minutes, no account needed to start, and a report you can act on straight away.'}
         </p>
         <Link href={(guardian ? '/parent' : '/diagnostic') as Route} className="btn-secondary text-lg px-10 py-3.5">
           {guardian ? 'Open your dashboard' : 'Start the free test'}
