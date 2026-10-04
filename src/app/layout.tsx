@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import type { Metadata, Viewport } from 'next'
 import { Nunito } from 'next/font/google'
 import './globals.css'
@@ -8,6 +9,8 @@ import { queryFailed } from '@/lib/supabase/logError'
 import { CATALOGUE_TOTALS } from '@/lib/catalogue'
 import { SITE_URL } from '@/lib/site'
 import { Analytics } from '@vercel/analytics/next'
+import AdPixels from '@/components/analytics/AdPixels'
+import ErrorBeacon from '@/components/analytics/ErrorBeacon'
 
 // Rounded and friendly, after Duolingo's type; see tailwind.config.ts for the weights.
 const nunito = Nunito({ subsets: ['latin'], weight: ['500', '600', '700', '800', '900'], variable: '--font-sans' })
@@ -81,9 +84,14 @@ export default async function RootLayout({
         <Navbar user={navUser} />
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />
-        {/* Cookieless page-view counts, so no consent banner. Collects nothing until
-            Web Analytics is enabled for the project in the Vercel dashboard. */}
+        {/* Cookieless page-view counts. Collects nothing until Web Analytics is
+            enabled for the project in the Vercel dashboard. */}
         <Analytics />
+        {/* Ad pixels, only after the visitor allows them; nothing at all without pixel ids. */}
+        <Suspense fallback={null}>
+          <AdPixels />
+        </Suspense>
+        <ErrorBeacon />
       </body>
     </html>
   )

@@ -21,6 +21,7 @@ import {
   type StoredTest,
 } from '@/lib/diagnostic/storage'
 import type { Answer } from '@/lib/diagnostic/types'
+import { track } from '@/lib/analytics/track'
 
 type Screen = 'loading' | 'none' | 'intro' | 'question' | 'review' | 'more' | 'sending'
 
@@ -173,6 +174,7 @@ export default function DiagnosticRunner() {
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error ?? `Something went wrong (${res.status}).`)
+      track('CompleteFreeTest')
       if (data.saved) {
         clearTest()
         router.push(`/diagnostic/report/${data.id}`)

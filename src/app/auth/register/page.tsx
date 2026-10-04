@@ -12,6 +12,7 @@ import { safeNext } from '@/lib/auth/safeNext'
 import YearPicker from '@/components/catalogue/YearPicker'
 import type { UserRole, YearLevel } from '@/types'
 import PasswordInput from '@/components/ui/PasswordInput'
+import { track } from '@/lib/analytics/track'
 
 type SignupRole = Exclude<UserRole, 'admin'>
 
@@ -86,6 +87,8 @@ export default function RegisterPage() {
       setError(friendlyAuthError(signUpError.message))
       return
     }
+    // Parents and teachers only: a student's sign-up is never reported to an ad platform.
+    if (role !== 'student') track('CompleteRegistration')
 
     if (data.user && !data.session) {
       setMessage('Check your email to confirm your account before signing in.')
