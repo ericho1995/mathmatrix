@@ -73,13 +73,13 @@ for i in range(1, 12):
     x, sr = read_wav(f'{HERE}/vo-{i}.wav')
     x = resample_poly(trim(x, sr), SR, sr)
     x = shelf(x, 200, 3.0)  # a little body
-    x = shelf(x, 6500, -3.0, high=True)  # softer, less hiss
+    x = shelf(x, 6500, -1.5, high=True)  # a touch softer
     lines.append(x / np.max(np.abs(x)) * 0.86)
 
 # The breath after each line: longer after the first line, after the worries,
 # and before PrepNest comes in.
-gaps = [0.9, 0.6, 0.6, 0.6, 0.9, 1.2, 0.6, 0.6, 0.6, 0.8]
-start = 0.6
+gaps = [1.5, 0.7, 0.7, 0.7, 0.9, 1.2, 0.7, 0.6, 0.6, 0.8]
+start = 1.0
 timings = []
 t = start
 for i, l in enumerate(lines):
