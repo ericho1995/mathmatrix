@@ -141,7 +141,7 @@ export default async function ParentDashboardPage() {
     return {
       id: sp.id,
       fullName: name,
-      yearLevel: GRADES.find(g => g.value === sp.year_level)?.label ?? sp.year_level,
+      yearLevel: GRADES.find(g => g.value === sp.year_level)?.label ?? sp.year_level ?? '',
       xpTotal: sp.xp_total,
       streakDays: sp.streak_days,
       sessionsCount: studentSessions.length,
@@ -159,7 +159,7 @@ export default async function ParentDashboardPage() {
       {students.map(student => (
         <div key={student.id} className="mb-10 last:mb-0">
           <p className="text-gray-500 mb-4">
-            Viewing: <strong className="text-gray-900">{student.fullName}</strong> · {student.yearLevel}
+            Viewing: <strong className="text-gray-900">{student.fullName}</strong>{student.yearLevel ? ` · ${student.yearLevel}` : ''}
           </p>
 
           <PracticeProgress student={student} />
