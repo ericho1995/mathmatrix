@@ -3,6 +3,8 @@ import type { Route } from 'next'
 import { CheckSquare, Download, FileText, MonitorPlay } from 'lucide-react'
 import CheckoutButton from '@/components/practice/CheckoutButton'
 import GeneratePaperButton from './GeneratePaperButton'
+import RequestMorePapers from './RequestMorePapers'
+import type { SubjectSlug, YearLevel } from '@/types'
 import type { PaperRights } from '@/lib/diagnostic/access'
 import type { FocusLine } from '@/lib/diagnostic/tailor'
 import type { Level } from '@/lib/diagnostic/types'
@@ -23,6 +25,9 @@ export interface PaperSummary {
 
 export interface WeakPapersProps {
   resultId: string
+  /** The result's year and subject, for "Run out of papers? Ask us for more" (absent on the showcase). */
+  year?: YearLevel
+  subject?: SubjectSlug
   name: string | null
   weak: { label: string; level: Level }[]
   /** The test found no weak area; papers use the lowest two. */
@@ -102,6 +107,9 @@ export default function WeakPapersCard(p: WeakPapersProps) {
                   : `${left} of ${p.allowance.limit} papers left this month · resets ${p.allowance.resets}.`}
             </p>
           </>
+        )}
+        {p.ready && p.rights.kind !== 'locked' && p.year && p.subject && (
+          <RequestMorePapers compact year={p.year} subject={p.subject} source="weak_papers" signedIn />
         )}
       </div>
 

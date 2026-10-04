@@ -8,6 +8,7 @@ import { summarisePaper } from '@/lib/catalogue'
 import { lockPropsFor } from '@/lib/exams/lockProps'
 import { isVceYear, VCE_PAPER_PRICE } from '@/lib/pricing'
 import PremiumExamLock from '@/components/practice/PremiumExamLock'
+import RequestMorePapers from '@/components/papers/RequestMorePapers'
 import PurchaseBanner from '@/components/practice/PurchaseBanner'
 import ExamDownload from '@/components/practice/ExamDownload'
 
@@ -76,6 +77,12 @@ export default async function ExamPage({
           onScreen={!preview}
           reading={exam.subject === 'reading'}
         />
+        {/* A family with the whole paper is the one most likely to run out. */}
+        {download?.mode === 'full' && (
+          <div className="max-w-2xl mx-auto px-4 pb-10 w-full">
+            <RequestMorePapers year={exam.yearLevel} subject={exam.subject} source="paper" signedIn={access.signedIn} />
+          </div>
+        )}
       </>
     )
   }

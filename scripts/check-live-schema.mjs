@@ -162,6 +162,10 @@ const MIGRATIONS = [
     file: 'schema_diagnostic_cohort.sql',
     checks: [() => rpcExists('diagnostic_cohort', { p_year: 'grade_5', p_subject: 'math' })],
   },
+  {
+    file: 'schema_paper_requests.sql',
+    checks: [() => tableExists('paper_requests')],
+  },
 ]
 
 const EXPECTED_QUESTIONS = 1800 // seed.sql currently carries 1,825

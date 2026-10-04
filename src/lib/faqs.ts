@@ -149,6 +149,12 @@ export const FAQS: Faq[] = [
     q: 'Will there be more papers?',
     a: 'Yes. New papers are added throughout the year, and every new paper for Grade 3 to Year 10 is included in your plan at no extra cost as soon as it is published.',
   },
+  {
+    // The owner's offer (2026-10-05): requests go to /admin/question-bank.
+    category: 'papers',
+    q: 'What if my child runs out of papers?',
+    a: 'Tell us. Choose "Request more papers" at the bottom of the exam papers page, or on any paper you have, and say what your child needs. Our team is busy, but we will make it work for your child and arrange more papers.',
+  },
 
   // ── Accounts ──────────────────────────────────────────────────────────────
   {

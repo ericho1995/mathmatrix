@@ -49,6 +49,8 @@ export async function papersPanel(result: LoadedResult, access: Access, viewerId
   const legacyBought = access.papers.has(tailoredExamId(result.id))
   return {
     resultId: result.id,
+    year: result.year,
+    subject: result.subject,
     name: result.childName,
     weak: weak.areas.map(a => ({ label: a.label, level: a.level })),
     fallback: weak.fallback,

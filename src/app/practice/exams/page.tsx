@@ -11,6 +11,7 @@ import { canOpen, getAccess } from '@/lib/auth/access'
 import { isPlanSellable } from '@/lib/stripe'
 import { CATALOGUE_TOTALS, PLAN_TOTALS, YEAR_LEVEL_STATS, isYearLevel, type YearLevelStats } from '@/lib/catalogue'
 import type { YearLevel } from '@/types'
+import RequestMorePapers from '@/components/papers/RequestMorePapers'
 
 export const metadata: Metadata = {
   title: 'Printable practice exam papers — PrepNest',
@@ -105,6 +106,10 @@ export default async function ExamsPage({
             focused={Boolean(selected)}
           />
         ))}
+      </div>
+
+      <div className="mt-10">
+        <RequestMorePapers year={selected ?? undefined} source="catalogue" signedIn={access.signedIn} />
       </div>
     </main>
   )
