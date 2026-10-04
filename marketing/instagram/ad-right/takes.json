@@ -1,0 +1,194 @@
+{
+  "1": {
+    "text": "Hours of practice. Same mistakes?",
+    "chosen": 2,
+    "takes": [
+      {
+        "take": 1,
+        "seconds": 2.8,
+        "heard": "Hours of practice.  Say mistakes.",
+        "wer": 0.2
+      },
+      {
+        "take": 2,
+        "seconds": 3.51,
+        "heard": "Hours of practice.  Same mistakes?",
+        "wer": 0.0
+      },
+      {
+        "take": 3,
+        "seconds": 2.92,
+        "heard": "hours of practice. Same mistakes.",
+        "wer": 0.0
+      }
+    ]
+  },
+  "2": {
+    "text": "Maybe they don't need more practice.",
+    "chosen": 1,
+    "takes": [
+      {
+        "take": 1,
+        "seconds": 2.14,
+        "heard": "Maybe they don't need more practice.",
+        "wer": 0.0
+      },
+      {
+        "take": 2,
+        "seconds": 2.25,
+        "heard": "Maybe, they don't need more practice.",
+        "wer": 0.0
+      },
+      {
+        "take": 3,
+        "seconds": 1.69,
+        "heard": "Maybe they don't need more practice.",
+        "wer": 0.0
+      }
+    ]
+  },
+  "3": {
+    "text": "They need the right practice.",
+    "chosen": 2,
+    "takes": [
+      {
+        "take": 1,
+        "seconds": 1.58,
+        "heard": "They need the right practice.",
+        "wer": 0.0
+      },
+      {
+        "take": 2,
+        "seconds": 1.72,
+        "heard": "They need the right practice.",
+        "wer": 0.0
+      },
+      {
+        "take": 3,
+        "seconds": 1.76,
+        "heard": "They need the right practice.",
+        "wer": 0.0
+      }
+    ]
+  },
+  "4": {
+    "text": "Start with Prep Nest's free test. It feels like a game.",
+    "chosen": 1,
+    "takes": [
+      {
+        "take": 1,
+        "seconds": 3.89,
+        "heard": "Start with PrepNest's free test.  It feels like a game.",
+        "wer": 0.0
+      },
+      {
+        "take": 2,
+        "seconds": 4.01,
+        "heard": "Start with PrepNest's free test. It feels like a game.",
+        "wer": 0.0
+      },
+      {
+        "take": 3,
+        "seconds": 3.83,
+        "heard": "Start with PrepNest's free test. It feels like a game.",
+        "wer": 0.0
+      }
+    ]
+  },
+  "5": {
+    "text": "It shows which skills are strong, and exactly which need work.",
+    "chosen": 3,
+    "takes": [
+      {
+        "take": 1,
+        "seconds": 4.22,
+        "heard": "It shows which skills are strong and exactly which need work.",
+        "wer": 0.0
+      },
+      {
+        "take": 2,
+        "seconds": 3.59,
+        "heard": "It shows which skills are strong and exactly which need work.",
+        "wer": 0.0
+      },
+      {
+        "take": 3,
+        "seconds": 3.61,
+        "heard": "It shows which skills are strong and exactly which need work.",
+        "wer": 0.0
+      }
+    ]
+  },
+  "6": {
+    "text": "Then practice papers on just those skills. On screen, or printed.",
+    "chosen": 1,
+    "takes": [
+      {
+        "take": 1,
+        "seconds": 4.97,
+        "heard": "Then practice papers on just those skills, on screen or printed.",
+        "wer": 0.0
+      },
+      {
+        "take": 2,
+        "seconds": 4.97,
+        "heard": "Then practice papers on just those skills, on screen, or printed.",
+        "wer": 0.0
+      },
+      {
+        "take": 3,
+        "seconds": 5.16,
+        "heard": "Then practice papers on just those skills, on screen or printed.",
+        "wer": 0.0
+      }
+    ]
+  },
+  "7": {
+    "text": "So you can watch the gaps close.",
+    "chosen": 3,
+    "takes": [
+      {
+        "take": 1,
+        "seconds": 1.97,
+        "heard": "so you can watch the gaps close.",
+        "wer": 0.0
+      },
+      {
+        "take": 2,
+        "seconds": 1.87,
+        "heard": "so you can watch the gaps close.",
+        "wer": 0.0
+      },
+      {
+        "take": 3,
+        "seconds": 1.89,
+        "heard": "so you can watch the gaps close.",
+        "wer": 0.0
+      }
+    ]
+  },
+  "8": {
+    "text": "Try the free test now, at prep nest dot com dot eh you.",
+    "chosen": 3,
+    "takes": [
+      {
+        "take": 1,
+        "seconds": 4.3,
+        "heard": "Try the free test now at prepnes.com.au",
+        "wer": 0.167
+      },
+      {
+        "take": 2,
+        "seconds": 3.89,
+        "heard": "Try the free test now at prepnest.com.au",
+        "wer": 0.0
+      },
+      {
+        "take": 3,
+        "seconds": 3.92,
+        "heard": "Try the free test now at prepnest.com.au",
+        "wer": 0.0
+      }
+    ]
+  }
+}
