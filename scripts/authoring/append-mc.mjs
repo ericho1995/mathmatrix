@@ -5,7 +5,7 @@
 //
 // Run from the repository root. The items file exports HEADER and ITEMS:
 //
-//   { topic, d, q, options, correct: 0, e, code? }
+//   { topic, d, q, options, correct: 0, e, code?, diagram? }
 //
 // Write each item's correct option first; balance() spreads the answer
 // letters within each topic (numeric options are sorted ascending instead, as
@@ -69,6 +69,7 @@ const emit = i => [
   `    topic: '${i.topic}',`,
   `    year_level: '${yearLevel}',`,
   `    difficulty: '${i.d}',`,
+  ...(i.diagram ? [`    diagram: ${JSON.stringify(i.diagram)},`] : []),
   `    question_text: ${q(i.q)},`,
   `    options: ${JSON.stringify(i.options)},`,
   `    correct_index: ${i.correct},`,
