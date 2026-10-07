@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ArrowLeft, ArrowRight, HelpCircle } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Hand } from 'lucide-react'
 import QuestionView from '@/components/diagnostic/QuestionView'
 import type { HomeSample } from '@/lib/homeSamples'
 
@@ -68,13 +68,11 @@ export default function TestScreenCarousel({ samples }: { samples: HomeSample[] 
               <div>
                 <QuestionView compact question={s.question} answer={answers[i] ?? null} onAnswer={a => setAnswers(prev => ({ ...prev, [i]: a }))} />
               </div>
-              <div className="flex items-center justify-between mt-5">
-                <span className="inline-flex items-center gap-1.5 text-sm font-bold text-gray-500">
-                  <HelpCircle className="w-4 h-4" aria-hidden />
-                  I&apos;m not sure
-                </span>
-                <span className="btn-primary pointer-events-none">Next</span>
-              </div>
+              {/* No Next button: it is a sample, and a button that does nothing reads as broken. */}
+              <p className="flex items-center gap-1.5 mt-5 text-sm font-bold text-gray-500">
+                <Hand className="w-4 h-4 shrink-0" aria-hidden />
+                Sample question: tap an answer to try it
+              </p>
             </div>
           </div>
         ))}
