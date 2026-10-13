@@ -10,7 +10,10 @@ import type { ReadingMagazine } from '@/types/reading'
 // follow the published NAPLAN papers (Years 3, 5, 7 and 9, 2012-2016): Year 3
 // and 5 magazines run 6-7 texts over 8 pages with 38 questions, Years 7 and 9
 // run 8 texts over 12 pages with 50. Length scales with the year level, from
-// about 90 words at Year 3 to 480 at Year 9.
+// about 90 words at Year 3 to 480 at Year 9. Grades 4 and 6 and Years 8 and 10
+// take the shape of the NAPLAN year below them, with texts pitched at their own
+// year; their magazines are numbered from 2, because their Paper 1 is the
+// passage paper.
 //
 // Magazine 1 at each year level is the free sample; later sets are paid.
 // Questions live in bank.ts and point at a text through `stimulus_id`.

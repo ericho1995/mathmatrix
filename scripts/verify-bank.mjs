@@ -792,9 +792,13 @@ for (const [yearLevel, pool] of numeracyByYear) {
 // actually fits its pages once laid out is checked by /api/dev/magazines.
 const MAGAZINE_SHAPE = {
   grade_3: { questions: [34, 42], words: [60, 280] },
+  grade_4: { questions: [34, 42], words: [80, 340] },
   grade_5: { questions: [34, 42], words: [100, 400] },
+  grade_6: { questions: [34, 46], words: [120, 520] },
   year_7: { questions: [44, 56], words: [150, 650] },
+  year_8: { questions: [44, 56], words: [160, 700] },
   year_9: { questions: [44, 56], words: [180, 750] },
+  year_10: { questions: [44, 56], words: [200, 800] },
 }
 const passageIds = new Set(STIMULI.map((s) => s.id))
 const textIds = new Set()

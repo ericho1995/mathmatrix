@@ -666,8 +666,12 @@ const READING_MINUTES = { grade_3: 45, grade_4: 45, grade_5: 50, grade_6: 50, ye
 
 function buildReadingExams(yearLevel, questions) {
   const magazines = MAGAZINES.filter(m => m.yearLevel === yearLevel).sort((a, b) => a.set - b.set)
-  if (!magazines.length) return buildPassageReadingExam(yearLevel, questions)
-  const exams = []
+  // The years between NAPLAN tests started with a passage paper and grow by
+  // magazines numbered from 2, so the passage paper stays Paper 1 (the free
+  // sample) beside them.
+  const exams = magazines.some(m => m.set === 1)
+    ? []
+    : buildPassageReadingExam(yearLevel, questions.filter(q => (q.practice_set ?? 1) === 1))
   for (const magazine of magazines) {
     const mine = questions.filter(q => (q.practice_set ?? 1) === magazine.set)
     if (!mine.length) continue
@@ -699,10 +703,10 @@ function buildReadingExams(yearLevel, questions) {
   return exams
 }
 
-// A level with no magazine still gets a Reading paper: the authored passages,
-// each printed in the paper above its own questions, which is how the English
-// papers carried Reading before it became its own subject. This covers the
-// years between NAPLAN tests, which have no magazine.
+// A level without a first magazine still gets a Reading paper: the authored
+// passages, each printed in the paper above its own questions, which is how the
+// English papers carried Reading before it became its own subject. This is
+// Paper 1 in the years between NAPLAN tests, whose magazines start at set 2.
 function buildPassageReadingExam(yearLevel, questions) {
   const passageOrder = new Map(STIMULI.map((s, i) => [s.id, i]))
   const titleOf = new Map(STIMULI.map(s => [s.id, s.title]))
