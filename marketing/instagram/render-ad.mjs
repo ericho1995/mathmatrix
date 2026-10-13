@@ -4,6 +4,8 @@
 //
 //   BASE=http://localhost:3000 node marketing/instagram/render-ad.mjs --audio=ad-audio.wav --out=ad.mp4
 //   ... --stills=1.5,4,7.5,11.5   only these moments, as PNGs, to check the layout
+//   ... --page=dev/ad-grow --length=58.5 --fps=12 --outfps=30
+//        another reel; shot at 12 fps for a stop-motion feel, played at 30
 //
 // Needs the dev server running, and ffmpeg (FFMPEG=path, or on PATH).
 import { spawn, spawnSync } from 'node:child_process'
@@ -14,6 +16,9 @@ import { tmpdir } from 'node:os'
 const args = Object.fromEntries(process.argv.slice(2).map(a => a.replace(/^--/, '').split('=')))
 const BASE = process.env.BASE ?? 'http://localhost:3000'
 const FPS = Number(args.fps ?? 30)
+const OUT_FPS = Number(args.outfps ?? FPS)
+// Given without its leading slash: Git Bash rewrites "/dev/..." into a Windows path.
+const PAGE = '/' + (args.page ?? 'dev/ad').replace(/^\/+/, '')
 const LENGTH = Number(args.length ?? 15)
 const OUT = resolve(args.out ?? 'marketing/instagram/export-bird/reel-ad.mp4')
 const FFMPEG = process.env.FFMPEG ?? 'ffmpeg'
@@ -54,7 +59,7 @@ try {
     })
   await send('Page.enable')
   await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile: false })
-  await send('Page.navigate', { url: `${BASE}/dev/ad` })
+  await send('Page.navigate', { url: `${BASE}${PAGE}` })
   // Wait for the page, its web font and its clock hook.
   for (let i = 0; i < 120; i++) {
     await sleep(500)
@@ -92,7 +97,7 @@ try {
       FFMPEG,
       [
         '-y', '-framerate', String(FPS), '-i', join(dir, 'f%04d.jpg'), ...audio,
-        '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', '-r', String(FPS),
+        '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', '-r', String(OUT_FPS),
         ...(args.audio ? ['-c:a', 'aac', '-b:a', '192k', '-shortest'] : []),
         '-movflags', '+faststart', OUT,
       ],
