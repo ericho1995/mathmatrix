@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 // Builds src/lib/questions/exams.ts — fixed, pre-composed practice exams
 // (as opposed to the custom exam builder on /practice, which mixes topics
-// on demand). 3 exams per subject+grade for the general subjects, 5 for
-// General Mathematics and Maths Methods (their Unit 1&2 pool is deliberately
-// sized for that). Each question is reused at most twice across a subject's
-// exams, picked greedily by least-used-first so usage stays balanced.
+// on demand). Up to MAX_PAPERS per subject and year level, as many as the
+// pool can fill with papers that are at least two-thirds new questions. Each
+// question is reused at most twice across a subject's exams.
 //
 // Safe to re-run whenever bank.ts changes — regenerates the whole file.
 // Usage: node scripts/gen-exams.mjs
@@ -61,9 +60,10 @@ const GRADE_LABEL = {
   year_11: 'Unit 1 & 2',
 }
 const EXAM_SIZE = 10
-// How many papers to try for. Each is only published while it stays mostly new
-// (MAX_REPEAT_SHARE), so these are ceilings, not promises: a thin pool yields fewer.
-const EXAM_COUNT = { general_maths: 5, maths_methods: 5, math: 4 } // default 3 otherwise
+// How many papers to try for in each subject and year level. Each is only
+// published while it stays mostly new (MAX_REPEAT_SHARE), so this is a ceiling,
+// not a promise: a thin pool yields fewer.
+const MAX_PAPERS = 8
 const NAPLAN_SUBJECTS = new Set(['math', 'english'])
 // Years 10 is not a NAPLAN year — NAPLAN is sat at 3, 5, 7 and 9 — but every
 // school year uses NAPLAN's paper format as the house standard, pitched at the
@@ -100,6 +100,73 @@ function repeatShare(questionIds, earlierIds) {
   return questionIds.filter(id => earlierIds.has(id)).length / questionIds.length
 }
 
+/** Unused questions a section of this size must carry to stay within MAX_REPEAT_SHARE. */
+function minFresh(size) {
+  return size - Math.floor(size * MAX_REPEAT_SHARE)
+}
+
+/**
+ * How many papers a pool of n questions can fill with sections of this size:
+ * the first all new, each later one with just enough new questions to stay
+ * within MAX_REPEAT_SHARE, every question in at most two papers.
+ */
+function paperCapacity(n, size) {
+  if (n < size) return n >= MIN_SELLABLE_SECTION ? 1 : 0
+  return Math.min(MAX_PAPERS, 1 + Math.floor((n - size) / minFresh(size)))
+}
+
+/**
+ * Runs a picker with only part of the pool's unused questions in view, so one
+ * paper does not spend new questions a later paper needs.
+ *
+ * The pickers take the least-used questions first. Left alone, the first
+ * papers took every unused question and a later paper was then mostly repeats,
+ * which MAX_REPEAT_SHARE rightly refuses — so a pool of 170 made five papers
+ * where it can make eight. Here each paper may spend unused questions only down
+ * to what every later planned paper needs (minFresh each); the early papers
+ * still come out entirely new when the pool allows it.
+ *
+ * The questions left in view are spread across `stratumOf` groups (strand and
+ * picture for numeracy, topic elsewhere) in proportion to what each group has
+ * left, and chosen in the pickers' own tie-break order.
+ */
+function withFreshBudget(pool, usage, size, plan, stratumOf, pick) {
+  const fresh = pool.filter(q => usage.get(q.id) === 0)
+  const need = minFresh(size)
+  const later = Math.max(0, plan.planned - plan.index - 1)
+  const allowed = Math.max(need, Math.min(size, fresh.length - need * later))
+  if (plan.index === 0 || fresh.length <= allowed) return pick()
+
+  const strata = new Map()
+  for (const q of fresh) {
+    const key = stratumOf(q)
+    if (!strata.has(key)) strata.set(key, [])
+    strata.get(key).push(q)
+  }
+  // Largest-remainder share of `allowed` per stratum.
+  const shares = [...strata.entries()].map(([key, qs]) => {
+    const exact = (allowed * qs.length) / fresh.length
+    return { key, qs, keep: Math.floor(exact), rest: exact - Math.floor(exact) }
+  })
+  let left = allowed - shares.reduce((n, sh) => n + sh.keep, 0)
+  for (const sh of [...shares].sort((a, b) => b.rest - a.rest || (a.key < b.key ? -1 : 1))) {
+    if (left <= 0) break
+    sh.keep++
+    left--
+  }
+  const hidden = []
+  for (const sh of shares) {
+    const ordered = [...sh.qs].sort((a, b) => tieBreakKey(a.id) - tieBreakKey(b.id))
+    hidden.push(...ordered.slice(sh.keep))
+  }
+  hidden.forEach(q => usage.set(q.id, 2))
+  try {
+    return pick()
+  } finally {
+    hidden.forEach(q => usage.set(q.id, 0))
+  }
+}
+
 /** True when every section of a paper is long enough to be worth downloading. */
 function isSellable(exam) {
   return exam.sections.length > 0 && exam.sections.every(s => s.question_ids.length >= MIN_SELLABLE_SECTION)
@@ -120,17 +187,20 @@ for (const question of QUESTION_BANK) {
 }
 
 function buildExams(questions, examCount, examSize) {
-  const usage = new Array(questions.length).fill(0)
+  const usage = new Map(questions.map(q => [q.id, 0]))
+  const order = new Map(questions.map((q, i) => [q.id, i]))
   const exams = []
   for (let e = 0; e < examCount; e++) {
-    const candidates = questions.map((_, i) => i).filter(i => usage[i] < 2)
-    candidates.sort((a, b) => usage[a] - usage[b] || a - b)
-    const chosen = candidates.slice(0, examSize)
+    const chosen = withFreshBudget(questions, usage, examSize, { index: e, planned: examCount }, q => q.topic, () => {
+      const candidates = questions.filter(q => usage.get(q.id) < 2)
+      candidates.sort((a, b) => usage.get(a.id) - usage.get(b.id) || order.get(a.id) - order.get(b.id))
+      return candidates.slice(0, examSize)
+    })
     if (chosen.length < examSize) {
       throw new Error(`Not enough distinct questions to build exam ${e + 1} (need ${examSize}, pool has ${questions.length}).`)
     }
-    chosen.forEach(i => usage[i]++)
-    exams.push(chosen.map(i => questions[i].id))
+    chosen.forEach(q => usage.set(q.id, usage.get(q.id) + 1))
+    exams.push(chosen.map(q => q.id))
   }
   return exams
 }
@@ -288,7 +358,8 @@ function buildReadingSection(questions, usage, targetCount) {
   return chosen.map(q => q.id)
 }
 
-function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex) {
+function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex, planned) {
+  const plan = { index: examIndex, planned }
   const sections = []
   // Every section targets SECTION_SIZE questions. Times follow the real NAPLAN
   // papers: Reading runs 45 min in the primary years and 65 min from Year 7,
@@ -314,8 +385,10 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
   const grammarPool = languageTopicPool.filter(q => q.format !== 'short_answer')
   if (languageTopicPool.length) {
     const sectionSize = SECTION_SIZE
-    const chosenSpelling = pickLeastUsed(spellingPool, usage, Math.floor(sectionSize / 2))
-    const chosenGrammar = pickLeastUsed(grammarPool, usage, sectionSize - chosenSpelling.length)
+    const spellingSize = Math.floor(sectionSize / 2)
+    const chosenSpelling = withFreshBudget(spellingPool, usage, spellingSize, plan, () => 'spelling', () => pickLeastUsed(spellingPool, usage, spellingSize))
+    const grammarSize = sectionSize - chosenSpelling.length
+    const chosenGrammar = withFreshBudget(grammarPool, usage, grammarSize, plan, () => 'grammar', () => pickLeastUsed(grammarPool, usage, grammarSize))
     // Interleave so the paper alternates rather than running all the spelling
     // items together, matching how the real paper mixes them.
     const merged = []
@@ -326,6 +399,8 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
     }
     sections.push({ title: 'Language Conventions', time_minutes: 45, question_ids: merged.map(q => q.id) })
   }
+  const pickNumeracy = (pool, size) =>
+    withFreshBudget(pool, usage, size, plan, q => `${STRAND[q.topic] ?? 'number'}-${isGraphical(q)}`, () => pickBalancedNumeracy(pool, usage, size))
   const numeracyTopics = ['number_operations', 'number_patterns', 'algebra_equations', 'geometry_measurement', 'statistics_probability']
   const numeracyPool = roundRobinByTopic(numeracyTopics.map(t => questionsByTopic[t] ?? []))
   if (numeracyPool.length) {
@@ -333,10 +408,10 @@ function buildNaplanExam(subject, yearLevel, questionsByTopic, usage, examIndex)
       const nonCalc = numeracyPool.filter(q => !q.calculator_allowed)
       const calc = numeracyPool.filter(q => q.calculator_allowed)
       const sectionSize = SECTION_SIZE
-      if (nonCalc.length) sections.push({ title: 'Numeracy — non-calculator', time_minutes: 40, calculator_allowed: false, question_ids: pickBalancedNumeracy(nonCalc, usage, sectionSize).map(q => q.id) })
-      if (calc.length) sections.push({ title: 'Numeracy — calculator', time_minutes: 40, calculator_allowed: true, question_ids: pickBalancedNumeracy(calc, usage, sectionSize).map(q => q.id) })
+      if (nonCalc.length) sections.push({ title: 'Numeracy — non-calculator', time_minutes: 40, calculator_allowed: false, question_ids: pickNumeracy(nonCalc, sectionSize).map(q => q.id) })
+      if (calc.length) sections.push({ title: 'Numeracy — calculator', time_minutes: 40, calculator_allowed: true, question_ids: pickNumeracy(calc, sectionSize).map(q => q.id) })
     } else {
-      sections.push({ title: 'Numeracy', time_minutes: 45, question_ids: pickBalancedNumeracy(numeracyPool, usage, SECTION_SIZE).map(q => q.id) })
+      sections.push({ title: 'Numeracy', time_minutes: 45, question_ids: pickNumeracy(numeracyPool, SECTION_SIZE).map(q => q.id) })
     }
   }
   const gradeLabel = GRADE_LABEL[yearLevel] ?? yearLevel
@@ -659,6 +734,22 @@ function buildPassageReadingExam(yearLevel, questions) {
   }]
 }
 
+/** Papers the NAPLAN-format pools can fill: the thinnest section decides. */
+function naplanCapacity(subject, yearLevel, questionsByTopic) {
+  if (subject === 'english') {
+    const pool = questionsByTopic.grammar_punctuation ?? []
+    const spelling = pool.filter(q => q.format === 'short_answer').length
+    const grammar = pool.length - spelling
+    const half = Math.floor(SECTION_SIZE / 2)
+    return Math.min(paperCapacity(spelling, half), paperCapacity(grammar, SECTION_SIZE - half))
+  }
+  const numeracy = ['number_operations', 'number_patterns', 'algebra_equations', 'geometry_measurement', 'statistics_probability']
+    .flatMap(t => questionsByTopic[t] ?? [])
+  if (!NUMERACY_CALC_SPLIT_GRADES.has(yearLevel)) return paperCapacity(numeracy.length, SECTION_SIZE)
+  const calc = numeracy.filter(q => q.calculator_allowed).length
+  return Math.min(paperCapacity(numeracy.length - calc, SECTION_SIZE), paperCapacity(calc, SECTION_SIZE))
+}
+
 const practiceExams = []
 for (const { subject, yearLevel, questions } of groups.values()) {
   if (subject === 'reading') {
@@ -685,10 +776,10 @@ for (const { subject, yearLevel, questions } of groups.values()) {
       (questionsByTopic[q.topic] ??= []).push(q)
     }
     const usage = new Map(questions.map(q => [q.id, 0]))
-    const examCount = EXAM_COUNT[subject] ?? 3
+    const examCount = naplanCapacity(subject, yearLevel, questionsByTopic)
     const published = new Set()
     for (let i = 0; i < examCount; i++) {
-      const exam = buildNaplanExam(subject, yearLevel, questionsByTopic, usage, i)
+      const exam = buildNaplanExam(subject, yearLevel, questionsByTopic, usage, i, examCount)
       // Stop as soon as the pool can no longer fill a real paper. Building a
       // fixed three regardless produced a "Grade 3 English Practice Exam 3"
       // with a two-question Reading section, sold for the same price as the
@@ -709,11 +800,8 @@ for (const { subject, yearLevel, questions } of groups.values()) {
   // each, and as two it is a full 24. Year 11 Maths Methods has 55: as five
   // papers that was 22 each, and as three it is the full 30.
   const examSize = Math.min(SECTION_SIZE, questions.length)
-  const examCount = Math.max(
-    1,
-    Math.min(EXAM_COUNT[subject] ?? 3, Math.floor((questions.length * 2) / examSize))
-  )
   if (examSize < MIN_SELLABLE_SECTION) continue
+  const examCount = paperCapacity(questions.length, examSize)
   const exams = buildExams(questions, examCount, examSize)
   // Keep papers only while each is mostly new (see MAX_REPEAT_SHARE).
   const published = new Set()
