@@ -11,6 +11,8 @@ import { SITE_URL } from '@/lib/site'
 import { Analytics } from '@vercel/analytics/next'
 import AdPixels from '@/components/analytics/AdPixels'
 import ErrorBeacon from '@/components/analytics/ErrorBeacon'
+import JsonLd from '@/components/seo/JsonLd'
+import { ORGANIZATION_LD, WEBSITE_LD } from '@/lib/seo'
 
 // Rounded and friendly, after Duolingo's type; see tailwind.config.ts for the weights.
 const nunito = Nunito({ subsets: ['latin'], weight: ['500', '600', '700', '800', '900'], variable: '--font-sans' })
@@ -36,6 +38,14 @@ export const metadata: Metadata = {
   // only shows it large when asked to.
   twitter: {
     card: 'summary_large_image',
+  },
+  // Search Console and Bing Webmaster Tools ownership checks: paste the
+  // content value of each tool's meta tag into Vercel and redeploy.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
   },
 }
 
@@ -81,6 +91,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={nunito.variable}>
       <body className="flex flex-col min-h-screen">
+        <JsonLd data={[ORGANIZATION_LD, WEBSITE_LD]} />
         <Navbar user={navUser} />
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />

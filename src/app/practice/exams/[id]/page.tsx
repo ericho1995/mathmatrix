@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { PRACTICE_EXAMS } from '@/lib/questions/exams'
+import { PRACTICE_EXAMS, type PracticeExam } from '@/lib/questions/exams'
 import { getAccess } from '@/lib/auth/access'
 import { resolveExam, isSplitEligible } from '@/lib/pdf/resolveExam'
 import { paperDownload } from '@/lib/pdf/paperDownload'
@@ -11,6 +11,8 @@ import PremiumExamLock from '@/components/practice/PremiumExamLock'
 import RequestMorePapers from '@/components/papers/RequestMorePapers'
 import PurchaseBanner from '@/components/practice/PurchaseBanner'
 import ExamDownload from '@/components/practice/ExamDownload'
+import JsonLd from '@/components/seo/JsonLd'
+import { breadcrumbLd, naplanLandingFor, paperLd, vceLandingFor } from '@/lib/seo'
 
 export function generateMetadata({ params }: { params: { id: string } }): Metadata {
   const exam = PRACTICE_EXAMS.find(e => e.id === params.id)
@@ -24,7 +26,18 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
   return {
     title: `${exam.title} — PrepNest`,
     description: `A printable ${summary.questions}-question practice paper with a separate answer key. ${offer}`,
+    alternates: { canonical: `/practice/exams/${exam.id}` },
   }
+}
+
+/** Where a paper sits on the site, for search engines: VCE › Physics › paper, NAPLAN › Year 5 › paper. */
+function crumbsFor(exam: PracticeExam) {
+  const self = { name: exam.title, path: `/practice/exams/${exam.id}` }
+  const vce = isVceYear(exam.yearLevel) ? vceLandingFor(exam.subject) : undefined
+  if (vce) return [{ name: 'VCE', path: '/vce' }, { name: vce.name, path: `/vce/${vce.slug}` }, self]
+  const naplan = ['math', 'reading', 'english'].includes(exam.subject) ? naplanLandingFor(exam.yearLevel) : undefined
+  if (naplan) return [{ name: 'NAPLAN', path: '/naplan' }, { name: naplan.naplanName, path: `/naplan/${naplan.slug}` }, self]
+  return [{ name: 'Exam papers', path: '/practice/exams' }, self]
 }
 
 export default async function ExamPage({
@@ -57,10 +70,12 @@ export default async function ExamPage({
   const preview = previewInfo
     ? { shown: previewInfo.shown, total: previewInfo.total, magazine: Boolean(exam.magazine_id) }
     : undefined
+  const structured = <JsonLd data={[breadcrumbLd(crumbsFor(exam)), paperLd(exam, isVceYear(exam.yearLevel))]} />
 
   if (download?.mode === 'full' || (preview && !exam.premium)) {
     return (
       <>
+        {structured}
         {justBought && (
           <div className="max-w-md mx-auto px-4 pt-8 w-full">
             <PurchaseBanner kind="paper" settled />
@@ -89,6 +104,7 @@ export default async function ExamPage({
 
   return (
     <>
+      {structured}
       {justBought && (
         <div className="max-w-md mx-auto px-4 pt-8 w-full">
           <PurchaseBanner kind="paper" settled={false} />

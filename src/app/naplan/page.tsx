@@ -9,11 +9,13 @@ import type { YearLevel } from '@/types'
 import LookInside from '@/components/marketing/LookInside'
 import { Check, FileText, X } from 'lucide-react'
 import DiagnosticCta from '@/components/diagnostic/DiagnosticCta'
+import { naplanLandingFor } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'NAPLAN practice tests for Years 3, 5, 7 and 9 — PrepNest',
   description:
     'Printable NAPLAN-style practice papers for Numeracy, Reading and Language Conventions, with separate answer keys. Flip through the first half of any paper free.',
+  alternates: { canonical: '/naplan' },
 }
 
 // The countdown is computed at request time; an hour's staleness is fine for a
@@ -224,11 +226,20 @@ function YearCard({ yearLevel }: { yearLevel: YearLevel }) {
   const naplanPapers = PRACTICE_EXAMS.filter(e => e.yearLevel === yearLevel && NAPLAN_SUBJECTS.has(e.subject))
   // The first paper of each test, to flip through: its first half is free.
   const firsts = naplanPapers.filter((e, i) => naplanPapers.findIndex(x => x.subject === e.subject) === i)
+  const landing = naplanLandingFor(yearLevel)
   if (!stats) return null
 
   return (
     <div className="card flex flex-col">
-      <p className="text-lg font-medium tracking-tight">{stats.label}</p>
+      <p className="text-lg font-medium tracking-tight">
+        {landing ? (
+          <Link href={`/naplan/${landing.slug}` as Route} className="hover:text-brand-600 hover:underline">
+            {stats.label}
+          </Link>
+        ) : (
+          stats.label
+        )}
+      </p>
       <p className="text-xs text-gray-400 mb-4">
         {naplanPapers.length} NAPLAN-format papers: Numeracy, Reading and Language Conventions
       </p>
@@ -246,8 +257,11 @@ function YearCard({ yearLevel }: { yearLevel: YearLevel }) {
           </li>
         ))}
       </ul>
-      <Link href={`/practice/exams?year=${yearLevel}` as Route} className="btn-secondary text-sm text-center">
-        All {stats.label} papers
+      <Link
+        href={(landing ? `/naplan/${landing.slug}` : `/practice/exams?year=${yearLevel}`) as Route}
+        className="btn-secondary text-sm text-center"
+      >
+        {landing ? `${landing.naplanName} NAPLAN practice` : `All ${stats.label} papers`}
       </Link>
     </div>
   )
