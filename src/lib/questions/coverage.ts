@@ -25,7 +25,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   gm_financial: { year_11: 55, year_12: 38 },
   gm_matrices: { year_11: 8, year_12: 14 },
   gm_networks: { year_11: 17, year_12: 8 },
-  grammar_punctuation: { grade_3: 31, grade_4: 90, grade_5: 30, grade_6: 90, year_10: 90, year_7: 31, year_8: 90, year_9: 30 },
+  grammar_punctuation: { grade_3: 171, grade_4: 90, grade_5: 170, grade_6: 90, year_10: 90, year_7: 170, year_8: 90, year_9: 30 },
   life_science: { grade_6: 9, year_10: 8, year_8: 17 },
   mm_algebra: { year_11: 31, year_12: 12 },
   mm_calculus: { year_11: 54, year_12: 29 },
@@ -54,7 +54,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
 }
 
 /** Every question in the bank, including those only on the printable papers. */
-export const QUESTION_TOTAL = 4595
+export const QUESTION_TOTAL = 5014
 
 /** Total questions available for a topic, across every year level. */
 export function topicTotal(topic: TopicSlug): number {
