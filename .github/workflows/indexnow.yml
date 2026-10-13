@@ -1,0 +1,29 @@
+name: IndexNow
+
+# After each deploy of main, tell Bing and the other IndexNow search engines
+# that the site's pages changed, so new pages are crawled within hours.
+# See scripts/indexnow.mjs. Run it by hand from the Actions tab any time.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Submit the sitemap to IndexNow
+        # Waits for the deploy only on a push; a manual run submits at once.
+        run: node scripts/indexnow.mjs ${{ github.event_name == 'push' && '--wait' || '' }}
