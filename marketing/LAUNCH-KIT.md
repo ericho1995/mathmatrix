@@ -116,8 +116,8 @@ the 56-second film on the `marketing/short-film` branch (PR #35).
 
 VCE countdown post, one per subject, posted 10 days before each exam:
 
-> 10 days to VCE Methods Exam 1. One full practice paper a day, under exam
-> conditions, then mark it against the guide. Five Exam 1 and Exam 2 sets in
+> 10 days to VCE Methods Exam 1. A full practice paper every couple of days,
+> under exam conditions, then mark it against the guide and redo what you lost. Five Exam 1 and Exam 2 sets in
 > the VCAA format, each with worked solutions. Try a paper now. Link in bio.
 >
 > #VCE #VCE2026 #VCEMethods #Year12 #Melbourne #StudyTips
