@@ -20,11 +20,13 @@ import DiagnosticCta from '@/components/diagnostic/DiagnosticCta'
 import LibraryGrowth from '@/components/marketing/LibraryGrowth'
 import SubjectIcon from '@/components/ui/SubjectIcon'
 import { FileText } from 'lucide-react'
+import { vceLandingFor } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'VCE practice exams — Mathematical Methods, Specialist, General, Chemistry, Physics — PrepNest',
+  title: 'VCE practice exams 2026 and exam timetable — Methods, Specialist, General, Physics, Chemistry — PrepNest',
   description:
-    'Printable VCE practice exams in the VCAA format, with separate answer keys and the 2026 exam timetable. Flip through the first half of any paper free.',
+    'Printable VCE practice exams in the VCAA format, with separate marking guides and the 2026 exam timetable. Flip through the first half of any paper free.',
+  alternates: { canonical: '/vce' },
 }
 
 export const revalidate = 3600
@@ -102,6 +104,7 @@ export default function VcePage() {
             <ul className="flex flex-col gap-2">
               {upcoming.map(exam => {
                 const unit34 = papersFor(exam.subject, 'year_12')
+                const landing = vceLandingFor(exam.subject)
                 return (
                   <li
                     key={exam.label}
@@ -119,7 +122,7 @@ export default function VcePage() {
                     <div className="sm:w-48 shrink-0 text-sm">
                       {unit34.length > 0 ? (
                         <Link
-                          href={`/practice/exams?year=year_12` as Route}
+                          href={(landing ? `/vce/${landing.slug}` : '/practice/exams?year=year_12') as Route}
                           className="text-brand-600 hover:underline"
                         >
                           Unit 3 & 4 practice papers →
@@ -169,10 +172,18 @@ export default function VcePage() {
             const u12 = papersFor(subject.slug, 'year_11')
             const u34 = papersFor(subject.slug, 'year_12')
             if (u12.length + u34.length === 0) return null
+            const landing = vceLandingFor(subject.slug)
             return (
               <div key={subject.slug} className="card">
                 <p className="font-medium mb-3 flex items-center gap-2.5">
-                  <SubjectIcon subject={subject.slug} size="sm" /> {subject.label}
+                  <SubjectIcon subject={subject.slug} size="sm" />{' '}
+                  {landing ? (
+                    <Link href={`/vce/${landing.slug}` as Route} className="hover:text-brand-600 hover:underline">
+                      {subject.label}
+                    </Link>
+                  ) : (
+                    subject.label
+                  )}
                 </p>
                 <UnitList title="Unit 3 & 4 · Year 12" papers={u34} />
                 <UnitList title="Unit 1 & 2 · Year 11" papers={u12} />

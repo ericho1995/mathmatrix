@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import type { Route } from 'next'
 import { GRADES } from '@/lib/curriculum'
@@ -7,6 +8,10 @@ import StudentDashboardTabs, { type SessionSummary } from '@/components/home/Stu
 import MarketingHome from '@/components/home/MarketingHome'
 import { dashboardLabel, isGuardianRole } from '@/lib/auth/roles'
 import type { UserRole } from '@/types'
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+}
 
 export default async function HomePage() {
   let user: { id: string; email: string | null } | null = null

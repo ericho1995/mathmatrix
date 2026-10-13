@@ -103,7 +103,7 @@ export const FAQS: Faq[] = [
   {
     category: 'papers',
     q: 'Can I do the papers on screen instead of printing them?',
-    a: 'They are designed to be printed. VCE exams are sat on paper. NAPLAN is taken online for most year levels, but sitting a full paper in one go, timed and away from a screen, builds the same pacing and stamina. For on-screen practice, the free Practice section builds short quizzes on any topic with an instant explanation for every answer.',
+    a: 'Yes. Every paper you have unlocked can be sat on screen from start to finish, with a countdown timer and a working-out pad, then marked straight away with every answer explained; written VCE answers are checked against the marking guide. Reading papers sit side by side with their texts, the way NAPLAN Online sets them. Or print the PDF: VCE exams are sat on paper, and a full paper sat in one go away from a screen builds the same pacing and stamina.',
   },
 
   // ── Purchasing ────────────────────────────────────────────────────────────────

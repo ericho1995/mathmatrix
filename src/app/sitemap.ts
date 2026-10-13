@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { PRACTICE_EXAMS } from '@/lib/questions/exams'
 import { YEAR_LEVEL_STATS } from '@/lib/catalogue'
 import { SITE_URL } from '@/lib/site'
+import { NAPLAN_LANDINGS, VCE_LANDINGS } from '@/lib/seo'
 
 /**
  * Every public page, including one entry per exam paper and per year level.
@@ -26,6 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page('/practice/exams', 0.9),
     page('/naplan', 0.9),
     page('/vce', 0.9),
+    // One page per VCE subject and NAPLAN year: what people actually search for.
+    ...VCE_LANDINGS.map(l => page(`/vce/${l.slug}`, 0.85, 'daily')),
+    ...NAPLAN_LANDINGS.map(l => page(`/naplan/${l.slug}`, 0.85)),
     page('/pricing', 0.8),
     page('/whats-new', 0.6),
     page('/practice', 0.7),

@@ -3,13 +3,16 @@ import Link from 'next/link'
 import type { Route } from 'next'
 import FAQAccordion from '@/components/home/FAQAccordion'
 import DiagnosticCta from '@/components/diagnostic/DiagnosticCta'
-import { FAQ_CATEGORY_LABEL, faqsIn, type FaqCategory } from '@/lib/faqs'
+import { FAQS, FAQ_CATEGORY_LABEL, faqsIn, type FaqCategory } from '@/lib/faqs'
+import JsonLd from '@/components/seo/JsonLd'
+import { faqLd } from '@/lib/seo'
 import { SUPPORT_EMAIL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Help & FAQ — PrepNest',
   description:
     'Answers about the free diagnostic test, PrepNest exam papers, purchasing, accounts and the parent dashboard — and how to get in touch.',
+  alternates: { canonical: '/help' },
 }
 
 const ORDER: FaqCategory[] = ['diagnostic', 'papers', 'purchasing', 'accounts', 'parents']
@@ -24,6 +27,7 @@ const ORDER: FaqCategory[] = ['diagnostic', 'papers', 'purchasing', 'accounts', 
 export default function HelpPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-12 flex-1 w-full">
+      <JsonLd data={faqLd(FAQS)} />
       <h1 className="text-3xl font-medium tracking-tight mb-2">Help & FAQ</h1>
       <p className="text-gray-500 mb-8">Quick answers about the diagnostic test, the papers, purchasing, and accounts.</p>
 
