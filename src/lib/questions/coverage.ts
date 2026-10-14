@@ -19,7 +19,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   algebra_equations: { year_10: 43, year_7: 30, year_8: 31, year_9: 35 },
   chem_atomic_structure: { year_11: 93 },
   chem_reactions: { year_11: 80 },
-  earth_space: { grade_6: 23, year_10: 21, year_8: 38 },
+  earth_space: { grade_6: 37, year_10: 21, year_8: 38 },
   geometry_measurement: { grade_3: 6, grade_4: 6, grade_5: 9, grade_6: 8, year_10: 35, year_7: 25, year_8: 28, year_9: 27 },
   gm_data_analysis: { year_11: 55, year_12: 51 },
   gm_financial: { year_11: 55, year_12: 38 },
@@ -40,7 +40,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
   phys_light_matter: { year_12: 30 },
   phys_mechanics: { year_11: 90 },
   phys_motion: { year_12: 24 },
-  physical_science: { grade_6: 9, year_10: 9, year_8: 32 },
+  physical_science: { grade_6: 26, year_10: 9, year_8: 32 },
   reading_comprehension: { grade_3: 7, grade_4: 6, grade_5: 7, grade_6: 8 },
   reading_literary_analysis: { year_10: 7, year_7: 8, year_8: 7, year_9: 8 },
   sm_calculus: { year_12: 30 },
@@ -54,7 +54,7 @@ export const TOPIC_COVERAGE: TopicCoverage = {
 }
 
 /** Every question in the bank, including those only on the printable papers. */
-export const QUESTION_TOTAL = 5770
+export const QUESTION_TOTAL = 5848
 
 /** Total questions available for a topic, across every year level. */
 export function topicTotal(topic: TopicSlug): number {
