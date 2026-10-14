@@ -109,11 +109,13 @@ const start = bank.indexOf(`const ${NAME}: BankQuestion[] = [`)
 if (start >= 0) {
   const end = bank.indexOf('\n]\n', start)
   bank = bank.slice(0, start) + bank.slice(end + 3).replace(/^\n/, '')
-  bank = bank.replace(`, ...${NAME}]`, ']')
 }
 const block = `const ${NAME}: BankQuestion[] = [\n${lines.join('\n')}\n]\n\n`
 const at = bank.indexOf('export const QUESTION_BANK')
 bank = bank.slice(0, at) + block + bank.slice(at)
-bank = bank.replace(/(export const QUESTION_BANK: BankQuestion\[\] = \[[^\]]*)\]/, (_m, head) => `${head}, ...${NAME}]`)
+// The spread stays where it is once listed: other parts are appended after it,
+// so stripping and re-adding it only worked while it happened to be last.
+if (!new RegExp(`export const QUESTION_BANK: BankQuestion\\[\\] = \\[[^\\]]*\\.\\.\\.${NAME}\\b`).test(bank))
+  bank = bank.replace(/(export const QUESTION_BANK: BankQuestion\[\] = \[[^\]]*)\]/, (_m, head) => `${head}, ...${NAME}]`)
 console.log(`${items.length} Physics Unit 3 & 4 items from ${files.length} set file(s)`)
 if (!dry) writeFileSync(bankPath, crlf ? bank.replace(/\n/g, '\r\n') : bank)

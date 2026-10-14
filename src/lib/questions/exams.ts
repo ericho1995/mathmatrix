@@ -11652,5 +11652,82 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "premium": true,
     "reading_minutes": 15,
     "formula_sheet": "physics"
+  },
+  {
+    "id": "physics-year_12-8",
+    "subject": "physics",
+    "yearLevel": "year_12",
+    "title": "Physics Unit 3 & 4 — Practice Exam 8",
+    "sections": [
+      {
+        "title": "Section A — multiple choice",
+        "time_minutes": 25,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions.",
+          "Choose the response that is correct or that best answers the question.",
+          "A correct answer scores 1; an incorrect answer scores 0.",
+          "Marks will not be deducted for incorrect answers.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
+        ],
+        "question_ids": [
+          "3679d016-b83c-583a-905c-44e3d27403be",
+          "c37761ef-a038-565a-8631-0f3e5717c389",
+          "7f37722b-f57c-5b1b-86f0-b89590639952",
+          "471a2af0-eece-55c6-b56b-c232258313d3",
+          "770149b6-235a-5b20-a289-20aad7cf45bb",
+          "4fa64c50-b8fc-519d-9e3b-4499a0f25bb3",
+          "f896b49c-5210-575f-b38e-6967a8c6acdc",
+          "87c5b1be-d14b-5bd5-9dc8-03a5eaf87407",
+          "f42355da-6498-59d4-bc21-e1dc2a15f7cf",
+          "172edd19-6fac-5677-8f4e-5fbbd503a3f7",
+          "2c3ac431-8fe8-5ca0-9973-795ce34d396c",
+          "32c636e9-8c5e-5ad2-9e87-6ea3d023824e",
+          "cd1ae734-ea48-5e5b-a41b-031890a65bff",
+          "c6abd665-6387-509e-afba-b4a19409d753",
+          "4419fc5a-e61c-5c28-be87-058ad52d4c5b",
+          "191afd38-9eee-5835-b480-f11ccdd8b588",
+          "3a6296cf-1ba0-56a0-8b34-8a8e95df5c4f",
+          "746bc629-0a0f-5ee8-b55a-499c1a921be7",
+          "d67c51e1-a645-5b06-83f1-0fe56cb4f9a6",
+          "58881ab7-aadc-5052-8f3e-5a1bc7ebd9e6"
+        ]
+      },
+      {
+        "title": "Section B — short answer",
+        "time_minutes": 125,
+        "calculator_allowed": true,
+        "restart_numbering": true,
+        "instructions": [
+          "Answer all questions in the spaces provided.",
+          "Write your responses in English.",
+          "Where an answer box is provided, write your final answer in the box.",
+          "If an answer box has a unit printed in it, give your answer in that unit.",
+          "In questions where more than one mark is available, appropriate working must be shown.",
+          "Unless otherwise indicated, the diagrams in this book are not drawn to scale."
+        ],
+        "question_ids": [
+          "3fc83881-a271-56b9-a3d8-51d993bd3201",
+          "0c7246ad-9b5b-518c-bf5b-2d93d50c17a9",
+          "5a873507-754d-5ee7-b70d-78ee0da86dc9",
+          "d4fdffe9-090a-5449-8a66-38437baa21e2",
+          "6d262721-8aa9-5d71-8f64-2297f310d27c",
+          "806d75b6-81fc-5ab7-a421-6f54eaf47a86",
+          "f3438e1f-a292-5782-9a69-3c44d026c9c6",
+          "44933b8e-8eb4-5fc4-87de-af406013e1d3",
+          "c598c07d-c60b-554a-a203-de0ac1a203a5",
+          "75a51b58-dc89-52a5-9633-2393557dbce8",
+          "243f1150-ef1a-55b5-a42b-c052e2e582e4",
+          "f77cb1a5-6738-5820-ba90-0bc59a180ca5",
+          "6f177c1c-344b-5c63-bf45-5cfce2928bcf",
+          "6396bb50-b2ea-5ab2-b81c-df006d66f2b5",
+          "573c7b20-d04f-5a48-bd00-d38e100d2611"
+        ]
+      }
+    ],
+    "premium": true,
+    "reading_minutes": 15,
+    "formula_sheet": "physics"
   }
 ]
