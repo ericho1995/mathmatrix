@@ -4269,7 +4269,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "sections": [
       {
         "title": "Science",
-        "time_minutes": 40,
+        "time_minutes": 45,
         "question_ids": [
           "12310b4f-6289-41b5-8379-2d52e086a163",
           "d7c1d9c5-c9de-4188-851b-fb10521c436b",
@@ -4296,7 +4296,146 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "d8d1737f-5a22-4309-94c3-0a874d951c08",
           "874bb01a-4792-46b2-b56e-d895ceeaff0a",
           "f248c7ca-8778-413b-a062-8bb9a2a0cb19",
-          "1fa234be-6b87-44f3-afaf-506e9da9f3ea"
+          "1fa234be-6b87-44f3-afaf-506e9da9f3ea",
+          "b36b5e61-e1cd-45e3-821f-be2f121c5e54",
+          "d4411b22-ca5c-430a-bd4c-5bc4b7fcced5",
+          "1d42e3fc-6c48-4298-b7d7-d72ca19d7382",
+          "903f43be-21c2-4379-8bd5-85915029cd6a"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "science-grade_6-2",
+    "subject": "science",
+    "yearLevel": "grade_6",
+    "title": "Science Grade 6 — Practice Exam 2",
+    "sections": [
+      {
+        "title": "Science",
+        "time_minutes": 45,
+        "question_ids": [
+          "cf6fe923-adb8-4f08-9491-a1730811536f",
+          "b94c2534-2f7c-4cdf-b902-3afb9ae1ec44",
+          "6c8e7909-5c7c-4265-8d34-14d2c6670377",
+          "d1ea597e-6681-47ff-8918-8ed31d7ac513",
+          "5de48946-44d2-4926-a27c-86c314cd8e34",
+          "94d051a3-cbd2-4688-8388-491c6479ca3d",
+          "0025c5ef-9daf-4a02-b3b2-b51336914e4d",
+          "208df8db-f5e8-4cdf-9f0b-cdaef01411ef",
+          "4b4bf6fd-1a84-4eb4-9cfb-9f9e3866e6f0",
+          "d6388234-aa6d-4562-a60f-b078cc982822",
+          "20fd7d6c-3ed1-414b-97c1-20722494548d",
+          "67e2ca96-ae97-410d-953f-017317e5b08f",
+          "9b7234f1-76e1-42db-81a1-de7341d91770",
+          "6cc5983a-d6de-4703-b6fe-3649b9e117f0",
+          "d201a355-94b9-4077-b2db-2912b3251973",
+          "21267325-8982-4c0c-9c12-3d3907ee019b",
+          "890c4c36-223e-40bd-b930-0b2b5c2ea4a6",
+          "a5c0688b-49be-4fa5-a8de-60efcdc39d73",
+          "d32b2c59-4564-46cc-80af-3db3819cd045",
+          "05d003da-4ce0-4d3a-ae16-70788855c88f",
+          "18908c25-51eb-4ad4-a791-99e50a626fa1",
+          "9052f7ba-ec14-4241-81d2-240e3f85dc7c",
+          "a4bc4aee-4fb9-4136-b068-b0f59c26894d",
+          "6ba84c5d-cb11-466e-a441-77d94bfc57ec",
+          "a61f9158-4728-43d7-8193-ca450dc15fd8",
+          "8bf36de1-9bb7-4e72-833f-282513747a6f",
+          "252a34b8-8592-49ac-902e-b3e892b8ab8b",
+          "911c982e-5761-452b-8e09-c532c441c51b",
+          "a5e88df2-3ddc-45a7-954a-18fdac9b01e2",
+          "0817a131-066d-4569-baca-71992f5049be"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "science-grade_6-3",
+    "subject": "science",
+    "yearLevel": "grade_6",
+    "title": "Science Grade 6 — Practice Exam 3",
+    "sections": [
+      {
+        "title": "Science",
+        "time_minutes": 45,
+        "question_ids": [
+          "5e4479f0-50e4-4b00-a085-c088fcdc5367",
+          "86d89a52-de74-41fc-852f-8198ee79bca5",
+          "0a093ed8-dcad-42df-a9ee-ddf9185c1159",
+          "d4501c81-b3b7-4595-ae1e-a68cad28d0a8",
+          "7e782ea2-ad67-40ff-8b17-94d4edfd18a6",
+          "0378073a-274d-4b96-97d2-d3a1011acde6",
+          "32119f90-0e74-4f73-a13d-c2fac174666a",
+          "5033f84e-5716-4bc4-bdda-f7ecd1799e85",
+          "28791b64-18c1-430d-bf85-32ba6bf6b777",
+          "d850d0a6-1771-4ebd-8c6d-a34568fc329c",
+          "161bcdf7-a8cd-4531-8fd9-8e287bf18f60",
+          "29f28aae-6dc2-43fd-9de1-568906c54cbd",
+          "8fc9da9c-159d-4b6c-a082-7b5dc877234b",
+          "e90a2f3d-19f1-4574-885b-7237c2526ba8",
+          "953c06d7-3ad5-481b-85c7-9b95e63bc780",
+          "de5d0cc2-3c67-4a84-bbbb-3d0f9bdcb9c2",
+          "a94ef0e3-7bdd-4700-aad3-4053e7a3f5c3",
+          "adf5fb03-eafa-4c1b-ac71-2c003aea3a77",
+          "657c77f1-8195-4d62-ae8f-63f934f06372",
+          "6256ee49-f870-4b7e-b484-7d50a4b06441",
+          "5e0c963a-b2f1-4af8-8005-44127408a2af",
+          "acc3b8b1-15fd-4712-9f08-01c563570ca5",
+          "cfff3ff9-65e6-49cb-9924-4034d0475c38",
+          "d7c99e97-d33a-4cb2-843c-8dc40d5a9d61",
+          "12310b4f-6289-41b5-8379-2d52e086a163",
+          "d7c1d9c5-c9de-4188-851b-fb10521c436b",
+          "6eec1bb8-817f-4d8a-9cfe-f1fea7cc875b",
+          "90416ab9-5e63-4b2b-bc46-d71d4dd1f2a8",
+          "7a236cce-9535-4a4a-b389-30a5cc64d202",
+          "a0de0071-bbbf-4d98-8efa-460543a417c6"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "science-grade_6-4",
+    "subject": "science",
+    "yearLevel": "grade_6",
+    "title": "Science Grade 6 — Practice Exam 4",
+    "sections": [
+      {
+        "title": "Science",
+        "time_minutes": 45,
+        "question_ids": [
+          "04f5e31c-2de7-4d14-90b7-5657390b1a3b",
+          "aaa1200d-76b2-4a50-b317-7c782f052c19",
+          "1781137e-2b3b-46e3-a88d-fd91a2f05d0e",
+          "6f1b33c3-aac5-4409-8ec7-7f84dd46109a",
+          "e41d4079-a76a-4063-9fdb-844ce4677ab2",
+          "038167ea-b035-48d5-95d2-4b726df83c3c",
+          "dda6f1e7-5cc9-4752-9306-c0e8d0003ae6",
+          "7981e358-84af-4899-b558-cc65b09ed4f4",
+          "73e77860-f560-4010-b49b-0cd5b1264494",
+          "f2dc0b9c-a986-4d01-9f62-ec2db40e2c12",
+          "50e78954-3d29-4975-bbaf-b2707f306349",
+          "8f619434-177d-476c-9b3b-98f858f95539",
+          "dc7e92a1-b410-471d-a0ac-e74163588f96",
+          "78e63ae7-f507-45f2-8272-128e35de74ea",
+          "5317f5cb-3ad7-4438-bac2-74d3312404c0",
+          "053181e9-40a5-467e-8481-c26dc28212e8",
+          "4c17adfb-2665-4449-af25-42e3c5aebc2b",
+          "9857c398-8abe-4140-873b-634ba9329fbe",
+          "060ac751-aa87-46f9-b45f-86ffb5c9c7c3",
+          "afb661eb-7b10-4545-bff3-336a25c8096b",
+          "38b6fda1-f9c8-4194-9364-bae79e78ad7f",
+          "26a9c14b-0ae3-4a8c-a4d6-4a36132fb90a",
+          "4af16baf-7024-4f17-8028-f6d77f8d5e43",
+          "43265bbe-19e9-4c0a-aa8e-48ad4b778295",
+          "a66279c6-c848-40e0-abc5-ed8825b64a38",
+          "a9fe29a8-16cc-48d8-b572-54bac049c42d",
+          "a41fe943-bd18-448b-96f8-673807a07814",
+          "0d12466d-92ce-49d8-8b9f-0f5a8c689f10",
+          "1ca087db-5e18-43fe-8712-99c191ccbfd3",
+          "fbd0c82a-fed7-4658-961c-e2da033f2a6d"
         ]
       }
     ],
@@ -4400,7 +4539,7 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
     "sections": [
       {
         "title": "Science",
-        "time_minutes": 35,
+        "time_minutes": 45,
         "question_ids": [
           "fa75ee6b-7411-4dc0-8f24-9db75d523b3e",
           "4080e668-6840-4eb2-a059-eece6007a29b",
@@ -4425,7 +4564,148 @@ export const PRACTICE_EXAMS: PracticeExam[] = [
           "354839b8-687b-44b8-9334-704ad854bec0",
           "2cf5198a-63d7-4fc1-ad56-7f0fffc1f263",
           "f63640c7-5554-49c1-8df6-3f33cf4a0aa4",
-          "3a3fdd25-0ccf-419c-b73a-e1273b67867f"
+          "3a3fdd25-0ccf-419c-b73a-e1273b67867f",
+          "02c85c47-5c4a-40c6-ad68-483e61196313",
+          "b32f83e1-51be-46c2-8a53-d7e543d3c1fb",
+          "be69b795-c6b8-4cb5-9ed1-a6b88957d4a9",
+          "4ff1e44f-8e80-43e3-a91c-77e3d638c31a",
+          "52a7e9af-f081-4163-848a-d9172250e141",
+          "ac1910d4-78d7-4aec-98da-9fee8b6d1d84"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "science-year_10-2",
+    "subject": "science",
+    "yearLevel": "year_10",
+    "title": "Science Year 10 — Practice Exam 2",
+    "sections": [
+      {
+        "title": "Science",
+        "time_minutes": 45,
+        "question_ids": [
+          "8b62daec-1496-4b07-ae02-2fbe62751f6f",
+          "160006d7-e184-4493-ad14-13667687eb28",
+          "10f82d21-f108-40a2-b1ac-db454ee0a8c7",
+          "29bc1e7a-f2f5-44ec-a03c-ebb826a96f93",
+          "d2dc3592-5c42-4b5c-b8e3-8461f001d037",
+          "ae4e046e-12f6-4383-ad75-d56460b53a79",
+          "a48a68a6-8aec-4ff8-a8df-59778537d7fe",
+          "d487b938-ff46-4a07-8971-4de880806d48",
+          "9c39fed0-66f1-44d4-86cd-baab0d4a7a53",
+          "b09e3d71-4e3d-4953-85b8-a9883782a525",
+          "3c306c43-2c8f-43ac-8c54-2b13335a13c6",
+          "3fde01c0-af1e-4b7a-a2f9-798fd20765d6",
+          "58f0d521-120f-4e74-af51-eacf93a05679",
+          "9bfb9cd7-eba4-4d8e-84be-4253fb253929",
+          "581cea17-3cff-4ef7-89b3-f9395d89b682",
+          "09756dad-86c8-463f-a6c0-5a76b2639b15",
+          "9df379d0-b163-421c-905f-9c78d894694f",
+          "ef74b5e1-4792-4270-bf40-62f875598caf",
+          "9a07d9c3-ebad-44cc-b106-b431f548deb7",
+          "2cb56af8-bbff-4711-8f5c-b841561288ae",
+          "2eb2565e-c9b1-4af2-9220-f42c1fbe3f53",
+          "bb6fde21-c5a3-4dc6-92ae-c6bf16ba4a76",
+          "2f038b5f-ef9e-41a1-9aa1-afddc66fd747",
+          "ee8b7159-b28d-4fd2-aa87-1d13e56eeea9",
+          "9e8bb617-088f-4bca-a5f1-d9f83b793598",
+          "a6df7c94-fabf-4275-b084-b90e67b8ee48",
+          "9f7282ca-dbc1-4011-bcff-18e839d5d246",
+          "52926da2-885e-46c4-ae0a-619f585f2086",
+          "8ebfaf89-79e8-40eb-ab5c-59ab6c37615d",
+          "56bdd5bb-c2d4-4ffd-a373-aa42e510e69b"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "science-year_10-3",
+    "subject": "science",
+    "yearLevel": "year_10",
+    "title": "Science Year 10 — Practice Exam 3",
+    "sections": [
+      {
+        "title": "Science",
+        "time_minutes": 45,
+        "question_ids": [
+          "6d625b79-0c40-446a-a816-6cc355c4ba10",
+          "08c4716a-3c71-4a1d-84bb-f43606505067",
+          "546b30b9-211a-4001-b646-0588e427fb29",
+          "cc9dcd66-1e2b-4ee5-8d37-9f34674ef824",
+          "1b0b2411-f27d-48e4-9fd0-496356825bac",
+          "b7f720d2-d00d-4849-aba4-837741dc195e",
+          "57cf0a67-890c-4004-8ead-c654cfc04878",
+          "adc8d036-ec9d-41b7-96a6-c4f240b68d96",
+          "f22615b9-3109-44e6-ad17-a3aa69872ded",
+          "a355175c-dc0f-4da8-adbf-30cdef7ff989",
+          "0e1c6af8-a4e1-474f-8b6a-7e386f281ba5",
+          "c026eb84-14a5-443a-a0fc-d346116db1d6",
+          "16487416-70de-4f74-9efc-f9eba39246a1",
+          "db4942cb-f849-4da8-975f-a0f3db697036",
+          "ac8bf2da-38a6-4d56-b548-c0ed3aeb9060",
+          "cf7fc9ca-9293-4c2b-8578-62b62f79bb16",
+          "a1f7f364-d16e-4a22-b61f-32dc6449654e",
+          "37ec09dc-52da-4cb5-8bc9-440e4fa4707e",
+          "8c3b050e-29cf-4eed-a619-68a6a9411ee8",
+          "ee7615c3-5de0-4d3d-9c5d-6eb18d3a8682",
+          "b58ec334-087b-4a10-a90c-980aa3cd2514",
+          "ee4e032f-d2fc-43b9-9252-5a3ce2af1a3a",
+          "fa75ee6b-7411-4dc0-8f24-9db75d523b3e",
+          "4080e668-6840-4eb2-a059-eece6007a29b",
+          "092c450c-1e6d-46fb-ab36-eb483275c87c",
+          "da82552d-59a3-4e77-ac3a-5eef92ac4957",
+          "6f519d8e-2989-447a-a806-94cb2189dac8",
+          "69e15a87-caf3-4abf-b42c-79428dda33ed",
+          "a8fb4908-f37c-4d12-ab5b-19a39cc5a542",
+          "38b503b8-fa93-4962-8eca-f38417780e67"
+        ]
+      }
+    ],
+    "premium": true
+  },
+  {
+    "id": "science-year_10-4",
+    "subject": "science",
+    "yearLevel": "year_10",
+    "title": "Science Year 10 — Practice Exam 4",
+    "sections": [
+      {
+        "title": "Science",
+        "time_minutes": 45,
+        "question_ids": [
+          "1365b56b-bb43-464a-bd62-da80d7cf40dd",
+          "8277ec2d-77ca-4240-b965-b2e52835ccc3",
+          "527bdf85-d8e5-46c2-bc70-bb3f59b6abe5",
+          "b0af4767-45d9-486e-ac2a-14f5638ac03a",
+          "9f1fed3d-3a98-45d7-b0bd-9dbc73a6562a",
+          "9e92aa2b-2d4a-4471-99a7-03e9a39f9bd0",
+          "2d0b5bc6-dc2c-48c9-a8ff-b0520a076518",
+          "fb66ab21-f93e-44db-8d09-5e5c827ff408",
+          "012c281e-01a4-4af8-81b0-40222b778ea8",
+          "9b9e7811-14a0-4695-b689-5d89e552f26c",
+          "a7f86202-60ef-48c3-a46c-0e8771e6a5b9",
+          "939c1a0e-e9f4-4741-a682-3d8115172bed",
+          "79dc9857-b958-4dcd-9bd9-21799df5b65f",
+          "33c8f896-7292-470b-97b6-0de7ccfccd41",
+          "fba8d479-10b3-4dfd-bf6a-92150a3c4c75",
+          "fe869d2a-3b49-4d84-9ff5-25cce1084a59",
+          "a2c8185d-990b-46ec-bf5e-1dce5396e002",
+          "6885e996-6f81-4a9a-a901-20abe438820e",
+          "aac035fe-834a-48f2-886f-ed96fde5de8d",
+          "4b972473-750a-48fb-8e33-23b85fecd0d5",
+          "6de0e8f2-1778-4048-b023-ea41fe126300",
+          "9f679146-255a-419f-a8b7-35a0ea856654",
+          "1826d930-a611-4415-89da-1a8f78b3d561",
+          "e311c7e4-79b4-4227-af8b-dce8925952dc",
+          "6b39fe15-ae4e-45ac-a8e4-69323992403b",
+          "81f0d130-14f5-44c4-8482-421d2be96cbf",
+          "e0f81a76-aa5e-4c87-90de-947d080b0fb5",
+          "fbda5904-985f-41ef-962e-97a472c2a78a",
+          "7c3cab0a-703b-4bb3-9fc1-f37e054870ce",
+          "84795168-a24a-404f-a0e0-4362b914cc95"
         ]
       }
     ],

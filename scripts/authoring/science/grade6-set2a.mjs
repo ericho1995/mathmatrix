@@ -1,0 +1,1371 @@
+// Grade 6 Science, set 2 part A: 78 questions built around investigations,
+// data and real situations rather than recall, tagged to the Australian
+// Curriculum v9 content descriptions:
+//   AC9S6U01 physical conditions for growth and survival (52 life_science)
+//   AC9S6U02 sudden geological changes and extreme weather (26 earth_space)
+//   AC9S6I01–I06 science inquiry, woven through both strands
+// Part B (a sibling file) covers physical_science and the rest of earth_space.
+//
+//   node scripts/authoring/append-mc.mjs scripts/authoring/science/grade6-set2a.mjs grade_6 BANK_SCIENCE_G6_SET2A
+//
+// The correct option is written first; append-mc spreads the answer letters.
+
+export const HEADER = `Grade 6 Science, set 2 part A (scripts/authoring/science/grade6-set2a.mjs):
+growth and survival investigations, adaptations, microorganisms, and sudden
+geological changes and extreme weather.`
+
+// ─── Drawing helpers (food webs and set-ups) ─────────────────────────────────
+// A labelled box centred on (cx, cy), sized to its text at 9 pt.
+const boxW = name => Math.round(name.length * 5.4 + 12)
+const box = (name, cx, cy) => [
+  { t: 'rect', x: cx - boxW(name) / 2, y: cy - 8, w: boxW(name), h: 16, rx: 3, fill: 'white' },
+  { t: 'text', x: cx, y: cy + 3, text: name, size: 9 },
+]
+const arrow = (x1, y1, x2, y2) => ({ t: 'line', x1, y1, x2, y2, arrow: 'end', w: 1 })
+
+const woodlandWeb = {
+  kind: 'drawing',
+  title: 'Part of a woodland food web',
+  width: 320,
+  height: 172,
+  elements: [
+    // food → eater, drawn first so the boxes sit on top of the line ends
+    arrow(105, 152, 66, 118), // grass → grasshopper
+    arrow(125, 152, 164, 118), // grass → kangaroo
+    arrow(272, 152, 272, 118), // gum tree → possum
+    arrow(50, 102, 50, 28), // grasshopper → kookaburra
+    arrow(75, 102, 108, 73), // grasshopper → lizard
+    arrow(105, 57, 80, 28), // lizard → kookaburra
+    arrow(170, 102, 170, 28), // kangaroo → dingo
+    arrow(272, 102, 272, 28), // possum → powerful owl
+    ...box('Kookaburra', 60, 20),
+    ...box('Dingo', 170, 20),
+    ...box('Powerful owl', 272, 20),
+    ...box('Lizard', 115, 65),
+    ...box('Grasshopper', 60, 110),
+    ...box('Kangaroo', 170, 110),
+    ...box('Possum', 272, 110),
+    ...box('Grass', 115, 160),
+    ...box('Gum tree', 272, 160),
+  ],
+}
+
+const riverChain = (() => {
+  const names = ['Algae', 'Shrimp', 'Golden perch', 'Pelican']
+  const xs = [35, 115, 205, 290]
+  const els = []
+  for (let i = 0; i < names.length - 1; i++) {
+    els.push(arrow(xs[i] + boxW(names[i]) / 2 + 2, 22, xs[i + 1] - boxW(names[i + 1]) / 2 - 2, 22))
+  }
+  names.forEach((n, i) => els.push(...box(n, xs[i], 22)))
+  return { kind: 'drawing', title: 'A river food chain', width: 320, height: 40, elements: els }
+})()
+
+const seedlingBox = {
+  kind: 'drawing',
+  width: 260,
+  height: 150,
+  elements: [
+    // the box, with a hole in its right-hand wall
+    { t: 'line', x1: 40, y1: 20, x2: 200, y2: 20, w: 1.5 },
+    { t: 'line', x1: 40, y1: 20, x2: 40, y2: 140, w: 1.5 },
+    { t: 'line', x1: 40, y1: 140, x2: 200, y2: 140, w: 1.5 },
+    { t: 'line', x1: 200, y1: 20, x2: 200, y2: 45, w: 1.5 },
+    { t: 'line', x1: 200, y1: 65, x2: 200, y2: 140, w: 1.5 },
+    { t: 'text', x: 120, y: 36, text: 'closed box', size: 9 },
+    { t: 'text', x: 205, y: 80, text: 'hole', size: 9, anchor: 'start' },
+    // pot and seedling
+    { t: 'poly', points: [[100, 140], [140, 140], [146, 118], [94, 118]], closed: true, fill: 'mid' },
+    { t: 'line', x1: 120, y1: 118, x2: 120, y2: 98, w: 1.5 },
+    { t: 'poly', points: [[120, 104], [109, 97], [120, 100]], closed: true, fill: 'dark' },
+    { t: 'poly', points: [[120, 101], [131, 94], [120, 97]], closed: true, fill: 'dark' },
+    { t: 'text', x: 120, y: 88, text: 'seedling', size: 9 },
+    // lamp outside the hole
+    { t: 'circle', cx: 240, cy: 55, r: 10, fill: 'light' },
+    { t: 'line', x1: 227, y1: 55, x2: 207, y2: 55, arrow: 'end', w: 1 },
+    { t: 'text', x: 240, y: 36, text: 'lamp', size: 9 },
+  ],
+}
+
+// ─── Shared data displays ────────────────────────────────────────────────────
+const waterChart = {
+  kind: 'bar_chart',
+  title: 'Average height of tomato seedlings after 3 weeks',
+  bars: [
+    { label: '0 mL', value: 2 },
+    { label: '25 mL', value: 9 },
+    { label: '50 mL', value: 16 },
+    { label: '100 mL', value: 18 },
+    { label: '200 mL', value: 7 },
+  ],
+  yMax: 20,
+  yStep: 2,
+  yLabel: 'Height (cm)',
+  xLabel: 'Water given each day',
+}
+
+const saltTable = {
+  kind: 'data_table',
+  title: 'Wheat seeds that germinated (out of 20)',
+  columns: ['Salt in the water (g per litre)', 'Seeds that germinated'],
+  rows: [
+    [0, 19],
+    [2, 17],
+    [4, 12],
+    [6, 5],
+    [8, 1],
+  ],
+}
+
+const tempGraph = {
+  kind: 'line_graph',
+  title: 'Bean seeds that germinated at different temperatures',
+  xLabels: ['5', '10', '15', '20', '25', '30', '35', '40'],
+  series: [{ values: [0, 10, 45, 80, 90, 85, 40, 5] }],
+  yMin: 0,
+  yMax: 100,
+  yStep: 10,
+  xLabel: 'Temperature (°C)',
+  yLabel: 'Seeds germinated (%)',
+}
+
+const slaterChart = {
+  kind: 'bar_chart',
+  title: 'Where 20 slaters were after 10 minutes',
+  bars: [
+    { label: 'Light and dry', value: 1 },
+    { label: 'Light and damp', value: 3 },
+    { label: 'Dark and dry', value: 4 },
+    { label: 'Dark and damp', value: 12 },
+  ],
+  yMax: 14,
+  yStep: 2,
+  yLabel: 'Number of slaters',
+}
+
+const mungTable = {
+  kind: 'data_table',
+  title: 'Mung bean seeds that sprouted after 4 days (out of 10)',
+  columns: ['Jar', 'Cotton wool', 'Temperature', 'Seeds sprouted'],
+  rows: [
+    ['A', 'Dry', '22 °C', 0],
+    ['B', 'Damp', '22 °C', 9],
+    ['C', 'Damp', '4 °C (fridge)', 1],
+    ['D', 'Seeds under water', '22 °C', 0],
+  ],
+  rowHeader: true,
+}
+
+const yeastChart = {
+  kind: 'bar_chart',
+  title: 'Growth of each balloon after 30 minutes',
+  bars: [
+    { label: '0 °C', value: 1 },
+    { label: '20 °C', value: 6 },
+    { label: '40 °C', value: 18 },
+    { label: '60 °C', value: 3 },
+    { label: '80 °C', value: 0 },
+  ],
+  yMax: 20,
+  yStep: 2,
+  yLabel: 'Balloon growth (cm)',
+  xLabel: 'Temperature of the bottle',
+}
+
+const mouldTable = {
+  kind: 'data_table',
+  title: 'Days until mould was first seen',
+  columns: ['Slice', 'Where it was kept', 'Moist or dry', 'Days until mould seen'],
+  rows: [
+    ['1', 'Warm cupboard', 'Moist', '3'],
+    ['2', 'Warm cupboard', 'Dry', '8'],
+    ['3', 'Fridge', 'Moist', '12'],
+    ['4', 'Freezer', 'Moist', 'None after 20 days'],
+  ],
+  rowHeader: true,
+}
+
+const handChart = {
+  kind: 'bar_chart',
+  title: 'Colonies of microorganisms after 3 days',
+  bars: [
+    { label: 'Unwashed hands', value: 46 },
+    { label: 'Rinsed with water', value: 28 },
+    { label: 'Washed with soap', value: 6 },
+    { label: 'Plate not touched', value: 0 },
+  ],
+  yMax: 50,
+  yStep: 5,
+  yLabel: 'Number of colonies',
+}
+
+const seismograph = {
+  kind: 'line_graph',
+  title: 'Seismometer reading at a monitoring station',
+  xLabels: ['0', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100'],
+  series: [{ values: [0, 1, -1, 0, 1, 8, -9, 7, -4, 2, 0] }],
+  yMin: -10,
+  yMax: 10,
+  yStep: 2,
+  xLabel: 'Time (seconds)',
+  yLabel: 'Ground movement (mm)',
+}
+
+const riverGauge = {
+  kind: 'line_graph',
+  title: 'River height at a town',
+  xLabels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  series: [
+    { label: 'River height', values: [2, 3, 5.5, 8, 9, 6.5, 5] },
+    { label: 'Major flood level', values: [7, 7, 7, 7, 7, 7, 7], dashed: true },
+  ],
+  yMin: 0,
+  yMax: 10,
+  yStep: 1,
+  xLabel: 'Day',
+  yLabel: 'Height (m)',
+  markers: false,
+}
+
+const erosionChart = {
+  kind: 'bar_chart',
+  title: 'Soil washed off each tray',
+  bars: [
+    { label: 'Bare soil', value: 250 },
+    { label: 'Covered with mulch', value: 90 },
+    { label: 'Covered with grass', value: 40 },
+  ],
+  yMax: 300,
+  yStep: 50,
+  yLabel: 'Soil washed off (g)',
+}
+
+const RAW = [
+  // ─── Life science: light, water, salt and temperature (AC9S6U01) ───────────
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    diagram: {
+      kind: 'data_table',
+      title: 'Bean seedlings after 10 days',
+      columns: ['Where it was grown', 'Height (cm)', 'Leaf colour', 'Leaf size'],
+      rows: [
+        ['Sunny windowsill', 9, 'Dark green', 'Large'],
+        ['Dark cupboard', 15, 'Pale yellow', 'Small'],
+      ],
+      rowHeader: true,
+    },
+    q: 'Ava grew one bean seedling on a sunny windowsill and one in a dark cupboard for 10 days. Both got the same amount of water. The table shows her results.\nWhich conclusion is best supported by the results?',
+    options: [
+      'Light is needed for healthy green leaves, even though the dark seedling grew taller.',
+      'Seedlings grow best in the dark, because the seedling in the cupboard grew much taller.',
+      'Light has no effect on how bean seedlings grow.',
+      'The seedling in the cupboard must have been given less water.',
+    ],
+    e: 'The seedling in the dark grew tall and thin as it stretched to find light, but its leaves stayed small and pale because it could not make food without light. Taller does not mean healthier: the green, large-leaved seedling on the windowsill is the healthy one.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6I02',
+    q: 'Ava tested one bean seedling in the light and one in the dark.\nWhy would testing five seedlings in each place give more trustworthy results?',
+    options: [
+      'One seedling might grow oddly for another reason, so several show the usual result.',
+      'Using more seedlings makes every plant grow faster.',
+      'With more seedlings she would no longer need to keep the water the same for each one.',
+      'Five seedlings would use less water than one seedling.',
+    ],
+    e: 'Any single plant can be unusual, for example if it grew from a weak seed. Repeating the test with several plants and comparing averages shows whether the result is real. Using more plants does not remove the need to keep other variables, such as water, the same.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    diagram: waterChart,
+    q: 'Students grew tomato seedlings in identical pots and gave each group a different amount of water each day. The graph shows the average height of each group after three weeks.\nWhich statement best describes the results?',
+    options: [
+      'Growth increased with more water up to 100 mL a day, but 200 mL a day was too much.',
+      'The more water the seedlings were given, the taller they grew.',
+      'The seedlings given no water grew taller than the seedlings in any other group.',
+      'The amount of water made no difference to how tall the seedlings grew in three weeks.',
+    ],
+    e: 'Height rose from 2 cm with no water to 18 cm with 100 mL a day, then fell to 7 cm with 200 mL a day. Water helps growth only up to a point. The tempting "more water, more growth" ignores the 200 mL bar.',
+  },
+  {
+    topic: 'life_science',
+    d: 'advanced',
+    code: 'AC9S6U01',
+    diagram: waterChart,
+    q: 'The graph shows the average height of tomato seedlings given different amounts of water each day.\nWhat is the most likely reason the seedlings given 200 mL a day grew poorly?',
+    options: [
+      'The soil stayed soaked, so the roots could not get the air they need.',
+      'The extra water made the stems too heavy for the plants to grow upwards.',
+      'Plants can only use water at night, so most of the water was wasted.',
+      'The water filled the leaves, so there was no room for sunlight.',
+    ],
+    e: 'Roots need oxygen from the air spaces in soil. When soil stays waterlogged, those spaces fill with water, the roots struggle and can rot, and the plant grows poorly.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    diagram: saltTable,
+    q: 'Lachlan watered five trays of 20 wheat seeds with water containing different amounts of salt. The table shows how many seeds germinated in each tray.\nWhat pattern do the results show?',
+    options: [
+      'The more salt in the water, the fewer seeds germinated.',
+      'The more salt in the water, the more seeds germinated.',
+      'Salt had no effect until there were 8 g in each litre.',
+      'Only the seeds given water with no salt germinated.',
+    ],
+    e: 'Germination fell steadily from 19 seeds with no salt to just 1 seed at 8 g per litre. Salt was already having an effect at 2 g and 4 g, not only at 8 g, and some seeds germinated in every tray.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    diagram: saltTable,
+    q: 'The table shows how many of 20 wheat seeds germinated when they were watered with different amounts of salt.\nWhat percentage of the seeds germinated when 4 g of salt was added to each litre?',
+    options: ['60%', '12%', '40%', '85%'],
+    e: '12 out of 20 seeds germinated, and 12 ÷ 20 = 0.6, which is 60%. 40% is the share that did not germinate, and 12% treats the 12 seeds as if there had been 100.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    q: 'On a farm in Western Australia, rising salty groundwater has killed the wheat in one paddock, but old man saltbush is growing well in the same paddock.\nWhat does this show?',
+    options: [
+      'Different plants can survive different amounts of salt in the soil.',
+      'Saltbush does not need any water at all to survive in a dry paddock.',
+      'Salt is a food that all plants need in large amounts.',
+      'Wheat cannot be grown anywhere in Western Australia because of the salt.',
+    ],
+    e: 'Saltbush is adapted to salty soil (it can store extra salt in its leaves), so it survives where wheat cannot. Plants differ in the conditions they can tolerate. Salt is not a food that plants need in large amounts.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    diagram: tempGraph,
+    q: 'Scientists kept trays of bean seeds at different temperatures, with the same water and light, and recorded the percentage that germinated. The graph shows their results.\nIn which temperature range did the most seeds germinate?',
+    options: ['20 °C to 30 °C', '5 °C to 15 °C', '30 °C to 40 °C', '10 °C to 20 °C'],
+    e: 'The graph is highest at 20 °C (80%), 25 °C (90%) and 30 °C (85%). Germination drops sharply when it is colder than 15 °C or hotter than 30 °C.',
+  },
+  {
+    topic: 'life_science',
+    d: 'advanced',
+    code: 'AC9S6I04',
+    diagram: tempGraph,
+    q: 'A gardener in Hobart wants to sow these beans outside. Using the graph, the soil is about 10 °C in September and about 20 °C in November.\nWhat is the best advice?',
+    options: [
+      'Wait until November, when about 80% of the seeds would germinate instead of about 10%.',
+      'Sow in September, because cooler soil helps more of the seeds germinate.',
+      'It makes no difference, because the beans will all germinate in the end.',
+      'Sow in September and give the seeds extra water every day to make up for the cold soil.',
+    ],
+    e: 'At 10 °C only about 10% of the seeds germinate, but at 20 °C about 80% do. Extra water cannot make up for soil that is too cold, because temperature and water are different conditions.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6I01',
+    q: 'Mei wants to investigate how sunlight affects basil plants.\nWhich question could she answer with a fair test?',
+    options: [
+      'Does the number of hours of sunlight affect how tall basil grows?',
+      'Why do so many people enjoy the smell of fresh basil leaves in cooking?',
+      'Is basil the best herb for students to grow in a home garden?',
+      'Do basil plants enjoy sitting in the sunshine all day?',
+    ],
+    e: 'A testable question names one thing to change (hours of sunlight) and one thing to measure (height). Questions about what people like, what is "best", or what a plant "enjoys" cannot be answered by measuring.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6I02',
+    q: 'Jarrah is testing whether the amount of fertiliser affects how many tomatoes a plant produces.\nWhich variable should he change on purpose?',
+    options: [
+      'The amount of fertiliser each plant gets',
+      'The number of tomatoes each plant produces',
+      'The type of tomato plant in each pot',
+      'The amount of water each plant gets',
+    ],
+    e: 'The variable you change on purpose is the one you are testing: the amount of fertiliser. The number of tomatoes is what he measures, and the type of plant and the water must stay the same so the test is fair.',
+  },
+  {
+    topic: 'life_science',
+    d: 'foundation',
+    code: 'AC9S6U01',
+    diagram: slaterChart,
+    q: 'Sophie put 20 slaters in the centre of a tray with four sections and counted where they were after 10 minutes. The graph shows her results.\nWhich conditions do slaters prefer?',
+    options: ['Dark and damp', 'Light and dry', 'Dark and dry', 'Light and damp'],
+    e: '12 of the 20 slaters moved to the dark, damp section. Slaters lose water through their bodies easily, so they survive best in dark, damp places such as under logs and leaf litter.',
+  },
+  {
+    topic: 'life_science',
+    d: 'advanced',
+    code: 'AC9S6I05',
+    diagram: slaterChart,
+    q: 'The graph shows where 20 slaters were after Sophie left them in a tray with four sections for 10 minutes.\nWhich change would make her conclusion more reliable?',
+    options: [
+      'Repeat the test several times, moving the sections to different parts of the tray.',
+      'Use only one slater so that it is easier to watch exactly where it goes in the tray.',
+      'Count the slaters after 10 seconds instead of after 10 minutes.',
+      'Start all of the slaters in the dark, damp section and check that they stay there.',
+    ],
+    e: 'Repeating the trial shows whether the result happens every time, and moving the sections checks that the slaters are choosing the conditions rather than one corner of the tray. One slater, or too little time to move, gives less reliable results.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    diagram: mungTable,
+    q: 'Ethan set up four jars, each with 10 mung bean seeds, and counted how many sprouted after 4 days.\nWhat do the results suggest seeds need to sprout?',
+    options: ['Water, warmth and air', 'Water only', 'Warmth only', 'Water and warmth, but not air'],
+    e: 'Jar B was the only jar with water, warmth and air, and 9 of its seeds sprouted. Without water (jar A) or warmth (jar C) almost none sprouted. Seeds under water (jar D) had water and warmth but no air, so they did not sprout either.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6I02',
+    diagram: mungTable,
+    q: 'The table shows how many mung bean seeds sprouted in four jars set up by Ethan.\nWhich two jars should he compare to find out whether temperature affects sprouting?',
+    options: ['Jars B and C', 'Jars A and B', 'Jars A and C', 'Jars B and D'],
+    e: 'Jars B and C are the same except for temperature: both have damp cotton wool. Jars A and B differ in water, jars B and D differ in air, and jars A and C differ in both water and temperature.',
+  },
+  {
+    topic: 'life_science',
+    d: 'foundation',
+    code: 'AC9S6U01',
+    q: 'Green plants make their own food in their leaves.\nWhich of these do they need to do this?',
+    options: ['Sunlight, water and air', 'Soil, sugar and darkness', 'Meat, water and air', 'Sunlight, salt and sand'],
+    e: 'Plants use the energy in sunlight to turn water and carbon dioxide from the air into food (sugar). They make their own sugar rather than taking it in, and they do not need darkness, meat or sand.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    diagram: seedlingBox,
+    q: 'A bean seedling is put inside a closed box that has one hole in its side. A lamp shines through the hole, as shown.\nWhat will the seedling most likely look like after a week?',
+    options: [
+      'It will have grown bent towards the hole.',
+      'It will have grown straight up towards the lid.',
+      'It will have grown bent away from the hole.',
+      'It will not have grown at all.',
+    ],
+    e: 'The only light enters through the hole, so the stem grows towards it. Plants grow towards light because they need it to make food. With no light coming from above, nothing makes the stem grow straight up.',
+  },
+  // ─── Life science: yeast, mould and other microorganisms (AC9S6U01) ────────
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    diagram: yeastChart,
+    q: 'Zara mixed yeast, sugar and water in five bottles and stretched a balloon over each one. Each bottle was kept at a different temperature. The graph shows how much each balloon grew in 30 minutes.\nWhat do the results show?',
+    options: [
+      'The yeast made the most gas at about 40 °C.',
+      'The yeast made more gas the hotter the bottle was.',
+      'The yeast made the most gas at 0 °C.',
+      'Temperature did not change how much gas the yeast made.',
+    ],
+    e: 'The balloon on the 40 °C bottle grew the most (18 cm). Below that the yeast was too cold to be very active, and above it the yeast slowed down; at 80 °C it made no gas at all.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    diagram: yeastChart,
+    q: 'The graph shows how much a balloon grew on bottles of yeast, sugar and water kept at different temperatures.\nWhy did the balloon on the 80 °C bottle not grow at all?',
+    options: [
+      'The heat killed the yeast, so it could not make any gas.',
+      'Hot water stops the sugar from dissolving, so the yeast had no food.',
+      'The yeast made gas so quickly that it all escaped.',
+      'Yeast can only make gas when it is kept in the dark.',
+    ],
+    e: 'Yeast is a living microorganism, and temperatures that high kill it. Dead yeast cannot feed on the sugar and give off carbon dioxide. Sugar actually dissolves faster in hot water, not slower.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6I02',
+    q: 'In a yeast investigation, one bottle has yeast and warm water but no sugar, and its balloon barely grows. An identical bottle that also has sugar fills its balloon.\nWhat does comparing the two bottles show?',
+    options: [
+      'The yeast needs sugar as food to make gas.',
+      'Sugar can make gas without any yeast.',
+      'Warm water on its own blows up a balloon.',
+      'Balloons only grow when the bottle is cold.',
+    ],
+    e: 'The two bottles are the same except for the sugar, so the sugar caused the difference. Yeast feeds on sugar and gives off carbon dioxide. To show that sugar cannot make gas on its own, you would need a bottle with sugar but no yeast.',
+  },
+  {
+    topic: 'life_science',
+    d: 'advanced',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'line_graph',
+      title: 'Gas collected from yeast and sugar at 35 °C',
+      xLabels: ['0', '10', '20', '30', '40', '50', '60'],
+      series: [{ values: [0, 8, 20, 32, 38, 40, 40] }],
+      yMin: 0,
+      yMax: 45,
+      yStep: 5,
+      xLabel: 'Time (minutes)',
+      yLabel: 'Gas collected (mL)',
+    },
+    q: 'Ben kept a mixture of yeast, sugar and water at 35 °C and measured the gas it gave off every 10 minutes.\nWhat is the most likely reason no more gas was collected after 50 minutes?',
+    options: [
+      'The yeast had used up the sugar it was feeding on.',
+      'The mixture had become too hot for the yeast.',
+      'Yeast always stops making gas after exactly 50 minutes.',
+      'The gas had turned back into sugar.',
+    ],
+    e: 'The gas came from the yeast feeding on sugar. Once the sugar ran out, the yeast had no food left, so gas production stopped. The mixture stayed at 35 °C the whole time, which suits yeast.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6I03',
+    diagram: { kind: 'measure', instrument: 'thermometer', min: 0, max: 80, step: 2, value: 64, labelEvery: 10 },
+    q: 'Yeast works best in water between 30 °C and 40 °C, and is killed in water hotter than about 55 °C. Priya measures the water she is about to mix with yeast.\nWhat should she do?',
+    options: [
+      'Let the water cool to between 30 °C and 40 °C before adding the yeast.',
+      'Add the yeast now, because hotter water always makes yeast work faster.',
+      'Cool the water in the freezer until it reaches 0 °C, then add the yeast.',
+      'Add twice as much yeast to make up for the hot water.',
+    ],
+    e: 'The thermometer reads 64 °C, which is hot enough to kill yeast. Letting the water cool to between 30 °C and 40 °C gives the yeast the best conditions; at 0 °C the yeast would barely work at all.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    diagram: mouldTable,
+    q: 'Olivia sealed four slices of the same bread in bags, kept them in different places and checked them every day.\nIn which conditions did mould grow fastest?',
+    options: ['Warm and moist', 'Warm and dry', 'Cold and moist', 'Frozen and moist'],
+    e: 'Slice 1, kept warm and moist, showed mould after only 3 days. Mould is a living thing (a fungus) that grows best with warmth, moisture and food. Cold slows it down and freezing stops it growing.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    diagram: mouldTable,
+    q: "The table shows Olivia's results for four slices of bread kept in different conditions.\nUsing her results, why does keeping bread in the freezer stop it going mouldy?",
+    options: [
+      'The cold stops mould growing, even though the bread is moist.',
+      'Freezing removes all of the water from the bread.',
+      'Mould needs light to grow, and the inside of a freezer is dark.',
+      'The freezer kills every mould spore in the air.',
+    ],
+    e: 'The frozen slice was moist like slices 1 and 3 but grew no mould, so the cold stopped it. The fridge is dark too, yet slice 3 still went mouldy, so darkness is not the reason. Freezing pauses mould rather than killing it, which is why thawed bread can still go mouldy.',
+  },
+  {
+    topic: 'life_science',
+    d: 'foundation',
+    code: 'AC9S6I03',
+    q: 'At the end of a bread-mould investigation, the mouldy slices are still in sealed plastic bags.\nWhat is the safest thing to do with them?',
+    options: [
+      'Throw the bags away without opening them.',
+      'Open the bags so everyone can smell the mould.',
+      'Feed the mouldy bread to the school chickens.',
+      'Scrape off the mould and keep the bread.',
+    ],
+    e: 'Mould releases tiny spores that can cause allergies and breathing problems. Keeping the bags sealed and throwing them away stops the spores getting into the air.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6I02',
+    q: 'Noah wants to find out whether temperature affects how fast bread goes mouldy. He puts a slice of white bread in a warm cupboard and a slice of wholemeal bread in the fridge.\nWhy is this not a fair test?',
+    options: [
+      'He changed two things: the type of bread and the temperature.',
+      'He should have used at least ten different types of bread.',
+      'Bread can never go mouldy inside a fridge.',
+      'He should have kept both slices in bright light.',
+    ],
+    e: 'In a fair test only one variable is changed. Because the type of bread and the temperature are both different, Noah cannot tell which one caused any difference in mould growth.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'line_graph',
+      title: 'Bread covered by mould',
+      xLabels: ['0', '2', '4', '6', '8', '10'],
+      series: [
+        { label: 'No preservative', values: [0, 0, 5, 20, 45, 70] },
+        { label: 'With preservative', values: [0, 0, 0, 0, 5, 15], dashed: true },
+      ],
+      yMin: 0,
+      yMax: 80,
+      yStep: 10,
+      xLabel: 'Day',
+      yLabel: 'Mould cover (%)',
+    },
+    q: 'Two loaves of bread were kept in the same warm, moist place. Only one loaf contained a preservative.\nWhat effect did the preservative have?',
+    options: [
+      'It slowed the growth of mould but did not stop it.',
+      'It stopped any mould from growing on the bread at all.',
+      'It made the mould grow faster than on the other loaf.',
+      'It had no effect on how fast the mould grew.',
+    ],
+    e: 'By day 10, 70% of the bread without preservative was covered in mould, but only 15% of the bread with preservative. Mould still appeared on day 8, so the preservative slowed it rather than stopped it.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    diagram: handChart,
+    q: 'Students pressed their fingertips onto sealed plates of nutrient jelly, which were kept warm for 3 days. Each spot that grew was a colony of microorganisms. The graph shows the results.\nWhat do the results show?',
+    options: [
+      'Washing with soap removed the most microorganisms from hands.',
+      'Rinsing with water removed as many microorganisms as soap.',
+      'Rinsing with water removed every microorganism from hands.',
+      'Microorganisms grew on the plate that nobody touched.',
+    ],
+    e: 'Fingers washed with soap left only 6 colonies, compared with 28 after rinsing with water and 46 from unwashed hands. The plate nobody touched grew none.',
+  },
+  {
+    topic: 'life_science',
+    d: 'advanced',
+    code: 'AC9S6I02',
+    diagram: handChart,
+    q: 'The graph shows the colonies of microorganisms that grew on plates of nutrient jelly touched by students’ fingers.\nWhy did the students include a plate that nobody touched?',
+    options: [
+      'To check that the colonies came from fingers, not from the jelly or the air.',
+      'To keep a spare plate ready in case one of the other plates was dropped.',
+      'To grow extra microorganisms to study in the next science lesson.',
+      'To show that soap kills microorganisms, even when they are growing on jelly.',
+    ],
+    e: 'The untouched plate is a control. Because it grew no colonies, the students know the colonies on the other plates came from the fingers, not from the jelly or the air.',
+  },
+  {
+    topic: 'life_science',
+    d: 'foundation',
+    code: 'AC9S6U01',
+    q: 'Which of these is an example of microorganisms being helpful to people?',
+    options: [
+      'Bacteria turning milk into yoghurt',
+      'Mould growing on a loaf of bread',
+      'Bacteria making food go off in a hot car',
+      'Germs spreading a cold through a class',
+    ],
+    e: 'Some bacteria change milk into yoghurt, and microorganisms are also used to make bread and cheese. Mould on bread, food going off and germs spreading illness are all harmful.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    q: 'A family’s compost heap has dried out and almost stopped breaking down.\nWhich change would best help the microorganisms in it break down the scraps?',
+    options: [
+      'Add some water and turn the heap to let air in.',
+      'Cover the heap tightly with plastic so no air gets in.',
+      'Sprinkle a bag of salt over the heap.',
+      'Move the heap into deep shade so it stays cold.',
+    ],
+    e: 'Decomposers such as bacteria and fungi need moisture, air and warmth to break down scraps. Adding water and turning the heap gives them moisture and air. Salt, cold and a lack of air would slow them down.',
+  },
+  {
+    topic: 'life_science',
+    d: 'advanced',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'line_graph',
+      title: 'Temperature in the middle of a compost heap',
+      xLabels: ['0', '3', '6', '9', '12', '15', '18', '21'],
+      series: [{ values: [20, 35, 55, 62, 58, 45, 35, 28] }],
+      yMin: 0,
+      yMax: 70,
+      yStep: 10,
+      xLabel: 'Day',
+      yLabel: 'Temperature (°C)',
+    },
+    q: 'A school measured the temperature in the middle of a new compost heap every three days.\nWhat best explains why the heap became so hot?',
+    options: [
+      'Microorganisms breaking down the scraps released heat.',
+      'The Sun heated the middle of the heap more than the outside.',
+      'The food scraps were already hot when they went in.',
+      'A compost heap always stays at the same temperature as the air.',
+    ],
+    e: 'Decomposers release heat as they break down food scraps, which is why the middle of the heap reached about 62 °C by day 9. As the microorganisms used up the easy-to-break-down food, they slowed and the heap cooled.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    q: 'Dried apricots can be stored for months, but fresh apricots often go mouldy within a week.\nWhy do dried apricots last longer?',
+    options: [
+      'Microorganisms need water to grow, and drying removes most of it.',
+      'Dried fruit is too hard for any microorganism to reach the inside.',
+      'Drying turns the sugar in the fruit into a poison.',
+      'Microorganisms only grow on fruit that is still on the tree.',
+    ],
+    e: 'Like all living things, moulds and bacteria need water. Drying removes most of the water from the fruit, so microorganisms cannot grow on it easily. Drying does not turn the sugar into poison.',
+  },
+  // ─── Life science: adaptations and survival (AC9S6U01) ─────────────────────
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    q: 'The greater bilby lives in the hot deserts of central Australia. It shelters in a deep burrow during the day and comes out to feed at night.\nHow does this behaviour help it survive?',
+    options: [
+      'It avoids the hottest part of the day, so it loses less water.',
+      'It can find more food when the desert is bright and sunny.',
+      'It stops its fur from getting covered in dust and sand during the day.',
+      'It lets its ears grow longer in the dark.',
+    ],
+    e: 'Deep underground it stays much cooler than on the surface. By resting there during the day and feeding in the cool of night, the bilby avoids overheating and loses less water.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    q: 'Spinifex grass grows in Australia’s deserts. Its leaves are thin, tightly rolled and have a waxy coating.\nHow does this help it survive?',
+    options: [
+      'Less water is lost from its leaves in hot, dry conditions.',
+      'More sunlight can reach the inside of each leaf.',
+      'Kangaroos find the leaves easier to chew.',
+      'Rainwater is caught and stored inside the rolled-up leaves for later.',
+    ],
+    e: 'Plants lose water through their leaves. Thin, rolled leaves with a waxy coating have less surface exposed to the hot, dry air, so the plant loses less water. The sharp, tough leaves are actually hard for animals to eat.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    q: 'Grey mangroves grow in salty water along the coast. On a hot day, small white salt crystals can be seen on their leaves.\nWhat does this suggest?',
+    options: [
+      'The mangrove gets rid of extra salt through its leaves.',
+      'The mangrove makes salt in its leaves to use as food.',
+      'The leaves are dying because they cannot use the salt.',
+      'The mangrove needs the salt to keep its leaves green.',
+    ],
+    e: 'Grey mangroves take in salty water through their roots and push the extra salt out through special glands in their leaves, where it dries into crystals. This adaptation lets them survive in conditions that would kill most plants.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    q: 'Many eucalyptus leaves hang down with their edges facing the sky, rather than lying flat.\nHow might this help the trees in hot, dry places?',
+    options: [
+      'Less of each leaf faces the midday Sun, so it stays cooler and loses less water.',
+      'Rain runs off the leaves faster, which keeps the roots dry.',
+      'Koalas find the hanging leaves harder to reach.',
+      'More of each leaf faces the midday Sun, so the tree can make more food in the heat.',
+    ],
+    e: 'With their edges pointing up, the leaves catch the strong midday Sun side-on. They stay cooler and lose less water, while still catching morning and afternoon light.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    q: 'On very hot days, red kangaroos lick their forearms until the fur is wet.\nHow does this help them cope with the heat?',
+    options: [
+      'As the saliva evaporates, it takes heat away from the blood near the skin.',
+      'The saliva forms a coating on the fur that blocks out the hot sunlight.',
+      'The licking makes the fur on their forearms grow thicker.',
+      'The licking cleans off dust so that the fur can reflect more of the sunlight.',
+    ],
+    e: 'Evaporation takes heat away from a surface, just as sweat cools people. Blood vessels lie close to the skin on a kangaroo’s forearms, so the evaporating saliva cools the blood flowing there.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    q: 'On a cold morning, a bearded dragon lies on a sunny rock for a while before it starts hunting.\nWhy does it do this?',
+    options: [
+      'Its body warms up from its surroundings, and it must be warm to move quickly.',
+      'It is drying its skin after swimming in a nearby creek.',
+      'It is hiding from predators by lying still on the rock.',
+      'Its body makes too much heat overnight, so it needs to cool down before it hunts.',
+    ],
+    e: 'Reptiles cannot make enough body heat of their own, so their temperature depends on their surroundings. When they are cold they move slowly, so they bask in the Sun to warm up before hunting.',
+  },
+  {
+    topic: 'life_science',
+    d: 'advanced',
+    code: 'AC9S6U01',
+    q: 'Loggerhead turtle hatchlings at Mon Repos beach in Queensland hatch at night and find the sea by heading towards the brightest horizon, which is usually the moonlit ocean.\nWhy do nearby towns ask people to reduce bright outdoor lights during hatching season?',
+    options: [
+      'Bright lights on land can lead the hatchlings away from the sea.',
+      'Hatchlings need total darkness to break out of their eggs.',
+      'Bright lights make the sand too hot for the eggs.',
+      'Light stops the hatchlings’ shells from hardening before they reach the water.',
+    ],
+    e: 'The hatchlings use light to find the sea. Bright lights from streets and houses can be brighter than the ocean horizon, so the hatchlings crawl the wrong way and many die from heat, exhaustion or predators.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    diagram: {
+      kind: 'line_graph',
+      title: 'Water temperature at a Great Barrier Reef site',
+      xLabels: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'],
+      series: [
+        { label: 'Water temperature', values: [26, 27.5, 29, 30.5, 31, 28.5] },
+        { label: 'Bleaching risk level', values: [30, 30, 30, 30, 30, 30], dashed: true },
+      ],
+      yMin: 24,
+      yMax: 32,
+      yStep: 1,
+      xLabel: 'Month',
+      yLabel: 'Temperature (°C)',
+    },
+    q: 'Scientists warn that the corals at this reef are likely to bleach, losing their colour and much of their food supply, if the water stays above 30 °C for several weeks.\nIn which months were the corals most at risk?',
+    options: ['February and March', 'November and December', 'January and April', 'December and January'],
+    e: 'The water temperature line is above the dashed 30 °C line only in February (30.5 °C) and March (31 °C). In January (29 °C) and April (28.5 °C) it is close to, but below, the risk level.',
+  },
+  // ─── Life science: food chains and webs in Australian ecosystems ──────────
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    diagram: woodlandWeb,
+    q: 'The diagram shows part of a woodland food web. Each arrow points from a living thing to the animal that eats it.\nIf a disease killed most of the grasshoppers, which animal would lose its only food?',
+    options: ['Lizard', 'Kookaburra', 'Kangaroo', 'Dingo'],
+    e: 'In this web the lizard eats only grasshoppers, so losing them takes away all its food. The kookaburra would also go short, but it eats lizards as well, so grasshoppers are not its only food.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6U01',
+    diagram: woodlandWeb,
+    q: 'The diagram shows part of a woodland food web. A long drought kills most of the grass, but the gum trees survive.\nWhich animal’s food supply does not depend on the grass at all?',
+    options: ['Possum', 'Kookaburra', 'Dingo', 'Lizard'],
+    e: 'Follow the arrows back from each animal. The possum eats gum leaves, not grass. The kookaburra and lizard depend on grass through the grasshoppers, and the dingo depends on it through the kangaroos.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    diagram: riverChain,
+    q: 'The diagram shows a food chain in a river. Each arrow points to the animal that eats the living thing before it. Salty water seeping into the river kills much of the algae.\nWhat is most likely to happen next?',
+    options: [
+      'The number of shrimp falls, and then fewer golden perch survive.',
+      'The number of shrimp rises because there is more room in the river.',
+      'Only the algae are affected, because the animals do not eat salt.',
+      'The number of pelicans rises because the fish are easier to see.',
+    ],
+    e: 'Every living thing in a food chain depends on the one before it. With less algae the shrimp have less food, so their numbers fall, and then the golden perch and the pelicans have less food too.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'venn',
+      sets: ['Grows in salty soil', 'Survives long droughts'],
+      values: { A: 5, AB: 3, B: 9, none: 13 },
+      universe: '30 native plants at a nursery',
+    },
+    q: 'The Venn diagram sorts 30 native plants at a nursery. A farmer wants plants for a paddock where the soil is salty and it often does not rain for months.\nHow many of these plants suit both conditions?',
+    options: ['3', '8', '12', '17'],
+    e: 'Only the plants in the overlap can both grow in salty soil and survive long droughts, and there are 3. Counting 8 (5 + 3 = 8) includes 5 plants that grow in salty soil but would struggle in a drought.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'pie_chart',
+      title: 'What happened to 200 wheat seeds sown in salty soil',
+      sectors: [
+        { label: 'Grew into healthy plants', value: 90 },
+        { label: 'Sprouted, then died', value: 30 },
+        { label: 'Did not sprout', value: 80 },
+      ],
+      showPercent: true,
+    },
+    q: 'A farmer sowed 200 wheat seeds in salty soil and recorded what happened to them.\nWhat percentage of the seeds sprouted?',
+    options: ['60%', '45%', '40%', '15%'],
+    e: 'The seeds that sprouted include those that grew into healthy plants (45%) and those that sprouted and then died (15%). 45 + 15 = 60, so 60% of the seeds sprouted. 45% leaves out the seedlings that died.',
+  },
+  {
+    topic: 'life_science',
+    d: 'developing',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'pictograph',
+      title: 'Seedlings still alive after 4 weeks',
+      icon: 'tree',
+      keyValue: 2,
+      keyNoun: 'seedlings',
+      rows: [
+        { label: 'Fresh water', count: 9 },
+        { label: 'Slightly salty', count: 6.5 },
+        { label: 'Salty', count: 3 },
+        { label: 'Very salty', count: 0.5 },
+      ],
+    },
+    q: 'Students planted 20 seedlings in each of four trays and watered each tray with water of a different saltiness.\nHow many more seedlings survived with fresh water than with salty water?',
+    options: ['12', '6', '18', '3'],
+    e: 'Each tree stands for 2 seedlings. Fresh water has 9 trees, which is 18 seedlings, and salty water has 3 trees, which is 6 seedlings. 18 − 6 = 12. Counting trees instead of seedlings gives 6.',
+  },
+  {
+    topic: 'life_science',
+    d: 'advanced',
+    code: 'AC9S6I05',
+    diagram: { kind: 'dot_plot', axisLabel: 'days for the seed to sprout', values: [4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 9, 9, 10, 11, 14] },
+    q: 'Hamish planted 20 bean seeds at the same depth and recorded how many days each one took to sprout. One seed took 14 days.\nWhat is the best way to treat this result?',
+    options: [
+      'Record it, and look for a reason such as a damaged seed or a dry patch of soil.',
+      'Delete it, because a result that does not fit the others must be a mistake.',
+      'Change it to 7 days so that it matches the other results.',
+      'Start the whole investigation again using only one seed.',
+    ],
+    e: 'Scientists record every result honestly, even an unusual one, and look for a reason it happened. Most seeds took 6 to 8 days, so this seed may have been damaged or had less water. Changing or deleting data makes the investigation untrustworthy.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6I03',
+    q: 'Students are measuring the height of bean seedlings every two days.\nWhich method gives the most accurate measurements?',
+    options: [
+      'Measure in millimetres with a ruler, from the soil surface to the tip of the stem.',
+      'Measure in centimetres with a ruler, from the bottom of the pot to the top leaf.',
+      'Hold a ruler near the seedling and estimate its height to the nearest 10 cm.',
+      'Compare the seedling with the length of a finger and write down the number.',
+    ],
+    e: 'Measuring in millimetres from the same starting point (the soil surface) each time gives accurate results that can be compared. Starting at the bottom of the pot adds the depth of soil, which is not part of the plant.',
+  },
+  {
+    topic: 'life_science',
+    d: 'advanced',
+    code: 'AC9S6U01',
+    q: 'On hydroponic farms, lettuces are grown with their roots in flowing water that has nutrients dissolved in it. No soil is used at all.\nWhat does this show about what plants need from soil?',
+    options: [
+      'Plants need the water and nutrients that soil holds, not the soil itself.',
+      'Plants do not need any nutrients at all to grow.',
+      'Lettuces take in all of their water through their leaves instead of their roots.',
+      'Plants only need soil while they are still seeds.',
+    ],
+    e: 'The lettuces grow well with no soil, so soil itself is not essential. What plants take from soil is water and dissolved nutrients, and a hydroponic farm supplies both directly to the roots.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    q: 'A farmer in Tasmania grows tomatoes in a glasshouse during spring. Outside, the nights are often colder than 8 °C.\nWhy does the glasshouse help the tomatoes grow?',
+    options: [
+      'It keeps the plants warmer, closer to the temperature tomatoes need.',
+      'It stops any light from reaching the plants, so they can rest at night.',
+      'It keeps all of the air away from the plants.',
+      'It makes each day several hours longer for the plants.',
+    ],
+    e: 'Tomatoes grow poorly in cold conditions. A glasshouse lets sunlight in and traps warmth, so the plants stay warmer, especially at night, than they would outside.',
+  },
+  {
+    topic: 'life_science',
+    d: 'proficient',
+    code: 'AC9S6U01',
+    q: 'The seed pods of some banksias stay closed for years and only open after a bushfire.\nHow does this help new banksias survive?',
+    options: [
+      'The seeds land on cleared, ash-rich ground with lots of light and space.',
+      'The seeds are released in winter, when there is the most rain for them to grow.',
+      'The fire gives the seeds the energy they need to grow.',
+      'The pods protect the seeds from being washed away by floods.',
+    ],
+    e: 'After a fire, the ground is cleared of other plants, so the new seedlings get plenty of light and space, and the ash adds nutrients to the soil. Seeds still need water and light to grow; the fire does not give them energy.',
+  },
+
+  // ─── Earth and space: earthquakes and tsunamis (AC9S6U02) ──────────────────
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6U02',
+    q: 'What causes an earthquake?',
+    options: [
+      'Rocks deep underground suddenly slipping and releasing energy',
+      'Strong winds pushing hard against the sides of mountains',
+      'Heavy rain soaking deep into the ground',
+      'The Moon pulling the oceans towards it',
+    ],
+    e: 'Rocks in Earth’s crust are under great pressure. When they suddenly slip or break, the energy released travels out as shaking. Wind, rain and the Moon do not cause earthquakes.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    diagram: seismograph,
+    q: 'A seismometer measures how much the ground shakes. The graph shows its readings at a monitoring station during an earthquake.\nWhen did the strong shaking begin?',
+    options: [
+      'Between 40 and 50 seconds',
+      'Between 0 and 10 seconds',
+      'Between 50 and 60 seconds',
+      'Between 90 and 100 seconds',
+    ],
+    e: 'The line stays close to 0 mm until 40 seconds, then jumps to 8 mm at 50 seconds, so the strong shaking began between 40 and 50 seconds. The biggest movement was at 60 seconds, but by then the shaking had already started.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'foundation',
+    code: 'AC9S6U02',
+    q: 'You are in a classroom when an earthquake starts.\nWhat is the safest thing to do?',
+    options: [
+      'Drop to the floor, take cover under a sturdy desk and hold on.',
+      'Run outside straight away, going past the windows to get out quickly.',
+      'Stand in the middle of the room, away from the desks.',
+      'Stand next to a window so you can see outside.',
+    ],
+    e: '"Drop, Cover and Hold On" protects you from falling objects and breaking glass. Running during shaking can make you fall, and windows can shatter.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6U02',
+    q: 'In places that have many earthquakes, engineers design tall buildings with flexible frames and rubber pads under their foundations.\nWhy do they do this?',
+    options: [
+      'So the building can sway and absorb the shaking without collapsing.',
+      'So the building is too heavy for the ground beneath it to move.',
+      'So that no earthquake can start underneath the building.',
+      'So the building can sink safely into the ground during shaking.',
+    ],
+    e: 'A rigid building can crack and collapse when the ground shakes. Flexible frames bend instead of breaking, and rubber pads soak up some of the movement, so less of the shaking reaches the building.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'advanced',
+    code: 'AC9S6U02',
+    diagram: {
+      kind: 'data_table',
+      title: 'Three Australian earthquakes',
+      columns: ['Place', 'Year', 'Magnitude', 'What was nearby'],
+      rows: [
+        ['Meckering, WA', 1968, 6.5, 'Small farming town'],
+        ['Tennant Creek, NT', 1988, 6.7, 'Mostly empty desert'],
+        ['Newcastle, NSW', 1989, 5.6, 'Large city'],
+      ],
+      rowHeader: true,
+    },
+    q: 'The table shows three Australian earthquakes. The Newcastle earthquake had the smallest magnitude, but it damaged far more buildings than the other two.\nWhat is the best explanation?',
+    options: [
+      'It struck close to a large city, with many buildings and people near the shaking.',
+      'Earthquakes with smaller magnitudes always cause more damage than larger ones.',
+      'It happened more recently than the other two earthquakes.',
+      'Newcastle is closer to the middle of Australia, where earthquakes are always strongest.',
+    ],
+    e: 'How much damage an earthquake does depends on where it strikes as well as how strong it is. The two larger earthquakes hit places with few buildings, while the Newcastle earthquake shook a large city with many older buildings.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6U02',
+    q: 'What usually causes a tsunami?',
+    options: [
+      'An undersea earthquake that suddenly moves a huge amount of water',
+      'Strong winds blowing across the ocean for several days in a row',
+      'A high tide coming in much faster and higher than usual',
+      'Heavy rain falling on the ocean during a storm',
+    ],
+    e: 'Most tsunamis start when an undersea earthquake suddenly lifts or drops the sea floor, pushing a huge volume of water. Wind makes ordinary waves, and tides are caused by the Moon.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6U02',
+    q: 'Soon after people at a beach feel the ground shake, the sea suddenly drains away from the shore, much further than at a normal low tide.\nWhat should they do?',
+    options: [
+      'Move quickly to high ground or well inland, as a tsunami may be coming.',
+      'Walk out to look at the sea floor and shells while they are uncovered.',
+      'Stay on the beach, because the water has moved away from the shore.',
+      'Sit on the sand and wait until the water comes back.',
+    ],
+    e: 'The sea suddenly pulling back after an earthquake is a natural warning sign of a tsunami. The water can return as a powerful surge within minutes, so people should head for high ground straight away.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    q: 'A tsunami travels across the deep ocean at about 700 km per hour. It starts 2,100 km from the coast of Western Australia.\nAbout how long do people on the coast have to prepare?',
+    options: ['3 hours', '30 minutes', '7 hours', '21 hours'],
+    e: 'Time = distance ÷ speed, and 2,100 ÷ 700 = 3, so the tsunami takes about 3 hours to arrive. That is why early warnings matter so much.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6U02',
+    q: 'Tsunami warning buoys are anchored in the deep ocean, far from the coast. They send a signal when they detect an unusual change in the height of the sea.\nWhy are they placed so far out to sea?',
+    options: [
+      'To detect a tsunami early, giving people on the coast more time to get away.',
+      'Because tsunamis only exist in the deep ocean and never reach the coast.',
+      'To stop a tsunami from growing bigger before it can reach the land.',
+      'Because buoys near the coast would measure the tides instead.',
+    ],
+    e: 'A buoy far out to sea detects a tsunami hours before it reaches land, so warnings can go out early. The buoys measure the tsunami; they cannot stop it.',
+  },
+  // ─── Earth and space: volcanoes (AC9S6U02) ─────────────────────────────────
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6U02',
+    q: 'How can a volcanic eruption change Earth’s surface?',
+    options: [
+      'Lava and ash can pile up quickly to build new land and mountains.',
+      'It slowly wears rock away over millions of years, like a river does.',
+      'It makes all of the land around it completely flat.',
+      'It only changes the weather, not the land.',
+    ],
+    e: 'An eruption can change the land within days or even hours, as lava cools into new rock and ash piles up. Slowly wearing rock away over millions of years describes weathering and erosion.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'advanced',
+    code: 'AC9S6U02',
+    diagram: {
+      kind: 'bar_chart',
+      title: 'Small earthquakes under a volcano each day',
+      bars: [
+        { label: 'Day 1', value: 3 },
+        { label: 'Day 2', value: 4 },
+        { label: 'Day 3', value: 3 },
+        { label: 'Day 4', value: 9 },
+        { label: 'Day 5', value: 18 },
+        { label: 'Day 6', value: 35 },
+        { label: 'Day 7', value: 60 },
+      ],
+      yMax: 60,
+      yStep: 10,
+      yLabel: 'Number of earthquakes',
+    },
+    q: 'Scientists count the small earthquakes under a volcano every day. The graph shows one week of results.\nWhat is the best action for the scientists to recommend?',
+    options: [
+      'Warn people nearby that an eruption may be coming and to prepare to leave.',
+      'Do nothing, because small earthquakes are always harmless.',
+      'Wait until lava appears before warning anyone.',
+      'Stop counting, because the numbers are now too high to be useful for anything.',
+    ],
+    e: 'The number of small earthquakes rose from 3 a day to 60 a day. A sharp rise like this often means magma is moving up under the volcano, so it is a warning sign. Waiting until lava appears would leave people too little time to get away.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6U02',
+    q: 'The Bureau of Meteorology tracks cyclones using satellite images taken every 10 minutes.\nHow does this help communities prepare?',
+    options: [
+      'Forecasters can predict where the cyclone is heading and warn people early.',
+      'The satellites push the cyclone away from towns along the coast.',
+      'The satellite images make the cyclone weaker.',
+      'People can see from the images exactly which houses will be damaged by the wind.',
+    ],
+    e: 'Frequent images show how a cyclone is moving and changing, so forecasters can predict where and when it will cross the coast. Early warnings give people time to prepare or leave. Satellites watch the cyclone but cannot change it.',
+  },
+  // ─── Earth and space: floods (AC9S6U02) ────────────────────────────────────
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6I04',
+    diagram: riverGauge,
+    q: 'Heavy rain fell upstream on Monday and Tuesday. The graph shows the height of the river at a town during that week.\nOn which days was the river above the major flood level?',
+    options: ['Thursday and Friday', 'Monday and Tuesday', 'Wednesday to Sunday', 'Friday only'],
+    e: 'The river height line is above the dashed 7 m line only on Thursday (8 m) and Friday (9 m). On Saturday it had fallen to 6.5 m, just below major flood level.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'advanced',
+    code: 'AC9S6U02',
+    diagram: riverGauge,
+    q: 'The graph shows the height of a river at a town. Most of the rain fell upstream on Monday and Tuesday, but the river at the town was highest on Friday.\nWhat is the best explanation?',
+    options: [
+      'Rainwater took days to drain off the land upstream and flow down to the town.',
+      'More rain fell on Friday at the town than on any other day of the week.',
+      'The river flows away from the town for the first half of each week.',
+      'The river gauge was not working properly on Monday and Tuesday, so it read low.',
+    ],
+    e: 'Rain that falls upstream runs off the land into creeks and then down the river, which takes time. That delay is why towns downstream can be warned before the flood peak arrives.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6U02',
+    q: 'After a river floods a farm, the paddocks are left covered with a thick layer of mud and silt.\nWhere did the mud and silt come from?',
+    options: [
+      'Soil washed off the land upstream and carried by the floodwater',
+      'Dust blown onto the paddocks by strong winds during the storm',
+      'Rock pushed up from deep underground by the floodwater',
+      'Mud that fell from the sky with the heavy rain',
+    ],
+    e: 'Fast-flowing floodwater picks up soil and carries it downstream. When the water spreads out and slows down over the paddocks, it drops the mud and silt. This is how floods change the land, and over time it builds rich soil on floodplains.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'foundation',
+    code: 'AC9S6U02',
+    q: 'Why should people never drive, walk or swim through floodwater?',
+    options: [
+      'Even shallow, fast-moving water can knock people over and float cars.',
+      'Floodwater is always deeper than five metres, even where it looks shallow.',
+      'Cars are not able to drive on any wet road.',
+      'Floodwater is always far too cold for people to touch safely.',
+    ],
+    e: 'Floodwater moves with great force and can hide holes, debris and washed-away roads. Water that looks shallow can still sweep people off their feet and float a car.',
+  },
+  // ─── Earth and space: bushfires (AC9S6U02) ─────────────────────────────────
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'data_table',
+      title: 'Weather forecast for four summer days',
+      columns: ['Day', 'Temperature (°C)', 'Humidity (%)', 'Wind speed (km/h)'],
+      rows: [
+        ['Monday', 24, 60, 10],
+        ['Tuesday', 38, 12, 50],
+        ['Wednesday', 41, 45, 5],
+        ['Thursday', 30, 30, 25],
+      ],
+      rowHeader: true,
+    },
+    q: 'Bushfires spread fastest when the weather is hot, dry and windy. Humidity measures how much moisture is in the air.\nOn which day is the fire danger likely to be highest?',
+    options: ['Tuesday', 'Monday', 'Wednesday', 'Thursday'],
+    e: 'Tuesday is very hot (38 °C), very dry (12% humidity) and very windy (50 km/h). Wednesday is hotter, but the air is moister and almost still, so a fire would not spread as fast.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6U02',
+    q: 'A month after a bushfire burnt a steep hillside, heavy rain fell.\nWhy is the hillside likely to lose much more soil than before the fire?',
+    options: [
+      'With the plants burnt, there are no roots or leaves to hold the soil in place.',
+      'The fire made the soil much heavier, so it slides downhill more easily when wet.',
+      'Ash in the air makes raindrops fall much harder.',
+      'The fire made the hillside much steeper than before.',
+    ],
+    e: 'Plant roots bind soil together, and leaves and leaf litter shield it from heavy rain. After a fire both are gone, so rain can wash the soil, and the ash, down the hillside and into creeks.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'pie_chart',
+      title: 'Causes of bushfires in one region over 10 years',
+      sectors: [
+        { label: 'Lightning', value: 40 },
+        { label: 'Escaped burn-offs', value: 20 },
+        { label: 'Sparks from machinery', value: 15 },
+        { label: 'Campfires', value: 10 },
+        { label: 'Unknown', value: 15 },
+      ],
+      showPercent: true,
+    },
+    q: 'Firefighters recorded what started each bushfire in their region over 10 years.\nWhat percentage of the fires had a natural cause?',
+    options: ['40%', '45%', '60%', '85%'],
+    e: 'Lightning is the only natural cause on the chart, and it started 40% of the fires. Burn-offs, machinery and campfires are all caused by people, and 20 + 15 + 10 = 45, so 45% were started by people.',
+  },
+  // ─── Earth and space: cyclones and droughts (AC9S6U02) ─────────────────────
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6U02',
+    q: 'Tropical cyclones often hit northern Australia but almost never reach Tasmania.\nWhat is the main reason?',
+    options: [
+      'Cyclones form and gain energy over warm ocean water, found in the north.',
+      'Tasmania has tall mountains that cyclones are not able to cross.',
+      'Cyclones only form in winter, when Tasmania is already cold.',
+      'Tasmania is too far from the Equator for any wind to reach it.',
+    ],
+    e: 'Cyclones need very warm sea water (about 26 °C or warmer) to form and grow. The seas around northern Australia are that warm in summer, but the seas around Tasmania are much cooler. Cyclones form in the warmer months, not winter.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'data_table',
+      title: 'Tropical cyclone categories',
+      columns: ['Category', 'Strongest wind gusts (km/h)'],
+      rows: [
+        ['1', 'Less than 125'],
+        ['2', '125 to 164'],
+        ['3', '165 to 224'],
+        ['4', '225 to 279'],
+        ['5', '280 or more'],
+      ],
+      rowHeader: true,
+    },
+    q: 'A cyclone off the Queensland coast has wind gusts of 230 km/h.\nUsing the table, which category is it?',
+    options: ['Category 4', 'Category 3', 'Category 5', 'Category 2'],
+    e: '230 km/h is between 225 km/h and 279 km/h, which is Category 4. It is above the Category 3 range, which stops at 224 km/h.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6U02',
+    q: 'As a severe cyclone nears the coast, emergency services tell people living in low-lying streets near the beach to leave.\nWhy?',
+    options: [
+      'The cyclone can push the sea up over low land in a storm surge.',
+      'Cyclones cause large earthquakes along the coast as they come ashore.',
+      'The eye of the cyclone pulls houses near the beach out to sea.',
+      'Rain only falls close to the beach during a cyclone.',
+    ],
+    e: 'A cyclone’s strong winds and low air pressure pile sea water up against the coast. This storm surge can flood low-lying areas near the beach very quickly, so those areas are evacuated first.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    diagram: {
+      kind: 'bar_chart',
+      title: 'Yearly rainfall on a farm in New South Wales',
+      bars: [
+        { label: '2016', value: 520 },
+        { label: '2017', value: 480 },
+        { label: '2018', value: 210 },
+        { label: '2019', value: 180 },
+        { label: '2020', value: 450 },
+        { label: '2021', value: 610 },
+      ],
+      yMax: 700,
+      yStep: 100,
+      yLabel: 'Rainfall (mm)',
+    },
+    q: 'The farm’s average rainfall is about 450 mm a year.\nWhich two years were most likely drought years?',
+    options: ['2018 and 2019', '2016 and 2017', '2020 and 2021', '2017 and 2018'],
+    e: 'A drought is a long period with much less rain than usual. In 2018 (210 mm) and 2019 (180 mm) the farm got less than half its average rainfall. 2017 was only slightly below average.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6U02',
+    q: 'During a long drought, huge dust storms blew across parts of eastern Australia.\nHow did the drought help cause the dust storms?',
+    options: [
+      'Dry soil with few plants to hold it was easily lifted by strong winds.',
+      'Droughts make the wind blow much faster than it does in normal years.',
+      'Dust storms can only form over wet, muddy ground.',
+      'The heat of the drought turned large rocks into fine dust overnight.',
+    ],
+    e: 'In a drought the soil dries out and many plants die, so there are no roots to hold the soil together. Strong winds can then pick up the loose topsoil and carry it hundreds of kilometres.',
+  },
+  // ─── Earth and space: modelling erosion in heavy rain (AC9S6U02) ───────────
+  {
+    topic: 'earth_space',
+    d: 'proficient',
+    code: 'AC9S6I04',
+    diagram: erosionChart,
+    q: 'To model heavy rain on a hillside, students tilted three trays of soil to the same angle and poured 2 litres of water down each one. They then weighed the soil that washed off.\nWhich conclusion do the results support?',
+    options: [
+      'Plant cover greatly reduces the soil washed away by heavy rain.',
+      'Mulch protects soil from heavy rain better than living grass does.',
+      'Bare soil is the safest surface during heavy rain.',
+      'Pouring more water makes more soil wash away.',
+    ],
+    e: 'The grass tray lost only 40 g of soil and the mulch tray 90 g, compared with 250 g from bare soil. Every tray got the same amount of water, so this test cannot show what happens with more water.',
+  },
+  {
+    topic: 'earth_space',
+    d: 'developing',
+    code: 'AC9S6I02',
+    diagram: erosionChart,
+    q: 'Students poured water down three tilted trays of soil, each with a different surface, to model heavy rain on a hillside. The graph shows their results.\nWhich variables should they keep the same for a fair test?',
+    options: [
+      'The angle of the trays and the amount of water poured',
+      'The surface on each tray and the angle of the trays',
+      'The amount of soil that washed off each tray',
+      'The surface on each tray and the amount of water',
+    ],
+    e: 'The surface is the variable being tested, so it changes on purpose. The soil washed off is what is measured. Everything else, such as the angle of the trays and the amount of water, must stay the same.',
+  },
+]
+
+export const ITEMS = RAW.map(i => ({ correct: 0, ...i }))
